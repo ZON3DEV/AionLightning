@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones>
+    <zone mapid="300510000" name="AMBI" area_type="POLYGON" zone_type="FLY" flags="60">
+        <points bottom="0.200098" top="600.200073">
+            <point x="148.093643" y="134.888397"/>
+            <point x="1726.598267" y="132.755386"/>
+            <point x="1728.731323" y="1958.701294"/>
+            <point x="84.100136" y="1941.636353"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="BALAUR_TECHNICAL_RESEARCH_INSTITUTE_300510000" area_type="POLYGON" zone_type="SUB" priority="11" flags="52">
+        <points bottom="350.0" top="650.0">
+            <point x="946.159973" y="866.280029"/>
+            <point x="1162.132813" y="865.855652"/>
+            <point x="1162.287109" y="540.807861"/>
+            <point x="946.391785" y="540.836121"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="BANAKINS_LAB_300510000" area_type="POLYGON" zone_type="SUB" priority="3" flags="52">
+        <points bottom="350.0" top="650.0">
+            <point x="1014.596497" y="700.395447"/>
+            <point x="1060.193848" y="699.971069"/>
+            <point x="1060.348022" y="651.0177"/>
+            <point x="1014.828308" y="651.045959"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="BARBARIAN_WAY_300510000" area_type="POLYGON" zone_type="SUB" priority="11" flags="52">
+        <points bottom="350.0" top="650.0">
+            <point x="729.771545" y="985.390015"/>
+            <point x="899.200134" y="983.837952"/>
+            <point x="899.090698" y="1155.865234"/>
+            <point x="729.923218" y="1155.676025"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="BGM-MUTE" area_type="POLYGON" zone_type="FLY" flags="60">
+        <points bottom="0.200098" top="600.200073">
+            <point x="43.571095" y="64.495636"/>
+            <point x="1764.994263" y="51.697044"/>
+            <point x="1775.65979" y="2039.759644"/>
+            <point x="32.905426" y="2020.561523"/>
+            <point x="28.639185" y="1982.165405"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="BOSS3" area_type="POLYGON" zone_type="FLY" flags="60">
+        <points bottom="0.1" top="600.099976">
+            <point x="935.44519" y="233.868591"/>
+            <point x="1129.719238" y="236.163177"/>
+            <point x="1130.183594" y="509.849548"/>
+            <point x="1050.116455" y="510.248901"/>
+            <point x="1041.8479" y="508.717682"/>
+            <point x="1015.204834" y="508.717682"/>
+            <point x="1009.692505" y="511.780121"/>
+            <point x="929.994751" y="506.620667"/>
+            <point x="932.003296" y="240.752319"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="BOSS4" area_type="POLYGON" zone_type="FLY" flags="60">
+        <points bottom="0.1" top="600.099976">
+            <point x="568.865845" y="1239.63623"/>
+            <point x="698.055298" y="1249.75061"/>
+            <point x="696.651855" y="1388.578491"/>
+            <point x="568.118286" y="1401.672729"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="BOSS5" area_type="POLYGON" zone_type="FLY" flags="60">
+        <points bottom="0.1" top="600.099976">
+            <point x="605.842529" y="991.702148"/>
+            <point x="712.911316" y="997.732056"/>
+            <point x="712.506226" y="1138.124634"/>
+            <point x="605.094971" y="1153.738647"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="BRIDGE_OF_THE_RAKSHAKA_LEGION_300510000" area_type="POLYGON" zone_type="SUB" priority="3" flags="52">
+        <points bottom="350.0" top="650.0">
+            <point x="565.463379" y="1266.727905"/>
+            <point x="705.018127" y="1266.811157"/>
+            <point x="705.395813" y="1371.528687"/>
+            <point x="564.541504" y="1371.774048"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="BRIDGE_OF_THE_TAHABATA_LEGION_300510000" area_type="POLYGON" zone_type="SUB" priority="10" flags="52">
+        <points bottom="350.0" top="650.0">
+            <point x="586.431396" y="985.390015"/>
+            <point x="733.315857" y="983.837952"/>
+            <point x="733.206421" y="1155.865234"/>
+            <point x="586.583008" y="1155.676025"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="CENTRAL_CORRIDOR_INSIDE_THE_FORTRESS_300510000" area_type="POLYGON" zone_type="SUB" priority="12" flags="52">
+        <points bottom="350.0" top="650.0">
+            <point x="895.5" y="863.820007"/>
+            <point x="1162.077393" y="863.657715"/>
+            <point x="1161.528809" y="1268.703369"/>
+            <point x="920.36261" y="1268.953247"/>
+            <point x="920.904358" y="1177.442627"/>
+            <point x="895.309998" y="1177.401001"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="DREDGION_COMMAND_CENTRE_300510000" area_type="POLYGON" zone_type="SUB" priority="3" flags="52">
+        <points bottom="350.0" top="650.0">
+            <point x="1067.362915" y="333.434326"/>
+            <point x="1067.069458" y="262.08905"/>
+            <point x="992.367126" y="262.276337"/>
+            <point x="992.873657" y="333.498047"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="DREDGION_CONTROL_ROOM_300510000" area_type="POLYGON" zone_type="SUB" priority="9" flags="52">
+        <points bottom="350.0" top="650.0">
+            <point x="1162.759644" y="416.148407"/>
+            <point x="1162.466187" y="228.562927"/>
+            <point x="945.319214" y="228.750214"/>
+            <point x="945.825745" y="416.212128"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="FORTRESS_ACCESS_ROUTE_300510000" area_type="POLYGON" zone_type="SUB" priority="10" flags="52">
+        <points bottom="350.0" top="650.0">
+            <point x="1260.420044" y="1012.059998"/>
+            <point x="1544.941895" y="1012.307495"/>
+            <point x="1544.808716" y="1125.685913"/>
+            <point x="1260.208252" y="1125.634155"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="GARDEN_OF_THE_DRAGON_LORDS_300510000" area_type="POLYGON" zone_type="SUB" priority="10" flags="52">
+        <points bottom="750.0" top="850.0">
+            <point x="1033.920044" y="1012.099976"/>
+            <point x="1103.538696" y="1011.94574"/>
+            <point x="1103.212769" y="1126.254517"/>
+            <point x="1034.340088" y="1125.674072"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="GRAVITY_CONTROL_RESEARCH_LAB_300510000" area_type="POLYGON" zone_type="SUB" priority="10" flags="52">
+        <points bottom="350.0" top="650.0">
+            <point x="1162.759644" y="545.280029"/>
+            <point x="1162.466187" y="411.923126"/>
+            <point x="945.319214" y="412.110413"/>
+            <point x="945.825745" y="545.34375"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="INNER_FORTRESS_DOOR_300510000" area_type="POLYGON" zone_type="SUB" priority="11" flags="52">
+        <points bottom="350.0" top="650.0">
+            <point x="1158.439941" y="1011.960022"/>
+            <point x="1262.888428" y="1011.932678"/>
+            <point x="1262.88855" y="1125.579468"/>
+            <point x="1158.310059" y="1125.53418"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="MILITARY_CONTROL_AREA_300510000" area_type="POLYGON" zone_type="SUB" priority="11" flags="52">
+        <points bottom="350.0" top="650.0">
+            <point x="923.014771" y="1266.589966"/>
+            <point x="1162.057373" y="1266.53064"/>
+            <point x="1162.102783" y="1485.755859"/>
+            <point x="526.572815" y="1483.005249"/>
+            <point x="526.829163" y="1174.907959"/>
+            <point x="923.459595" y="1174.047852"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="PRISON_CAMP_OF_ETERNITY_300510000" area_type="POLYGON" zone_type="SUB" priority="5" flags="52">
+        <points bottom="350.0" top="480.0">
+            <point x="705.109985" y="1201.890015"/>
+            <point x="949.621887" y="1201.973267"/>
+            <point x="949.999573" y="1435.737061"/>
+            <point x="704.817627" y="1435.982422"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="ROOM_OF_PENANCE_300510000" area_type="POLYGON" zone_type="SUB" priority="4" flags="52">
+        <points bottom="350.0" top="480.0">
+            <point x="705.240967" y="1295.482666"/>
+            <point x="754.053772" y="1295.565918"/>
+            <point x="754.431458" y="1345.422241"/>
+            <point x="705.275269" y="1345.667603"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="SHRINE_OF_GLORY_1_300510000" area_type="POLYGON" zone_type="SUB" priority="9" flags="52">
+        <points bottom="750.0" top="850.0">
+            <point x="1101.883911" y="1012.099976"/>
+            <point x="1143.016724" y="1011.94574"/>
+            <point x="1142.690796" y="1126.254517"/>
+            <point x="1102.303955" y="1125.674072"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="TIAMATS_FORTRESS_300510000" area_type="POLYGON" zone_type="SUB" priority="16" flags="52">
+        <points bottom="1.0" top="1001.0">
+            <point x="101.74408" y="100.0"/>
+            <point x="1901.744141" y="100.0"/>
+            <point x="1901.744141" y="1900.0"/>
+            <point x="101.74408" y="1900.0"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="TIAMATS_FORTRESS_1_300510000" area_type="POLYGON" zone_type="SUB" priority="9" flags="52">
+        <points bottom="350.0" top="650.0">
+            <point x="1541.900024" y="1012.539978"/>
+            <point x="1641.67688" y="1012.787476"/>
+            <point x="1641.549072" y="1126.165894"/>
+            <point x="1541.705688" y="1126.114014"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="WARDENS_READY_ROOM_300510000" area_type="POLYGON" zone_type="SUB" priority="6" flags="52">
+        <points bottom="490.0" top="540.0">
+            <point x="918.820007" y="1458.517456"/>
+            <point x="874.391541" y="1458.434204"/>
+            <point x="874.502319" y="1417.763306"/>
+            <point x="879.616943" y="1417.856812"/>
+            <point x="879.554688" y="1386.4823"/>
+            <point x="919.112366" y="1386.236938"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="WARDENS_READY_ROOM_1_300510000" area_type="POLYGON" zone_type="SUB" priority="6" flags="52">
+        <points bottom="490.0" top="540.0">
+            <point x="737.527588" y="1385.380005"/>
+            <point x="777.347534" y="1386.045654"/>
+            <point x="777.159119" y="1416.362671"/>
+            <point x="781.935669" y="1416.442139"/>
+            <point x="781.935669" y="1458.238037"/>
+            <point x="737.636475" y="1458.317627"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="WARDENS_READY_ROOM_2_300510000" area_type="POLYGON" zone_type="SUB" priority="6" flags="52">
+        <points bottom="490.0" top="540.0">
+            <point x="919.409973" y="1252.180054"/>
+            <point x="879.590027" y="1251.514404"/>
+            <point x="879.778442" y="1221.197388"/>
+            <point x="875.001892" y="1221.11792"/>
+            <point x="875.001892" y="1179.322021"/>
+            <point x="919.301086" y="1179.242432"/>
+        </points>
+    </zone>
+    <zone mapid="300510000" name="WARDENS_READY_ROOM_3_300510000" area_type="POLYGON" zone_type="SUB" priority="6" flags="52">
+        <points bottom="490.0" top="540.0">
+            <point x="737.872192" y="1180.59082"/>
+            <point x="782.300659" y="1180.674072"/>
+            <point x="782.18988" y="1221.344971"/>
+            <point x="777.075256" y="1221.251465"/>
+            <point x="777.137512" y="1252.625977"/>
+            <point x="737.579834" y="1252.871338"/>
+        </points>
+    </zone>
+</zones>

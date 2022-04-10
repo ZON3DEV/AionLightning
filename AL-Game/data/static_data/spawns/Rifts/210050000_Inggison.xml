@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spawns>
+    <spawn_map map_id="210050000">
+        <!-- Rift -->
+        <spawn npc_id="700137" handler="RIFT"> <!-- Entrys in Inggison -->
+            <spot x="2269.9521" y="1440.8226" z="202.20734" h="30" anchor="INGGISON_AM"/> <!-- checked -->
+            <!-- id 2150 -->
+            <spot x="854.4329" y="1286.3925" z="428.97614" h="60" anchor="INGGISON_BM"/> <!-- checked -->
+            <!-- id 2151 -->
+            <spot x="2025.0779" y="2086.3252" z="298.7062" h="30" anchor="INGGISON_CM"/> <!-- checked -->
+            <!-- id 2152 -->
+            <spot x="561.61456" y="1867.4319" z="334.22675" h="103" anchor="INGGISON_DM"/> <!-- checked -->
+            <!-- id 2153 -->
+        </spawn>
+        <spawn npc_id="700138" handler="RIFT"> <!-- Exits in Inggison -->
+            <spot x="1085.5778" y="2027.9491" z="341.86893" h="23" anchor="INGGISON_AS"/> <!-- checked -->
+            <!-- id 2270 -->
+            <spot x="2687.1042" y="1638.801" z="194.29395" anchor="INGGISON_BS"/> <!-- checked -->
+            <!-- id 2271 -->
+            <spot x="558.4757" y="846.5166" z="456.76685" h="30" anchor="INGGISON_CS"/> <!-- checked -->
+            <!-- id 2272 -->
+            <spot x="2584.36" y="977.4808" z="395.5264" anchor="INGGISON_DS"/> <!-- checked -->
+            <!-- id 2273 -->
+        </spawn>
+
+        <!-- INGGISON_AM -->
+        <rift_spawn id="2150">
+        </rift_spawn>
+        <!-- INGGISON_BM -->
+        <rift_spawn id="2151">
+        </rift_spawn>
+        <!-- INGGISON_CM -->
+        <rift_spawn id="2152">
+        </rift_spawn>
+        <!-- INGGISON_DM -->
+        <rift_spawn id="2153">
+        </rift_spawn>
+        <!-- INGGISON_AS -->
+        <rift_spawn id="2270">
+        </rift_spawn>
+        <!-- INGGISON_BS -->
+        <rift_spawn id="2271">
+        </rift_spawn>
+        <!-- INGGISON_CS -->
+        <rift_spawn id="2272">
+        </rift_spawn>
+        <!-- INGGISON_DS -->
+        <rift_spawn id="2273">
+        </rift_spawn>
+    </spawn_map>
+</spawns>

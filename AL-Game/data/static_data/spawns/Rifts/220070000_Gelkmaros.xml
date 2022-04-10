@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spawns>
+    <spawn_map map_id="220070000">
+        <!-- Rift -->
+        <spawn npc_id="700137" handler="RIFT"> <!-- Entrys in Gelkmaros -->
+            <spot x="2627.9016" y="988.3794" z="301.10693" h="53" anchor="GELKMAROS_AM"/> <!-- checked -->
+            <!-- id 2270 -->
+            <spot x="839.3349" y="1210.7465" z="280.3825" h="83" anchor="GELKMAROS_BM"/> <!-- checked -->
+            <!-- id 2271 -->
+            <spot x="2230.023" y="1744.9548" z="407.0672" h="113" anchor="GELKMAROS_CM"/> <!-- checked -->
+            <!-- id 2272 -->
+            <spot x="492.09937" y="1897.7318" z="388.95593" h="73" anchor="GELKMAROS_DM"/> <!-- checked -->
+            <!-- id 2273 -->
+        </spawn>
+        <spawn npc_id="700138" handler="RIFT"> <!-- Exits in Gelkmaros -->
+            <spot x="90.06425" y="1900.2695" z="402.6042" anchor="GELKMAROS_AS"/> <!-- checked -->
+            <!-- id 2150 -->
+            <spot x="2204.3848" y="1533.182" z="378.8317" h="40" anchor="GELKMAROS_BS"/> <!-- checked -->
+            <!-- id 2151 -->
+            <spot x="667.941" y="1553.7323" z="283.6092" h="90" anchor="GELKMAROS_CS"/> <!-- checked -->
+            <!-- id 2152 -->
+            <spot x="2580.25" y="624.4161" z="147.17259" h="13" anchor="GELKMAROS_DS"/> <!-- checked -->
+            <!-- id 2153 -->
+        </spawn>
+
+        <!-- GELKMAROS_AM -->
+        <rift_spawn id="2270">
+        </rift_spawn>
+        <!-- GELKMAROS_BM -->
+        <rift_spawn id="2271">
+        </rift_spawn>
+        <!-- GELKMAROS_CM -->
+        <rift_spawn id="2272">
+        </rift_spawn>
+        <!-- GELKMAROS_DM -->
+        <rift_spawn id="2273">
+        </rift_spawn>
+        <!-- GELKMAROS_AS -->
+        <rift_spawn id="2150">
+        </rift_spawn>
+        <!-- GELKMAROS_BS -->
+        <rift_spawn id="2151">
+        </rift_spawn>
+        <!-- GELKMAROS_CS -->
+        <rift_spawn id="2152">
+        </rift_spawn>
+        <!-- GELKMAROS_DS -->
+        <rift_spawn id="2153">
+        </rift_spawn>
+    </spawn_map>
+</spawns>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<arcadelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="arcadelist.xsd">
+	<tab id="1"><!-- List compiled by Nightenday, Aion Ger 6.2 Rewards -->
+		<item item_id="188070328" normalcount="1" frenzycount="2"/> <!-- Stigma Selection Box -->
+		<item item_id="188055484" normalcount="1" frenzycount="2"/> <!-- Luna Little Bundle -->
+		<item item_id="188059062" normalcount="1" frenzycount="2"/> <!-- Bundle of Legendary Transformation Contracts -->
+		<item item_id="166023100" normalcount="2" frenzycount="4"/> <!-- Ancient PvE Enchantment Stone -->
+		<item item_id="110905148" normalcount="1" frenzycount="0"/> <!-- Time of the Raging Sea -->
+		<item item_id="110905146" normalcount="0" frenzycount="1"/> <!-- Monk's Habit Clothing Chest -->
+		<item item_id="162005029" normalcount="1" frenzycount="2"/> <!-- Lodas's Greater Golden Star -->
+		<item item_id="188058282" normalcount="2" frenzycount="4"/> <!-- Eternal Chest of Esoterrace Medals -->
+		<item item_id="188057115" normalcount="1" frenzycount="1"/> <!-- Special Box of Title Cards -->
+		<item item_id="190020270" normalcount="1" frenzycount="0"/> <!-- Stormwing Egg -->
+		<item item_id="190020268" normalcount="0" frenzycount="1"/> <!-- Tiamat Junior Egg -->
+	</tab>
+	<tab id="2">
+		<item item_id="188070742" normalcount="1" frenzycount="2"/> <!-- Tiny Box of PvE Enchantment Stones -->
+		<item item_id="188055485" normalcount="1" frenzycount="2"/> <!-- Luna Large Box -->
+		<item item_id="188070064" normalcount="1" frenzycount="2"/> <!-- Motion Card Selection Box -->
+		<item item_id="188070351" normalcount="1" frenzycount="2"/> <!-- Bundle of Stigma Enchantment Stones -->
+		<item item_id="188070050" normalcount="2" frenzycount="4"/> <!-- Box of Level 80 Manastones -->
+		<item item_id="162005029" normalcount="2" frenzycount="4"/> <!-- Lodas's Greater Golden Star -->
+		<item item_id="188070048" normalcount="5" frenzycount="10"/> <!-- Bundle of Form Contracts -->
+		<item item_id="110150047" normalcount="1" frenzycount="1"/> <!-- Ancient Noble Rubrum Tunic Skin (Dress) -->
+		<item item_id="188058286" normalcount="1" frenzycount="0"/> <!-- Beshmundir Bundle of Normal Minion Contracts -->
+		<item item_id="188058287" normalcount="0" frenzycount="1"/> <!-- Padmarashka's Bundle of Greater Minion Contracts -->
+	</tab>
+	<tab id="3">
+		<item item_id="188070640" normalcount="1" frenzycount="0"/> <!-- Daeva Fighter's Legendary +10 Accessory Selection Box -->
+		<item item_id="188070641" normalcount="0" frenzycount="1"/> <!-- Daeva Fighter's Legendary +15 Accessory Selection Box -->
+		<item item_id="188070650" normalcount="1" frenzycount="0"/> <!-- Daeva Fighter's Legendary +10 Bracelet Selection Box -->
+		<item item_id="188070651" normalcount="0" frenzycount="1"/> <!-- Daeva Fighter's Legendary +15 Bracelet Selection Box -->
+		<item item_id="188070623" normalcount="1" frenzycount="0"/> <!-- Daeva Fighter's Legendary +10 Armour Selection Box -->
+		<item item_id="188070624" normalcount="0" frenzycount="1"/> <!-- Daeva Fighter's Legendary +15 Armour Selection Box -->
+		<item item_id="166033101" normalcount="2" frenzycount="4"/> <!-- Legendary PvP Enchantment Stones -->
+		<item item_id="166023101" normalcount="2" frenzycount="4"/> <!-- Legendary PvE Enchantment Stones -->
+		<item item_id="190100292" normalcount="1" frenzycount="0"/> <!-- Tame Wolf Mount -->
+		<item item_id="190100294" normalcount="0" frenzycount="1"/> <!-- White Tiger Mount  -->
+		<item item_id="188058111" normalcount="1" frenzycount="2"/> <!-- Grendal Minion Contract Box -->
+		<item item_id="188070064" normalcount="1" frenzycount="2"/> <!-- Motion Card Selection Box -->
+		<item item_id="188071162" normalcount="1" frenzycount="0"/> <!-- Legendary Feather Selection Box of the Cold Blue Flame -->
+		<item item_id="188071153" normalcount="0" frenzycount="1"/> <!-- Ultimate Feather Selection Box of the Dancing Red Flame-->
+	</tab>
+	<tab id="4">
+		<item item_id="188070652" normalcount="0" frenzycount="1"/>  <!-- Daeva Fighter's Ultimate Bracelet Selection Box -->
+		<item item_id="188070642" normalcount="1" frenzycount="0"/>  <!-- Daeva Fighter's Ultimate Accessory Selection Box -->
+		<item item_id="188070634" normalcount="1" frenzycount="0"/>  <!-- Daeva Fighter's Ultimate Wings Selection Box -->
+		<item item_id="188070635" normalcount="0" frenzycount="1"/>  <!-- Daeva Fighter's Ultimate +5 Wings Selection Box -->
+		<item item_id="188059040" normalcount="1" frenzycount="0"/>  <!-- Ultimate Armour Selection Box of the Red Flame --> 
+		<item item_id="188059041" normalcount="0" frenzycount="1"/>  <!-- Ultimate Armour Selection Box of the Dancing Ember-->
+		<item item_id="188070346" normalcount="1" frenzycount="0"/> <!-- Box of Big Kinah -->
+		<item item_id="188070347" normalcount="0" frenzycount="1"/> <!-- Box of Lucky Kinah -->
+		<item item_id="190100295" normalcount="1" frenzycount="1"/> <!-- Unicorn -->
+		<item item_id="188070376" normalcount="2" frenzycount="4"/> <!-- Golden Box of Minion Contracts -->
+		<item item_id="166033102" normalcount="2" frenzycount="4"/> <!-- Ultimate PVP Enchantment Stone -->
+		<item item_id="166023102" normalcount="2" frenzycount="4"/> <!-- Ultimate PVE Enchantment Stone -->
+		<item item_id="188055485" normalcount="1" frenzycount="0"/> <!-- Luna Wooden Box (50) -->
+		<item item_id="188055487" normalcount="0" frenzycount="1"/> <!-- Luna Silver Box (100) -->
+	</tab>
+</arcadelist>
