@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by Nephis (Nephis) -->
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Udas Temple Up From Client spawn
+	@author Nephis
+ -->
+<spawns>
+	<spawn map="300150000" interval="105" npcid="700706" pool="1">
+		<object staticid="213" x="561.85376" y="180.284549" h="0" z="136.30591"/>
+	</spawn>
+	<!--Udas Temple Exit-->
+	<spawn map="300150000" interval="105" npcid="730255" pool="1">
+		<object x="508.361" y="362.717" h="0" z="135.889"/>
+	</spawn>
+	<!-- Udas Temple Exit -->
+	<spawn interval="295" map="300150000" npcid="730272" pool="1">
+		<object h="0" staticid="158" x="636.6904" y="658.74976" z="133.69518"/>
+	</spawn>
+	<!-- Poison Bottle -->
+	<spawn interval="295" map="300150000" npcid="700567" pool="32">
+		<object h="23" staticid="151" x="467.35858" y="585.81464" z="128.59558"/>
+		<object h="23" staticid="153" x="470.34946" y="618.60034" z="129.41692"/>
+		<object h="23" staticid="126" x="481.494" y="707.27295" z="126.96268"/>
+		<object h="23" staticid="171" x="489.5994" y="520.59534" z="132.89047"/>
+		<object h="23" staticid="112" x="520.8103" y="484.19766" z="131.57292"/>
+		<object h="23" staticid="172" x="482.4964" y="386.03525" z="134.49069"/>
+		<object h="23" staticid="174" x="515.06604" y="402.4833" z="134.34927"/>
+		<object h="23" staticid="173" x="534.12646" y="381.00067" z="135.55437"/>
+		<object h="23" staticid="170" x="563.3167" y="667.58093" z="129.4185"/>
+		<object h="23" staticid="111" x="695.65216" y="670.50073" z="134.6226"/>
+		<object h="23" staticid="168" x="568.96045" y="688.0275" z="130.19405"/>
+		<object h="23" staticid="166" x="587.895" y="675.7086" z="129.45271"/>
+		<object h="23" staticid="134" x="723.7197" y="622.94354" z="133.27382"/>
+		<object h="23" staticid="122" x="507.96143" y="587.66846" z="128.5123"/>
+		<object h="23" staticid="148" x="490.05426" y="602.2422" z="128.0081"/>
+		<object h="23" staticid="152" x="506.0642" y="657.55554" z="126.32331"/>
+		<object h="23" staticid="116" x="532.9775" y="694.61707" z="127.00215"/>
+		<object h="23" staticid="128" x="507.07297" y="674.16644" z="126.70712"/>
+		<object h="23" staticid="144" x="743.87836" y="628.76544" z="134.08636"/>
+		<object h="23" staticid="147" x="747.30963" y="576.03" z="130.98058"/>
+		<object h="23" staticid="150" x="766.05817" y="583.2604" z="130.41005"/>
+		<object h="23" staticid="120" x="782.9841" y="632.8558" z="134.17828"/>
+		<object h="23" staticid="156" x="748.16406" y="673.0453" z="133.31853"/>
+		<object h="23" staticid="142" x="748.95685" y="542.3826" z="130.74243"/>
+		<object h="23" staticid="113" x="768.03796" y="671.22595" z="133.6782"/>
+		<object h="23" staticid="145" x="784.93646" y="644.3616" z="134.17322"/>
+		<object h="23" staticid="125" x="803.1375" y="539.684" z="130.857"/>
+		<object h="23" staticid="157" x="759.53235" y="482.75534" z="134.53995"/>
+		<object h="23" staticid="162" x="827.7662" y="485.5077" z="134.95055"/>
+		<object h="23" staticid="155" x="774.17926" y="458.91785" z="134.56773"/>
+		<object h="23" staticid="163" x="749.66394" y="407.0775" z="133.4429"/>
+		<object h="23" staticid="165" x="770.93896" y="393.65125" z="131.53433"/>
+	</spawn>
+	<!--Ancient Dragonbound Document-->
+	<spawn interval="295" map="300150000" npcid="700750" pool="1">
+		<object h="23" staticid="425" x="774.84924" y="485.6979" z="135.04178"/>
+	</spawn>
+	<!--Balaur's Order-->
+	<spawn interval="295" map="300150000" npcid="730217" pool="1">
+		<object h="23" staticid="117" x="638.72473" y="441.301" z="138.58661"/>
+	</spawn>
+	<!--Brainwashed Reian-->
+	<spawn map="300150000" interval="105" npcid="799513" pool="1">
+		<object x="541.184" y="221.229" h="0" z="134.349"/>
+	</spawn>
+	<!--Brainwashed Reian-->
+	<spawn map="300150000" interval="105" npcid="799514" pool="1">
+		<object x="541.271" y="214.645" h="0" z="134.349"/>
+	</spawn>
+	<!--Brainwashed Reian-->
+	<spawn map="300150000" interval="105" npcid="799515" pool="1">
+		<object x="584.471" y="221.35" h="0" z="134.349"/>
+	</spawn>
+	<!--Brainwashed Reian-->
+	<spawn map="300150000" interval="105" npcid="799516" pool="1">
+		<object x="584.466" y="215.052" h="0" z="134.349"/>
+	</spawn>
+</spawns>

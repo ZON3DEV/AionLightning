@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Krotan Chamber
+
+ -->
+<spawns>
+	<!-- Ancient Treasure Box (Object Normal lvl:1) -->
+	<spawn map="300140000" npcid="700540" pool="1" interval="295">
+		<object x="576.4634" y="837.3374" z="200" h="99"/>
+	</spawn>
+	<!-- Mossy Gate (Object Normal lvl:1) -->
+	<spawn map="300140000" npcid="700459" pool="1" interval="295">
+		<object staticid="4" x="527.19727" y="105.02065" z="175.88857" h="56"/>
+	</spawn>
+	<!-- Miren Chamber Artifact (Object Hero lvl:45) -->
+	<spawn map="300140000" npcid="215415" pool="1" interval="295">
+		<object staticid="122" x="528.15" y="775.56" z="199.6" h="53"/>
+	</spawn>
+	<!-- TreasureRoom_Sensory_F (NPC Normal lvl:3) -->
+	<spawn map="300140000" npcid="206095" pool="1" interval="295">
+		<object x="528.2" y="759.52" z="200" h="106"/>
+	</spawn>
+	<!-- Awakened Krotan Lord (Named Mob Hero lvl:50) -->
+	<spawn map="300140000" npcid="215136" pool="1" interval="14400">
+		<object x="526.401" y="845.3799" z="199.39539" h="28"/>
+	</spawn>
+	<!-- Ebonlord Arknamium (Named Mob Hero lvl:45) -->
+	<spawn map="300140000" npcid="215134" pool="1" interval="14400">
+		<object x="527.29974" y="729.6668" z="192.52031" h="79"/>
+	</spawn>
+	<!-- Ranx Apone (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215122" pool="14" interval="300">
+		<object x="544.52155" y="447.3911" z="180.91348" h="118"/>
+		<object x="531.59753" y="515.4634" z="176.33908" h="99"/>
+		<object x="545.5387" y="694.9934" z="191.65259" h="9"/>
+		<object x="526.5229" y="377.4831" z="179.91246" h="117"/>
+		<object x="547.3422" y="544.2723" z="176.89429" h="82"/>
+		<object x="524.5677" y="615.3303" z="180.58322" h="94"/>
+		<object x="506.7341" y="728.13654" z="191.86424" h="5"/>
+		<object x="512.24677" y="565.3097" z="176.38977" h="40"/>
+		<object x="548.46063" y="313.67624" z="180.7989" h="53"/>
+		<object x="544.44385" y="632.29047" z="180.78523" h="119"/>
+		<object x="521.08484" y="515.3732" z="176.33904" h="98"/>
+		<object x="547.57556" y="586.4529" z="176.89429" h="35"/>
+		<object x="506.68335" y="694.7127" z="191.62462" h="55"/>
+		<object x="501.0086" y="339.5395" z="180.32727" h="26"/>
+	</spawn>
+	<!-- Ranx Arcanist (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215124" pool="12" interval="300">
+		<object x="500.0845" y="360.73242" z="180.60156" h="34"/>
+		<object x="505.79633" y="726.44806" z="191.86424" h="115"/>
+		<object x="522.82886" y="652.10596" z="180.63396" h="43"/>
+		<object x="511.10553" y="324.50034" z="179.91246" h="20"/>
+		<object x="543.27814" y="448.7468" z="180.91216" h="28"/>
+		<object x="524.4876" y="551.50934" z="176.38977" h="38"/>
+		<object x="497.78796" y="562.17676" z="177.04095" h="50"/>
+		<object x="551.65924" y="339.5669" z="180.32727" h="107"/>
+		<object x="526.40546" y="586.66766" z="176.38977" h="34"/>
+		<object x="497.78796" y="564.9841" z="177.04097" h="103"/>
+		<object x="548.9828" y="546.00824" z="176.89429" h="103"/>
+		<object x="509.9842" y="417.39545" z="180.89516" h="47"/>
+	</spawn>
+	<!-- Ranx Archmage (Monster Hero lvl:45) -->
+	<spawn map="300140000" npcid="215116" pool="1" interval="14400">
+		<object x="618.3359" y="666.57336" z="185.54166" h="19"/>
+	</spawn>
+	<!-- Ranx Bloodmage (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215315" pool="1" interval="300">
+		<object x="608.5177" y="426.04773" z="197.70105" h="73"/>
+	</spawn>
+	<!-- Ranx Bloodmage (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215299" pool="2" interval="300">
+		<object x="658.52026" y="261.19873" z="191.80098" h="95"/>
+		<object x="639.6761" y="482.43893" z="194.43466" h="49"/>
+	</spawn>
+	<!-- Ranx Bloodmage (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215112" pool="5" interval="300">
+		<object x="633.2621" y="562.8164" z="189.76634" h="67"/>
+		<object x="644.8069" y="586.418" z="189.76634" h="109"/>
+		<object x="636.67834" y="423.7644" z="196.79149" h="33"/>
+		<object x="615.85516" y="573.9664" z="191.19226" h="86"/>
+		<object x="636.6101" y="363.7553" z="196.56128" h="105"/>
+	</spawn>
+	<!-- Ranx Channeler (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215120" pool="4" interval="300">
+		<object x="526.24866" y="314.4936" z="179.91246" h="79"/>
+		<object x="521.1161" y="278.5941" z="180.28857" h="15"/>
+		<object x="544.6039" y="415.1995" z="180.92555" h="44"/>
+		<object x="546.95404" y="311.8388" z="180.7989" h="113"/>
+	</spawn>
+	<!-- Ranx Curate (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215125" pool="10" interval="300">
+		<object x="510.77585" y="415.78403" z="180.89732" h="81"/>
+		<object x="529.6156" y="452.02255" z="179.51979" h="10"/>
+		<object x="526.94403" y="715.54193" z="191.86424" h="74"/>
+		<object x="530.07715" y="652.08167" z="180.62733" h="81"/>
+		<object x="550.02795" y="363.44144" z="180.7989" h="42"/>
+		<object x="504.86856" y="586.314" z="176.89429" h="105"/>
+		<object x="503.32404" y="545.44885" z="176.89429" h="75"/>
+		<object x="512.9895" y="631.8602" z="180.09932" h="118"/>
+		<object x="528.62024" y="551.48505" z="176.38977" h="5"/>
+		<object x="546.345" y="725.62964" z="191.86424" h="22"/>
+	</spawn>
+	<!-- Ranx Elite Praetor (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215118" pool="6" interval="300">
+		<object x="543.2247" y="413.91727" z="180.91241" h="48"/>
+		<object x="512.42456" y="448.158" z="180.88907" h="7"/>
+		<object x="530.00085" y="409.4408" z="179.51979" h="59"/>
+		<object x="505.26398" y="311.76535" z="180.7989" h="97"/>
+		<object x="501.03583" y="337.2339" z="180.32727" h="1"/>
+		<object x="541.63184" y="351.91672" z="179.91246" h="70"/>
+	</spawn>
+	<!-- Ranx Finder (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215119" pool="3" interval="300">
+		<object x="516.5907" y="342.97446" z="179.91246" h="110"/>
+		<object x="529.9193" y="301.33466" z="181.11949" h="70"/>
+		<object x="522.8486" y="301.2837" z="181.11949" h="92"/>
+	</spawn>
+	<!-- Ranx Fleshmender (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215312" pool="2" interval="300">
+		<object x="663.77094" y="424.2727" z="197.67557" h="68"/>
+		<object x="657.19446" y="458.76492" z="197.69052" h="102"/>
+	</spawn>
+	<!-- Ranx Fleshmender (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215109" pool="3" interval="300">
+		<object x="612.3755" y="451.60522" z="197.20628" h="105"/>
+		<object x="651.8048" y="242.7306" z="191.75166" h="106"/>
+		<object x="630.3716" y="218.57495" z="190.15643" h="97"/>
+	</spawn>
+	<!-- Ranx Healer (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215097" pool="4" interval="300">
+		<object x="552.1919" y="199.6314" z="179.14749" h="46"/>
+		<object x="503.28073" y="214.53578" z="179.14668" h="51"/>
+		<object x="411.04147" y="217.48386" z="190.19655" h="100"/>
+		<object x="432.9625" y="258.82492" z="191.79001" h="54"/>
+	</spawn>
+	<!-- Ranx Healer (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215304" pool="3" interval="300">
+		<object x="384.23593" y="424.44363" z="197.71942" h="65"/>
+		<object x="385.38535" y="438.91324" z="197.69392" h="119"/>
+		<object x="438.05063" y="424.87564" z="197.69392" h="76"/>
+	</spawn>
+	<!-- Ranx Hospitaller (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215308" pool="1" interval="300">
+		<object x="433.4335" y="406.21817" z="197.70888" h="100"/>
+	</spawn>
+	<!-- Ranx Hospitaller (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215292" pool="2" interval="300">
+		<object x="432.9514" y="261.3942" z="191.78987" h="14"/>
+		<object x="430.2013" y="596.7451" z="191.24242" h="67"/>
+	</spawn>
+	<!-- Ranx Hospitaller (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215101" pool="4" interval="300">
+		<object x="408.47556" y="540.8094" z="189.79022" h="114"/>
+		<object x="418.46063" y="563.0558" z="189.76634" h="85"/>
+		<object x="427.79883" y="652.10736" z="185.24437" h="21"/>
+		<object x="399.78528" y="455.24432" z="196.79149" h="56"/>
+	</spawn>
+	<!-- Ranx Implacable (Monster Hero lvl:45) -->
+	<spawn map="300140000" npcid="215126" pool="1" interval="14400">
+		<object x="526.6149" y="565.672" z="177.9525" h="4"/>
+	</spawn>
+	<!-- Ranx Juggernaut (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215098" pool="7" interval="300">
+		<object x="416.46155" y="604.4864" z="189.76634" h="38"/>
+		<object x="405.05536" y="280.87766" z="190.36212" h="41"/>
+		<object x="430.52255" y="567.1541" z="191.20183" h="68"/>
+		<object x="410.48117" y="241.83351" z="190.36212" h="117"/>
+		<object x="423.73346" y="654.4911" z="185.2455" h="15"/>
+		<object x="413.8715" y="589.29724" z="189.76634" h="37"/>
+		<object x="418.96188" y="540.7873" z="189.7902" h="117"/>
+	</spawn>
+	<!-- Ranx Juggernaut (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215305" pool="1" interval="300">
+		<object x="386.95166" y="251.50871" z="191.80643" h="86"/>
+	</spawn>
+	<!-- Ranx Juggernaut (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215289" pool="1" interval="300">
+		<object x="434.99222" y="457.14658" z="197.70888" h="18"/>
+	</spawn>
+	<!-- Ranx Justicar (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215300" pool="1" interval="300">
+		<object x="658.1067" y="580.01337" z="191.16273" h="104"/>
+	</spawn>
+	<!-- Ranx Justicar (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215113" pool="4" interval="300">
+		<object x="626.52936" y="583.27466" z="190.08876" h="15"/>
+		<object x="639.05426" y="281.28366" z="190.36212" h="40"/>
+		<object x="597.88385" y="696.14343" z="184.11717" h="97"/>
+		<object x="643.31555" y="540.46643" z="189.7902" h="65"/>
+	</spawn>
+	<!-- Ranx Justicar (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215316" pool="1" interval="300">
+		<object x="608.48645" y="436.97952" z="197.67557" h="107"/>
+	</spawn>
+	<!-- Ranx Legionary (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215094" pool="11" interval="300">
+		<object x="428.5156" y="244.06421" z="191.76546" h="38"/>
+		<object x="549.4506" y="194.13959" z="179.14764" h="9"/>
+		<object x="415.307" y="238.84799" z="190.36212" h="75"/>
+		<object x="404.4689" y="238.90306" z="190.36212" h="60"/>
+		<object x="506.9288" y="193.64406" z="179.15211" h="87"/>
+		<object x="417.19278" y="441.27878" z="196.79149" h="99"/>
+		<object x="407.2296" y="377.99582" z="197.60773" h="89"/>
+		<object x="527.63605" y="198.8491" z="178.15143" h="37"/>
+		<object x="393.05667" y="450.50885" z="197.20628" h="29"/>
+		<object x="417.26874" y="377.99582" z="197.60696" h="28"/>
+		<object x="474.17737" y="195.80818" z="179.47063" h="30"/>
+	</spawn>
+	<!-- Ranx Legionary (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215301" pool="2" interval="300">
+		<object x="440.34277" y="439.226" z="197.71942" h="84"/>
+		<object x="392.35437" y="404.08124" z="197.70886" h="96"/>
+	</spawn>
+	<!-- Ranx Lifeender (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215313" pool="1" interval="300">
+		<object x="613.6989" y="406.50934" z="197.69052" h="109"/>
+	</spawn>
+	<!-- Ranx Lifeender (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215110" pool="5" interval="300">
+		<object x="626.6243" y="654.7016" z="185.27567" h="39"/>
+		<object x="634.9536" y="465.95074" z="196.79149" h="107"/>
+		<object x="656.1606" y="565.75684" z="191.20183" h="18"/>
+		<object x="633.26874" y="560.5842" z="189.76634" h="10"/>
+		<object x="653.2754" y="244.08652" z="191.76567" h="109"/>
+	</spawn>
+	<!-- Ranx Lifeender (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215297" pool="2" interval="300">
+		<object x="658.05493" y="582.661" z="191.16205" h="82"/>
+		<object x="664.80615" y="437.77463" z="197.70105" h="8"/>
+	</spawn>
+	<!-- Ranx Marauder (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215314" pool="1" interval="300">
+		<object x="658.954" y="456.93274" z="197.69052" h="44"/>
+	</spawn>
+	<!-- Ranx Marauder (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215111" pool="6" interval="300">
+		<object x="617.22815" y="571.81244" z="191.17429" h="73"/>
+		<object x="624.567" y="653.53503" z="185.27632" h="52"/>
+		<object x="621.7512" y="275.99817" z="191.72748" h="46"/>
+		<object x="632.74255" y="540.5466" z="189.79024" h="16"/>
+		<object x="654.48395" y="564.2383" z="191.20183" h="112"/>
+		<object x="636.34424" y="604.1727" z="189.76634" h="39"/>
+	</spawn>
+	<!-- Ranx Marauder (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215298" pool="1" interval="300">
+		<object x="634.2556" y="482.43036" z="194.437" h="95"/>
+	</spawn>
+	<!-- Ranx Patrol Legate (Monster Hero lvl:45) -->
+	<spawn map="300140000" npcid="215104" pool="1" interval="14400">
+		<object x="433.8764" y="667.4439" z="185.54153" h="17"/>
+	</spawn>
+	<!-- Ranx Patroller (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215096" pool="7" interval="300">
+		<object x="431.42722" y="411.6666" z="197.14658" h="114"/>
+		<object x="406.98328" y="424.1547" z="196.79149" h="69"/>
+		<object x="398.29605" y="258.56784" z="190.68756" h="93"/>
+		<object x="542.83997" y="230.37253" z="179.171" h="17"/>
+		<object x="503.79703" y="198.88763" z="179.14917" h="9"/>
+		<object x="420.6101" y="265.2528" z="190.6667" h="106"/>
+		<object x="414.68167" y="220.10664" z="190.23962" h="108"/>
+	</spawn>
+	<!-- Ranx Patroller (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215303" pool="1" interval="300">
+		<object x="438.37784" y="441.3565" z="197.71942" h="81"/>
+	</spawn>
+	<!-- Ranx Patroller (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215287" pool="1" interval="300">
+		<object x="431.4159" y="414.04367" z="197.13521" h="93"/>
+	</spawn>
+	<!-- Ranx Sartip (Monster Hero lvl:45) -->
+	<spawn map="300140000" npcid="215128" pool="1" interval="14400">
+		<object x="526.1026" y="631.8539" z="180.02994" h="17"/>
+	</spawn>
+	<!-- Ranx Sawbones (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215121" pool="4" interval="300">
+		<object x="511.03903" y="351.95734" z="179.91246" h="9"/>
+		<object x="522.45715" y="409.27182" z="179.51979" h="43"/>
+		<object x="551.6609" y="337.29022" z="180.32727" h="21"/>
+		<object x="530.575" y="281.58508" z="180.4294" h="111"/>
+	</spawn>
+	<!-- Ranx Scourge (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215106" pool="8" interval="300">
+		<object x="631.5791" y="378.2106" z="197.61478" h="64"/>
+		<object x="637.9435" y="572.1122" z="189.76634" h="96"/>
+		<object x="658.20526" y="405.88165" z="197.69052" h="78"/>
+		<object x="627.9022" y="439.1072" z="196.79149" h="95"/>
+		<object x="639.61365" y="220.29442" z="190.19942" h="74"/>
+		<object x="641.2133" y="264.5273" z="190.36212" h="103"/>
+		<object x="638.0939" y="528.69855" z="190.53548" h="22"/>
+		<object x="630.2386" y="239.23883" z="190.36212" h="4"/>
+	</spawn>
+	<!-- Ranx Scourge (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215293" pool="1" interval="300">
+		<object x="621.76855" y="418.03665" z="196.79149" h="45"/>
+	</spawn>
+	<!-- Ranx Serpentguard (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215107" pool="6" interval="300">
+		<object x="635.50836" y="217.05771" z="190.13847" h="61"/>
+		<object x="621.47174" y="443.73978" z="196.79149" h="81"/>
+		<object x="652.657" y="253.56192" z="191.73991" h="98"/>
+		<object x="642.2594" y="378.21408" z="197.6149" h="112"/>
+		<object x="625.64246" y="259.97873" z="190.67677" h="18"/>
+		<object x="616.6415" y="404.17398" z="197.6905" h="77"/>
+	</spawn>
+	<!-- Ranx Skirmisher (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215100" pool="3" interval="300">
+		<object x="420.5643" y="587.3469" z="190.07092" h="62"/>
+		<object x="418.3331" y="560.7014" z="189.76634" h="28"/>
+		<object x="413.87817" y="528.4797" z="190.55972" h="67"/>
+	</spawn>
+	<!-- Ranx Skirmisher (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215291" pool="2" interval="300">
+		<object x="400.9194" y="259.97104" z="190.67671" h="60"/>
+		<object x="394.98364" y="597.9895" z="191.20183" h="117"/>
+	</spawn>
+	<!-- Ranx Skirmisher (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215307" pool="1" interval="300">
+		<object x="391.83603" y="458.16525" z="197.70888" h="82"/>
+	</spawn>
+	<!-- Ranx Skullcrusher (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215290" pool="2" interval="300">
+		<object x="397.89426" y="597.9803" z="191.20183" h="1"/>
+		<object x="426.5428" y="433.62094" z="196.79149" h="11"/>
+	</spawn>
+	<!-- Ranx Skullcrusher (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215099" pool="6" interval="300">
+		<object x="412.11438" y="363.7283" z="196.55835" h="30"/>
+		<object x="430.1817" y="599.1121" z="191.24243" h="50"/>
+		<object x="453.61853" y="696.04736" z="184.08658" h="31"/>
+		<object x="395.2" y="568.0709" z="191.20183" h="16"/>
+		<object x="395.20874" y="566.01324" z="191.20183" h="32"/>
+		<object x="397.4626" y="418.4525" z="196.79149" h="18"/>
+	</spawn>
+	<!-- Ranx Skullcrusher (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215306" pool="1" interval="300">
+		<object x="425.97815" y="242.59705" z="191.7413" h="4"/>
+	</spawn>
+	<!-- Ranx Slicer (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215123" pool="15" interval="300">
+		<object x="526.7259" y="502.7448" z="177.177" h="52"/>
+		<object x="515.84735" y="431.29257" z="179.83813" h="13"/>
+		<object x="529.1906" y="615.3303" z="180.58304" h="16"/>
+		<object x="528.004" y="699.00616" z="191.82812" h="17"/>
+		<object x="511.31274" y="446.504" z="180.89932" h="83"/>
+		<object x="553.9804" y="564.88367" z="177.04097" h="57"/>
+		<object x="526.5225" y="544.508" z="176.38977" h="111"/>
+		<object x="532.19324" y="433.74722" z="179.51979" h="55"/>
+		<object x="503.54837" y="312.9841" z="180.7989" h="117"/>
+		<object x="522.4104" y="588.52466" z="176.38977" h="48"/>
+		<object x="553.9904" y="561.80743" z="177.04095" h="80"/>
+		<object x="509.0721" y="632.0717" z="180.78523" h="42"/>
+		<object x="504.82748" y="543.6672" z="176.89429" h="102"/>
+		<object x="525.0608" y="704.54816" z="191.86424" h="20"/>
+		<object x="547.6439" y="724.1504" z="191.86424" h="115"/>
+	</spawn>
+	<!-- Ranx Sorcerer (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215108" pool="5" interval="300">
+		<object x="664.7964" y="440.2222" z="197.70107" h="74"/>
+		<object x="658.5267" y="258.57556" z="191.80106" h="20"/>
+		<object x="620.1554" y="274.75354" z="191.74222" h="37"/>
+		<object x="582.4884" y="188.02505" z="179.53578" h="44"/>
+		<object x="634.8878" y="251.23067" z="190.36212" h="67"/>
+	</spawn>
+	<!-- Ranx Sorcerer (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215295" pool="1" interval="300">
+		<object x="623.25104" y="419.47983" z="196.79149" h="93"/>
+	</spawn>
+	<!-- Ranx Sorcerer (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215311" pool="1" interval="300">
+		<object x="617.88885" y="246.60368" z="191.74191" h="15"/>
+	</spawn>
+	<!-- Ranx Trooper (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215095" pool="10" interval="300">
+		<object x="419.67612" y="408.44086" z="196.79149" h="60"/>
+		<object x="398.2876" y="261.30615" z="190.68759" h="65"/>
+		<object x="426.5666" y="430.8172" z="196.79149" h="61"/>
+		<object x="528.5095" y="236.9709" z="179.14656" h="60"/>
+		<object x="522.91003" y="236.9885" z="179.14656" h="98"/>
+		<object x="416.62054" y="250.26581" z="190.36212" h="76"/>
+		<object x="406.59824" y="217.52888" z="190.20354" h="58"/>
+		<object x="395.3442" y="450.69287" z="197.20628" h="106"/>
+		<object x="415.3807" y="280.73227" z="190.36212" h="98"/>
+		<object x="536.9953" y="188.05496" z="179.1473" h="14"/>
+	</spawn>
+	<!-- Ranx Trooper (Monster Elite lvl:45) -->
+	<spawn map="300140000" npcid="215302" pool="2" interval="300">
+		<object x="393.09393" y="431.67853" z="196.79149" h="71"/>
+		<object x="440.51108" y="422.54034" z="197.69391" h="75"/>
+	</spawn>
+	<!-- Treasurer Hittite (Named Mob Hero lvl:45) -->
+	<spawn map="300140000" npcid="215133" pool="1" interval="14400">
+		<object x="527.64" y="212.0511" z="178.41345" h="94"/>
+	</spawn>
+	<!-- chest by christy -->
+	<spawn map="300140000" npcid="214804" pool="11" interval="295">
+		<object x="471.05634" y="834.5538" z="199.70894" h="63"/>
+		<object x="490.43182" y="889.15045" z="199.70882" h="43"/>
+		<object x="528.01544" y="903.311" z="199.70882" h="32"/>
+		<object x="578.541" y="874.9364" z="199.70882" h="10"/>
+		<object x="477.73047" y="814.95416" z="199.70894" h="8"/>
+		<object x="470.27682" y="854.84076" z="199.70894" h="115"/>
+		<object x="478.232" y="873.0855" z="199.70882" h="110"/>
+		<object x="507.6301" y="898.52545" z="199.70882" h="96"/>
+		<object x="547.4334" y="899.19666" z="199.70882" h="85"/>
+		<object x="564.73364" y="889.32465" z="199.70882" h="78"/>
+		<object x="584.6838" y="855.4852" z="199.70882" h="62"/>
+	</spawn>
+</spawns>

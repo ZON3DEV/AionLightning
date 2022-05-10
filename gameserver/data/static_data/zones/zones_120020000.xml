@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zones.xsd">
+	<zone mapid="120020000" name="CONVENT_OF_MARCHUTAN_120020000" priority="16">
+		<points>
+			<point x="1532.729980" y="1339.089966" />
+			<point x="1477.563721" y="1446.601563" />
+			<point x="1559.999756" y="1489.856934" />
+			<point x="1612.971924" y="1381.405029" />
+		</points>
+	</zone>
+</zones>

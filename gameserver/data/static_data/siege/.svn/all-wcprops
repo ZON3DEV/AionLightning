@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/siege
+END
+siege_shields.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/siege/siege_shields.xml
+END
+siege_spawns.xml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/siege/siege_spawns.xml
+END
+siege_locations.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/siege/siege_locations.xml
+END
+siege_locations.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/siege/siege_locations.xsd
+END
+siege_shields.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/siege/siege_shields.xsd
+END
+siege_spawns.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/siege/siege_spawns.xsd
+END

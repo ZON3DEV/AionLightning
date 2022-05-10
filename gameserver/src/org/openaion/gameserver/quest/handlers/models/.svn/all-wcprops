@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/quest/handlers/models
+END
+QuestScriptData.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/quest/handlers/models/QuestScriptData.java
+END
+MonsterHuntData.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/quest/handlers/models/MonsterHuntData.java
+END
+MonsterInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/quest/handlers/models/MonsterInfo.java
+END
+ReportToData.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/quest/handlers/models/ReportToData.java
+END
+WorkOrdersData.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/quest/handlers/models/WorkOrdersData.java
+END
+ItemCollectingData.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/quest/handlers/models/ItemCollectingData.java
+END
+XmlQuestData.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/quest/handlers/models/XmlQuestData.java
+END

@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates
+END
+SpawnInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/SpawnInfo.java
+END
+LocationTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/LocationTemplate.java
+END
+TradeListTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/TradeListTemplate.java
+END
+GatherableTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/GatherableTemplate.java
+END
+CubeExpandTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/CubeExpandTemplate.java
+END
+NpcTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/NpcTemplate.java
+END
+TitleTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/TitleTemplate.java
+END
+QuestTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/QuestTemplate.java
+END
+WarehouseExpandTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/WarehouseExpandTemplate.java
+END
+ObjectLocation.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/ObjectLocation.java
+END
+GuildTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/GuildTemplate.java
+END
+VisibleObjectTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/VisibleObjectTemplate.java
+END
+WorldMapTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/WorldMapTemplate.java
+END
+BindPointTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/BindPointTemplate.java
+END

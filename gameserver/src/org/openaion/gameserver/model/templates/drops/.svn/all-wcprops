@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/drops
+END
+DropItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/drops/DropItem.java
+END
+NpcDrop.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/drops/NpcDrop.java
+END

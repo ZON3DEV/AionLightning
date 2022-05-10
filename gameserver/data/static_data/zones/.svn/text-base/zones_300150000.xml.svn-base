@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zones.xsd">
+	<zone mapid="300150000" name="PATH_OF_WISDOM_300150000" priority="2">
+		<points>
+			<point x="732.260620" y="589.761597" />
+			<point x="838.476074" y="589.540283" />
+			<point x="838.749390" y="335.564270" />
+			<point x="732.312561" y="335.926117" />
+			<point x="732.230774" y="382.055603" />
+			<point x="783.764099" y="381.286713" />
+			<point x="784.577271" y="434.937256" />
+			<point x="732.175598" y="434.786102" />
+		</points>
+	</zone>
+	<zone mapid="300150000" name="PATH_OF_REFLECTION_300150000" priority="3">
+		<points>
+			<point x="670.681274" y="695.238159" />
+			<point x="670.510986" y="575.404785" />
+			<point x="723.973694" y="575.404785" />
+			<point x="723.449829" y="262.195374" />
+			<point x="847.719299" y="262.340149" />
+			<point x="847.719299" y="695.239990" />
+		</points>
+	</zone>
+	<zone mapid="300150000" name="MIDNIGHT_BAPTIZING_CHAMBER_300150000" priority="2">
+		<points>
+			<point x="416.218506" y="403.488190" />
+			<point x="553.964355" y="403.761475" />
+			<point x="553.964355" y="569.931091" />
+			<point x="524.447388" y="569.657776" />
+			<point x="524.720703" y="615.573059" />
+			<point x="415.746490" y="655.237488" />
+		</points>
+	</zone>
+	<zone mapid="300150000" name="GREAT_CHAPEL_300150000" priority="1">
+		<points>
+			<point x="581.518494" y="574.168213" />
+			<point x="695.044983" y="574.168213" />
+			<point x="695.044983" y="399.487061" />
+			<point x="579.566711" y="399.487061" />
+		</points>
+	</zone>
+	<zone mapid="300150000" name="REBIRTHING_CHAMBER_300150000" priority="1">
+		<points>
+			<point x="525.317444" y="176.068710" />
+			<point x="595.875977" y="176.255356" />
+			<point x="595.689209" y="231.840683" />
+			<point x="525.504089" y="231.840683" />
+		</points>
+	</zone>
+	<zone mapid="300150000" name="CHAMBER_OF_UNITY_300150000" priority="1">
+		<points>
+			<point x="805.428528" y="336.877625" />
+			<point x="745.672180" y="336.877625" />
+			<point x="745.841614" y="264.710175" />
+			<point x="805.597961" y="264.710144" />
+		</points>
+	</zone>
+	<zone mapid="300150000" name="FRIAR_VAULT_300150000" priority="1">
+		<points>
+			<point x="676.428528" y="680.988831" />
+			<point x="676.428528" y="620.510132" />
+			<point x="798.920227" y="620.172974" />
+			<point x="798.716187" y="681.166321" />
+		</points>
+	</zone>
+	<zone mapid="300150000" name="SILENT_CHAPEL_300150000" priority="1">
+		<points>
+			<point x="722.706177" y="386.290161" />
+			<point x="784.870850" y="386.290161" />
+			<point x="785.220093" y="431.342133" />
+			<point x="723.404602" y="430.643646" />
+		</points>
+	</zone>
+	<zone mapid="300150000" name="TEMPLE_ENTRANCE_300150000" priority="2">
+		<points>
+			<point x="600.108521" y="573.627747" />
+			<point x="672.622314" y="573.847351" />
+			<point x="672.510986" y="629.346252" />
+			<point x="655.044128" y="629.379456" />
+			<point x="655.079407" y="664.795288" />
+			<point x="636.955872" y="675.212769" />
+			<point x="618.261536" y="663.225525" />
+			<point x="618.404236" y="629.404480" />
+			<point x="600.363586" y="629.394287" />
+		</points>
+	</zone>
+	<zone mapid="300150000" name="UDAS_TEMPLE_300150000" priority="4">
+		<points>
+			<point x="402.719055" y="148.768372" />
+			<point x="402.719025" y="750.799377" />
+			<point x="861.312988" y="750.799438" />
+			<point x="860.452332" y="148.768372" />
+		</points>
+	</zone>
+	<zone mapid="300150000" name="PATH_OF_ENLIGHTENMENT_300150000" priority="3">
+		<points>
+			<point x="621.783569" y="686.828064" />
+			<point x="601.320496" y="628.450928" />
+			<point x="601.320496" y="567.668152" />
+			<point x="556.580322" y="567.653442" />
+			<point x="556.324463" y="350.136169" />
+			<point x="412.915802" y="350.070190" />
+			<point x="413.086090" y="742.328369" />
+			<point x="466.470337" y="742.200134" />
+		</points>
+	</zone>
+	<zone mapid="300150000" name="LODGE_OF_TORMENT_300150000" priority="1">
+		<points>
+			<point x="621.378723" y="681.100769" />
+			<point x="466.036621" y="737.127197" />
+			<point x="443.339539" y="674.389099" />
+			<point x="591.468994" y="621.389771" />
+			<point x="600.242554" y="621.400269" />
+		</points>
+	</zone>
+	<zone mapid="300150000" name="CHAMBER_OF_GUIDANCE_300150000" priority="1">
+		<points>
+			<point x="473.658508" y="355.518188" />
+			<point x="544.217041" y="355.704834" />
+			<point x="544.030273" y="405.543762" />
+			<point x="473.845154" y="405.543762" />
+		</points>
+	</zone>
+</zones>

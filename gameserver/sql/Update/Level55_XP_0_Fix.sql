@@ -1,0 +1,1 @@
+﻿UPDATE players SET exp = 341728469 WHERE exp < 0;

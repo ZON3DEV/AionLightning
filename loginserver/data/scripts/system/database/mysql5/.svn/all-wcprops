@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/4/trunk/loginserver/data/scripts/system/database/mysql5
+END
+MySQL5BannedIpDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/4/trunk/loginserver/data/scripts/system/database/mysql5/MySQL5BannedIpDAO.java
+END
+MySQL5DAOUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/loginserver/data/scripts/system/database/mysql5/MySQL5DAOUtils.java
+END
+MySQL5GameServersDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4/trunk/loginserver/data/scripts/system/database/mysql5/MySQL5GameServersDAO.java
+END
+MySQL5AccountTimeDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4/trunk/loginserver/data/scripts/system/database/mysql5/MySQL5AccountTimeDAO.java
+END
+MySQL5AccountDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/loginserver/data/scripts/system/database/mysql5/MySQL5AccountDAO.java
+END

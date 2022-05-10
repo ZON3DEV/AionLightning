@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zones.xsd">
+	<zone mapid="310050000" name="AETHEROGENETICS_LAB_310050000" priority="18">
+		<points>
+			<point x="167.919998" y="196.110001" />
+			<point x="306.528625" y="193.327728" />
+			<point x="309.310913" y="155.893280" />
+			<point x="378.365784" y="158.949417" />
+			<point x="377.101074" y="211.307053" />
+			<point x="398.600586" y="211.054123" />
+			<point x="405.935730" y="222.183289" />
+			<point x="405.429871" y="240.900513" />
+			<point x="393.541870" y="254.811951" />
+			<point x="392.783081" y="310.204834" />
+			<point x="323.225830" y="308.434265" />
+			<point x="270.760254" y="374.709167" />
+			<point x="171.497437" y="361.227051" />
+		</points>
+	</zone>
+	<zone mapid="310050000" name="LOUNGE_310050000" priority="16">
+		<points>
+			<point x="312.301392" y="163.048309" />
+			<point x="375.346436" y="162.514038" />
+			<point x="370.716003" y="219.147720" />
+			<point x="360.208496" y="217.544876" />
+			<point x="309.629974" y="217.722961" />
+		</points>
+	</zone>
+	<zone mapid="310050000" name="BIO_EXPERIMENT_LAB_310050000" priority="16">
+		<points>
+			<point x="173.270737" y="200.020172" />
+			<point x="244.806793" y="200.574707" />
+			<point x="252.385559" y="200.574722" />
+			<point x="276.600586" y="207.783783" />
+			<point x="276.230896" y="261.389618" />
+			<point x="198.193588" y="272.084106" />
+			<point x="204.769363" y="291.811432" />
+			<point x="204.370285" y="355.020020" />
+			<point x="174.561874" y="355.103302" />
+			<point x="173.085892" y="260.650208" />
+		</points>
+	</zone>
+	<zone mapid="310050000" name="ORMENON_310050000" priority="14">
+		<points>
+			<point x="202.830582" y="292.054901" />
+			<point x="203.051086" y="357.987091" />
+			<point x="272.290894" y="355.120483" />
+			<point x="272.511414" y="291.613892" />
+		</points>
+	</zone>
+	<zone mapid="310050000" name="OLD_LIBRARY_310050000" priority="16">
+		<points>
+			<point x="325.549988" y="242.779999" />
+			<point x="362.702606" y="242.779999" />
+			<point x="362.702606" y="292.424500" />
+			<point x="325.873047" y="292.424500" />
+		</points>
+	</zone>
+</zones>

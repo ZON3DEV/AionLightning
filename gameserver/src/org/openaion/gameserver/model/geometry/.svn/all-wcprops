@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/geometry
+END
+Area.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/geometry/Area.java
+END
+AbstractArea.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/geometry/AbstractArea.java
+END
+PolyArea.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/geometry/PolyArea.java
+END
+RectangleArea.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/geometry/RectangleArea.java
+END
+Point3D.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/geometry/Point3D.java
+END
+CylinderArea.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/geometry/CylinderArea.java
+END

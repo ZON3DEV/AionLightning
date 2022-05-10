@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/clientpackets
+END
+CM_SERVER_LIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/clientpackets/CM_SERVER_LIST.java
+END
+CM_UPDATE_SESSION.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/clientpackets/CM_UPDATE_SESSION.java
+END
+CM_PLAY.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/clientpackets/CM_PLAY.java
+END
+CM_LOGIN.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/clientpackets/CM_LOGIN.java
+END
+CM_AUTH_GG.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/clientpackets/CM_AUTH_GG.java
+END

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/task
+END
+AbstractIterativePeriodicTaskManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/task/AbstractIterativePeriodicTaskManager.java
+END
+FIFORunnableQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/task/FIFORunnableQueue.java
+END
+AbstractPeriodicTaskManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/task/AbstractPeriodicTaskManager.java
+END
+FIFOSimpleExecutableQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/task/FIFOSimpleExecutableQueue.java
+END
+AbstractFIFOPeriodicTaskManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/task/AbstractFIFOPeriodicTaskManager.java
+END
+FIFOExecutableQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/task/FIFOExecutableQueue.java
+END

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- [Daily] A Crystal Clear Job -->
+	<item_collecting id="46015" start_npc_id="799882" end_npc_id="799882" action_item_id="700781"/>
+	<!-- [Daily] Ancient Treasures -->
+	<item_collecting id="46016" start_npc_id="799882" end_npc_id="799882" action_item_id="700782"/>
+	<!-- [Spy/Weekly] Balaurean Booty -->
+	<item_collecting id="46017" start_npc_id="799882" end_npc_id="799882" action_item_id="700807"/>
+	<!-- 46018: TODO: Catch Mice 01 (Asmodian) (lvl 99) -->
+	<!-- 46019: TODO: Catch Mice 02 (Asmodian) (lvl 99) -->
+	<!-- 46500: [Daily] Pinebeak's Greed (lvl 50) handled by script -->
+	<!-- 46501: TODO: [Daily] (lvl 99) -->
+	<!-- [Daily] Hunt the Hunter -->
+	<monster_hunt id="46502" start_npc_id="799882" end_npc_id="799882">
+		<monster_infos var_id="0" max_kill="1" npc_id="216626"/>
+	</monster_hunt>
+	<!-- [Daily] Marvelous Feather -->
+	<item_collecting id="46503" start_npc_id="799882" end_npc_id="799882"/>
+	<!-- 46504: [Daily] Bosbear Nightmare (lvl 50) handled by script -->
+	<!-- 46505: [Daily] Waterfall Ghost (lvl 50) handled by script -->
+	<!-- 46506: [Daily] Threebeards' Downfall (lvl 53) handled by script -->
+	<!-- 46507: TODO: [Daily] (lvl 99) -->
+	<!-- [Daily] Backstab Stabs Back! -->
+	<monster_hunt id="46508" start_npc_id="799882" end_npc_id="799882">
+		<monster_infos var_id="0" max_kill="1" npc_id="216634"/>
+	</monster_hunt>
+	<!-- [Daily] Blacktome's Staff -->
+	<item_collecting id="46509" start_npc_id="799882" end_npc_id="799882"/>
+	<!-- 46510: [Daily] Snuffler Saboteur (lvl 53) handled by script -->
+	<!-- 46511: [Daily] Sorcerer's Rest (lvl 53) handled by script -->
+	<!-- 46512: [Daily] Satbakun's Last Stand (lvl 55) handled by script -->
+	<!-- 46513: TODO: [Daily] (lvl 99) -->
+	<!-- [Daily] To Kill the Dead -->
+	<monster_hunt id="46514" start_npc_id="799882" end_npc_id="799882">
+		<monster_infos var_id="0" max_kill="1" npc_id="216638"/>
+	</monster_hunt>
+	<!-- [Daily] Harviste's Drana -->
+	<item_collecting id="46515" start_npc_id="799882" end_npc_id="799882"/>
+	<!-- 46516: [Daily] Zantra - the Revenge (lvl 55) handled by script -->
+	<!-- 46517: [Daily] Pruning Vinestem (lvl 55) handled by script -->
+	<!-- [Spy/Weekly] Zausis Must Die! -->
+	<monster_hunt id="46518" start_npc_id="799882" end_npc_id="799882">
+		<monster_infos var_id="0" max_kill="1" npc_id="216630"/>
+	</monster_hunt>
+	<!-- [Spy/Weekly] Agent Greenlake's Orders -->
+	<item_collecting id="46519" start_npc_id="799882" end_npc_id="799882"/>
+	<!-- [Daily] Paketan Problem -->
+	<monster_hunt id="46520" start_npc_id="799882" end_npc_id="799882">
+		<monster_infos var_id="0" max_kill="1" npc_id="217016"/>
+	</monster_hunt>
+	<!-- [Daily] Depravity's Reward -->
+	<item_collecting id="46521" start_npc_id="799882" end_npc_id="799882"/>
+	<!-- [Daily] Pursuing the Balaur Remnants -->
+	<monster_hunt id="46522" start_npc_id="799882" end_npc_id="799882">
+		<monster_infos var_id="0" max_kill="1" npc_id="217018"/>
+	</monster_hunt>
+	<!-- [Daily] End the Caravan Raids -->
+	<monster_hunt id="46523" start_npc_id="799882" end_npc_id="799882">
+		<monster_infos var_id="0" max_kill="1" npc_id="217019"/>
+	</monster_hunt>
+	<!-- [Daily] An Essential Mission -->
+	<item_collecting id="46524" start_npc_id="799882" end_npc_id="799882"/>
+	<!-- [Daily] The Stolen Letter -->
+	<item_collecting id="46525" start_npc_id="799882" end_npc_id="799882"/>
+	<!-- [Daily] Talking to Plants -->
+	<item_collecting id="46526" start_npc_id="799882" end_npc_id="799882"/>
+	<!-- [Daily] An Officer and a Drakan -->
+	<monster_hunt id="46527" start_npc_id="799882" end_npc_id="799882">
+		<monster_infos var_id="0" max_kill="1" npc_id="217023"/>
+	</monster_hunt>
+	<!-- [Daily] Ancient Mutant Warrior Beast -->
+	<item_collecting id="46528" start_npc_id="799882" end_npc_id="799882"/>
+	<!-- 46600: TODO: [Asmodian] Daemon's Dividends 1A (lvl 99) -->
+	<!-- 46601: TODO: [Asmodian] Daemon's Dividends 1B (lvl 99) -->
+	<!-- 46602: TODO: [Asmodian] Daemon's Dividends 1C (lvl 99) -->
+	<!-- 46603: TODO: [Asmodian] Daemon's Dividends 1D (lvl 99) -->
+	<!-- 48002: Charlirunerk's Daemons Want You! (lvl 50) handled by script -->
+	<!-- 48005: Message from the Daemons (lvl 50) -->
+	<report_to id="48005" start_npc_id="204191" end_npc_id="799886"/>
+</quest_scripts>

@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique. If not, see <http://www.gnu.org/licenses/>.
+
+	Haramel
+
+-->
+<spawns>
+	<!-- Haramel Exit -->
+	<spawn map="300200000" npcid="730320" pool="1" interval="295">
+		<object staticid="117" x="185.73808" y="20.143583" z="144.22354" h="0"/>
+	</spawn>
+	<!-- Fine Odium -->
+	<spawn map="300200000" npcid="700833" pool="5" interval="295">
+		<object staticid="123" x="122.4959" y="60.791485" z="145.66055" h="0"/>
+		<object staticid="131" x="135.40692" y="60.9233" z="145.66055" h="0"/>
+		<object staticid="94" x="121.64658" y="100.53481" z="146.29655" h="0"/>
+		<object staticid="118" x="122.98326" y="111.51347" z="148.11096" h="0"/>
+		<object staticid="48" x="132.38634" y="112.43794" z="146.05334" h="0"/>
+	</spawn>
+	<!-- Raw Odium -->
+	<spawn map="300200000" npcid="700951" pool="5" interval="295">
+		<object staticid="171" x="95.8721" y="76.12012" z="143.51506" h="0"/>
+		<object staticid="245" x="82.96007" y="88.39939" z="141.74515" h="0"/>
+		<object staticid="246" x="116.28328" y="83.00923" z="144.1981" h="0"/>
+		<object staticid="137" x="87.21916" y="99.91895" z="138.9265" h="0"/>
+		<object staticid="177" x="90.25546" y="112.17432" z="139.19691" h="0"/>
+	</spawn>
+	<!-- Aether Cart -->
+	<spawn map="300200000" npcid="700950" pool="3" interval="295">
+		<object staticid="31" x="85.36179" y="83.48121" z="142.2712" h="0"/>
+		<object staticid="111" x="151.9353" y="88.88508" z="143.95615" h="0"/>
+		<object staticid="116" x="142.37457" y="80.15271" z="143.95615" h="0"/>
+	</spawn>
+	<!-- Treasure Box -->
+	<spawn map="300200000" npcid="216925" pool="3" interval="295">
+		<object x="91.972115" y="97.774925" z="139.24019" h="30"/>
+		<object x="310.61917" y="302.38187" z="89.026726" h="90"/>
+		<object x="217.75217" y="378.40472" z="85.0" h="80"/>
+	</spawn>
+	<!-- Keymaster MuMu Dang lvl 18 -->
+	<spawn map="300200000" npcid="217025" pool="1" interval="295">
+		<object x="220.21605" y="213.31155" z="89.27873" h="60"/>
+	</spawn>
+	<!-- Tower Lift -->
+	<spawn map="300200000" npcid="730321" pool="1" interval="295">
+		<object staticid="79" x="220.86827" y="213.2629" z="89.27873" h="0"/>
+	</spawn>
+	<!-- MuMu Mechanic lvl 18 -->
+	<spawn map="300200000" npcid="217108" pool="5" interval="295">
+		<object x="231.38918" y="192.2873" z="87.69003" h="72"/>
+		<object x="233.45607" y="213.41031" z="89.27873" h="0"/>
+		<object x="228.86012" y="236.25" z="87.824745" h="60"/>
+		<object x="221.44109" y="190.90689" z="87.68402" h="60"/>
+		<object x="291.61865" y="214.05304" z="88.145294" h="60"/>
+	</spawn>
+	<!-- Severely Rusted Box -->
+	<spawn map="300200000" npcid="700853" pool="1" interval="295">
+		<object x="231.03102" y="223.09114" z="139.8197" h="0"/>
+	</spawn>
+	<!-- MuMu Porter lvl 19 -->
+	<spawn map="300200000" npcid="216912" pool="9" interval="295">
+		<object x="267.62842" y="214.25" z="89.0791" h="60"/>
+		<object x="310.92236" y="226.97855" z="88.145164" h="92"/>
+		<object x="303.7456" y="214.90256" z="88.145256" h="66"/>
+		<object x="357.6108" y="293.95462" z="87.75513" h="15"/>
+		<object x="367.43872" y="313.83948" z="84.22495" h="35"/>
+		<object x="333.3099" y="357.00967" z="87.71246" h="44"/>
+		<object x="328.14713" y="371.31522" z="88.9664" h="106"/>
+		<object x="349.16058" y="345.52853" z="86.262375" h="114"/>
+		<object x="364.07407" y="335.88638" z="85.74969" h="108"/>
+	</spawn>
+	<!-- Captured Black Claw Informer lvl 18 -->
+	<spawn map="300200000" npcid="216914" pool="3" interval="295">
+		<object x="184.0186" y="303.54645" z="142.76572" h="10"/>
+		<object x="187.39034" y="307.8165" z="142.76572" h="0"/>
+		<object x="262.29135" y="332.47983" z="142.7657" h="60"/>
+	</spawn>
+	<!-- Prison Door -->
+	<spawn map="300200000" npcid="700855" pool="4" interval="295">
+		<object staticid="114" x="189.48225" y="307.1805" z="142.76569" h="0"/>
+		<object staticid="52" x="259.07254" y="307.2838" z="142.7657" h="0"/>
+		<object staticid="119" x="189.40248" y="332.4342" z="142.76572" h="0"/>
+		<object staticid="55" x="258.9646" y="332.23337" z="142.7657" h="0"/>
+	</spawn>
+	<!-- Dukaki Screamer lvl 20 -->
+	<spawn map="300200000" npcid="216916" pool="4" interval="295">
+		<object x="227.40659" y="304.02924" z="141.89217" h="90"/>
+		<object x="215.22223" y="303.76263" z="141.89217" h="90"/>
+		<object x="220.81294" y="303.83087" z="141.89217" h="90"/>
+		<object x="231.43898" y="304.3968" z="141.89217" h="90"/>
+	</spawn>
+	<!-- Brainwashed MuMu Worker lvl 20 -->
+	<spawn map="300200000" npcid="217067" pool="3" interval="295">
+		<object x="215.00243" y="313.18607" z="141.89227" h="100"/>
+		<object x="230.75845" y="317.67163" z="141.89232" h="76"/>
+		<object x="226.56168" y="323.02237" z="141.89238" h="90"/>
+	</spawn>
+	<!-- Bossman Nukiti lvl 20 -->
+	<spawn map="300200000" npcid="216915" pool="1" interval="295">
+		<object x="224.01228" y="298.6436" z="141.8921" h="30"/>
+	</spawn>
+	<!-- Processed Odella -->
+	<spawn map="300200000" npcid="700953" pool="3" interval="295">
+		<object staticid="285" x="294.0466" y="250.02629" z="90.16434" h="0"/>
+		<object staticid="282" x="314.06708" y="263.25995" z="89.0267" h="0"/>
+		<object staticid="283" x="314.04013" y="288.41785" z="89.02671" h="0"/>
+	</spawn>
+	<!-- Dukaki Jailer lvl 20 -->
+	<spawn map="300200000" npcid="216919" pool="7" interval="295">
+		<object x="194.60617" y="320.2423" z="142.7657" h="120"/>
+		<object x="253.61362" y="319.71774" z="142.7657" h="60"/>
+		<object x="200.50174" y="295.20358" z="142.7657" h="30"/>
+		<object x="246.5751" y="295.2064" z="142.7657" h="30"/>
+		<object x="246.62953" y="339.28586" z="142.7657" h="91"/>
+		<object x="224.14017" y="348.68942" z="141.69179" h="30"/>
+		<object x="200.17136" y="339.0891" z="142.7657" h="90"/>
+	</spawn>
+	<!-- Captured Tursin Guard lvl 20 -->
+	<spawn map="300200000" npcid="216913" pool="3" interval="295">
+		<object x="262.2514" y="310.86182" z="142.7657" h="73"/>
+		<object x="261.39728" y="305.36905" z="142.7657" h="60"/>
+		<object x="186.95023" y="332.89932" z="142.76572" h="113"/>
+	</spawn>
+	<!-- Well-Dried Ginseng -->
+	<spawn map="300200000" npcid="700954" pool="5" interval="295">
+		<object staticid="102" x="321.27255" y="255.16779" z="90.0806" h="0"/>
+		<object staticid="101" x="322.3952" y="255.48079" z="90.08059" h="0"/>
+		<object staticid="99" x="327.22464" y="243.46242" z="90.50515" h="0"/>
+		<object staticid="100" x="321.5738" y="250.83633" z="92.075714" h="0"/>
+		<object staticid="103" x="324.92764" y="261.0701" z="90.0806" h="0"/>
+	</spawn>
+	<!-- Huge Cauldron -->
+	<spawn map="300200000" npcid="730359" pool="1" interval="295">
+		<object staticid="169" x="293.99933" y="295.61148" z="90.612755" h="0"/>
+	</spawn>
+	<!-- Rooty lvl 20 -->
+	<spawn map="300200000" npcid="210595" pool="16" interval="295">
+		<object x="350.8014" y="332.09012" z="86.18029" h="45"/>
+		<object x="347.32715" y="333.4174" z="86.87616" h="64"/>
+		<object x="383.1951" y="317.04874" z="87.03352" h="60"/>
+		<object x="381.67773" y="317.04874" z="86.76917" h="60"/>
+		<object x="353.35065" y="330.29803" z="85.32459" h="88"/>
+		<object x="353.20428" y="350.55124" z="86.9487" h="75"/>
+		<object x="374.514" y="325.47986" z="85.06464" h="11"/>
+		<object x="353.50452" y="331.3019" z="85.411606" h="49"/>
+		<object x="357.81143" y="357.97372" z="88.5965" h="27"/>
+		<object x="381.25964" y="332.4764" z="85.49453" h="112"/>
+		<object x="354.8429" y="362.40262" z="89.73626" h="55"/>
+		<object x="352.89694" y="361.38635" z="89.4066" h="100"/>
+		<object x="354.5958" y="360.12662" z="89.039566" h="111"/>
+		<object x="351.01578" y="323.10526" z="85.05954" h="18"/>
+		<object x="379.7791" y="327.99875" z="85.23634" h="94"/>
+		<object x="362.50662" y="358.6541" z="89.35307" h="9"/>
+	</spawn>
+	<!-- Odella -->
+	<spawn map="300200000" npcid="700834" pool="5" interval="295">
+		<object staticid="17" x="333.81726" y="345.0841" z="86.94986" h="0"/>
+		<object staticid="115" x="339.15698" y="323.21854" z="88.00864" h="0"/>
+		<object staticid="54" x="373.48" y="330.55" z="85.461624" h="0"/>
+		<object staticid="50" x="350.9222" y="366.0133" z="90.18385" h="0"/>
+		<object staticid="53" x="365.3721" y="357.36517" z="89.42108" h="0"/>
+	</spawn>
+	<!-- Brainwashed Fighter lvl 20 -->
+	<spawn map="300200000" npcid="282041" pool="1" interval="295">
+		<object x="218.62914" y="285.05505" z="144.38626" h="0"/>
+	</spawn>
+	<!-- Brainwashed MuMu Fighter lvl 20 -->
+	<spawn map="300200000" npcid="282042" pool="1" interval="295">
+		<object x="224.86414" y="291.70203" z="142.25146" h="0"/>
+	</spawn>
+	<!-- Antique Treasure Chest -->
+	<spawn map="300200000" npcid="700830" pool="1" interval="295">
+		<object x="224.1367" y="268.60825" z="144.89798" h="90"/>
+	</spawn>
+	<!-- Opened Dimensional Gate -->
+	<spawn map="300200000" npcid="700852" pool="1" interval="295">
+		<object x="224.59842" y="331.14313" z="141.89247" h="90"/>
+	</spawn>
+	<!-- Dukaki Watchman lvl 18 -->
+	<spawn map="300200000" npcid="216901" pool="7" interval="295">
+		<object x="144.26332" y="63.99808" z="143.92642" h="61"/>
+		<object x="158.64394" y="108.136475" z="144.30722" h="59"/>
+		<object x="163.43355" y="63.50949" z="144.31009" h="0"/>
+		<object x="149.53761" y="104.73786" z="143.79619" h="67"/>
+		<object x="223.99826" y="172.26294" z="137.1512" h="21"/>
+		<object x="228.30214" y="157.63443" z="137.05888" h="80"/>
+		<object x="211.36504" y="148.7448" z="137.67265" h="83"/>
+	</spawn>
+	<!-- Dukaki Watcher lvl 13 -->
+	<spawn map="300200000" npcid="216902" pool="9" interval="295">
+		<object x="133.41367" y="81.80443" z="143.79619" h="118"/>
+		<object x="154.92633" y="88.677795" z="143.79619" h="90"/>
+		<object x="228.80319" y="192.60359" z="87.695496" h="60"/>
+		<object x="233.1178" y="232.57216" z="87.706406" h="51"/>
+		<object x="143.63219" y="83.74315" z="143.79619" h="62"/>
+		<object x="129.02248" y="71.78095" z="144.30861" h="0"/>
+		<object x="151.61049" y="144.94556" z="144.24586" h="103"/>
+		<object x="215.15865" y="226.96152" z="87.2401" h="60"/>
+		<object x="242.78427" y="206.2242" z="87.70819" h="0"/>
+	</spawn>
+	<!-- Dukaki Peon lvl 13 -->
+	<spawn map="300200000" npcid="216898" pool="7" interval="295">
+		<object x="129.71005" y="103.946884" z="144.31111" h="56"/>
+		<object x="232.5319" y="191.24785" z="87.68082" h="108"/>
+		<object x="223.75517" y="186.77812" z="87.656075" h="90"/>
+		<object x="183.75111" y="58.103912" z="151.0063" h="15"/>
+		<object x="175.21669" y="63.643543" z="144.30762" h="100"/>
+		<object x="183.6846" y="96.13226" z="150.77191" h="15"/>
+		<object x="175.23257" y="101.92999" z="144.31268" h="100"/>
+	</spawn>
+	<!-- Dukaki Digger lvl 18 -->
+	<spawn map="300200000" npcid="216904" pool="5" interval="295">
+		<object x="128.14998" y="54.750526" z="145.66055" h="81"/>
+		<object x="177.0777" y="107.96956" z="144.31181" h="16"/>
+		<object x="97.81935" y="109.46104" z="139.05103" h="0"/>
+		<object x="70.90491" y="99.98005" z="138.12851" h="40"/>
+		<object x="81.21968" y="124.55032" z="139.81111" h="60"/>
+	</spawn>
+	<!-- Dukaki Weakarm lvl 18 -->
+	<spawn map="300200000" npcid="216903" pool="5" interval="295">
+		<object x="127.31907" y="58.22841" z="145.66055" h="80"/>
+		<object x="88.862434" y="78.13672" z="142.72404" h="100"/>
+		<object x="100.3715" y="102.10177" z="139.29947" h="10"/>
+		<object x="73.997" y="102.1045" z="138.38391" h="43"/>
+		<object x="86.14103" y="124.87682" z="140.00807" h="23"/>
+	</spawn>
+	<!-- Dukaki Lifter lvl 18 -->
+	<spawn map="300200000" npcid="216905" pool="1" interval="295">
+		<object x="225.4982" y="217.75897" z="139.81958" h="60"/>
+	</spawn>
+	<!-- Drudgelord Kakiti lvl 18 -->
+	<spawn map="300200000" npcid="216897" pool="1" interval="295">
+		<object x="181.13884" y="81.23971" z="145.42949" h="60"/>
+	</spawn>
+	<!-- Dukaki Seeker lvl 18 -->
+	<spawn map="300200000" npcid="216899" pool="4" interval="295">
+		<object x="251.10152" y="202.8843" z="108.64039" h="53"/>
+		<object x="129.47757" y="96.99623" z="144.31143" h="110"/>
+		<object x="170.26595" y="150.0237" z="142.59984" h="61"/>
+		<object x="191.23178" y="146.11931" z="140.05072" h="0"/>
+	</spawn>
+	<!-- MuMu Lookout lvl 15 -->
+	<spawn map="300200000" npcid="216910" pool="15" interval="295">
+		<object x="294.91052" y="272.03616" z="89.868065" h="40"/>
+		<object x="319.71716" y="400.0178" z="88.62737" h="70"/>
+		<object x="283.34106" y="418.6278" z="90.53126" h="70"/>
+		<object x="269.55115" y="418.96765" z="90.53126" h="40"/>
+		<object x="311.8314" y="394.91428" z="87.78197" h="40"/>
+		<object x="250.6151" y="397.71863" z="88.269135" h="40"/>
+		<object x="244.66443" y="406.53943" z="88.24544" h="40"/>
+		<object x="294.89835" y="279.9468" z="89.87525" h="40"/>
+		<object x="196.96529" y="229.24149" z="87.637146" h="119"/>
+		<object x="214.25856" y="213.45749" z="89.27873" h="60"/>
+		<object x="308.19147" y="260.535" z="89.02671" h="91"/>
+		<object x="333.2391" y="258.13016" z="90.08059" h="65"/>
+		<object x="343.47754" y="283.6868" z="90.0806" h="69"/>
+		<object x="308.63562" y="283.63" z="89.026726" h="90"/>
+		<object x="332.97482" y="271.7307" z="90.0806" h="53"/>
+	</spawn>
+	<!-- MuMu Fighter lvl 19 -->
+	<spawn map="300200000" npcid="216909" pool="16" interval="295">
+		<object x="209.63914" y="219.47212" z="87.24301" h="59"/>
+		<object x="327.72498" y="279.0415" z="90.0806" h="69"/>
+		<object x="277.77988" y="408.06406" z="91.44672" h="40"/>
+		<object x="304.30634" y="409.39178" z="86.480576" h="70"/>
+		<object x="342.47067" y="292.31628" z="90.0806" h="69"/>
+		<object x="209.50645" y="207.07437" z="87.24301" h="60"/>
+		<object x="242.94283" y="221.7584" z="87.70793" h="0"/>
+		<object x="293.46826" y="258.48572" z="90.0806" h="10"/>
+		<object x="308.8552" y="258.70956" z="89.0267" h="90"/>
+		<object x="317.97803" y="244.08228" z="89.02671" h="30"/>
+		<object x="333.24948" y="287.6064" z="90.080635" h="90"/>
+		<object x="314.64456" y="300.66675" z="89.026726" h="90"/>
+		<object x="305.16162" y="244.25201" z="89.0267" h="91"/>
+		<object x="312.82065" y="275.49487" z="89.02671" h="83"/>
+		<object x="334.04202" y="262.1539" z="90.0806" h="83"/>
+		<object x="328.41953" y="251.74449" z="90.08059" h="30"/>
+	</spawn>
+	<!-- MuMu Carrier lvl 18 -->
+	<spawn map="300200000" npcid="216906" pool="2" interval="295">
+		<object x="232.52328" y="214.78659" z="89.27873" h="57"/>
+		<object x="225.24556" y="209.26303" z="139.8196" h="60"/>
+	</spawn>
+	<!-- MuMu Farmer lvl 19 -->
+	<spawn map="300200000" npcid="216911" pool="23" interval="295">
+		<object x="317.5572" y="266.5119" z="89.02671" h="78"/>
+		<object x="315.19678" y="289.61603" z="89.09865" h="78"/>
+		<object x="352.33765" y="312.27805" z="86.11718" h="31"/>
+		<object x="379.3358" y="339.62015" z="86.49403" h="78"/>
+		<object x="344.26062" y="329.91302" z="87.31526" h="9"/>
+		<object x="359.32315" y="369.87613" z="92.08438" h="92"/>
+		<object x="373.83896" y="286.6333" z="88.89064" h="45"/>
+		<object x="331.65308" y="324.92575" z="88.38901" h="106"/>
+		<object x="340.94833" y="319.63458" z="87.49008" h="88"/>
+		<object x="327.23523" y="348.00278" z="88.04814" h="49"/>
+		<object x="343.93845" y="337.59702" z="86.642494" h="60"/>
+		<object x="383.8148" y="299.09" z="88.89715" h="52"/>
+		<object x="332.90344" y="335.86447" z="87.40401" h="73"/>
+		<object x="363.25906" y="360.25064" z="89.547" h="54"/>
+		<object x="376.4041" y="304.77292" z="87.0789" h="66"/>
+		<object x="385.07278" y="291.92444" z="89.65264" h="80"/>
+		<object x="348.216" y="362.04913" z="89.39771" h="54"/>
+		<object x="384.79648" y="288.4143" z="90.20036" h="20"/>
+		<object x="387.007" y="313.5533" z="88.53676" h="18"/>
+		<object x="388.92044" y="329.50262" z="86.61505" h="106"/>
+		<object x="343.02646" y="372.72128" z="89.69609" h="15"/>
+		<object x="383.27454" y="322.5943" z="86.46003" h="47"/>
+		<object x="335.56076" y="343.82706" z="86.8049" h="32"/>
+	</spawn>
+	<!-- MuMu Ham the Grey lvl 19 -->
+	<spawn map="300200000" npcid="216907" pool="1" interval="295">
+		<object x="282.6817" y="275.605" z="90.101746" h="119"/>
+	</spawn>
+	<!-- MuMu Assistant lvl 19 -->
+	<spawn map="300200000" npcid="216908" pool="4" interval="295">
+		<object x="287.4391" y="289.38132" z="90.0806" h="25"/>
+		<object x="298.44098" y="300.775" z="90.0806" h="60"/>
+		<object x="285.50555" y="291.90527" z="90.0806" h="106"/>
+		<object x="294.91022" y="303.0258" z="90.0806" h="106"/>
+	</spawn>
+	<!-- Dukaki Watcher lvl 18 -->
+	<spawn map="300200000" npcid="216923" pool="2" interval="295">
+		<object x="332.2201" y="384.97714" z="90.05502" h="50"/>
+		<object x="323.01675" y="384.71722" z="89.5" h="30"/>
+	</spawn>
+	<!-- Dukaki Lifesaver lvl 18 -->
+	<spawn map="300200000" npcid="216924" pool="5" interval="295">
+		<object x="216.79555" y="359.34976" z="139.23946" h="30"/>
+		<object x="243.94342" y="369.25082" z="137.6986" h="30"/>
+		<object x="233.43576" y="403.12338" z="142.95258" h="30"/>
+	 	<object x="258.10117" y="415.7404" z="90.21123" h="30"/>
+		<object x="330.64304" y="300.54187" z="90.0806" h="30"/>
+	</spawn>
+	<!-- Hamerun the Bleeder lvl 20 -->
+	<spawn map="300200000" npcid="216922" pool="1" interval="295">
+		<object x="224.12662" y="275.12314" z="144.77586" h="30"/>
+	</spawn>
+	<!-- Brainwashed Dukaki Weakarm lvl 20 -->
+	<spawn map="300200000" npcid="216920" pool="9" interval="295">
+		<object x="218.65271" y="261.2785" z="144.89798" h="29"/>
+		<object x="230.0698" y="309.39603" z="141.89223" h="90"/>
+		<object x="224.37117" y="309.4206" z="141.89223" h="90"/>
+		<object x="217.88354" y="309.3204" z="141.89223" h="90"/>
+		<object x="229.9757" y="261.47235" z="144.89798" h="32"/>
+		<object x="216.86674" y="318.5273" z="141.89233" h="100"/>
+		<object x="220.56204" y="314.49188" z="141.89229" h="93"/>
+		<object x="233.46178" y="312.9152" z="141.89226" h="80"/>
+		<object x="220.81384" y="323.291" z="141.8924" h="93"/>
+	</spawn>
+	<!-- Brainwashed Dukaki Peon lvl 20 -->
+	<spawn map="300200000" npcid="216921" pool="6" interval="295">
+		<object x="252.09055" y="281.98804" z="144.78702" h="32"/>
+		<object x="200.66852" y="277.2894" z="144.78616" h="29"/>
+		<object x="223.63231" y="318.6218" z="141.89233" h="90"/>
+		<object x="227.0348" y="314.6074" z="141.89229" h="86"/>
+		<object x="214.35263" y="322.1177" z="141.89236" h="100"/>
+		<object x="232.06183" y="322.1169" z="141.89236" h="80"/>
+	</spawn>
+</spawns>

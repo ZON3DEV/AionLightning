@@ -1,0 +1,233 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao
+END
+DropListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/DropListDAO.java
+END
+ItemStoneListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/ItemStoneListDAO.java
+END
+FriendListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/FriendListDAO.java
+END
+IDFactoryAwareDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/IDFactoryAwareDAO.java
+END
+PlayerRecipesDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PlayerRecipesDAO.java
+END
+PurchaseLimitDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PurchaseLimitDAO.java
+END
+AnnouncementsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/AnnouncementsDAO.java
+END
+MailDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/MailDAO.java
+END
+PlayerWorldBanDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PlayerWorldBanDAO.java
+END
+BlockListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/BlockListDAO.java
+END
+IdViewDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/IdViewDAO.java
+END
+PlayerPetsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PlayerPetsDAO.java
+END
+PlayerInstanceCDDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PlayerInstanceCDDAO.java
+END
+PlayerPunishmentsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PlayerPunishmentsDAO.java
+END
+PlayerPasskeyDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PlayerPasskeyDAO.java
+END
+SurveyDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/SurveyDAO.java
+END
+GuildDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/GuildDAO.java
+END
+LegionMemberDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/LegionMemberDAO.java
+END
+PlayerQuestListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PlayerQuestListDAO.java
+END
+PlayerLifeStatsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PlayerLifeStatsDAO.java
+END
+PlayerMacrossesDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PlayerMacrossesDAO.java
+END
+PlayerAppearanceDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PlayerAppearanceDAO.java
+END
+PlayerSettingsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PlayerSettingsDAO.java
+END
+LegionDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/LegionDAO.java
+END
+PlayerEmotionListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PlayerEmotionListDAO.java
+END
+BrokerDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/BrokerDAO.java
+END
+ItemCooldownsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/ItemCooldownsDAO.java
+END
+NpcShoutsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/NpcShoutsDAO.java
+END
+PlayerSkillListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PlayerSkillListDAO.java
+END
+SpawnDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/SpawnDAO.java
+END
+GameTimeDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/GameTimeDAO.java
+END
+PlayerTitleListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PlayerTitleListDAO.java
+END
+PetitionDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PetitionDAO.java
+END
+PlayerEffectsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PlayerEffectsDAO.java
+END
+SiegeDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/SiegeDAO.java
+END
+PlayerDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/PlayerDAO.java
+END
+AbyssRankDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/AbyssRankDAO.java
+END
+InventoryDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dao/InventoryDAO.java
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/task
+END
+GatheringTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/task/GatheringTask.java
+END
+CraftingTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/task/CraftingTask.java
+END
+AbstractCraftTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/task/AbstractCraftTask.java
+END
+AbstractInteractionTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/task/AbstractInteractionTask.java
+END

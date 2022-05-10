@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/controllers/movement
+END
+AttackStatusObserver.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/controllers/movement/AttackStatusObserver.java
+END
+StartMovingListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/controllers/movement/StartMovingListener.java
+END
+ActionObserver.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/controllers/movement/ActionObserver.java
+END
+AttackShieldObserver.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/controllers/movement/AttackShieldObserver.java
+END
+MovementType.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/controllers/movement/MovementType.java
+END
+AttackCalcObserver.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/controllers/movement/AttackCalcObserver.java
+END
+FlyRingObserver.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/controllers/movement/FlyRingObserver.java
+END

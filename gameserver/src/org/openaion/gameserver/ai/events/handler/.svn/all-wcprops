@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/events/handler
+END
+MostHatedChangedEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/events/handler/MostHatedChangedEventHandler.java
+END
+DiedEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/events/handler/DiedEventHandler.java
+END
+RespawnedEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/events/handler/RespawnedEventHandler.java
+END
+SeePlayerEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/events/handler/SeePlayerEventHandler.java
+END
+BackHomeEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/events/handler/BackHomeEventHandler.java
+END
+NotSeePlayerEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/events/handler/NotSeePlayerEventHandler.java
+END
+TalkEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/events/handler/TalkEventHandler.java
+END
+NothingTodoEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/events/handler/NothingTodoEventHandler.java
+END
+TiredAttackingEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/events/handler/TiredAttackingEventHandler.java
+END
+RestoredHealthEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/events/handler/RestoredHealthEventHandler.java
+END
+EventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/events/handler/EventHandler.java
+END
+AttackedEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/events/handler/AttackedEventHandler.java
+END
+DespawnEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/events/handler/DespawnEventHandler.java
+END

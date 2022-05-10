@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/rates
+END
+PremiumRates.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/rates/PremiumRates.java
+END
+Rates.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/rates/Rates.java
+END
+RegularRates.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/rates/RegularRates.java
+END

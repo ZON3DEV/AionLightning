@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Aetherogenetics Lab
+
+ -->
+<spawns>
+	<!-- Lepharist Secret Safe (Object Normal lvl:1) -->
+	<spawn map="310050000" npcid="700279" pool="1" interval="295">
+		<object staticid="64" x="255.30194" y="310.36423" z="128.24968" h="28"/>
+	</spawn>
+	<!-- Lepharist Research Facility (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="310050000" npcid="700219" pool="10" interval="295">
+		<object staticid="173" x="236.52" y="303.01" z="129.35" h="20"/>
+		<object staticid="174" x="225.72" y="303.19" z="129.35" h="120"/>
+		<object staticid="176" x="236.52" y="342.82" z="129.35" h="46"/>
+		<object staticid="179" x="177.56" y="245.98" z="136.99" h="106"/>
+		<object staticid="181" x="177.56" y="224.56" z="136.99" h="20"/>
+		<object staticid="178" x="215.51" y="343" z="129.35" h="4"/>
+		<object staticid="182" x="177.56" y="213.31" z="137.04" h="58"/>
+		<object staticid="180" x="177.56" y="235.86" z="136.99" h="98"/>
+		<object staticid="177" x="225.72" y="343" z="129.35" h="111"/>
+		<object staticid="175" x="215.51" y="303.19" z="129.35" h="46"/>
+	</spawn>
+	<!-- Old Book (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="310050000" npcid="730195" pool="2" interval="295">
+		<object staticid="190" x="331.33105" y="265.5989" z="144.013" h="50"/>
+		<object staticid="191" x="348.80023" y="279.79837" z="144.82722" h="101"/>
+	</spawn>
+	<!-- Red Journal (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="310050000" npcid="730148" pool="2" interval="295">
+		<object staticid="206" x="327.3615" y="267.95163" z="143.0199" h="92"/>
+		<object staticid="61" x="328.20352" y="275.62253" z="142.92867" h="11"/>
+	</spawn>
+	<!-- Research Center Cabinet (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="310050000" npcid="700362" pool="6" interval="295">
+		<object staticid="187" x="250.0754" y="205.78523" z="132.83665" h="110"/>
+		<object staticid="184" x="244.78468" y="347.20062" z="124.97072" h="55"/>
+		<object staticid="185" x="175.47067" y="206.04492" z="132.59932" h="30"/>
+		<object staticid="186" x="250.11287" y="253.6061" z="132.83665" h="73"/>
+		<object staticid="189" x="327.49274" y="284.26334" z="142.00102" h="91"/>
+		<object staticid="188" x="368.32376" y="186.23009" z="141.87175" h="104"/>
+	</spawn>
+	<!-- Research Center Exit (Object Normal lvl:3) (from client spawn)-->
+	<spawn map="310050000" npcid="730035" pool="1" interval="295">
+		<object staticid="183" x="385.33084" y="230.23882" z="158.76749" h="111"/>
+	</spawn>
+</spawns>

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/url
+END
+VirtualClassURLStreamHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/url/VirtualClassURLStreamHandler.java
+END
+VirtualClassURLConnection.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/url/VirtualClassURLConnection.java
+END

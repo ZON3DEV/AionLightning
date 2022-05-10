@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/modifiers
+END
+RateModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/modifiers/RateModifier.java
+END
+StatModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/modifiers/StatModifier.java
+END
+SetModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/modifiers/SetModifier.java
+END
+Executor.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/modifiers/Executor.java
+END
+MeanModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/modifiers/MeanModifier.java
+END
+ShieldKnownList.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/modifiers/ShieldKnownList.java
+END
+UncheckedAdd.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/modifiers/UncheckedAdd.java
+END
+FlyRingKnownList.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/modifiers/FlyRingKnownList.java
+END
+AddModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/modifiers/AddModifier.java
+END
+SubModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/modifiers/SubModifier.java
+END
+SimpleModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/modifiers/SimpleModifier.java
+END
+ObjectContainer.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/modifiers/ObjectContainer.java
+END

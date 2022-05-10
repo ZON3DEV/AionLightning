@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system
+END
+handlers.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers.xml
+END
+quest_handlers.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/quest_handlers.xml
+END
+database.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database.xml
+END
+languages.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/languages.xml
+END

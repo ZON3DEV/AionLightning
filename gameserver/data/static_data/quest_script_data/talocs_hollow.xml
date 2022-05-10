@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 11463: TODO: Trapped Within (lvl 99) -->
+	<!-- The Wounds of Change -->
+	<item_collecting id="11464" start_npc_id="799503" action_item_id="700634"/>
+	<!-- 11465: TODO: [Coin] Mysterious Seed (lvl 51) -->
+	<!-- 11466: A Hard Seed to Crack (lvl 51) handled by script -->
+	<!-- 11467: TODO: [Coin] Death to the Queen (lvl 51) -->
+	<!-- 11468: TODO: With Friends Like These (lvl 51) -->
+	<!-- The Lost Tome -->
+	<item_collecting id="21461" start_npc_id="799256" action_item_id="700636"/>
+	<!-- 21463: TODO: Handprints and Silk (lvl 99) -->
+	<!-- Soiled Soil -->
+	<item_collecting id="21464" start_npc_id="799503" action_item_id="700634"/>
+	<!-- 21465: TODO: [Coin] Mysterious Seed (lvl 51) -->
+	<!-- 21467: TODO: [Coin] Spawning the Sap Suckers (lvl 51) -->
+	<!-- 21468: TODO: The Struggle Within (lvl 51) -->
+</quest_scripts>

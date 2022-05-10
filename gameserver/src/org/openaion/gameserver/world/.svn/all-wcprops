@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/world
+END
+WorldMapType.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/world/WorldMapType.java
+END
+StaticObjectKnownList.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/world/StaticObjectKnownList.java
+END
+World.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/world/World.java
+END
+KnownList.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/world/KnownList.java
+END
+NpcKnownList.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/world/NpcKnownList.java
+END
+WorldType.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/world/WorldType.java
+END
+WorldMapInstance.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/world/WorldMapInstance.java
+END
+WorldPosition.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/world/WorldPosition.java
+END
+MapRegion.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/world/MapRegion.java
+END
+WorldMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/world/WorldMap.java
+END

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of Zetta Core
+
+	Zetta Core is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	Zetta Core is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with Zetta Core  If not, see <http://www.gnu.org/licenses/>.
+	
+	Kromede's Trial From client spawn
+	@author Nephis/Tomates
+ -->
+<spawns>
+	<!-- Forbidden Book Repository Door -->
+	<spawn map="300230000" interval="295" npcid="700927" pool="1">
+		<object staticid="66" x="576.5803" y="800.75336" h="0" z="225.77339"/>
+	</spawn>
+	<!-- Porgus Barbecue -->
+	<spawn map="300230000" interval="295" npcid="730338" pool="1">
+		<object staticid="69" x="503.46967" y="769.13153" h="0" z="216.6719"/>
+	</spawn>
+	<!-- Secret Safe Door -->
+	<spawn map="300230000" interval="295" npcid="700924" pool="1">
+		<object staticid="5" x="587.6711" y="774.232" h="0" z="215.59996"/>
+	</spawn>
+	<!-- Maga's Potion -->
+	<spawn map="300230000" interval="295" npcid="730341" pool="1">
+		<object staticid="553" x="542.481" y="641.8549" h="0" z="217.48947"/>
+	</spawn>
+	<!-- Bedroom Door -->
+	<spawn map="300230000" interval="295" npcid="700926" pool="1">
+		<object staticid="80" x="560.93195" y="614.9413" h="0" z="215.6"/>
+	</spawn>
+	<!-- Old Relic Chest -->
+	<spawn map="300230000" interval="295" npcid="730340" pool="1">
+		<object staticid="319" x="741.7551" y="530.59705" h="0" z="199.31775"/>
+	</spawn>
+	<!-- Prophet's Tower -->
+	<spawn map="300230000" interval="295" npcid="730339" pool="1">
+		<object staticid="15" x="591.2065" y="640.5705" h="0" z="208.67542"/>
+	</spawn>
+	<!-- Fruit Basket -->
+	<spawn map="300230000" interval="295" npcid="730337" pool="1">
+		<object staticid="70" x="522.8628" y="755.2494" h="0" z="216.63828"/>
+	</spawn>
+	<!-- Garden Fountain -->
+	<spawn map="300230000" interval="295" npcid="730336" pool="1">
+		<object staticid="14" x="512.25446" y="640.27" h="0" z="202.50072"/>
+	</spawn>
+	<!-- Kaliga's Mace Rack -->
+	<spawn map="300230000" interval="295" npcid="730331" pool="1">
+		<object staticid="202" x="653.2491" y="763.3508" h="0" z="216.10056"/>
+	</spawn>
+	<!-- Kaliga's Bow Rack -->
+	<spawn map="300230000" interval="295" npcid="730330" pool="1">
+		<object staticid="195" x="634.26746" y="785.09186" h="0" z="216.10056"/>
+	</spawn>
+	<!-- Kaliga's Polearm Rack -->
+	<spawn map="300230000" interval="295" npcid="730329" pool="1">
+		<object staticid="200" x="653.3656" y="784.7784" h="0" z="216.10056"/>
+	</spawn>
+	<!-- Kaliga's Dagger Rack -->
+	<spawn map="300230000" interval="295" npcid="730328" pool="1">
+		<object staticid="197" x="644.24994" y="784.97345" h="0" z="216.10056"/>
+	</spawn>
+	<!-- Emergency Exit -->
+	<spawn map="300230000" interval="295" npcid="700928" pool="1">
+		<object staticid="105" x="680.7784" y="774.01013" h="0" z="216.88036"/>
+	</spawn>
+	<!-- Kaliga's Sword Rack -->
+	<spawn map="300230000" interval="295" npcid="730326" pool="1">
+		<object staticid="206" x="644.2064" y="763.19867" h="0" z="216.10056"/>
+	</spawn>
+	<!-- Sleep Flower -->
+	<spawn map="300230000" interval="295" npcid="730325" pool="1">
+		<object staticid="79" x="492.22452" y="628.73303" h="0" z="201.67583"/>
+	</spawn>
+	<!-- Kaliga's Orb Rack -->
+	<spawn map="300230000" interval="295" npcid="730334" pool="1">
+		<object staticid="208" x="634.11365" y="763.34265" h="0" z="216.10056"/>
+	</spawn>
+	<!-- Kaliga's Spellbook Rack -->
+	<spawn map="300230000" interval="295" npcid="730333" pool="1">
+		<object staticid="193" x="623.59906" y="784.95026" h="0" z="216.10056"/>
+	</spawn>
+	<!-- Kaliga's Shield Rack -->
+	<spawn map="300230000" interval="295" npcid="730335" pool="1">
+		<object staticid="268" x="613.6698" y="763.2537" h="0" z="216.10056"/>
+	</spawn>
+	<!-- Kaliga's Staff Rack -->
+	<spawn map="300230000" interval="295" npcid="730332" pool="1">
+		<object staticid="260" x="623.64386" y="763.16016" h="0" z="216.10056"/>
+	</spawn>
+	<!-- Kaliga's Greatsword Rack -->
+	<spawn map="300230000" interval="295" npcid="730327" pool="1">
+		<object staticid="13" x="613.7907" y="784.4466" h="0" z="216.10056"/>
+	</spawn>
+	<!-- Torture Chamber Door
+	<spawn map="300230000" interval="295" npcid="700922" pool="1">
+		<object staticid="320" x="711.5991" y="629.3586" h="0" z="196.82828"/>
+	</spawn> -->
+	<!-- Sealed Stone Door -->
+	<spawn map="300230000" interval="295" npcid="700835" pool="1">
+		<object staticid="3" x="502.4092" y="345.9964" h="0" z="168.90407"/>
+	</spawn>
+	<!-- Grave Robber's Corpse -->
+	<spawn map="300230000" interval="295" npcid="700961" pool="1">
+		<object staticid="56" x="467.18765" y="351.88593" h="0" z="170.32787"/>
+	</spawn>
+	<!-- Maga's Potion -->
+	<spawn map="300230000" interval="295" npcid="730308" pool="1">
+		<object staticid="6" x="350.28397" y="169.9596" h="0" z="146.34906"/>
+	</spawn>
+	<!--IDCromede_Invisible_NPC5-->
+	<spawn map="300230000" interval="295" npcid="282087" pool="1">
+		<object x="654.749" y="561.479" h="0" z="205.219"/>
+	</spawn>
+	<!-- Altar of Healing -->
+	<spawn map="300230000" interval="295" npcid="282092" pool="2">
+		<object x="643.917" y="753.299" h="0" z="216.159"/>
+		<object x="643.935" y="795.351" h="0" z="216.159"/>
+	</spawn>
+	<!-- Altar of Healing -->
+	<spawn map="300230000" interval="295" npcid="282111" pool="2">
+		<object x="643.938" y="795.352" h="0" z="216.159"/>
+		<object x="643.92" y="753.3" h="0" z="216.159"/>
+	</spawn>
+	<spawn map="300230000" interval="105" npcid="730309" pool="1">
+		<object x="465.81" y="354.24" h="0" z="170.253"/>
+	</spawn>
+	<!-- Robstin
+	<spawn map="300230000" interval="105" npcid="700965" pool="1">
+		<object x="657.201" y="585.778" h="0" z="199.047"/>
+	</spawn> Corpse -->
+	<!-- Robstin's Corpse 
+	<spawn map="300230000" interval="105" npcid="700939" pool="1">
+		<object x="657.201" y="585.778" h="0" z="199.047"/>
+	</spawn> -->
+	<!-- <spawn map="300230000" interval="105" npcid="700964" pool="1">
+		<object x="237.685" y="249.017" h="0" z="189.872"/>
+	</spawn> -->
+	<spawn map="300230000" interval="105" npcid="700949" pool="1">
+		<object x="229.358" y="252.257" h="0" z="191.168"/>
+	</spawn>
+	<spawn map="300230000" interval="105" npcid="700947" pool="2">
+		<object x="752.761" y="620.355" h="0" z="197.545"/>
+		<object x="754.365" y="617.891" h="0" z="197.177"/>
+	</spawn>
+	<spawn interval="295" pool="2" npcid="700946" map="300230000">
+		<object x="757.089" y="621.965" h="0" z="197.545"/>
+		<object x="754.03699" y="622.71857" z="198.82368" h="53"/>
+	</spawn>
+</spawns>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/id
+END
+StoneStatEffectId.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/id/StoneStatEffectId.java
+END
+ItemSetStatEffectId.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/id/ItemSetStatEffectId.java
+END
+ItemStatEffectId.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/id/ItemStatEffectId.java
+END
+StatEffectId.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/id/StatEffectId.java
+END
+EnchantStatEffectId.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/id/EnchantStatEffectId.java
+END
+SkillEffectId.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/id/SkillEffectId.java
+END
+FusionStatEffectId.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/id/FusionStatEffectId.java
+END

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of Zetta Core
+
+	Zetta Core is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	Zetta Core is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with Zetta Core.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Haramel
+	@author Nephis From client/Retail spawn
+ -->
+<spawns>
+	<!-- Moorilerk -->
+	<spawn map="300200000" interval="105" npcid="799522" pool="1">
+		<object x="141.776" y="21.4674" h="0" z="144.245"/>
+	</spawn>
+	<!-- Moofrenerk -->
+	<spawn map="300200000" interval="105" npcid="799523" pool="1">
+		<object x="228.416" y="160.876" h="60" z="137.059"/>
+	</spawn>
+	<!-- Gestanerk -->
+	<spawn map="300200000" interval="105" npcid="799524" pool="1">
+		<object x="289.776" y="422.453" h="0" z="89.5563"/>
+	</spawn>
+	<spawn map="300200000" interval="105" npcid="730359" pool="1">
+		<object staticid="169" x="293.99933" y="295.61148" h="0" z="90.612755"/>
+	</spawn>
+	<spawn map="300200000" interval="105" npcid="730321" pool="1">
+		<object staticid="79" x="220.86827" y="213.2629" h="0" z="89.27873"/>
+	</spawn>
+	<spawn map="300200000" interval="105" npcid="730320" pool="1">
+		<object staticid="117" x="185.73808" y="20.143583" h="0" z="144.22354"/>
+	</spawn>
+	<spawn map="300200000" interval="105" npcid="700954" pool="5">
+		<object staticid="103" x="324.92764" y="261.0701" h="0" z="90.0806"/>
+		<object staticid="102" x="321.27255" y="255.16779" h="0" z="90.0806"/>
+		<object staticid="101" x="322.3952" y="255.48079" h="0" z="90.08059"/>
+		<object staticid="100" x="321.5738" y="250.83633" h="0" z="92.075714"/>
+		<object staticid="99" x="327.22464" y="243.46242" h="0" z="90.50515"/>
+	</spawn>
+	<spawn map="300200000" interval="105" npcid="700953" pool="2">
+		<object staticid="285" x="294.0466" y="250.02629" h="0" z="90.16434"/>
+		<object staticid="282" x="314.06708" y="263.25995" h="0" z="89.0267"/>
+		<object staticid="283" x="314.04013" y="288.41785" h="0" z="89.02671"/>
+	</spawn>
+	<spawn map="300200000" interval="105" npcid="700951" pool="4">
+		<object staticid="245" x="82.96007" y="88.39939" h="0" z="141.74515"/>
+		<object staticid="137" x="87.21916" y="99.91895" h="0" z="138.9265"/>
+		<object staticid="177" x="90.25546" y="112.17432" h="0" z="139.19691"/>
+		<object staticid="171" x="95.8721" y="76.12012" h="0" z="143.51506"/>
+	</spawn>
+	<spawn map="300200000" interval="105" npcid="700950" pool="5">
+		<object staticid="31" x="85.36179" y="83.48121" h="0" z="142.2712"/>
+		<object staticid="171" x="95.8721" y="76.12012" h="0" z="143.51506"/>
+		<object staticid="246" x="116.28328" y="83.00923" h="0" z="144.1981"/>
+		<object staticid="116" x="142.37457" y="80.15271" h="0" z="143.95615"/>
+		<object staticid="111" x="151.9353" y="88.88508" h="0" z="143.95615"/>
+	</spawn>
+	<spawn map="300200000" interval="105" npcid="700855" pool="4">
+		<object staticid="114" x="189.48225" y="307.1805" h="0" z="142.76569"/>
+		<object staticid="119" x="189.40248" y="332.4342" h="0" z="142.76572"/>
+		<object staticid="55" x="258.9646" y="332.23337" h="0" z="142.7657"/>
+		<object staticid="52" x="259.07254" y="307.2838" h="0" z="142.7657"/>
+	</spawn>
+	<!-- Severely Rusted Box -->
+	<spawn map="300200000" interval="105" npcid="700853" pool="1">
+		<object x="231.031" y="223.091" h="0" z="139.82"/>
+	</spawn>
+	<spawn map="300200000" interval="105" npcid="700833" pool="5">
+		<object staticid="123" x="122.4959" y="60.791485" h="0" z="145.66055"/>
+		<object staticid="131" x="135.40692" y="60.92333" h="0" z="145.66055"/>
+		<object staticid="118" x="122.98326" y="111.51347" h="0" z="148.11096"/>
+		<object staticid="94" x="121.64658" y="100.53481" h="0" z="146.29655"/>
+		<object staticid="48" x="132.38634" y="112.43794" h="0" z="146.05334"/>
+	</spawn>
+	<spawn map="300200000" interval="105" npcid="700834" pool="4">
+		<object staticid="17" x="333.81726" y="345.0841" h="0" z="86.94986"/>
+		<object staticid="115" x="339.15698" y="323.21854" h="0" z="88.00864"/>
+		<object staticid="54" x="373.48" y="330.55" h="0" z="85.461624"/>
+		<object staticid="50" x="350.9222" y="366.0133" h="0" z="90.18385"/>
+		<object staticid="53" x="365.3721" y="357.36517" h="0" z="89.42108"/>
+	</spawn>
+</spawns>

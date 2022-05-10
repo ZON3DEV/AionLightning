@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<levelup_surveys>
+	<survey level="3" race="ELYOS">
+		<title>Adventurer's Guide</title>
+		<message><![CDATA[
+		<p>Greetings, child. You may not realize this yet, but you are
+		very important to me&hellip;and to all Elysea. So I will do my
+		best to help you as you travel these lands. Make your
+		way to Akarios Village. You will find a Bind Point there.
+		And take this with you&hellip;it is a gift of sorts for your
+		journey. May Ariel&apos;s light protect you&hellip;and illuminate your
+		past.</p>
+		]]>
+		</message>
+		<select>A disembodied voice?!</select>
+		<item id="162000002" count="10"/>
+	</survey>
+	<survey level="3" race="ASMODIANS">
+		<title>Adventurer's Guide</title>
+		<message><![CDATA[
+		<p>Greetings, child. You may not realize this yet, but you are
+		very important to me&hellip;and to all Elysea. So I will do my
+		best to help you as you travel these lands. Make your
+		way to Aldelle Village. You will find a Bind Point there.
+		And take this with you&hellip;it is a gift of sorts for your
+		journey. May Ariel&apos;s light protect you&hellip;and illuminate your
+		past.</p>
+		]]>
+		</message>
+		<select>A disembodied voice?!</select>
+		<item id="162000002" count="10"/>
+	</survey>
+	<survey level="5" race="ELYOS">
+		<title>Adventurer's Guide</title>
+		<message><![CDATA[
+		<p>Young one, you can link yourself to a new Bind Point at
+		Melponeh&apos;s Campsite&hellip;not too far from here. It is a
+		perilous journey there, so take this with you. It will help
+		you along your journey.</p>
+		<p/>
+		<p>Be well, child.</p>
+		]]>
+		</message>
+		<select>Thank you for your guidance.</select>
+		<item id="160001003" count="20"/>
+	</survey>
+	<survey level="5" race="ASMODIANS">
+		<title>Adventurer's Guide</title>
+		<message><![CDATA[
+		<p>Young one, you can link yourself to a new Bind Point at
+		Anturoon&apos;s Crossing&hellip;not too far from here. It is a
+		perilous journey there, so take this with you. It will help
+		you along your journey.</p>
+		<p/>
+		<p>Be well, child.</p>
+		]]>
+		</message>
+		<select>Thank you for your guidance.</select>
+		<item id="160002003" count="20"/>
+	</survey>
+	<survey level="8" race="ELYOS">
+		<title>Adventurer's Guide</title>
+		<message><![CDATA[
+		<p>Greetings, youngling. You have come a long way since
+		you first opened your eyes. I speak to you now because
+		I sense you will soon find your way to Kabarah Strip
+		Mine and the Agaric Spore Road&hellip;and one step closer to
+		your truth. Be wary as well as open, child, for you may
+		meet a familiar face on an unfamiliar road.</p>
+		<p/>
+		<p>Farewell for now.</p>
+		]]>
+		</message>
+		<select>I will be wary and open.</select>
+		<item id="162000012" count="20"/>
+	</survey>
+	<survey level="8" race="ASMODIANS">
+		<title>Adventurer's Guide</title>
+		<message><![CDATA[
+		<p>Greetings, youngling. You have come a long way since
+		you first opened your eyes. I speak to you now because
+		I sense you will soon find your way to Ishalgen Prison Camp
+		and the Odella Plantation&hellip;and one step closer to
+		your truth. Be wary as well as open, child, for you may
+		meet a familiar face on an unfamiliar road.</p>
+		<p/>
+		<p>Farewell for now.</p>
+		]]>
+		</message>
+		<select>I will be wary and open.</select>
+		<item id="162000012" count="20"/>
+	</survey>
+	<survey level="10" race="ELYOS">
+		<title>Adventurer's Guide</title>
+		<message><![CDATA[
+		<p>As you have no doubt guessed by now, I am Pernos. It
+		has been my priviledge to help you along the path to your
+		ultimate truth.</p>
+		<p/>
+		<p>I must commend you on your ascension to Daeva, child.
+		You have faced many more perilous quests than most
+		Elyos. But now it is time for you to learn the ancient art of
+		crafting in the Protector&apos;s Hall of Sanctum. Those skills
+		will serve you well in your journey.</p>
+		<p/>
+		<p>In honor of your ascension, I bestow upon you this gift.</p>
+		<p/>
+		<p>~Pernos</p>
+		]]>
+		</message>
+		<select>Thank you, wise one.</select>
+		<item id="161000004" count="10"/>
+	</survey>
+	<survey level="10" race="ASMODIANS">
+		<title>Adventurer's Guide</title>
+		<message><![CDATA[
+		<p>As you have no doubt guessed by now, I am Munin. It
+		has been my priviledge to help you along the path to your
+		ultimate truth.</p>
+		<p/>
+		<p>I must commend you on your ascension to Daeva, child.
+		You have faced many more perilous quests than most Asmodians.
+		But now it is time for you to learn the ancient art of crafting
+		in the Temple of Artisans of Pandaemonium. Those skills
+		will serve you well in your journey.</p>
+		<p/>
+		<p>In honor of your ascension, I bestow upon you this gift.</p>
+		<p/>
+		<p>~Munin</p>
+		]]>
+		</message>
+		<select>Thank you, wise one.</select>
+		<item id="161000004" count="10"/>
+	</survey>
+	<survey level="12" race="ELYOS">
+		<title>Adventurer's Guide</title>
+		<message><![CDATA[
+		<p>Arieluma, young one. I have come to tell you to venture
+		to Tolbas Village. Once there, you will find a Bind Point&hellip;I
+		advice that you link yourself to it so you may resurrect at
+		this destination. It is a long way back to Melponeh if you
+		choose not to. Take this with you as well. It may come in
+		handy.</p>
+		<p/>
+		<p>Go in her light, young Daeva.</p>
+		<p/>
+		<p>~Pernos</p>
+		]]>
+		</message>
+		<select>You have led me to the truth so far, Pernos.</select>
+		<item id="166000020" count="5"/>
+	</survey>
+	<survey level="12" race="ASMODIANS">
+		<title>Adventurer's Guide</title>
+		<message><![CDATA[
+		<p>Arieluma, young one. I have come to tell you to venture
+		to Basfelt Village. Once there, you will find a Bind Point&hellip;I
+		advice that you link yourself to it so you may resurrect at
+		this destination. It is a long way back to Anturoon if you
+		choose not to. Take this with you as well. It may come in
+		handy.</p>
+		<p/>
+		<p>Go in her light, young Daeva.</p>
+		<p/>
+		<p>~Munin</p>
+		]]>
+		</message>
+		<select>You have led me to the truth so far, Munin.</select>
+		<item id="166000020" count="5"/>
+	</survey>
+	<survey level="30" race="ELYOS">
+		<title>Adventurer's Guide</title>
+		<message><![CDATA[
+		<p>Greetings, child. The time has come to spread your wings even further
+		and explore Elysea. So I will do my best to help you as you travel these lands.
+		Take this with you&hellip;it is a gift of sorts for your
+		journey. May Ariel&apos;s light protect you&hellip;and illuminate your
+		past.</p>
+		<p/>
+		<p>~Jucleas</p>
+		]]>
+		</message>
+		<select>Thank you!</select>
+		<item id="187050000" count="1"/>
+	</survey>
+	<survey level="31" race="ELYOS">
+		<title>Adventurer's Guide</title>
+		<message><![CDATA[
+		<p>Greetings, child. The time has come to spread your wings even further
+		and explore Elysea. So I will do my best to help you as you travel these lands.
+		Take this with you&hellip;it is a gift of sorts for your
+		journey. May Ariel&apos;s light protect you&hellip;and illuminate your
+		past.</p>
+		<p/>
+		<p>~Jucleas</p>
+		]]>
+		</message>
+		<select>Thank you!</select>
+		<item id="162000026" count="30"/>
+	</survey>
+	<survey level="30" race="ASMODIANS">
+		<title>Adventurer's Guide</title>
+		<message><![CDATA[
+		<p>Greetings, child. The time has come to spread your wings even further
+		and explore Elysea. So I will do my best to help you as you travel these lands.
+		Take this with you&hellip;it is a gift of sorts for your
+		journey. May Ariel&apos;s light protect you&hellip;and illuminate your
+		past.</p>
+		<p/>
+		<p>~Vidar</p>
+		]]>
+		</message>
+		<select>Thank you!</select>
+		<item id="187050000" count="1"/>
+	</survey>
+	<survey level="31" race="ASMODIANS">
+		<title>Adventurer's Guide</title>
+		<message><![CDATA[
+		<p>Greetings, child. The time has come to spread your wings even further
+		and explore Elysea. So I will do my best to help you as you travel these lands.
+		Take this with you&hellip;it is a gift of sorts for your
+		journey. May Ariel&apos;s light protect you&hellip;and illuminate your
+		past.</p>
+		<p/>
+		<p>~Vidar</p>
+		]]>
+		</message>
+		<select>Thank you!</select>
+		<item id="162000026" count="30"/>
+	</survey>
+</levelup_surveys>

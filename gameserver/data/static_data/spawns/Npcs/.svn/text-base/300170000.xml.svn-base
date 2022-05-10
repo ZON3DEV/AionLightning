@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by Nephis (Nephis) -->
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Beshmundir Temple From client spawn
+	@author Nephis, Dex
+ -->
+<spawns>
+	<!-- Need retail value for this NPC -->
+	<spawn map="300170000" interval="105" npcid="216527" pool="1">
+		<object x="1163.8347" y="1211.5626" h="113" z="283.39932"/>
+	</spawn>
+	<!-- Warrior Monument -->
+	<spawn map="300170000" interval="295" npcid="216739" pool="15">
+		<object staticid="541" x="1052.4556" y="422.90079" z="224.77843" h="0"/>
+		<object staticid="579" x="1152.2943" y="523.56635" z="233.8779" h="0"/>
+		<object staticid="450" x="1061.9246" y="172.03473" z="235.43903" h="0"/>
+		<object staticid="582" x="1125.9268" y="477.42514" z="235.39658" h="0"/>
+		<object staticid="451" x="1034.1472" y="130.49316" z="233.87767" h="0"/>
+		<object staticid="574" x="1019.5921" y="472.71869" z="230.07857" h="0"/>
+		<object staticid="538" x="1151.4235" y="133.8862" z="226.06825" h="0"/>
+		<object staticid="537" x="1167.2343" y="84.522629" z="227.97726" h="0"/>
+		<object staticid="576" x="1035.2589" y="515.01288" z="226.10843" h="0"/>
+		<object staticid="578" x="1151.6198" y="570.65125" z="233.8779" h="0"/>
+		<object staticid="540" x="1134.7632" y="226.37187" z="224.73825" h="0"/>
+		<object staticid="577" x="1019.6027" y="562.80756" z="227.76865" h="0"/>
+		<object staticid="539" x="1164.6725" y="163.34079" z="230.03868" h="0"/>
+		<object staticid="583" x="1167.1302" y="424.17914" z="232.7392" h="0"/>
+		<object staticid="368" x="1022.1863" y="221.12654" z="232.71616" h="0"/>
+	</spawn>
+	<!-- Aetheric Field Generator -->
+	<spawn map="300170000" interval="105" npcid="700608" pool="1">
+		<object staticid="575" x="1357.9673" y="74.769142" h="0" z="248.37282"/>
+	</spawn>
+	<!-- Rift Orb  - Spawn by service script
+	<spawn map="300170000" interval="105" npcid="730275" pool="1">
+		<object staticid="426" x="1611.1663" y="1604.7267" h="0" z="311.04984"/>
+	</spawn>
+    -->
+	<!-- Altar of Soul Invocation -->
+	<spawn map="300170000" interval="105" npcid="730274" pool="1">
+		<object staticid="160" x="1355.9286" y="394.15988" h="0" z="249.006"/>
+	</spawn>
+	<!-- Power Wardstone -->
+	<spawn map="300170000" interval="105" npcid="700607" pool="1">
+		<object staticid="394" x="1384.1399" y="97.402473" h="0" z="246.48598"/>
+	</spawn>
+	<!-- Sorcery Wardstone -->
+	<spawn map="300170000" interval="105" npcid="700637" pool="1">
+		<object staticid="558" x="1329.4216" y="96.423637" h="0" z="246.47659"/>
+	</spawn>
+	<!-- Beshmundir Temple Exit -->
+	<spawn map="300170000" interval="105" npcid="730285" pool="1">
+		<object staticid="476" x="1476.9143" y="226.82101" h="0" z="252.21886"/>
+	</spawn>
+    <!-- Calike -->
+	<spawn map="300170000" interval="105" npcid="799521" pool="1">
+		<object x="1046.83" y="327.628" h="0" z="230.885"/>
+	</spawn>
+    <!-- Spawn by service script
+	<spawn map="300170000" interval="105" npcid="799520" pool="1">
+		<object x="817.974" y="276.9" h="0" z="220.194"/>
+	</spawn>
+	<spawn map="300170000" interval="105" npcid="799519" pool="1">
+		<object x="788.745" y="442.353" h="0" z="220.961"/>
+	</spawn>
+	<spawn map="300170000" interval="105" npcid="799518" pool="1">
+		<object x="933.983" y="444.269" h="0" z="220.863"/>
+	</spawn>
+    -->
+    <!-- Plegeton Boatman -->
+	<spawn map="300170000" interval="105" npcid="799517" pool="1">
+		<object x="1030.58" y="314.677" h="0" z="221.746"/>
+	</spawn>
+    <!-- Bhemah -->
+	<spawn map="300170000" interval="105" npcid="799505" pool="1">
+		<object x="1077.63" y="371.158" h="0" z="232.489"/>
+	</spawn>
+    <!-- Aeshma -->
+	<spawn map="300170000" interval="105" npcid="799504" pool="1">
+		<object x="1109.54" y="277.183" h="0" z="232.495"/>
+	</spawn>
+    <!-- Entrance of Blue Flame Incinerator -->
+	<spawn map="300170000" npcid="730290" pool="1" interval="295">
+		<object x="1449.07" y="1102.53" z="285.74" h="111"/>
+	</spawn>
+</spawns>

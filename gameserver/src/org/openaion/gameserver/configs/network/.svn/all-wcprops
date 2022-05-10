@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/network
+END
+FloodConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/network/FloodConfig.java
+END
+IPConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/network/IPConfig.java
+END
+NetworkConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/network/NetworkConfig.java
+END

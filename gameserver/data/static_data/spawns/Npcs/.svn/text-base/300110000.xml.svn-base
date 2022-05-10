@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Dredgion
+
+ -->
+<spawns>
+	<!-- Armory Maintenance Surkana (NPC Normal lvl:80) -->
+	<spawn map="300110000" npcid="700485" pool="1" interval="295">
+		<object staticid="21" x="418.58847" y="281.88992" z="409.7311" h="40"/>
+	</spawn>
+	<!-- Armory Maintenance Surkana (NPC Normal lvl:80) -->
+	<spawn map="300110000" npcid="700486" interval="295" pool="1">
+		<object x="553.40283" y="279.2841" z="409.7311" h="1" staticid="30" />
+	</spawn>
+	<!-- Bridge Power Surkana (Object Normal lvl:80) (from client spawn)-->
+	<spawn map="300110000" npcid="700497" pool="1" interval="295">
+		<object staticid="27" x="485.00003" y="881.68243" z="405.01794" h="48"/>
+	</spawn>
+	<!-- Nuclear Control Surkana (NPC Normal lvl:80) -->
+	<spawn map="300110000" npcid="700488" pool="1" interval="295">
+		<object x="332.803" y="398.906" z="411.619" h="16"/>
+	</spawn>
+	<!-- Nuclear Control Surkana (NPC Normal lvl:80) -->
+	<spawn map="300110000" npcid="700489" interval="295" pool="1">
+		<object x="639.962" y="393.339" z="411.367" h="45" staticid="28" />
+	</spawn>
+	<!-- Gravity Control Surkana (NPC Normal lvl:45) -->
+	<spawn map="300110000" npcid="700487" pool="1" interval="295">
+		<object x="485.157" y="313.241" z="403.723" h="29"/>
+	</spawn>
+	<!-- Fighter Enhancing Surkana (NPC Normal lvl:45) -->
+	<spawn map="300110000" npcid="700494" pool="2" interval="295">
+		<object x="561.039" y="488.025" z="393.645" h="55"/>
+		<object x="412.37" y="491.496" z="393.691" h="59"/>
+	</spawn>
+	<!-- Main Cannon Control Surkana (NPC Normal lvl:80) -->
+	<spawn map="300110000" npcid="700490" pool="1" interval="295">
+		<object x="385.343"	y="570.408"	z="408.765"	h="104"/>
+	</spawn>
+	<!-- Main Cannon Control Surkana (NPC Normal lvl:80) -->
+	<spawn map="300110000" npcid="700491" interval="295" pool="1">
+		<object x="583.764" y="571.125" z="408.727" h="78" staticid="31" />
+	</spawn>
+	<!-- Prisoner Holding Surkana (NPC Normal lvl:80) -->
+	<spawn map="300110000" npcid="700495" pool="1" interval="295">
+		<object x="392.169" y="711.223"	z="401.77"	h="88"/>
+	</spawn>
+	<!-- Prisoner Holding Surkana (NPC Normal lvl:80) -->
+	<spawn map="300110000" npcid="700496" interval="295" pool="1">
+		<object x="578.286" y="711.007" z="401.77" h="91" staticid="24" />
+	</spawn>
+	<!-- Drop Device Surkana (NPC Normal lvl:45) -->
+	<spawn map="300110000" npcid="700492" pool="1" interval="295">
+		<object x="485.35" y="597.444" z="390.944" h="89"/>
+	</spawn>
+	<!-- Captain's Cabin Power Surkana (Object Normal lvl:50) -->
+	<spawn map="300110000" npcid="700498" pool="1" interval="295">
+		<object x="485.3" y="893.8" z="425.028" h="89"/>
+	</spawn>	
+	<!-- Captured Archon (NPC Normal lvl:45) (from client spawn)-->
+	<spawn map="300110000" npcid="798328" pool="1" interval="295">
+		<object x="380.00824" y="697.2482" z="404.06964" h="59"/>
+	</spawn>
+	<!-- Captured Asmodian Scholar (NPC Normal lvl:45) (from client spawn)-->
+	<spawn map="300110000" npcid="798330" pool="1" interval="295">
+		<object x="591.78174" y="711.6214" z="403.9692" h="107"/>
+	</spawn>
+	<!-- Captured Elyos Scholar (NPC Normal lvl:45) (from client spawn)-->
+	<spawn map="300110000" npcid="798326" pool="1" interval="295">
+		<object x="589.89355" y="697.2634" z="403.9616" h="54"/>
+	</spawn>
+	<!-- Captured Guardian (NPC Normal lvl:45) (from client spawn)-->
+	<spawn map="300110000" npcid="798324" pool="1" interval="295">
+		<object x="378.52005" y="712.3478" z="404.10086" h="59"/>
+	</spawn>
+	<!-- Exhausted Shugo (NPC Normal lvl:45) (from client spawn)-->
+	<spawn map="300110000" npcid="730196" pool="2" interval="295">
+		<object x="388.76578" y="173.58968" z="432.5741" h="52"/>
+		<object x="583.13477" y="172.48105" z="432.59354" h="56"/>
+	</spawn>
+	<!-- No. 2 Nuclear Control Room Teleporter (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="300110000" npcid="730214" pool="2" interval="295">
+		<object staticid="9" x="571.88" y="160.62" z="432.2848" h="112"/>
+		<object staticid="65" x="567.5912" y="175.19655" z="432.2847" h="64"/>
+	</spawn>
+	<!-- No. 1 Nuclear Control Room Teleporter (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="300110000" npcid="730213" pool="2" interval="295">
+		<object staticid="64" x="402.3343" y="175.11707" z="432.28482" h="41"/>
+		<object staticid="10" x="398.4565" y="160.15234" z="432.28445" h="20"/>
+	</spawn>
+	<!-- Starboard Defense Shield (Object Normal lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="700502" pool="2" interval="295">
+		<object staticid="12" x="448.3915" y="493.6418" z="395.04062" h="108"/>
+		<object staticid="16" x="520.87555" y="493.40115" z="395.3418" h="28"/>
+	</spawn>
+	<!-- Starboard Defense Shield Generator (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="300110000" npcid="700508" pool="2" interval="295">
+		<object staticid="6" x="513" y="310.22" z="404.0853" h="58"/>
+		<object staticid="7" x="458.01" y="310.14" z="404.08" h="8"/>
+	</spawn>
+	<!-- Starboard Door of Captain's Cabin (Object Normal lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="700504" pool="2" interval="295">
+		<object staticid="1" x="512.8729" y="812.5232" z="416.6392" h="112"/>
+		<object staticid="5" x="456.71008" y="812.3168" z="416.72446" h="35"/>
+	</spawn>
+	<!-- Starboard Teleporter Generator (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="300110000" npcid="700506" pool="2" interval="295">
+		<object staticid="131" x="467.42523" y="586.23065" z="391.57822" h="78"/>
+		<object staticid="133" x="503.4529" y="586.89984" z="392.51694" h="37"/>
+	</spawn>
+</spawns>

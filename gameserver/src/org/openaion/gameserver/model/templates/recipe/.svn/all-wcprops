@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/recipe
+END
+ComboProduct.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/recipe/ComboProduct.java
+END
+Component.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/recipe/Component.java
+END
+RecipeTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/recipe/RecipeTemplate.java
+END

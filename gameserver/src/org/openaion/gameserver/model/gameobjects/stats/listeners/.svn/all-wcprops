@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/listeners
+END
+ItemEquipmentListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/listeners/ItemEquipmentListener.java
+END
+TitleChangeListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/listeners/TitleChangeListener.java
+END

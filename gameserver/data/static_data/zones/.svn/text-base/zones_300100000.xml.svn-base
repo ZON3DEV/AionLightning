@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zones.xsd">
+	<zone mapid="300100000" name="WARDEN_300100000" priority="13">
+		<points>
+			<point x="447.570007" y="554.320007" />
+			<point x="476.052216" y="554.281921" />
+			<point x="476.079895" y="581.533447" />
+			<point x="447.490814" y="581.678589" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="SAILOR_WAITING_ROOM_MIDDLE_LEVEL_300100000" priority="15">
+		<points>
+			<point x="308.279999" y="494.890015" />
+			<point x="324.021851" y="494.705780" />
+			<point x="324.021851" y="481.334869" />
+			<point x="360.710815" y="481.321045" />
+			<point x="361.761444" y="492.920990" />
+			<point x="368.333160" y="495.524109" />
+			<point x="367.742126" y="563.054138" />
+			<point x="341.243530" y="574.148071" />
+			<point x="336.087799" y="598.627563" />
+			<point x="284.875977" y="598.881470" />
+			<point x="284.740753" y="554.628418" />
+			<point x="308.641937" y="539.963440" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="GROGGET_300100000" priority="11">
+		<points>
+			<point x="770.022583" y="469.297455" />
+			<point x="768.911011" y="534.109741" />
+			<point x="692.933044" y="533.967712" />
+			<point x="693.285217" y="468.400940" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="LOWER_LEVEL_DECK_LOWER_LEVEL_300100000" priority="18">
+		<points>
+			<point x="212.814392" y="408.272980" />
+			<point x="783.669556" y="408.273010" />
+			<point x="783.669556" y="637.411316" />
+			<point x="213.127167" y="637.809143" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="BRIDGE_DECK_UPPER_LEVEL_300100000" priority="12">
+		<points>
+			<point x="354.519989" y="443.209991" />
+			<point x="491.916901" y="443.505096" />
+			<point x="492.081818" y="575.037842" />
+			<point x="354.861237" y="575.407104" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="LARGE_GUN_DECK_UPPER_LEVEL_300100000" priority="13">
+		<points>
+			<point x="723.119629" y="453.375458" />
+			<point x="793.091248" y="453.350861" />
+			<point x="793.049866" y="567.022644" />
+			<point x="723.116211" y="566.921936" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="TAVERN_AIR_VENT_MIDDLE_LEVEL_300100000" priority="14">
+		<points>
+			<point x="496.196594" y="551.982544" />
+			<point x="504.183533" y="552.042175" />
+			<point x="510.126312" y="558.897522" />
+			<point x="531.560913" y="556.948914" />
+			<point x="538.381042" y="553.246582" />
+			<point x="538.381042" y="534.345093" />
+			<point x="552.267700" y="528.627075" />
+			<point x="552.168213" y="560.038208" />
+			<point x="541.303955" y="570.004517" />
+			<point x="505.520172" y="569.942688" />
+			<point x="496.387878" y="565.410461" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="INSIDE_THE_PRISON_CELL_ON_STEEL_RAKE_300100000" priority="12">
+		<points>
+			<point x="398.611633" y="501.002960" />
+			<point x="418.667328" y="500.964874" />
+			<point x="418.547150" y="518.564941" />
+			<point x="398.532440" y="518.574036" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="PRISON_ZONE_LOWER_LEVEL_300100000" priority="14">
+		<points>
+			<point x="406.549988" y="459.869995" />
+			<point x="430.250946" y="459.581146" />
+			<point x="430.287842" y="427.366699" />
+			<point x="510.466858" y="426.868713" />
+			<point x="538.726685" y="436.359131" />
+			<point x="538.760315" y="449.683929" />
+			<point x="527.874878" y="456.572540" />
+			<point x="527.736694" y="563.078247" />
+			<point x="475.884827" y="572.748413" />
+			<point x="475.880493" y="554.982910" />
+			<point x="448.141785" y="554.842773" />
+			<point x="448.109802" y="572.020386" />
+			<point x="398.461243" y="563.276489" />
+			<point x="398.432098" y="480.994171" />
+			<point x="406.481293" y="480.994171" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="STARBOARD_DECK_MIDDLE_LEVEL_300100000" priority="13">
+		<points>
+			<point x="321.510010" y="435.839996" />
+			<point x="387.747467" y="412.228912" />
+			<point x="525.610657" y="437.023804" />
+			<point x="525.783264" y="462.738129" />
+			<point x="413.710388" y="448.890106" />
+			<point x="397.280670" y="458.135437" />
+			<point x="356.265686" y="458.126495" />
+			<point x="323.679443" y="464.658356" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="NAVIGATION_RESOURCE_ROOM_MIDDLE_LEVEL_300100000" priority="14">
+		<points>
+			<point x="347.470001" y="582.919983" />
+			<point x="362.800537" y="582.899719" />
+			<point x="369.962769" y="596.614502" />
+			<point x="362.421234" y="609.193848" />
+			<point x="345.741241" y="608.069397" />
+			<point x="340.063934" y="596.407959" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="CENTRAL_DECK_UPPER_LEVEL_300100000" priority="15">
+		<points>
+			<point x="348.369995" y="419.420013" />
+			<point x="656.153503" y="420.125916" />
+			<point x="656.850464" y="517.753723" />
+			<point x="698.780884" y="517.753723" />
+			<point x="698.753052" y="596.007263" />
+			<point x="348.213013" y="595.833557" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="DRANA_GENERATOR_CHAMBER_LOWER_LEVEL_300100000" priority="13">
+		<points>
+			<point x="657.309998" y="476.279999" />
+			<point x="712.481140" y="456.947845" />
+			<point x="727.879822" y="495.347351" />
+			<point x="727.512634" y="529.305115" />
+			<point x="707.389526" y="549.682251" />
+			<point x="678.160034" y="549.723206" />
+			<point x="657.397827" y="535.600830" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="THE_BRIG_LOWER_LEVEL_300100000" priority="13">
+		<points>
+			<point x="442.510010" y="487.079987" />
+			<point x="482.824158" y="488.038574" />
+			<point x="482.670898" y="523.498657" />
+			<point x="443.033478" y="523.314941" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="ANCHOR_HANGAR_UPPER_LEVEL_300100000" priority="13">
+		<points>
+			<point x="628.724060" y="449.540070" />
+			<point x="648.786926" y="444.111633" />
+			<point x="720.833374" y="444.170319" />
+			<point x="720.703430" y="472.550903" />
+			<point x="696.568115" y="472.481506" />
+			<point x="693.897888" y="463.290741" />
+			<point x="673.221924" y="457.349365" />
+			<point x="649.872437" y="455.813477" />
+			<point x="628.482971" y="459.652649" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="CARGO_ELEVATOR_LOWER_LEVEL_300100000" priority="13">
+		<points>
+			<point x="274.100006" y="441.720001" />
+			<point x="291.776245" y="441.618500" />
+			<point x="292.011780" y="456.669281" />
+			<point x="274.190582" y="456.440735" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="MENAGERIE_LOWER_LEVEL_300100000" priority="13">
+		<points>
+			<point x="411.081604" y="422.482697" />
+			<point x="411.002045" y="460.291962" />
+			<point x="406.926025" y="460.259155" />
+			<point x="406.953064" y="476.846008" />
+			<point x="399.183716" y="476.787262" />
+			<point x="399.176300" y="461.872101" />
+			<point x="354.935516" y="461.949402" />
+			<point x="354.958069" y="466.879303" />
+			<point x="334.097443" y="466.779114" />
+			<point x="334.247925" y="422.447174" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="GUN_REPAIR_DECK_UPPER_LEVEL_300100000" priority="13">
+		<points>
+			<point x="654.898071" y="517.100891" />
+			<point x="699.547546" y="516.960327" />
+			<point x="699.519714" y="532.679688" />
+			<point x="716.526794" y="532.727722" />
+			<point x="716.545776" y="554.203308" />
+			<point x="665.976990" y="566.131165" />
+			<point x="656.085938" y="551.871399" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="NO_2_CARGO_HOLD_LOWER_LEVEL_300100000" priority="14">
+		<points>
+			<point x="321.843475" y="466.128540" />
+			<point x="393.154175" y="466.297241" />
+			<point x="393.079346" y="553.297241" />
+			<point x="344.022614" y="573.721375" />
+			<point x="328.064392" y="538.298828" />
+			<point x="321.986847" y="538.295227" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="UPPER_LEVEL_DECK_UPPER_LEVEL_300100000" priority="18">
+		<points>
+			<point x="353.603516" y="408.272980" />
+			<point x="826.779785" y="408.273010" />
+			<point x="824.826233" y="598.339783" />
+			<point x="353.916290" y="596.578918" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="NO_1_CARGO_HOLD_LOWER_LEVEL_300100000" priority="14">
+		<points>
+			<point x="239.969620" y="456.599030" />
+			<point x="300.522919" y="456.280945" />
+			<point x="312.821747" y="468.231812" />
+			<point x="312.770111" y="544.503296" />
+			<point x="294.038147" y="544.715454" />
+			<point x="284.382355" y="566.141785" />
+			<point x="240.022110" y="544.513062" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="STEERING_HOUSE_UPPER_LEVEL_300100000" priority="11">
+		<points>
+			<point x="371.245972" y="481.423218" />
+			<point x="442.975281" y="482.063049" />
+			<point x="443.140167" y="537.760071" />
+			<point x="371.242554" y="536.757324" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="MERCENARY_QUARTERS_MIDDLE_LEVEL_300100000" priority="14">
+		<points>
+			<point x="408.875427" y="524.161743" />
+			<point x="431.866608" y="518.570435" />
+			<point x="447.993744" y="534.906860" />
+			<point x="442.243256" y="556.185181" />
+			<point x="420.537384" y="561.997620" />
+			<point x="403.805481" y="546.358398" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="SAILORS_QUARTERS_300100000" priority="14">
+		<points>
+			<point x="361.320587" y="456.654846" />
+			<point x="391.896362" y="457.406647" />
+			<point x="415.196594" y="499.711578" />
+			<point x="404.308502" y="546.061340" />
+			<point x="427.001953" y="567.045654" />
+			<point x="421.252045" y="609.980957" />
+			<point x="382.167999" y="609.837097" />
+			<point x="372.487915" y="604.728516" />
+			<point x="372.855133" y="558.704041" />
+			<point x="367.430817" y="552.352356" />
+			<point x="367.973938" y="495.644836" />
+			<point x="361.437469" y="493.065552" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="LOOT_DEPOSITORY_MIDDLE_LEVEL_300100000" priority="13">
+		<points>
+			<point x="535.200012" y="495.410004" />
+			<point x="598.214539" y="495.567627" />
+			<point x="598.181702" y="450.366486" />
+			<point x="665.850830" y="450.402069" />
+			<point x="665.765564" y="573.645081" />
+			<point x="551.817383" y="573.663818" />
+			<point x="551.985962" y="510.309601" />
+			<point x="535.207092" y="510.378052" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="PORTSIDE_DECK_MIDDLE_LEVEL_300100000" priority="13">
+		<points>
+			<point x="313.470001" y="598.099976" />
+			<point x="326.738953" y="598.079712" />
+			<point x="342.867371" y="607.189209" />
+			<point x="364.304138" y="608.545410" />
+			<point x="426.623871" y="609.133301" />
+			<point x="422.821716" y="631.413330" />
+			<point x="399.330261" y="638.510742" />
+			<point x="311.741241" y="623.249390" />
+			<point x="306.063934" y="611.587952" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="CENTRAL_ENGINE_ROOM_LOWER_LEVEL_300100000" priority="15">
+		<points>
+			<point x="536.450012" y="421.552887" />
+			<point x="657.667053" y="444.635834" />
+			<point x="657.929688" y="578.141479" />
+			<point x="536.399841" y="594.910034" />
+			<point x="536.329834" y="450.552338" />
+			<point x="538.374207" y="449.146820" />
+			<point x="538.374207" y="437.263824" />
+			<point x="536.457581" y="436.369415" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="EMERGENCY_ESCAPE_EXIT_LOWER_LEVEL_300100000" priority="12">
+		<points>
+			<point x="497.640228" y="423.354584" />
+			<point x="511.945892" y="423.316498" />
+			<point x="512.145081" y="434.847015" />
+			<point x="497.561066" y="434.856110" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="THE_STERN_OF_STEEL_RAKE_MIDDLE_LEVEL_300100000" priority="14">
+		<points>
+			<point x="215.869995" y="448.769989" />
+			<point x="310.116974" y="449.106079" />
+			<point x="310.060211" y="543.720093" />
+			<point x="215.960541" y="543.783813" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="ANCHOR_HANGAR_LOWER_LEVEL_300100000" priority="12">
+		<points>
+			<point x="723.847656" y="447.552948" />
+			<point x="739.623962" y="449.237457" />
+			<point x="748.023804" y="469.796936" />
+			<point x="735.596008" y="482.623993" />
+			<point x="721.594299" y="480.908966" />
+			<point x="713.922607" y="461.312836" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="ANTIQUE_STORAGE_LOWER_LEVEL_300100000" priority="13">
+		<points>
+			<point x="292.171722" y="546.817871" />
+			<point x="323.693481" y="546.748657" />
+			<point x="334.560455" y="551.873169" />
+			<point x="343.963501" y="572.616455" />
+			<point x="338.079376" y="588.656982" />
+			<point x="319.354034" y="596.930481" />
+			<point x="301.286285" y="589.050171" />
+			<point x="284.089691" y="565.369568" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="WINE_STORE_MIDDLE_LEVEL_300100000" priority="15">
+		<points>
+			<point x="452.913147" y="587.485474" />
+			<point x="452.943909" y="552.911377" />
+			<point x="489.103943" y="552.886108" />
+			<point x="488.852875" y="587.681335" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="INSIDE_STEEL_RAKE_300100000" priority="20">
+		<points>
+			<point x="199.805984" y="397.334259" />
+			<point x="810.938538" y="398.592957" />
+			<point x="812.197327" y="647.869995" />
+			<point x="200.118744" y="645.750549" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="ARMORY_UPPER_LEVEL_300100000" priority="14">
+		<points>
+			<point x="655.442139" y="458.358246" />
+			<point x="673.603699" y="456.494629" />
+			<point x="694.616882" y="462.746765" />
+			<point x="699.587280" y="483.229675" />
+			<point x="723.728943" y="483.032654" />
+			<point x="723.761536" y="533.346130" />
+			<point x="700.472229" y="533.327698" />
+			<point x="700.355957" y="515.489807" />
+			<point x="655.438721" y="515.526489" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="SEA_SONG_TAVERN_MIDDLE_LEVEL_300100000" priority="12">
+		<points>
+			<point x="443.230011" y="469.809998" />
+			<point x="509.329498" y="460.169800" />
+			<point x="519.125122" y="461.374512" />
+			<point x="535.797852" y="478.029022" />
+			<point x="535.755371" y="553.382202" />
+			<point x="452.832367" y="553.411743" />
+			<point x="452.806122" y="540.768066" />
+			<point x="443.237122" y="530.508911" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="WAIST_DECK_MIDDLE_LEVEL_300100000" priority="19">
+		<points>
+			<point x="212.814392" y="408.272980" />
+			<point x="783.669556" y="408.273010" />
+			<point x="783.669556" y="637.411316" />
+			<point x="213.127167" y="637.809082" />
+		</points>
+	</zone>
+	<zone mapid="300100000" name="RESTRICTED_ZONE_MIDDLE_LEVEL_300100000" priority="14">
+		<points>
+			<point x="776.789978" y="437.070007" />
+			<point x="776.946960" y="556.956848" />
+			<point x="665.153748" y="556.975586" />
+			<point x="665.322327" y="437.286469" />
+		</points>
+	</zone>
+</zones>

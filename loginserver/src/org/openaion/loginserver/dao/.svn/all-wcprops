@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/dao
+END
+AccountTimeDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/dao/AccountTimeDAO.java
+END
+AccountDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/dao/AccountDAO.java
+END
+BannedIpDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/dao/BannedIpDAO.java
+END
+GameServersDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/dao/GameServersDAO.java
+END

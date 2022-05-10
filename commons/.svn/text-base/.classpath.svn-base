@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="config/network"/>
+	<classpathentry excluding="network/" kind="src" path="config"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.16.jar" sourcepath="libsrc/log4j-1.2.6-src.zip"/>
+	<classpathentry kind="lib" path="lib/javolution-5.5.1.jar" sourcepath="libsrc/javolution-5.5.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.13-bin.jar"/>
+	<classpathentry kind="lib" path="lib/commons-dbcp-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/commons-io-2.0.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="lib/commons-pool-1.5.2.jar"/>
+	<classpathentry kind="lib" path="lib/javac.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

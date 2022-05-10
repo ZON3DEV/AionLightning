@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/4/trunk/gameserver/.settings
+END
+org.eclipse.core.resources.prefs
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/4/trunk/gameserver/.settings/org.eclipse.core.resources.prefs
+END
+org.eclipse.wst.validation.prefs
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/4/trunk/gameserver/.settings/org.eclipse.wst.validation.prefs
+END
+org.eclipse.jdt.core.prefs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/4/trunk/gameserver/.settings/org.eclipse.jdt.core.prefs
+END
+org.eclipse.core.runtime.prefs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/4/trunk/gameserver/.settings/org.eclipse.core.runtime.prefs
+END
+org.eclipse.jdt.ui.prefs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/4/trunk/gameserver/.settings/org.eclipse.jdt.ui.prefs
+END

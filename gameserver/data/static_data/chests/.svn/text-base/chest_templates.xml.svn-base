@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chest_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="chests_template.xsd">
+	<chest npcid="217100">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="217101">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="217102">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="217103">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="217104">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="217105">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+    <!-- INSTANCES -->
+	<chest npcid="700853">
+        <keyitem id="1" itemid="185000103" quantity="1"/>
+        <keyitem id="2" itemid="185000107" quantity="3"/>
+    </chest>
+    <!-- lower abyss nokey -->
+    <chest npcid="700462">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+    <chest npcid="700463">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+    <chest npcid="700464">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+    <chest npcid="700465">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+    <chest npcid="700466">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+    <chest npcid="700467">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+    <chest npcid="700468">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+    <chest npcid="700469">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+    <chest npcid="700470">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+    <chest npcid="700471">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+    <!-- Roah -->
+    <chest npcid="700472">
+        <keyitem id="1" itemid="185000036" quantity="1"/>
+    </chest>
+	<chest npcid="700473">
+        <keyitem id="1" itemid="185000037" quantity="1"/>
+    </chest>
+	<chest npcid="700474">
+        <keyitem id="1" itemid="185000038" quantity="1"/>
+    </chest>
+	<!-- Asteria -->
+	<chest npcid="700475">
+        <keyitem id="1" itemid="185000033" quantity="1"/>
+    </chest>
+	<chest npcid="700476">
+        <keyitem id="1" itemid="185000034" quantity="1"/>
+    </chest>
+	<chest npcid="700477">
+        <keyitem id="1" itemid="185000035" quantity="1"/>
+	</chest>
+	<!-- Krotan Chamber -->
+	<chest npcid="700539">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+    <chest npcid="700540">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+    <chest npcid="700541">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="700542">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="700543">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="700544">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="700559">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="700560">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="700561">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<!-- Steel Rake -->
+	<chest npcid="700554">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="700555">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<!-- Abyssal Splinter -->
+	<chest npcid="700859">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="700860">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="700934">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="700935">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="700936">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="700937">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+	<chest npcid="700938">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+    <!-- Esoterrace -->
+    <chest npcid="701022">
+        <keyitem id="1" itemid="185000110" quantity="1"/>
+    </chest>
+    <chest npcid="701023">
+        <keyitem id="1" itemid="185000110" quantity="1"/>
+    </chest>
+    <chest npcid="701024">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+    <chest npcid="701027">
+        <keyitem id="1" itemid="0" quantity="1"/>
+    </chest>
+</chest_templates>

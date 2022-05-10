@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+	<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 1044: Testing Flight Skills (lvl 25) handled by script -->
+	<!-- 1920: Testing Your Mettle (lvl 25) handled by script -->
+	<!-- 1921: The Abyss Quiz (lvl 25) handled by script -->
+	<!-- 1922: Deliver on Your Promises (lvl 25) handled by script -->
+	<!-- 2042: The Last Checkpoint (lvl 25) handled by script -->
+	<!-- 2945: Honing Your Skills (lvl 25) handled by script -->
+	<!-- 2946: Abyss General Knowledge (lvl 25) handled by script -->
+	<!-- 2947: Following Through (lvl 25) handled by script -->
+</quest_scripts>

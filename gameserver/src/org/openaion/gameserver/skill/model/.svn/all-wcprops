@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model
+END
+PreeffectsMasks.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/PreeffectsMasks.java
+END
+ActivationAttribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/ActivationAttribute.java
+END
+ProvokeType.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/ProvokeType.java
+END
+SkillTargetSlot.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/SkillTargetSlot.java
+END
+HopType.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/HopType.java
+END
+SkillSubType.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/SkillSubType.java
+END
+ProvokeTarget.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/ProvokeTarget.java
+END
+Effect.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/Effect.java
+END
+DashParam.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/DashParam.java
+END
+AttackType.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/AttackType.java
+END
+SkillTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/SkillTemplate.java
+END
+HealType.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/HealType.java
+END
+TransformType.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/TransformType.java
+END
+Skill.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/Skill.java
+END
+BoostSkillCastingTimeType.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/BoostSkillCastingTimeType.java
+END
+DispelCategoryType.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/DispelCategoryType.java
+END
+SkillTargetRace.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/SkillTargetRace.java
+END
+SkillType.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/SkillType.java
+END
+CreatureWithDistance.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/CreatureWithDistance.java
+END
+DispelType.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/DispelType.java
+END
+SpellStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/model/SpellStatus.java
+END

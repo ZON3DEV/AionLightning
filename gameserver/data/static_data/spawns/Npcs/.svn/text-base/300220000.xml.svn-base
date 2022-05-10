@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of Zetta Core <http://forum.zetta-core.org/>.
+
+	Zetta Core is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	Zetta Core is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Debris Of Abyss From client spawn
+ -->
+<spawns>
+	<!-- Abyssal Splinter Exit -->
+	<spawn map="300220000" interval="105" npcid="730317" pool="1">
+		<object staticid="84" x="709.81561" y="160.09514" h="0" z="453.43399"/>
+	</spawn>
+	<!-- Polearm of Akarios -->
+	<spawn map="300220000" interval="105" npcid="700864" pool="1">
+		<object staticid="3" x="422.04611" y="680.90729" h="0" z="442.43668"/>
+	</spawn>
+	<!-- Worn Book -->
+	<spawn map="300220000" interval="105" npcid="700865" pool="1">
+		<object staticid="1" x="462.79999" y="735.00574" h="0" z="438.70291"/>
+	</spawn>
+	<!-- Broken Orkanimum -->
+	<spawn map="300220000" interval="105" npcid="700862" pool="1">
+		<object staticid="21" x="755.47302" y="567.20331" h="0" z="464.65384"/>
+	</spawn>
+	<!-- Huge Aether Fragment
+	<spawn map="300220000" interval="105" npcid="700955" pool="3">
+		<object x="452.897" y="692.361" h="0" z="432.692"/>
+		<object x="633.75" y="557.882" h="0" z="423.124"/>
+		<object x="669.576" y="335.135" h="0" z="465.895"/>
+	</spawn> -->
+	<!-- Artefact de protection -->
+	<spawn map="300220000" interval="105" npcid="700856" pool="1">
+		<object staticid="79" x="327.89014" y="770.41431" h="0" z="201.64903"/>
+		<object staticid="78" x="327.89014" y="770.41431" h="0" z="201.64903"/>
+		<object staticid="60" x="327.89014" y="770.41431" h="0" z="201.64903"/>
+	</spawn>
+	<!-- Vieux coffre au tresor--> 
+	<spawn map="300220000" interval="105" npcid="700859" pool="12">
+		<object x="306.507" y="715.272" h="0" z="370.919"/>
+		<object x="368.292" y="771.303" h="0" z="349.94"/>
+		<object x="350.455" y="788.739" h="0" z="323.913"/>
+		<object x="344.288" y="778.731" h="0" z="400.681"/>
+		<object x="389.828" y="763.123" h="0" z="276.575"/>
+		<object x="360.127" y="684.13" h="0" z="393.358"/>
+		<object x="347.353" y="735.86" h="0" z="422.013"/>
+		<object x="290.216" y="729.601" h="0" z="257.906"/>
+		<object x="311.645" y="768.068" h="0" z="346.081"/>
+		<object x="346.968" y="742.378" h="0" z="368.216"/>
+		<object x="280.992" y="767.557" h="0" z="291.909"/>
+		<object x="270.471" y="743.99" h="0" z="321.996"/>
+	</spawn>
+	<spawn map="300220000" npcid="700863" pool="7" interval="295">
+		<object x="639.3" y="263.331" z="463.046" h="107"/>
+		<object x="653.494" y="229.03" z="460.657" h="31"/>
+		<object x="635.36" y="238.071" z="461.93" h="59"/>
+		<object x="653.162" y="256.412" z="463.414" h="94"/>
+		<object x="635.606" y="293.172" z="464.388" h="38"/>
+		<object x="636.525" y="231.133" z="461.207" h="53"/>
+		<object x="649.701" y="271.215" z="463.132" h="105"/>
+	</spawn>
+</spawns>

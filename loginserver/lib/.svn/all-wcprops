@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/4/trunk/loginserver/lib
+END
+commons-dbcp-1.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/4/trunk/loginserver/lib/commons-dbcp-1.4.jar
+END
+log4j-1.2.16.jar
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/4/trunk/loginserver/lib/log4j-1.2.16.jar
+END
+LICENCE_mysql-connector.txt
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/4/trunk/loginserver/lib/LICENCE_mysql-connector.txt
+END
+javac.jar
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/4/trunk/loginserver/lib/javac.jar
+END
+LICENSE_commons-dbcp.txt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/4/trunk/loginserver/lib/LICENSE_commons-dbcp.txt
+END
+commons-pool-1.5.5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/4/trunk/loginserver/lib/commons-pool-1.5.5.jar
+END
+javassist.jar
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/4/trunk/loginserver/lib/javassist.jar
+END
+mysql-connector-java-5.1.15-bin.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/4/trunk/loginserver/lib/mysql-connector-java-5.1.15-bin.jar
+END
+LICENSE_commons-pool.txt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/4/trunk/loginserver/lib/LICENSE_commons-pool.txt
+END
+jsr166.jar
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/4/trunk/loginserver/lib/jsr166.jar
+END
+commons-io-2.0.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/4/trunk/loginserver/lib/commons-io-2.0.1.jar
+END
+bcprov-jdk16-143.jar
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/4/trunk/loginserver/lib/bcprov-jdk16-143.jar
+END
+open-aion-commons.jar
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/4/trunk/loginserver/lib/open-aion-commons.jar
+END
+junit-4.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/4/trunk/loginserver/lib/junit-4.6.jar
+END

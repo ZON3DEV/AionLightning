@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zones.xsd">
+	<zone mapid="110020000" name="CLOISTER_OF_KAISINEL_110020000" priority="16">
+		<points>
+			<point x="2095.429932" y="1631.290039" />
+			<point x="2166.754639" y="1499.339600" />
+			<point x="2257.693604" y="1545.700562" />
+			<point x="2181.911133" y="1679.434204" />
+		</points>
+	</zone>
+</zones>

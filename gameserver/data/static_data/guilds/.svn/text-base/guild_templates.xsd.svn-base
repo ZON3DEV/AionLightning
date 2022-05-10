@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:include schemaLocation="../import.xsd" />
+
+	<xs:element name="guild_templates" type="guildTemplates" />
+
+	<xs:complexType name="guildTemplates">
+		<xs:sequence>
+			<xs:element ref="import" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="guild_template" type="guildTemplate" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="guildTemplate">
+		<xs:sequence>
+			<xs:element name="guild_quests" type="guildQuests"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:int"/>
+		<xs:attribute name="nameId" type="xs:int"/>
+		<xs:attribute name="npcId" type="xs:int"/>
+		<xs:attribute name="requiredLevel" type="xs:int"/>
+	</xs:complexType>
+	
+	<xs:complexType name="guildQuests">
+	  <xs:sequence>
+		<xs:element name="guild_quest" type="guildQuest" minOccurs="0" maxOccurs="unbounded"/>
+	  </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="guildQuest">
+		<xs:attribute name="id" type="xs:int"/>
+		<xs:attribute name="lvl" type="xs:int"/>
+	</xs:complexType>
+</xs:schema>
+

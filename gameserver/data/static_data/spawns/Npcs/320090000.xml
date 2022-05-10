@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<spawns>
+	<!-- Underground Arena Exit -->
+	<spawn map="320090000" npcid="730067" pool="1" interval="295">
+		<object x="275.897" y="295.69427" z="163.5308" h="90" staticid="26"/>
+	</spawn>
+	<!-- Warrior Spirit -->
+	<spawn map="320090000" npcid="213583" pool="5" interval="295">
+		<object x="314.0013" y="244.45541" z="158.89537" h="60"/>
+		<object x="314.27444" y="236.2523" z="158.89537" h="60"/>
+		<object x="320.23798" y="236.09328" z="158.89537" h="60"/>
+		<object x="279.9834" y="169.82938" z="161.98434" h="30"/>
+		<object x="272.74582" y="169.89066" z="161.98434" h="30"/>
+	</spawn>
+	<!-- Mage Spirit -->
+	<spawn map="320090000" npcid="213584" pool="6" interval="295">
+		<object x="234.93538" y="243.29774" z="158.88121" h="0"/>
+		<object x="239.24619" y="239.68288" z="158.88121" h="0"/>
+		<object x="231.46095" y="239.40894" z="158.88121" h="0"/>
+		<object x="235.31786" y="235.26515" z="158.88121" h="0"/>
+		<object x="276.4374" y="171.52586" z="161.98434" h="30"/>
+		<object x="276.52005" y="164.00693" z="161.98434" h="30"/>
+	</spawn>
+</spawns>

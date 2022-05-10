@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 1091: A Request From Atropos (lvl 45) handled by script -->
+	<!-- 1092: Josnack's Dilemma (lvl 45) handled by script -->
+	<!-- 1093: The Calydon Ruins (lvl 46) handled by script -->
+	<!-- 1094: Project Drakanhammer (lvl 46) handled by script -->
+	<!-- 3001: Unearthing the Truth (lvl 20) handled by script -->
+	<!-- Kerubar Interference -->
+	<monster_hunt id="3002" start_npc_id="798132">
+		<monster_infos var_id="0" max_kill="5" npc_id="213814"/>
+		<monster_infos var_id="0" max_kill="5" npc_id="213815"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="213816"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="213817"/>
+	</monster_hunt>
+	<!-- Kuomonerk's Side Job -->
+	<item_collecting id="3003" start_npc_id="798137"/>
+	<!-- Relics Left Behind -->
+	<item_collecting id="3004" start_npc_id="798136" action_item_id="700338"/>
+	<!-- Pests Among the Vegetables -->
+	<monster_hunt id="3005" start_npc_id="798138">
+		<monster_infos var_id="0" max_kill="7" npc_id="213812"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="213813"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213810"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213811"/>
+	</monster_hunt>
+	<!-- 3006: The Shugo Fugitive (lvl 21) handled by script -->
+	<!-- A Few Good Pens -->
+	<item_collecting id="3007" start_npc_id="798141"/>
+	<!-- 3008: Wicked Thief Kelaino (lvl 20) handled by script -->
+	<!-- [Group] A Cursed Thief -->
+	<item_collecting id="3009" start_npc_id="798150"/>
+	<!-- Gathering Flame Essence -->
+	<item_collecting id="3010" start_npc_id="798143"/>
+	<!-- Suffering Elim -->
+	<monster_hunt id="3011" start_npc_id="798149">
+		<monster_infos var_id="0" max_kill="11" npc_id="213824"/>
+		<monster_infos var_id="0" max_kill="11" npc_id="213825"/>
+	</monster_hunt>
+	<!-- Free From Suffering -->
+	<item_collecting id="3012" start_npc_id="798149"/>
+	<!-- 3013: A Clue Left by the Dead (lvl 23) handled by script -->
+	<!-- Preparing a New Site -->
+	<monster_hunt id="3014" start_npc_id="798144">
+		<monster_infos var_id="0" max_kill="11" npc_id="213832"/>
+		<monster_infos var_id="0" max_kill="11" npc_id="213833"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213836"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213837"/>
+	</monster_hunt>
+	<!-- A Hair-Raising Sound -->
+	<monster_hunt id="3015" start_npc_id="798135">
+		<monster_infos var_id="0" max_kill="13" npc_id="213830"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="213831"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213834"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213835"/>
+	</monster_hunt>
+	<!-- [Group] Eliminating a Suspect -->
+	<monster_hunt id="3016" start_npc_id="798132">
+		<monster_infos var_id="0" max_kill="1" npc_id="213927"/>
+	</monster_hunt>
+	<!-- A Map Made of Stone -->
+	<item_collecting id="3017" start_npc_id="798144"/>
+	<!-- Wanted: Fork Ear Rokes -->
+	<item_collecting id="3018" start_npc_id="730105" end_npc_id="798150"/>
+	<!-- Wanted: Black Widow -->
+	<item_collecting id="3019" start_npc_id="730106" end_npc_id="798150"/>
+	<!-- 3020: Agrint Afire (lvl 21) handled by script -->
+	<!-- Selfish Guruminerk -->
+	<monster_hunt id="3021" start_npc_id="798133">
+		<monster_infos var_id="0" max_kill="20" npc_id="213838"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="213839"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="213840"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="213841"/>
+	</monster_hunt>
+	<!-- Meat the Viragos -->
+	<item_collecting id="3022" start_npc_id="798138"/>
+	<!-- 3023: The Spice Must Flow (lvl 24) handled by script -->
+	<!-- Wanted: Pirates -->
+	<monster_hunt id="3031" start_npc_id="730144" end_npc_id="798172">
+		<monster_infos var_id="0" max_kill="15" npc_id="214220"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="214219"/>
+		<monster_infos var_id="1" max_kill="12" npc_id="214222"/>
+		<monster_infos var_id="1" max_kill="12" npc_id="214223"/>
+	</monster_hunt>
+	<!-- She Sells Sea Salt on the Seashore -->
+	<item_collecting id="3032" start_npc_id="798168" action_item_id="700374"/>
+	<!-- Kerubiels on the Coast -->
+	<monster_hunt id="3033" start_npc_id="798155">
+		<monster_infos var_id="0" max_kill="13" npc_id="214235"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="214236"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="214239"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="214238"/>
+	</monster_hunt>
+	<!-- Protector Achrael -->
+	<item_collecting id="3034" start_npc_id="798155"/>
+	<!-- 3035: Enhancing the Stone (lvl 46) handled by script -->
+	<!-- 3036: TODO: Let's See What It Does (lvl 46) -->
+	<!-- 3037: Wanderer's Staff (lvl 47) handled by script -->
+	<!-- Ask Your Doctor About Ovisac -->
+	<item_collecting id="3038" start_npc_id="798200"/>
+	<!-- Physician, Heal Thyself -->
+	<item_collecting id="3039" start_npc_id="798200"/>
+	<!-- Finding Fossils -->
+	<item_collecting id="3040" start_npc_id="798202" action_item_id="700375"/>
+	<!-- 3041: Sororunerk's Whereabouts (lvl 45) handled by script -->
+	<!-- A Sentinel's Predicament -->
+	<monster_hunt id="3042" start_npc_id="798159">
+		<monster_infos var_id="0" max_kill="28" npc_id="214229"/>
+		<monster_infos var_id="0" max_kill="28" npc_id="214230"/>
+	</monster_hunt>
+	<!-- Hunting the Long Tongue -->
+	<monster_hunt id="3043" start_npc_id="798159">
+		<monster_infos var_id="0" max_kill="1" npc_id="214572"/>
+	</monster_hunt>
+	<!-- 3044: Recruiting Announcement (lvl 46) handled by script -->
+	<!-- Statues on the March -->
+	<monster_hunt id="3045" start_npc_id="798206">
+		<monster_infos var_id="0" max_kill="20" npc_id="214286"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="214282"/>
+	</monster_hunt>
+	<!-- Culling the Calydons -->
+	<monster_hunt id="3046" start_npc_id="798208">
+		<monster_infos var_id="0" max_kill="30" npc_id="214298"/>
+		<monster_infos var_id="0" max_kill="30" npc_id="214299"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="214304"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="214305"/>
+	</monster_hunt>
+	<!-- Gold Molar -->
+	<item_collecting id="3047" start_npc_id="798208"/>
+	<!-- 3048: Owner of the Angled Blade Dagger (lvl 46) handled by script -->
+	<!-- 3049: Blood Marks the Spot (lvl 47) handled by script -->
+	<!-- 3050: TODO: Rescuing Ruria (lvl 47) -->
+	<!-- Calydon Hunt Wager -->
+	<monster_hunt id="3051" start_npc_id="798191">
+		<monster_infos var_id="0" max_kill="30" npc_id="214300"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="214306"/>
+	</monster_hunt>
+	<!-- Oileus Hires a Ringer -->
+	<monster_hunt id="3052" start_npc_id="798189">
+		<monster_infos var_id="0" max_kill="10" npc_id="214301"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="214705"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="214702"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="214703"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="214302"/>
+		<monster_infos var_id="1" max_kill="8" npc_id="214307"/>
+		<monster_infos var_id="1" max_kill="8" npc_id="214308"/>
+	</monster_hunt>
+	<!-- Dodum's Staff -->
+	<item_collecting id="3053" start_npc_id="798189" end_npc_id="798193"/>
+	<!-- A Craving for Dumplings -->
+	<item_collecting id="3054" start_npc_id="798179" action_item_id="700377"/>
+	<!-- Fugitive Scopind -->
+	<item_collecting id="3055" start_npc_id="730146" end_npc_id="798195"/>
+	<!-- 3056: In Search of Zirius (lvl 49) handled by script -->
+	<!-- 3057: TODO: Cursed Zirius (lvl 49) -->
+	<!-- 3058: Stone of Mabolo (lvl 49) handled by script -->
+	<!-- [Group] Someone Superior -->
+	<item_collecting id="3059" start_npc_id="798193"/>
+	<!-- 3060: The Red Journal (lvl 48) handled by script -->
+	<!-- [Daily/Coin] Obstacle to Cultivation -->
+	<item_collecting id="3061" start_npc_id="798172"/>
+	<!-- [Daily/Coin] Calydon Eradication -->
+	<item_collecting id="3062" start_npc_id="798196"/>
+	<!-- [Daily/Coin] Excavation Safety -->
+	<item_collecting id="3063" start_npc_id="798174"/>
+	<!-- 3064: TODO: [Spend Coin] Platinum (Warrior 46) (lvl 99) -->
+	<!-- 3065: TODO: [Spend Coin] Platinum (Mage 46) (lvl 99) -->
+	<!-- 3066: TODO: [Spend Coin] Platinum (Scout 46) (lvl 99) -->
+	<!-- 3067: TODO: [Spend Coin] Platinum (Priest 46) (lvl 99) -->
+	<!-- 3068: TODO: [Spend Coin] Platinum (Warrior 48) (lvl 99) -->
+	<!-- 3069: TODO: [Spend Coin] Platinum (Mage 48) (lvl 99) -->
+	<!-- 3070: TODO: [Spend Coin] Platinum (Scout 48) (lvl 99) -->
+	<!-- 3071: TODO: [Spend Coin] Platinum (Priest 48) (lvl 99) -->
+	<!-- [Manastone] Practicing Removal -->
+	<item_collecting id="3072" start_npc_id="798170"/>
+	<!-- [Manastone] Supporting Our Training -->
+	<item_collecting id="3073" start_npc_id="798170"/>
+	<!-- 3074: [Spend Coin] Dangerous Probability (lvl 45) handled by script -->
+	<!-- Clearing the Barrens -->
+	<monster_hunt id="3075" start_npc_id="798222" end_npc_id="798158">
+		<monster_infos var_id="0" max_kill="20" npc_id="214173"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="214174"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="214182"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="214183"/>
+	</monster_hunt>
+	<!-- 3076: Bolstering the Aetheric Field (lvl 45) handled by script -->
+	<!-- Matching the Plumage -->
+	<item_collecting id="3077" start_npc_id="798164"/>
+	<!-- To Hope Once More -->
+	<item_collecting id="3078" start_npc_id="798164"/>
+	<!-- The Spreading Fregion's Flame -->
+	<monster_hunt id="3079" start_npc_id="798155">
+		<monster_infos var_id="0" max_kill="13" npc_id="214240"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="214241"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="214295"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="214296"/>
+	</monster_hunt>
+	<!-- The Statue in Port Anangke -->
+	<monster_hunt id="3080" start_npc_id="798201">
+		<monster_infos var_id="0" max_kill="17" npc_id="214265"/>
+		<monster_infos var_id="0" max_kill="17" npc_id="214266"/>
+		<monster_infos var_id="1" max_kill="21" npc_id="214263"/>
+		<monster_infos var_id="1" max_kill="21" npc_id="214264"/>
+	</monster_hunt>
+	<!-- 3081: Visiting the Library (lvl 46) handled by script -->
+	<!-- 3082: TODO: [Spy] Dousing the Flame (lvl 46) -->
+	<!-- 3083: Searching for the Elder of Wisdom (lvl 48) handled by script -->
+	<!-- Elegant Fan -->
+	<item_collecting id="3084" start_npc_id="798199"/>
+	<!-- 3085: The Riddle Poem (lvl 47) handled by script -->
+	<!-- 3086: TODO: Searching for the Crater (lvl 47) -->
+	<!-- 3087: TODO: Diving for Treasure (lvl 47) -->
+	<!-- 3088: TODO: In-Cider Trading (lvl 47) -->
+	<!-- Eat Like a Bellepig -->
+	<item_collecting id="3089" start_npc_id="798182"/>
+	<!-- 3090: TODO: In Search of Pippi the Porgus (lvl 48) -->
+	<!-- 3091: The Lost Drakie (lvl 49) handled by script -->
+	<!-- 3092: TODO: Vison the Drakie (lvl 49) -->
+	<!-- 3093: Secret Dumpling Recipe (lvl 48) handled by script -->
+	<!-- Koreumtor's Request -->
+	<monster_hunt id="3094" start_npc_id="798215">
+		<monster_infos var_id="0" max_kill="30" npc_id="214545"/>
+		<monster_infos var_id="0" max_kill="30" npc_id="214546"/>
+	</monster_hunt>
+	<!-- 3095: A Decisive Clue (lvl 49) handled by script -->
+	<!-- 3096: TODO: Examine the Extraction Devices (lvl 49) -->
+	<!-- Berserk Silikor -->
+	<monster_hunt id="3097" start_npc_id="798225">
+		<monster_infos var_id="0" max_kill="1" npc_id="214668"/>
+	</monster_hunt>
+	<!-- The Theobomos Syndrome -->
+	<monster_hunt id="3098" start_npc_id="798225">
+		<monster_infos var_id="0" max_kill="1" npc_id="214669"/>
+	</monster_hunt>
+	<!-- Cheorunerk's Care of His Wife -->
+	<item_collecting id="3099" start_npc_id="798169" end_npc_id="203792" action_item_id="700450"/>
+	<!-- 3100: TODO: A Shugo's Best Friend (lvl 46) -->
+	<!-- Picky Ixion -->
+	<item_collecting id="3101" start_npc_id="798199"/>
+	<!-- 3102: TODO: The Disappearing Statue (lvl 48) -->
+	<!-- Kypros's Desire -->
+	<report_to id="3103" start_npc_id="798225" end_npc_id="798226"/>
+	<!-- A Statue that Came to Life -->
+	<item_collecting id="3104" start_npc_id="798226" end_npc_id="798206"/>
+	<!-- Clearing the Beach -->
+	<monster_hunt id="3105" start_npc_id="798158">
+		<monster_infos var_id="0" max_kill="20" npc_id="214202"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="214203"/>
+		<monster_infos var_id="1" max_kill="20" npc_id="214194"/>
+		<monster_infos var_id="1" max_kill="20" npc_id="214195"/>
+	</monster_hunt>
+	<!-- Insufficient Construction Materials -->
+	<item_collecting id="3106" start_npc_id="798168"/>
+	<!-- What's for Dinner? -->
+	<monster_hunt id="3110" start_npc_id="798138">
+		<monster_infos var_id="0" max_kill="7" npc_id="213813"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="213812"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213811"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213810"/>
+	</monster_hunt>
+	<!-- Clearing the Route -->
+	<monster_hunt id="3111" start_npc_id="798154">
+		<monster_infos var_id="0" max_kill="20" npc_id="214174"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="214173"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="214183"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="214182"/>
+	</monster_hunt>
+	<!-- Bricks for Fun and Profit -->
+	<item_collecting id="3112" start_npc_id="798168"/>
+	<!-- [Coin/Group] Triroan in the Lab -->
+	<monster_hunt id="3113" start_npc_id="798173">
+		<monster_infos var_id="0" max_kill="1" npc_id="214669"/>
+	</monster_hunt>
+</quest_scripts>

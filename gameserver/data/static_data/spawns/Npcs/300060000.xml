@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Sulfur Tree Nest
+ -->
+<spawns>
+	<!-- TreasureRoom_Sensory_C (NPC Normal lvl:3) (from client spawn)-->
+	<spawn map="300090000" npcid="206089" pool="1" interval="295">
+		<object x="458" y="424" z="165" h="60"/>
+	</spawn>
+	<!-- Sealed Gold Chest (Object Hero lvl:35)-->
+	<spawn map="300060000" npcid="214804" pool="1" interval="295">
+		<object x="457.11148" y="487.451" z="163.72969" h="31"/>
+	</spawn>
+	<!-- Hidden Stone Door (Object Hero lvl:1)-->
+	<spawn map="300060000" npcid="700453" pool="1" interval="295">
+		<object staticid="3" x="462.6254" y="332.89355" z="162.80669" h="0"/>
+	</spawn>
+</spawns>

@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/4/trunk/gameserver/data/static_data
+END
+player_experience_table.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/player_experience_table.xml
+END
+player_titles.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/player_titles.xsd
+END
+static_data.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/static_data.xsd
+END
+modifiers.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/modifiers.xsd
+END
+player_titles.xml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/player_titles.xml
+END
+static_data.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/static_data.xml
+END
+global_types.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/global_types.xsd
+END
+npc_walker.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/npc_walker.xsd
+END
+npc_teleporter.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/npc_teleporter.xsd
+END
+presets.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/presets.xsd
+END
+teleport_location.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/teleport_location.xsd
+END
+npc_walker.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/npc_walker.xml
+END
+npc_teleporter.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/npc_teleporter.xml
+END
+presets.xml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/presets.xml
+END
+teleport_location.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/teleport_location.xml
+END
+npc_trade_list.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/npc_trade_list.xsd
+END
+npc_trade_list.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/npc_trade_list.xml
+END
+player_initial_data.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/player_initial_data.xsd
+END
+player_initial_data.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/player_initial_data.xml
+END
+world_maps.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/world_maps.xsd
+END
+world_maps.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/world_maps.xml
+END
+import.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/import.xsd
+END
+player_experience_table.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/player_experience_table.xsd
+END

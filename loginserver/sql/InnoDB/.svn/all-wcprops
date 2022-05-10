@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/4/trunk/loginserver/sql/InnoDB
+END
+Reference_InnoDB_au_server_ls.sql
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/4/trunk/loginserver/sql/InnoDB/Reference_InnoDB_au_server_ls.sql
+END
+aionshop_categories.sql
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/4/trunk/loginserver/sql/InnoDB/aionshop_categories.sql
+END
+ingameshop_sample.sql
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/4/trunk/loginserver/sql/InnoDB/ingameshop_sample.sql
+END

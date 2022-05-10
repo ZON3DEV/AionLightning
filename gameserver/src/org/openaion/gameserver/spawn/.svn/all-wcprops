@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/spawn
+END
+SpawnHandlerType.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/spawn/SpawnHandlerType.java
+END
+RiftSpawnManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/spawn/RiftSpawnManager.java
+END
+DayNightSpawnManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/spawn/DayNightSpawnManager.java
+END
+SpawnEngine.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/spawn/SpawnEngine.java
+END
+StaticObjectSpawnManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/spawn/StaticObjectSpawnManager.java
+END

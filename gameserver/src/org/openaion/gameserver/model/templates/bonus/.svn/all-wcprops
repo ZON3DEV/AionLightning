@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus
+END
+FoodBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/FoodBonus.java
+END
+CoinBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/CoinBonus.java
+END
+MagicalBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/MagicalBonus.java
+END
+MaterialBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/MaterialBonus.java
+END
+InventoryBonusType.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/InventoryBonusType.java
+END
+RedeemBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/RedeemBonus.java
+END
+BossBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/BossBonus.java
+END
+SimpleCheckItemBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/SimpleCheckItemBonus.java
+END
+FortressBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/FortressBonus.java
+END
+RecipeBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/RecipeBonus.java
+END
+CutSceneBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/CutSceneBonus.java
+END
+IslandBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/IslandBonus.java
+END
+GoodsBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/GoodsBonus.java
+END
+BonusTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/BonusTemplate.java
+END
+MedicineBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/MedicineBonus.java
+END
+WorkOrderBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/WorkOrderBonus.java
+END
+EnchantBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/EnchantBonus.java
+END
+AbstractInventoryBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/AbstractInventoryBonus.java
+END
+MedalBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/MedalBonus.java
+END
+MasterRecipeBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/MasterRecipeBonus.java
+END
+LunarEventBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/LunarEventBonus.java
+END
+ManastoneBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/bonus/ManastoneBonus.java
+END

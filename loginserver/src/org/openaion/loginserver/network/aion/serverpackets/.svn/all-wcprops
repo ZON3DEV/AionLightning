@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/serverpackets
+END
+SM_AUTH_GG.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/serverpackets/SM_AUTH_GG.java
+END
+SM_PLAY_OK.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/serverpackets/SM_PLAY_OK.java
+END
+SM_PLAY_FAIL.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/serverpackets/SM_PLAY_FAIL.java
+END
+SM_SERVER_LIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/serverpackets/SM_SERVER_LIST.java
+END
+SM_LOGIN_OK.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/serverpackets/SM_LOGIN_OK.java
+END
+SM_INIT.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/serverpackets/SM_INIT.java
+END
+SM_LOGIN_FAIL.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/serverpackets/SM_LOGIN_FAIL.java
+END
+SM_UPDATE_SESSION.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/serverpackets/SM_UPDATE_SESSION.java
+END

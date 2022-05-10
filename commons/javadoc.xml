@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="private" author="true" classpath="lib/commons-dbcp-1.4.jar:lib/javolution-5.5.1.jar:lib/commons-io-1.4.jar:lib/mysql-connector-java-5.1.12-bin.jar:lib/javac.jar:lib/log4j-1.2.16.jar:lib/commons-pool-1.5.2.jar:lib/commons-lang-2.4.jar:testlib/junit-4.6.jar" destdir="doc" doctitle="ZettaCore Network Layer" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="org.openaion.commons.ngen.network.packet,org.openaion.commons.ngen.network" source="1.6" sourcepath="test:src:config:config/network" splitindex="true" use="true" version="true">
+            <link href="file:/home/blakawk/Dev/Aion/ZettaCore/AE-go_Commons/doc/"/>
+            <link href="http://java.sun.com/javase/6/docs/api/"/>
+        </javadoc>
+    </target>
+</project>

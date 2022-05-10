@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Alquimia Research Center
+
+ -->
+<spawns>
+	<!-- Alquimia Exit -->
+	<spawn map="320110000" npcid="730111" pool="1" interval="295">
+		<object staticid="1" x="610.08032" y="527.09961" z="199.75391" h="0"/>
+	</spawn>
+	<!-- The Platform of Lepharists -->
+	<spawn map="320110000" npcid="730114" pool="1" interval="295">
+		<object staticid="450" x="398.47705" y="519.13794" z="207.14484" h="0"/>
+	</spawn>
+	<!-- A Perfect Human -->
+	<spawn map="320110000" npcid="730112" pool="1" interval="295">
+		<object staticid="456" x="405.65979" y="483.00708" z="207.66235" h="0"/>
+	</spawn>
+	<!-- The Confession of a Lepharist -->
+	<spawn map="320110000" npcid="730113" pool="1" interval="295">
+		<object staticid="451" x="396.1958" y="560.0437" z="207.67615" h="0"/>
+	</spawn>
+	<!-- Research Center Journal -->
+	<spawn map="320110000" npcid="700363" pool="1" interval="295">
+		<object staticid="455" x="448.60913" y="570.86133" z="206.48297" h="0"/>
+	</spawn>
+	<!-- Research Center Power Generator -->
+	<spawn map="320110000" npcid="700349" pool="1" interval="105">
+		<object staticid="3" x="453.70569" y="517.25659" z="205.61658" h="0"/>
+	</spawn>
+	<!-- Atla (NPC Normal lvl:14) (from client spawn)-->
+	<spawn map="320110000" npcid="204815" pool="1" interval="295">
+		<object x="440.23645" y="487.10712" z="206.73471" h="22"/>
+	</spawn>
+	<!-- ControllerB (NPC Legendary lvl:50) (from client spawn)-->
+	<spawn map="320110000" npcid="700449" pool="1" interval="295">
+		<object staticid="3" x="453.7057" y="517.2566" z="205.33063" h="109"/>
+	</spawn>
+	<!-- IDDF3_lp_HiddenNPC_Q2669 (NPC Normal lvl:3) (from client spawn)-->
+	<spawn map="320110000" npcid="204829" pool="1" interval="295">
+		<object x="597.4103" y="527.26276" z="199.2548" h="2"/>
+	</spawn>
+	<!-- Lepharist Research Facility (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="320110000" npcid="700219" pool="9" interval="295">
+		<object staticid="47" x="456.07446" y="503.5857" z="206.73636" h="111"/>
+		<object staticid="133" x="455.78784" y="495.7942" z="206.73471" h="4"/>
+		<object staticid="135" x="456.35327" y="511.38013" z="206.73636" h="61"/>
+		<object staticid="137" x="424.34534" y="487.62524" z="206.73471" h="94"/>
+		<object staticid="142" x="432.79492" y="487.3064" z="206.73471" h="14"/>
+		<object staticid="146" x="455.53516" y="488.0791" z="206.73471" h="54"/>
+		<object staticid="149" x="440.22742" y="487.0349" z="206.73471" h="44"/>
+		<object staticid="175" x="416.88977" y="487.87695" z="206.73471" h="51"/>
+		<object staticid="182" x="448.7622" y="486.78223" z="206.73471" h="81"/>
+	</spawn>
+	<!-- Research Center Cabinet (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="320110000" npcid="700362" pool="1" interval="295">
+		<object staticid="9" x="401.88217" y="546.4045" z="204.69067" h="83"/>
+	</spawn>
+	<!-- Strahein (NPC Normal lvl:14) (from client spawn)-->
+	<spawn map="320110000" npcid="204814" pool="1" interval="295">
+		<object x="456.04303" y="503.59927" z="206.73636" h="77"/>
+	</spawn>
+</spawns>

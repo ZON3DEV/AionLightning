@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/action
+END
+HpUseAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/action/HpUseAction.java
+END
+MpUseAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/action/MpUseAction.java
+END
+ItemUseAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/action/ItemUseAction.java
+END
+Action.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/action/Action.java
+END
+DpUseAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/action/DpUseAction.java
+END
+DamageType.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/action/DamageType.java
+END
+Actions.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/action/Actions.java
+END

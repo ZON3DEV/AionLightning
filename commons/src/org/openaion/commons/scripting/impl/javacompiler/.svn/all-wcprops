@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/impl/javacompiler
+END
+BinaryClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/impl/javacompiler/BinaryClass.java
+END
+JavaSourceFromString.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/impl/javacompiler/JavaSourceFromString.java
+END
+ErrorListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/impl/javacompiler/ErrorListener.java
+END
+ClassFileManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/impl/javacompiler/ClassFileManager.java
+END
+ScriptCompilerImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/impl/javacompiler/ScriptCompilerImpl.java
+END
+ScriptClassLoaderImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/impl/javacompiler/ScriptClassLoaderImpl.java
+END
+JavaSourceFromFile.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/impl/javacompiler/JavaSourceFromFile.java
+END

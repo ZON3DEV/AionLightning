@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/npcs
+END
+npc_templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/npcs/npc_templates.xml
+END
+npcs.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/npcs/npcs.xsd
+END

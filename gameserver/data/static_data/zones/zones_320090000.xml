@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zones.xsd">
+	<zone mapid="320090000" name="TRINIEL_UNDERGROUND_ARENA_320090000" priority="16">
+		<points>
+			<point x="203.272064" y="145.048447" />
+			<point x="342.865021" y="143.493103" />
+			<point x="342.476166" y="316.914978" />
+			<point x="202.883224" y="316.526123" />
+		</points>
+	</zone>
+</zones>

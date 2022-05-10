@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 2900: No Escaping Destiny (lvl 20) handled by script -->
+	<!-- [Craft] Elgar's Mistake -->
+	<item_collecting id="2905" start_npc_id="204104"/>
+	<!-- [Craft] Ingots for Armor -->
+	<item_collecting id="2906" start_npc_id="204106"/>
+	<!-- [Craft] Cooking Commitment -->
+	<item_collecting id="2907" start_npc_id="204100"/>
+	<!-- [Craft] The Governor's Chair -->
+	<item_collecting id="2908" start_npc_id="204108"/>
+	<!-- [Craft] The Basics of Alchemy -->
+	<item_collecting id="2909" start_npc_id="204102"/>
+	<!-- [Craft] Wasted Materials -->
+	<item_collecting id="2910" start_npc_id="204110"/>
+	<!-- 2911: Song of Blessing (lvl 10) handled by script -->
+	<!-- 2912: Follow the Ribbon (lvl 10) handled by script -->
+	<!-- 2913: A Chain of Debt (lvl 10) handled by script -->
+	<!-- 2914: A Token of Lost Love (lvl 10) handled by script -->
+	<!-- Helping Apellbine -->
+	<item_collecting id="2915" start_npc_id="204173"/>
+	<!-- 2916: Man in the Long Black Robe (lvl 15) handled by script -->
+	<!-- 2917: Arekedil's Heritage (lvl 10) handled by script -->
+	<!-- 2918: Deep Maternal Love (lvl 10) handled by script -->
+	<!-- 2919: TODO: Book of Oblivion (lvl 13) -->
+	<!-- 2920: TODO: Elementary, My Dear Daeva (lvl 16) -->
+	<!-- 2921: TODO: Love at First Sight (lvl 21) -->
+	<!-- 2922: TODO: Fascinating Gift (lvl 21) -->
+	<!-- A Rose Will Bloom -->
+	<item_collecting id="2923" start_npc_id="798058"/>
+	<!-- Siel's Tears -->
+	<item_collecting id="2924" start_npc_id="204108"/>
+	<!-- 2925: TODO: A Heartfelt Confession (lvl 25) -->
+	<!-- Heart in Love -->
+	<item_collecting id="2926" start_npc_id="204261"/>
+	<!-- [Spy/Group] A Many-Splendored Ring -->
+	<item_collecting id="2927" start_npc_id="204235" end_npc_id="204261"/>
+	<!-- 2928: Power of Love (lvl 45) handled by script -->
+	<!-- [Expert] Weaponsmithing Expert -->
+	<report_to id="2931" start_npc_id="204104" end_npc_id="204052" item_id="182207020"/>
+	<!-- [Expert] Armorsmithing Expert -->
+	<report_to id="2932" start_npc_id="204106" end_npc_id="204052" item_id="182207021"/>
+	<!-- [Expert] Handicrafting Expert -->
+	<report_to id="2933" start_npc_id="204108" end_npc_id="204052" item_id="182207022"/>
+	<!-- [Expert] Cooking Expert -->
+	<report_to id="2934" start_npc_id="204100" end_npc_id="204052" item_id="182207023"/>
+	<!-- [Expert] Alchemy Expert -->
+	<report_to id="2935" start_npc_id="204102" end_npc_id="204052" item_id="182207024"/>
+	<!-- [Expert] Tailoring Expert -->
+	<report_to id="2936" start_npc_id="204110" end_npc_id="204052" item_id="182207025"/>
+	<!-- Unexpected Reward -->
+	<report_to id="2937" start_npc_id="204092" end_npc_id="798059"/>
+	<!-- 2938: Secret Library Access (lvl 20) handled by script -->
+	<!-- Weapon for Fraiban -->
+	<report_to id="2939" start_npc_id="204104" end_npc_id="278010" item_id="182207027"/>
+	<!-- Kinterun's Package -->
+	<report_to id="2940" start_npc_id="204106" end_npc_id="278011" item_id="182207028"/>
+	<!-- Salix Staff Handle -->
+	<report_to id="2941" start_npc_id="204108" end_npc_id="278010" item_id="182207029"/>
+	<!-- Fried Chikra -->
+	<report_to id="2942" start_npc_id="204100" end_npc_id="278007" item_id="182207030"/>
+	<!-- Homebody Honir -->
+	<report_to id="2943" start_npc_id="204102" end_npc_id="278010" item_id="182207031"/>
+	<!-- Cloth for Bacht -->
+	<report_to id="2944" start_npc_id="204110" end_npc_id="278011" item_id="182207032"/>
+	<!-- 2948: TODO: Huron's Letter (lvl 29) -->
+	<!-- Just Dye, Already -->
+	<item_collecting id="2949" start_npc_id="204121"/>
+	<!-- Materials for 100-slot Cube -->
+	<item_collecting id="2950" start_npc_id="798059"/>
+	<!-- Looking for Garkbinerk -->
+	<report_to id="2951" start_npc_id="798059" end_npc_id="279006"/>
+	<!-- Winning Vindachinerk's Favor -->
+	<item_collecting id="2952" start_npc_id="279006" end_npc_id="279016"/>
+	<!-- 2953: Delivering Supply Request (lvl 10) handled by script -->
+	<!-- 2954: Delivering Odella Juice (lvl 19) handled by script -->
+	<!-- A Feast for a Son -->
+	<report_to id="2955" start_npc_id="204242" end_npc_id="204127"/>
+	<!-- Preparing the Banquet -->
+	<item_collecting id="2956" start_npc_id="204127"/>
+	<!-- 2957: Flowers for the Banquet (lvl 21) handled by script -->
+	<!-- 2958: Last Minute Worries (lvl 21) handled by script -->
+	<!-- You Never Call, You Never Write -->
+	<report_to id="2959" start_npc_id="204211" end_npc_id="204164"/>
+	<!-- Peace Offering -->
+	<item_collecting id="2960" start_npc_id="204164"/>
+	<!-- A Secret Request -->
+	<report_to id="2961" start_npc_id="204055" end_npc_id="204253"/>
+	<!-- 2962: TODO: Jafnhar's Whereabouts (lvl 41) -->
+	<!-- 2963: TODO: On Behalf of a Friend (lvl 41) -->
+	<!-- 2964: TODO: Striking at Shadows (lvl 41) -->
+	<!-- 2965: Ancient Weapons (lvl 39) handled by script -->
+	<!-- 2966: A Sword Gone Astray (lvl 15) handled by script -->
+	<!-- 2967: A Helmet Gone Astray (lvl 15) handled by script -->
+	<!-- 2968: A Staff Gone Astray (lvl 15) handled by script -->
+	<!-- 2969: Combat Rations (lvl 15) handled by script -->
+	<!-- 2970: Combat Potions (lvl 15) handled by script -->
+	<!-- 2971: A Robe Gone Astray (lvl 15) handled by script -->
+	<!-- [Expert] Weaponsmith's Test -->
+	<item_collecting id="2972" start_npc_id="204104"/>
+	<!-- [Expert] Weaponsmith's Final Exam -->
+	<item_collecting id="2973" start_npc_id="204104"/>
+	<!-- [Expert] Armorsmith's Test -->
+	<item_collecting id="2974" start_npc_id="204106"/>
+	<!-- [Expert] Armorsmith's Final Exam -->
+	<item_collecting id="2975" start_npc_id="204106"/>
+	<!-- [Expert] Handicrafter's Test -->
+	<item_collecting id="2976" start_npc_id="204108"/>
+	<!-- [Expert] Handicrafter's Final Exam -->
+	<item_collecting id="2977" start_npc_id="204108"/>
+	<!-- [Expert] Cook's Test -->
+	<item_collecting id="2978" start_npc_id="204100"/>
+	<!-- [Expert] Cook's Final Exam -->
+	<item_collecting id="2979" start_npc_id="204100"/>
+	<!-- [Expert] Alchemist's Test -->
+	<item_collecting id="2980" start_npc_id="204102"/>
+	<!-- [Expert] Alchemist's Final Exam -->
+	<item_collecting id="2981" start_npc_id="204102"/>
+	<!-- [Expert] Tailor's Test -->
+	<item_collecting id="2982" start_npc_id="204110"/>
+	<!-- [Expert] Tailor's Final Exam -->
+	<item_collecting id="2983" start_npc_id="204110"/>
+	<!-- Ingredients for Dye -->
+	<report_to id="2984" start_npc_id="204138" end_npc_id="204121" item_id="182207064"/>
+	<!-- 2985: An Expert's Reward (lvl 29) handled by script -->
+	<!-- 4201: [Group] Sandblossom Wine (lvl 40) handled by script -->
+	<!-- [Group] Request of a Wine Lover -->
+	<item_collecting id="4202" start_npc_id="204173"/>
+	<!-- [Group] Anikiki's Taming Manual -->
+	<item_collecting id="4203" start_npc_id="204283"/>
+	<!-- Deliver the Taming Manual -->
+	<report_to id="4204" start_npc_id="204283" end_npc_id="279008" item_id="182209100"/>
+	<!-- [Group] Hat of the Steel Beard Pirates -->
+	<item_collecting id="4206" start_npc_id="204285"/>
+	<!-- [Group] Log of the Steel Rake -->
+	<item_collecting id="4207" start_npc_id="204284" action_item_id="700524"/>
+	<!-- [Group] Rendezvous with the Spy -->
+	<report_to id="4209" start_npc_id="204284" end_npc_id="798331"/>
+	<!-- 4210: TODO: [Group] Missing Haorunerk (lvl 43) -->
+	<!-- 4212: TODO: [Group] Missing Sidrunerk (lvl 43) -->
+	<!-- [Group] Unlucky Nekai -->
+	<monster_hunt id="4213" start_npc_id="204202">
+		<monster_infos var_id="0" max_kill="4" npc_id="215032"/>
+		<monster_infos var_id="1" max_kill="4" npc_id="215038"/>
+	</monster_hunt>
+	<!-- [Group] Black Cloud Ledgers -->
+	<item_collecting id="4214" start_npc_id="204284"/>
+	<!-- [Group] The Medicine Thief -->
+	<item_collecting id="4215" start_npc_id="204072"/>
+	<!-- [Group] A Present for Father -->
+	<item_collecting id="4216" start_npc_id="204282"/>
+	<!-- 4218: [Group] Mysterious Amabille (lvl 43) handled by script -->
+	<!-- Kalsten's Recommendation -->
+	<report_to id="4901" start_npc_id="204080" end_npc_id="204056" item_id="182207067"/>
+	<!-- Thialfi's Recommendation -->
+	<report_to id="4902" start_npc_id="204081" end_npc_id="204057" item_id="182207068"/>
+	<!-- Ve's Recommendation -->
+	<report_to id="4903" start_npc_id="204082" end_npc_id="204058" item_id="182207069"/>
+	<!-- Lyfjaberga's Recommendation -->
+	<report_to id="4904" start_npc_id="204083" end_npc_id="204059" item_id="182207070"/>
+	<!-- 4905: Interviewing the Veterans (lvl 45) handled by script -->
+	<!-- 4906: Tales of Heroes (lvl 45) handled by script -->
+	<!-- [Spy/Group] Lepharists in Elysea -->
+	<item_collecting id="4907" start_npc_id="204208" action_item_id="700511"/>
+	<!-- 4908: TODO: Shugo Express Mail (lvl 65) -->
+	<!-- [Group] 3 Fragments of Agrif's Rage -->
+	<item_collecting id="4909" start_npc_id="798317"/>
+	<!-- [Group] 2 Fragments of Agrif's Rage -->
+	<item_collecting id="4910" start_npc_id="798317"/>
+	<!-- [Group] Hilt of Agrif's Rage -->
+	<item_collecting id="4911" start_npc_id="798317"/>
+	<!-- [Group] The Curse of Agrif's Rage -->
+	<item_collecting id="4912" start_npc_id="798317"/>
+	<!-- 4913: A Future Threat handled by script -->
+	<!-- 4914: TODO: Lifeform Remodeling Report (lvl 50) -->
+	<!-- [Group] Obtaining the Dragel -->
+	<item_collecting id="4915" start_npc_id="203385"/>
+	<!-- [Group] Acquiring the Drana -->
+	<item_collecting id="4916" start_npc_id="203385"/>
+	<!-- 4917: TODO: Information Collector Chopirunerk (lvl 50) -->
+	<!-- [Group] Gathering the Surkana -->
+	<item_collecting id="4918" start_npc_id="798358"/>
+	<!-- [Group] Acquiring the Drazma -->
+	<item_collecting id="4919" start_npc_id="798358"/>
+	<!-- [Group] Making the Activated Surkana -->
+	<report_to id="4920" start_npc_id="730212" end_npc_id="798358"/>
+	<!-- 4921: TODO: Chopirunerk's Reward (lvl 50) -->
+	<!-- 4922: The Gladiator Preceptor's Test (lvl 34) handled by script -->
+	<!-- 4923: The Templar Preceptor's Test (lvl 34) handled by script -->
+	<!-- 4924: The Ranger Preceptor's Test (lvl 34) handled by script -->
+	<!-- 4925: The Assassin Preceptor's Test (lvl 34) handled by script -->
+	<!-- 4926: The Sorcerer Preceptor's Test (lvl 34) handled by script -->
+	<!-- 4927: The Spiritmaster Preceptor's Test (lvl 34) handled by script -->
+	<!-- 4928: The Cleric Preceptor's Test (lvl 34) handled by script -->
+	<!-- 4929: The Chanter Preceptor's Test (lvl 34) handled by script -->
+	<!-- 4930: TODO: Advice of Destiny (lvl 17) -->
+	<!-- 4931: TODO: Enlightenment of Destiny (lvl 17) -->
+	<!-- 4932: TODO: Teachings of Destiny (lvl 17) -->
+	<!-- 4933: TODO: Intention of Lord Marchutan (lvl 17) -->
+	<!-- [Top Expert] Weaponsmithing Zeal -->
+	<item_collecting id="4945" start_npc_id="204104"/>
+	<!-- [Top Expert] Weaponsmith's Skill -->
+	<item_collecting id="4946" start_npc_id="204104"/>
+	<!-- [Top Expert] Weaponsmithing Expert -->
+	<report_to id="4947" start_npc_id="204104" end_npc_id="204052" item_id="182207129"/>
+	<!-- [Top Expert] Armorsmithing Zeal -->
+	<item_collecting id="4948" start_npc_id="204106"/>
+	<!-- [Top Expert] Armorsmith's Skill -->
+	<item_collecting id="4949" start_npc_id="204106"/>
+	<!-- [Top Expert] Armorsmithing Expert -->
+	<report_to id="4950" start_npc_id="204106" end_npc_id="204052" item_id="182207130"/>
+	<!-- [Top Expert] Handicrafting Zeal -->
+	<item_collecting id="4951" start_npc_id="204108"/>
+	<!-- [Top Expert] Handicrafter's Skill -->
+	<item_collecting id="4952" start_npc_id="204108"/>
+	<!-- [Top Expert] Handicrafting Expert -->
+	<report_to id="4953" start_npc_id="204108" end_npc_id="204052" item_id="182207131"/>
+	<!-- [Top Expert] Cooking Zeal -->
+	<item_collecting id="4954" start_npc_id="204100"/>
+	<!-- [Top Expert] Cook's Skill -->
+	<item_collecting id="4955" start_npc_id="204100"/>
+	<!-- [Top Expert] Cooking Expert -->
+	<report_to id="4956" start_npc_id="204100" end_npc_id="204052" item_id="182207132"/>
+	<!-- [Top Expert] Alchemy Zeal -->
+	<item_collecting id="4957" start_npc_id="204102"/>
+	<!-- [Top Expert] Alchemist's Skill -->
+	<item_collecting id="4958" start_npc_id="204102"/>
+	<!-- [Top Expert] Alchemy Expert -->
+	<report_to id="4959" start_npc_id="204102" end_npc_id="204052" item_id="182207133"/>
+	<!-- [Top Expert] Tailoring Zeal -->
+	<item_collecting id="4960" start_npc_id="204110"/>
+	<!-- [Top Expert] Tailor's Skill -->
+	<item_collecting id="4961" start_npc_id="204110"/>
+	<!-- [Top Expert] Tailoring Expert -->
+	<report_to id="4962" start_npc_id="204110" end_npc_id="204052" item_id="182207134"/>
+	<!-- 4963: TODO: Epilogue (lvl 50) -->
+	<!-- Payrinrinerk's Information -->
+	<report_to id="4964" start_npc_id="204286" end_npc_id="204051"/>
+	<!-- Secretive Communication -->
+	<report_to id="4965" start_npc_id="204182" end_npc_id="204207" item_id="182207135"/>
+	<!-- 4966: [Growth] Ninis's First Charm (lvl 35) handled by script -->
+	<!-- 4967: [Growth] Ninis's Second Charm (lvl 40) handled by script -->
+	<!-- 4968: [Growth] Ninis's Third Charm (lvl 45) handled by script -->
+	<!-- 4969: [Growth] Ninis's Fourth Charm (lvl 50) handled by script -->
+	<!-- 4970: The Fashionistas (lvl 10) handled by script -->
+	<!-- 4971: Project Runway (lvl 10) handled by script -->
+	<!-- 4972: Judge Not (lvl 10) handled by script -->
+	<!-- 4973: Marra's Worry (lvl 10) handled by script -->
+	<!-- 4974: The Secret of His Success (lvl 10) handled by script -->
+	<!-- Moorinerk's Offer -->
+	<item_collecting id="4975" start_npc_id="204283"/>
+	<!-- 4976: TODO: A Settler's Ambition (lvl 44) -->
+	<!-- [Coin/Group] Drana Gluttony -->
+	<monster_hunt id="4977" start_npc_id="203385">
+		<monster_infos var_id="0" max_kill="8" npc_id="214850"/>
+		<monster_infos var_id="0" max_kill="8" npc_id="214851"/>
+		<monster_infos var_id="0" max_kill="8" npc_id="214849"/>
+		<monster_infos var_id="0" max_kill="8" npc_id="215389"/>
+		<monster_infos var_id="0" max_kill="8" npc_id="214880"/>
+		<monster_infos var_id="0" max_kill="8" npc_id="215388"/>
+		<monster_infos var_id="0" max_kill="8" npc_id="214896"/>
+		<monster_infos var_id="0" max_kill="8" npc_id="214897"/>
+		<monster_infos var_id="0" max_kill="8" npc_id="214895"/>
+	</monster_hunt>
+	<!-- [Coin/Group] Safecracking -->
+	<monster_hunt id="4978" start_npc_id="204286">
+		<monster_infos var_id="0" max_kill="1" npc_id="215079"/>
+	</monster_hunt>
+	<!-- [Coin/Group] In Shugo's Clothing -->
+	<monster_hunt id="4979" start_npc_id="204283">
+		<monster_infos var_id="0" max_kill="1" npc_id="215081"/>
+	</monster_hunt>
+	<!-- [Event] The Lost Contract -->
+	<item_collecting id="9551" start_npc_id="204209"/>
+	<!-- [Event] Runaway Invitations -->
+	<item_collecting id="9552" start_npc_id="204209"/>
+	<!-- 9553: TODO: [Event] Solorius Romance (lvl 10) -->
+	<!-- 9559: TODO: [Event] The Taste of Success (lvl 10) -->
+	<!-- 9561: TODO: [Event] Daeva's Day (lvl 99) -->
+	<!-- 29000: [Expert] Essencetapper's Test (lvl 50) handled by script -->
+	<!-- [Expert] Essencetapping Expert -->
+	<report_to id="29001" start_npc_id="204096" end_npc_id="798800" item_id="182207141"/>
+	<!-- 29002: [Expert] Aethertapper's Test (lvl 50) handled by script -->
+	<!-- [Expert] Aethertapping Expert -->
+	<report_to id="29003" start_npc_id="204257" end_npc_id="798800" item_id="182207142"/>
+	<!-- 29004: Veldina's Call (lvl 10) handled by script -->
+	<!-- 29008: [Master] Weaponsmith's Potential (lvl 29) handled by script -->
+	<!-- [Master] Weaponsmithing Master -->
+	<report_to id="29009" start_npc_id="204104" end_npc_id="798800" item_id="182207143"/>
+	<!-- 29014: [Master] Armorsmith's Potential (lvl 29) handled by script -->
+	<!-- [Master] Armorsmithing Master -->
+	<report_to id="29015" start_npc_id="204106" end_npc_id="798800" item_id="182207144"/>
+	<!-- 29020: [Master] Tailor's Potential (lvl 29) handled by script -->
+	<!-- [Master] Tailoring Master -->
+	<report_to id="29021" start_npc_id="204110" end_npc_id="798800" item_id="182207145"/>
+	<!-- 29026: [Master] Handicrafter's Potential (lvl 29) handled by script -->
+	<!-- [Master] Handicrafting Master -->
+	<report_to id="29027" start_npc_id="204108" end_npc_id="798800" item_id="182207146"/>
+	<!-- 29032: [Master] Alchemist's Potential (lvl 29) handled by script -->
+	<!-- [Master] Alchemy Master -->
+	<report_to id="29033" start_npc_id="204102" end_npc_id="798800" item_id="182207147"/>
+	<!-- 29038: [Master] Cook's Potential (lvl 29) handled by script -->
+	<!-- [Master] Cooking Master -->
+	<report_to id="29039" start_npc_id="204100" end_npc_id="798800" item_id="182207148"/>
+	<!-- Mane's Best Friend -->
+	<report_to id="29040" start_npc_id="798385" end_npc_id="798443"/>
+	<!-- Pet Perceptions -->
+	<report_to id="29044" start_npc_id="798443" end_npc_id="798441"/>
+	<!-- A Passion for Pets -->
+	<report_to id="29045" start_npc_id="798441" end_npc_id="798442"/>
+	<!-- Black Clouds Stop Play -->
+	<report_to id="29041" start_npc_id="204051" end_npc_id="204286"/>
+	<!-- An Awkward Alliance -->
+	<item_collecting id="29042" start_npc_id="204286"/>
+	<!-- 29043: TODO: [Daily] Flower Power (lvl 45) -->
+	<!-- 51000: TODO: [Event] Heat of High Summer (lvl 99) -->
+	<!-- 51001: TODO: [Event] Heat of High Summer (lvl 99) -->
+	<!-- 51005: TODO: [Event] Festival Energy (lvl 99) -->
+	<!-- 51006: TODO: [Event] The Day of the Daeva (lvl 99) -->
+	<!-- 80001: TODO: [Event] Festive Daeva's Day (lvl 10) -->
+	<!-- 80009: TODO: [Event] The Cake is the Truth! (lvl 10) -->
+	<!-- 80013: TODO: [Event] The Pumpkin King (lvl 10) -->
+	<!-- 80014: TODO: [Event] The Desperate Pumpkin King (lvl 10) -->
+	<!-- 80015: TODO: [Event] Candy, Candy Everywhere (lvl 10) -->
+	<!-- 80018: [Event] Sock it to 'Em (lvl 10) handled by script -->
+	<!-- 80019: TODO: [Event] Filth and Frolics (lvl 10) -->
+	<!-- 80021: [Event] Festive Us (lvl 10) handled by script -->
+	<!-- 80025: TODO: [Event] Basic Vittles (lvl 10) -->
+	<!-- 80026: TODO: [Event] Regular Vittles (lvl 10) -->
+	<!-- 80027: TODO: [Event] Plentiful Vittles (lvl 10) -->
+	<!-- 80031: TODO: [Event] Seek Your Chance (lvl 10) -->
+	<!-- 80032: TODO: [Event] Find Your Chance (lvl 15) -->
+	<!-- 80033: TODO: [Event] Sieze Your Chance (lvl 10) -->
+	<!-- 80037: TODO: [Event] A Wager With Chance (lvl 10) -->
+	<!-- 80038: TODO: [Event] A Wager With Destiny (lvl 10) -->
+	<!-- 80039: TODO: [Event] A Wager With Fate (lvl 10) -->
+</quest_scripts>

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/model/channel
+END
+Channels.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/model/channel/Channels.java
+END
+LanguageChannel.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/model/channel/LanguageChannel.java
+END
+RegionChannel.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/model/channel/RegionChannel.java
+END
+LfgChannel.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/model/channel/LfgChannel.java
+END
+JobChannel.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/model/channel/JobChannel.java
+END
+RaceChannel.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/model/channel/RaceChannel.java
+END
+Channel.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/model/channel/Channel.java
+END
+TradeChannel.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/model/channel/TradeChannel.java
+END

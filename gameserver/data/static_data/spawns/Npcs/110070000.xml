@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-extreme <aion-unique.org>.
+
+	aion-extreme is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	@author Orpheo
+	
+ -->
+<spawns>
+	<spawn interval="295" map="110070000" npcid="799632" pool="2">
+      <object h="30" x="488.80334" y="217.38971" z="127.29538"/>
+      <object h="30" x="506.96735" y="217.39224" z="127.29533"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="730430" pool="1">
+      <object h="0" x="511.5854" y="215.72925" z="127.360535" staticid="1"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="799633" pool="2">
+      <object h="30" x="495.80496" y="217.41533" z="127.29533"/>
+      <object h="30" x="513.969" y="217.41786" z="127.295395"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="205319" pool="1">
+      <object h="55" x="525.73444" y="222.62363" z="126.97586"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="205318" pool="1">
+      <object h="40" x="522.2515" y="220.89941" z="126.97586"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="730425" pool="1">
+      <object h="0" x="459.83658" y="251.7952" z="127.13356" staticid="1601"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="205309" pool="1">
+      <object h="60" x="492.71463" y="251.37149" z="127.00826"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="205315" pool="1">
+      <object h="60" x="483.30905" y="251.07233" z="126.975876"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="205317" pool="1">
+      <object h="96" x="524.1465" y="227.76486" z="126.97586"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="730424" pool="1">
+      <object h="0" x="443.8786" y="258.6037" z="126.97166" staticid="328"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="205316" pool="1">
+      <object h="90" x="479.40924" y="279.1825" z="127.51457"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="205456" pool="1">
+      <object h="90" x="476.9819" y="271.42792" z="126.975876"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="205471" pool="1">
+      <object h="86" x="481.14105" y="271.10617" z="126.975876"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="205444" pool="1">
+      <object h="30" x="455.82294" y="309.68835" z="126.09667"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="205443" pool="1">
+      <object h="0" x="440.45193" y="325.10098" z="126.09666"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="205451" pool="1">
+      <object h="90" x="455.70563" y="340.22446" z="126.096664"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="205489" pool="1">
+      <object h="30" x="553.241" y="309.69736" z="126.096664"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="205488" pool="1">
+      <object h="30" x="551.4137" y="309.71054" z="126.096664"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="205311" pool="1">
+      <object h="60" x="567.4394" y="325.87488" z="126.096664"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="205313" pool="1">
+      <object h="90" x="553.26575" y="340.18524" z="126.09666"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="205310" pool="1">
+      <object h="60" x="567.44086" y="323.94412" z="126.096664"/>
+   </spawn>
+   <spawn interval="295" map="110070000" npcid="205312" pool="1">
+      <object h="90" x="551.4384" y="340.1774" z="126.09666"/>
+   </spawn>
+</spawns>

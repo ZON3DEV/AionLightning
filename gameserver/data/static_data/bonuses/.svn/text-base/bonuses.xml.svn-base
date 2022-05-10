@@ -1,0 +1,2605 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<bonuses>
+	<bonus_info questId="1005">
+		<movie movieId="171"/>
+	</bonus_info>
+	<bonus_info questId="1161">
+		<manastone bonusLevel="20" count="1" checkItem="167000258"/>
+	</bonus_info>
+	<bonus_info questId="1187">
+		<manastone bonusLevel="20" count="1" checkItem="167000259"/>
+	</bonus_info>
+	<bonus_info questId="1202">
+		<medicine bonusLevel="2561"/>
+	</bonus_info>
+	<bonus_info questId="1209">
+		<coin bonusLevel="2050" count="2" checkItem="186000001"/>
+		<coin bonusLevel="2049" count="4" checkItem="186000001"/>
+	</bonus_info>
+	<bonus_info questId="1212">
+		<coin bonusLevel="2050" count="2" checkItem="186000001"/>
+		<coin bonusLevel="2049" count="4" checkItem="186000001"/>
+	</bonus_info>
+	<bonus_info questId="1305">
+		<food bonusLevel="2561"/>
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+	</bonus_info>
+	<bonus_info questId="1306">
+		<medicine bonusLevel="2561"/>
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+	</bonus_info>
+	<bonus_info questId="1318">
+		<medicine bonusLevel="2561" count="15" checkItem="182201352"/>
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="1331">
+		<coin bonusLevel="2690" count="3" checkItem="186000002"/>
+		<coin bonusLevel="2689" count="6" checkItem="186000002"/>
+	</bonus_info>
+	<bonus_info questId="1332">
+		<coin bonusLevel="3970" count="8" checkItem="186000003"/>
+		<coin bonusLevel="3969" count="16" checkItem="186000003"/>
+		<coin bonusLevel="3330" count="6" checkItem="186000002"/>
+		<coin bonusLevel="3329" count="12" checkItem="186000002"/>
+	</bonus_info>
+	<bonus_info questId="1397">
+		<magical bonusLevel="5121"/>
+        <wrap bonusLevel="7681" itemId="188050585" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="1398">
+		<coin bonusLevel="4610" count="16" checkItem="186000003"/>
+		<coin bonusLevel="4609" count="32" checkItem="186000003"/>
+	</bonus_info>
+	<bonus_info questId="1399">
+		<coin bonusLevel="4610" count="16" checkItem="186000003"/>
+		<coin bonusLevel="4609" count="32" checkItem="186000003"/>
+	</bonus_info>
+	<bonus_info questId="1408">
+		<magical bonusLevel="3841" count="10" checkItem="182201345"/>
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+	</bonus_info>
+	<bonus_info questId="1428">
+		<coin bonusLevel="2690" count="3" checkItem="186000002"/>
+		<coin bonusLevel="2689" count="6" checkItem="186000002"/>
+	</bonus_info>
+	<bonus_info questId="1429">
+		<coin bonusLevel="3970" count="8" checkItem="186000003"/>
+		<coin bonusLevel="3969" count="16" checkItem="186000003"/>
+		<coin bonusLevel="3330" count="6" checkItem="186000002"/>
+		<coin bonusLevel="3329" count="12" checkItem="186000002"/>
+	</bonus_info>
+	<bonus_info questId="1438">
+		<manastone bonusLevel="30" count="1" checkItem="167000290"/>
+	</bonus_info>
+	<bonus_info questId="1442">
+		<manastone bonusLevel="30" count="1" checkItem="167000291"/>
+	</bonus_info>
+	<bonus_info questId="1497">
+		<magical bonusLevel="3841"/>
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="1507">
+		<food bonusLevel="3841"/>
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+	</bonus_info>
+	<bonus_info questId="1508">
+		<coin bonusLevel="5890" count="20" checkItem="186000004"/>
+		<coin bonusLevel="5889" count="40" checkItem="186000004"/>
+		<coin bonusLevel="3970" count="8" checkItem="186000003"/>
+		<coin bonusLevel="3969" count="16" checkItem="186000003"/>
+	</bonus_info>
+	<bonus_info questId="1509">
+		<coin bonusLevel="5890" count="20" checkItem="186000004"/>
+		<coin bonusLevel="5889" count="40" checkItem="186000004"/>
+		<coin bonusLevel="3970" count="8" checkItem="186000003"/>
+		<coin bonusLevel="3969" count="16" checkItem="186000003"/>
+	</bonus_info>
+	<bonus_info questId="1510">
+		<magical bonusLevel="5121" count="20" checkItem="182201809"/>
+	</bonus_info>
+	<bonus_info questId="1517">
+		<medicine bonusLevel="6401"/>
+	</bonus_info>
+	<bonus_info questId="1518">
+		<food bonusLevel="6401" count="20" checkItem="182201810"/>
+	</bonus_info>
+	<bonus_info questId="1519">
+		<manastone bonusLevel="40" count="1" checkItem="167000322"/>
+	</bonus_info>
+	<bonus_info questId="1520">
+		<manastone bonusLevel="40" count="1" checkItem="167000323"/>
+	</bonus_info>
+	<bonus_info questId="1534">
+		<medicine bonusLevel="3841" count="15" checkItem="182201787"/>
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+	</bonus_info>
+	<bonus_info questId="1557">
+		<magical bonusLevel="5121"/>
+        <wrap bonusLevel="7681" itemId="188050585" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="1558">
+		<medicine bonusLevel="5121"/>
+        <wrap bonusLevel="7681" itemId="188050585" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="1568">
+		<coin bonusLevel="4610" count="16" checkItem="186000003"/>
+		<coin bonusLevel="4609" count="32" checkItem="186000003"/>
+	</bonus_info>
+	<bonus_info questId="1569">
+		<coin bonusLevel="4610" count="16" checkItem="186000003"/>
+		<coin bonusLevel="4609" count="32" checkItem="186000003"/>
+	</bonus_info>
+	<bonus_info questId="1590">
+		<medicine bonusLevel="5121"/>
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+    <bonus_info questId="1596">
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="1597">
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+	<bonus_info questId="1613">
+		<medicine bonusLevel="5121"/>
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+	</bonus_info>
+	<bonus_info questId="1638">
+		<coin bonusLevel="5250" count="10" checkItem="186000004"/>
+		<coin bonusLevel="5249" count="20" checkItem="186000004"/>
+	</bonus_info>
+	<bonus_info questId="1639">
+		<coin bonusLevel="5250" count="10" checkItem="186000004"/>
+		<coin bonusLevel="5249" count="20" checkItem="186000004"/>
+    </bonus_info>
+    <bonus_info questId="1651">
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="1711">
+		<coin bonusLevel="5250" count="10" checkItem="186000004"/>
+		<coin bonusLevel="5249" count="20" checkItem="186000004"/>
+		<coin bonusLevel="3970" count="8" checkItem="186000003"/>
+		<coin bonusLevel="3969" count="16" checkItem="186000003"/>
+	</bonus_info>
+	<bonus_info questId="1712">
+		<coin bonusLevel="5250" count="10" checkItem="186000004"/>
+		<coin bonusLevel="5249" count="20" checkItem="186000004"/>
+		<coin bonusLevel="3970" count="8" checkItem="186000003"/>
+		<coin bonusLevel="3969" count="16" checkItem="186000003"/>
+	</bonus_info>
+	<bonus_info questId="1713">
+		<coin bonusLevel="4610" count="16" checkItem="186000003"/>
+		<coin bonusLevel="4609" count="32" checkItem="186000003"/>
+	</bonus_info>
+	<bonus_info questId="1714">
+		<coin bonusLevel="4610" count="16" checkItem="186000003"/>
+		<coin bonusLevel="4609" count="32" checkItem="186000003"/>
+	</bonus_info>
+	<bonus_info questId="1717">
+		<medal bonusLevel="129" count="1" checkItem="186000031"/>
+	</bonus_info>
+	<bonus_info questId="1737">
+		<boss bonusLevel="5121"/>
+	</bonus_info>
+	<bonus_info questId="1739">
+		<boss bonusLevel="6401"/>
+	</bonus_info>
+	<bonus_info questId="1742">
+		<magical bonusLevel="2561"/>
+	</bonus_info>
+	<bonus_info questId="1746">
+		<fortress bonusLevel="5123" count="5" checkItem="182202154"/>
+	</bonus_info>
+	<bonus_info questId="1747">
+		<magical bonusLevel="2561"/>
+	</bonus_info>
+	<bonus_info questId="1749">
+		<fortress bonusLevel="5123" count="5" checkItem="182202108"/>
+	</bonus_info>
+	<bonus_info questId="1752">
+		<medicine bonusLevel="3841"/>
+	</bonus_info>
+	<bonus_info questId="1756">
+		<magical bonusLevel="2561"/>
+	</bonus_info>
+	<bonus_info questId="1759">
+		<fortress bonusLevel="5123" count="5" checkItem="182202112"/>
+	</bonus_info>
+	<bonus_info questId="1764">
+		<magical bonusLevel="3841" count="9" checkItem="182202117"/>
+	</bonus_info>
+	<bonus_info questId="1767">
+		<magical bonusLevel="3841"/>
+	</bonus_info>
+	<bonus_info questId="1769">
+		<fortress bonusLevel="6403"/>
+	</bonus_info>
+	<bonus_info questId="1779">
+		<fortress bonusLevel="6403"/>
+	</bonus_info>
+	<bonus_info questId="1781">
+		<magical bonusLevel="5121" count="5" checkItem="182202125"/>
+	</bonus_info>
+	<bonus_info questId="1785">
+		<fortress bonusLevel="6403"/>
+	</bonus_info>
+	<bonus_info questId="1790">
+		<fortress bonusLevel="6403"/>
+	</bonus_info>
+	<bonus_info questId="1791">
+		<magical bonusLevel="5121"/>
+	</bonus_info>
+	<bonus_info questId="1795">
+		<fortress bonusLevel="6403"/>
+	</bonus_info>
+	<bonus_info questId="1801">
+		<fortress bonusLevel="5121" count="5" checkItem="182202135"/>
+	</bonus_info>
+	<bonus_info questId="1802">
+		<fortress bonusLevel="5122" count="5" checkItem="182202136"/>
+	</bonus_info>
+	<bonus_info questId="1803">
+		<fortress bonusLevel="5121" count="5" checkItem="182202137"/>
+	</bonus_info>
+	<bonus_info questId="1804">
+		<fortress bonusLevel="5122" count="5" checkItem="182202138"/>
+	</bonus_info>
+	<bonus_info questId="1805">
+		<fortress bonusLevel="5121" count="5" checkItem="182202139"/>
+	</bonus_info>
+	<bonus_info questId="1806">
+		<fortress bonusLevel="5122" count="5" checkItem="182202140"/>
+	</bonus_info>
+	<bonus_info questId="1807">
+		<fortress bonusLevel="6401" count="5" checkItem="182202141"/>
+	</bonus_info>
+	<bonus_info questId="1808">
+		<fortress bonusLevel="6402" count="5" checkItem="182202142"/>
+	</bonus_info>
+	<bonus_info questId="1809">
+		<fortress bonusLevel="6401" count="5" checkItem="182202143"/>
+	</bonus_info>
+	<bonus_info questId="1810">
+		<fortress bonusLevel="6402" count="5" checkItem="182202144"/>
+	</bonus_info>
+	<bonus_info questId="1811">
+		<fortress bonusLevel="6401" count="5" checkItem="182202145"/>
+	</bonus_info>
+	<bonus_info questId="1812">
+		<fortress bonusLevel="6402" count="5" checkItem="182202146"/>
+	</bonus_info>
+	<bonus_info questId="1813">
+		<fortress bonusLevel="6401" count="5" checkItem="182202147"/>
+	</bonus_info>
+	<bonus_info questId="1814">
+		<fortress bonusLevel="6402" count="5" checkItem="182202148"/>
+	</bonus_info>
+	<bonus_info questId="1815">
+		<fortress bonusLevel="6401" count="5" checkItem="182202149"/>
+	</bonus_info>
+	<bonus_info questId="1816">
+		<fortress bonusLevel="6402" count="5" checkItem="182202150"/>
+	</bonus_info>
+	<bonus_info questId="1827">
+		<master_recipe count="6" checkItem="186000032" skillId="40002"/>
+		<master_recipe count="6" checkItem="186000033" skillId="40002"/>
+		<master_recipe count="6" checkItem="186000097" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="1828">
+		<master_recipe count="3" checkItem="186000032" skillId="40003"/>
+		<master_recipe count="3" checkItem="186000033" skillId="40003"/>
+		<master_recipe count="3" checkItem="186000097" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="1829">
+		<master_recipe count="4" checkItem="186000032" skillId="40008"/>
+		<master_recipe count="4" checkItem="186000033" skillId="40008"/>
+		<master_recipe count="4" checkItem="186000097" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="1830">
+		<master_recipe count="2" checkItem="186000032" skillId="40001"/>
+		<master_recipe count="2" checkItem="186000033" skillId="40001"/>
+		<master_recipe count="2" checkItem="186000097" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="1831">
+		<master_recipe count="6" checkItem="186000032" skillId="40007"/>
+		<master_recipe count="6" checkItem="186000033" skillId="40007"/>
+		<master_recipe count="6" checkItem="186000097" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="1832">
+		<master_recipe count="3" checkItem="186000032" skillId="40004"/>
+		<master_recipe count="3" checkItem="186000033" skillId="40004"/>
+		<master_recipe count="3" checkItem="186000097" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="1848">
+		<island bonusLevel="129"/>
+	</bonus_info>
+	<bonus_info questId="1941">
+		<movie movieId="93"/>
+	</bonus_info>
+	<bonus_info questId="1942">
+		<movie movieId="94"/>
+	</bonus_info>
+	<bonus_info questId="1943">
+		<movie movieId="95"/>
+	</bonus_info>
+	<bonus_info questId="1944">
+		<movie movieId="96"/>
+	</bonus_info>
+	<bonus_info questId="1945">
+		<movie movieId="97"/>
+	</bonus_info>
+	<bonus_info questId="1946">
+		<movie movieId="98"/>
+	</bonus_info>
+	<bonus_info questId="2007">
+		<movie movieId="58"/>
+	</bonus_info>
+	<bonus_info questId="2294">
+		<coin bonusLevel="2050" count="2" checkItem="186000006"/>
+		<coin bonusLevel="2049" count="4" checkItem="186000006"/>
+	</bonus_info>
+	<bonus_info questId="2295">
+		<coin bonusLevel="2050" count="2" checkItem="186000006"/>
+		<coin bonusLevel="2049" count="4" checkItem="186000006"/>
+	</bonus_info>
+	<bonus_info questId="2298">
+		<manastone bonusLevel="20" count="1" checkItem="167000258"/>
+	</bonus_info>
+	<bonus_info questId="2299">
+		<manastone bonusLevel="20" count="1" checkItem="167000259"/>
+	</bonus_info>
+	<bonus_info questId="2312">
+		<medicine bonusLevel="2561" count="20" checkItem="182204111"/>
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="2315">
+		<coin bonusLevel="2690" count="3" checkItem="186000007"/>
+		<coin bonusLevel="2689" count="6" checkItem="186000007"/>
+	</bonus_info>
+	<bonus_info questId="2335">
+		<coin bonusLevel="3330" count="6" checkItem="186000007"/>
+		<coin bonusLevel="3329" count="12" checkItem="186000007"/>
+	</bonus_info>
+	<bonus_info questId="2336">
+		<coin bonusLevel="3330" count="6" checkItem="186000007"/>
+		<coin bonusLevel="3329" count="12" checkItem="186000007"/>
+	</bonus_info>
+	<bonus_info questId="2337">
+		<coin bonusLevel="2690" count="3" checkItem="186000007"/>
+		<coin bonusLevel="2689" count="6" checkItem="186000007"/>
+	</bonus_info>
+	<bonus_info questId="2338">
+		<manastone bonusLevel="30" count="1" checkItem="167000290"/>
+	</bonus_info>
+	<bonus_info questId="2339">
+		<manastone bonusLevel="30" count="1" checkItem="167000291"/>
+	</bonus_info>
+	<bonus_info questId="2340">
+		<food bonusLevel="3841" count="15" checkItem="182204133"/>
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="2341">
+		<magical bonusLevel="3841"/>
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="2346">
+		<medicine bonusLevel="3841" count="15" checkItem="182204139"/>
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="2368">
+		<magical bonusLevel="2561"/>
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="2380">
+		<medicine bonusLevel="5121" count="60" checkItem="182204246"/>
+	</bonus_info>
+	<bonus_info questId="2396">
+		<coin bonusLevel="3970" count="8" checkItem="186000008"/>
+		<coin bonusLevel="3969" count="16" checkItem="186000008"/>
+		<coin bonusLevel="4610" count="16" checkItem="186000008"/>
+		<coin bonusLevel="4609" count="32" checkItem="186000008"/>
+	</bonus_info>
+	<bonus_info questId="2397">
+		<coin bonusLevel="3970" count="8" checkItem="186000008"/>
+		<coin bonusLevel="3969" count="16" checkItem="186000008"/>
+		<coin bonusLevel="4610" count="16" checkItem="186000008"/>
+		<coin bonusLevel="4609" count="32" checkItem="186000008"/>
+	</bonus_info>
+    <bonus_info questId="2499">
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+	<bonus_info questId="2517">
+		<coin bonusLevel="3970" count="8" checkItem="186000008"/>
+		<coin bonusLevel="3969" count="16" checkItem="186000008"/>
+		<coin bonusLevel="4610" count="16" checkItem="186000008"/>
+		<coin bonusLevel="4609" count="32" checkItem="186000008"/>
+	</bonus_info>
+	<bonus_info questId="2518">
+		<coin bonusLevel="3970" count="8" checkItem="186000008"/>
+		<coin bonusLevel="3969" count="16" checkItem="186000008"/>
+		<coin bonusLevel="4610" count="16" checkItem="186000008"/>
+		<coin bonusLevel="4609" count="32" checkItem="186000008"/>
+	</bonus_info>
+	<bonus_info questId="2519">
+		<manastone bonusLevel="40" count="1" checkItem="167000322"/>
+	</bonus_info>
+	<bonus_info questId="2520">
+		<manastone bonusLevel="40" count="1" checkItem="167000323"/>
+	</bonus_info>
+	<bonus_info questId="2522">
+		<medicine bonusLevel="3841"/>
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+	</bonus_info>
+	<bonus_info questId="2530">
+		<magical bonusLevel="3841"/>
+        <wrap bonusLevel="7681" itemId="188050585" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="2544">
+		<medicine bonusLevel="3841"/>
+        <wrap bonusLevel="7681" itemId="188050585" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="2567">
+        <wrap bonusLevel="7681" itemId="188050585" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="2574">
+        <wrap bonusLevel="7681" itemId="188050585" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="2591">
+		<coin bonusLevel="5250" count="10" checkItem="186000009"/>
+		<coin bonusLevel="5249" count="20" checkItem="186000009"/>
+	</bonus_info>
+	<bonus_info questId="2592">
+		<coin bonusLevel="5250" count="10" checkItem="186000009"/>
+		<coin bonusLevel="5249" count="20" checkItem="186000009"/>
+	</bonus_info>
+	<bonus_info questId="2596">
+		<magical bonusLevel="5121" count="80" checkItem="182204520"/>
+	</bonus_info>
+	<bonus_info questId="2597">
+		<food bonusLevel="6401" count="70" checkItem="182204521"/>
+	</bonus_info>
+    <bonus_info questId="2608">
+        <wrap bonusLevel="5121" itemId="188050589" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+	<bonus_info questId="2616">
+		<magical bonusLevel="5121"/>
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="2629">
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="2636">
+		<coin bonusLevel="5890" count="20" checkItem="186000009"/>
+		<coin bonusLevel="5889" count="40" checkItem="186000009"/>
+	</bonus_info>
+	<bonus_info questId="2637">
+		<coin bonusLevel="5890" count="20" checkItem="186000009"/>
+		<coin bonusLevel="5889" count="40" checkItem="186000009"/>
+    </bonus_info>
+    <bonus_info questId="2638">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="2644">
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="2658">
+		<magical bonusLevel="5121" count="20" checkItem="182204530"/>
+	</bonus_info>
+	<bonus_info questId="2659">
+		<medicine bonusLevel="6401"/>
+	</bonus_info>
+	<bonus_info questId="2660">
+		<food bonusLevel="6401" count="20" checkItem="182204531"/>
+	</bonus_info>
+	<bonus_info questId="2676">
+		<magical bonusLevel="5121"/>
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="2711">
+		<coin bonusLevel="5250" count="10" checkItem="186000009"/>
+		<coin bonusLevel="5249" count="20" checkItem="186000009"/>
+		<coin bonusLevel="3970" count="8" checkItem="186000008"/>
+		<coin bonusLevel="3969" count="16" checkItem="186000008"/>
+	</bonus_info>
+	<bonus_info questId="2712">
+		<coin bonusLevel="5250" count="10" checkItem="186000009"/>
+		<coin bonusLevel="5249" count="20" checkItem="186000009"/>
+		<coin bonusLevel="3970" count="8" checkItem="186000008"/>
+		<coin bonusLevel="3969" count="16" checkItem="186000008"/>
+	</bonus_info>
+	<bonus_info questId="2713">
+		<coin bonusLevel="4610" count="16" checkItem="186000008"/>
+		<coin bonusLevel="4609" count="32" checkItem="186000008"/>
+	</bonus_info>
+	<bonus_info questId="2714">
+		<coin bonusLevel="4610" count="16" checkItem="186000008"/>
+		<coin bonusLevel="4609" count="32" checkItem="186000008"/>
+	</bonus_info>
+	<bonus_info questId="2717">
+		<medal bonusLevel="129" count="1" checkItem="186000031"/>
+	</bonus_info>
+	<bonus_info questId="2737">
+		<boss bonusLevel="5121"/>
+	</bonus_info>
+	<bonus_info questId="2739">
+		<boss bonusLevel="6401"/>
+	</bonus_info>
+	<bonus_info questId="2742">
+		<magical bonusLevel="2561"/>
+	</bonus_info>
+	<bonus_info questId="2746">
+		<fortress bonusLevel="5123" count="10" checkItem="182205609"/>
+	</bonus_info>
+	<bonus_info questId="2747">
+		<magical bonusLevel="2561"/>
+	</bonus_info>
+	<bonus_info questId="2749">
+		<fortress bonusLevel="5123"/>
+	</bonus_info>
+	<bonus_info questId="2750">
+		<magical bonusLevel="2561"/>
+	</bonus_info>
+	<bonus_info questId="2751">
+		<magical bonusLevel="2561" count="5" checkItem="182205610"/>
+	</bonus_info>
+	<bonus_info questId="2760">
+		<fortress bonusLevel="5123" count="7" checkItem="182205613"/>
+	</bonus_info>
+	<bonus_info questId="2761">
+		<magical bonusLevel="3841" count="5" checkItem="182205614"/>
+	</bonus_info>
+	<bonus_info questId="2770">
+		<fortress bonusLevel="6403"/>
+	</bonus_info>
+	<bonus_info questId="2780">
+		<fortress bonusLevel="6403"/>
+	</bonus_info>
+	<bonus_info questId="2781">
+		<magical bonusLevel="5121" count="15" checkItem="182205621"/>
+	</bonus_info>
+	<bonus_info questId="2785">
+		<fortress bonusLevel="6403"/>
+	</bonus_info>
+	<bonus_info questId="2790">
+		<fortress bonusLevel="6403"/>
+	</bonus_info>
+	<bonus_info questId="2795">
+		<fortress bonusLevel="6403"/>
+	</bonus_info>
+	<bonus_info questId="2796">
+		<magical bonusLevel="5121" count="10" checkItem="182205652"/>
+	</bonus_info>
+	<bonus_info questId="2801">
+		<fortress bonusLevel="5121" count="5" checkItem="182205629"/>
+	</bonus_info>
+	<bonus_info questId="2802">
+		<fortress bonusLevel="5122" count="5" checkItem="182205630"/>
+	</bonus_info>
+	<bonus_info questId="2803">
+		<fortress bonusLevel="5121" count="5" checkItem="182205631"/>
+	</bonus_info>
+	<bonus_info questId="2804">
+		<fortress bonusLevel="5122" count="5" checkItem="182205632"/>
+	</bonus_info>
+	<bonus_info questId="2805">
+		<fortress bonusLevel="5121" count="5" checkItem="182205633"/>
+	</bonus_info>
+	<bonus_info questId="2806">
+		<fortress bonusLevel="5122" count="5" checkItem="182205634"/>
+	</bonus_info>
+	<bonus_info questId="2807">
+		<fortress bonusLevel="6401" count="5" checkItem="182205635"/>
+	</bonus_info>
+	<bonus_info questId="2808">
+		<fortress bonusLevel="6402" count="5" checkItem="182205636"/>
+	</bonus_info>
+	<bonus_info questId="2809">
+		<fortress bonusLevel="6401" count="5" checkItem="182205637"/>
+	</bonus_info>
+	<bonus_info questId="2810">
+		<fortress bonusLevel="6402" count="5" checkItem="182205638"/>
+	</bonus_info>
+	<bonus_info questId="2811">
+		<fortress bonusLevel="6401" count="5" checkItem="182205639"/>
+	</bonus_info>
+	<bonus_info questId="2812">
+		<fortress bonusLevel="6402" count="5" checkItem="182205640"/>
+	</bonus_info>
+	<bonus_info questId="2813">
+		<fortress bonusLevel="6401" count="5" checkItem="182205641"/>
+	</bonus_info>
+	<bonus_info questId="2814">
+		<fortress bonusLevel="6402" count="5" checkItem="182205642"/>
+	</bonus_info>
+	<bonus_info questId="2815">
+		<fortress bonusLevel="6401" count="5" checkItem="182205643"/>
+	</bonus_info>
+	<bonus_info questId="2816">
+		<fortress bonusLevel="6402" count="5" checkItem="182205644"/>
+	</bonus_info>
+	<bonus_info questId="2827">
+		<master_recipe count="6" checkItem="186000032" skillId="40002"/>
+		<master_recipe count="6" checkItem="186000033" skillId="40002"/>
+		<master_recipe count="6" checkItem="186000097" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="2828">
+		<master_recipe count="3" checkItem="186000032" skillId="40003"/>
+		<master_recipe count="3" checkItem="186000033" skillId="40003"/>
+		<master_recipe count="3" checkItem="186000097" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="2829">
+		<master_recipe count="4" checkItem="186000032" skillId="40008"/>
+		<master_recipe count="4" checkItem="186000033" skillId="40008"/>
+		<master_recipe count="4" checkItem="186000097" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="2830">
+		<master_recipe count="2" checkItem="186000032" skillId="40001"/>
+		<master_recipe count="2" checkItem="186000033" skillId="40001"/>
+		<master_recipe count="2" checkItem="186000097" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="2831">
+		<master_recipe count="6" checkItem="186000032" skillId="40007"/>
+		<master_recipe count="6" checkItem="186000033" skillId="40007"/>
+		<master_recipe count="6" checkItem="186000097" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="2832">
+		<master_recipe count="3" checkItem="186000032" skillId="40004"/>
+		<master_recipe count="3" checkItem="186000033" skillId="40004"/>
+		<master_recipe count="3" checkItem="186000097" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="2849">
+		<island bonusLevel="129"/>
+	</bonus_info>
+    <bonus_info questId="3003">
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+	<bonus_info questId="3007">
+		<food bonusLevel="2561" count="10" checkItem="182208004"/>
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="3010">
+		<medicine bonusLevel="2561" count="20" checkItem="182208006"/>
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+	</bonus_info>
+	<bonus_info questId="3015">
+		<magical bonusLevel="2561"/>
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+	</bonus_info>
+	<bonus_info questId="3017">
+		<recipe count="1" checkItem="152002001"/>
+	</bonus_info>
+    <bonus_info questId="3032">
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3038">
+        <wrap bonusLevel="5121" itemId="188050589" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="3042">
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+	<bonus_info questId="3045">
+		<food bonusLevel="6401"/>
+	</bonus_info>
+	<bonus_info questId="3052">
+		<magical bonusLevel="5121"/>
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+    <bonus_info questId="3054">
+        <wrap bonusLevel="5121" itemId="188050589" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="3061">
+        <redeem bonusLevel="6401" count="15" checkItem="182208044"/>
+    </bonus_info>
+    <bonus_info questId="3062">
+        <redeem bonusLevel="6401" count="15" checkItem="182208045"/>
+    </bonus_info>
+    <bonus_info questId="3063">
+        <redeem bonusLevel="6401" count="15" checkItem="182208046"/>
+    </bonus_info>
+	<bonus_info questId="3072">
+        <manastone bonusLevel="6402" count="1" checkItem="167000354"/>
+	</bonus_info>
+	<bonus_info questId="3073">
+        <manastone bonusLevel="6401" count="1" checkItem="167000355"/>
+	</bonus_info>
+	<bonus_info questId="3074">
+		<redeem bonusLevel="6401" count="1" checkItem="186000037"/>
+		<redeem bonusLevel="6402" count="1" checkItem="186000037"/>
+		<redeem bonusLevel="6403" count="1" checkItem="186000037"/>
+	</bonus_info>
+	<bonus_info questId="3089">
+		<magical bonusLevel="5121" count="25" checkItem="182208065"/>
+        <wrap bonusLevel="5121" itemId="188050589" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="3110">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3111">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3112">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="3202">
+		<magical bonusLevel="5121" count="4" checkItem="182209083"/>
+	</bonus_info>
+	<bonus_info questId="3206">
+		<food bonusLevel="5121" count="12" checkItem="182209086"/>
+	</bonus_info>
+	<bonus_info questId="3214">
+		<medicine bonusLevel="5121" count="10" checkItem="182209091"/>
+	</bonus_info>
+	<bonus_info questId="3311">
+		<magical bonusLevel="3841"/>
+        <wrap bonusLevel="7681" itemId="188050585" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3313">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3314">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3315">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3316">
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="3317">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3318">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3320">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3321">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3322">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3324">
+        <wrap bonusLevel="7681" itemId="188050585" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3325">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3505">
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3508">
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3511">
+        <wrap bonusLevel="5121" itemId="188050589" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="3512">
+        <wrap bonusLevel="7681" itemId="188050585" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3514">
+        <wrap bonusLevel="7681" itemId="188050585" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3516">
+        <wrap bonusLevel="5121" itemId="188050589" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="3517">
+        <wrap bonusLevel="5121" itemId="188050589" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="3518">
+        <wrap bonusLevel="5121" itemId="188050589" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="3520">
+        <wrap bonusLevel="6401" itemId="188050590" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="3522">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3524">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="3527">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="3915">
+		<magical bonusLevel="5121" count="40" checkItem="182206068"/>
+	</bonus_info>
+	<bonus_info questId="3916">
+		<medicine bonusLevel="6401" count="40" checkItem="182206069"/>
+	</bonus_info>
+	<bonus_info questId="3918">
+        <manastone bonusLevel="6402" count="28" checkItem="182206071"/>
+	</bonus_info>
+	<bonus_info questId="3919">
+        <manastone bonusLevel="6401" count="4" checkItem="182206072"/>
+	</bonus_info>
+    <bonus_info questId="4002">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+	<bonus_info questId="4006">
+		<food bonusLevel="2561" count="10" checkItem="182209003"/>
+	</bonus_info>
+	<bonus_info questId="4008">
+		<medicine bonusLevel="2561"/>
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="4009">
+		<material bonusLevel="2561" count="10" checkItem="152003001"/>
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+	</bonus_info>
+    <bonus_info questId="4013">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+	<bonus_info questId="4034">
+		<magical bonusLevel="5121" count="20" checkItem="182209015"/>
+	</bonus_info>
+    <bonus_info questId="4035">
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4039">
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4045">
+        <wrap bonusLevel="5121" itemId="188050589" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="4049">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4055">
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4061">
+        <redeem bonusLevel="6401" count="15" checkItem="182209038"/>
+    </bonus_info>
+    <bonus_info questId="4062">
+        <redeem bonusLevel="6401" count="15" checkItem="182209039"/>
+    </bonus_info>
+    <bonus_info questId="4063">
+        <redeem bonusLevel="6401" count="15" checkItem="182209040"/>
+    </bonus_info>
+	<bonus_info questId="4072">
+        <manastone bonusLevel="6402" count="1" checkItem="167000354"/>
+	</bonus_info>
+	<bonus_info questId="4073">
+        <manastone bonusLevel="6401" count="1" checkItem="167000355"/>
+	</bonus_info>
+	<bonus_info questId="4074">
+		<redeem bonusLevel="6401" count="1" checkItem="186000038"/>
+		<redeem bonusLevel="6402" count="1" checkItem="186000038"/>
+		<redeem bonusLevel="6403" count="1" checkItem="186000038"/>
+	</bonus_info>
+	<bonus_info questId="4079">
+		<food bonusLevel="6401"/>
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="4081">
+		<magical bonusLevel="5121" count="17" checkItem="182209053"/>
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+    <bonus_info questId="4094">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+	<bonus_info questId="4095">
+		<food bonusLevel="6401" count="1" checkItem="182209071"/>
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4107">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4111">
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+	</bonus_info>
+	<bonus_info questId="4202">
+		<magical bonusLevel="5121" count="4" checkItem="182209098"/>
+	</bonus_info>
+	<bonus_info questId="4206">
+		<food bonusLevel="5121" count="12" checkItem="182209101"/>
+	</bonus_info>
+	<bonus_info questId="4214">
+		<medicine bonusLevel="5121" count="10" checkItem="182209106"/>
+	</bonus_info>
+    <bonus_info questId="4301">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4302">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+	<bonus_info questId="4312">
+		<magical bonusLevel="3841"/>
+        <wrap bonusLevel="7681" itemId="188050585" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4315">
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="4316">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4317">
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="4318">
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="4319">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4320">
+        <wrap bonusLevel="3841" itemId="188050588" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="4322">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4323">
+        <wrap bonusLevel="7681" itemId="188050585" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4504">
+        <wrap bonusLevel="6401" itemId="188050590" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="4506">
+        <wrap bonusLevel="7681" itemId="188050585" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4507">
+        <wrap bonusLevel="7681" itemId="188050585" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4508">
+        <wrap bonusLevel="6401" itemId="188050590" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="4509">
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4511">
+        <wrap bonusLevel="5121" itemId="188050589" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="4513">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4514">
+        <wrap bonusLevel="5121" itemId="188050589" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="4515">
+        <wrap bonusLevel="6401" itemId="188050584" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4516">
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4517">
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="4519">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="4915">
+		<magical bonusLevel="5121" count="40" checkItem="182207095"/>
+	</bonus_info>
+	<bonus_info questId="4916">
+		<medicine bonusLevel="6401" count="40" checkItem="182207096"/>
+	</bonus_info>
+	<bonus_info questId="4918">
+        <manastone bonusLevel="6402" count="28" checkItem="182207098"/>
+	</bonus_info>
+	<bonus_info questId="4919">
+        <manastone bonusLevel="6401" count="4" checkItem="182207099"/>
+	</bonus_info>
+	<bonus_info questId="5000">
+		<task count="3" checkItem="182290317" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5001">
+		<task count="6" checkItem="182290318" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5002">
+		<task count="6" checkItem="182290319" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5003">
+		<task count="6" checkItem="182290320" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5004">
+		<task count="6" checkItem="182290321" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5005">
+		<task count="6" checkItem="182290322" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5006">
+		<task count="6" checkItem="182290323" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5007">
+		<task count="6" checkItem="182290324" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5008">
+		<task count="6" checkItem="182290325" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5009">
+		<task count="6" checkItem="182290326" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5010">
+		<task count="9" checkItem="182290327" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5011">
+		<task count="9" checkItem="182290328" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5012">
+		<task count="9" checkItem="182290329" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5013">
+		<task count="9" checkItem="182290330" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5014">
+		<task count="9" checkItem="182290331" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5015">
+		<task count="9" checkItem="182290332" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5016">
+		<task count="9" checkItem="182290333" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5017">
+		<task count="9" checkItem="182290334" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5018">
+		<task count="9" checkItem="182290335" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5019">
+		<task count="9" checkItem="182290336" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5020">
+		<task count="12" checkItem="182290337" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5021">
+		<task count="12" checkItem="182290338" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5022">
+		<task count="12" checkItem="182290339" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5023">
+		<task count="12" checkItem="182290340" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5024">
+		<task count="12" checkItem="182290341" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5025">
+		<task count="12" checkItem="182290342" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5026">
+		<task count="12" checkItem="182290343" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5027">
+		<task count="12" checkItem="182290344" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5028">
+		<task count="12" checkItem="182290345" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5029">
+		<task count="12" checkItem="182290346" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5030">
+		<task count="15" checkItem="182290347" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5031">
+		<task count="15" checkItem="182290348" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5032">
+		<task count="15" checkItem="182290349" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5033">
+		<task count="15" checkItem="182290350" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5034">
+		<task count="15" checkItem="182290351" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5035">
+		<task count="15" checkItem="182290352" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5036">
+		<task count="15" checkItem="182290353" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5037">
+		<task count="15" checkItem="182290354" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5038">
+		<task count="15" checkItem="182290355" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5039">
+		<task count="15" checkItem="182290356" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5040">
+		<task count="18" checkItem="182290357" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="5100">
+		<task count="3" checkItem="182290358" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5101">
+		<task count="6" checkItem="182290359" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5102">
+		<task count="6" checkItem="182290360" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5103">
+		<task count="6" checkItem="182290361" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5104">
+		<task count="6" checkItem="182290362" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5105">
+		<task count="6" checkItem="182290363" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5106">
+		<task count="6" checkItem="182290364" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5107">
+		<task count="6" checkItem="182290365" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5108">
+		<task count="6" checkItem="182290366" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5109">
+		<task count="6" checkItem="182290367" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5110">
+		<task count="9" checkItem="182290368" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5111">
+		<task count="9" checkItem="182290369" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5112">
+		<task count="9" checkItem="182290370" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5113">
+		<task count="9" checkItem="182290371" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5114">
+		<task count="9" checkItem="182290372" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5115">
+		<task count="9" checkItem="182290373" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5116">
+		<task count="9" checkItem="182290374" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5117">
+		<task count="9" checkItem="182290375" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5118">
+		<task count="9" checkItem="182290376" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5119">
+		<task count="9" checkItem="182290377" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5120">
+		<task count="12" checkItem="182290378" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5121">
+		<task count="12" checkItem="182290379" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5122">
+		<task count="12" checkItem="182290380" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5123">
+		<task count="12" checkItem="182290381" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5124">
+		<task count="12" checkItem="182290382" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5125">
+		<task count="12" checkItem="182290383" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5126">
+		<task count="12" checkItem="182290384" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5127">
+		<task count="12" checkItem="182290385" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5128">
+		<task count="12" checkItem="182290386" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5129">
+		<task count="12" checkItem="182290387" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5130">
+		<task count="15" checkItem="182290388" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5131">
+		<task count="15" checkItem="182290389" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5132">
+		<task count="15" checkItem="182290390" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5133">
+		<task count="15" checkItem="182290391" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5134">
+		<task count="15" checkItem="182290392" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5135">
+		<task count="15" checkItem="182290393" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5136">
+		<task count="15" checkItem="182290394" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5137">
+		<task count="15" checkItem="182290395" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5138">
+		<task count="15" checkItem="182290396" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5139">
+		<task count="15" checkItem="182290397" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5140">
+		<task count="18" checkItem="182290398" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="5200">
+		<task count="3" checkItem="182290399" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5201">
+		<task count="6" checkItem="182290400" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5202">
+		<task count="6" checkItem="182290401" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5203">
+		<task count="6" checkItem="182290402" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5204">
+		<task count="6" checkItem="182290403" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5205">
+		<task count="6" checkItem="182290404" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5206">
+		<task count="6" checkItem="182290405" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5207">
+		<task count="6" checkItem="182290406" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5208">
+		<task count="6" checkItem="182290407" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5209">
+		<task count="6" checkItem="182290408" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5210">
+		<task count="9" checkItem="182290409" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5211">
+		<task count="9" checkItem="182290410" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5212">
+		<task count="9" checkItem="182290411" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5213">
+		<task count="9" checkItem="182290412" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5214">
+		<task count="9" checkItem="182290413" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5215">
+		<task count="9" checkItem="182290414" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5216">
+		<task count="9" checkItem="182290415" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5217">
+		<task count="9" checkItem="182290416" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5218">
+		<task count="9" checkItem="182290417" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5219">
+		<task count="9" checkItem="182290418" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5220">
+		<task count="12" checkItem="182290419" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5221">
+		<task count="12" checkItem="182290420" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5222">
+		<task count="12" checkItem="182290421" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5223">
+		<task count="12" checkItem="182290422" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5224">
+		<task count="12" checkItem="182290423" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5225">
+		<task count="12" checkItem="182290424" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5226">
+		<task count="12" checkItem="182290425" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5227">
+		<task count="12" checkItem="182290426" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5228">
+		<task count="12" checkItem="182290427" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5229">
+		<task count="12" checkItem="182290428" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5230">
+		<task count="15" checkItem="182290429" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5231">
+		<task count="15" checkItem="182290430" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5232">
+		<task count="15" checkItem="182290431" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5233">
+		<task count="15" checkItem="182290432" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5234">
+		<task count="15" checkItem="182290433" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5235">
+		<task count="15" checkItem="182290434" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5236">
+		<task count="15" checkItem="182290435" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5237">
+		<task count="15" checkItem="182290436" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5238">
+		<task count="15" checkItem="182290437" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5239">
+		<task count="15" checkItem="182290438" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5240">
+		<task count="18" checkItem="182290439" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="5300">
+		<task count="3" checkItem="182290440" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5301">
+		<task count="6" checkItem="182290441" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5302">
+		<task count="6" checkItem="182290442" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5303">
+		<task count="6" checkItem="182290443" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5304">
+		<task count="6" checkItem="182290444" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5305">
+		<task count="6" checkItem="182290445" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5306">
+		<task count="6" checkItem="182290446" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5307">
+		<task count="6" checkItem="182290447" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5308">
+		<task count="6" checkItem="182290448" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5309">
+		<task count="6" checkItem="182290449" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5310">
+		<task count="9" checkItem="182290450" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5311">
+		<task count="9" checkItem="182290451" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5312">
+		<task count="9" checkItem="182290452" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5313">
+		<task count="9" checkItem="182290453" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5314">
+		<task count="9" checkItem="182290454" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5315">
+		<task count="9" checkItem="182290455" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5316">
+		<task count="9" checkItem="182290456" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5317">
+		<task count="9" checkItem="182290457" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5318">
+		<task count="9" checkItem="182290458" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5319">
+		<task count="9" checkItem="182290459" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5320">
+		<task count="12" checkItem="182290460" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5321">
+		<task count="12" checkItem="182290461" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5322">
+		<task count="12" checkItem="182290462" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5323">
+		<task count="12" checkItem="182290463" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5324">
+		<task count="12" checkItem="182290464" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5325">
+		<task count="12" checkItem="182290465" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5326">
+		<task count="12" checkItem="182290466" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5327">
+		<task count="12" checkItem="182290467" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5328">
+		<task count="12" checkItem="182290468" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5329">
+		<task count="12" checkItem="182290469" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5330">
+		<task count="15" checkItem="182290470" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5331">
+		<task count="15" checkItem="182290471" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5332">
+		<task count="15" checkItem="182290472" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5333">
+		<task count="15" checkItem="182290473" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5334">
+		<task count="15" checkItem="182290474" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5335">
+		<task count="15" checkItem="182290475" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5336">
+		<task count="15" checkItem="182290476" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5337">
+		<task count="15" checkItem="182290477" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5338">
+		<task count="15" checkItem="182290478" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5339">
+		<task count="15" checkItem="182290479" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5340">
+		<task count="18" checkItem="182290480" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="5400">
+		<task count="3" checkItem="182290481" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5401">
+		<task count="6" checkItem="182290482" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5402">
+		<task count="6" checkItem="182290483" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5403">
+		<task count="6" checkItem="182290484" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5404">
+		<task count="6" checkItem="182290485" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5405">
+		<task count="6" checkItem="182290486" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5406">
+		<task count="6" checkItem="182290487" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5407">
+		<task count="6" checkItem="182290488" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5408">
+		<task count="6" checkItem="182290489" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5409">
+		<task count="6" checkItem="182290490" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5410">
+		<task count="9" checkItem="182290491" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5411">
+		<task count="9" checkItem="182290492" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5412">
+		<task count="9" checkItem="182290493" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5413">
+		<task count="9" checkItem="182290494" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5414">
+		<task count="9" checkItem="182290495" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5415">
+		<task count="9" checkItem="182290496" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5416">
+		<task count="9" checkItem="182290497" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5417">
+		<task count="9" checkItem="182290498" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5418">
+		<task count="9" checkItem="182290499" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5419">
+		<task count="9" checkItem="182290500" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5420">
+		<task count="12" checkItem="182290501" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5421">
+		<task count="12" checkItem="182290502" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5422">
+		<task count="12" checkItem="182290503" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5423">
+		<task count="12" checkItem="182290504" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5424">
+		<task count="12" checkItem="182290505" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5425">
+		<task count="12" checkItem="182290506" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5426">
+		<task count="12" checkItem="182290507" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5427">
+		<task count="12" checkItem="182290508" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5428">
+		<task count="12" checkItem="182290509" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5429">
+		<task count="12" checkItem="182290510" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5430">
+		<task count="15" checkItem="182290511" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5431">
+		<task count="15" checkItem="182290512" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5432">
+		<task count="15" checkItem="182290513" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5433">
+		<task count="15" checkItem="182290514" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5434">
+		<task count="15" checkItem="182290515" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5435">
+		<task count="15" checkItem="182290516" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5436">
+		<task count="15" checkItem="182290517" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5437">
+		<task count="15" checkItem="182290518" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5438">
+		<task count="15" checkItem="182290519" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5439">
+		<task count="15" checkItem="182290520" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5440">
+		<task count="18" checkItem="182290521" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="5500">
+		<task count="3" checkItem="182290522" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5501">
+		<task count="6" checkItem="182290523" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5502">
+		<task count="6" checkItem="182290524" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5503">
+		<task count="6" checkItem="182290525" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5504">
+		<task count="6" checkItem="182290526" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5505">
+		<task count="6" checkItem="182290527" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5506">
+		<task count="6" checkItem="182290528" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5507">
+		<task count="6" checkItem="182290529" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5508">
+		<task count="6" checkItem="182290530" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5509">
+		<task count="6" checkItem="182290531" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5510">
+		<task count="9" checkItem="182290532" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5511">
+		<task count="9" checkItem="182290533" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5512">
+		<task count="9" checkItem="182290534" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5513">
+		<task count="9" checkItem="182290535" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5514">
+		<task count="9" checkItem="182290536" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5515">
+		<task count="9" checkItem="182290537" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5516">
+		<task count="9" checkItem="182290538" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5517">
+		<task count="9" checkItem="182290539" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5518">
+		<task count="9" checkItem="182290540" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5519">
+		<task count="9" checkItem="182290541" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5520">
+		<task count="12" checkItem="182290542" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5521">
+		<task count="12" checkItem="182290543" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5522">
+		<task count="12" checkItem="182290544" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5523">
+		<task count="12" checkItem="182290545" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5524">
+		<task count="12" checkItem="182290546" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5525">
+		<task count="12" checkItem="182290547" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5526">
+		<task count="12" checkItem="182290548" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5527">
+		<task count="12" checkItem="182290549" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5528">
+		<task count="12" checkItem="182290550" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5529">
+		<task count="12" checkItem="182290551" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5530">
+		<task count="15" checkItem="182290552" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5531">
+		<task count="15" checkItem="182290553" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5532">
+		<task count="15" checkItem="182290554" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5533">
+		<task count="15" checkItem="182290555" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5534">
+		<task count="15" checkItem="182290556" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5535">
+		<task count="15" checkItem="182290557" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5536">
+		<task count="15" checkItem="182290558" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5537">
+		<task count="15" checkItem="182290559" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5538">
+		<task count="15" checkItem="182290560" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5539">
+		<task count="15" checkItem="182290561" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="5540">
+		<task count="18" checkItem="182290562" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6000">
+		<task count="3" checkItem="182291317" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6001">
+		<task count="6" checkItem="182291318" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6002">
+		<task count="6" checkItem="182291319" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6003">
+		<task count="6" checkItem="182291320" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6004">
+		<task count="6" checkItem="182291321" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6005">
+		<task count="6" checkItem="182291322" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6006">
+		<task count="6" checkItem="182291323" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6007">
+		<task count="6" checkItem="182291324" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6008">
+		<task count="6" checkItem="182291325" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6009">
+		<task count="6" checkItem="182291326" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6010">
+		<task count="9" checkItem="182291327" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6011">
+		<task count="9" checkItem="182291328" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6012">
+		<task count="9" checkItem="182291329" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6013">
+		<task count="9" checkItem="182291330" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6014">
+		<task count="9" checkItem="182291331" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6015">
+		<task count="9" checkItem="182291332" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6016">
+		<task count="9" checkItem="182291333" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6017">
+		<task count="9" checkItem="182291334" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6018">
+		<task count="9" checkItem="182291335" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6019">
+		<task count="9" checkItem="182291336" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6020">
+		<task count="12" checkItem="182291337" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6021">
+		<task count="12" checkItem="182291338" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6022">
+		<task count="12" checkItem="182291339" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6023">
+		<task count="12" checkItem="182291340" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6024">
+		<task count="12" checkItem="182291341" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6025">
+		<task count="12" checkItem="182291342" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6026">
+		<task count="12" checkItem="182291343" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6027">
+		<task count="12" checkItem="182291344" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6028">
+		<task count="12" checkItem="182291345" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6029">
+		<task count="12" checkItem="182291346" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6030">
+		<task count="15" checkItem="182291347" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6031">
+		<task count="15" checkItem="182291348" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6032">
+		<task count="15" checkItem="182291349" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6033">
+		<task count="15" checkItem="182291350" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6034">
+		<task count="15" checkItem="182291351" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6035">
+		<task count="15" checkItem="182291352" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6036">
+		<task count="15" checkItem="182291353" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6037">
+		<task count="15" checkItem="182291354" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6038">
+		<task count="15" checkItem="182291355" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6039">
+		<task count="15" checkItem="182291356" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6040">
+		<task count="18" checkItem="182291357" skillId="40002"/>
+	</bonus_info>
+	<bonus_info questId="6100">
+		<task count="3" checkItem="182291358" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6101">
+		<task count="6" checkItem="182291359" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6102">
+		<task count="6" checkItem="182291360" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6103">
+		<task count="6" checkItem="182291361" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6104">
+		<task count="6" checkItem="182291362" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6105">
+		<task count="6" checkItem="182291363" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6106">
+		<task count="6" checkItem="182291364" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6107">
+		<task count="6" checkItem="182291365" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6108">
+		<task count="6" checkItem="182291366" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6109">
+		<task count="6" checkItem="182291367" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6110">
+		<task count="9" checkItem="182291368" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6111">
+		<task count="9" checkItem="182291369" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6112">
+		<task count="9" checkItem="182291370" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6113">
+		<task count="9" checkItem="182291371" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6114">
+		<task count="9" checkItem="182291372" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6115">
+		<task count="9" checkItem="182291373" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6116">
+		<task count="9" checkItem="182291374" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6117">
+		<task count="9" checkItem="182291375" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6118">
+		<task count="9" checkItem="182291376" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6119">
+		<task count="9" checkItem="182291377" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6120">
+		<task count="12" checkItem="182291378" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6121">
+		<task count="12" checkItem="182291379" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6122">
+		<task count="12" checkItem="182291380" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6123">
+		<task count="12" checkItem="182291381" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6124">
+		<task count="12" checkItem="182291382" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6125">
+		<task count="12" checkItem="182291383" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6126">
+		<task count="12" checkItem="182291384" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6127">
+		<task count="12" checkItem="182291385" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6128">
+		<task count="12" checkItem="182291386" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6129">
+		<task count="12" checkItem="182291387" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6130">
+		<task count="15" checkItem="182291388" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6131">
+		<task count="15" checkItem="182291389" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6132">
+		<task count="15" checkItem="182291390" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6133">
+		<task count="15" checkItem="182291391" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6134">
+		<task count="15" checkItem="182291392" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6135">
+		<task count="15" checkItem="182291393" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6136">
+		<task count="15" checkItem="182291394" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6137">
+		<task count="15" checkItem="182291395" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6138">
+		<task count="15" checkItem="182291396" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6139">
+		<task count="15" checkItem="182291397" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6140">
+		<task count="18" checkItem="182291398" skillId="40003"/>
+	</bonus_info>
+	<bonus_info questId="6200">
+		<task count="3" checkItem="182291399" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6201">
+		<task count="6" checkItem="182291400" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6202">
+		<task count="6" checkItem="182291401" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6203">
+		<task count="6" checkItem="182291402" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6204">
+		<task count="6" checkItem="182291403" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6205">
+		<task count="6" checkItem="182291404" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6206">
+		<task count="6" checkItem="182291405" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6207">
+		<task count="6" checkItem="182291406" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6208">
+		<task count="6" checkItem="182291407" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6209">
+		<task count="6" checkItem="182291408" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6210">
+		<task count="9" checkItem="182291409" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6211">
+		<task count="9" checkItem="182291410" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6212">
+		<task count="9" checkItem="182291411" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6213">
+		<task count="9" checkItem="182291412" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6214">
+		<task count="9" checkItem="182291413" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6215">
+		<task count="9" checkItem="182291414" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6216">
+		<task count="9" checkItem="182291415" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6217">
+		<task count="9" checkItem="182291416" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6218">
+		<task count="9" checkItem="182291417" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6219">
+		<task count="9" checkItem="182291418" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6220">
+		<task count="12" checkItem="182291419" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6221">
+		<task count="12" checkItem="182291420" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6222">
+		<task count="12" checkItem="182291421" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6223">
+		<task count="12" checkItem="182291422" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6224">
+		<task count="12" checkItem="182291423" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6225">
+		<task count="12" checkItem="182291424" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6226">
+		<task count="12" checkItem="182291425" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6227">
+		<task count="12" checkItem="182291426" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6228">
+		<task count="12" checkItem="182291427" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6229">
+		<task count="12" checkItem="182291428" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6230">
+		<task count="15" checkItem="182291429" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6231">
+		<task count="15" checkItem="182291430" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6232">
+		<task count="15" checkItem="182291431" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6233">
+		<task count="15" checkItem="182291432" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6234">
+		<task count="15" checkItem="182291433" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6235">
+		<task count="15" checkItem="182291434" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6236">
+		<task count="15" checkItem="182291435" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6237">
+		<task count="15" checkItem="182291436" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6238">
+		<task count="15" checkItem="182291437" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6239">
+		<task count="15" checkItem="182291438" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6240">
+		<task count="18" checkItem="182291439" skillId="40004"/>
+	</bonus_info>
+	<bonus_info questId="6300">
+		<task count="3" checkItem="182291440" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6301">
+		<task count="6" checkItem="182291441" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6302">
+		<task count="6" checkItem="182291442" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6303">
+		<task count="6" checkItem="182291443" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6304">
+		<task count="6" checkItem="182291444" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6305">
+		<task count="6" checkItem="182291445" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6306">
+		<task count="6" checkItem="182291446" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6307">
+		<task count="6" checkItem="182291447" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6308">
+		<task count="6" checkItem="182291448" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6309">
+		<task count="6" checkItem="182291449" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6310">
+		<task count="9" checkItem="182291450" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6311">
+		<task count="9" checkItem="182291451" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6312">
+		<task count="9" checkItem="182291452" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6313">
+		<task count="9" checkItem="182291453" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6314">
+		<task count="9" checkItem="182291454" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6315">
+		<task count="9" checkItem="182291455" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6316">
+		<task count="9" checkItem="182291456" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6317">
+		<task count="9" checkItem="182291457" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6318">
+		<task count="9" checkItem="182291458" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6319">
+		<task count="9" checkItem="182291459" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6320">
+		<task count="12" checkItem="182291460" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6321">
+		<task count="12" checkItem="182291461" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6322">
+		<task count="12" checkItem="182291462" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6323">
+		<task count="12" checkItem="182291463" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6324">
+		<task count="12" checkItem="182291464" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6325">
+		<task count="12" checkItem="182291465" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6326">
+		<task count="12" checkItem="182291466" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6327">
+		<task count="12" checkItem="182291467" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6328">
+		<task count="12" checkItem="182291468" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6329">
+		<task count="12" checkItem="182291469" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6330">
+		<task count="15" checkItem="182291470" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6331">
+		<task count="15" checkItem="182291471" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6332">
+		<task count="15" checkItem="182291472" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6333">
+		<task count="15" checkItem="182291473" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6334">
+		<task count="15" checkItem="182291474" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6335">
+		<task count="15" checkItem="182291475" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6336">
+		<task count="15" checkItem="182291476" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6337">
+		<task count="15" checkItem="182291477" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6338">
+		<task count="15" checkItem="182291478" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6339">
+		<task count="15" checkItem="182291479" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6340">
+		<task count="18" checkItem="182291480" skillId="40008"/>
+	</bonus_info>
+	<bonus_info questId="6400">
+		<task count="3" checkItem="182291481" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6401">
+		<task count="6" checkItem="182291482" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6402">
+		<task count="6" checkItem="182291483" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6403">
+		<task count="6" checkItem="182291484" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6404">
+		<task count="6" checkItem="182291485" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6405">
+		<task count="6" checkItem="182291486" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6406">
+		<task count="6" checkItem="182291487" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6407">
+		<task count="6" checkItem="182291488" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6408">
+		<task count="6" checkItem="182291489" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6409">
+		<task count="6" checkItem="182291490" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6410">
+		<task count="9" checkItem="182291491" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6411">
+		<task count="9" checkItem="182291492" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6412">
+		<task count="9" checkItem="182291493" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6413">
+		<task count="9" checkItem="182291494" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6414">
+		<task count="9" checkItem="182291495" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6415">
+		<task count="9" checkItem="182291496" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6416">
+		<task count="9" checkItem="182291497" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6417">
+		<task count="9" checkItem="182291498" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6418">
+		<task count="9" checkItem="182291499" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6419">
+		<task count="9" checkItem="182291500" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6420">
+		<task count="12" checkItem="182291501" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6421">
+		<task count="12" checkItem="182291502" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6422">
+		<task count="12" checkItem="182291503" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6423">
+		<task count="12" checkItem="182291504" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6424">
+		<task count="12" checkItem="182291505" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6425">
+		<task count="12" checkItem="182291506" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6426">
+		<task count="12" checkItem="182291507" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6427">
+		<task count="12" checkItem="182291508" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6428">
+		<task count="12" checkItem="182291509" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6429">
+		<task count="12" checkItem="182291510" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6430">
+		<task count="15" checkItem="182291511" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6431">
+		<task count="15" checkItem="182291512" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6432">
+		<task count="15" checkItem="182291513" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6433">
+		<task count="15" checkItem="182291514" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6434">
+		<task count="15" checkItem="182291515" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6435">
+		<task count="15" checkItem="182291516" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6436">
+		<task count="15" checkItem="182291517" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6437">
+		<task count="15" checkItem="182291518" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6438">
+		<task count="15" checkItem="182291519" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6439">
+		<task count="15" checkItem="182291520" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6440">
+		<task count="18" checkItem="182291521" skillId="40007"/>
+	</bonus_info>
+	<bonus_info questId="6500">
+		<task count="3" checkItem="182291522" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6501">
+		<task count="6" checkItem="182291523" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6502">
+		<task count="6" checkItem="182291524" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6503">
+		<task count="6" checkItem="182291525" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6504">
+		<task count="6" checkItem="182291526" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6505">
+		<task count="6" checkItem="182291527" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6506">
+		<task count="6" checkItem="182291528" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6507">
+		<task count="6" checkItem="182291529" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6508">
+		<task count="6" checkItem="182291530" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6509">
+		<task count="6" checkItem="182291531" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6510">
+		<task count="9" checkItem="182291532" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6511">
+		<task count="9" checkItem="182291533" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6512">
+		<task count="9" checkItem="182291534" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6513">
+		<task count="9" checkItem="182291535" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6514">
+		<task count="9" checkItem="182291536" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6515">
+		<task count="9" checkItem="182291537" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6516">
+		<task count="9" checkItem="182291538" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6517">
+		<task count="9" checkItem="182291539" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6518">
+		<task count="9" checkItem="182291540" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6519">
+		<task count="9" checkItem="182291541" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6520">
+		<task count="12" checkItem="182291542" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6521">
+		<task count="12" checkItem="182291543" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6522">
+		<task count="12" checkItem="182291544" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6523">
+		<task count="12" checkItem="182291545" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6524">
+		<task count="12" checkItem="182291546" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6525">
+		<task count="12" checkItem="182291547" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6526">
+		<task count="12" checkItem="182291548" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6527">
+		<task count="12" checkItem="182291549" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6528">
+		<task count="12" checkItem="182291550" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6529">
+		<task count="12" checkItem="182291551" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6530">
+		<task count="15" checkItem="182291552" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6531">
+		<task count="15" checkItem="182291553" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6532">
+		<task count="15" checkItem="182291554" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6533">
+		<task count="15" checkItem="182291555" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6534">
+		<task count="15" checkItem="182291556" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6535">
+		<task count="15" checkItem="182291557" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6536">
+		<task count="15" checkItem="182291558" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6537">
+		<task count="15" checkItem="182291559" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6538">
+		<task count="15" checkItem="182291560" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6539">
+		<task count="15" checkItem="182291561" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="6540">
+		<task count="18" checkItem="182291562" skillId="40001"/>
+	</bonus_info>
+	<bonus_info questId="9548">
+		<movie count="5" movieId="0" checkItem="182206048"/>
+	</bonus_info>
+	<bonus_info questId="9549">
+		<movie count="5" movieId="0" checkItem="182206049"/>
+	</bonus_info>
+	<bonus_info questId="9551">
+		<movie count="5" movieId="0" checkItem="182207062"/>
+	</bonus_info>
+	<bonus_info questId="9552">
+		<movie count="5" movieId="0" checkItem="182207063"/>
+	</bonus_info>
+	<bonus_info questId="11015">
+        <manastone bonusLevel="7681" count="1" checkItem="167000543"/>
+	</bonus_info>
+	<bonus_info questId="11016">
+        <manastone bonusLevel="7682" count="1" checkItem="167000544"/>
+	</bonus_info>
+	<bonus_info questId="11050">
+		<medal bonusLevel="257" count="1" checkItem="186000030"/>
+    </bonus_info>
+    <bonus_info questId="11138">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="11145">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="11226">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="11227">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="11229">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="11233">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="19009">
+		<movie movieId="109"/>
+	</bonus_info>
+	<bonus_info questId="19015">
+		<movie movieId="110"/>
+	</bonus_info>
+	<bonus_info questId="19021">
+		<movie movieId="114"/>
+	</bonus_info>
+	<bonus_info questId="19027">
+		<movie movieId="111"/>
+	</bonus_info>
+	<bonus_info questId="19033">
+		<movie movieId="113"/>
+	</bonus_info>
+	<bonus_info questId="19039">
+		<movie movieId="112"/>
+	</bonus_info>
+	<bonus_info questId="21005">
+		<goods bonusLevel="6401"/>
+	</bonus_info>
+	<bonus_info questId="21037">
+        <manastone bonusLevel="7681" count="1" checkItem="167000543"/>
+	</bonus_info>
+	<bonus_info questId="21038">
+        <manastone bonusLevel="7682" count="1" checkItem="167000544"/>
+	</bonus_info>
+	<bonus_info questId="21050">
+		<medal bonusLevel="257" count="1" checkItem="186000030"/>
+	</bonus_info>
+    <bonus_info questId="21076">
+        <wrap bonusLevel="6401" itemId="188050590" maxCount="5" type="MANASTONE"/>
+    </bonus_info>
+    <bonus_info questId="21079">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+	<bonus_info questId="21102">
+		<goods bonusLevel="6401"/>
+    </bonus_info>
+    <bonus_info questId="21237">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="21238">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="21240">
+        <wrap bonusLevel="8961" itemId="188050586" maxCount="5" type="ENCHANT"/>
+    </bonus_info>
+    <bonus_info questId="21246">
+        <wrap bonusLevel="10241" itemId="188050587" maxCount="5" type="ENCHANT"/>
+	</bonus_info>
+	<bonus_info questId="29009">
+		<movie movieId="140"/>
+	</bonus_info>
+	<bonus_info questId="29015">
+		<movie movieId="141"/>
+	</bonus_info>
+	<bonus_info questId="29021">
+		<movie movieId="145"/>
+	</bonus_info>
+	<bonus_info questId="29027">
+		<movie movieId="142"/>
+	</bonus_info>
+	<bonus_info questId="29033">
+		<movie movieId="144"/>
+	</bonus_info>
+	<bonus_info questId="29039">
+		<movie movieId="143"/>
+	</bonus_info>
+	<bonus_info questId="30233">
+		<goods bonusLevel="6401" count="20" checkItem="182209627"/>
+	</bonus_info>
+	<bonus_info questId="30244">
+		<goods bonusLevel="6401"/>
+	</bonus_info>
+	<bonus_info questId="30333">
+		<goods bonusLevel="6401" count="30" checkItem="182209727"/>
+	</bonus_info>
+	<bonus_info questId="30344">
+		<goods bonusLevel="6401"/>
+	</bonus_info>
+	<bonus_info questId="80016">
+		<movie movieId="103" count="15" checkItem="182214008" gender="MALE"/>
+		<movie movieId="104" count="15" checkItem="182214008" gender="FEMALE"/>
+	</bonus_info>
+	<bonus_info questId="80018">
+		<movie movieId="135" count="15" checkItem="182214010" gender="MALE"/>
+		<movie movieId="136" count="15" checkItem="182214010" gender="FEMALE"/>
+	</bonus_info>
+	<bonus_info questId="80034">
+		<lunar bonusLevel="1" count="10" checkItem="164002016"/>
+	</bonus_info>
+	<bonus_info questId="80035">
+		<lunar bonusLevel="2" count="5" checkItem="164002017"/>
+	</bonus_info>
+	<bonus_info questId="80036">
+		<lunar bonusLevel="3" count="1" checkItem="164002018"/>
+	</bonus_info>
+	<bonus_info questId="80037">
+		<lunar bonusLevel="1" count="10" checkItem="164002016"/>
+	</bonus_info>
+	<bonus_info questId="80038">
+		<lunar bonusLevel="2" count="5" checkItem="164002017"/>
+	</bonus_info>
+	<bonus_info questId="80039">
+		<lunar bonusLevel="3" count="1" checkItem="164002018"/>
+	</bonus_info>
+</bonuses>

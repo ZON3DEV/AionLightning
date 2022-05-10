@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by Nephis (Nephis) -->
+<!--
+	This file is part of Zetta Core <http://forum.zetta-core.org/>.
+
+	Zetta Core is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	Zetta Core is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Silentera Canyon From client spawn
+	@author Nephis
+ -->
+<spawns>
+	<!-- Ranx Bodyguard lvl:55 -->
+	<spawn map="600010000" npcid="216353" pool="5" interval="295">
+		<object x="1253.646" y="747.9797" z="302.8411" h="60"/>
+		<object x="1283.803" y="747.9449" z="304.4061" h="60"/>
+		<object x="1253.516" y="786.8282" z="302.8438" h="60"/>
+		<object x="1284.037" y="786.5999" z="304.4061" h="60"/>
+		<object x="1382.2" y="753.54" z="312.8755" h="30"/>
+	</spawn>
+	<!-- Silentera Guard lvl:55 -->
+	<spawn map="600010000" npcid="216354" pool="2" interval="295">
+		<object x="946.7664" y="1085.808" z="315.2226" h="60"/>
+		<object x="794.25" y="1044.242" z="324.5876" h="30"/>
+	</spawn>
+	<!-- Silentera Elite Fighter lvl:55 -->
+	<spawn map="600010000" npcid="216355" pool="4" interval="295">
+		<object x="843.3209" y="985.8277" z="322.4892" h="0"/>
+		<object x="921.25" y="1096.25" z="316.11" h="53"/>
+		<object x="897.8418" y="1111.026" z="317.886" h="30"/>
+		<object x="885.1798" y="1087.026" z="316.3623" h="30"/>
+	</spawn>
+	<!-- Silentera Elite Raider lvl:55 -->
+	<spawn map="600010000" npcid="216356" pool="1" interval="295">
+		<object x="919.5673" y="1094.156" z="316.1724" h="60"/>
+	</spawn>
+	<!-- Silentera Patroller lvl:55 -->
+	<spawn map="600010000" npcid="216357" pool="5" interval="295">
+		<object x="1026.71" y="429.2978" z="316.6273" h="59"/>
+		<object x="901.4219" y="430.75" z="316.2148" h="0"/>
+		<object x="844.5549" y="987.7932" z="322.4924" h="0"/>
+		<object x="883.2232" y="1086.613" z="316.3623" h="30"/>
+		<object x="759.3401" y="1064.367" z="324.6756" h="91"/>
+	</spawn>
+	<!-- Silentera Elite Mage lvl:55 -->
+	<spawn map="600010000" npcid="216358" pool="2" interval="295">
+		<object x="874.767" y="439.9123" z="316.2148" h="33"/>
+		<object x="943.2906" y="1085.317" z="315.344" h="0"/>
+	</spawn>
+	<!-- Silentera Elite Summoner lvl:55 -->
+	<spawn map="600010000" npcid="216359" pool="1" interval="295">
+		<object x="893.8434" y="1112.233" z="317.2354" h="15"/>
+	</spawn>
+	<!-- Silentera Warpriest lvl:55 -->
+	<spawn map="600010000" npcid="216360" pool="1" interval="295">
+		<object x="897.9095" y="1115.608" z="318.4038" h="90"/>
+	</spawn>
+	<!-- Silentera Elite Friar lvl:55 -->
+	<spawn map="600010000" npcid="216361" pool="1" interval="295">
+		<object x="978.7453" y="1087.707" z="314.9046" h="83"/>
+	</spawn>
+	<!-- Silentera Elite Laborer lvl:55 -->
+	<spawn map="600010000" npcid="216362" pool="29" interval="295">
+		<object x="1060.607" y="696.3376" z="305.9279" h="60"/>
+		<object x="1103.093" y="662.7964" z="300.8478" h="110"/>
+		<object x="1091.38" y="709.7436" z="299.5362" h="30"/>
+		<object x="1135.955" y="663.7099" z="299.9629" h="90"/>
+		<object x="1099.373" y="724.9879" z="300.3676" h="71"/>
+		<object x="1111.857" y="600.8961" z="309.1746" h="60"/>
+		<object x="1154.381" y="648.5899" z="301.1085" h="90"/>
+		<object x="1153.252" y="623.4919" z="304.3331" h="90"/>
+		<object x="1181.959" y="722.5937" z="298.0848" h="0"/>
+		<object x="1186.848" y="649.0735" z="299.4629" h="90"/>
+		<object x="1213.022" y="676.0826" z="298.4723" h="18"/>
+		<object x="1213.107" y="631.3932" z="303.3202" h="0"/>
+		<object x="1148.788" y="576.0388" z="312.8687" h="18"/>
+		<object x="1230.863" y="693.565" z="298.7913" h="81"/>
+		<object x="1246.235" y="671.6099" z="299.9853" h="60"/>
+		<object x="1212.918" y="620.9446" z="303.9643" h="0"/>
+		<object x="1111.556" y="528.0287" z="311.7859" h="60"/>
+		<object x="1228.031" y="840.8076" z="300.3143" h="45"/>
+		<object x="1195.258" y="842.7857" z="297.3554" h="30"/>
+		<object x="1205.73" y="859.9775" z="298.7036" h="90"/>
+		<object x="1195.453" y="895.291" z="301.1614" h="45"/>
+		<object x="1216.123" y="916.65" z="305.3849" h="20"/>
+		<object x="1168.475" y="884.9116" z="300.9803" h="30"/>
+		<object x="1096.01" y="807.0046" z="301.7504" h="46"/>
+		<object x="1162.642" y="901.0725" z="301.1429" h="0"/>
+		<object x="1081.948" y="883.7646" z="301.4785" h="30"/>
+		<object x="1109.098" y="933.5275" z="306.0614" h="60"/>
+		<object x="1058.115" y="830.3895" z="307.6279" h="46"/>
+		<object x="1138.21" y="1014.435" z="305.7319" h="13"/>
+	</spawn>
+	<!-- Sabertooth Manticore lvl:55 -->
+	<spawn map="600010000" npcid="216363" pool="3" interval="295">
+		<object x="1114.419" y="432.6149" z="310.8477" h="94"/>
+		<object x="1026.901" y="431.297" z="316.6622" h="60"/>
+		<object x="901.0217" y="428.7779" z="316.2148" h="0"/>
+	</spawn>
+	<!-- Stinging Sheluk lvl:55 -->
+	<spawn map="600010000" npcid="216364" pool="9" interval="295">
+		<object x="579.1406" y="1234.755" z="315.6272" h="65"/>
+		<object x="793.9772" y="393.1354" z="310.7612" h="86"/>
+		<object x="802.0884" y="332.096" z="309.9877" h="56"/>
+		<object x="641.1342" y="240.9104" z="316.1182" h="78"/>
+		<object x="609.6332" y="282.1647" z="308.5838" h="14"/>
+		<object x="631.5231" y="317.2835" z="312.2469" h="9"/>
+		<object x="596.7863" y="287.9252" z="311.5877" h="1"/>
+		<object x="642.9802" y="1252.396" z="308.7097" h="84"/>
+		<object x="634.1699" y="1292.776" z="308.4826" h="102"/>
+	</spawn>
+	<!-- Brown Arachna lvl:55 -->
+	<spawn map="600010000" npcid="216365" pool="12" interval="295">
+		<object x="379.0163" y="1275.628" z="283.375" h="57"/>
+		<object x="330.6193" y="1257.777" z="295.3244" h="115"/>
+		<object x="328.4561" y="1317.555" z="292.3438" h="82"/>
+		<object x="295.2577" y="1284.965" z="299.5057" h="6"/>
+		<object x="301.9678" y="1316.458" z="292.623" h="52"/>
+		<object x="331.7005" y="1412.985" z="305.4648" h="29"/>
+		<object x="333.1396" y="281.3962" z="294.7583" h="5"/>
+		<object x="296.4915" y="217.4016" z="294.3285" h="85"/>
+		<object x="357.1426" y="152.3569" z="306.4597" h="93"/>
+		<object x="294.0014" y="184.6151" z="297.7216" h="118"/>
+		<object x="368.3897" y="112.7596" z="309.6076" h="69"/>
+		<object x="438.3091" y="131.6658" z="316.6777" h="42"/>
+	</spawn>
+	<!-- Blackclaw Scolopen lvl:55 -->
+	<spawn map="600010000" npcid="216366" pool="10" interval="295">
+		<object x="751.3657" y="428.6081" z="316.8244" h="107"/>
+		<object x="815.2866" y="263.8555" z="314.6699" h="92"/>
+		<object x="741.0869" y="261.2263" z="321.6995" h="25"/>
+		<object x="828.1793" y="223.1417" z="323.2964" h="117"/>
+		<object x="777.6802" y="236.6485" z="319.5879" h="80"/>
+		<object x="785.5728" y="1214.4" z="317.3193" h="110"/>
+		<object x="811.4523" y="1258.824" z="316.1251" h="27"/>
+		<object x="789.9341" y="1283.865" z="317.0524" h="76"/>
+		<object x="827.9976" y="1353.009" z="329.314" h="22"/>
+		<object x="839.9988" y="1346.515" z="328.4394" h="62"/>
+	</spawn>
+	<!-- Jotun Juggernaut lvl:55 -->
+	<spawn map="600010000" npcid="216367" pool="10" interval="295">
+		<object x="363.1627" y="1069.513" z="305.3522" h="90"/>
+		<object x="625.4824" y="893.7709" z="296.3658" h="25"/>
+		<object x="619.3074" y="786.9366" z="292.948" h="0"/>
+		<object x="713.2325" y="833.9445" z="292.7247" h="90"/>
+		<object x="619.1118" y="747.7339" z="292.8112" h="0"/>
+		<object x="780.2101" y="765.0336" z="292.726" h="73"/>
+		<object x="883.9149" y="822.4105" z="296.4102" h="67"/>
+		<object x="714.5462" y="700.4083" z="292.7181" h="30"/>
+		<object x="367.1342" y="504.308" z="305.0382" h="30"/>
+		<object x="926.6201" y="722.8843" z="297.1538" h="0"/>
+	</spawn>
+	<!-- Jotun Creator lvl:55 -->
+	<spawn map="600010000" npcid="216368" pool="6" interval="295">
+		<object x="413.4124" y="998.1495" z="313.3992" h="73"/>
+		<object x="621.8206" y="967.6272" z="306.2034" h="13"/>
+		<object x="698.4848" y="766.7589" z="292.4987" h="0"/>
+		<object x="730.0635" y="766.6862" z="292.5024" h="60"/>
+		<object x="574.1706" y="575.2419" z="304.6964" h="53"/>
+		<object x="496.0982" y="531.0245" z="310.9238" h="30"/>
+	</spawn>
+	<!-- Jumping Kalgolem lvl:55 -->
+	<spawn map="600010000" npcid="216370" pool="19" interval="295">
+		<object x="359.955" y="1015.309" z="305.8041" h="30"/>
+		<object x="450.1431" y="985.5861" z="314.4803" h="110"/>
+		<object x="492.489" y="1006.727" z="313.0956" h="45"/>
+		<object x="540.6155" y="994.3305" z="313.3909" h="110"/>
+		<object x="578.3016" y="1020.508" z="312.8802" h="80"/>
+		<object x="647.1635" y="929.864" z="304.9557" h="80"/>
+		<object x="803.8806" y="870.2353" z="297.8678" h="30"/>
+		<object x="834.053" y="807.5585" z="296.8712" h="30"/>
+		<object x="797.2051" y="922.2995" z="297.0256" h="0"/>
+		<object x="555.2294" y="533.4349" z="310.9678" h="78"/>
+		<object x="599.8014" y="502.7094" z="312.2244" h="45"/>
+		<object x="433.8839" y="559.4394" z="311.3906" h="110"/>
+		<object x="353.1674" y="509.1085" z="305.1407" h="86"/>
+		<object x="777.3894" y="608.7227" z="303.6975" h="13"/>
+		<object x="917.3356" y="699.8762" z="300.1726" h="41"/>
+		<object x="889.8136" y="626.1172" z="299.3364" h="80"/>
+		<object x="958.6089" y="711.3616" z="297.1538" h="60"/>
+		<object x="789.1856" y="1129.836" z="312.0889" h="30"/>
+		<object x="753.9995" y="1159.956" z="314.362" h="0"/>
+	</spawn>
+	<!-- Silentera Mugolem lvl:55 -->
+	<spawn map="600010000" npcid="216371" pool="4" interval="295">
+		<object x="887.384" y="1005.004" z="322.5328" h="90"/>
+		<object x="864.4974" y="1061.688" z="325.1421" h="20"/>
+		<object x="880.6994" y="1017.9" z="325.0785" h="15"/>
+		<object x="744.3214" y="1069.934" z="324.4079" h="110"/>
+	</spawn>
+	<!-- Laksyaka Bloodboss lvl:55 -->
+	<spawn map="600010000" npcid="216372" pool="9" interval="295">
+		<object x="1120.007" y="698.0889" z="301.2253" h="90"/>
+		<object x="1154.671" y="697.7634" z="301.225" h="90"/>
+		<object x="1224.318" y="755.4187" z="300.8121" h="0"/>
+		<object x="1257.25" y="780.75" z="302.84" h="0"/>
+		<object x="1296.668" y="747.6161" z="304.4061" h="60"/>
+		<object x="1296.83" y="787.062" z="304.4061" h="60"/>
+		<object x="1346.67" y="781.02" z="312.8755" h="90"/>
+		<object x="1154.425" y="836.3309" z="301.2258" h="30"/>
+		<object x="1120.461" y="836.7348" z="301.2254" h="30"/>
+	</spawn>
+	<!-- Laksyaka High Magus lvl:55 -->
+	<spawn map="600010000" npcid="216373" pool="3" interval="295">
+		<object x="1114.008" y="777.9482" z="301.3222" h="60"/>
+		<object x="1163.285" y="756.837" z="301.3624" h="0"/>
+		<object x="1346.04" y="754.25" z="312.8755" h="30"/>
+	</spawn>
+	<!-- Laksyaka Head Marksman lvl:55 -->
+	<spawn map="600010000" npcid="216375" pool="8" interval="295">
+		<object x="1211.25" y="763.25" z="300.7208" h="0"/>
+		<object x="1250.887" y="655.1126" z="301.4368" h="60"/>
+		<object x="1270.669" y="690.904" z="300.4186" h="101"/>
+		<object x="1199.88" y="771.9147" z="300.7208" h="60"/>
+		<object x="1289.367" y="695.5338" z="301.9582" h="91"/>
+		<object x="1258.25" y="827.75" z="300.39" h="91"/>
+		<object x="1292.25" y="858.75" z="301.95" h="91"/>
+		<object x="1230.318" y="880.75" z="301.437" h="0"/>
+	</spawn>
+	<!-- Laksyaka Chief Medic lvl:55 -->
+	<spawn map="600010000" npcid="216376" pool="3" interval="295">
+		<object x="1114.078" y="756.9218" z="301.3223" h="60"/>
+		<object x="1163.216" y="777.8635" z="301.3625" h="0"/>
+		<object x="1382.19" y="779.7438" z="312.8755" h="89"/>
+	</spawn>
+	<!-- Longtailed Crynac lvl:55 -->
+	<spawn map="600010000" npcid="216377" pool="6" interval="295">
+		<object x="936.8659" y="643.6035" z="309.159" h="76"/>
+		<object x="968.5258" y="647.5063" z="303.2505" h="13"/>
+		<object x="1002.563" y="678.9722" z="302.7739" h="32"/>
+		<object x="1013.834" y="880.0781" z="300.8055" h="69"/>
+		<object x="957.2223" y="876.1605" z="300.7662" h="91"/>
+		<object x="934.966" y="879.3619" z="302.0897" h="42"/>
+	</spawn>
+	<!-- Silentera Harbinger lvl:55 -->
+	<spawn map="600010000" npcid="216378" pool="1" interval="295">
+		<object x="987.704" y="1111.744" z="314.6487" h="62"/>
+	</spawn>
+	<!-- Silentera Warmonger lvl:55 -->
+	<spawn map="600010000" npcid="216379" pool="1" interval="295">
+		<object x="1052.177" y="1091.674" z="310.3836" h="29"/>
+	</spawn>
+	<!-- Silentera Elite Ambusher lvl:55 -->
+	<spawn map="600010000" npcid="216380" pool="1" interval="295">
+		<object x="1138.129" y="404.8902" z="313.6572" h="112"/>
+	</spawn>
+	<!-- Silentera Elite Sentinel lvl:55 -->
+	<spawn map="600010000" npcid="216381" pool="3" interval="295">
+		<object x="1116.271" y="430.2927" z="310.8477" h="91"/>
+		<object x="1045.456" y="428.5281" z="316.7247" h="90"/>
+		<object x="820.25" y="1044.75" z="324.52" h="60"/>
+	</spawn>
+	<!-- Silentera Elite Sorcerer lvl:55 -->
+	<spawn map="600010000" npcid="216382" pool="1" interval="295">
+		<object x="827.5269" y="502.2779" z="321.6564" h="94"/>
+	</spawn>
+	<!-- Silentera Elite Spiritmaster lvl:55 -->
+	<spawn map="600010000" npcid="216383" pool="2" interval="295">
+		<object x="1113.75" y="1095.925" z="305.98" h="91"/>
+		<object x="820.4174" y="1046.698" z="324.4906" h="61"/>
+	</spawn>
+	<!-- Silentera Fencer lvl:55 -->
+	<spawn map="600010000" npcid="216386" pool="1" interval="295">
+		<object x="1126.75" y="544.25" z="309.8906" h="30"/>
+	</spawn>
+	<!-- Silentera Elite Assaulter lvl:55 -->
+	<spawn map="600010000" npcid="216387" pool="2" interval="295">
+		<object x="895.0378" y="483.2264" z="321.5623" h="68"/>
+		<object x="1122.848" y="1128.561" z="307.1581" h="115"/>
+	</spawn>
+	<!-- Silentera Vaegir lvl:55 -->
+	<spawn map="600010000" npcid="216388" pool="1" interval="295">
+		<object x="795.4866" y="489.2616" z="322.2157" h="60"/>
+	</spawn>
+	<!-- Silentera Elite Watcher lvl:55 -->
+	<spawn map="600010000" npcid="216389" pool="1" interval="295">
+		<object x="1115.75" y="1094.616" z="305.98" h="91"/>
+	</spawn>
+	<!-- Silentera Elite Dark Sorcerer lvl:55 -->
+	<spawn map="600010000" npcid="216390" pool="1" interval="295">
+		<object x="1122.379" y="1074.113" z="305.9849" h="60"/>
+	</spawn>
+	<!-- Silentera Elite Healer lvl:55 -->
+	<spawn map="600010000" npcid="216392" pool="2" interval="295">
+		<object x="945.4087" y="416.5731" z="316.7376" h="82"/>
+		<object x="878.3813" y="442.715" z="316.2148" h="87"/>
+	</spawn>
+	<!-- Silentera Elite Chanter lvl:55 -->
+	<spawn map="600010000" npcid="216393" pool="2" interval="295">
+		<object x="848.6359" y="497.8964" z="321.5623" h="119"/>
+		<object x="739.9064" y="511.7554" z="324.1726" h="60"/>
+	</spawn>
+	<!-- Silentera Elite Defender lvl:55 -->
+	<spawn map="600010000" npcid="216394" pool="1" interval="295">
+		<object x="1136.684" y="1075.557" z="305.881" h="60"/>
+	</spawn>
+	<!-- Silentera Elite Bodyguard lvl:55 -->
+	<spawn map="600010000" npcid="216395" pool="1" interval="295">
+		<object x="947.5684" y="415.2071" z="316.7615" h="64"/>
+	</spawn>
+	<!-- Silentera Elite Assassin lvl:55 -->
+	<spawn map="600010000" npcid="216396" pool="2" interval="295">
+		<object x="1134.63" y="447.6885" z="311.1284" h="60"/>
+		<object x="875.5397" y="447.4955" z="316.2148" h="10"/>
+	</spawn>
+	<!-- Silentera Elite Sniper lvl:55 -->
+	<spawn map="600010000" npcid="216397" pool="2" interval="295">
+		<object x="998.3445" y="439.4427" z="316.6707" h="33"/>
+		<object x="860.75" y="506.25" z="321.5623" h="30"/>
+	</spawn>
+	<!-- Silentera Solaster lvl:55 -->
+	<spawn map="600010000" npcid="216399" pool="1" interval="295">
+		<object x="734.6447" y="511.4159" z="324.1726" h="0"/>
+	</spawn>
+	<!-- Silentera Anchorite lvl:55 -->
+	<spawn map="600010000" npcid="216401" pool="2" interval="295">
+		<object x="865.3107" y="532.7733" z="321.382" h="62"/>
+		<object x="774.75" y="479.1169" z="323.924" h="30"/>
+	</spawn>
+	<!-- Baby Stinging Sheluk lvl:55 -->
+	<spawn map="600010000" npcid="216403" pool="15" interval="295">
+		<object x="577.4169" y="1236.096" z="315.093" h="71"/>
+		<object x="791.2543" y="343.136" z="311.7914" h="42"/>
+		<object x="801.9656" y="335.4696" z="309.8793" h="119"/>
+		<object x="827.8591" y="329.01" z="311.3561" h="56"/>
+		<object x="656.2465" y="231.0409" z="319.6388" h="8"/>
+		<object x="637.8121" y="244.5582" z="317.3912" h="87"/>
+		<object x="622.2525" y="274.665" z="308.9845" h="25"/>
+		<object x="633.1327" y="310.547" z="311.5425" h="31"/>
+		<object x="595.5942" y="297.6364" z="311.1772" h="44"/>
+		<object x="622.3305" y="318.3292" z="311.2953" h="36"/>
+		<object x="581.2457" y="302.7573" z="312.4981" h="62"/>
+		<object x="565.4366" y="299.3343" z="311.2014" h="111"/>
+		<object x="625.6269" y="1286.643" z="308.9033" h="19"/>
+		<object x="644.5344" y="1258.114" z="309.2455" h="108"/>
+		<object x="637.1782" y="1294.225" z="308.9395" h="84"/>
+	</spawn>
+	<!-- Babybrown Arachna lvl:55 -->
+	<spawn map="600010000" npcid="216404" pool="25" interval="295">
+		<object x="466.0389" y="1263.693" z="304.4654" h="33"/>
+		<object x="375.0885" y="1280.895" z="283.375" h="96"/>
+		<object x="322.2666" y="1263.965" z="292.6938" h="8"/>
+		<object x="331.7168" y="1249.718" z="294.8398" h="104"/>
+		<object x="304.131" y="1277.28" z="293.6733" h="85"/>
+		<object x="326.7007" y="1326.683" z="292.2564" h="43"/>
+		<object x="330.2382" y="1327.329" z="292.8782" h="103"/>
+		<object x="300.2653" y="1318.771" z="292.5648" h="97"/>
+		<object x="343.4676" y="1406.666" z="305.5141" h="119"/>
+		<object x="362.912" y="1415.029" z="312.5036" h="116"/>
+		<object x="443.6168" y="1419.039" z="321.4056" h="80"/>
+		<object x="436.7804" y="1409.251" z="321.2156" h="49"/>
+		<object x="374.8134" y="329.8044" z="301.2267" h="85"/>
+		<object x="338.4865" y="273.5427" z="294.5034" h="105"/>
+		<object x="334.7284" y="285.2283" z="294.3048" h="115"/>
+		<object x="298.3975" y="224.9204" z="295.0832" h="28"/>
+		<object x="326.227" y="201.7214" z="300.6789" h="94"/>
+		<object x="292.2138" y="201.7046" z="296.7204" h="75"/>
+		<object x="367.6407" y="148.9333" z="307.2722" h="103"/>
+		<object x="296.1292" y="176.6099" z="297.8246" h="111"/>
+		<object x="353.3158" y="154.2864" z="305.9038" h="118"/>
+		<object x="327.8489" y="133.9189" z="306.5088" h="35"/>
+		<object x="354.8867" y="140.2181" z="304.4012" h="75"/>
+		<object x="360.5446" y="119.0621" z="305.9763" h="66"/>
+		<object x="442.7561" y="125.3641" z="316.6777" h="59"/>
+	</spawn>
+	<!-- Baby Blackclaw Scolopen lvl:55 -->
+	<spawn map="600010000" npcid="216405" pool="24" interval="295">
+		<object x="764.5148" y="426.1336" z="316.5677" h="8"/>
+		<object x="755.0983" y="392.6114" z="312.6814" h="63"/>
+		<object x="792.9655" y="304.9913" z="312.1674" h="57"/>
+		<object x="751.8666" y="275.4987" z="317.4324" h="82"/>
+		<object x="819.8218" y="218.1794" z="321.3639" h="57"/>
+		<object x="851.4994" y="208.0359" z="333.6046" h="116"/>
+		<object x="750.3115" y="224.7437" z="321.3913" h="69"/>
+		<object x="833.023" y="192.0827" z="329.0946" h="4"/>
+		<object x="729.4412" y="220.411" z="322.412" h="65"/>
+		<object x="874.814" y="181.179" z="335.6519" h="24"/>
+		<object x="791.2484" y="1208.577" z="314.6429" h="35"/>
+		<object x="785.7428" y="1227.568" z="313.2822" h="84"/>
+		<object x="830.0878" y="1245.454" z="323.3441" h="57"/>
+		<object x="809.9836" y="1249.675" z="314.7172" h="96"/>
+		<object x="763.567" y="1265.136" z="318.1358" h="3"/>
+		<object x="752.4117" y="1278.622" z="317.5052" h="19"/>
+		<object x="779.6962" y="1297.935" z="322.1255" h="100"/>
+		<object x="760.6242" y="1300.242" z="319.8647" h="86"/>
+		<object x="729.2195" y="1286.26" z="321.0536" h="9"/>
+		<object x="841.4617" y="1326.714" z="326.8367" h="86"/>
+		<object x="825.4146" y="1340.656" z="326.3794" h="47"/>
+		<object x="870.9736" y="1337.57" z="334.9863" h="45"/>
+		<object x="898.5718" y="1359.707" z="333.7691" h="49"/>
+		<object x="901.7467" y="1370.441" z="334.019" h="81"/>
+	</spawn>
+	<!-- Mysterious Being lvl:55 -->
+	<spawn map="600010000" npcid="217120" pool="1" interval="295">
+		<object x="484.8494" y="767.7346" z="293.5" h="0"/>
+	</spawn>
+	<!-- Perry lvl:56 -->
+	<spawn map="600010000" npcid="799033" pool="1" interval="295">
+		<object x="482.1773" y="427.3941" z="327.9426" h="25"/>
+	</spawn>
+</spawns>

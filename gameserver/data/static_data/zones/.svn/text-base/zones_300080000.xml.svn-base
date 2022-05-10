@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zones.xsd">
+	<zone mapid="300080000" name="LEFT_WING_CHAMBER_300080000" priority="16">
+		<points>
+			<point x="111.739998" y="303.019989" />
+			<point x="111.739960" y="875.570313" />
+			<point x="833.558472" y="875.570313" />
+			<point x="833.558533" y="303.019989" />
+		</points>
+	</zone>
+</zones>

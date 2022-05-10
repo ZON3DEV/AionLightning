@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/log4j/exceptions
+END
+AppenderInitializationError.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/log4j/exceptions/AppenderInitializationError.java
+END
+Log4jInitializationError.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/log4j/exceptions/Log4jInitializationError.java
+END

@@ -1,0 +1,184 @@
+10
+
+dir
+4
+http://aion-source.googlecode.com/svn/trunk/gameserver/src/org/openaion/gameserver
+http://aion-source.googlecode.com/svn
+
+
+
+2011-08-22T10:47:12.323813Z
+4
+tomulescu@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+bd889ffc-ba26-04c3-53cf-a01569391022
+
+geo
+dir
+
+ShutdownHook.java
+file
+
+
+
+
+2016-03-17T22:35:17.075498Z
+97c3506ca87cd2fb5783a8eb37e618f6
+2011-08-22T10:47:12.323813Z
+4
+tomulescu@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5468
+
+skill
+dir
+
+GameServer.java
+file
+
+
+
+
+2016-03-17T22:35:17.075498Z
+30d2f5f5228b13c8700d1a0b82a8d2b0
+2011-08-22T10:47:12.323813Z
+4
+tomulescu@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+13837
+
+services
+dir
+
+itemengine
+dir
+
+world
+dir
+
+restrictions
+dir
+
+spawn
+dir
+
+configs
+dir
+
+ai
+dir
+
+network
+dir
+
+dataholders
+dir
+
+GameServerError.java
+file
+
+
+
+
+2016-03-17T22:35:17.075498Z
+b492ed2c296da5b4c06e563345af2538
+2011-08-22T10:47:12.323813Z
+4
+tomulescu@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2271
+
+model
+dir
+
+utils
+dir
+
+quest
+dir
+
+task
+dir
+
+dao
+dir
+
+cache
+dir
+
+controllers
+dir
+

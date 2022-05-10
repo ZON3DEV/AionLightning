@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/4/trunk/gameserver/sql/InnoDB
+END
+InnoDB_retail_droplist.sql
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/4/trunk/gameserver/sql/InnoDB/InnoDB_retail_droplist.sql
+END
+Reference_InnoDB_au_server_gs.sql
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/4/trunk/gameserver/sql/InnoDB/Reference_InnoDB_au_server_gs.sql
+END

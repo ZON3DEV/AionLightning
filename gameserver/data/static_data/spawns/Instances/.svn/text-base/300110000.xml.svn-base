@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Dredgion
+
+ -->
+<spawns>
+	<!-- Adjutant Kalanadi (Named Mob Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="215093" pool="1" interval="3600">
+		<object x="485.41727" y="319.09863" z="403.26712" h="110"/>
+	</spawn>
+	<!-- Adjutant Kundhan (Named Mob Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="215085" pool="1" interval="3600">
+		<object x="464.3075" y="605.24493" z="391.57822" h="77"/>
+	</spawn>
+	<!-- Air Captain Girana (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="215089" pool="1" interval="300">
+		<object x="414.7938" y="492.80225" z="393.6765" h="43"/>
+	</spawn>
+	<!-- Assistant Malakun (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="215084" pool="1" interval="300">
+		<object x="623.9866" y="410.7633" z="410.62592" h="12"/>
+	</spawn>
+	<!-- Auditor Nirshaka (Monster Hero lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="215390" pool="1" interval="14400">
+		<object x="460.6112" y="877.78595" z="405.04514" h="76"/>
+	</spawn>
+	<!-- Baranath Curatus (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="214822" pool="3" interval="300">
+		<object x="575.2557" y="701.5945" z="402.22125" h="19"/>
+		<object x="483.26056" y="827.46765" z="416.64606" h="112"/>
+		<object x="394.84332" y="700.8232" z="402.21982" h="23"/>
+	</spawn>
+	<!-- Baranath Fleshmender (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="214814" pool="7" interval="300">
+		<object x="563.9849" y="282.02573" z="409.7311" h="16"/>
+		<object x="627.97577" y="387.5712" z="412.93585" h="76"/>
+		<object x="405.50168" y="282.34024" z="409.7311" h="58"/>
+		<object x="367.8642" y="389.91382" z="412.40512" h="88"/>
+		<object x="347.03912" y="392.6267" z="412.15378" h="77"/>
+		<object x="500.43945" y="510.79272" z="399.10974" h="25"/>
+		<object x="494.55823" y="310.29318" z="403.05508" h="54"/>
+	</spawn>
+	<!-- Baranath Legatus (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="214819" pool="19" interval="300">
+		<object x="490.36096" y="653.37646" z="388.04727" h="100"/>
+		<object x="479.85324" y="653.5875" z="387.96146" h="114"/>
+		<object x="490.24908" y="733.29083" z="387.32758" h="84"/>
+		<object x="490.01285" y="690.7754" z="387.5982" h="18"/>
+		<object x="567.40137" y="575.08075" z="409.17062" h="21"/>
+		<object x="487.99182" y="827.4516" z="416.64587" h="100"/>
+		<object x="474.3284" y="868.99615" z="405.57098" h="60"/>
+		<object x="496.23846" y="868.5403" z="405.57056" h="75"/>
+		<object x="481.23126" y="767.1559" z="388.6667" h="39"/>
+		<object x="488.61353" y="766.9126" z="388.6662" h="10"/>
+		<object x="361.24307" y="562.00415" z="409.39758" h="49"/>
+		<object x="480.56357" y="733.55804" z="387.32797" h="62"/>
+		<object x="608.8603" y="564.71826" z="413.55914" h="91"/>
+		<object x="461.55438" y="809.5186" z="416.65213" h="62"/>
+		<object x="534.6168" y="790.1694" z="413.51703" h="86"/>
+		<object x="380.25058" y="556.22614" z="408.80084" h="45"/>
+		<object x="479.98633" y="691.07245" z="387.60117" h="11"/>
+		<object x="480.22598" y="617.8998" z="390.39767" h="66"/>
+		<object x="490.49988" y="617.68365" z="390.39767" h="16"/>
+	</spawn>
+	<!-- Baranath Magus (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="214821" pool="10" interval="300">
+		<object x="375.84406" y="575.53314" z="413.97467" h="33"/>
+		<object x="508.35822" y="809.9451" z="416.6536" h="43"/>
+		<object x="405.4308" y="705.8589" z="402.21512" h="64"/>
+		<object x="562.0744" y="561.31006" z="410.12372" h="35"/>
+		<object x="590.5112" y="546.73846" z="409.71964" h="4"/>
+		<object x="435.5229" y="790.63116" z="413.51703" h="60"/>
+		<object x="410.32913" y="581.4846" z="410.01712" h="39"/>
+		<object x="598.44507" y="575.65625" z="413.6044" h="101"/>
+		<object x="565.076" y="708.2572" z="402.2726" h="98"/>
+		<object x="399.7776" y="552.60504" z="409.13202" h="53"/>
+	</spawn>
+	<!-- Baranath Mariner (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="214806" pool="10" interval="300">
+		<object x="515.16785" y="310.9258" z="404.0724" h="106"/>
+		<object x="480.60208" y="467.6344" z="398.2182" h="76"/>
+		<object x="335.1874" y="405.9617" z="411.51364" h="73"/>
+		<object x="488.84134" y="527.3984" z="397.4609" h="69"/>
+		<object x="462.02667" y="314.47745" z="403.51205" h="71"/>
+		<object x="460.03058" y="895.3574" z="405.26562" h="60"/>
+		<object x="490.9533" y="467.66122" z="398.2163" h="45"/>
+		<object x="424.74567" y="257.19867" z="410.4192" h="120"/>
+		<object x="543.83295" y="267.91086" z="409.7311" h="88"/>
+		<object x="480.8273" y="527.4115" z="397.53683" h="29"/>
+	</spawn>
+	<!-- Baranath Priest (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="214812" pool="2" interval="300">
+		<object x="497.1245" y="882.9597" z="405.52075" h="41"/>
+		<object x="466.49197" y="508.99283" z="399.17773" h="80"/>
+	</spawn>
+	<!-- Baranath Scourge (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="214813" pool="18" interval="300">
+		<object x="426.9357" y="292.9924" z="409.73624" h="33"/>
+		<object x="376.0839" y="422.28775" z="411.90588" h="23"/>
+		<object x="490.69122" y="334.87335" z="402.93445" h="8"/>
+		<object x="479.51553" y="334.88348" z="402.85297" h="40"/>
+		<object x="555.12775" y="297.29932" z="409.7998" h="5"/>
+		<object x="470.4289" y="512.55334" z="399.26498" h="30"/>
+		<object x="414.5139" y="297.3037" z="409.79333" h="78"/>
+		<object x="348.34247" y="413.22046" z="410.65942" h="114"/>
+		<object x="475.31128" y="318.86188" z="403.10556" h="71"/>
+		<object x="405.63156" y="295.81876" z="409.89908" h="63"/>
+		<object x="329.22977" y="398.51672" z="411.6938" h="11"/>
+		<object x="550.84595" y="279.28265" z="409.7311" h="109"/>
+		<object x="646.08887" y="424.8309" z="411.74924" h="61"/>
+		<object x="643.41595" y="394.98813" z="410.98718" h="18"/>
+		<object x="324.4345" y="426.59235" z="411.61945" h="83"/>
+		<object x="421.33884" y="281.8644" z="409.7311" h="90"/>
+		<object x="542.3743" y="292.11777" z="409.73737" h="87"/>
+		<object x="565.42145" y="295.45868" z="409.9734" h="46"/>
+	</spawn>
+	<!-- Baranath Serpentguard (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="214811" pool="4" interval="300">
+		<object x="473.78033" y="883.1947" z="405.53262" h="97"/>
+		<object x="395.75104" y="568.56445" z="409.20224" h="114"/>
+		<object x="505.02054" y="505.8924" z="399.00134" h="45"/>
+		<object x="582.0374" y="565.1502" z="408.8257" h="17"/>
+	</spawn>
+	<!-- Baranath Triaris (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="214820" pool="9" interval="300">
+		<object x="522.8803" y="805.94135" z="415.49344" h="58"/>
+		<object x="541.67596" y="798.03375" z="413.4558" h="86"/>
+		<object x="458.72943" y="817.5687" z="416.6363" h="19"/>
+		<object x="428.7937" y="797.8758" z="413.46045" h="117"/>
+		<object x="511.02307" y="817.4114" z="416.6383" h="117"/>
+		<object x="489.20203" y="876.1209" z="405.01514" h="70"/>
+		<object x="575.1472" y="718.51587" z="402.22354" h="72"/>
+		<object x="393.16635" y="717.5349" z="402.22354" h="53"/>
+		<object x="445.6545" y="804.94946" z="415.18478" h="60"/>
+	</spawn>
+	<!-- Baranath Trooper (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="214808" pool="6" interval="300">
+		<object x="354.38672" y="398.2208" z="412.00592" h="51"/>
+		<object x="509.99982" y="895.0094" z="405.2038" h="73"/>
+		<object x="545.9343" y="261.78424" z="409.81747" h="92"/>
+		<object x="426.76996" y="267.62573" z="410.1052" h="117"/>
+		<object x="455.91672" y="310.9253" z="404.07346" h="58"/>
+		<object x="509.04312" y="314.11237" z="403.61923" h="70"/>
+	</spawn>
+	<!-- Captain Adhati (Boss Hero lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="214823" pool="1" interval="14400">
+		<object x="485.2116" y="807.46875" z="416.86816" h="117"/>
+	</spawn>
+	<!-- First Mate Aznaya (Boss Hero lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="215086" pool="1" interval="14400">
+		<object x="485.09537" y="883.9128" z="405.01978" h="60"/>
+	</spawn>
+	<!-- Gun Captain Ankrana (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="215092" pool="1" interval="300">
+		<object x="577.79663" y="568.3712" z="408.84637" h="85"/>
+	</spawn>
+	<!-- Navigator Nevikah (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="215083" pool="1" interval="300">
+		<object x="344.3065" y="416.23328" z="410.39886" h="61"/>
+	</spawn>
+	<!-- Prison Guard Mahnena (Named Mob Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="215088" pool="1" interval="3600">
+		<object x="580.7651" y="697.2317" z="402.21442" h="18"/>
+	</spawn>
+	<!-- Quartermaster Vujara (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="215391" pool="2" interval="300">
+		<object x="415.2769" y="282.0216" z="409.7311" h="118"/>
+		<object x="556.53534" y="279.2918" z="409.7311" h="33"/>
+	</spawn>
+	<!-- Sentinel Garkusa (Named Mob Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="215087" pool="1" interval="3600">
+		<object x="387.82343" y="696.40704" z="402.213" h="108"/>
+	</spawn>
+	<!-- Supervisor Lakhane (Named Mob Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="215427" pool="1" interval="3600">
+		<object x="504.50238" y="607.6224" z="394.73" h="33"/>
+	</spawn>
+	<!-- Technician Sarpa (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="215082" pool="1" interval="300">
+		<object x="485.1836" y="296.88266" z="402.20407" h="71"/>
+	</spawn>
+	<!-- Vice Air Captain Kai (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="215090" pool="1" interval="300">
+		<object x="556.17444" y="488.71484" z="393.58517" h="36"/>
+	</spawn>
+	<!-- Vice Gun Captain Zha (Monster Elite lvl:50) (from client spawn)-->
+	<spawn map="300110000" npcid="215091" pool="1" interval="300">
+		<object x="391.25076" y="564.9824" z="408.92206" h="98"/>
+	</spawn>
+</spawns>

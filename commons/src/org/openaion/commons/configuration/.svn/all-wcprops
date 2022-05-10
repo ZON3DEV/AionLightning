@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration
+END
+Property.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/Property.java
+END
+TransformationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/TransformationException.java
+END
+PropertyTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/PropertyTransformer.java
+END
+PropertyTransformerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/PropertyTransformerFactory.java
+END
+ConfigurableProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/ConfigurableProcessor.java
+END

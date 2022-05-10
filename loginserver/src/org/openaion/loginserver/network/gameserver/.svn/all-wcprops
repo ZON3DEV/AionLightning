@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/gameserver
+END
+GsPacketHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/gameserver/GsPacketHandler.java
+END
+GsClientPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/gameserver/GsClientPacket.java
+END
+GsConnectionFactoryImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/gameserver/GsConnectionFactoryImpl.java
+END
+GsServerPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/gameserver/GsServerPacket.java
+END
+GsConnection.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/gameserver/GsConnection.java
+END
+GsAuthResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/gameserver/GsAuthResponse.java
+END

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+	<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 10000: Lavirintos's Call (lvl 50) handled by script -->
+	<!-- 10001: Bound for Inggison! (lvl 50) handled by script -->
+	<!-- 19500: TODO: Gaining the Templar's Stigma (lvl 99) -->
+	<!-- 19501: TODO: Gaining the Gladiator's Stigma (lvl 99) -->
+	<!-- 19502: TODO: Gaining the Cleric's Stigma (lvl 99) -->
+	<!-- 19503: TODO: Gaining the Chanter's Stigma (lvl 99) -->
+	<!-- 19504: TODO: Gaining the Assassin's Stigma (lvl 99) -->
+	<!-- 19505: TODO: Gaining the Ranger's Stigma (lvl 99) -->
+	<!-- 19506: TODO: Gaining the Sorcerer's Stigma (lvl 99) -->
+	<!-- 19507: TODO: Gaining the Spiritmaster's Stigma (lvl 99) -->
+</quest_scripts>

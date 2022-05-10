@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/chathandlers
+END
+ChatHandlers.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/chathandlers/ChatHandlers.java
+END
+CustomChannel.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/chathandlers/CustomChannel.java
+END
+ChatHandlersLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/chathandlers/ChatHandlersLoader.java
+END
+AdminCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/chathandlers/AdminCommand.java
+END
+CommandChatHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/chathandlers/CommandChatHandler.java
+END
+ChatHandlerResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/chathandlers/ChatHandlerResponse.java
+END
+ChatHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/chathandlers/ChatHandler.java
+END
+UserCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/chathandlers/UserCommand.java
+END

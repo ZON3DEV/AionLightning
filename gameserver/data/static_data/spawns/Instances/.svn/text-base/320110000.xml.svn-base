@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique. If not, see <http://www.gnu.org/licenses/>.
+
+	Alquimia Research Center
+
+-->
+<spawns>
+	<!-- Aetherogeneticist (Monster Elite lvl:44) -->
+	<spawn map="320110000" npcid="213949" pool="4" interval="300">
+		<object x="398.8794" y="517.8061" z="205.33063" h="6"/>
+		<object x="398.31107" y="484.8526" z="205.34003" h="9"/>
+		<object x="451.7537" y="491.40704" z="205.32959" h="62"/>
+		<object x="438.1629" y="491.9678" z="205.32953" h="77"/>
+	</spawn>
+	<!-- Consecrated Guardian (Monster Elite lvl:45) -->
+	<spawn map="320110000" npcid="213960" pool="6" interval="300">
+		<object x="314.26126" y="503.57452" z="209.21713" h="36"/>
+		<object x="314.2311" y="499.07892" z="209.23999" h="12"/>
+		<object x="349.2703" y="503.69757" z="209.21713" h="114"/>
+		<object x="331.63712" y="499.26593" z="209.23999" h="104"/>
+		<object x="331.66727" y="503.76154" z="209.21713" h="74"/>
+		<object x="349.24014" y="499.20197" z="209.23999" h="104"/>
+	</spawn>
+	<!-- Consecrated Sentinel (Monster Elite lvl:45) -->
+	<spawn map="320110000" npcid="213961" pool="4" interval="300">
+		<object x="307.22122" y="511.32526" z="209.9201" h="18"/>
+		<object x="364.09537" y="500.53033" z="209.23999" h="20"/>
+		<object x="306.71805" y="490.71564" z="209.92009" h="117"/>
+		<object x="364.1204" y="502.29327" z="209.23999" h="111"/>
+	</spawn>
+	<!-- Expert Biologist (Monster Elite lvl:44) -->
+	<spawn map="320110000" npcid="213948" pool="5" interval="300">
+		<object x="410.2855" y="488.0672" z="205.32996" h="75"/>
+		<object x="399.8275" y="515.63184" z="205.36707" h="22"/>
+		<object x="423.27634" y="492.2786" z="205.32948" h="105"/>
+		<object x="452.03784" y="509.0359" z="205.3305" h="83"/>
+		<object x="443.88272" y="518.43024" z="204.69067" h="29"/>
+	</spawn>
+	<!-- Expert Biologist (Monster Elite lvl:44) -->
+	<spawn map="320110000" npcid="213947" pool="1" interval="300">
+		<object x="418.52103" y="518.5997" z="204.71576" h="28"/>
+	</spawn>
+	<!-- Expert Healer (Monster Elite lvl:43) -->
+	<spawn map="320110000" npcid="213942" pool="3" interval="300">
+		<object x="551.67523" y="539.9605" z="199.73503" h="83"/>
+		<object x="524.5056" y="490.98294" z="199.73503" h="22"/>
+		<object x="595.9638" y="564.04425" z="199.73503" h="77"/>
+	</spawn>
+	<!-- Expert Inspector (Monster Elite lvl:43) -->
+	<spawn map="320110000" npcid="213941" pool="3" interval="300">
+		<object x="563.2592" y="520.0389" z="199.73503" h="60"/>
+		<object x="541.51605" y="510.5274" z="199.73503" h="81"/>
+		<object x="588.1096" y="500.05182" z="199.47145" h="27"/>
+	</spawn>
+	<!-- Expert Medic (Monster Elite lvl:44) -->
+	<spawn map="320110000" npcid="213958" pool="11" interval="300">
+		<object x="452.20615" y="566.65344" z="204.7096" h="15"/>
+		<object x="397.43448" y="561.5035" z="204.69067" h="38"/>
+		<object x="432.54495" y="568.9986" z="204.70325" h="80"/>
+		<object x="420.7566" y="548.7225" z="204.69067" h="6"/>
+		<object x="409.54684" y="566.0357" z="204.69067" h="83"/>
+		<object x="470.28226" y="549.38214" z="204.69067" h="88"/>
+		<object x="403.58292" y="536.7408" z="204.69067" h="14"/>
+		<object x="474.35477" y="562.0782" z="204.69067" h="87"/>
+		<object x="452.92407" y="549.34064" z="204.69067" h="29"/>
+		<object x="408.166" y="552.477" z="204.69067" h="45"/>
+		<object x="418.15237" y="536.6622" z="204.69067" h="34"/>
+	</spawn>
+	<!-- Expert Sorcerer (Monster Elite lvl:43) -->
+	<spawn map="320110000" npcid="213940" pool="4" interval="300">
+		<object x="524.1917" y="510.30865" z="199.73503" h="43"/>
+		<object x="584.84503" y="543.33417" z="199.73503" h="57"/>
+		<object x="580.1897" y="483.53476" z="199.90137" h="44"/>
+		<object x="573.5003" y="551" z="199.73503" h="45"/>
+	</spawn>
+	<!-- High Priest Esras (Monster Elite lvl:45) -->
+	<spawn map="320110000" npcid="214028" pool="1" interval="300">
+		<object x="280.36" y="501.09" z="211.67725" h="68"/>
+	</spawn>
+	<!-- Human-in-ascension (Monster Normal lvl:44) -->
+	<spawn map="320110000" npcid="213955" pool="3" interval="295">
+		<object x="416.78525" y="487.89795" z="206.73471" h="94"/>
+		<object x="455.76904" y="495.87653" z="206.73471" h="13"/>
+		<object x="432.69238" y="487.346" z="206.73471" h="64"/>
+	</spawn>
+	<!-- Key Protector Nimue (Named Mob Elite lvl:44) -->
+	<spawn map="320110000" npcid="214034" pool="1" interval="3600">
+		<object x="460" y="558" z="204.69067" h="27"/>
+	</spawn>
+	<!-- Lab Director Odetu (Monster Elite lvl:44) -->
+	<spawn map="320110000" npcid="214099" pool="1" interval="300">
+		<object x="476.501" y="484.326" z="204.69067" h="56"/>
+	</spawn>
+	<!-- Poisonmaster (Monster Elite lvl:44) -->
+	<spawn map="320110000" npcid="213950" pool="8" interval="300">
+		<object x="469.55887" y="522.97003" z="204.69067" h="67"/>
+		<object x="486.95712" y="524.80133" z="204.8691" h="69"/>
+		<object x="429.32828" y="498.9593" z="204.69067" h="99"/>
+		<object x="435.7045" y="566.6756" z="204.70325" h="101"/>
+		<object x="455.9571" y="529.9771" z="204.69067" h="14"/>
+		<object x="403.6066" y="531.5435" z="204.69067" h="69"/>
+		<object x="442.189" y="493.794" z="205.32932" h="52"/>
+		<object x="409.66614" y="552.75775" z="204.69989" h="76"/>
+	</spawn>
+	<!-- Priest Test Subject (Monster Normal lvl:43) -->
+	<spawn map="320110000" npcid="213946" pool="4" interval="295">
+		<object x="522.06506" y="558.6173" z="202.17603" h="101"/>
+		<object x="531.71686" y="545.77106" z="202.13242" h="33"/>
+		<object x="540.15546" y="544.2747" z="202.1297" h="44"/>
+		<object x="531.4832" y="558.8077" z="202.1684" h="49"/>
+	</spawn>
+	<!-- RA-121ex (Monster Elite lvl:44) -->
+	<spawn map="320110000" npcid="214100" pool="1" interval="300">
+		<object x="455.4659" y="488.14926" z="206.73471" h="17"/>
+	</spawn>
+	<!-- Remodeled Test Subject (Monster Normal lvl:14) -->
+	<spawn map="320110000" npcid="204810" pool="3" interval="295">
+		<object x="448.86728" y="486.8718" z="206.73471" h="115"/>
+		<object x="456.42245" y="511.39288" z="206.73636" h="47"/>
+		<object x="424.36032" y="487.62787" z="206.73471" h="67"/>
+	</spawn>
+	<!-- Researcher Zoiks (Monster Elite lvl:43) -->
+	<spawn map="320110000" npcid="214027" pool="1" interval="300">
+		<object x="513" y="499.35626" z="199.73503" h="74"/>
+	</spawn>
+	<!-- Research Center Journal (NPC Normal lvl:1) -->
+	<spawn map="320110000" npcid="700363" pool="1" interval="295">
+		<object x="452.56274" y="562.61206" z="205.7084" h="31"/>
+	</spawn>
+	<!-- Scout Test Subject (Monster Normal lvl:43) -->
+	<spawn map="320110000" npcid="213945" pool="5" interval="295">
+		<object x="532.0743" y="567.0872" z="202.13231" h="94"/>
+		<object x="539.925" y="560.35016" z="202.1684" h="89"/>
+		<object x="515.242" y="567.712" z="202.13773" h="85"/>
+		<object x="540.5002" y="548.7657" z="202.1296" h="99"/>
+		<object x="521.5184" y="544.89996" z="202.1357" h="43"/>
+	</spawn>
+	<!-- Special Ambusher (Monster Elite lvl:44) -->
+	<spawn map="320110000" npcid="213957" pool="6" interval="300">
+		<object x="381.4656" y="501.89874" z="208.85165" h="84"/>
+		<object x="439.3005" y="550.275" z="204.69067" h="33"/>
+		<object x="519.4327" y="531.2305" z="199.73503" h="68"/>
+		<object x="538.6148" y="523.09796" z="199.73503" h="114"/>
+		<object x="422.333" y="548.71027" z="204.69067" h="67"/>
+		<object x="443.4755" y="535.9532" z="204.69067" h="38"/>
+	</spawn>
+	<!-- Special Defender (Monster Elite lvl:44) -->
+	<spawn map="320110000" npcid="213953" pool="4" interval="300">
+		<object x="419.20963" y="516.3328" z="204.71576" h="77"/>
+		<object x="444.91922" y="497.53937" z="204.69067" h="16"/>
+		<object x="421.92343" y="492.09036" z="205.32951" h="30"/>
+		<object x="410.34445" y="485.3614" z="205.33026" h="101"/>
+	</spawn>
+	<!-- Special Defender (Monster Elite lvl:44) -->
+	<spawn map="320110000" npcid="213952" pool="7" interval="300">
+		<object x="451.77045" y="510.52734" z="205.33054" h="77"/>
+		<object x="469.91238" y="521.17267" z="204.69067" h="42"/>
+		<object x="430.78494" y="560.69855" z="204.69067" h="6"/>
+		<object x="401.99063" y="533.9954" z="204.69067" h="52"/>
+		<object x="472.199" y="504.94464" z="204.69067" h="55"/>
+		<object x="472.97635" y="563.6036" z="204.69067" h="69"/>
+		<object x="478.45486" y="484.74518" z="204.69067" h="17"/>
+	</spawn>
+	<!-- Special Escort (Monster Elite lvl:43) -->
+	<spawn map="320110000" npcid="213936" pool="6" interval="300">
+		<object x="583.4165" y="541.912" z="199.73503" h="63"/>
+		<object x="571.75385" y="549.7725" z="199.73503" h="110"/>
+		<object x="568.94574" y="496.9615" z="199.47145" h="4"/>
+		<object x="521.96735" y="510.07965" z="199.73503" h="15"/>
+		<object x="513.7469" y="556.48834" z="202.1382" h="118"/>
+		<object x="588.49615" y="504.077" z="199.47145" h="18"/>
+	</spawn>
+	<!-- Special Fighter (Monster Elite lvl:43) -->
+	<spawn map="320110000" npcid="213935" pool="4" interval="300">
+		<object x="566.10706" y="520.19196" z="199.73503" h="113"/>
+		<object x="523.3687" y="492.57062" z="199.73503" h="57"/>
+		<object x="535.5856" y="497.22168" z="199.73503" h="5"/>
+		<object x="551.1496" y="541.36115" z="199.73701" h="68"/>
+	</spawn>
+	<!-- Special Fighter (Monster Elite lvl:43) -->
+	<spawn map="320110000" npcid="213934" pool="7" interval="300">
+		<object x="568.9478" y="501.13693" z="199.47145" h="104"/>
+		<object x="552.53046" y="555.33136" z="199.73503" h="36"/>
+		<object x="554.75574" y="485.1851" z="199.90137" h="18"/>
+		<object x="567.62787" y="570.2249" z="199.73503" h="120"/>
+		<object x="552.519" y="550.9202" z="199.73503" h="20"/>
+		<object x="555.4118" y="529.5184" z="199.2928" h="41"/>
+		<object x="593.3586" y="565.149" z="199.73503" h="94"/>
+	</spawn>
+	<!-- Special Guardian (Monster Elite lvl:44) -->
+	<spawn map="320110000" npcid="213959" pool="1" interval="300">
+		<object x="463.91336" y="533.9317" z="204.69067" h="115"/>
+	</spawn>
+	<!-- Special Guardian (Monster Elite lvl:44) -->
+	<spawn map="320110000" npcid="213954" pool="2" interval="300">
+		<object x="431.2675" y="508.02985" z="204.69067" h="76"/>
+		<object x="421.4778" y="560.97076" z="204.69067" h="18"/>
+	</spawn>
+	<!-- Special Infantry (Monster Elite lvl:44) -->
+	<spawn map="320110000" npcid="213956" pool="7" interval="300">
+		<object x="436.2161" y="570.09283" z="204.70325" h="41"/>
+		<object x="450.82886" y="565.8773" z="204.7096" h="32"/>
+		<object x="397.4899" y="559.21686" z="204.69067" h="26"/>
+		<object x="406.65894" y="553.2359" z="204.69989" h="40"/>
+		<object x="418.22244" y="531.3448" z="204.69067" h="10"/>
+		<object x="437.5999" y="548.90015" z="204.69067" h="21"/>
+		<object x="451.74893" y="548.42175" z="204.69067" h="53"/>
+	</spawn>
+	<!-- Special Infantry (Monster Elite lvl:44) -->
+	<spawn map="320110000" npcid="213951" pool="10" interval="300">
+		<object x="408.23105" y="565.64124" z="204.70465" h="115"/>
+		<object x="428.12454" y="498.87506" z="204.69067" h="54"/>
+		<object x="402.78928" y="516.8815" z="205.33063" h="51"/>
+		<object x="442.60257" y="513.9832" z="204.69067" h="25"/>
+		<object x="398.5045" y="486.9453" z="205.34003" h="98"/>
+		<object x="453.23123" y="492.4029" z="205.32976" h="29"/>
+		<object x="472.08304" y="503.11578" z="204.69067" h="54"/>
+		<object x="470.2383" y="547.70074" z="204.69067" h="31"/>
+		<object x="472.29593" y="561.5618" z="204.69067" h="26"/>
+		<object x="454.35068" y="530.02716" z="204.69067" h="61"/>
+	</spawn>
+	<!-- Special Outrider (Monster Elite lvl:43) -->
+	<spawn map="320110000" npcid="213938" pool="2" interval="300">
+		<object x="553.4227" y="484.98907" z="199.90137" h="110"/>
+		<object x="534.6169" y="495.7331" z="199.73503" h="85"/>
+	</spawn>
+	<!-- Special Outrider (Monster Elite lvl:43) -->
+	<spawn map="320110000" npcid="213937" pool="4" interval="300">
+		<object x="563.7619" y="541.7845" z="199.73503" h="80"/>
+		<object x="593.24164" y="561.4095" z="199.73503" h="98"/>
+		<object x="569.1767" y="570.30426" z="199.73503" h="47"/>
+		<object x="578.3334" y="484.13425" z="199.90137" h="97"/>
+	</spawn>
+	<!-- Special Patrol (Monster Elite lvl:44) -->
+	<spawn map="320110000" npcid="213939" pool="4" interval="300">
+		<object x="555.5695" y="525.22327" z="199.2548" h="8"/>
+		<object x="527.1175" y="499.6336" z="199.73503" h="2"/>
+		<object x="589.6203" y="501.20956" z="199.47145" h="94"/>
+		<object x="552.5544" y="559.3133" z="199.73503" h="118"/>
+	</spawn>
+	<!-- Warrior Test Subject (Monster Normal lvl:43) -->
+	<spawn map="320110000" npcid="213944" pool="6" interval="295">
+		<object x="530.2708" y="547.5643" z="202.1684" h="27"/>
+		<object x="540.26825" y="563.68463" z="202.12967" h="106"/>
+		<object x="531.3521" y="562.9808" z="202.1684" h="58"/>
+		<object x="516.05963" y="569.8377" z="202.13747" h="4"/>
+		<object x="521.7254" y="548.79034" z="202.13564" h="59"/>
+		<object x="521.0318" y="560.99615" z="202.13585" h="91"/>
+	</spawn>
+	<!-- Atla (NPC Normal lvl:14) -->
+	<spawn map="320110000" npcid="204815" pool="1" interval="295">
+		<object x="440.23645" y="487.10712" z="206.73471" h="22"/>
+	</spawn>
+	<!-- Research Center Power Generator (NPC Legendary lvl:50) -->
+	<spawn map="320110000" npcid="700349" pool="1" interval="295">
+		<object staticid="3" x="453.7057" y="517.2566" z="205.33063" h="109"/>
+	</spawn>
+	<!-- IDDF3_lp_HiddenNPC_Q2669 (NPC Normal lvl:3) -->
+	<spawn map="320110000" npcid="204829" pool="1" interval="295">
+		<object x="597.4103" y="527.26276" z="199.2548" h="2"/>
+	</spawn>
+	<!-- Lepharist Research Facility (Object Normal lvl:1) -->
+	<spawn map="320110000" npcid="700219" pool="9" interval="295">
+		<object staticid="47" x="456.07446" y="503.5857" z="206.73636" h="111"/>
+		<object staticid="133" x="455.78784" y="495.7942" z="206.73471" h="4"/>
+		<object staticid="135" x="456.35327" y="511.38013" z="206.73636" h="61"/>
+		<object staticid="137" x="424.34534" y="487.62524" z="206.73471" h="94"/>
+		<object staticid="142" x="432.79492" y="487.3064" z="206.73471" h="14"/>
+		<object staticid="146" x="455.53516" y="488.0791" z="206.73471" h="54"/>
+		<object staticid="149" x="440.22742" y="487.0349" z="206.73471" h="44"/>
+		<object staticid="175" x="416.88977" y="487.87695" z="206.73471" h="51"/>
+		<object staticid="182" x="448.7622" y="486.78223" z="206.73471" h="81"/>
+	</spawn>
+	<!-- Research Center Cabinet (Object Normal lvl:1) -->
+	<spawn map="320110000" npcid="700362" pool="1" interval="295">
+		<object staticid="9" x="401.88217" y="546.4045" z="204.69067" h="83"/>
+	</spawn>
+	<!-- Strahein (NPC Normal lvl:14) -->
+	<spawn map="320110000" npcid="204814" pool="1" interval="295">
+		<object x="456.04303" y="503.59927" z="206.73636" h="77"/>
+	</spawn>
+</spawns>

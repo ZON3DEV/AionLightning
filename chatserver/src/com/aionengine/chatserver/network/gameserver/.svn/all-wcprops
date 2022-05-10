@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/gameserver
+END
+GameServerPacketHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/gameserver/GameServerPacketHandler.java
+END
+GsAuthResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/gameserver/GsAuthResponse.java
+END
+AbstractGameServerPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/gameserver/AbstractGameServerPacket.java
+END
+AbstractGameClientPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/gameserver/AbstractGameClientPacket.java
+END

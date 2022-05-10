@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/world/exceptions
+END
+NotSetPositionException.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/world/exceptions/NotSetPositionException.java
+END
+AlreadySpawnedException.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/world/exceptions/AlreadySpawnedException.java
+END
+WorldMapNotExistException.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/world/exceptions/WorldMapNotExistException.java
+END
+DuplicateAionObjectException.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/world/exceptions/DuplicateAionObjectException.java
+END

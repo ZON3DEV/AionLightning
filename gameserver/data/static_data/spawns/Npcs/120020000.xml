@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Convent of Marchutan
+	@author Youli Spawn from KR PTS 2.0
+ -->
+<spawns>
+	<!-- Agehia (NPC Normal lvl:50)-->
+	<spawn map="120020000" npcid="798800" pool="1" interval="105">
+		<object x="1516.2711" y="1399.607" z="271.8872" h="74"/>
+	</spawn>
+	<!-- Angulof (NPC Normal lvl:50)-->
+	<spawn map="120020000" npcid="798700" pool="1" interval="105">
+		<object x="1517.0924" y="1402.4706" z="271.72427" h="11"/>
+	</spawn>
+	<!-- Aranolf (NPC Normal lvl:50)-->
+	<spawn map="120020000" npcid="798704" pool="1" interval="105">
+		<object x="1523.3665" y="1412.0918" z="269.61642" h="1"/>
+	</spawn>
+	<!-- Deltandra (NPC Normal lvl:45)-->
+	<spawn map="120020000" npcid="798706" pool="1" interval="105">
+		<object x="1552.367" y="1363.8086" z="271.42355" h="41"/>
+	</spawn>
+	<!-- Ehate (NPC Normal lvl:50)-->
+	<spawn map="120020000" npcid="798703" pool="1" interval="105">
+		<object x="1530.6829" y="1398.258" z="269.61642" h="20"/>
+	</spawn>
+	<!-- Eldsul (NPC Normal lvl:45)-->
+	<spawn map="120020000" npcid="798708" pool="1" interval="105">
+		<object x="1544.6802" y="1369.6002" z="271.40652" h="10"/>
+	</spawn>
+	<!-- Fjoersvith (NPC Normal lvl:55)-->
+	<spawn map="120020000" npcid="798713" pool="1" interval="105">
+		<object x="1542.7299" y="1413.5365" z="266.0338" h="9"/>
+	</spawn>
+	<!-- Garvan (NPC Normal lvl:50)-->
+	<spawn map="120020000" npcid="798701" pool="1" interval="105">
+		<object x="1539.8547" y="1395.2931" z="266.01382" h="41"/>
+	</spawn>
+	<!-- Hodorski (NPC Normal lvl:45)-->
+	<spawn map="120020000" npcid="798705" pool="1" interval="105">
+		<object x="1550.7349" y="1362.9022" z="271.42355" h="40"/>
+	</spawn>
+	<!-- Hoogerwerf (NPC Normal lvl:45)-->
+	<spawn map="120020000" npcid="798702" pool="1" interval="105">
+		<object x="1525.7175" y="1421.3777" z="266.0376" h="108"/>
+	</spawn>
+	<!-- Imever (NPC Normal lvl:45)-->
+	<spawn map="120020000" npcid="798710" pool="1" interval="105">
+		<object x="1514.5276" y="1453.7986" z="271.42355" h="99"/>
+	</spawn>
+	<!-- Marvin (NPC Normal lvl:50)-->
+	<spawn map="120020000" npcid="798711" pool="1" interval="105">
+		<object x="1561.2749" y="1426.3115" z="265.68488" h="99"/>
+	</spawn>
+	<!-- Nunor (NPC Normal lvl:55)-->
+	<spawn map="120020000" npcid="798801" pool="1" interval="105">
+		<object x="1505.0348" y="1449.1064" z="271.42355" h="96"/>
+	</spawn>
+	<!-- Rodrigo (NPC Normal lvl:45)-->
+	<spawn map="120020000" npcid="798709" pool="1" interval="105">
+		<object x="1506.667" y="1450.0222" z="271.42355" h="101"/>
+	</spawn>
+	<!-- Schultz (NPC Normal lvl:45)-->
+	<spawn map="120020000" npcid="798707" pool="1" interval="105">
+		<object x="1546.0009" y="1366.9653" z="271.40652" h="10"/>
+	</spawn>
+	<!-- Snotra (NPC Normal lvl:55)-->
+	<spawn map="120020000" npcid="798803" pool="1" interval="105">
+		<object x="1558.9087" y="1367.0813" z="271.42355" h="40"/>
+	</spawn>
+	<!-- Teleport Statue DC2 > DC1 (Object Normal lvl:3)-->
+	<spawn map="120020000" npcid="730269" pool="1" interval="105">
+		<object x="1559.3972" y="1429.6539" z="265.68488" h="70" staticid="12"/>
+	</spawn>
+	<!-- Unsul (NPC Normal lvl:45)-->
+	<spawn map="120020000" npcid="798712" pool="1" interval="105">
+		<object x="1563.8834" y="1421.7313" z="265.68488" h="39"/>
+	</spawn>
+	<!-- Untyl (NPC Normal lvl:55)-->
+	<spawn map="120020000" npcid="798802" pool="1" interval="105">
+		<object x="1560.486" y="1367.9285" z="271.42355" h="38"/>
+	</spawn>
+	<!-- Dezanti -->
+	<spawn map="120020000" npcid="799880" interval="295" pool="1">
+		<object x="1553.3732" y="1439.0609" z="266" h="77" />
+	</spawn>
+	<!-- Gesmar -->
+	<spawn map="120020000" npcid="799875" interval="295" pool="1">
+		<object x="1541.6814" y="1435.08" z="266" h="0" />
+	</spawn>
+	<!-- Godelier -->
+	<spawn map="120020000" npcid="799877" interval="295" pool="1">
+		<object x="1547.29" y="1439.35" z="266" h="93" />
+	</spawn>
+	<!-- Hallas -->
+	<spawn map="120020000" npcid="799916" interval="295" pool="1">
+		<object x="1554.41" y="1435.88" z="266" h="62" />
+	</spawn>
+	<!-- Navaro -->
+	<spawn map="120020000" npcid="799878" interval="295" pool="1">
+		<object x="1549.85" y="1439.63" z="266" h="87" />
+	</spawn>
+	<!-- Petrarca -->
+	<spawn map="120020000" npcid="799874" interval="295" pool="1">
+		<object x="1543.62" y="1437.04" z="266" h="100" />
+	</spawn>
+</spawns>

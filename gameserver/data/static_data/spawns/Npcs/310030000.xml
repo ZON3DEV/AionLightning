@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Aerdina
+
+ -->
+<spawns>
+	<!-- Abyss Gate Guardian Stone (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="310030000" npcid="700142" pool="1" interval="295">
+		<object staticid="75" x="261.4158" y="229.55013" z="213.76892" h="5"/>
+	</spawn>
+	<!-- Fissure of Destiny (Object Normal lvl:3) (from client spawn)-->
+	<spawn map="310030000" npcid="700141" pool="1" interval="295">
+		<object staticid="8" x="250.70007" y="273.28397" z="228.61275" h="66"/>
+	</spawn>
+	<!-- Abyss Gate(Object Normal lvl:1) (from client spawn)-->
+	<spawn map="310030000" npcid="700089" pool="1" interval="295">
+		<object staticid="17" x="276.32733" y="161.6717" z="203.65775" h="1"/>
+	</spawn>
+</spawns>

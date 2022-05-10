@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Kaisinel
+	@author Dns (sniffed) 
+ -->
+<spawns>
+	<!-- Sanctum Teleport Statue lvl:1 -->
+	<spawn map="110020000" npcid="730266" pool="1" interval="295">
+		<object staticid="17" x="2154.165" y="1566.895" z="1204.866" h="10"/>
+	</spawn>
+	<!-- Mysteris lvl:50 -->
+	<spawn map="110020000" npcid="798500" pool="1" interval="295">
+		<object x="2177.9" y="1588.8" z="1206.114" h="70"/>
+	</spawn>
+	<!-- Chatia lvl:50 -->
+	<spawn map="110020000" npcid="798501" pool="1" interval="295">
+		<object x="2182.056" y="1611.584" z="1212.266" h="83"/>
+	</spawn>
+	<!-- Tanoria lvl:50 -->
+	<spawn map="110020000" npcid="798502" pool="1" interval="295">
+		<object x="2193.167" y="1603.89" z="1212.45" h="76"/>
+	</spawn>
+	<!-- Pilitas lvl:50 -->
+	<spawn map="110020000" npcid="798503" pool="1" interval="295">
+		<object x="2196.593" y="1598.203" z="1212.45" h="66"/>
+	</spawn>
+	<!-- Arathias lvl:50 -->
+	<spawn map="110020000" npcid="798504" pool="1" interval="295">
+		<object x="2197.832" y="1584.421" z="1212.266" h="60"/>
+	</spawn>
+	<!-- Salvius lvl:45 -->
+	<spawn map="110020000" npcid="798505" pool="1" interval="295">
+		<object x="2138.564" y="1614.964" z="1204.972" h="10"/>
+	</spawn>
+	<!-- Elmaia lvl:45 -->
+	<spawn map="110020000" npcid="798506" pool="1" interval="295">
+		<object x="2136.982" y="1622.984" z="1204.972" h="100"/>
+	</spawn>
+	<!-- Gracus lvl:45 -->
+	<spawn map="110020000" npcid="798507" pool="1" interval="295">
+		<object x="2142.575" y="1625.88" z="1204.972" h="100"/>
+	</spawn>
+	<!-- Tororite lvl:45 -->
+	<spawn map="110020000" npcid="798508" pool="1" interval="295">
+		<object x="2149.118" y="1620.534" z="1204.972" h="70"/>
+	</spawn>
+	<!-- Papinius lvl:45 -->
+	<spawn map="110020000" npcid="798509" pool="1" interval="295">
+		<object x="2189.76" y="1544.947" z="1204.972" h="40"/>
+	</spawn>
+	<!-- Ecocia lvl:45 -->
+	<spawn map="110020000" npcid="798510" pool="1" interval="295">
+		<object x="2183.344" y="1541.361" z="1204.972" h="40"/>
+	</spawn>
+	<!-- Peidolas lvl:50 -->
+	<spawn map="110020000" npcid="798511" pool="1" interval="295">
+		<object x="2150" y="1570" z="1205.482" h="10"/>
+	</spawn>
+	<!-- Niotia lvl:50 -->
+	<spawn map="110020000" npcid="798512" pool="1" interval="295">
+		<object x="2145.63" y="1577.145" z="1205.482" h="10"/>
+	</spawn>
+	<!-- Machiah lvl:55 -->
+	<spawn map="110020000" npcid="798513" pool="1" interval="295">
+		<object x="2186.629" y="1566.001" z="1212.079" h="41"/>
+	</spawn>
+	<!-- Eremitia lvl:50 -->
+	<spawn map="110020000" npcid="798600" pool="1" interval="295">
+		<object x="2178.332" y="1591.114" z="1206.114" h="70"/>
+	</spawn>
+	<!-- Konopas lvl:55 -->
+	<spawn map="110020000" npcid="798601" pool="1" interval="295">
+		<object x="2175.884" y="1549.488" z="1204.972" h="6"/>
+	</spawn>
+	<!-- Falshon lvl:55 -->
+	<spawn map="110020000" npcid="798602" pool="1" interval="295">
+		<object x="2143.62" y="1626.474" z="1204.972" h="100"/>
+	</spawn>
+	<!-- Mopsus lvl:55 -->
+	<spawn map="110020000" npcid="798603" pool="1" interval="295">
+		<object x="2148.402" y="1621.695" z="1204.972" h="70"/>
+	</spawn>
+	<!-- Walzen lvl:55 -->
+	<spawn map="110020000" npcid="798604" pool="1" interval="295">
+		<object x="2175.6233" y="1594.2756" z="1206.1139" h="70"/>
+	</spawn>
+	<!-- Kirine lvl:55 -->
+	<spawn map="110020000" npcid="799900" pool="1" interval="295">
+		<object x="2165.94" y="1606.0917" z="1212.0767" h="40"/>
+	</spawn>
+	<!-- Garnvia lvl:55 -->
+	<spawn map="110020000" npcid="799897" pool="1" interval="295">
+		<object x="2162.3462" y="1605.536" z="1212.079" h="24"/>
+	</spawn>
+	<!-- Ziyunia lvl:55 -->
+	<spawn map="110020000" npcid="799895" pool="1" interval="295">
+		<object x="2160.1626" y="1608.3755" z="1212.0801" h="2"/>
+	</spawn>
+	<!-- Sjinne lvl:55 -->
+	<spawn map="110020000" npcid="799896" pool="1" interval="295">
+		<object x="2164.413" y="1611.4165" z="1212.0787" h="109"/>
+	</spawn>
+	<!-- Safine lvl:55 -->
+	<spawn map="110020000" npcid="799898" pool="1" interval="295">
+		<object x="2166.988" y="1614.0111" z="1212.0775" h="106"/>
+	</spawn>
+	<!-- Peia lvl:55 -->
+	<spawn map="110020000" npcid="799899" pool="1" interval="295">
+		<object x="2169.9114" y="1613.7831" z="1212.0763" h="102"/>
+	</spawn>
+</spawns>

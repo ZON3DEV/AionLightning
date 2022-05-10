@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/model
+END
+MapId.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/model/MapId.java
+END
+Race.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/model/Race.java
+END
+ChannelType.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/model/ChannelType.java
+END
+ChatClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/model/ChatClient.java
+END
+PlayerClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/model/PlayerClass.java
+END
+WorldMapType.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/model/WorldMapType.java
+END

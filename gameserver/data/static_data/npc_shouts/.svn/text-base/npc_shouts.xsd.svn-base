@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+	
+	<xs:include schemaLocation="../import.xsd" />
+	
+	<xs:element name="npc_shouts">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="shout_npc" type="NpcShout" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="NpcShout">
+		<xs:sequence>
+			<xs:element name="shout" type="Shout" minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="npcid" type="xs:int" />
+	</xs:complexType>
+	
+	<xs:complexType name="Shout">
+		<xs:attribute name="messageid" type="xs:int" />
+		<xs:attribute name="event" type="xs:string" />
+		<xs:attribute name="param" type="xs:string" />
+	</xs:complexType>
+		
+</xs:schema>

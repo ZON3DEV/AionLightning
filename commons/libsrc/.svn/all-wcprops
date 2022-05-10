@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/4/trunk/commons/libsrc
+END
+guice-snapshot-r1148-src.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/4/trunk/commons/libsrc/guice-snapshot-r1148-src.jar
+END
+commons-lang-2.4-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/4/trunk/commons/libsrc/commons-lang-2.4-sources.jar
+END
+log4j-1.2.6-src.zip
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/4/trunk/commons/libsrc/log4j-1.2.6-src.zip
+END
+javolution-5.5.1-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/4/trunk/commons/libsrc/javolution-5.5.1-sources.jar
+END
+commons-io-1.4-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/4/trunk/commons/libsrc/commons-io-1.4-sources.jar
+END
+commons-dbcp-1.4-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/4/trunk/commons/libsrc/commons-dbcp-1.4-sources.jar
+END
+commons-pool-1.5.2-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/4/trunk/commons/libsrc/commons-pool-1.5.2-sources.jar
+END
+guice-assistedinject-snapshot-r1148-src.jar
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/4/trunk/commons/libsrc/guice-assistedinject-snapshot-r1148-src.jar
+END
+javassist-3.11.0-GA-src.zip
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/4/trunk/commons/libsrc/javassist-3.11.0-GA-src.zip
+END
+mysql-connector-java-5.1.12-src.zip
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/4/trunk/commons/libsrc/mysql-connector-java-5.1.12-src.zip
+END
+javac.zip
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/4/trunk/commons/libsrc/javac.zip
+END

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- Paris Je T'aime -->
+	<item_collecting id="11051" start_npc_id="798989"/>
+	<!-- Gloves and Glossy Beads -->
+	<item_collecting id="11052" start_npc_id="798984"/>
+	<!-- These Shoes Are Made For Stalking -->
+	<item_collecting id="11053" start_npc_id="799015"/>
+	<!-- [Group] Accounts about the Armor -->
+	<item_collecting id="11054" start_npc_id="799017"/>
+	<!-- [Group] Another Piece -->
+	<item_collecting id="11055" start_npc_id="798990"/>
+</quest_scripts>

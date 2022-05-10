@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/quest/handlers/models/xmlQuest/events
+END
+QuestEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/quest/handlers/models/xmlQuest/events/QuestEvent.java
+END
+OnTalkEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/quest/handlers/models/xmlQuest/events/OnTalkEvent.java
+END
+OnKillEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/quest/handlers/models/xmlQuest/events/OnKillEvent.java
+END

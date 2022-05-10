@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion
+END
+AionServerPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/AionServerPacket.java
+END
+AionConnection.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/AionConnection.java
+END
+AionAuthResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/AionAuthResponse.java
+END
+AionPacketHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/AionPacketHandler.java
+END
+SessionKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/SessionKey.java
+END
+AionClientPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/AionClientPacket.java
+END
+AionConnectionFactoryImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/aion/AionConnectionFactoryImpl.java
+END

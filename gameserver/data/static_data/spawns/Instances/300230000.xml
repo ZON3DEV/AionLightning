@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by Nephis (Nephis) -->
+<!--
+	This file is part of Zetta Core.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	Zetta Core is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Kromede's Trial From client spawn
+	@author Nephis
+ -->
+<!-- MAP: Cromede - ZONE: 300230000 -->
+<spawns>
+	<!-- Troll Lookout lvl:38 -->
+	<spawn map="300230000" npcid="216961" pool="4" interval="295">
+		<object x="329.4894" y="269.3649" z="193.2852" h="16"/>
+		<object x="293.0242" y="282.667" z="187.6892" h="16"/>
+		<object x="307.7601" y="261.6607" z="187.2087" h="16"/>
+		<object x="276.6775" y="245.3583" z="187.3554" h="16"/>
+	</spawn>
+	<!-- Trollkin Lookout lvl:38 -->
+	<spawn map="300230000" npcid="216962" pool="2" interval="295">
+		<object x="291.3223" y="254.7215" z="186.8543" h="90"/>
+		<object x="315.2513" y="288.5627" z="192.7124" h="60"/>
+	</spawn>
+	<!-- Watching Kalgolem lvl:38 -->
+	<spawn map="300230000" npcid="216963" pool="2" interval="295">
+		<object x="444.75" y="338.75" z="172.28" h="106"/>
+		<object x="482.7753" y="364.521" z="172.317" h="50"/>
+	</spawn>
+	<!-- Net Arachna lvl:38 -->
+	<spawn map="300230000" npcid="216964" pool="4" interval="295">
+		<object x="350.9559" y="255.0496" z="192.5621" h="62"/>
+		<object x="385.6883" y="287.6837" z="185.5868" h="43"/>
+		<object x="531.6783" y="314.9176" z="158.937" h="34"/>
+		<object x="557.8799" y="272.3376" z="150.9216" h="43"/>
+	</spawn>
+	<!-- Temple Mugolem lvl:38 -->
+	<spawn map="300230000" npcid="216965" pool="6" interval="295">
+		<object x="358.5196" y="190.8244" z="146.7129" h="106"/>
+		<object x="372.9814" y="176.1373" z="146.7129" h="46"/>
+		<object x="414.9132" y="246.4895" z="140.6027" h="17"/>
+		<object x="427.2349" y="234.2506" z="140.6027" h="17"/>
+		<object x="472.1295" y="353.3805" z="170.9731" h="73"/>
+		<object x="514.887" y="237.7413" z="142.4291" h="40"/>
+	</spawn>
+	<!-- Faithful Temple Nagolem lvl:38 -->
+	<spawn map="300230000" npcid="216966" pool="8" interval="295">
+		<object x="354.5574" y="197.7222" z="145.8918" h="68"/>
+		<object x="272.7928" y="255.4771" z="187.8172" h="84"/>
+		<object x="412.25" y="236.75" z="144.25" h="76"/>
+		<object x="466.8484" y="257.7834" z="138.4259" h="58"/>
+		<object x="510.5543" y="260.5664" z="142.9438" h="61"/>
+		<object x="498.75" y="256.25" z="141.17" h="51"/>
+		<object x="513.2244" y="217.25" z="145.0232" h="0"/>
+		<object x="371.25" y="167.25" z="146.0552" h="76"/>
+	</spawn>
+	<!-- Petrahulk Gatekeeper lvl:38 -->
+	<spawn map="300230000" npcid="216967" pool="1" interval="295">
+		<object x="392.1461" y="209.7299" z="145.8918" h="15"/>
+	</spawn>
+	<!-- Divine Hisen lvl:38 -->
+	<spawn map="300230000" npcid="216968" pool="1" interval="295">
+		<object x="352.21" y="170.31" z="146.2202" h="16"/>
+	</spawn>
+	<!-- Captive lvl:38 -->
+	<spawn map="300230000" npcid="216970" pool="2" interval="295">
+		<object x="645.525" y="656.3329" z="201.1911" h="10"/>
+		<object x="646.1768" y="615.5939" z="201.1911" h="10"/>
+	</spawn>
+	<!-- Prisoner lvl:38 -->
+	<spawn map="300230000" npcid="216971" pool="4" interval="295">
+		<object x="642.6354" y="600.2115" z="201.1911" h="15"/>
+		<object x="662.9885" y="597.0748" z="201.1911" h="6"/>
+		<object x="651.7999" y="653.3091" z="201.1911" h="6"/>
+		<object x="649.3066" y="594.8346" z="201.1911" h="55"/>
+	</spawn>
+	<!-- Captive lvl:38 -->
+	<spawn map="300230000" npcid="216972" pool="3" interval="295">
+		<object x="642.1069" y="665.2642" z="201.1911" h="0"/>
+		<object x="655.0497" y="656.039" z="201.1911" h="53"/>
+		<object x="666.6195" y="596.9176" z="201.1911" h="53"/>
+	</spawn>
+	<!-- Dungeon Guard lvl:38 -->
+	<spawn map="300230000" npcid="216973" pool="2" interval="295">
+		<object x="730.8758" y="546.4666" z="198.5385" h="80"/>
+		<object x="687.9197" y="505.8633" z="197.9006" h="0"/>
+	</spawn>
+	<!-- Dungeon Sentry lvl:38 -->
+	<spawn map="300230000" npcid="216974" pool="2" interval="295">
+		<object x="729.6196" y="544.4907" z="198.5385" h="20"/>
+		<object x="723.3359" y="524.7021" z="197.8742" h="96"/>
+	</spawn>
+	<!-- Dungeon Guard lvl:38 -->
+	<spawn map="300230000" npcid="216975" pool="1" interval="295">
+		<object x="709.9338" y="523.457" z="197.8868" h="80"/>
+	</spawn>
+	<!-- Dungeon Sentry lvl:38 -->
+	<spawn map="300230000" npcid="216976" pool="1" interval="295">
+		<object x="710.0457" y="543.248" z="197.8868" h="80"/>
+	</spawn>
+	<!-- Dungeon Servant lvl:38 -->
+	<spawn map="300230000" npcid="216977" pool="2" interval="295">
+		<object x="725.9081" y="539.2536" z="197.8742" h="29"/>
+		<object x="706.4532" y="531.673" z="197.8742" h="110"/>
+	</spawn>
+	<!-- Dungeon Maid lvl:38 -->
+	<spawn map="300230000" npcid="216978" pool="1" interval="295">
+		<object x="740.6609" y="518.0343" z="198.7369" h="113"/>
+	</spawn>
+	<!-- Shadow Executor Asusin lvl:38 -->
+	<spawn map="300230000" npcid="216979" pool="1" interval="295">
+		<object x="544.4814" y="639.7813" z="215.3561" h="60"/>
+	</spawn>
+	<!-- Warden Baal lvl:38 -->
+	<spawn map="300230000" npcid="216980" pool="1" interval="295">
+		<object x="688.7502" y="604.6843" z="200.1199" h="91"/>
+	</spawn>
+	<!-- Manor Guard Captain lvl:38 -->
+	<spawn map="300230000" npcid="216981" pool="1" interval="295">
+		<object x="739.6177" y="532.058" z="199.3177" h="60"/>
+	</spawn>
+	<!-- Hamam the Torturer lvl:38 -->
+	<spawn map="300230000" npcid="216982" pool="1" interval="295">
+		<object x="750.3141" y="625.1159" z="197.5447" h="105"/>
+	</spawn>
+	<!-- Manor Servant lvl:38 -->
+	<spawn map="300230000" npcid="216983" pool="5" interval="295">
+		<object x="576.1158" y="658.1863" z="211.8615" h="110"/>
+		<object x="507.197" y="589.2548" z="215.5286" h="0"/>
+		<object x="535.1639" y="702.7141" z="215.55" h="75"/>
+		<object x="502.4155" y="687.8334" z="215.5286" h="104"/>
+		<object x="507.0441" y="780.7437" z="215.9767" h="81"/>
+	</spawn>
+	<!-- Manor Maid lvl:38 -->
+	<spawn map="300230000" npcid="216984" pool="4" interval="295">
+		<object x="518.1324" y="589.2094" z="215.5286" h="60"/>
+		<object x="496.5747" y="687.6119" z="215.5286" h="101"/>
+		<object x="494.2564" y="683.2696" z="215.5286" h="15"/>
+		<object x="517.9326" y="780.4086" z="215.9767" h="100"/>
+	</spawn>
+	<!-- Manor Servant lvl:38 -->
+	<spawn map="300230000" npcid="216985" pool="4" interval="295">
+		<object x="580.8692" y="661.343" z="208.9861" h="86"/>
+		<object x="593.682" y="624.0172" z="208.9861" h="61"/>
+		<object x="580.6339" y="634.3646" z="208.1384" h="30"/>
+		<object x="541.347" y="657.5936" z="201.5171" h="90"/>
+	</spawn>
+	<!-- Manor Guest lvl:38 -->
+	<spawn map="300230000" npcid="216987" pool="5" interval="295">
+		<object x="513.9531" y="611.613" z="214.9991" h="60"/>
+		<object x="559.3185" y="688.8093" z="215.5286" h="0"/>
+		<object x="513.8508" y="670.2219" z="214.9991" h="60"/>
+		<object x="535.1544" y="721.2572" z="215.5286" h="46"/>
+		<object x="494.7881" y="702.2527" z="215.55" h="90"/>
+	</spawn>
+	<!-- Manor Scribe lvl:38 -->
+	<spawn map="300230000" npcid="216988" pool="4" interval="295">
+		<object x="557.71" y="754.9979" z="225.7734" h="90"/>
+		<object x="571.5245" y="769.9227" z="215.5665" h="90"/>
+		<object x="577.2643" y="792.7255" z="215.5348" h="60"/>
+		<object x="575.9756" y="827.25" z="225.7822" h="60"/>
+	</spawn>
+	<!-- Manor Guard lvl:38 -->
+	<spawn map="300230000" npcid="216989" pool="4" interval="295">
+		<object x="500.9009" y="754.3457" z="215.5286" h="6"/>
+		<object x="525.2485" y="756.3972" z="215.5286" h="60"/>
+		<object x="524.2423" y="771.226" z="215.5286" h="80"/>
+		<object x="501.8333" y="770.1322" z="215.5286" h="106"/>
+	</spawn>
+	<!-- Manor Defender lvl:38 -->
+	<spawn map="300230000" npcid="216990" pool="1" interval="295">
+		<object x="504.0414" y="765.1647" z="215.5286" h="30"/>
+	</spawn>
+	<!-- Manor Gardener lvl:38 -->
+	<spawn map="300230000" npcid="216991" pool="3" interval="295">
+		<object x="527.9297" y="653.0385" z="201.7492" h="29"/>
+		<object x="496.4826" y="657.7813" z="201.7133" h="46"/>
+		<object x="492.2732" y="631.6106" z="201.5071" h="90"/>
+	</spawn>
+	<!-- Manor Gardener lvl:38 -->
+	<spawn map="300230000" npcid="216992" pool="3" interval="295">
+		<object x="533.5198" y="627.2393" z="201.6221" h="90"/>
+		<object x="506.8129" y="620.5364" z="201.4931" h="60"/>
+		<object x="512.25" y="655.75" z="201.53" h="0"/>
+	</spawn>
+	<!-- Bloodlust Dionae lvl:38 -->
+	<spawn map="300230000" npcid="216993" pool="1" interval="295">
+		<object x="493.1222" y="632.4064" z="201.5097" h="0"/>
+	</spawn>
+	<!-- Yulina lvl:38 -->
+	<spawn map="300230000" npcid="216994" pool="1" interval="295">
+		<object x="522.2976" y="778.4228" z="215.9767" h="2"/>
+	</spawn>
+	<!-- Kiernook lvl:38 -->
+	<spawn map="300230000" npcid="216995" pool="1" interval="295">
+		<object x="503.9913" y="779.2005" z="215.9767" h="118"/>
+	</spawn>
+	<!-- Manor Kitchen Maid lvl:38 -->
+	<spawn map="300230000" npcid="216996" pool="1" interval="295">
+		<object x="592.4142" y="651.327" z="208.9807" h="69"/>
+	</spawn>
+	<!-- Pet Tog lvl:38 -->
+	<spawn map="300230000" npcid="216997" pool="1" interval="295">
+		<object x="529.75" y="639.75" z="201.69" h="91"/>
+	</spawn>
+	<!-- Jeeves lvl:38 -->
+	<spawn map="300230000" npcid="216999" pool="1" interval="295">
+		<object x="585.9432" y="774.2097" z="215.5703" h="0"/>
+	</spawn>
+	<!-- Lady Angerr lvl:38 -->
+	<spawn map="300230000" npcid="217000" pool="1" interval="295">
+		<object x="512.4925" y="571.4596" z="216.8885" h="30"/>
+	</spawn>
+	<!-- Justicetaker Wyr lvl:38 -->
+	<spawn map="300230000" npcid="217002" pool="1" interval="295">
+		<object x="567.989" y="835.7736" z="225.8263" h="30"/>
+	</spawn>
+	<!-- Kaliga the Unjust lvl:38 -->
+	<spawn map="300230000" npcid="217006" pool="1" interval="295">
+		<object x="668.5679" y="774.3737" z="216.8804" h="60"/>
+	</spawn>
+	<!-- Crazy Prisoner lvl:38 -->
+	<spawn map="300230000" npcid="217026" pool="4" interval="295">
+		<object x="651.6906" y="645.2737" z="201.1911" h="37"/>
+		<object x="645.3802" y="646.1737" z="201.1911" h="0"/>
+		<object x="663.6772" y="645.438" z="201.1911" h="0"/>
+		<object x="652.518" y="607.4053" z="201.1911" h="23"/>
+	</spawn>
+	<!-- Crazy Captive lvl:38 -->
+	<spawn map="300230000" npcid="217027" pool="3" interval="295">
+		<object x="666.0461" y="652.6312" z="201.1911" h="82"/>
+		<object x="665.0043" y="614.7277" z="201.1909" h="0"/>
+		<object x="645.6742" y="603.3673" z="201.1911" h="0"/>
+	</spawn>
+	<!-- Dungeon Guard lvl:38 -->
+	<spawn map="300230000" npcid="217028" pool="6" interval="295">
+		<object x="675.4993" y="606.5192" z="201.1911" h="0"/>
+		<object x="673.8558" y="651.0355" z="201.1911" h="60"/>
+		<object x="679.1647" y="629.1043" z="201.0526" h="0"/>
+		<object x="687.9887" y="592.9692" z="200.1199" h="30"/>
+		<object x="693.0561" y="530.6071" z="197.9006" h="60"/>
+		<object x="638.4705" y="588.0557" z="209.0408" h="90"/>
+	</spawn>
+	<!-- Dungeon Sentry lvl:38 -->
+	<spawn map="300230000" npcid="217029" pool="2" interval="295">
+		<object x="694.7556" y="623.9061" z="200.1199" h="45"/>
+		<object x="688.7515" y="566.3835" z="199.6266" h="89"/>
+	</spawn>
+	<!-- Guard Bitin lvl:38 -->
+	<spawn map="300230000" npcid="217030" pool="1" interval="295">
+		<object x="655.1531" y="581.5869" z="198.9243" h="20"/>
+	</spawn>
+	<!-- Manor Maid lvl:38 -->
+	<spawn map="300230000" npcid="217031" pool="4" interval="295">
+		<object x="606.0431" y="624.0882" z="208.9891" h="73"/>
+		<object x="605.8997" y="656.4058" z="208.9891" h="73"/>
+		<object x="591.7659" y="577.9341" z="208.9933" h="15"/>
+		<object x="576.1228" y="646.4518" z="208.1411" h="90"/>
+	</spawn>
+	<!-- Manor Visitor lvl:38 -->
+	<spawn map="300230000" npcid="217033" pool="5" interval="295">
+		<object x="511.566" y="611.6482" z="214.9991" h="0"/>
+		<object x="561.2292" y="688.7646" z="215.5286" h="60"/>
+		<object x="511.4637" y="670.2571" z="214.9991" h="0"/>
+		<object x="533.195" y="723.0609" z="215.5286" h="106"/>
+		<object x="494.7914" y="699.9309" z="215.55" h="30"/>
+	</spawn>
+	<!-- Manor Librarian lvl:38 -->
+	<spawn map="300230000" npcid="217034" pool="7" interval="295">
+		<object x="581.6463" y="757.7333" z="215.5348" h="90"/>
+		<object x="581.0374" y="767.9055" z="215.5665" h="88"/>
+		<object x="571.1133" y="798.0519" z="215.5348" h="90"/>
+		<object x="579.7739" y="797.6218" z="225.7734" h="90"/>
+		<object x="573.1978" y="809.6712" z="225.8494" h="69"/>
+		<object x="556.6964" y="817.423" z="225.7822" h="46"/>
+		<object x="585.6539" y="808.6282" z="225.7822" h="60"/>
+	</spawn>
+	<!-- Manor Guard lvl:38 -->
+	<spawn map="300230000" npcid="217035" pool="8" interval="295">
+		<object x="600.6253" y="640.5109" z="208.9831" h="61"/>
+		<object x="595.1304" y="639.506" z="208.4467" h="30"/>
+		<object x="596.097" y="598.0409" z="208.9933" h="29"/>
+		<object x="560.4048" y="616.8315" z="215.3561" h="30"/>
+		<object x="544.8734" y="641.5685" z="215.3561" h="60"/>
+		<object x="546.372" y="656.987" z="215.3561" h="113"/>
+		<object x="502.304" y="612.1676" z="201.5835" h="0"/>
+		<object x="528.693" y="668.4943" z="201.5882" h="0"/>
+	</spawn>
+	<!-- Manor Defender lvl:38 -->
+	<spawn map="300230000" npcid="217036" pool="5" interval="295">
+		<object x="595.1224" y="641.4727" z="208.4467" h="90"/>
+		<object x="619.1321" y="583.6083" z="208.9933" h="60"/>
+		<object x="546.2529" y="623.7227" z="215.3561" h="6"/>
+		<object x="563.5663" y="662.7957" z="215.3561" h="75"/>
+		<object x="484.702" y="624.3196" z="201.5949" h="91"/>
+	</spawn>
+	<!-- Dungeon Vivel lvl:38 -->
+	<spawn map="300230000" npcid="217109" pool="6" interval="295">
+		<object x="638.6416" y="588.0554" z="209.0408" h="0"/>
+		<object x="638.6416" y="588.0554" z="209.0408" h="0"/>
+		<object x="638.6416" y="588.0554" z="209.0408" h="0"/>
+		<object x="638.6416" y="588.0554" z="209.0408" h="0"/>
+		<object x="638.6416" y="588.0554" z="209.0408" h="0"/>
+		<object x="638.6416" y="588.0554" z="209.0408" h="0"/>
+	</spawn>
+	<!-- Scared Prisoner lvl:38 -->
+	<spawn map="300230000" npcid="217113" pool="2" interval="295">
+		<object x="668.3679" y="628.7651" z="201.1911" h="0"/>
+		<object x="659.348" y="634.1241" z="201.1911" h="10"/>
+	</spawn>
+	<!-- Scared Captive lvl:38 -->
+	<spawn map="300230000" npcid="217114" pool="2" interval="295">
+		<object x="650.2802" y="630.0307" z="201.1911" h="110"/>
+		<object x="662.3082" y="622.4972" z="201.1911" h="73"/>
+	</spawn>
+	<!-- Torture Tog lvl:38 -->
+	<spawn map="300230000" npcid="217115" pool="3" interval="295">
+		<object x="738.7905" y="623.0411" z="196.7746" h="103"/>
+		<object x="741.3706" y="635.8412" z="196.7746" h="60"/>
+		<object x="723.59" y="633.545" z="196.7746" h="36"/>
+	</spawn>
+	<!-- Manor Visitor lvl:38 -->
+	<spawn map="300230000" npcid="217117" pool="2" interval="295">
+		<object x="512.0968" y="697.0641" z="215.5597" h="30"/>
+		<object x="512.1932" y="706.1249" z="215.5597" h="90"/>
+	</spawn>
+	<!-- Manor Guest lvl:38 -->
+	<spawn map="300230000" npcid="217118" pool="1" interval="295">
+		<object x="518.1245" y="701.6934" z="215.5597" h="60"/>
+	</spawn>
+	<!-- Shadow Judge Kaliga lvl:38 -->
+	<spawn map="300230000" npcid="217119" pool="1" interval="295">
+		<object x="669.2142" y="774.3873" z="216.8804" h="60"/>
+	</spawn>
+	<!-- Relic Guardian lvl:38 -->
+	<spawn map="300230000" npcid="217130" pool="2" interval="295">
+		<object x="609.304" y="778.0991" z="215.5836" h="60"/>
+		<object x="609.2937" y="770.6624" z="215.5836" h="60"/>
+	</spawn>
+	<!-- Watchdog Tog lvl:38 -->
+	<spawn map="300230000" npcid="217131" pool="2" interval="295">
+		<object x="689.6037" y="593.738" z="200.1199" h="30"/>
+		<object x="689.9725" y="505.8838" z="197.9006" h="60"/>
+	</spawn>
+	<!-- Dungeon Guard lvl:38 -->
+	<spawn map="300230000" npcid="217134" pool="1" interval="295">
+		<object x="685.169" y="661.9395" z="200.1199" h="33"/>
+	</spawn>
+	<!-- Dungeon Sentry lvl:38 -->
+	<spawn map="300230000" npcid="217135" pool="1" interval="295">
+		<object x="689.8362" y="661.1765" z="200.1199" h="26"/>
+	</spawn>
+	<!-- IDCromede_Invisible_NPC lvl:55 -->
+	<spawn map="300230000" npcid="282083" pool="1" interval="295">
+		<object x="710" y="629" z="198" h="0"/>
+	</spawn>
+	<!-- IDCromede_Invisible_NPC2 lvl:55 -->
+	<spawn map="300230000" npcid="282084" pool="2" interval="295">
+		<object x="662.28" y="774.43" z="216.85" h="0"/>
+		<object x="662.2582" y="782.549" z="216.2343" h="0"/>
+	</spawn>
+	<!-- IDCromede_Invisible_NPC5 lvl:55 -->
+	<spawn map="300230000" npcid="282087" pool="1" interval="295">
+		<object x="654.7493" y="561.4789" z="205.2189" h="0"/>
+	</spawn>
+	<!-- IDCromede_Invisible_NPC9 lvl:55 -->
+	<spawn map="300230000" npcid="282091" pool="1" interval="295">
+		<object x="365.4517" y="183.6557" z="146.8383" h="76"/>
+	</spawn>
+	<!-- Altar of Healing lvl:55 -->
+	<spawn map="300230000" npcid="282092" pool="2" interval="295">
+		<object x="643.9172" y="753.299" z="216.1586" h="30"/>
+		<object x="643.935" y="795.3513" z="216.1586" h="30"/>
+	</spawn>
+	<!-- Mana Relic lvl:38 -->
+	<spawn map="300230000" npcid="282093" pool="1" interval="295">
+		<object staticid="87" x="661.2628" y="766.3886" z="218.4075" h="0"/>
+	</spawn>
+	<!-- Strength Relic lvl:38 -->
+	<spawn map="300230000" npcid="282095" pool="1" interval="295">
+		<object staticid="84" x="661.0077" y="782.6096" z="218.4075" h="0"/>
+	</spawn>
+	<!-- Stone of Vitality lvl:38 -->
+	<spawn map="300230000" npcid="282103" pool="1" interval="295">
+		<object x="358.44" y="172.71" z="147.38" h="0"/>
+	</spawn>
+	<!-- Life Stone lvl:38 -->
+	<spawn map="300230000" npcid="282104" pool="1" interval="295">
+		<object x="354.7" y="176.5" z="147.38" h="0"/>
+	</spawn>
+	<!-- Altar of Healing lvl:55 -->
+	<spawn map="300230000" npcid="282111" pool="2" interval="295">
+		<object x="643.92" y="753.3" z="216.1586" h="30"/>
+		<object x="643.9378" y="795.3522" z="216.1586" h="30"/>
+	</spawn>
+	<!-- IDCromede_Invisible_NPC15 lvl:55 -->
+	<spawn map="300230000" npcid="282115" pool="1" interval="295">
+		<object x="568.19" y="833.13" z="226.33" h="0"/>
+	</spawn>
+	<!-- Robstin lvl:55 -->
+	<spawn map="300230000" npcid="282116" pool="1" interval="295">
+		<object x="677.8253" y="584.1404" z="210.4641" h="0"/>
+	</spawn>
+	<!-- IDCromede_Invisible_NPC17 lvl:55 -->
+	<spawn map="300230000" npcid="282117" pool="1" interval="295">
+		<object x="656.92" y="585.74" z="199.04" h="0"/>
+	</spawn>
+	<!-- Ancient Temple Nagolem lvl:38 -->
+	<spawn map="300230000" npcid="282124" pool="4" interval="295">
+		<object x="633.67" y="791.59" z="216.14" h="0"/>
+		<object x="633.67" y="756.79" z="216.14" h="0"/>
+		<object x="633.67" y="791.59" z="216.14" h="0"/>
+		<object x="633.67" y="756.79" z="216.14" h="0"/>
+	</spawn>
+	<!-- Ancient Temple Nagolem lvl:38 -->
+	<spawn map="300230000" npcid="282126" pool="8" interval="295">
+		<object x="633.6833" y="754.7949" z="216.0948" h="30"/>
+		<object x="653.9218" y="754.7974" z="216.0948" h="30"/>
+		<object x="623.7831" y="754.7766" z="216.0948" h="30"/>
+		<object x="613.903" y="754.8715" z="216.0948" h="30"/>
+		<object x="623.7693" y="793.6479" z="216.0948" h="90"/>
+		<object x="613.8892" y="793.7428" z="216.0948" h="90"/>
+		<object x="633.6696" y="793.6663" z="216.0948" h="90"/>
+		<object x="653.908" y="793.6688" z="216.0948" h="90"/>
+	</spawn>
+	<!-- NO NAME lvl:0 -->
+	<spawn map="300230000" npcid="300001" pool="6" interval="295">
+		<object x="387.2498" y="205.221" z="145.9854" h="90"/>
+		<object x="687.7169" y="590.9969" z="200.0753" h="90"/>
+		<object x="674.9739" y="584.4858" z="199.5744" h="90"/>
+		<object x="596.2283" y="669.8781" z="211.3449" h="90"/>
+		<object x="671.2874" y="606.6373" z="201.7984" h="90"/>
+		<object x="634.5723" y="583.6797" z="211.2132" h="90"/>
+	</spawn>
+	<!-- Sealed Stone Door lvl:38 -->
+	<spawn map="300230000" npcid="700835" pool="1" interval="295">
+		<object staticid="3" x="504.7982" y="346.0119" z="170.5979" h="0"/>
+	</spawn>
+	<!-- Torture Chamber Door lvl:1 -->
+	<spawn map="300230000" npcid="700922" pool="1" interval="295">
+		<object staticid="320" x="711.5991" y="629.3586" z="196.82828" h="0"/>
+	</spawn>
+	<!-- Secret Safe Door lvl:1 -->
+	<spawn map="300230000" npcid="700924" pool="1" interval="295">
+		<object staticid="5" x="588.0772" y="774.2568" z="217.8826" h="60"/>
+	</spawn>
+	<!-- Emergency Exit lvl:1 -->
+	<spawn map="300230000" npcid="700928" pool="1" interval="295">
+		<object staticid="105" x="679.9636" y="774.2857" z="216.8542" h="0"/>
+	</spawn>
+	<!-- Robstin's Corpse lvl:1 -->
+	<spawn map="300230000" npcid="700939" pool="1" interval="295">
+		<object x="656.92" y="585.74" z="199.04" h="0"/>
+	</spawn>
+	<!-- Tortured Captive lvl:1 -->
+	<spawn map="300230000" npcid="700946" pool="2" interval="295">
+		<object x="757.0891" y="621.9651" z="197.5447" h="30"/>
+		<object x="754.037" y="622.7186" z="197.5447" h="53"/>
+	</spawn>
+	<!-- Tortured Prisoner lvl:1 -->
+	<spawn map="300230000" npcid="700947" pool="2" interval="295">
+		<object x="752.761" y="620.3555" z="197.5447" h="30"/>
+		<object x="754.3646" y="617.8907" z="197.1769" h="43"/>
+	</spawn>
+	<!-- Dream Boundary lvl:1 -->
+	<spawn map="300230000" npcid="700949" pool="1" interval="295">
+		<object x="229.3581" y="252.2569" z="191.1684" h="110"/>
+	</spawn>
+	<!-- Grave Robber's Corpse lvl:1 -->
+	<spawn map="300230000" npcid="700961" pool="1" interval="295">
+		<object staticid="56" x="467.3628" y="350.6577" z="170.3907" h="66"/>
+	</spawn>
+	<!-- Shadow Executor Asusin lvl:38 -->
+	<spawn map="300230000" npcid="700964" pool="1" interval="295">
+		<object x="237.6849" y="249.0171" z="189.8725" h="113"/>
+	</spawn>
+	<!-- Robstin lvl:1 -->
+	<spawn map="300230000" npcid="700965" pool="1" interval="295">
+		<object x="657.2007" y="585.7778" z="199.0471" h="113"/>
+	</spawn>
+	<!-- Maga's Potion lvl:1 -->
+	<spawn map="300230000" npcid="730308" pool="1" interval="295">
+		<object staticid="6" x="350.2824" y="168.3709" z="148.1785" h="0"/>
+	</spawn>
+	<!-- Lost Rotan lvl:1 -->
+	<spawn map="300230000" npcid="730309" pool="1" interval="295">
+		<object x="462.5281" y="353.3945" z="171.3473" h="90"/>
+	</spawn>
+	<!-- Sleep Flower lvl:1 -->
+	<spawn map="300230000" npcid="730325" pool="1" interval="295">
+		<object staticid="79" x="492.0462" y="628.5994" z="201.342" h="90"/>
+	</spawn>
+	<!-- Kaliga's Sword Rack lvl:1 -->
+	<spawn map="300230000" npcid="730326" pool="1" interval="295">
+		<object staticid="206" x="644.2269" y="763.3169" z="216.1169" h="0"/>
+	</spawn>
+	<!-- Kaliga's Greatsword Rack lvl:1 -->
+	<spawn map="300230000" npcid="730327" pool="1" interval="295">
+		<object staticid="13" x="613.7821" y="785.0748" z="216.1169" h="0"/>
+	</spawn>
+	<!-- Kaliga's Dagger Rack lvl:1 -->
+	<spawn map="300230000" npcid="730328" pool="1" interval="295">
+		<object staticid="197" x="644.2054" y="785.0748" z="216.1169" h="0"/>
+	</spawn>
+	<!-- Kaliga's Polearm Rack lvl:1 -->
+	<spawn map="300230000" npcid="730329" pool="1" interval="295">
+		<object staticid="200" x="653.4391" y="785.0748" z="216.1169" h="0"/>
+	</spawn>
+	<!-- Kaliga's Bow Rack lvl:1 -->
+	<spawn map="300230000" npcid="730330" pool="1" interval="295">
+		<object staticid="195" x="634.1454" y="785.0748" z="216.1169" h="0"/>
+	</spawn>
+	<!-- Kaliga's Mace Rack lvl:1 -->
+	<spawn map="300230000" npcid="730331" pool="1" interval="295">
+		<object staticid="202" x="653.4167" y="763.3169" z="216.1169" h="0"/>
+	</spawn>
+	<!-- Kaliga's Staff Rack lvl:1 -->
+	<spawn map="300230000" npcid="730332" pool="1" interval="295">
+		<object staticid="260" x="623.6948" y="763.3169" z="216.1169" h="0"/>
+	</spawn>
+	<!-- Kaliga's Spellbook Rack lvl:1 -->
+	<spawn map="300230000" npcid="730333" pool="1" interval="295">
+		<object staticid="193" x="623.6823" y="785.0748" z="216.1169" h="0"/>
+	</spawn>
+	<!-- Kaliga's Orb Rack lvl:1 -->
+	<spawn map="300230000" npcid="730334" pool="1" interval="295">
+		<object staticid="208" x="634.166" y="763.3169" z="216.1169" h="0"/>
+	</spawn>
+	<!-- Kaliga's Shield Rack lvl:1 -->
+	<spawn map="300230000" npcid="730335" pool="1" interval="295">
+		<object staticid="268" x="613.7821" y="763.3169" z="216.1169" h="0"/>
+	</spawn>
+	<!-- Garden Fountain lvl:1 -->
+	<spawn map="300230000" npcid="730336" pool="1" interval="295">
+		<object staticid="14" x="512.5" y="640.37" z="202.4643" h="0"/>
+	</spawn>
+	<!-- Fruit Basket lvl:1 -->
+	<spawn map="300230000" npcid="730337" pool="1" interval="295">
+		<object staticid="70" x="523.1788" y="756.2597" z="216.6147" h="0"/>
+	</spawn>
+	<!-- Porgus Barbecue lvl:1 -->
+	<spawn map="300230000" npcid="730338" pool="1" interval="295">
+		<object staticid="69" x="504.4249" y="767.3333" z="216.8887" h="0"/>
+	</spawn>
+	<!-- Prophet's Tower lvl:1 -->
+	<spawn map="300230000" npcid="730339" pool="1" interval="295">
+		<object staticid="15" x="591.0707" y="640.1671" z="212.9109" h="0"/>
+	</spawn>
+	<!-- Old Relic Chest lvl:1 -->
+	<spawn map="300230000" npcid="730340" pool="1" interval="295">
+		<object staticid="319" x="741.711" y="530.559" z="199.3225" h="60"/>
+	</spawn>
+	<!-- Maga's Potion lvl:1 -->
+	<spawn map="300230000" npcid="730341" pool="1" interval="295">
+		<object staticid="553" x="542.3875" y="640.625" z="217.0916" h="100"/>
+	</spawn>
+</spawns>

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/4/trunk/commons/.settings
+END
+org.eclipse.wst.validation.prefs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/4/trunk/commons/.settings/org.eclipse.wst.validation.prefs
+END
+org.eclipse.jdt.core.prefs
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/4/trunk/commons/.settings/org.eclipse.jdt.core.prefs
+END
+org.eclipse.core.runtime.prefs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/4/trunk/commons/.settings/org.eclipse.core.runtime.prefs
+END
+org.eclipse.jdt.ui.prefs
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/4/trunk/commons/.settings/org.eclipse.jdt.ui.prefs
+END
+org.eclipse.core.resources.prefs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/4/trunk/commons/.settings/org.eclipse.core.resources.prefs
+END

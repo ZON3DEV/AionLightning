@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/stats
+END
+PlayerStatsTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/stats/PlayerStatsTemplate.java
+END
+CalculatedPlayerStatsTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/stats/CalculatedPlayerStatsTemplate.java
+END
+SummonStatsTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/stats/SummonStatsTemplate.java
+END
+StatsTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/stats/StatsTemplate.java
+END
+NpcStatsTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/stats/NpcStatsTemplate.java
+END
+NpcRank.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/stats/NpcRank.java
+END
+KiskStatsTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/stats/KiskStatsTemplate.java
+END
+ModifiersTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/stats/ModifiersTemplate.java
+END

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid XML Studio 1.0.8.0 (http://www.liquid-technologies.com) -->
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="bonuses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="bonus_info">
+          <xs:complexType>
+            <xs:complexContent mixed="false">
+              <xs:extension base="BonusTemplate">
+                <xs:attribute name="questId" type="xs:int" />
+              </xs:extension>
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="BonusTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="boss" type="BossBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="coin" type="CoinBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="enchant" type="EnchantBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="food" type="FoodBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="fortress" type="FortressBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="goods" type="GoodsBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="island" type="IslandBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="lunar" type="LunarEventBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="magical" type="MagicalBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="manastone" type="ManastoneBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="master_recipe" type="MasterRecipeBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="material" type="MaterialBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="medal" type="MedalBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="medicine" type="MedicineBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="movie" type="CutSceneBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="recipe" type="RecipeBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="redeem" type="RedeemBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="task" type="WorkOrderBonus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wrap" type="WrappedBonus"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AbstractInventoryBonus" abstract="true">
+    <xs:attribute name="bonusLevel" type="xs:int" />
+    <xs:attribute name="count" type="xs:int" />
+  </xs:complexType>
+  <xs:complexType name="SimpleCheckItemBonus" abstract="true">
+    <xs:complexContent mixed="false">
+      <xs:extension base="AbstractInventoryBonus">
+        <xs:attribute name="checkItem" type="itemIdType" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BossBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="AbstractInventoryBonus" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CoinBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="SimpleCheckItemBonus">
+        <xs:attribute name="type" type="bonusType" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CutSceneBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="AbstractInventoryBonus">
+        <xs:attribute name="movieId" type="xs:int" />
+        <xs:attribute name="gender" type="genderType" />
+        <xs:attribute name="checkItem" type="itemIdType" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EnchantBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="SimpleCheckItemBonus" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FoodBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="SimpleCheckItemBonus" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FortressBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="AbstractInventoryBonus">
+        <xs:attribute name="checkItem" type="itemIdType" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GoodsBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="AbstractInventoryBonus">
+        <xs:attribute name="checkItem" type="itemIdType" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IslandBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="AbstractInventoryBonus">
+        <xs:attribute name="checkItem" type="itemIdType" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MagicalBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="SimpleCheckItemBonus" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ManastoneBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="SimpleCheckItemBonus" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MasterRecipeBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="SimpleCheckItemBonus">
+        <xs:attribute name="skillId" type="xs:int" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MaterialBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="SimpleCheckItemBonus" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MedalBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="SimpleCheckItemBonus" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MedicineBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="SimpleCheckItemBonus" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RecipeBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="SimpleCheckItemBonus" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RedeemBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="AbstractInventoryBonus">
+        <xs:attribute name="checkItem" type="itemIdType" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="WorkOrderBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="SimpleCheckItemBonus">
+        <xs:attribute name="skillId" type="xs:int" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="LunarEventBonus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="SimpleCheckItemBonus" />
+    </xs:complexContent>
+  </xs:complexType>
+    <xs:complexType name="WrappedBonus">
+        <xs:complexContent mixed="false">
+            <xs:extension base="AbstractInventoryBonus">
+                <xs:attribute name="itemId" type="itemIdType"/>
+                <xs:attribute name="maxCount" type="xs:int"/>
+                <xs:attribute name="type" type="bonusType"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+  <xs:simpleType name="bonusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE" />
+      <xs:enumeration value="BOSS" />
+      <xs:enumeration value="COIN" />
+      <xs:enumeration value="ENCHANT" />
+      <xs:enumeration value="FOOD" />
+      <xs:enumeration value="FORTRESS" />
+      <xs:enumeration value="GODSTONE" />
+      <xs:enumeration value="GOODS" />
+      <xs:enumeration value="ISLAND" />
+      <xs:enumeration value="LUNAR" />
+      <xs:enumeration value="MAGICAL" />
+      <xs:enumeration value="MANASTONE" />
+      <xs:enumeration value="MASTER_RECIPE" />
+      <xs:enumeration value="MATERIAL" />
+      <xs:enumeration value="MEDAL" />
+      <xs:enumeration value="MEDICINE" />
+      <xs:enumeration value="MOVIE" />
+      <xs:enumeration value="RECIPE" />
+      <xs:enumeration value="REDEEM" />
+      <xs:enumeration value="TASK" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="genderType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MALE" />
+      <xs:enumeration value="FEMALE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="itemIdType">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="100000000" />
+      <xs:maxInclusive value="200000000" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

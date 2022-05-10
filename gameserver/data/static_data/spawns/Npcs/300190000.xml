@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Taloc's Hollow From client/Retail spawn
+	@Author Nephis
+ -->
+<spawns>
+	<!-- Tealen -->
+	<spawn map="300190000" npcid="799528" pool="1" interval="105">
+		<object x="518.29877" y="811.8944" h="68" z="1285.4907"/>
+	</spawn>
+	<!-- Taloc's Soul -->
+	<spawn map="300190000" npcid="799526" pool="1" interval="105">
+		<object x="200.87541" y="235.67416" h="89" z="1099.2076"/>
+	</spawn>
+	<!-- Hyas -->
+	<spawn map="300190000" npcid="799527" pool="1" interval="105">
+		<object x="224.84256" y="789.60767" h="14" z="1201.2155"/>
+	</spawn>
+	<!-- Dorkin -->
+	<spawn map="300190000" npcid="799502" pool="1" interval="105">
+		<object x="436.318" y="767.912" h="0" z="1288.42"/>
+	</spawn>
+	<!-- Writhing Cocoon -->
+	<spawn map="300190000" npcid="730233" pool="1" interval="295">
+		<object staticid="55" x="148.29025" y="395.25586" z="1141.7423" h="86"/>
+	</spawn>
+	<!-- Writhing Cocoon -->
+	<spawn map="300190000" npcid="730232" pool="1" interval="295">
+		<object staticid="54" x="143.77397" y="394.25616" z="1142.0457" h="113"/>
+	</spawn>
+	<!-- Concentrated Sap -->
+	<spawn map="300190000" npcid="700960" pool="2" interval="295">
+		<object staticid="173" x="624.81433" y="851.7526" z="1380.4752" h="0"/>
+		<object staticid="175" x="677.20856" y="796.3238" z="1381.5769" h="0"/>
+	</spawn>
+	<!-- Concentrated Sap -->
+	<spawn map="300190000" npcid="700959" pool="1" interval="295">
+		<object staticid="174" x="679.3582" y="858.12225" z="1380.8242" h="0"/>
+	</spawn>	
+	<!-- Concentrated Sap -->
+	<spawn map="300190000" npcid="700958" pool="1" interval="295">
+		<object staticid="172" x="612.4109" y="798.506" z="1378.9011" h="0"/>
+	</spawn>
+	<!-- Concentrated Sap -->
+	<spawn map="300190000" npcid="700943" pool="1" interval="295">
+		<object staticid="171" x="597.83" y="819.42" z="1381.049" h="0"/>
+	</spawn>
+	<!-- Bug Fluid -->
+	<spawn map="300190000" npcid="700942" pool="2" interval="295">
+		<object staticid="163" x="139.59288" y="483.64816" z="1137.9885" h="0"/>
+		<object staticid="162" x="190.96" y="593.85" z="1150.3878" h="0"/>
+	</spawn>
+	<!-- Huge Healing Plant -->
+	<spawn map="300190000" npcid="700941" pool="1" interval="105">
+		<object x="624.031" y="815.66" h="0" z="1380.68"/>
+	</spawn>
+	<!-- Healing Plant -->
+	<spawn map="300190000" npcid="700940" pool="5" interval="105">
+		<object x="398.351" y="784.894" h="0" z="1274.33"/>
+		<object x="171.85" y="564.59" h="0" z="1139.85"/>
+		<object x="506.204" y="883.862" h="0" z="1272.05"/>
+		<object x="289.559" y="311.042" h="0" z="1186.59"/>
+		<object x="405.836" y="566.818" h="0" z="1176.45"/>
+	</spawn>
+	<!-- Golden Egg of Mutant Insect -->
+	<spawn map="300190000" npcid="700742" pool="1" interval="295">
+		<object staticid="91" x="435.91708" y="765.44116" z="1288.8881" h="0"/>
+	</spawn>
+	<!-- Purified Fragment of Aion Tower -->
+	<spawn map="300190000" npcid="700741" pool="1" interval="295">
+		<object staticid="92" x="634.21423" y="787.2128" z="1384.86" h="0"/>
+	</spawn>
+	<!-- Contaminated Fragment of Aion Tower -->
+	<spawn map="300190000" npcid="700740" pool="1" interval="295">
+		<object staticid="93" x="634.21423" y="787.2128" z="1383.0" h="0"/>
+	</spawn>
+	<!-- Huge Insect Egg -->
+	<spawn map="300190000" npcid="700738" pool="1" interval="295">
+		<object staticid="90" x="653.92017" y="839.16266" z="1303.9491" h="0"/>
+	</spawn>
+	<!-- Research Journal -->
+	<spawn map="300190000" npcid="700636" pool="1" interval="295">
+		<object staticid="57" x="545.98596" y="845.0159" z="1377.1039" h="0"/>
+	</spawn>
+	<!-- Taloc's Knot -->
+	<spawn map="300190000" npcid="700635" pool="1" interval="295">
+		<object staticid="94" x="498.3539" y="895.5942" z="1272.0" h="0"/>
+	</spawn>
+	<!-- Contaminated Soil -->
+	<spawn map="300190000" npcid="700634" pool="6" interval="295">
+		<object staticid="32" x="266.89392" y="319.46127" z="1186.5582" h="0"/>
+		<object staticid="18" x="238.66" y="460.65" z="1124.4224" h="0"/>
+		<object staticid="36" x="379.42798" y="607.7014" z="1177.6267" h="0"/>
+		<object staticid="33" x="115.31615" y="716.9502" z="1138.539" h="0"/>
+		<object staticid="170" x="443.9356" y="1000.2059" z="1264.2777" h="0"/>
+		<object staticid="169" x="373.867" y="789.90515" z="1270.5994" h="0"/>
+	</spawn>
+	<!-- Thorny Vines
+	<spawn map="300190000" npcid="700633" pool="1" interval="295">
+		<object staticid="51" x="164.81621" y="337.8464" z="1125.0" h="0"/>
+	</spawn> -->
+	<!-- IDElim Windbox Invisible NPC -->
+	<spawn map="300190000" npcid="281817" pool="1" interval="295">
+		<object staticid="9" x="653.90076" y="839.1356" z="1305.0" h="0"/>
+	</spawn>
+</spawns>

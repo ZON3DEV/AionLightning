@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 2091: Meet the Reapers (lvl 45) handled by script -->
+	<!-- 2092: Graves of the Red Sky Legion (lvl 45) handled by script -->
+	<!-- 2093: The Secret Passage (lvl 46) handled by script -->
+	<!-- 2094: The Secret of Adma Stronghold (lvl 46) handled by script -->
+	<!-- 4001: Check on the Settlers (lvl 20) handled by script -->
+	<!-- Samples for Study -->
+	<item_collecting id="4002" start_npc_id="205126"/>
+	<!-- The Fields are Infested -->
+	<monster_hunt id="4003" start_npc_id="205131">
+		<monster_infos var_id="0" max_kill="5" npc_id="213849"/>
+		<monster_infos var_id="0" max_kill="5" npc_id="213850"/>
+		<monster_infos var_id="1" max_kill="5" npc_id="213853"/>
+		<monster_infos var_id="1" max_kill="5" npc_id="213896"/>
+	</monster_hunt>
+	<!-- 4004: The Seeds of Hope (lvl 21) handled by script -->
+	<!-- Scarecrow's Request -->
+	<monster_hunt id="4005" start_npc_id="730103">
+		<monster_infos var_id="0" max_kill="10" npc_id="213847"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="213848"/>
+	</monster_hunt>
+	<!-- Frightcorn-ucopia -->
+	<item_collecting id="4006" start_npc_id="205121" action_item_id="700341"/>
+	<!-- Clearing the Fields -->
+	<monster_hunt id="4007" start_npc_id="205128">
+		<monster_infos var_id="0" max_kill="11" npc_id="213859"/>
+		<monster_infos var_id="0" max_kill="11" npc_id="213860"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213861"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213862"/>
+	</monster_hunt>
+	<!-- Plague-spreading Porgus -->
+	<monster_hunt id="4008" start_npc_id="205131">
+		<monster_infos var_id="0" max_kill="10" npc_id="213865"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="213866"/>
+	</monster_hunt>
+	<!-- Pollution Solution -->
+	<item_collecting id="4009" start_npc_id="205122"/>
+	<!-- If I Only Had a Master -->
+	<report_to id="4010" start_npc_id="730104" end_npc_id="205142"/>
+	<!-- 4011: TODO: An Old Settler's Letter (lvl 23) -->
+	<!-- 4012: Troublesome Promise (lvl 22) handled by script -->
+	<!-- Obstacle to Cultivation -->
+	<monster_hunt id="4013" start_npc_id="205123">
+		<monster_infos var_id="0" max_kill="5" npc_id="213879"/>
+		<monster_infos var_id="0" max_kill="5" npc_id="213880"/>
+		<monster_infos var_id="1" max_kill="3" npc_id="213884"/>
+		<monster_infos var_id="2" max_kill="3" npc_id="213883"/>
+		<monster_infos var_id="3" max_kill="3" npc_id="213881"/>
+		<monster_infos var_id="3" max_kill="3" npc_id="213882"/>
+	</monster_hunt>
+	<!-- [Group] The Lingering Ghost -->
+	<monster_hunt id="4014" start_npc_id="205128">
+		<monster_infos var_id="0" max_kill="1" npc_id="213930"/>
+	</monster_hunt>
+	<!-- 4015: The Missing Laborers (lvl 24) handled by script -->
+	<!-- The Elyos of Brusthonin -->
+	<item_collecting id="4016" start_npc_id="205130"/>
+	<!-- The Ikelus Manhunt -->
+	<monster_hunt id="4017" start_npc_id="205130">
+		<monster_infos var_id="0" max_kill="1" npc_id="213931"/>
+	</monster_hunt>
+	<!-- Scared of Undeads -->
+	<monster_hunt id="4018" start_npc_id="205132">
+		<monster_infos var_id="0" max_kill="20" npc_id="213867"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="213868"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="213869"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="213870"/>
+	</monster_hunt>
+	<!-- Everyone Has a Secret -->
+	<item_collecting id="4019" start_npc_id="205127"/>
+	<!-- 4020: Parica's Special Order (lvl 24) handled by script -->
+	<!-- Carnivores Run Amok -->
+	<monster_hunt id="4031" start_npc_id="205151">
+		<monster_infos var_id="0" max_kill="20" npc_id="214365"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="214366"/>
+		<monster_infos var_id="1" max_kill="30" npc_id="214369"/>
+		<monster_infos var_id="1" max_kill="30" npc_id="214370"/>
+	</monster_hunt>
+	<!-- Mission of the Reaper Squad -->
+	<monster_hunt id="4032" start_npc_id="205152">
+		<monster_infos var_id="0" max_kill="24" npc_id="214376"/>
+		<monster_infos var_id="0" max_kill="24" npc_id="214377"/>
+		<monster_infos var_id="1" max_kill="20" npc_id="214378"/>
+		<monster_infos var_id="1" max_kill="20" npc_id="214379"/>
+	</monster_hunt>
+	<!-- 4033: A Bloom in Brusthonin (lvl 45) handled by script -->
+	<!-- Baltasar's Wish -->
+	<item_collecting id="4034" start_npc_id="205156"/>
+	<!-- [Repeat] Forest Decon -->
+	<item_collecting id="4035" start_npc_id="205151" action_item_id="700383"/>
+	<!-- 4036: Heirnir Wants to Rest (lvl 46) handled by script -->
+	<!-- Something For Heirnir -->
+	<item_collecting id="4037" start_npc_id="205190" end_npc_id="205187"/>
+	<!-- 4038: Alas, Poor Groznak (lvl 46) handled by script -->
+	<!-- Elim's Goodwill -->
+	<monster_hunt id="4039" start_npc_id="205193">
+		<monster_infos var_id="0" max_kill="30" npc_id="214413"/>
+		<monster_infos var_id="0" max_kill="30" npc_id="214414"/>
+		<monster_infos var_id="1" max_kill="18" npc_id="214415"/>
+	</monster_hunt>
+	<!-- The Alpha Alitaur -->
+	<monster_hunt id="4040" start_npc_id="205193">
+		<monster_infos var_id="0" max_kill="1" npc_id="214588"/>
+	</monster_hunt>
+	<!-- Retrieving the Contaminated Seeds -->
+	<item_collecting id="4041" start_npc_id="205193"/>
+	<!-- 4042: Message in a Bottle (lvl 46) handled by script -->
+	<!-- Wrath of Sahnu -->
+	<monster_hunt id="4043" start_npc_id="205192">
+		<monster_infos var_id="0" max_kill="20" npc_id="214435"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="214436"/>
+		<monster_infos var_id="1" max_kill="23" npc_id="214437"/>
+		<monster_infos var_id="1" max_kill="23" npc_id="214438"/>
+	</monster_hunt>
+	<!-- Lost Gift -->
+	<item_collecting id="4044" start_npc_id="205171" action_item_id="700384"/>
+	<!-- [Repeat] Ginseng Gone Wild -->
+	<item_collecting id="4045" start_npc_id="205165" action_item_id="700385"/>
+	<!-- BuBu Mep's Wedding Preparation -->
+	<item_collecting id="4046" start_npc_id="205172" action_item_id="700386"/>
+	<!-- A Thing for Ginseng -->
+	<monster_hunt id="4047" start_npc_id="205167">
+		<monster_infos var_id="0" max_kill="1" npc_id="214589"/>
+	</monster_hunt>
+	<!-- I Hate Brohum -->
+	<monster_hunt id="4048" start_npc_id="205166">
+		<monster_infos var_id="0" max_kill="20" npc_id="214554"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="214457"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="214458"/>
+		<monster_infos var_id="1" max_kill="30" npc_id="214460"/>
+		<monster_infos var_id="1" max_kill="30" npc_id="214461"/>
+	</monster_hunt>
+	<!-- For the BuBu Tribe -->
+	<monster_hunt id="4049" start_npc_id="205166">
+		<monster_infos var_id="0" max_kill="25" npc_id="214463"/>
+		<monster_infos var_id="0" max_kill="25" npc_id="214464"/>
+		<monster_infos var_id="1" max_kill="35" npc_id="214465"/>
+		<monster_infos var_id="1" max_kill="35" npc_id="214466"/>
+	</monster_hunt>
+	<!-- Brohum's Ornamental Bow -->
+	<item_collecting id="4050" start_npc_id="205166" end_npc_id="205172"/>
+	<!-- 4051: Bukmir's Worry (lvl 48) handled by script -->
+	<!-- 4052: Bukmir's Old Friend (lvl 48) handled by script -->
+	<!-- 4053: Glossy Hoe (lvl 48) handled by script -->
+	<!-- Horn of Purification -->
+	<item_collecting id="4054" start_npc_id="205193"/>
+	<!-- Jackdaw's Request -->
+	<monster_hunt id="4055" start_npc_id="205203">
+		<monster_infos var_id="0" max_kill="10" npc_id="214480"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="214481"/>
+		<monster_infos var_id="1" max_kill="20" npc_id="214478"/>
+		<monster_infos var_id="1" max_kill="20" npc_id="214479"/>
+	</monster_hunt>
+	<!-- Captain's Hat -->
+	<item_collecting id="4056" start_npc_id="205203"/>
+	<!-- Lost Compass -->
+	<item_collecting id="4057" start_npc_id="205203"/>
+	<!-- Petrahulk: Smash! -->
+	<monster_hunt id="4058" start_npc_id="205204">
+		<monster_infos var_id="0" max_kill="30" npc_id="214497"/>
+		<monster_infos var_id="0" max_kill="30" npc_id="214498"/>
+	</monster_hunt>
+	<!-- Contamination Sample -->
+	<item_collecting id="4059" start_npc_id="205204"/>
+	<!-- 4060: The Zombie's Descendant (lvl 48) handled by script -->
+	<!-- [Daily/Coin] Purification of Soul -->
+	<item_collecting id="4061" start_npc_id="205160"/>
+	<!-- [Daily/Coin] For the Future Settlers -->
+	<item_collecting id="4062" start_npc_id="205205"/>
+	<!-- [Daily/Coin] Mopping up the Brohum -->
+	<item_collecting id="4063" start_npc_id="205184"/>
+	<!-- 4064: TODO: [Spend Coin] Platinum (Warrior 46) (lvl 99) -->
+	<!-- 4065: TODO: [Spend Coin] Platinum (Mage 46) (lvl 99) -->
+	<!-- 4066: TODO: [Spend Coin] Platinum (Scout 46) (lvl 99) -->
+	<!-- 4067: TODO: [Spend Coin] Platinum (Priest 46) (lvl 99) -->
+	<!-- 4068: TODO: [Spend Coin] Platinum (Warrior 48) (lvl 99) -->
+	<!-- 4069: TODO: [Spend Coin] Platinum (Mage 48) (lvl 99) -->
+	<!-- 4070: TODO: [Spend Coin] Platinum (Scout 48) (lvl 99) -->
+	<!-- 4071: TODO: [Spend Coin] Platinum (Priest 48) (lvl 99) -->
+	<!-- [Manastone] Manastone Research -->
+	<item_collecting id="4072" start_npc_id="205148"/>
+	<!-- [Manastone] Manastone Recycling -->
+	<item_collecting id="4073" start_npc_id="205148"/>
+	<!-- 4074: [Spend Coin] Gain or Lose (lvl 45) handled by script -->
+	<!-- Southern Region Status Report -->
+	<report_to id="4075" start_npc_id="205128" end_npc_id="205151"/>
+	<!-- Plant for Filling -->
+	<item_collecting id="4076" start_npc_id="205158"/>
+	<!-- 4077: Porgus Roundup (lvl 46) handled by script -->
+	<!-- 4078: A Light Through the Trees (lvl 46) handled by script -->
+	<!-- Unforgivable Balaur -->
+	<monster_hunt id="4079" start_npc_id="205156">
+		<monster_infos var_id="0" max_kill="20" npc_id="214404"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="214405"/>
+		<monster_infos var_id="1" max_kill="30" npc_id="214402"/>
+		<monster_infos var_id="1" max_kill="30" npc_id="214403"/>
+	</monster_hunt>
+	<!-- Wandering Undead -->
+	<item_collecting id="4080" start_npc_id="205156"/>
+	<!-- Unusual Ingredients -->
+	<item_collecting id="4081" start_npc_id="205190"/>
+	<!-- 4082: Gathering the Herb Pouches (lvl 46) handled by script -->
+	<!-- Those Pesky Mosks -->
+	<monster_hunt id="4083" start_npc_id="205195">
+		<monster_infos var_id="0" max_kill="23" npc_id="214411"/>
+		<monster_infos var_id="0" max_kill="23" npc_id="214412"/>
+	</monster_hunt>
+	<!-- A Bribe for the Chieftain -->
+	<item_collecting id="4084" start_npc_id="205170" end_npc_id="205164"/>
+	<!-- I Wanna Pecku -->
+	<item_collecting id="4085" start_npc_id="205170" end_npc_id="205164"/>
+	<!-- The Bribed Chieftain -->
+	<report_to id="4086" start_npc_id="205164" end_npc_id="205170" item_id="182209045"/>
+	<!-- 4087: No Ordinary Branch (lvl 48) handled by script -->
+	<!-- Jackdaw's Liquor -->
+	<report_to id="4088" start_npc_id="798063" end_npc_id="205203" item_id="182209047"/>
+	<!-- Lobnites on the Half-Shell -->
+	<item_collecting id="4089" start_npc_id="205203"/>
+	<!-- Return to Aether's Flow -->
+	<item_collecting id="4090" start_npc_id="205205"/>
+	<!-- A Family's Memento -->
+	<item_collecting id="4091" start_npc_id="205156"/>
+	<!-- Lukmann's Justice -->
+	<item_collecting id="4092" start_npc_id="205225"/>
+	<!-- The Unforgivable One -->
+	<monster_hunt id="4093" start_npc_id="205225">
+		<monster_infos var_id="0" max_kill="1" npc_id="214696"/>
+	</monster_hunt>
+	<!-- [Repeat] Adma's Trove -->
+	<item_collecting id="4094" start_npc_id="205226"/>
+	<!-- [Repeat] Imowen's Request -->
+	<item_collecting id="4095" start_npc_id="205206"/>
+	<!-- Cleansing the Water -->
+	<monster_hunt id="4096" start_npc_id="205201">
+		<monster_infos var_id="0" max_kill="10" npc_id="214550"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="214551"/>
+	</monster_hunt>
+	<!-- For Virhu -->
+	<report_to id="4097" start_npc_id="205158" end_npc_id="730104"/>
+	<!-- [Spy] A True Rest -->
+	<item_collecting id="4098" start_npc_id="205187"/>
+	<!-- Abandoned Mithril -->
+	<item_collecting id="4099" start_npc_id="205149" action_item_id="700451"/>
+	<!-- Warehouse Keeper's Greed -->
+	<item_collecting id="4100" start_npc_id="205149"/>
+	<!-- 4101: Elim of Brusthonin (lvl 46) handled by script -->
+	<!-- Incessant Pain -->
+	<monster_hunt id="4102" start_npc_id="205193">
+		<monster_infos var_id="0" max_kill="23" npc_id="214416"/>
+		<monster_infos var_id="0" max_kill="23" npc_id="214417"/>
+		<monster_infos var_id="1" max_kill="20" npc_id="214418"/>
+	</monster_hunt>
+	<!-- Big Mother Sauramam -->
+	<monster_hunt id="4103" start_npc_id="205193">
+		<monster_infos var_id="0" max_kill="1" npc_id="215381"/>
+	</monster_hunt>
+	<!-- Elim's Smile -->
+	<report_to id="4104" start_npc_id="205159" end_npc_id="205159"/>
+	<!-- Banes's Epochal Work -->
+	<item_collecting id="4105" start_npc_id="205146"/>
+	<!-- They're Bugging Me -->
+	<monster_hunt id="4106" start_npc_id="205156">
+		<monster_infos var_id="0" max_kill="25" npc_id="214363"/>
+		<monster_infos var_id="0" max_kill="25" npc_id="214364"/>
+		<monster_infos var_id="1" max_kill="20" npc_id="214406"/>
+		<monster_infos var_id="1" max_kill="20" npc_id="214407"/>
+		<monster_infos var_id="2" max_kill="15" npc_id="214409"/>
+		<monster_infos var_id="2" max_kill="15" npc_id="214410"/>
+	</monster_hunt>
+	<!-- Quit Bugging Me! -->
+	<monster_hunt id="4107" start_npc_id="205156">
+		<monster_infos var_id="0" max_kill="25" npc_id="214363"/>
+		<monster_infos var_id="0" max_kill="25" npc_id="214364"/>
+		<monster_infos var_id="1" max_kill="20" npc_id="214406"/>
+		<monster_infos var_id="1" max_kill="20" npc_id="214407"/>
+		<monster_infos var_id="2" max_kill="15" npc_id="214409"/>
+		<monster_infos var_id="2" max_kill="15" npc_id="214410"/>
+	</monster_hunt>
+	<!-- Safari in Sudorville -->
+	<monster_hunt id="4108" start_npc_id="205151">
+		<monster_infos var_id="0" max_kill="20" npc_id="214366"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="214365"/>
+		<monster_infos var_id="1" max_kill="30" npc_id="214370"/>
+		<monster_infos var_id="1" max_kill="30" npc_id="214369"/>
+	</monster_hunt>
+	<!-- A Case of the Snufflers -->
+	<monster_hunt id="4111" start_npc_id="730103">
+		<monster_infos var_id="0" max_kill="10" npc_id="213848"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="213847"/>
+	</monster_hunt>
+	<!-- [Coin/Group] Lord of Darkness -->
+	<monster_hunt id="4112" start_npc_id="205163">
+		<monster_infos var_id="0" max_kill="1" npc_id="214696"/>
+	</monster_hunt>
+</quest_scripts>

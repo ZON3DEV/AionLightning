@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main
+END
+RateConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/RateConfig.java
+END
+NpcMovementConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/NpcMovementConfig.java
+END
+SiegeConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/SiegeConfig.java
+END
+GroupConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/GroupConfig.java
+END
+TaskManagerConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/TaskManagerConfig.java
+END
+CacheConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/CacheConfig.java
+END
+EnchantsConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/EnchantsConfig.java
+END
+HTMLConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/HTMLConfig.java
+END
+DropConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/DropConfig.java
+END
+ThreadConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/ThreadConfig.java
+END
+GSConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/GSConfig.java
+END
+CustomConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/CustomConfig.java
+END
+ShutdownConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/ShutdownConfig.java
+END
+FallDamageConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/FallDamageConfig.java
+END
+LegionConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/LegionConfig.java
+END
+PeriodicSaveConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/PeriodicSaveConfig.java
+END
+EventConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/EventConfig.java
+END
+PricesConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/configs/main/PricesConfig.java
+END

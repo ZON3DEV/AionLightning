@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zones.xsd">
+	<zone mapid="320110000" name="ALQUIMIA_RESEARCH_CENTER_320110000" priority="16">
+		<points>
+			<point x="250.346863" y="460.270813" />
+			<point x="378.248962" y="459.611389" />
+			<point x="390.116150" y="470.819397" />
+			<point x="619.548767" y="471.478577" />
+			<point x="619.548767" y="586.194885" />
+			<point x="383.523254" y="584.876282" />
+			<point x="370.337463" y="547.956116" />
+			<point x="251.074768" y="546.641907" />
+		</points>
+	</zone>
+	<zone mapid="320110000" name="LEPHARIST_SANCTUARY_320110000" priority="14">
+		<points>
+			<point x="255.086029" y="465.760956" />
+			<point x="376.368042" y="464.790710" />
+			<point x="385.423767" y="477.404022" />
+			<point x="384.453522" y="541.764343" />
+			<point x="256.379700" y="540.147278" />
+		</points>
+	</zone>
+	<zone mapid="320110000" name="LAB_HALL_320110000" priority="15">
+		<points>
+			<point x="508.760590" y="479.855652" />
+			<point x="602.352539" y="479.417297" />
+			<point x="601.914185" y="576.077881" />
+			<point x="508.760590" y="574.543579" />
+			<point x="508.979767" y="536.186218" />
+			<point x="553.474304" y="536.843750" />
+			<point x="553.255127" y="517.555481" />
+			<point x="510.294891" y="517.117126" />
+		</points>
+	</zone>
+	<zone mapid="320110000" name="DAEVIC_GENESIS_LAB_320110000" priority="15">
+		<points>
+			<point x="464.825836" y="478.167755" />
+			<point x="464.434082" y="579.038818" />
+			<point x="391.610107" y="578.080627" />
+			<point x="389.816040" y="521.911133" />
+			<point x="380.572510" y="512.980103" />
+			<point x="380.895905" y="492.928131" />
+			<point x="391.568726" y="485.812927" />
+			<point x="391.610138" y="477.395966" />
+		</points>
+	</zone>
+</zones>

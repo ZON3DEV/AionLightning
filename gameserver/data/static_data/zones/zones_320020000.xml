@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zones.xsd">
+	<zone mapid="320020000" name="ATAXIAR_320020000" priority="16">
+		<points>
+			<point x="170.000000" y="324.000000" />
+			<point x="168.000000" y="147.000000" />
+			<point x="356.000000" y="146.000000" />
+			<point x="354.000000" y="348.000000" />
+			<point x="172.000000" y="347.000000" />
+		</points>
+	</zone>
+	<zone mapid="320020000" name="FLOATING_ISLAND_A_320020000" priority="16">
+		<points>
+			<point x="46.000000" y="152.000000" />
+			<point x="116.000000" y="180.000000" />
+			<point x="100.000000" y="219.000000" />
+			<point x="35.000000" y="188.000000" />
+		</points>
+	</zone>
+	<zone mapid="320020000" name="VANPERN_OBELISK_320020000" priority="16">
+		<points>
+			<point x="409.000000" y="444.000000" />
+			<point x="410.000000" y="374.000000" />
+			<point x="482.000000" y="374.000000" />
+			<point x="478.000000" y="449.000000" />
+		</points>
+	</zone>
+</zones>

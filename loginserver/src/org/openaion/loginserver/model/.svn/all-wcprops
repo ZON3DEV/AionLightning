@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/model
+END
+ReconnectingAccount.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/model/ReconnectingAccount.java
+END
+AccountTime.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/model/AccountTime.java
+END
+FloodIP.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/model/FloodIP.java
+END
+Account.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/model/Account.java
+END
+BannedIP.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/model/BannedIP.java
+END

@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/3/trunk/chatserver
+END
+format.xml
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/3/trunk/chatserver/format.xml
+END
+intl3_svn.dll
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/3/trunk/chatserver/intl3_svn.dll
+END
+svnversion.exe
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/3/trunk/chatserver/svnversion.exe
+END
+libsvn_diff-1.dll
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/3/trunk/chatserver/libsvn_diff-1.dll
+END
+templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/3/trunk/chatserver/templates.xml
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/3/trunk/chatserver/build.xml
+END
+libdb44.dll
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/3/trunk/chatserver/libdb44.dll
+END
+libsvn_wc-1.dll
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/3/trunk/chatserver/libsvn_wc-1.dll
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/3/trunk/chatserver/.classpath
+END
+libsvn_subr-1.dll
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/3/trunk/chatserver/libsvn_subr-1.dll
+END
+svnversion
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/3/trunk/chatserver/svnversion
+END
+libsvn_delta-1.dll
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/3/trunk/chatserver/libsvn_delta-1.dll
+END
+libaprutil-1.dll
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/3/trunk/chatserver/libaprutil-1.dll
+END
+libapriconv-1.dll
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/3/trunk/chatserver/libapriconv-1.dll
+END
+libapr-1.dll
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/3/trunk/chatserver/libapr-1.dll
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/3/trunk/chatserver/.project
+END

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	Indratu Fortress
+	@author Ritsu
+ -->
+<spawns>
+	<!-- Erebus -->
+	<spawn map="310090000" npcid="204651" pool="1" interval="295">
+		<object x="570.802" y="355.391" h="0" z="1013.03"/>
+	</spawn>
+	<!-- Artifact of the Balaur -->
+	<spawn map="310090000" npcid="700515" pool="1" interval="295">
+		<object staticid="54" x="491.68869" y="516.29236" h="100" z="968.84601"/>
+	</spawn>
+	<!-- Fortress Gate -->
+	<spawn map="310090000" npcid="700372" pool="1" interval="295">
+		<object staticid="52" x="524.15771" y="481.23468" h="95" z="1013.5057"/>
+		<object staticid="53" x="480.01099" y="575.1013" h="95" z="1013.5405"/>
+	</spawn>
+	<!-- Indratu Legion Abyss Gate -->
+	<spawn map="310090000" npcid="700361" pool="1" interval="295">
+		<object staticid="28" x="564.38025" y="324.95798" h="36" z="1015.7567"/>
+	</spawn>
+	<!-- Indratu Guard Tower -->
+	<spawn map="310090000" npcid="214155" pool="4" interval="295">
+		<object x="449.138" y="592.714" h="0" z="1008.3876"/>
+		<object x="486.799" y="610.053" h="0" z="1008.84094"/>
+		<object x="515.588" y="448.4" h="0" z="1012.1411"/>
+		<object x="554.597" y="465.246" h="0" z="1010.7336"/>
+	</spawn>
+</spawns>

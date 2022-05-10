@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="levelup_surveys">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="survey">
+          <xs:complexType>
+            <xs:complexContent mixed="false">
+              <xs:extension base="SurveyTemplate" />
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SurveyTemplate">
+    <xs:sequence>
+      <xs:element name="title" type="xs:string" />
+      <xs:element name="message" type="xs:string" />
+      <xs:element name="select" type="xs:string" />
+      <xs:element name="item">
+        <xs:complexType>
+          <xs:complexContent mixed="false">
+            <xs:extension base="SurveyItem" />
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="level" type="xs:int" use="required" />
+    <xs:attribute name="race" type="xs:string" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="SurveyItem">
+    <xs:attribute name="id" type="xs:int" use="required" />
+    <xs:attribute name="count" type="xs:int" use="required" />
+  </xs:complexType>
+</xs:schema>

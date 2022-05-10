@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="commons" default="dist" basedir=".">
+    <description>
+		This is free software: you can redistribute it and/or modify
+		it under the terms of the GNU Lesser Public License as published by
+		the Free Software Foundation, either version 3 of the License, or
+		(at your option) any later version.
+		
+		This software is distributed in the hope that it will be useful,
+		but WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+		GNU Lesser Public License for more details.
+		
+		You should have received a copy of the GNU Lesser Public License
+		along with this software.  If not, see http://www.gnu.org/licenses/.
+    </description>
+    <property name="jre" location="${java.home}/lib"/>
+    <property name="src" location="src"/>
+    <property name="lib" location="lib"/>
+    <property name="config" location="config"/>
+    <property name="build" location="build"/>
+    <property name="build.classes" location="${build}/classes"/>
+    <property name="build.dist" location="${build}/dist"/>
+    <property name="build.dist.commons" location="${build.dist}/commons"/>
+    <path id="classpath">
+        <fileset dir="${lib}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+    <target name="clean" description="Removes build directory.">
+        <delete dir="${build}"/>
+    </target>
+    <target name="init" description="Create the output directories.">
+        <mkdir dir="${build}"/>
+        <mkdir dir="${build.classes}"/>
+    </target>
+    <target name="compile" depends="init" description="Compile the source.">
+        <javac destdir="${build.classes}" optimize="on" debug="on" nowarn="off" source="1.6" target="1.6"
+               includeantruntime="false">
+            <src path="${src}"/>
+            <classpath refid="classpath"/>
+        </javac>
+    </target>
+    <target name="jar" depends="compile" description="Create the jar file">
+        <exec dir="." executable="svnversion.exe" outputproperty="revision" failifexecutionfails="false" osfamily="windows">
+            <arg line="-n ."/>
+        </exec>
+        <exec dir="." executable="svnversion" outputproperty="revision" failifexecutionfails="false" osfamily="unix">
+            <arg line="-n ."/>
+        </exec>
+        <tstamp>
+            <format property="date" pattern="yyyy-MM-dd-HH:mm"/>
+        </tstamp>
+        <jar destfile="${build}/open-aion-commons.jar">
+            <fileset dir="${build.classes}"/>
+            <manifest>
+                <attribute name="Premain-Class" value="com.aionengine.commons.callbacks.JavaAgentEnhancer"/>
+                <attribute name="Revision" value="${revision}"/>
+                <attribute name="Date" value="${date}"/>
+            </manifest>
+        </jar>
+    </target>
+    <target name="dist" depends="jar">
+        <mkdir dir="${build.dist}"/>
+        <mkdir dir="${build.dist.commons}"/>
+        <mkdir dir="${build.dist.commons}/libs"/>
+        <mkdir dir="${build.dist.commons}/config"/>
+        <copy todir="${build.dist.commons}/libs">
+            <fileset dir="${build}">
+                <include name="ax_commons.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.dist.commons}/libs">
+            <fileset dir="${lib}">
+                <include name="*.jar"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${build.dist.commons}/config">
+            <fileset dir="${config}">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+
+        <zip destfile="${build}/open-aion-commons.zip"
+             basedir="${build.dist.commons}" />
+    </target>   
+    
+   
+	
+</project>

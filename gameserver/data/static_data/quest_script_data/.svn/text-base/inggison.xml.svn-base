@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+	<!-- 10020: Proving Yourself to Outremus (lvl 50) handled by script -->
+	<!-- 10021: Friends for Life (lvl 51) handled by script -->
+	<!-- 10022: Support the Inggison Outpost (lvl 51) handled by script -->
+	<!-- 10023: Sulla's Startling Discovery (lvl 52) handled by script -->
+	<!-- 10024: Will the Aether Rain? (lvl 53) handled by script -->
+	<!-- 10025: It's Better! It's an Obelisk! (lvl 55) handled by script -->
+	<!-- 10026: Secret of Inggison (lvl 50) handled by script -->
+	<!-- 10027: TODO: Unable to Pick up in ?? State 2 (lvl 99) -->
+	<!-- 10028: TODO: Unable to Pick up in ?? State 3 (lvl 99) -->
+	<!-- 10029: TODO: Unable to Pick up in ?? State 4 (lvl 99) -->
+	<!-- 10030: TODO: Unable to Pick up in ?? State 5 (lvl 99) -->
+	<!-- 11000: Wisplight Chat Tour (lvl 50) handled by script -->
+	<!-- 11001: Kind Meiria (lvl 50) handled by script -->
+	<!-- Oppressed! All Right, Ignored. -->
+	<monster_hunt id="11002" start_npc_id="798939">
+		<monster_infos var_id="0" max_kill="15" npc_id="215780"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="215781"/>
+		<monster_infos var_id="1" max_kill="20" npc_id="215496"/>
+		<monster_infos var_id="1" max_kill="20" npc_id="215497"/>
+	</monster_hunt>
+	<!-- Maintaining the Illusion -->
+	<item_collecting id="11003" start_npc_id="798933" end_npc_id="798942"/>
+	<!-- Alchemical Solution -->
+	<item_collecting id="11004" start_npc_id="798933" action_item_id="700609"/>
+	<!-- 11005: The Limits of Genius (lvl 50) handled by script -->
+	<!-- 11006: TODO: Testing the Waters (lvl 51) -->
+	<!-- 11007: TODO: Finding Lephar (lvl 99) -->
+	<!-- 11008: Letter of Encouragement (lvl 53) handled by script -->
+	<!-- 11009: Meiria's Friendly Suggestion (lvl 54) handled by script -->
+	<!-- 11010: Angel to the Wounded (lvl 50) handled by script -->
+	<!-- Healing Elixir -->
+	<item_collecting id="11011" start_npc_id="799071"/>
+	<!-- 11012: Practical Nursing (lvl 51) handled by script -->
+	<!-- 11013: TODO: [Spy/Alliance] Kill Them Twice (lvl 99) -->
+	<!-- 11014: TODO: [Spy/Alliance] A Fool Such As I (lvl 99) -->
+	<!-- [Manastone Exchange] For Ribbits -->
+	<item_collecting id="11015" start_npc_id="798910"/>
+	<!-- [Manastone Exchange] Trading Up -->
+	<item_collecting id="11016" start_npc_id="798910"/>
+	<!-- 11017: TODO: [Mithril Coin Reward] CoinReward_Warrior (lvl 99) -->
+	<!-- 11018: TODO: [Mithril Coin Reward] CoinReward_Scout (lvl 99) -->
+	<!-- 11019: TODO: [Mithril Coin Reward] CoinReward_Mage (lvl 99) -->
+	<!-- 11020: TODO: [Mithril Coin Reward] CoinReward_Priest (lvl 99) -->
+	<!-- 11021: TODO: MithrilCoin_GamblingQuest (lvl 99) -->
+	<!-- [Daily/Coin] For the Scholars -->
+	<item_collecting id="11022" start_npc_id="798914"/>
+	<!-- Lapide Preservation -->
+	<monster_hunt id="11023" start_npc_id="798951">
+		<monster_infos var_id="0" max_kill="10" npc_id="215498"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="215499"/>
+		<monster_infos var_id="1" max_kill="20" npc_id="215490"/>
+		<monster_infos var_id="1" max_kill="20" npc_id="215491"/>
+	</monster_hunt>
+	<!-- Talking Crestlich -->
+	<item_collecting id="11024" start_npc_id="798950"/>
+	<!-- Do Bocos Tell Bawk-bawk Jokes? -->
+	<item_collecting id="11025" start_npc_id="798950"/>
+	<!-- 11026: Solid Evidence (lvl 50) handled by script -->
+	<!-- Sampling Life -->
+	<monster_hunt id="11027" start_npc_id="798951">
+		<monster_infos var_id="0" max_kill="7" npc_id="215517"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="215519"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="216692"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="216648"/>
+		<monster_infos var_id="1" max_kill="8" npc_id="215516"/>
+		<monster_infos var_id="1" max_kill="8" npc_id="215518"/>
+		<monster_infos var_id="1" max_kill="8" npc_id="216691"/>
+		<monster_infos var_id="1" max_kill="8" npc_id="216647"/>
+	</monster_hunt>
+	<!-- Fluid Nature of Evolution -->
+	<item_collecting id="11028" start_npc_id="798951"/>
+	<!-- Poor, Poor Delus -->
+	<monster_hunt id="11029" start_npc_id="798960">
+		<monster_infos var_id="0" max_kill="20" npc_id="215536"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="215537"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="216693"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="216694"/>
+	</monster_hunt>
+	<!-- Murder the Mosswing -->
+	<monster_hunt id="11030" start_npc_id="798960">
+		<monster_infos var_id="0" max_kill="1" npc_id="216486"/>
+	</monster_hunt>
+	<!-- 11031: Can I Eat It? (lvl 50) handled by script -->
+	<!-- 11032: Everything's Better With Tentacles (lvl 50) handled by script -->
+	<!-- 11033: You Make Me Sick (lvl 50) handled by script -->
+	<!-- Stelvia's Sanctum Support Structure -->
+	<monster_hunt id="11034" start_npc_id="798957">
+		<monster_infos var_id="0" max_kill="12" npc_id="215576"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="215528"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="215528"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="215529"/>
+	</monster_hunt>
+	<!-- A Pack of Plumas -->
+	<monster_hunt id="11035" start_npc_id="798955">
+		<monster_infos var_id="0" max_kill="15" npc_id="215530"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="215531"/>
+		<monster_infos var_id="1" max_kill="1" npc_id="216487"/>
+	</monster_hunt>
+	<!-- 11036: TODO: Uncommon Recipe (lvl 50) -->
+	<!-- An Amoral Meal -->
+	<item_collecting id="11037" start_npc_id="798956"/>
+	<!-- [Group] Squip's Lamentation -->
+	<monster_hunt id="11038" start_npc_id="799035">
+		<monster_infos var_id="0" max_kill="13" npc_id="215550"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="216705"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="216655"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="216709"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="215555"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="215551"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="216466"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="216706"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="216710"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="216707"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="215553"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="216656"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="215552"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="216467"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="216708"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="215554"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="215564"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216469"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="215565"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216658"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="215563"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="215567"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216468"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216657"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="215562"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216717"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="215566"/>
+	</monster_hunt>
+	<!-- [Group] Undying Sorrow -->
+	<item_collecting id="11039" start_npc_id="799035"/>
+	<!-- 11040: TODO: Squamp on the Cooking Plate (lvl 51) -->
+	<!-- Marica's Collection -->
+	<item_collecting id="11041" start_npc_id="798955"/>
+	<!-- [Daily/Coin/Group] Example: Shulacks -->
+	<item_collecting id="11042" start_npc_id="798957"/>
+	<!-- Core of the Problem -->
+	<item_collecting id="11043" start_npc_id="798953"/>
+	<!-- Pompous Adias -->
+	<item_collecting id="11044" start_npc_id="798953"/>
+	<!-- Crosia's Circumstances -->
+	<monster_hunt id="11045" start_npc_id="798952">
+		<monster_infos var_id="0" max_kill="22" npc_id="215525"/>
+	</monster_hunt>
+	<!-- 11046: That Pretty Box (lvl 51) handled by script -->
+	<!-- [Daily/Coin] What's up, Brohum? -->
+	<item_collecting id="11047" start_npc_id="798952"/>
+	<!-- 11048: TODO: [Coin] Taloc Rebirth Operation (lvl 99) -->
+	<!-- 11050: Inggison Coin Fountain (lvl 99) handled by script -->
+	<!-- 11056: TODO: [Spy/Alliance] Elimination Order (lvl 54) -->
+	<!-- 11057: TODO: [Spy/Alliance] Stanis's Secret Order (lvl 54) -->
+	<!-- 11058: TODO: [Spy/Alliance] Temenos's Secret Order (lvl 54) -->
+	<!-- 11059: TODO: Omega's Fragment (lvl 55) -->
+	<!-- 11060: TODO: [League] The Orb's Orders (lvl 55) -->
+	<!-- 11061: TODO: [Spy/League] Twilight of Ragnarok (lvl 55) -->
+	<!-- 11062: TODO: [Spy/League] Expedition to Gelkmaros (lvl 55) -->
+	<!-- 11063: TODO: [Spy/League] Quell Mastarius (lvl 55) -->
+	<!-- [Spy/Daily] Stanis's Worry -->
+	<item_collecting id="11064" start_npc_id="799043"/>
+	<!-- [Spy/Daily] Mudthorn of Viscum Swamp -->
+	<item_collecting id="11065" start_npc_id="799043"/>
+	<!-- [Spy/Daily] A Shield Situation -->
+	<item_collecting id="11066" start_npc_id="799049"/>
+	<!-- [Spy/Daily] Temenos's Request -->
+	<item_collecting id="11067" start_npc_id="799049"/>
+	<!-- 11068: A Mysterious Wind (lvl 52) handled by script -->
+	<!-- 11069: Mookie Travel Tips (lvl 51) handled by script -->
+	<!-- 11070: TODO: Crafty Messenger (lvl 50) -->
+	<!-- Fish with Feet -->
+	<monster_hunt id="11071" start_npc_id="798943">
+		<monster_infos var_id="0" max_kill="25" npc_id="215532"/>
+	</monster_hunt>
+	<!-- 11072: TODO: Delus, Culinary Victim (lvl 50) -->
+	<!-- Night Hunter -->
+	<monster_hunt id="11073" start_npc_id="798936">
+		<monster_infos var_id="0" max_kill="11" npc_id="215534"/>
+		<monster_infos var_id="0" max_kill="11" npc_id="215535"/>
+		<monster_infos var_id="1" max_kill="20" npc_id="215528"/>
+		<monster_infos var_id="1" max_kill="20" npc_id="215529"/>
+	</monster_hunt>
+	<!-- Ride the Wind -->
+	<report_to id="11074" start_npc_id="798938" end_npc_id="799025"/>
+	<!-- The Netherworld Breathes -->
+	<report_to id="11075" start_npc_id="798939" end_npc_id="799067"/>
+	<!-- 11077: TODO: A Weapon of Worth (lvl 50) -->
+	<!-- Allergic to What? -->
+	<monster_hunt id="11100" start_npc_id="798983">
+		<monster_infos var_id="0" max_kill="20" npc_id="215593"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="215594"/>
+	</monster_hunt>
+	<!-- Dragon's Breath -->
+	<item_collecting id="11101" start_npc_id="798981"/>
+	<!-- Petrified Sampling -->
+	<monster_hunt id="11102" start_npc_id="798981">
+		<monster_infos var_id="0" max_kill="1" npc_id="216489"/>
+		<monster_infos var_id="1" max_kill="1" npc_id="216490"/>
+		<monster_infos var_id="2" max_kill="1" npc_id="216491"/>
+	</monster_hunt>
+	<!-- 11103: TODO: Finite for a Walk (lvl 52) -->
+	<!-- Savinus's Torn Sack -->
+	<item_collecting id="11104" start_npc_id="798978"/>
+	<!-- 11105: TODO: A Jewel to Quiet Her (lvl 52) -->
+	<!-- 11106: TODO: Rewriting History (lvl 53) -->
+	<!-- 11107: TODO: Comfort is a Box (lvl 53) -->
+	<!-- Levilus and His Leather -->
+	<item_collecting id="11108" start_npc_id="798965"/>
+	<!-- 11109: TODO: The Negotiators (lvl 53) -->
+	<!-- Killing Time -->
+	<monster_hunt id="11110" start_npc_id="799075">
+		<monster_infos var_id="0" max_kill="10" npc_id="217039"/>
+	</monster_hunt>
+	<!-- Kill the Corrupted Sage -->
+	<item_collecting id="11111" start_npc_id="799075"/>
+	<!-- There's Gold in That Thar Valley -->
+	<item_collecting id="11112" start_npc_id="798984"/>
+	<!-- Not for You! -->
+	<item_collecting id="11113" start_npc_id="798984"/>
+	<!-- Pixiebelle's Gold -->
+	<item_collecting id="11114" start_npc_id="798984"/>
+	<!-- In Our Hour of Need -->
+	<item_collecting id="11115" start_npc_id="798985"/>
+	<!-- 11116: TODO: Munching Mookie Pickles (lvl 53) -->
+	<!-- 11117: TODO: Medication for Setzkiki (lvl 53) -->
+	<!-- 11118: TODO: Making Setzkiki Laugh (lvl 53) -->
+	<!-- Menacing Creature -->
+	<monster_hunt id="11119" start_npc_id="798989">
+		<monster_infos var_id="0" max_kill="15" npc_id="215658"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="215659"/>
+		<monster_infos var_id="1" max_kill="13" npc_id="215652"/>
+		<monster_infos var_id="1" max_kill="13" npc_id="215653"/>
+	</monster_hunt>
+	<!-- Enter the Dragonbound -->
+	<monster_hunt id="11120" start_npc_id="798991">
+		<monster_infos var_id="0" max_kill="7" npc_id="215642"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="215643"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="215644"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="215645"/>
+		<monster_infos var_id="2" max_kill="7" npc_id="215648"/>
+		<monster_infos var_id="2" max_kill="7" npc_id="215649"/>
+	</monster_hunt>
+	<!-- [Group] Lost Symbols -->
+	<item_collecting id="11121" start_npc_id="798991"/>
+	<!-- [Group] A Hard Reian's Gonna Fall -->
+	<monster_hunt id="11122" start_npc_id="798990">
+		<monster_infos var_id="0" max_kill="1" npc_id="216495"/>
+		<monster_infos var_id="1" max_kill="1" npc_id="216496"/>
+	</monster_hunt>
+	<!-- 11123: TODO: Suspicious Book (lvl 52) -->
+	<!-- Auralia's Been Angry -->
+	<monster_hunt id="11124" start_npc_id="798999">
+		<monster_infos var_id="0" max_kill="12" npc_id="215716"/>
+		<monster_infos var_id="0" max_kill="12" npc_id="215717"/>
+		<monster_infos var_id="1" max_kill="8" npc_id="215718"/>
+		<monster_infos var_id="1" max_kill="8" npc_id="215719"/>
+	</monster_hunt>
+	<!-- Leaking Drana -->
+	<item_collecting id="11125" start_npc_id="798996"/>
+	<!-- A Worthy Adversary -->
+	<monster_hunt id="11126" start_npc_id="798998">
+		<monster_infos var_id="0" max_kill="17" npc_id="215694"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="215696"/>
+	</monster_hunt>
+	<!-- Perfect Killing Machines -->
+	<item_collecting id="11127" start_npc_id="798998"/>
+	<!-- Dead in Three Breaths -->
+	<item_collecting id="11128" start_npc_id="798998"/>
+	<!-- 11129: TODO: Blessing to the Agent (lvl 51) -->
+	<!-- [Daily/Coin] Tiamat's Mark -->
+	<item_collecting id="11130" start_npc_id="798996"/>
+	<!-- 11131: TODO: Blessing to the Agent (lvl 51) -->
+	<!-- 11132: TODO: Blessing to the Agent (lvl 51) -->
+	<!-- 11133: TODO: Blessing to the Agent (lvl 51) -->
+	<!-- 11134: TODO: Blessing to the Agent (lvl 51) -->
+	<!-- 11135: TODO: Blessing to the Agent (lvl 51) -->
+	<!-- 11136: TODO: Blessing to the Agent (lvl 51) -->
+	<!-- 11137: TODO: Blessing to the Agent (lvl 51) -->
+	<!-- Death Comes With a Smile -->
+	<monster_hunt id="11138" start_npc_id="798981">
+		<monster_infos var_id="0" max_kill="15" npc_id="215597"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="215598"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="216724"/>
+	</monster_hunt>
+	<!-- 11139: TODO: The Bad News (lvl 53) -->
+	<!-- Me Jewels Be Stoled! -->
+	<monster_hunt id="11140" start_npc_id="799076">
+		<monster_infos var_id="0" max_kill="20" npc_id="215599"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="215600"/>
+	</monster_hunt>
+	<!-- 11141: TODO: A Mother's Revenge (lvl 53) -->
+	<!-- Warm Love -->
+	<item_collecting id="11142" start_npc_id="798986"/>
+	<!-- 11143: TODO: Baby Shulack's Journey (lvl 54) -->
+	<!-- Sueros's Headache -->
+	<monster_hunt id="11144" start_npc_id="799030">
+		<monster_infos var_id="0" max_kill="10" npc_id="215656"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="215657"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="215654"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="215655"/>
+	</monster_hunt>
+	<!-- 11145: TODO: Undirborg Enterprise (lvl 52) -->
+	<!-- What Rollia Likes -->
+	<item_collecting id="11146" start_npc_id="798997" action_item_id="700910"/>
+	<!-- 11147: TODO: Cute Beady Eyes? (lvl 54) -->
+	<!-- Local Delicacies -->
+	<item_collecting id="11148" start_npc_id="798993"/>
+	<!-- 11149: TODO: The Lady's Layout (lvl 53) -->
+	<!-- 11200: TODO: [Alliance] An Urgent Mission (lvl 51) -->
+	<!-- 11201: TODO: [League] Securing Avarice (lvl 51) -->
+	<!-- A Safer Crater -->
+	<monster_hunt id="11202" start_npc_id="799009">
+		<monster_infos var_id="0" max_kill="10" npc_id="215730"/>
+		<monster_infos var_id="1" max_kill="12" npc_id="215733"/>
+		<monster_infos var_id="1" max_kill="12" npc_id="215732"/>
+	</monster_hunt>
+	<!-- Essence of Sulfur -->
+	<item_collecting id="11203" start_npc_id="799008"/>
+	<!-- For the Crater Good -->
+	<item_collecting id="11204" start_npc_id="799008"/>
+	<!-- [Daily] Protect What's Ours -->
+	<item_collecting id="11205" start_npc_id="799004"/>
+	<!-- [Daily] Acidproof Armor -->
+	<item_collecting id="11206" start_npc_id="799005"/>
+	<!-- 11207: TODO: [Spy] Balaur Bind Point 1 (Infiltration 1) (lvl 99) -->
+	<!-- 11208: TODO: [Spy/Alliance] Balaur Bind Point 1 (Infiltration 2) (lvl 99) -->
+	<!-- 11209: TODO: [Spy/Alliance] Balaur Bind Point 1 (Infiltration 3) (lvl 99) -->
+	<!-- [Group] The Dramata's Long Shadow -->
+	<monster_hunt id="11210" start_npc_id="799010">
+		<monster_infos var_id="0" max_kill="10" npc_id="215746"/>
+		<monster_infos var_id="1" max_kill="3" npc_id="215752"/>
+	</monster_hunt>
+	<!-- Chaser's Backpack -->
+	<item_collecting id="11211" start_npc_id="799010"/>
+	<!-- 11212: TODO: Balaur Records (lvl 54) -->
+	<!-- Damn Tree Creatures -->
+	<monster_hunt id="11213" start_npc_id="799019">
+		<monster_infos var_id="0" max_kill="20" npc_id="215758"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="215870"/>
+	</monster_hunt>
+	<!-- 11214: TODO: [Alliance] Moras's Cool Judgment (lvl 51) -->
+	<!-- 11215: TODO: [League] Reclaim Temple of Scales (lvl 51) -->
+	<!-- How Many Draks Does It Take To Map? -->
+	<item_collecting id="11216" start_npc_id="799017"/>
+	<!-- [Group] Seat of Civilization? -->
+	<monster_hunt id="11217" start_npc_id="799019">
+		<monster_infos var_id="0" max_kill="20" npc_id="215768"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="217043"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="217044"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="215773"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="217053"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="217054"/>
+	</monster_hunt>
+	<!-- [Group] Drakanstaffs at Dawn -->
+	<item_collecting id="11218" start_npc_id="799017"/>
+	<!-- [Group] A Stealthy Science -->
+	<item_collecting id="11219" start_npc_id="799017"/>
+	<!-- [Daily] Making Do -->
+	<item_collecting id="11220" start_npc_id="799016"/>
+	<!-- [Daily] Living in Obscura-ty -->
+	<item_collecting id="11221" start_npc_id="799015"/>
+	<!-- Watching the Past -->
+	<monster_hunt id="11222" start_npc_id="257225">
+		<monster_infos var_id="0" max_kill="10" npc_id="215873"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="215872"/>
+	</monster_hunt>
+	<!-- Just a Taste -->
+	<item_collecting id="11223" start_npc_id="799000"/>
+	<!-- Swords and Spectacles -->
+	<monster_hunt id="11224" start_npc_id="799019">
+		<monster_infos var_id="0" max_kill="7" npc_id="216593"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="215607"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="216594"/>
+	</monster_hunt>
+	<!-- [Group] Shadows on the Road -->
+	<monster_hunt id="11225" start_npc_id="799006">
+		<monster_infos var_id="0" max_kill="10" npc_id="215871"/>
+	</monster_hunt>
+	<!-- Pudding it Together -->
+	<item_collecting id="11226" start_npc_id="798971"/>
+	<!-- 11227: TODO: Easy as 4,3,2,1 (lvl 52) -->
+	<!-- 11228: TODO: No, He Never Returned (lvl 52) -->
+	<!-- Allergic Reaction -->
+	<item_collecting id="11229" start_npc_id="296491"/>
+	<!-- Reian History -->
+	<item_collecting id="11230" start_npc_id="799077"/>
+	<!-- Reian Present -->
+	<item_collecting id="11231" start_npc_id="799077"/>
+	<!-- Reian Future -->
+	<item_collecting id="11232" start_npc_id="799077"/>
+	<!-- 11233: TODO: Suleion's Treasure (lvl 52) -->
+	<!-- 11250: TODO: [Spy/League] Price of Agency (lvl 54) -->
+	<!-- 11251: TODO: Greatsword Predilection (lvl 54) -->
+	<!-- 11252: TODO: [Spy/League] Veilled Reward (lvl 54) -->
+	<!-- 11253: TODO: Spellbook Predilection (lvl 54) -->
+	<!-- 11254: TODO: [Spy/League] Agency's Prize (lvl 54) -->
+	<!-- 11255: TODO: Bow Predilection (lvl 54) -->
+	<!-- 11256: TODO: [Spy/League] Veilled Compliment (lvl 54) -->
+	<!-- 11257: TODO: Dagger Predilection (lvl 54) -->
+	<!-- 11258: TODO: [Spy/League] Agent's Operative (lvl 54) -->
+	<!-- 11259: TODO: Mace Predilection (lvl 54) -->
+	<!-- 11260: TODO: [Spy/League] Agent's Agent (lvl 54) -->
+	<!-- 11261: TODO: Orb Predilection (lvl 54) -->
+	<!-- 11262: TODO: [Spy/League] Agency's Effect (lvl 54) -->
+	<!-- 11263: TODO: Polearm Predilection (lvl 54) -->
+	<!-- 11264: TODO: [Spy/League] Agency's Toll (lvl 54) -->
+	<!-- 11265: TODO: Staff Predilection (lvl 54) -->
+	<!-- 11266: TODO: [Spy/League] Agency's Aftermath (lvl 54) -->
+	<!-- 11267: TODO: Sword Predilection (lvl 54) -->
+	<!-- Winning Veille's Favor -->
+	<item_collecting id="11268" start_npc_id="798958"/>
+	<!-- Favors for Veille -->
+	<item_collecting id="11269" start_npc_id="798958"/>
+	<!-- Veille's Favor-ite -->
+	<item_collecting id="11270" start_npc_id="798958"/>
+	<!-- Favor Feud -->
+	<item_collecting id="11271" start_npc_id="798958"/>
+	<!-- Favors of Fancy -->
+	<item_collecting id="11272" start_npc_id="798958"/>
+	<!-- Veilled Weapon -->
+	<item_collecting id="11273" start_npc_id="798958"/>
+	<!-- Shield Veille -->
+	<item_collecting id="11274" start_npc_id="798958"/>
+	<!-- Many Nibbles in a Bite -->
+	<item_collecting id="11450" start_npc_id="798952"/>
+	<!-- For What Ails You -->
+	<report_to id="11451" start_npc_id="798952" end_npc_id="798933"/>
+	<!-- Last Part of the Cure -->
+	<item_collecting id="11452" start_npc_id="798933"/>
+	<!-- Fruit of My Labor -->
+	<report_to id="11453" start_npc_id="798933" end_npc_id="799070"/>
+	<!-- The Ripe Stuff -->
+	<item_collecting id="11454" start_npc_id="799070"/>
+	<!-- 11455: TODO: When the Time is Ripe (lvl 51) -->
+	<!-- 11456: TODO: The Exterminator (lvl 51) -->
+	<!-- Wood-n't You Know It? -->
+	<item_collecting id="11457" start_npc_id="798953"/>
+	<!-- 11458: TODO: Adias's Report (lvl 51) -->
+	<!-- 11459: TODO: The Balance (lvl 51) -->
+	<!-- 11460: TODO: The Shulack of Taloc (lvl 51) -->
+	<!-- What Book? -->
+	<item_collecting id="11461" start_npc_id="799502" end_npc_id="798955" action_item_id="700636"/>
+	<!-- [Spy/Daily] Food for Rationing -->
+	<item_collecting id="21233" start_npc_id="799354"/>
+	<!-- [Spy/Daily] Worm Scourge -->
+	<item_collecting id="21234" start_npc_id="799354"/>
+	<!-- [Spy/Daily] Bolstering Our Defenses -->
+	<item_collecting id="21235" start_npc_id="799360"/>
+	<!-- [Spy/Daily] Sandstorms Get in Your Eyes -->
+	<item_collecting id="21236" start_npc_id="799360"/>
+	<!-- Building Trust -->
+	<report_to id="30001" start_npc_id="798927" end_npc_id="799029"/>
+	<!-- Axe a Favor -->
+	<report_to id="30012" start_npc_id="799032" end_npc_id="799030"/>
+	<!-- Sword of the Reians -->
+	<report_to id="30015" start_npc_id="798903" end_npc_id="799032"/>
+	<!-- Noble Siel's Supreme Sword -->
+	<item_collecting id="30016" start_npc_id="799032"/>
+	<!-- 30017: Greatsword of the Reians -->
+	<report_to id="30017" start_npc_id="798903" end_npc_id="799032"/>
+	<!-- Noble Siel's Supreme Greatsword -->
+	<item_collecting id="30018" start_npc_id="799032"/>
+	<!-- 30019: Polearm of the Reians -->
+	<report_to id="30019" start_npc_id="798903" end_npc_id="799032"/>
+	<!-- Noble Siel's Supreme Polearm -->
+	<item_collecting id="30020" start_npc_id="799032"/>
+	<!-- 30021: Staff of the Reians -->
+	<report_to id="30021" start_npc_id="798903" end_npc_id="799032"/>
+	<!-- Noble Siel's Supreme Staff -->
+	<item_collecting id="30022" start_npc_id="799032"/>
+	<!-- 30023: Spellbook of the Reians -->
+	<report_to id="30023" start_npc_id="798903" end_npc_id="799032"/>
+	<!-- Noble Siel's Supreme Spellbook -->
+	<item_collecting id="30024" start_npc_id="799032"/>
+	<!-- 30025: Orb of the Reians -->
+	<report_to id="30025" start_npc_id="798903" end_npc_id="799032"/>
+	<!-- Noble Siel's Supreme Orb -->
+	<item_collecting id="30026" start_npc_id="799032"/>
+	<!-- 30027: Bow of the Reians -->
+	<report_to id="30027" start_npc_id="798903" end_npc_id="799032"/>
+	<!-- Noble Siel's Supreme Bow -->
+	<item_collecting id="30028" start_npc_id="799032"/>
+	<!-- 30029: Dagger of the Reians -->
+	<report_to id="30029" start_npc_id="798903" end_npc_id="799032"/>
+	<!-- Noble Siel's Supreme Dagger -->
+	<item_collecting id="30030" start_npc_id="799032"/>
+	<!-- 30031: Mace of the Reians -->
+	<report_to id="30031" start_npc_id="798903" end_npc_id="799032"/>
+	<!-- Noble Siel's Supreme Mace -->
+	<item_collecting id="30032" start_npc_id="799032"/>
+	<!-- Sake of Beauty -->
+	<item_collecting id="38502" start_npc_id="799085"/>
+	<!-- High Flying Shugo -->
+	<item_collecting id="38503" start_npc_id="799086"/>
+	<!-- Sake of Balance -->
+	<item_collecting id="38505" start_npc_id="799085"/>
+	<!-- Token Shugo -->
+	<item_collecting id="38506" start_npc_id="799086"/>
+</quest_scripts>

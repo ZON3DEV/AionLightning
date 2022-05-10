@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pet_feed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<groups>
+		<group type="MISC1">182006362</group>
+		<group type="MISC2">182006363,182006364</group>
+		<group type="MISC">MISC</group>
+		<group type="FLUID">182003659,182003660,182003661,182003662,182003663,182003664,182004253,182004254,182004255,182004256,182004257,182004258,182004259,182004260,182004261,182004262,182004503,182004504,182004505,182004506,182004507,182004508,182004509,182004510,182004511,182004512,182004523,182004524,182004525,182004526,182004527,182004528,182004529,182004530,182004531,182004532,182004743,182004744,182004745,182004746,182004747,182004748,182004749,182004750,182004751,182004752,182004763,182004764,182004765,182004766,182004767,182004768,182004769,182004770,182004771,182004772,182005043,182005044,182005045,182005046,182005047,182005048,182005049,182005050,182005051,182005052,182005053,182005054,182005055,182005056,182005057,182005058,182005059,182005060,182005061,182005062,182005317,182005318,182005319,182005320,182005321,182005322,182005323,182005324,182005325,182005326,182005517,182005518,182005643,182005644,182005693,182005694,182005697,182005698,182005741,182005742,182005745,182005746,182005801,182005802,182005803,182005804,182005855,182005856,182006164,182006165,182006166,182006167,182006168,182006169,182006170,182006171,182006172,182006173,182006174,182006175</group>
+		<group type="ARMOR">182003545,182003546,182003547,182003548,182003549,182003550,182003753,182003754,182003755,182003756,182003757,182003758,182003759,182003760,182003761,182003762,182003763,182003764,182003765,182003766,182003767,182003768,182003769,182003770,182003771,182003772,182003793,182003794,182003795,182003796,182003797,182003798,182003799,182003800,182003801,182003802,182004063,182004064,182004065,182004066,182004067,182004068,182004069,182004070,182004071,182004072,182004753,182004754,182004755,182004756,182004757,182004758,182004759,182004760,182004761,182004762,182005347,182005348,182005349,182005350,182005351,182005352,182005353,182005354,182005355,182005356,182005479,182005480,182005543,182005544,182005545,182005546,182005551,182005552,182005605,182005606,182005743,182005744,182005861,182005862</group>
+		<group type="THORN">182003587,182003588,182003589,182003590,182003591,182003592,182004193,182004194,182004195,182004196,182004197,182004198,182004199,182004200,182004201,182004202,182004553,182004554,182004555,182004556,182004557,182004558,182004559,182004560,182004561,182004562,182004673,182004674,182004675,182004676,182004677,182004678,182004679,182004680,182004681,182004682,182005063,182005064,182005065,182005066,182005067,182005068,182005069,182005070,182005071,182005072,182005357,182005358,182005359,182005360,182005361,182005362,182005363,182005364,182005365,182005366,182005493,182005494,182005631,182005632,182005703,182005704,182005727,182005728,182005805,182005806,182005863,182005864,182006032,182006033,182006034,182006035,182006036,182006037,182006038,182006039,182006040,182006041,182006042,182006043,182006104,182006105,182006106,182006107,182006108,182006109,182006110,182006111,182006112,182006113,182006114,182006115</group>
+		<group type="BONE">182003485,182003486,182003487,182003488,182003489,182003490,182003833,182003834,182003835,182003836,182003837,182003838,182003839,182003840,182003841,182003842,182003853,182003854,182003855,182003856,182003857,182003858,182003859,182003860,182003861,182003862,182003883,182003884,182003885,182003886,182003887,182003888,182003889,182003890,182003891,182003892,182003903,182003904,182003905,182003906,182003907,182003908,182003909,182003910,182003911,182003912,182004013,182004014,182004015,182004016,182004017,182004018,182004019,182004020,182004021,182004022,182004083,182004084,182004085,182004086,182004087,182004088,182004089,182004090,182004091,182004092,182004123,182004124,182004125,182004126,182004127,182004128,182004129,182004130,182004131,182004132,182004133,182004134,182004135,182004136,182004137,182004138,182004139,182004140,182004141,182004142,182004223,182004224,182004225,182004226,182004227,182004228,182004229,182004230,182004231,182004232,182004293,182004294,182004295,182004296,182004297,182004298,182004299,182004300,182004301,182004302,182004393,182004394,182004395,182004396,182004397,182004398,182004399,182004400,182004401,182004402,182004403,182004404,182004405,182004406,182004407,182004408,182004409,182004410,182004411,182004412,182004423,182004424,182004425,182004426,182004427,182004428,182004429,182004430,182004431,182004432,182004463,182004464,182004465,182004466,182004467,182004468,182004469,182004470,182004471,182004472,182004493,182004494,182004495,182004496,182004497,182004498,182004499,182004500,182004501,182004502,182004913,182004914,182004915,182004916,182004917,182004918,182004919,182004920,182004921,182004922,182004933,182004934,182004935,182004936,182004937,182004938,182004939,182004940,182004941,182004942,182004943,182004944,182004945,182004946,182004947,182004948,182004949,182004950,182004951,182004952,182005083,182005084,182005085,182005086,182005087,182005088,182005089,182005090,182005091,182005092,182005267,182005268,182005269,182005270,182005271,182005272,182005273,182005274,182005275,182005276,182005459,182005460,182005559,182005560,182005563,182005564,182005569,182005570,182005573,182005574,182005595,182005596,182005609,182005610,182005617,182005618,182005619,182005620,182005637,182005638,182005651,182005652,182005671,182005672,182005673,182005674,182005677,182005678,182005685,182005686,182005691,182005692,182005775,182005776,182005779,182005780,182005781,182005782,182005809,182005810,182005845,182005846</group>
+		<group type="BALAUR">182003803,182003804,182003805,182003806,182003807,182003808,182003809,182003810,182003811,182003812,182005553,182005554,182006393,182006394,182006395,182006396,182006397,182006398,182006399,182006400,182006401,182006402,182006403,182006404</group>
+		<group type="SOUL">182003557,182003558,182003559,182003560,182003561,182003562,182003599,182003600,182003601,182003602,182003603,182003604,182003605,182003606,182003607,182003608,182003609,182003610,182003611,182003612,182003613,182003614,182003615,182003616,182003617,182003618,182003619,182003620,182003621,182003622,182003647,182003648,182003649,182003650,182003651,182003652,182003653,182003654,182003655,182003656,182003657,182003658,182004443,182004444,182004445,182004446,182004447,182004448,182004449,182004450,182004451,182004452,182004773,182004774,182004775,182004776,182004777,182004778,182004779,182004780,182004781,182004782,182004973,182004974,182004975,182004976,182004977,182004978,182004979,182004980,182004981,182004982,182005103,182005104,182005105,182005106,182005107,182005108,182005109,182005110,182005111,182005112,182005143,182005144,182005145,182005146,182005147,182005148,182005149,182005150,182005151,182005152,182005163,182005164,182005165,182005166,182005167,182005168,182005169,182005170,182005171,182005172,182005392,182005393,182005394,182005395,182005396,182005397,182005398,182005399,182005400,182005401,182005483,182005484,182005497,182005498,182005499,182005500,182005501,182005502,182005503,182005504,182005513,182005514,182005515,182005516,182005681,182005682,182005747,182005748,182005787,182005788,182005813,182005814,182005821,182005822,182005825,182005826,182005869,182005870,182005893,182005894,182005895,182005896,182005897,182005898,182005899,182005900,182005901,182005902,182005903,182005904,182006068,182006069,182006070,182006071,182006072,182006073,182006074,182006075,182006076,182006077,182006078,182006079,182006224,182006225,182006226,182006227,182006228,182006229,182006230,182006231,182006232,182006233,182006234,182006235,182006260,182006261,182006262,182006263,182006264,182006265,182006266,182006267,182006268,182006269,182006270,182006271,182006297,182006298,182006299,182006300,182006301,182006302,182006303,182006304,182006305,182006306,182006307,182006308,182006309,182006310,182006311,182006312,182006313,182006314,182006315,182006316,182006317,182006318,182006319,182006320</group>
+		<group type="HEALTHY1">182006413,182006414,182006415,182006416,182006417,182006418</group>
+		<group type="HEALTHY2">182006413,182006414,182006415,182006416,182006417,182006418</group>
+		<group type="CASH1">182006357</group>
+		<group type="CASH2">182006358</group>
+		<group type="CASH3">182006359</group>
+		<group type="CASH4">182006360</group>
+		<group type="POWDER">182006375</group>
+		<group type="CRYSTAL">182006376</group>
+		<group type="GEM">182006377</group>
+	</groups>
+	<flavour id="1" count="5" love_count="100" cd="1" desc="Basic Feeding">
+		<food type="BALAUR">
+			<result item="188051018" price="0" name="Minor Sunset Drakie Bundle" />
+			<result item="188051019" price="0" name="Lesser Sunset Drakie Bundle" />
+			<result item="188051020" price="0" name="Sunset Drakie Bundle" />
+			<result item="188051021" price="0" name="Greater Sunset Drakie Bundle" />
+			<result item="188051022" price="0" name="Major Sunset Drakie Bundle" />
+		</food>
+		<food type="POWDER" loved="true">
+			<result item="188051040" price="0" name="Lesser Sunset Drakie Gift" />
+		</food>
+		<food type="CRYSTAL" loved="true">
+			<result item="188051040" price="0" name="Lesser Sunset Drakie Gift" />
+			<result item="188051041" price="0" name="Sunset Drakie Gift" />
+			<result item="188051042" price="0" name="Greater Sunset Drakie Gift" />
+		</food>
+	</flavour>
+	<flavour id="2" count="10" cd="1" desc="Basic Feeding (unlimited cash)">
+		<food type="MISC2" />
+		<food type="CASH1" loved="true">
+			<result item="182006371" price="0" name="CashItemFeeding_Reward_101" />
+		</food>
+		<food type="CASH2" loved="true">
+			<result item="182006372" price="0" name="CashItemFeeding_Reward_102" />
+		</food>
+		<food type="CASH3" loved="true">
+			<result item="182006373" price="0" name="CashItemFeeding_Reward_103" />
+		</food>
+		<food type="CASH4" loved="true">
+			<result item="182006374" price="0" name="CashItemFeeding_Reward_104" />
+		</food>
+	</flavour>
+	<flavour id="3" count="10" love_count="5" cd="1" desc="Basic, same as Cash No.1 ID (101)">
+		<food type="CASH1">
+			<result item="182006371" price="0" name="CashItemFeeding_Reward_101" />
+		</food>
+		<food type="CASH1" loved="true">
+			<result item="182006371" price="0" name="CashItemFeeding_Reward_101" />
+		</food>
+		<food type="CASH2" loved="true">
+			<result item="182006372" price="0" name="CashItemFeeding_Reward_102" />
+		</food>
+		<food type="CASH3" loved="true">
+			<result item="182006373" price="0" name="CashItemFeeding_Reward_103" />
+		</food>
+		<food type="CASH4" loved="true">
+			<result item="182006374" price="0" name="CashItemFeeding_Reward_104" />
+		</food>
+	</flavour>
+	<flavour id="4" count="10" love_count="5" cd="1" desc="All food ID identical (1)">
+		<food type="MISC1" />
+		<food type="MISC1" loved="true">
+			<result item="182006371" price="0" name="CashItemFeeding_Reward_101" />
+		</food>
+		<food type="MISC1" loved="true">
+			<result item="182006372" price="0" name="CashItemFeeding_Reward_102" />
+		</food>
+		<food type="MISC1" loved="true">
+			<result item="182006373" price="0" name="CashItemFeeding_Reward_103" />
+		</food>
+		<food type="MISC1" loved="true">
+			<result item="182006374" price="0" name="CashItemFeeding_Reward_104" />
+		</food>
+	</flavour>
+	<flavour id="5" count="20" love_count="10" cd="1" desc="1 Basic, 3 Cash Items (miscellaneous item count 100)">
+		<food type="MISC2" />
+		<food type="CASH1" loved="true">
+			<result item="182006371" price="0" name="CashItemFeeding_Reward_101" />
+		</food>
+		<food type="CASH2" loved="true">
+			<result item="182006372" price="0" name="CashItemFeeding_Reward_102" />
+		</food>
+		<food type="CASH3" loved="true">
+			<result item="182006373" price="0" name="CashItemFeeding_Reward_103" />
+		</food>
+	</flavour>
+	<flavour id="6" count="0" love_count="100" cd="0" desc="No Basic, 2 Cash Items">
+		<food type="CASH1" loved="true">
+			<result item="182006371" price="0" name="CashItemFeeding_Reward_101" />
+		</food>
+		<food type="CASH2" loved="true">
+			<result item="182006372" price="0" name="CashItemFeeding_Reward_102" />
+		</food>
+	</flavour>
+	<flavour id="7" count="100" cd="10" desc="Produces jewels">
+		<food type="FLUID">
+			<result item="188050758" price="0" name="Minor Button-Eye Mookie Bundle" />
+			<result item="188050759" price="7" name="Lesser Button-Eye Mookie Bundle" />
+			<result item="188050760" price="15" name="Button-Eye Mookie Bundle" />
+			<result item="188050761" price="27" name="Greater Button-Eye Mookie Bundle" />
+			<result item="188050762" price="41" name="Major Button-Eye Mookie Bundle" />
+		</food>
+	</flavour>
+	<flavour id="8" count="100" cd="10" desc="Produces ore">
+		<food type="ARMOR">
+			<result item="188050753" price="0" name="Minor Mellow Ksellid Bundle" />
+			<result item="188050754" price="7" name="Lesser Mellow Ksellid Bundle" />
+			<result item="188050755" price="16" name="Mellow Ksellid Bundle" />
+			<result item="188050756" price="28" name="Greater Mellow Ksellid Bundle" />
+			<result item="188050757" price="41" name="Major Mellow Ksellid Bundle" />
+		</food>
+	</flavour>
+	<flavour id="9" count="40" cd="10" desc="Produces dyes">
+		<food type="THORN">
+			<result item="188050988" price="0" name="Minor Rotund Ayas Bundle" />
+			<result item="188050989" price="25" name="Lesser Rotund Ayas Bundle" />
+			<result item="188050990" price="31" name="Rotund Ayas Bundle" />
+			<result item="188050991" price="37" name="Greater Rotund Ayas Bundle" />
+			<result item="188050992" price="59" name="Major Rotund Ayas Bundle" />
+		</food>
+	</flavour>
+	<flavour id="10" count="100" cd="10" desc="Produces something">
+		<food type="MISC">
+			<result item="188050993" price="0" name="Minor Hungry Porgus Bundle" />
+			<result item="188050994" price="2" name="Lesser Hungry Porgus Bundle" />
+			<result item="188050995" price="6" name="Hungry Porgus Bundle" />
+			<result item="188050996" price="23" name="Greater Hungry Porgus Bundle" />
+			<result item="188050997" price="41" name="Major Hungry Porgus Bundle" />
+		</food>
+	</flavour>
+	<flavour id="11" count="200" love_count="40" cd="10" desc="Produces enchantment stones and manastones.">
+		<food type="MISC">
+			<result item="188050763" price="0" name="Minor Pudgy Porgus Bundle" />
+			<result item="188050764" price="14" name="Lesser Pudgy Porgus Bundle" />
+			<result item="188050765" price="33" name="Pudgy Porgus Bundle" />
+			<result item="188050766" price="59" name="Greater Pudgy Porgus Bundle" />
+			<result item="188050767" price="123" name="Major Pudgy Porgus Bundle" />
+		</food>
+		<food type="POWDER" loved="true">
+			<result item="188050961" price="0" name="Lesser Pudgy Porgus Gift" />
+		</food>
+		<food type="CRYSTAL" loved="true">
+			<result item="188050961" price="0" name="Lesser Pudgy Porgus Gift" />
+			<result item="188050962" price="77" name="Pudgy Porgus Gift" />
+			<result item="188050963" price="108" name="Greater Pudgy Porgus Gift" />
+		</food>
+	</flavour>
+	<flavour id="12" count="200" love_count="40" cd="10" desc="Produces enchantment stones and manastones.">
+		<food type="BONE">
+			<result item="188051003" price="0" name="Minor Mean Poroco Bundle" />
+			<result item="188051004" price="14" name="Lesser Mean Poroco Bundle" />
+			<result item="188051005" price="33" name="Mean Poroco Bundle" />
+			<result item="188051006" price="59" name="Greater Mean Poroco Bundle" />
+			<result item="188051007" price="123" name="Major Mean Poroco Bundle" />
+		</food>
+		<food type="POWDER" loved="true">
+			<result item="188051028" price="0" name="Lesser Mean Poroco Gift" />
+		</food>
+		<food type="CRYSTAL" loved="true">
+			<result item="188051028" price="0" name="Lesser Mean Poroco Gift" />
+			<result item="188051029" price="77" name="Mean Poroco Gift" />
+			<result item="188051030" price="108" name="Greater Mean Poroco Gift" />
+		</food>
+	</flavour>
+	<flavour id="13" count="200" love_count="40" cd="10" desc="Produces enchantment stones and manastones.">
+		<food type="BONE">
+			<result item="188051008" price="0" name="Minor Headstrong Poroco Bundle" />
+			<result item="188051009" price="14" name="Lesser Headstrong Poroco Bundle" />
+			<result item="188051010" price="33" name="Headstrong Poroco Bundle" />
+			<result item="188051011" price="59" name="Greater Headstrong Poroco Bundle" />
+			<result item="188051012" price="123" name="Major Headstrong Poroco Bundle" />
+		</food>
+		<food type="POWDER" loved="true">
+			<result item="188051031" price="0" name="Lesser Headstrong Poroco Gift" />
+			<result item="188051032" price="77" name="Headstrong Poroco Gift" />
+			<result item="188051033" price="108" name="Greater Headstrong Poroco Gift" />
+		</food>
+		<food type="CRYSTAL" loved="true">
+			<result item="188051031" price="0" name="Lesser Headstrong Poroco Gift" />
+			<result item="188051032" price="77" name="Headstrong Poroco Gift" />
+			<result item="188051033" price="108" name="Greater Headstrong Poroco Gift" />
+		</food>
+	</flavour>
+	<flavour id="14" count="100" cd="10" desc="Produces Balaur material">
+		<food type="BALAUR">
+			<result item="188050953" price="0" name="Minor Azure Drakie Bundle" />
+			<result item="188050954" price="5" name="Lesser Azure Drakie Bundle" />
+			<result item="188050955" price="13" name="Azure Drakie Bundle" />
+			<result item="188050956" price="26" name="Greater Azure Drakie Bundle" />
+			<result item="188050957" price="41" name="Major Azure Drakie Bundle" />
+		</food>
+	</flavour>
+	<flavour id="15" count="200" love_count="10" cd="10" desc="Produces Aether">
+		<food type="SOUL">
+			<result item="188050967" price="0" name="Minor Tin Narky Bundle" />
+			<result item="188050968" price="9" name="Lesser Tin Narky Bundle" />
+			<result item="188050969" price="44" name="Tin Narky Bundle" />
+			<result item="188050970" price="71" name="Greater Tin Narky Bundle" />
+			<result item="188050971" price="123" name="Major Tin Narky Bundle" />
+		</food>
+		<food type="POWDER" loved="true">
+			<result item="188050958" price="0" name="Lesser Tin Narky Gift" />
+		</food>
+		<food type="CRYSTAL" loved="true">
+			<result item="188050958" price="0" name="Lesser Tin Narky Gift" />
+			<result item="188050959" price="97" name="Tin Narky Gift" />
+			<result item="188050960" price="129" name="Greater Tin Narky Gift" />
+		</food>
+		<food type="GEM" loved="true">
+			<result item="188050960" price="0" name="Greater Tin Narky Gift" />
+		</food>
+	</flavour>
+	<flavour id="16" count="50" love_count="10" cd="10" desc="Produces Aether">
+		<food type="SOUL">
+			<result item="188050972" price="0" name="Minor Pink Griffo Bundle" />
+			<result item="188050973" price="2" name="Lesser Pink Griffo Bundle" />
+			<result item="188050974" price="28" name="Pink Griffo Bundle" />
+			<result item="188050975" price="44" name="Greater Pink Griffo Bundle" />
+			<result item="188050976" price="77" name="Major Pink Griffo Bundle" />
+		</food>
+		<food type="POWDER" loved="true">
+			<result item="188051043" price="0" name="Lesser Pink Griffo Gift" />
+		</food>
+		<food type="CRYSTAL" loved="true">
+			<result item="188051043" price="0" name="Lesser Pink Griffo Gift" />
+			<result item="188051044" price="31" name="Pink Griffo Gift" />
+			<result item="188051045" price="58" name="Greater Pink Griffo Gift" />
+		</food>
+	</flavour>
+	<flavour id="17" count="100" love_count="10" cd="10" desc="Produces Balaur material">
+		<food type="BALAUR">
+			<result item="188051013" price="0" name="Minor Golden Drakie Bundle" />
+			<result item="188051014" price="5" name="Lesser Golden Drakie Bundle" />
+			<result item="188051015" price="13" name="Golden Drakie Bundle" />
+			<result item="188051016" price="26" name="Greater Golden Drakie Bundle" />
+			<result item="188051017" price="41" name="Major Golden Drakie Bundle" />
+		</food>
+		<food type="POWDER" loved="true">
+			<result item="188051037" price="0" name="Lesser Golden Drakie Gift" />
+		</food>
+		<food type="CRYSTAL" loved="true">
+			<result item="188051037" price="0" name="Lesser Golden Drakie Gift" />
+			<result item="188051038" price="22" name="Golden Drakie Gift" />
+			<result item="188051039" price="52" name="Greater Golden Drakie Gift" />
+		</food>
+	</flavour>
+	<flavour id="18" count="100" love_count="10" cd="10" desc="Produces enchantment stones and manastones.">
+		<food type="SOUL">
+			<result item="188050977" price="0" name="Minor Teasing Jefi Bundle" />
+			<result item="188050978" price="5" name="Lesser Teasing Jefi Bundle" />
+			<result item="188050979" price="9" name="Teasing Jefi Bundle" />
+			<result item="188050980" price="15" name="Greater Teasing Jefi Bundle" />
+			<result item="188050981" price="41" name="Major Teasing Jefi Bundle" />
+		</food>
+		<food type="POWDER" loved="true">
+			<result item="188051034" price="0" name="Lesser Teasing Jefi Gift" />
+		</food>
+		<food type="CRYSTAL" loved="true">
+			<result item="188051034" price="0" name="Lesser Teasing Jefi Gift" />
+			<result item="188051035" price="22" name="Teasing Jefi Gift" />
+			<result item="188051036" price="52" name="Greater Teasing Jefi Gift" />
+		</food>
+	</flavour>
+	<flavour id="19" count="50" love_count="10" cd="10" desc="Produces Aether">
+		<food type="SOUL">
+			<result item="188051023" price="0" name="Minor Aqua Griffo Bundle" />
+			<result item="188051024" price="2" name="Lesser Aqua Griffo Bundle" />
+			<result item="188051025" price="28" name="Aqua Griffo Bundle" />
+			<result item="188051026" price="44" name="Greater Aqua Griffo Bundle" />
+			<result item="188051027" price="77" name="Major Aqua Griffo Bundle" />
+		</food>
+		<food type="POWDER" loved="true">
+			<result item="188051046" price="0" name="Lesser Aqua Griffo Gift" />
+		</food>
+		<food type="CRYSTAL" loved="true">
+			<result item="188051046" price="0" name="Lesser Aqua Griffo Gift" />
+			<result item="188051047" price="31" name="Aqua Griffo Gift" />
+			<result item="188051048" price="58" name="Greater Aqua Griffo Gift" />
+		</food>
+	</flavour>
+	<flavour id="20" count="100" love_count="10" cd="10" desc="Produces Balaur material">
+		<food type="BALAUR">
+			<result item="188051018" price="0" name="Minor Sunset Drakie Bundle" />
+			<result item="188051019" price="5" name="Lesser Sunset Drakie Bundle" />
+			<result item="188051020" price="13" name="Sunset Drakie Bundle" />
+			<result item="188051021" price="26" name="Greater Sunset Drakie Bundle" />
+			<result item="188051022" price="41" name="Major Sunset Drakie Bundle" />
+		</food>
+		<food type="POWDER" loved="true">
+			<result item="188051040" price="0" name="Lesser Sunset Drakie Gift" />
+		</food>
+		<food type="CRYSTAL" loved="true">
+			<result item="188051040" price="0" name="Lesser Sunset Drakie Gift" />
+			<result item="188051041" price="22" name="Sunset Drakie Gift" />
+			<result item="188051042" price="52" name="Greater Sunset Drakie Gift" />
+		</food>
+	</flavour>
+	<flavour id="21" count="200" love_count="10" cd="10" desc="Produces enchantment stones and manastones.">
+		<food type="BONE">
+			<result item="188051063" price="0" name="Minor Spurred Crestlich Bundle" />
+			<result item="188051064" price="14" name="Lesser Spurred Crestlich Bundle" />
+			<result item="188051065" price="33" name="Spurred Crestlich Bundle" />
+			<result item="188051066" price="59" name="Greater Spurred Crestlich Bundle" />
+			<result item="188051067" price="123" name="Major Spurred Crestlich Bundle" />
+		</food>
+		<food type="POWDER" loved="true">
+			<result item="188051054" price="0" name="Lesser Spurred Crestlich Gift" />
+		</food>
+		<food type="CRYSTAL" loved="true">
+			<result item="188051054" price="0" name="Lesser Spurred Crestlich Gift" />
+			<result item="188051055" price="97" name="Spurred Crestlich Gift" />
+			<result item="188051056" price="129" name="Greater Spurred Crestlich Gift" />
+		</food>
+	</flavour>
+	<flavour id="22" count="100" love_count="10" cd="10" desc="Produces Balaur material">
+		<food type="BALAUR">
+			<result item="188051068" price="0" name="Minor Pointytail Acarun Bundle" />
+			<result item="188051069" price="5" name="Lesser Pointytail Acarun Bundle" />
+			<result item="188051070" price="13" name="Pointytail Acarun Bundle" />
+			<result item="188051071" price="26" name="Greater Pointytail Acarun Bundle" />
+			<result item="188051072" price="41" name="Major Pointytail Acarun Bundle" />
+		</food>
+		<food type="POWDER" loved="true">
+			<result item="190020060" price="0" name="Pointytail Acarun Egg" />
+		</food>
+		<food type="CRYSTAL" loved="true">
+			<result item="188051057" price="0" name="Lesser Pointytail Acarun Gift" />
+			<result item="188051058" price="22" name="Pointytail Acarun Gift" />
+			<result item="188051059" price="52" name="Greater Pointytail Acarun Gift" />
+		</food>
+	</flavour>
+	<flavour id="23" count="50" love_count="10" cd="10" desc="Produces Aether">
+		<food type="SOUL">
+			<result item="188051073" price="0" name="Minor Golden Radama Bundle" />
+			<result item="188051074" price="2" name="Lesser Golden Radama Bundle" />
+			<result item="188051075" price="28" name="Golden Radama Bundle" />
+			<result item="188051076" price="44" name="Greater Golden Radama Bundle" />
+			<result item="188051077" price="77" name="Major Golden Radama Bundle" />
+		</food>
+		<food type="POWDER" loved="true">
+			<result item="188051060" price="0" name="Lesser Golden Radama Gift" />
+		</food>
+		<food type="CRYSTAL" loved="true">
+			<result item="188051060" price="0" name="Lesser Golden Radama Gift" />
+			<result item="188051061" price="31" name="Golden Radama Gift" />
+			<result item="188051062" price="58" name="Greater Golden Radama Gift" />
+		</food>
+	</flavour>
+	<flavour id="24" count="200" love_count="40" cd="10" desc="Produces enchantment stones and manastones.">
+		<food type="MISC">
+			<result item="188051080" price="0" name="Minor Hungry Porgus Bundle" />
+			<result item="188051081" price="14" name="Lesser Hungry Porgus Bundle" />
+			<result item="188051082" price="33" name="Hungry Porgus Bundle" />
+			<result item="188051083" price="59" name="Greater Hungry Porgus Bundle" />
+			<result item="188051084" price="123" name="Major Hungry Porgus Bundle" />
+		</food>
+		<food type="POWDER" loved="true">
+			<result item="188051078" price="0" name="Lesser Hungry Porgus Gift" />
+		</food>
+		<food type="CRYSTAL" loved="true">
+			<result item="188051078" price="0" name="Lesser Hungry Porgus Gift" />
+			<result item="188051079" price="96" name="Hungry Porgus Gift" />
+		</food>
+	</flavour>
+	<flavour id="25" count="100" cd="10" desc="Produces something">
+		<food type="MISC">
+			<result item="188051085" price="0" name="Minor Pudgy Porgus Bundle" />
+			<result item="188051086" price="2" name="Lesser Pudgy Porgus Bundle" />
+			<result item="188051087" price="6" name="Pudgy Porgus Bundle" />
+			<result item="188051088" price="23" name="Greater Pudgy Porgus Bundle" />
+			<result item="188051089" price="41" name="Major Pudgy Porgus Bundle" />
+		</food>
+	</flavour>
+	<flavour id="26" count="100" cd="10" desc="Produces gatherable items.">
+		<food type="HEALTHY1">
+			<result item="188051228" price="0" name="Minor Headstrong Poroco Bundle" />
+			<result item="188051229" price="7" name="Lesser Headstrong Poroco Bundle" />
+			<result item="188051230" price="14" name="Headstrong Poroco Bundle" />
+			<result item="188051231" price="22" name="Greater Headstrong Poroco Bundle" />
+			<result item="188051232" price="33" name="Major Headstrong Poroco Bundle" />
+			<result item="188051233" price="46" name="Premium Headstrong Poroco Bundle" />
+		</food>
+	</flavour>
+	<flavour id="27" count="100" cd="10" desc="Produces gatherable items.">
+		<food type="HEALTHY1">
+			<result item="188051240" price="0" name="Minor Headstrong Poroco Bundle" />
+			<result item="188051241" price="7" name="Lesser Headstrong Poroco Bundle" />
+			<result item="188051242" price="14" name="Headstrong Poroco Bundle" />
+			<result item="188051243" price="22" name="Greater Headstrong Poroco Bundle" />
+			<result item="188051244" price="33" name="Major Headstrong Poroco Bundle" />
+			<result item="188051245" price="46" name="Premium Headstrong Poroco Bundle" />
+		</food>
+	</flavour>
+	<flavour id="28" count="100" cd="10" desc="Produces gatherable items.">
+		<food type="HEALTHY1">
+			<result item="188051234" price="0" name="Minor Azure Drakie Bundle" />
+			<result item="188051235" price="7" name="Lesser Azure Drakie Bundle" />
+			<result item="188051236" price="14" name="Azure Drakie Bundle" />
+			<result item="188051237" price="22" name="Greater Azure Drakie Bundle" />
+			<result item="188051238" price="33" name="Major Azure Drakie Bundle" />
+			<result item="188051239" price="46" name="Premium Azure Drakie Bundle" />
+			<result item="188051264" price="-1" name="[Event] Azure Drakie Egg Package" />
+		</food>
+	</flavour>
+	<flavour id="29" count="100" cd="10" desc="Produces gatherable items.">
+		<food type="HEALTHY1">
+			<result item="188051246" price="0" name="Minor Azure Drakie Bundle" />
+			<result item="188051247" price="7" name="Lesser Azure Drakie Bundle" />
+			<result item="188051248" price="14" name="Azure Drakie Bundle" />
+			<result item="188051249" price="22" name="Greater Azure Drakie Bundle" />
+			<result item="188051250" price="33" name="Major Azure Drakie Bundle" />
+			<result item="188051251" price="46" name="Premium Azure Drakie Bundle" />
+			<result item="188051265" price="-1" name="[Event] Azure Drakie Egg Package" />
+		</food>
+	</flavour>
+	<flavour id="30" count="50" love_count="10" cd="10" desc="Produces Aether">
+		<food type="SOUL">
+			<result item="188051355" price="0" name="STR_WRAP_OD05_01C" />
+			<result item="188051356" price="2" name="STR_WRAP_OD05_02C" />
+			<result item="188051357" price="28" name="STR_WRAP_OD05_03C" />
+			<result item="188051358" price="44" name="STR_WRAP_OD05_04C" />
+			<result item="188051359" price="77" name="STR_WRAP_OD05_05C" />
+		</food>
+		<food type="POWDER" loved="true">
+			<result item="188051353" price="0" name="STR_WRAP_LOVE_OD05_01A" />
+		</food>
+		<food type="CRYSTAL" loved="true">
+			<result item="188051354" price="0" name="STR_WRAP_LOVE_OD05_02A" />
+		</food>
+	</flavour>
+	<flavour id="31" count="50" cd="600" desc="STR_PROD_Secret_01_DESC">
+		<food type="HEALTHY2" />
+	</flavour>
+</pet_feed>

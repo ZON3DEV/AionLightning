@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+	<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 35500: TODO: Request of the Military Authorities 1  -->
+	<!-- 35501: TODO: Request of the Military Authorities 2  -->
+	<!-- 35502: [Daily] Asmodians on the Loose handled by script -->
+	<!-- 35503: [Weekly] Everything is Radiant handled by script -->
+	<!-- 35504: [Daily] Asmodian Extermination handled by script -->
+	<!-- 35505: [Spy/Daily] Operation: Gelkmaros handled by script -->
+	<!-- 35506: [Weekly] Asmodians Abated handled by script -->
+	<!-- 35507: [Spy/Weekly]Operation: Asmodae handled by script -->
+	<!-- 35508: [Daily] Zero Tolerance Policy handled by script -->
+	<!-- 35509: [Daily] Zero Tolerance or Less handled by script -->
+	<!-- 35602: TODO: Reward by Military Authorities 3  -->
+	<!-- 35603: TODO: Reward by Military Authorities 4  -->
+	<!-- 35604: TODO: Radiant Ops Reward 1  -->
+	<!-- 35605: TODO: Radiant Ops Reward 2  -->
+	<!-- 35606: TODO: Radiant Ops Reward 3  -->
+	<!-- 35607: TODO: Radiant Ops Reward 4  -->
+	<!-- 35608: TODO: Radiant Ops Reward 5  -->
+	<!-- 35609: TODO: Radiant Ops Reward 6  -->
+	<!-- 35610: TODO: Radiant Ops Reward 7  -->
+	<!-- 35611: TODO: Radiant Ops Reward 8  -->
+	<!-- 38001: Radiant Ops Recruitment handled by script -->
+	<!-- 38004: TODO: Radiant Ops Recruitment (lvl 40) -->
+	<report_to id="38004" start_npc_id="203726" end_npc_id="799828"/>
+</quest_scripts>

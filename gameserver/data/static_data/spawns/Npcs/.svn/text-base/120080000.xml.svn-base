@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- Priory of Marchutan - by sylar from EU servers with PacketSamurai -->
+<spawns>
+	<spawn interval="295" map="120080000" npcid="205447" pool="1">
+      <object h="30" x="485.5641" y="186.41078" z="93.42"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="205452" pool="1">
+      <object h="0" x="468.34924" y="202.73775" z="93.42999"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="205448" pool="1">
+      <object h="60" x="502.3558" y="202.73799" z="93.42999"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="730427" pool="1">
+      <object h="0" x="542.4336" y="200.7023" z="93.479576" staticid="328"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="730428" pool="1">
+      <object h="0" x="549.38824" y="213.39088" z="93.64215" staticid="1601"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="205323" pool="1">
+      <object h="90" x="547.85" y="241.9433" z="93.520004"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="205329" pool="1">
+      <object h="53" x="572.97516" y="233.97229" z="93.49908"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="205321" pool="1">
+      <object h="90" x="550.001" y="241.93608" z="93.520004"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="799634" pool="2">
+      <object h="60" x="577.12823" y="236.64145" z="93.50441"/>
+      <object h="60" x="577.1358" y="258.21866" z="93.49354"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="799635" pool="2">
+      <object h="60" x="577.1289" y="241.79521" z="93.50441"/>
+      <object h="60" x="577.1365" y="263.37244" z="93.48666"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="205460" pool="1">
+      <object h="0" x="534.54126" y="267.2113" z="93.48001"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="205472" pool="1">
+      <object h="0" x="534.55164" y="272.33994" z="93.48001"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="205320" pool="1">
+      <object h="115" x="528.83246" y="269.6238" z="93.88659"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="205330" pool="1">
+      <object h="90" x="574.5567" y="265.35446" z="93.48075"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="205328" pool="1">
+      <object h="73" x="567.92645" y="267.61252" z="93.46935"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="730431" pool="1">
+      <object h="0" x="578.1455" y="260.47403" z="93.491806" staticid="1"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="205491" pool="1">
+      <object h="60" x="503.5805" y="300.69928" z="93.439995"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="205490" pool="1">
+      <object h="60" x="503.5787" y="296.47397" z="93.439995"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="205327" pool="1">
+      <object h="0" x="469.6125" y="300.6918" z="93.439995"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="205326" pool="1">
+      <object h="0" x="469.55563" y="296.4665" z="93.439995"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="205325" pool="1">
+      <object h="90" x="484.30423" y="314.58536" z="93.45"/>
+   </spawn>
+   <spawn interval="295" map="120080000" npcid="205324" pool="1">
+      <object h="90" x="488.55423" y="314.57367" z="93.45"/>
+   </spawn>
+</spawns>

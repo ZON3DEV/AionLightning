@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/quest_data
+END
+quest_data.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/quest_data/quest_data.xsd
+END
+quest_data.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/quest_data/quest_data.xml
+END

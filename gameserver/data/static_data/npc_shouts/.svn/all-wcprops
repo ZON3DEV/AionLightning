@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/npc_shouts
+END
+npc_shouts.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/npc_shouts/npc_shouts.xsd
+END
+npc_shouts.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/npc_shouts/npc_shouts.xml
+END

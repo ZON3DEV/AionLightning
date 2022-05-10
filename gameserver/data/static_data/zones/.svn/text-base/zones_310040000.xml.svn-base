@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zones.xsd">
+	<zone mapid="310040000" name="GERANAIA_310040000" priority="16">
+		<points>
+			<point x="140.229996" y="329.670013" />
+			<point x="208.970886" y="87.483566" />
+			<point x="361.932861" y="131.237961" />
+			<point x="289.448944" y="371.806335" />
+		</points>
+	</zone>
+</zones>

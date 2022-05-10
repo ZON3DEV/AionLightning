@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/log4j/appenders
+END
+TruncateToZipFileAppender.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/log4j/appenders/TruncateToZipFileAppender.java
+END

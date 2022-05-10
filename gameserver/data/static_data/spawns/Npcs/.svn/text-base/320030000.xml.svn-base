@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Bregirun
+
+ -->
+<spawns>
+	<!-- abyss gate guardian stone (Object Normal lvl:1)-->
+	<spawn map="320030000" npcid="700142" pool="1" interval="295">
+		<object staticid="75" x="261.35947" y="229.51807" z="213.92033" h="93" w="0" rw="0"/>
+	</spawn>
+	<!-- Fissure of Destiny (Object Normal lvl:1)-->
+	<spawn map="320030000" npcid="700141" pool="1" interval="295">
+		<object x="250.8047" y="273.29163" z="230.087" h="92" w="0" rw="0"/>
+	</spawn>
+	<!-- abyss gate (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="320030000" npcid="700089" pool="1" interval="295">
+		<object staticid="17" x="276.86542" y="159.01343" z="205.38808" h="34" w="0" rw="0"/>
+	</spawn>
+</spawns>

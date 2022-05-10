@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/4/trunk/loginserver/config/network
+END
+database.properties
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/4/trunk/loginserver/config/network/database.properties
+END
+floodcontroller.properties
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/4/trunk/loginserver/config/network/floodcontroller.properties
+END
+network.properties
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/4/trunk/loginserver/config/network/network.properties
+END

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/summon
+END
+waterspirit-template.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/summon/waterspirit-template.xml
+END
+tempestspirit-templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/summon/tempestspirit-templates.xml
+END
+windspirit-templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/summon/windspirit-templates.xml
+END
+magmaspirit-templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/summon/magmaspirit-templates.xml
+END
+earthspirit-templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/summon/earthspirit-templates.xml
+END
+firespirit-templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/summon/firespirit-templates.xml
+END

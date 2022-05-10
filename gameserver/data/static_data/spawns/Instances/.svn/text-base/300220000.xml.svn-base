@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique. If not, see <http://www.gnu.org/licenses/>.
+
+	Core
+
+-->
+<spawns>
+	<!-- Cobweb -->
+	<spawn map="300220000" npcid="281910" pool="12" interval="295">
+		<object x="650.11395" y="519.7868" z="422.67798" h="19"/>
+		<object x="637.77936" y="522.234" z="422.61176" h="89"/>
+		<object x="612.1407" y="533.82306" z="423.07425" h="60"/>
+		<object x="609.2613" y="531.1403" z="422.9341" h="31"/>
+		<object x="637.07245" y="520.30865" z="422.5075" h="5"/>
+		<object x="664.6255" y="560.1547" z="424.87347" h="117"/>
+		<object x="666.815" y="549.7649" z="423.89587" h="14"/>
+		<object x="669.7002" y="550.11615" z="424.05295" h="40"/>
+		<object x="649.3027" y="522.9582" z="422.83014" h="75"/>
+		<object x="636.3729" y="521.9484" z="422.582" h="101"/>
+		<object x="652.2795" y="523.01276" z="422.89505" h="86"/>
+		<object x="666.67523" y="546.2683" z="423.79404" h="5"/>
+	</spawn>
+	<!-- Yamennes Painflare (Monster Legendary lvl:57) -->
+	<spawn map="300220000" npcid="216960" pool="1" interval="295">
+		<object x="329.8374" y="733.58954" z="197.61626" h="75"/>
+	</spawn>
+	<!-- Teleportation Device -->
+	<spawn map="300220000" npcid="281905" pool="3" interval="295">
+		<object x="302.2014" y="735.15954" z="197.66826" h="17"/>
+		<object x="334.0014" y="707.73554" z="197.77924" h="32"/>
+		<object x="362.1924" y="741.59154" z="197.30126" h="67"/>
+	</spawn>
+	<!-- Pazuzu The Life Current -->
+	<spawn map="300220000" npcid="216951" pool="1" interval="295">
+		<object x="669.1624" y="334.75854" z="465.89826" h="74"/>
+	</spawn>
+	<!-- Airo Horn -->
+	<spawn map="300220000" npcid="281909" pool="5" interval="295">
+		<object x="651.3524" y="326.42554" z="465.52426" h="8"/>
+		<object x="666.6054" y="314.49654" z="465.39426" h="27"/>
+		<object x="685.5894" y="342.95554" z="465.90926" h="68"/>
+		<object x="651.3224" y="346.55454" z="465.56426" h="111"/>
+		<object x="666.0074" y="351.08354" z="466.06426" h="91"/>
+	</spawn>
+	<!-- The Schizophrenic -->
+	<spawn map="300220000" npcid="282010" pool="1" interval="295">
+		<object x="446.8844" y="696.27154" z="433.29326" h="114"/>
+	</spawn>
+	<!-- Rukril -->
+	<spawn map="300220000" npcid="216948" pool="1" interval="295">
+		<object x="415.3307" y="664.8312" z="437.47046" h="10"/>
+	</spawn>
+	<!-- Ebonsoul -->
+	<spawn map="300220000" npcid="216949" pool="1" interval="295">
+		<object x="447.03836" y="735.5611" z="437.49078" h="94"/>
+	</spawn>
+	<!-- Kaluva The Fourth Fragment -->
+	<spawn map="300220000" npcid="216950" pool="1" interval="295">
+		<object x="629.9674" y="549.25454" z="423.00526" h="27"/>
+	</spawn>
+	<!-- Kaluva's Spawner -->
+	<spawn map="300220000" npcid="281902" pool="4" interval="295">
+		<object x="663.3224" y="556.73154" z="424.29526" h="64"/>
+		<object x="643.7084" y="524.02554" z="423.08326" h="27"/>
+		<object x="611.1394" y="539.66154" z="423.42926" h="21"/>
+		<object x="628.3244" y="585.42454" z="424.35326" h="97"/>
+	</spawn>
+	<!-- Kaluva's Fragment -->
+	<spawn map="300220000" npcid="281911" pool="8" interval="295">
+		<object x="688.1324" y="497.75754" z="458.97826" h="94"/>
+		<object x="701.4964" y="496.07754" z="458.33226" h="82"/>
+		<object x="710.8384" y="527.87254" z="458.05526" h="80"/>
+		<object x="747.4584" y="564.47254" z="462.87326" h="75"/>
+		<object x="741.2964" y="578.98154" z="462.77326" h="88"/>
+		<object x="769.5264" y="613.36554" z="460.35226" h="79"/>
+		<object x="799.1124" y="615.44154" z="454.44126" h="62"/>
+		<object x="769.3574" y="649.81454" z="448.86626" h="3"/>
+		<object x="709.7774" y="621.96454" z="430.95626" h="23"/>
+	</spawn>
+	<!-- Enos Watcher -->
+	<spawn map="300220000" npcid="216945" pool="4" interval="295">
+		<object x="642.6394" y="152.13954" z="449.39826" h="11"/>
+		<object x="577.4354" y="636.90954" z="419.11826" h="75"/>
+		<object x="559.6954" y="653.43954" z="424.04926" h="99"/>
+		<object x="520.7534" y="666.50754" z="428.08226" h="0"/>
+	</spawn>
+	<!-- Summoned Orkanimum -->
+	<spawn map="300220000" npcid="281903" pool="3" interval="295">
+		<object x="644.7134" y="233.20554" z="461.17826" h="95"/>
+		<object x="644.7084" y="267.34454" z="462.16326" h="90"/>
+		<object x="646.6524" y="304.34454" z="465.58326" h="89"/>
+	</spawn>
+	<!-- Ametgolem Of Guarding -->
+	<spawn map="300220000" npcid="281892" pool="6" interval="295">
+		<object x="647.1854" y="236.85734" z="461.72426" h="95"/>
+		<object x="641.2854" y="235.28454" z="461.53726" h="99"/>
+		<object x="647.1854" y="270.85734" z="462.72426" h="95"/>
+		<object x="641.2854" y="269.28454" z="462.53726" h="99"/>
+		<object x="651.0494" y="305.85734" z="465.44926" h="91"/>
+		<object x="641.2854" y="305.28454" z="465.54826" h="95"/>
+	</spawn>
+	<!-- Flash Lapilimo -->
+	<spawn map="300220000" npcid="281896" pool="6" interval="295">
+		<object x="647.937" y="274.00458" z="463.12534" h="90"/>
+		<object x="641.13403" y="273.84622" z="462.91913" h="90"/>
+		<object x="639.24896" y="260.70154" z="462.9951" h="89"/>
+		<object x="648.4952" y="260.55856" z="462.65775" h="89"/>
+		<object x="648.3106" y="243.35744" z="462.52332" h="89"/>
+		<object x="637.6911" y="243.3615" z="462.65463" h="89"/>
+		<object x="651.2358" y="229.56256" z="460.47168" h="94"/>
+		<object x="639.3611" y="226.10623" z="460.0844" h="95"/>
+		<object x="655.84357" y="215.96892" z="456.33585" h="95"/>
+		<object x="642.8076" y="212.1548" z="456.32346" h="95"/>
+		<object x="646.53394" y="222.82903" z="458.71304" h="95"/>
+		<object x="643.4687" y="236.06061" z="461.61197" h="93"/>
+		<object x="643.83417" y="253.13423" z="462.5723" h="90"/>
+		<object x="651.5199" y="207.28261" z="453.54465" h="96"/>
+		<object x="662.88086" y="199.64124" z="452.02652" h="97"/>
+		<object x="648.42633" y="193.75491" z="450.95956" h="97"/>
+		<object x="657.7973" y="191.0915" z="449.96646" h="97"/>
+	</spawn>
+	<!-- Summoned Lapilima (Monster Elite lvl:55) -->
+	<spawn map="300220000" npcid="281904" pool="12" interval="295">
+		<object x="697.4344" y="374.4793" z="465.44122" h="78"/>
+		<object x="705.00397" y="369.19617" z="465.61026" h="78"/>
+		<object x="702.3247" y="390.73862" z="463.74753" h="81"/>
+		<object x="712.2759" y="388.26105" z="463.96878" h="81"/>
+		<object x="714.93774" y="407.07605" z="462.82184" h="72"/>
+		<object x="700.3644" y="404.6228" z="462.91583" h="92"/>
+		<object x="700.7114" y="418.56772" z="462.6062" h="94"/>
+		<object x="712.8099" y="420.37878" z="462.2932" h="94"/>
+		<object x="698.80945" y="437.79828" z="461.624" h="87"/>
+		<object x="685.8948" y="434.0239" z="461.3744" h="0"/>
+		<object x="687.3501" y="449.72388" z="461.04755" h="95"/>
+		<object x="687.41266" y="467.62103" z="460.77316" h="86"/>
+	</spawn>
+	<!-- Kaluva's Debris -->
+	<spawn map="300220000" npcid="281912" pool="19" interval="295">
+		<object x="700.4736" y="483.9612" z="458.98682" h="79"/>
+		<object x="685.18286" y="485.54178" z="459.21677" h="97"/>
+		<object x="692.74646" y="486.68198" z="458.92432" h="88"/>
+		<object x="705.3581" y="500.7182" z="458.3153" h="86"/>
+		<object x="695.3422" y="503.14297" z="458.76703" h="86"/>
+		<object x="683.30884" y="505.50198" z="458.74338" h="91"/>
+		<object x="710.8237" y="518.92395" z="458.37003" h="81"/>
+		<object x="702.11884" y="523.08484" z="458.25232" h="81"/>
+		<object x="713.65283" y="537.3321" z="457.9806" h="78"/>
+		<object x="722.4983" y="536.004" z="458.52826" h="78"/>
+		<object x="722.7285" y="549.96356" z="459.65347" h="78"/>
+		<object x="730.59265" y="547.1522" z="460.35504" h="78"/>
+		<object x="732.1247" y="562.0297" z="461.3716" h="88"/>
+		<object x="740.94507" y="555.60675" z="462.34396" h="70"/>
+		<object x="750.53674" y="561.81384" z="463.35938" h="66"/>
+		<object x="737.0439" y="579.5932" z="462.46164" h="85"/>
+		<object x="755.7043" y="581.0233" z="463.7382" h="67"/>
+		<object x="748.2046" y="594.3459" z="463.85632" h="81"/>
+		<object x="746.5589" y="572.7669" z="463.22717" h="77"/>
+	</spawn>
+	<!--Orkanium Saint -->
+	<spawn map="300220000" npcid="216953" pool="9" interval="295">
+		<object x="329.71844" y="733.9685" z="197.61108" h="78"/>
+		<object x="338.22485" y="721.11743" z="207.17194" h="65"/>
+		<object x="321.0524" y="734.0773" z="216.21288" h="82"/>
+		<object x="318.39102" y="740.6905" z="204.59247" h="88"/>
+		<object x="341.56824" y="731.2265" z="200.19025" h="79"/>
+		<object x="329.62012" y="734.0506" z="197.61235" h="85"/>
+		<object x="301.99747" y="737.5674" z="197.3696" h="105"/>
+		<object x="335.23776" y="708.2665" z="197.69571" h="53"/>
+		<object x="361.69028" y="742.0715" z="197.3011" h="75"/>
+	</spawn>
+	<!-- Treasure Chest Of The Abyss (Object Elite lvl:55) -->
+	<spawn map="300220000" npcid="700938" pool="4" interval="295">
+		<object x="299.5083" y="752.3099" z="197.20097" h="106"/>
+		<object x="309.6192" y="756.0291" z="196.94452" h="91"/>
+		<object x="365.02994" y="762.29614" z="196.70311" h="81"/>
+		<object x="354.55988" y="760.03406" z="196.92087" h="104"/>
+	</spawn>
+	<!-- Treasure Chest Of The Abyss (Object Elite lvl:54) -->
+	<spawn map="300220000" npcid="700937" pool="7" interval="295">
+		<object x="346.04517" y="761.1827" z="196.70311" h="82"/>
+		<object x="633.35016" y="513.7573" z="422.40683" h="43"/>
+		<object x="658.2539" y="509.18182" z="422.42725" h="43"/>
+		<object x="664.0767" y="510.72092" z="422.3097" h="39"/>
+		<object x="608.70044" y="519.9019" z="422.3001" h="18"/>
+		<object x="686.37585" y="308.76318" z="465.49387" h="37"/>
+		<object x="673.3332" y="360.4438" z="466.7869" h="88"/>
+	</spawn>
+	<!-- Treasure Chest Of The Abyss (Object Elite lvl:51) -->
+	<spawn map="300220000" npcid="700934" pool="4" interval="295">
+		<object x="627.86597" y="513.37787" z="422.47647" h="29"/>
+		<object x="654.346" y="511.5662" z="422.4489" h="21"/>
+		<object x="667.801" y="360.7182" z="466.45486" h="98"/>
+		<object x="687.6208" y="314.90414" z="465.58585" h="78"/>
+	</spawn>
+	<!-- Exit Abyssal Splinter -->
+	<spawn map="300220000" npcid="730317" pool="2" interval="295">
+		<object x="328.476" y="762.585" z="197.479" h="90"/>
+		<object x="719.756" y="161.833" z="449.343" h="40"/>
+	</spawn>
+</spawns>

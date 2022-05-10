@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 30007: TODO: Drakan Document (lvl 52) -->
+	<!-- [Group] Legendary Jotun -->
+	<item_collecting id="30008" start_npc_id="799029" action_item_id="700566"/>
+	<!-- [Group] Pieces of You -->
+	<item_collecting id="30009" start_npc_id="799029"/>
+	<!-- 30011: TODO: [Group] Arachnophobia (lvl 52) -->
+	<!-- [Group] Axe Another Favor -->
+	<report_to id="30013" start_npc_id="799032" end_npc_id="799030"/>
+	<!-- [Group] A Reian in the Sun -->
+	<item_collecting id="30014" start_npc_id="799030"/>
+	<!-- [Coin/Group] A New Spin on Death -->
+	<monster_hunt id="30033" start_npc_id="799031">
+		<monster_infos var_id="0" max_kill="10" npc_id="215848"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="215849"/>
+	</monster_hunt>
+	<!-- 30107: TODO: Deciphering Drakan (lvl 52) -->
+	<!-- [Group] Heart of the Matter -->
+	<item_collecting id="30108" start_npc_id="799333" action_item_id="700566"/>
+	<!-- [Group] Pieces of the Past -->
+	<item_collecting id="30109" start_npc_id="799333"/>
+	<!-- 30111: TODO: [Group] Center of the Web (lvl 52) -->
+	<!-- [Group] Fan Flames of Vengeance -->
+	<monster_hunt id="30113" start_npc_id="799337">
+		<monster_infos var_id="0" max_kill="1" npc_id="215786"/>
+		<monster_infos var_id="0" max_kill="1" npc_id="215784"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="215820"/>
+	</monster_hunt>
+	<!-- [Group] Revenge's Last Link -->
+	<monster_hunt id="30114" start_npc_id="799337">
+		<monster_infos var_id="0" max_kill="1" npc_id="216156"/>
+	</monster_hunt>
+	<!-- [Coin/Group] Chakra Choking -->
+	<monster_hunt id="30133" start_npc_id="799335">
+		<monster_infos var_id="0" max_kill="10" npc_id="215848"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="215849"/>
+	</monster_hunt>
+</quest_scripts>

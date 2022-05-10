@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 18603: TODO: Kromede's Mission (lvl 99) -->
+	<!-- Meeting with Rotan (lvl 37) handled by script -->
+	<!-- Kaliga's Collection -->
+	<item_collecting id="18618" start_npc_id="730326"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="18619" start_npc_id="730327"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="18620" start_npc_id="730328"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="18621" start_npc_id="730329"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="18622" start_npc_id="730330"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="18623" start_npc_id="730331"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="18624" start_npc_id="730332"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="18625" start_npc_id="730333"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="18626" start_npc_id="730334"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="18627" start_npc_id="730335"/>
+	<!-- 28603: TODO: Kromede's Burden (lvl 99) -->
+	<!-- Recovering Rotan (lvl 37) handled by script -->
+	<!-- Kaliga's Collection -->
+	<item_collecting id="28618" start_npc_id="730326"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="28619" start_npc_id="730327"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="28620" start_npc_id="730328"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="28621" start_npc_id="730329"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="28622" start_npc_id="730330"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="28623" start_npc_id="730331"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="28624" start_npc_id="730332"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="28625" start_npc_id="730333"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="28626" start_npc_id="730334"/>
+	<!-- Kaliga's Collection -->
+	<item_collecting id="28627" start_npc_id="730335"/>
+</quest_scripts>

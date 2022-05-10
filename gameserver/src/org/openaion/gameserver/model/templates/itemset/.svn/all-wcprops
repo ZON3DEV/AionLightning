@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/itemset
+END
+ItemPart.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/itemset/ItemPart.java
+END
+ItemSetTemplate.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/itemset/ItemSetTemplate.java
+END
+FullBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/itemset/FullBonus.java
+END
+PartBonus.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/templates/itemset/PartBonus.java
+END

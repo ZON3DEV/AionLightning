@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<shields xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="shields.xsd">
+	<shield name="TEMINON_SHIELD" race="ELYOS" x="3002.9207" y="903.2752" z="1520.0913" radius="313.5392" skill="8314" map="400010000"/>
+ 	<shield name="PRIMUM_SHIELD" race="ASMODIANS" x="893.7403" y="2953.727" z="1586.35" radius="357.0371" skill="8314" map="400010000"/>
+	<shield name="ARESHURAT" race="DRAKAN" x="2138.0034" y="1930.4711" z="2310.030" radius="600" skill="8314" map="400010000"/>
+	<shield name="SIELI_V" race="NONE" x="2607" y="2851" z="1529" radius="57" skill="8314" map="400010000" fortress_id="1132"/>
+	<shield name="SIELI_Z" race="NONE" x="2791" y="2609" z="1527" radius="57" skill="8314" map="400010000" fortress_id="1131"/>
+	<shield name="DIVINE" race="NONE" x="2137" y="1930" z="2335" radius="98" skill="8314" map="400010000" fortress_id="1011"/>
+	<shield name="SERNOE" race="NONE" x="1378" y="1186" z="1536" radius="57" skill="8314" map="400010000" fortress_id="1141"/>
+	<shield name="RU" race="NONE" x="2734" y="800" z="2893" radius="57" skill="8314" map="400010000" fortress_id="1211"/>
+	<shield name="KROTAN" race="NONE" x="2057" y="1274" z="2986" radius="57" skill="8314" map="400010000" fortress_id="1221"/>
+	<shield name="TKISAS" race="NONE" x="2506" y="2108" z="3073" radius="57" skill="8314" map="400010000" fortress_id="1231"/>
+	<shield name="ASTERIA" race="NONE" x="720" y="2960" z="2920" radius="57" skill="8314" map="400010000" fortress_id="1251"/>
+</shields>

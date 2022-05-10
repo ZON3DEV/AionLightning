@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/4/trunk/gameserver/sql/drops
+END
+InggisonNamedDrops.sql
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/4/trunk/gameserver/sql/drops/InggisonNamedDrops.sql
+END
+Esoterrace.sql
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/4/trunk/gameserver/sql/drops/Esoterrace.sql
+END
+Fabled_Drops_Inggison_Gelkmaros_Core.sql
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/gameserver/sql/drops/Fabled_Drops_Inggison_Gelkmaros_Core.sql
+END
+F4Raid_Updated.sql
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/4/trunk/gameserver/sql/drops/F4Raid_Updated.sql
+END
+retail_droplist.sql
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/4/trunk/gameserver/sql/drops/retail_droplist.sql
+END
+GelkmarosNamedDrops.sql
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/4/trunk/gameserver/sql/drops/GelkmarosNamedDrops.sql
+END
+Ragnarok-Omega_By_Bagatini.sql
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/4/trunk/gameserver/sql/drops/Ragnarok-Omega_By_Bagatini.sql
+END
+BossesDrops.sql
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/4/trunk/gameserver/sql/drops/BossesDrops.sql
+END
+updae_notes.txt
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/4/trunk/gameserver/sql/drops/updae_notes.txt
+END
+Taloc_hollow_update.sql
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/4/trunk/gameserver/sql/drops/Taloc_hollow_update.sql
+END
+haramel.sql
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/4/trunk/gameserver/sql/drops/haramel.sql
+END

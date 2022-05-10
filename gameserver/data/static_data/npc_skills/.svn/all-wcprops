@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/npc_skills
+END
+npc_skills.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/npc_skills/npc_skills.xsd
+END
+npc_skills.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/npc_skills/npc_skills.xml
+END

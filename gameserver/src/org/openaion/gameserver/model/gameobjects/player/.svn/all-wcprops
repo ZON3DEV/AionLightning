@@ -1,0 +1,203 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player
+END
+PetFeedState.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/PetFeedState.java
+END
+BlockedPlayer.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/BlockedPlayer.java
+END
+ToyPet.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/ToyPet.java
+END
+PrivateStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/PrivateStore.java
+END
+Mailbox.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/Mailbox.java
+END
+Player.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/Player.java
+END
+MacroList.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/MacroList.java
+END
+Storage.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/Storage.java
+END
+Equipment.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/Equipment.java
+END
+PlayerSettings.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/PlayerSettings.java
+END
+TitleList.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/TitleList.java
+END
+ResponseRequesterEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/ResponseRequesterEntry.java
+END
+Title.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/Title.java
+END
+Prices.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/Prices.java
+END
+BlockList.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/BlockList.java
+END
+SkillListEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/SkillListEntry.java
+END
+DeniedStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/DeniedStatus.java
+END
+AbyssRank.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/AbyssRank.java
+END
+QuestStateList.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/QuestStateList.java
+END
+ResponseRequester.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/ResponseRequester.java
+END
+PlayerCommonData.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/PlayerCommonData.java
+END
+Repurchase.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/Repurchase.java
+END
+FriendList.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/FriendList.java
+END
+RecipeList.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/RecipeList.java
+END
+Guild.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/Guild.java
+END
+RequestResponseHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/RequestResponseHandler.java
+END
+EmotionList.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/EmotionList.java
+END
+StorageType.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/StorageType.java
+END
+Friend.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/Friend.java
+END
+PurchaseLimit.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/PurchaseLimit.java
+END
+Emotion.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/Emotion.java
+END
+SkillList.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/SkillList.java
+END
+PlayerAppearance.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/player/PlayerAppearance.java
+END

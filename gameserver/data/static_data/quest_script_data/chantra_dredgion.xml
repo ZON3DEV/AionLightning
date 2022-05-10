@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 3721: Handled By Script [Group] Disarm the Chantra Dredgion -->
+	<!-- 3722: Handled By Script [Group] My New Toy -->
+	<!-- [Group] Obtain the Balaur Supplies -->
+	<item_collecting id="3723" start_npc_id="799069" action_item_id="700837"/>
+	<!-- [Group] Dredgion Blues -->
+	<item_collecting id="3724" start_npc_id="799069" end_npc_id="798928"/>
+	<!-- 3725: TODO: [Group] My Lucky Number (lvl 51) -->
+	<!-- 4721: Handled By Script [Group] Rise of Chantra Dredgion -->
+	<!-- 4722: Handled BY Script [Group] New Weapon Test -->
+	<!-- [Group] Seize the Balaur Supplies -->
+	<item_collecting id="4723" start_npc_id="799403" action_item_id="700837"/>
+	<!-- [Group] Balaur Agent Assassination -->
+	<item_collecting id="4724" start_npc_id="799403" end_npc_id="799226"/>
+	<!-- 4725: TODO: [Group] Ceaseless Attack (lvl 51) -->
+</quest_scripts>

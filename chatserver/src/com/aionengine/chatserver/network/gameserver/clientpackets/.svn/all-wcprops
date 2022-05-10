@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/gameserver/clientpackets
+END
+CM_PLAYER_LOGOUT.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/gameserver/clientpackets/CM_PLAYER_LOGOUT.java
+END
+CM_CS_AUTH.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/gameserver/clientpackets/CM_CS_AUTH.java
+END
+CM_PLAYER_AUTH.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/gameserver/clientpackets/CM_PLAYER_AUTH.java
+END

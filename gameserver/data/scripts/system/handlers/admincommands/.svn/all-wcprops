@@ -1,0 +1,557 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands
+END
+GiveMissingSkills.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/GiveMissingSkills.java
+END
+Rename.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Rename.java
+END
+MoveTo.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/MoveTo.java
+END
+Neutral.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Neutral.java
+END
+Spy.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Spy.java
+END
+AddDrop.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/AddDrop.java
+END
+Passkey.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Passkey.java
+END
+DropInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/DropInfo.java
+END
+Dispel.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Dispel.java
+END
+Dye.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Dye.java
+END
+Promote.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Promote.java
+END
+AddSkill.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/AddSkill.java
+END
+Invis.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Invis.java
+END
+AdvSendFakeServerPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/AdvSendFakeServerPacket.java
+END
+SendRawPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/SendRawPacket.java
+END
+Set.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Set.java
+END
+MoveToMe.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/MoveToMe.java
+END
+Siege.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Siege.java
+END
+Remove.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Remove.java
+END
+FixH.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/FixH.java
+END
+SendFakeServerPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/SendFakeServerPacket.java
+END
+Ring.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Ring.java
+END
+ReloadSpawns.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/ReloadSpawns.java
+END
+Recall.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Recall.java
+END
+AddSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/AddSet.java
+END
+PvP.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/PvP.java
+END
+Reload.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Reload.java
+END
+GMOnline.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/GMOnline.java
+END
+AnnounceFaction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/AnnounceFaction.java
+END
+DeleteSpawn.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/DeleteSpawn.java
+END
+Stat.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Stat.java
+END
+Zone.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Zone.java
+END
+See.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/See.java
+END
+RemoveFromPrison.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/RemoveFromPrison.java
+END
+Online.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Online.java
+END
+Gps.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Gps.java
+END
+Kill.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Kill.java
+END
+UnbanIP.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/UnbanIP.java
+END
+Say.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Say.java
+END
+Unstuck.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Unstuck.java
+END
+Who.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Who.java
+END
+Invul.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Invul.java
+END
+SaveSpawnData.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/SaveSpawnData.java
+END
+RecallNpc.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/RecallNpc.java
+END
+HTML.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/HTML.java
+END
+Announce.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Announce.java
+END
+Fortress.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Fortress.java
+END
+GoTo.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/GoTo.java
+END
+PlayerInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/PlayerInfo.java
+END
+WorldBan.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/WorldBan.java
+END
+MoveToNpc.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/MoveToNpc.java
+END
+WorldUnban.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/WorldUnban.java
+END
+LegionCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/LegionCommand.java
+END
+Announcements.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Announcements.java
+END
+Resurrect.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Resurrect.java
+END
+Movie.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Movie.java
+END
+Notice.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Notice.java
+END
+Kick.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Kick.java
+END
+Silence.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Silence.java
+END
+Equip.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Equip.java
+END
+AddEmotion.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/AddEmotion.java
+END
+MoveToPlayer.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/MoveToPlayer.java
+END
+Spawn.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Spawn.java
+END
+Kinah.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Kinah.java
+END
+Revoke.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Revoke.java
+END
+Dredgion.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Dredgion.java
+END
+Bk.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Bk.java
+END
+Gag.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Gag.java
+END
+Weather.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Weather.java
+END
+Ban.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Ban.java
+END
+Ungag.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Ungag.java
+END
+MovePlayerToPlayer.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/MovePlayerToPlayer.java
+END
+Unban.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Unban.java
+END
+ApplyPreset.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/ApplyPreset.java
+END
+Heal.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Heal.java
+END
+FixZ.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/FixZ.java
+END
+Configure.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Configure.java
+END
+Morph.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Morph.java
+END
+SendToPrison.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/SendToPrison.java
+END
+AddCube.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/AddCube.java
+END
+AiCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/AiCommand.java
+END
+Add.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Add.java
+END
+BanIP.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/BanIP.java
+END
+AESystem.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/AESystem.java
+END
+AddTitle.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/AddTitle.java
+END
+Info.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Info.java
+END
+Petition.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Petition.java
+END
+UnSpawn.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/UnSpawn.java
+END
+QuestCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/QuestCommand.java
+END
+Speed.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/Speed.java
+END
+PowerUp.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/PowerUp.java
+END
+RemoveCd.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/admincommands/RemoveCd.java
+END

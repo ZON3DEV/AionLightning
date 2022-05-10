@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+	<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 4937: Recognition of the Preceptors (lvl 50) handled by script -->
+	<!-- 4938: Work of the Fenris's Fangs (lvl 50) handled by script -->
+	<!-- 4939: Proving Ground (lvl 50) handled by script -->
+	<!-- 4940: Decorations of Pandaemonium (lvl 50) handled by script -->
+	<!-- 4941: [Group] Pandaemonium Honors (lvl 50) handled by script -->
+	<!-- 4942: Proving Proficiency (lvl 50) handled by script -->
+	<!-- 4943: Luck and Persistence (lvl 50) handled by script -->
+	<!-- 4944: Loyalty and Affableness (lvl 50) handled by script -->
+</quest_scripts>

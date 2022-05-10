@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 2011: Fungus Among Us (lvl 10) handled by script -->
+	<!-- 2012: Encroachers (lvl 10) handled by script -->
+	<!-- 2013: A Dangerous Crop (lvl 10) handled by script -->
+	<!-- 2014: Scout it Out (lvl 10) handled by script -->
+	<!-- 2015: Take the Initiative (lvl 10) handled by script -->
+	<!-- 2016: Fear This (lvl 10) handled by script -->
+	<!-- 2017: Trespassers at the Observatory (lvl 12) handled by script -->
+	<!-- 2018: Reconstructing Impetusium (lvl 13) handled by script -->
+	<!-- 2019: Securing the Supply Route (lvl 13) handled by script -->
+	<!-- 2020: Keeping the Black Claw Tribe in Check (lvl 14) handled by script -->
+	<!-- 2021: Know Your Enemy (lvl 12) handled by script -->
+	<!-- 2022: Crushing the Conspiracy (lvl 12) handled by script -->
+	<!-- 2200: Altgard Duties (lvl 10) handled by script -->
+	<!-- The Crasaur Threat -->
+	<monster_hunt id="2201" start_npc_id="203563">
+		<monster_infos var_id="0" max_kill="10" npc_id="210414"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="210415"/>
+	</monster_hunt>
+	<!-- The Lobnite Problem -->
+	<monster_hunt id="2202" start_npc_id="203560">
+		<monster_infos var_id="0" max_kill="10" npc_id="210413"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="210496"/>
+	</monster_hunt>
+	<!-- Ice Lake Crystals -->
+	<item_collecting id="2203" start_npc_id="203556" action_item_id="700055"/>
+	<!-- Sparkie Sap Polish -->
+	<item_collecting id="2204" start_npc_id="203576"/>
+	<!-- The Way to His Heart -->
+	<item_collecting id="2205" start_npc_id="203582"/>
+	<!-- Slinking About -->
+	<item_collecting id="2206" start_npc_id="203562"/>
+	<!-- 2207: Conversing With a Skurv (lvl 10) handled by script -->
+	<!-- 2208: Mau in Ten Minutes a Day (lvl 10) handled by script -->
+	<!-- 2209: The Scribbler (lvl 10) handled by script -->
+	<!-- Retrieving the Report -->
+	<report_to id="2210" start_npc_id="203603" end_npc_id="203605"/>
+	<!-- Karnif Threat -->
+	<monster_hunt id="2211" start_npc_id="203606">
+		<monster_infos var_id="0" max_kill="10" npc_id="210421"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="210422"/>
+	</monster_hunt>
+	<!-- A Better Trap -->
+	<item_collecting id="2212" start_npc_id="203606"/>
+	<!-- 2213: Poison Root, Potent Fruit (lvl 11) handled by script -->
+	<!-- No-Frills Quills -->
+	<item_collecting id="2214" start_npc_id="203605"/>
+	<!-- A Long-Lost Friend -->
+	<report_to id="2215" start_npc_id="203606" end_npc_id="203607"/>
+	<!-- 2216: Knot Your Average Message (lvl 12) handled by script -->
+	<!-- Gleaning the Meaning -->
+	<report_to id="2217" start_npc_id="203606" end_npc_id="203616"/>
+	<!-- Frightcorn Seeds -->
+	<item_collecting id="2218" start_npc_id="203604"/>
+	<!-- Ripened Frightcorn -->
+	<item_collecting id="2219" start_npc_id="203604" action_item_id="700052"/>
+	<!-- Picking off Frightcorn -->
+	<monster_hunt id="2220" start_npc_id="203604">
+		<monster_infos var_id="0" max_kill="5" npc_id="210470"/>
+		<monster_infos var_id="0" max_kill="5" npc_id="210471"/>
+		<monster_infos var_id="0" max_kill="5" npc_id="210472"/>
+	</monster_hunt>
+	<!-- 2221: Manir's Uncle (lvl 12) handled by script -->
+	<!-- 2222: Manir's Message (lvl 12) handled by script -->
+	<!-- 2223: A Mythical Monster (lvl 13) handled by script -->
+	<!-- Lamir's New Clothes -->
+	<item_collecting id="2224" start_npc_id="203620"/>
+	<!-- No-Good Slime -->
+	<monster_hunt id="2225" start_npc_id="203633">
+		<monster_infos var_id="0" max_kill="5" npc_id="210435"/>
+	</monster_hunt>
+	<!-- A Cure for Crazy -->
+	<report_to id="2226" start_npc_id="203617" end_npc_id="203639"/>
+	<!-- A Crazy Request -->
+	<item_collecting id="2227" start_npc_id="203639"/>
+	<!-- 2228: A Thorn in Its Side (lvl 14) handled by script -->
+	<!-- 2229: TODO: A Questionable Carriage (lvl 99) -->
+	<!-- 2230: A Friendly Wager (lvl 14) handled by script -->
+	<!-- 2231: Sibling Rivalry (lvl 14) handled by script -->
+	<!-- 2232: The Broken Honey Jar (lvl 14) handled by script -->
+	<!-- Mantigar's Request -->
+	<monster_hunt id="2233" start_npc_id="203611">
+		<monster_infos var_id="0" max_kill="3" npc_id="210587"/>
+		<monster_infos var_id="0" max_kill="3" npc_id="210597"/>
+	</monster_hunt>
+	<!-- An Irritating Problem -->
+	<monster_hunt id="2234" start_npc_id="203611">
+		<monster_infos var_id="0" max_kill="5" npc_id="210445"/>
+		<monster_infos var_id="0" max_kill="5" npc_id="210446"/>
+	</monster_hunt>
+	<!-- Clearing the Path -->
+	<monster_hunt id="2235" start_npc_id="203610">
+		<monster_infos var_id="0" max_kill="3" npc_id="210441"/>
+	</monster_hunt>
+	<!-- Rarified Tastes -->
+	<item_collecting id="2236" start_npc_id="203615"/>
+	<!-- 2237: A Fertile Field (lvl 14) handled by script -->
+	<!-- A Matter of Pride -->
+	<item_collecting id="2238" start_npc_id="203616"/>
+	<!-- 2239: Malodor Antidote (lvl 15) handled by script -->
+	<!-- 2240: TODO: Leinolz's Whereabouts (lvl 99) -->
+	<!-- Glowing Mushroom -->
+	<item_collecting id="2241" start_npc_id="203630"/>
+	<!-- A Nice Gesture -->
+	<report_to id="2242" start_npc_id="203630" end_npc_id="203643" item_id="182203258"/>
+	<!-- A Crystal Hand Mirror -->
+	<report_to id="2243" start_npc_id="798031" end_npc_id="798035"/>
+	<!-- A Drinking Problem -->
+	<monster_hunt id="2244" start_npc_id="203644">
+		<monster_infos var_id="0" max_kill="5" npc_id="210573"/>
+		<monster_infos var_id="0" max_kill="5" npc_id="210574"/>
+	</monster_hunt>
+	<!-- Ksellid Control -->
+	<monster_hunt id="2245" start_npc_id="203643">
+		<monster_infos var_id="0" max_kill="5" npc_id="210490"/>
+	</monster_hunt>
+	<!-- The Gerger's Insignia -->
+	<item_collecting id="2246" start_npc_id="203645" action_item_id="700147"/>
+	<!-- 2247: The Gerger's Disguise (lvl 16) handled by script -->
+	<!-- The Secret Letter -->
+	<report_to id="2248" start_npc_id="203643" end_npc_id="798033" item_id="182203232"/>
+	<!-- The Blue Crystals -->
+	<item_collecting id="2249" start_npc_id="798033"/>
+	<!-- Gathering Kandula -->
+	<item_collecting id="2250" start_npc_id="203641"/>
+	<!-- Securing the Trade Route -->
+	<item_collecting id="2251" start_npc_id="798034"/>
+	<!-- 2252: Chasing the Legend (lvl 17) handled by script -->
+	<!-- Kagorinerk's Gift -->
+	<report_to id="2253" start_npc_id="798035" end_npc_id="798031" item_id="182203236"/>
+	<!-- Soul Essence -->
+	<item_collecting id="2254" start_npc_id="203651"/>
+	<!-- Turbulent Mist Spirits -->
+	<monster_hunt id="2255" start_npc_id="203650">
+		<monster_infos var_id="0" max_kill="3" npc_id="210575"/>
+	</monster_hunt>
+	<!-- Turbulent Splash Spirits -->
+	<monster_hunt id="2256" start_npc_id="203650">
+		<monster_infos var_id="0" max_kill="5" npc_id="210522"/>
+		<monster_infos var_id="0" max_kill="5" npc_id="210577"/>
+	</monster_hunt>
+	<!-- Rebuilding the Pillar -->
+	<item_collecting id="2257" start_npc_id="203673" action_item_id="700144"/>
+	<!-- An Important Announcement -->
+	<report_to id="2258" start_npc_id="203650" end_npc_id="204190" item_id="182203239"/>
+	<!-- The Tayga Threat -->
+	<item_collecting id="2259" start_npc_id="203649"/>
+	<!-- Reconstruction Supplies -->
+	<report_to id="2260" start_npc_id="203649" end_npc_id="203557"/>
+	<!-- Failure to Report -->
+	<report_to id="2261" start_npc_id="203559" end_npc_id="203665"/>
+	<!-- A Sneaky Delivery -->
+	<report_to id="2262" start_npc_id="798030" end_npc_id="798036" item_id="182203241"/>
+	<!-- Shugo Potion -->
+	<item_collecting id="2263" start_npc_id="798036"/>
+	<!-- The Sting of Poison -->
+	<monster_hunt id="2264" start_npc_id="203664">
+		<monster_infos var_id="0" max_kill="3" npc_id="210447"/>
+		<monster_infos var_id="0" max_kill="3" npc_id="210754"/>
+	</monster_hunt>
+	<!-- A Lost Sword -->
+	<item_collecting id="2265" start_npc_id="203665"/>
+	<!-- 2266: A Trustworthy Messenger (lvl 16) handled by script -->
+	<!-- A Monster in a Box -->
+	<monster_hunt id="2267" start_npc_id="203656">
+		<monster_infos var_id="0" max_kill="5" npc_id="210524"/>
+		<monster_infos var_id="0" max_kill="5" npc_id="210525"/>
+	</monster_hunt>
+	<!-- Urnir's Reasoning -->
+	<monster_hunt id="2268" start_npc_id="203656">
+		<monster_infos var_id="0" max_kill="5" npc_id="210526"/>
+		<monster_infos var_id="0" max_kill="5" npc_id="210527"/>
+	</monster_hunt>
+	<!-- Neifenmer's Reasoning -->
+	<item_collecting id="2269" start_npc_id="203655" action_item_id="700010"/>
+	<!-- Creating a Delay -->
+	<item_collecting id="2270" start_npc_id="203655"/>
+	<!-- 2271: Aurtri's Letter (lvl 16) handled by script -->
+	<!-- The Lost Cube -->
+	<item_collecting id="2272" start_npc_id="203669"/>
+	<!-- Emergency Rations -->
+	<item_collecting id="2273" start_npc_id="203669"/>
+	<!-- 2274: Black Claw Baton (lvl 18) handled by script -->
+	<!-- A Change of Diet -->
+	<item_collecting id="2275" start_npc_id="203693"/>
+	<!-- Branching out Further -->
+	<item_collecting id="2276" start_npc_id="203693"/>
+	<!-- [Group] A Lucrative Endeavor -->
+	<item_collecting id="2277" start_npc_id="203556"/>
+	<!-- 2278: A Secret Proposal (lvl 17) handled by script -->
+	<!-- 2279: Solid Proof (lvl 17) handled by script -->
+	<!-- [Group] Killing the Shamans -->
+	<monster_hunt id="2280" start_npc_id="203560">
+		<monster_infos var_id="0" max_kill="4" npc_id="210508"/>
+		<monster_infos var_id="0" max_kill="4" npc_id="210509"/>
+	</monster_hunt>
+	<!-- [Group] Finishing off Fighters -->
+	<monster_hunt id="2281" start_npc_id="203558">
+		<monster_infos var_id="0" max_kill="3" npc_id="210560"/>
+		<monster_infos var_id="0" max_kill="3" npc_id="210561"/>
+		<monster_infos var_id="0" max_kill="3" npc_id="211283"/>
+		<monster_infos var_id="1" max_kill="5" npc_id="210533"/>
+		<monster_infos var_id="1" max_kill="5" npc_id="210534"/>
+		<monster_infos var_id="1" max_kill="5" npc_id="211279"/>
+		<monster_infos var_id="2" max_kill="5" npc_id="210535"/>
+		<monster_infos var_id="2" max_kill="5" npc_id="210536"/>
+		<monster_infos var_id="2" max_kill="5" npc_id="211280"/>
+	</monster_hunt>
+	<!-- [Group] Killing Kumbaron's Followers -->
+	<monster_hunt id="2282" start_npc_id="203557">
+		<monster_infos var_id="0" max_kill="3" npc_id="210538"/>
+		<monster_infos var_id="0" max_kill="3" npc_id="210539"/>
+	</monster_hunt>
+	<!-- Report to Pandaemonium -->
+	<report_to id="2283" start_npc_id="203557" end_npc_id="204052" item_id="182203255"/>
+	<!-- 2284: TODO: Escaping Asmodae (lvl 16) -->
+	<!-- Leinolz's Request -->
+	<report_to id="2285" start_npc_id="203640" end_npc_id="203645"/>
+	<!-- The Brigade General's Order -->
+	<report_to id="2286" start_npc_id="203557" end_npc_id="203560" item_id="182203259"/>
+	<!-- Order to Valurion -->
+	<report_to id="2287" start_npc_id="203557" end_npc_id="203558" item_id="182203260"/>
+	<!-- 2288: Money Where Your Mouth Is (lvl 13) handled by script -->
+	<!-- 2289: Rampaging Mosbears (lvl 13) handled by script -->
+	<!-- 2290: Groken's Escape (lvl 12) handled by script -->
+	<!-- Report to Garuntat -->
+	<report_to id="2291" start_npc_id="203639" end_npc_id="203617"/>
+	<!-- Making a New Start -->
+	<item_collecting id="2292" start_npc_id="203625"/>
+	<!-- [Daily/Coin] Mutated Spirits -->
+	<monster_hunt id="2293" start_npc_id="203659">
+		<monster_infos var_id="0" max_kill="6" npc_id="210576"/>
+		<monster_infos var_id="1" max_kill="16" npc_id="210578"/>
+		<monster_infos var_id="1" max_kill="16" npc_id="210523"/>
+	</monster_hunt>
+	<!-- 2294: TODO: [Spend Coin] Iron (Warrior and Scout) (lvl 99) -->
+	<!-- 2295: TODO: [Spend Coin] Iron (Mage and Priest) (lvl 99) -->
+	<!-- A Bill Found in a Box -->
+	<report_to id="2296" start_npc_id="203656" end_npc_id="798036" item_id="182203263"/>
+	<!-- Disgruntled Workers -->
+	<item_collecting id="2297" start_npc_id="798105"/>
+	<!-- [Manastone] Lakutu's Exchange -->
+	<item_collecting id="2298" start_npc_id="203690"/>
+	<!-- [Manastone] Lakutu's Trade -->
+	<item_collecting id="2299" start_npc_id="203690"/>
+	<!-- 9556: TODO: [Event] Ascension Blessings (lvl 10) -->
+	<!-- 9557: TODO: [Event] Yearning for the Sky (lvl 10) -->
+	<!-- 80005: TODO: [Event] Heart Headband Pursuit (lvl 10) -->
+</quest_scripts>

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/4/trunk/gameserver/config
+END
+default.config
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/4/trunk/gameserver/config/default.config
+END
+log4j.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/4/trunk/gameserver/config/log4j.dtd
+END
+ipconfig.xml
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/4/trunk/gameserver/config/ipconfig.xml
+END
+log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/4/trunk/gameserver/config/log4j.xml
+END

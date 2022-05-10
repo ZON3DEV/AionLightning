@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by Nephis (Nephis) -->
+<!--
+	Udas Temple Lower From client spawn
+	@author Ritsu
+ -->
+<spawns>
+	<!-- Petralith Energy Source -->
+	<spawn map="300160000" interval="295" npcid="700566" pool="1">
+		<object staticid="138" x="449.125" y="1510.625" h="0" z="203.09125"/>
+	</spawn>
+	<!-- Hidden Library Exit -->
+	<spawn map="300160000" interval="295" npcid="700603" pool="1">
+		<object staticid="45" x="744.60522" y="947.91968" h="0" z="149.03876"/>
+	</spawn>
+	<spawn map="300160000" interval="295" npcid="730273" pool="1">
+		<object staticid="310" x="1145.4874" y="273.8197" h="0" z="115.92764"/>
+	</spawn>
+	<spawn map="300160000" interval="295" npcid="730250" pool="1">
+		<object x="1145.61" y="354.125" h="0" z="110.077"/>
+	</spawn>
+	<spawn map="300160000" interval="295" npcid="700638" pool="1">
+		<object x="745.7" y="903.212" h="0" z="153.046"/>
+	</spawn>
+	<spawn map="300160000" interval="295" npcid="700604" pool="1">
+		<object x="806.212" y="886.731" h="0" z="149.535"/>
+	</spawn>
+</spawns>

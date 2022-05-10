@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zones.xsd">
+	<zone mapid="310070000" name="SLIVER_OF_DARKNESS_310070000" priority="16">
+		<points>
+			<point x="-142.468704" y="-241.381683" />
+			<point x="-269.870514" y="593.032166" />
+			<point x="958.469360" y="756.208557" />
+			<point x="1244.303711" y="-30.144812" />
+		</points>
+	</zone>
+</zones>

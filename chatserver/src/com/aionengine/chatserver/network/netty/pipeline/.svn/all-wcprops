@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/netty/pipeline
+END
+LoginToGamePipelineFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/netty/pipeline/LoginToGamePipelineFactory.java
+END
+LoginToClientPipeLineFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/netty/pipeline/LoginToClientPipeLineFactory.java
+END

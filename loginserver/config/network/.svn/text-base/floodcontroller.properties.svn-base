@@ -1,0 +1,14 @@
+# ===================================
+#          FLOOD PROTECTOR
+# ===================================
+
+# Max connection between chosen interval
+gameserver.floodcontrol.maxconnection = 10
+
+# Interval in minutes for max connection
+# Ex: If max connection= 10 and interval is 5, then the user will be able to connect only 10 times in 5 minutes.
+gameserver.floodcontrol.interval = 5
+
+# IPs not restricted
+# Use "," if there is more than one ip (ex : 127.0.0.1, 127.0.0.2)
+gameserver.floodcontrol.exceptions = 127.0.0.1

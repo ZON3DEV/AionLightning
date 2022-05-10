@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 35000: TODO: Aetheric Field Observatory Protectors FOBJ 01 (lvl 99) -->
+	<!-- 35001: TODO: Aetheric Field Observatory Protectors FOBJ 02 (lvl 99) -->
+	<!-- 35002: TODO: Aetheric Field Observatory Protectors FOBJ 03 (lvl 99) -->
+	<!-- 35003: TODO: Aetheric Field Observatory Protectors NPC Chat 01 (lvl 99) -->
+	<!-- 35004: TODO: Aetheric Field Observatory Protectors NPC Chat 02 (lvl 99) -->
+	<!-- 35005: TODO: Aetheric Field Observatory Protectors Item Collection 01 (lvl 99) -->
+	<!-- 35006: TODO: Aetheric Field Observatory Protectors Item Collection 02 (lvl 99) -->
+	<!-- [Daily] Chasing a Memory -->
+	<item_collecting id="35007" start_npc_id="799805" action_item_id="700788"/>
+	<!-- [Daily] Documenting the Scraps -->
+	<item_collecting id="35008" start_npc_id="799805" action_item_id="700789"/>
+	<!-- [Daily] Destroy Ore Be Destroyed -->
+	<monster_hunt id="35009" start_npc_id="799805">
+		<monster_infos var_id="0" max_kill="3" npc_id="700790"/>
+	</monster_hunt>
+	<!-- [Spy/Daily] Trou's Dream -->
+	<report_to id="35010" start_npc_id="204560" end_npc_id="799805"/>
+	<!-- [Spy/Daily] Pluma Red Feather -->
+	<report_to id="35011" start_npc_id="204504" end_npc_id="799805"/>
+	<!-- 35012: TODO: Aetheric Field Observatory Protectors Item Collection 01 (lvl 99) -->
+	<!-- 35013: TODO: Aetheric Field Observatory Protectors Item Collection 02 (lvl 99) -->
+	<!-- [Daily] The Detecting Eye -->
+	<item_collecting id="35014" start_npc_id="799805" end_npc_id="799806" action_item_id="700791"/>
+	<!-- [Daily] Protecting Your Members -->
+	<item_collecting id="35015" start_npc_id="799805" end_npc_id="799806" action_item_id="700792"/>
+	<!-- [Daily] Passing Stones -->
+	<monster_hunt id="35016" start_npc_id="799805">
+		<monster_infos var_id="0" max_kill="3" npc_id="700793"/>
+	</monster_hunt>
+	<!-- [Daily] Where's Atropos? -->
+	<report_to id="35017" start_npc_id="798155" end_npc_id="799806"/>
+	<!-- [Daily] The Shugo Stoolie -->
+	<report_to id="35018" start_npc_id="798135" end_npc_id="799805"/>
+	<!-- 35019: TODO: Aetheric Field Observatory Protectors Item Collection 01 (lvl 99) -->
+	<!-- 35020: TODO: Aetheric Field Observatory Protectors Item Collection 02 (lvl 99) -->
+	<!-- [Daily] Guarding a Memory -->
+	<item_collecting id="35021" start_npc_id="799800" end_npc_id="799801" action_item_id="700765"/>
+	<!-- [Daily] Torn To Pieces -->
+	<item_collecting id="35022" start_npc_id="799800" end_npc_id="799801" action_item_id="700766"/>
+	<!-- [Daily] Destroy the Meteorite -->
+	<monster_hunt id="35023" start_npc_id="799800" end_npc_id="799801">
+		<monster_infos var_id="0" max_kill="3" npc_id="700767"/>
+	</monster_hunt>
+	<!-- [Daily] The Long Password -->
+	<report_to id="35024" start_npc_id="798946" end_npc_id="799800" add_end_npc_id="799801"/>
+	<!-- [Daily] Pass the Password -->
+	<report_to id="35025" start_npc_id="798972" end_npc_id="799800" add_end_npc_id="799801"/>
+	<!-- [Spy/Daily] Iaetia's Observation -->
+	<report_to id="35026" start_npc_id="798996" end_npc_id="799800" add_end_npc_id="799801"/>
+	<!-- [Spy/Daily] Keios's Observation -->
+	<report_to id="35027" start_npc_id="799004" end_npc_id="799800" add_end_npc_id="799801"/>
+	<!-- [Spy/Daily] Siaqua's Observation -->
+	<report_to id="35028" start_npc_id="799015" end_npc_id="799800" add_end_npc_id="799801"/>
+	<!-- [Spy/Daily] Stanis's Observation -->
+	<report_to id="35029" start_npc_id="799043" end_npc_id="799800" add_end_npc_id="799801"/>
+	<!-- [Spy/Daily] Temenos's Observation -->
+	<report_to id="35030" start_npc_id="799049" end_npc_id="799800" add_end_npc_id="799801"/>
+	<!-- [Daily] Aether Gems -->
+	<item_collecting id="35031" start_npc_id="799805"/>
+	<!-- [Daily] Helping the Hungry -->
+	<item_collecting id="35032" start_npc_id="799805"/>
+	<!-- [Daily] Holy Reconstruction! -->
+	<item_collecting id="35033" start_npc_id="799805"/>
+	<!-- [Daily] Herbs and Remedies -->
+	<item_collecting id="35034" start_npc_id="799805"/>
+	<!-- [Daily] Kill the Cracktooth! -->
+	<monster_hunt id="35035" start_npc_id="799805">
+		<monster_infos var_id="0" max_kill="5" npc_id="211045"/>
+	</monster_hunt>
+	<!-- [Daily] We've Got Worms -->
+	<monster_hunt id="35036" start_npc_id="799805">
+		<monster_infos var_id="0" max_kill="5" npc_id="211060"/>
+	</monster_hunt>
+	<!-- [Daily] Damn Dirty Troll Looters -->
+	<monster_hunt id="35037" start_npc_id="799805">
+		<monster_infos var_id="0" max_kill="5" npc_id="211944"/>
+	</monster_hunt>
+	<!-- [Daily] Moonflower Mayhem -->
+	<monster_hunt id="35038" start_npc_id="799805">
+		<monster_infos var_id="0" max_kill="5" npc_id="211895"/>
+	</monster_hunt>
+	<!-- [Daily] Gem of an Idea -->
+	<item_collecting id="35039" start_npc_id="799806"/>
+	<!-- [Daily] Asking For Help -->
+	<item_collecting id="35040" start_npc_id="799806"/>
+	<!-- [Daily] Holey Holy Grounds -->
+	<item_collecting id="35041" start_npc_id="799806"/>
+	<!-- [Daily] The Ferilla Potion -->
+	<item_collecting id="35042" start_npc_id="799806"/>
+	<!-- [Daily] Darken the Sparkies -->
+	<monster_hunt id="35043" start_npc_id="799806">
+		<monster_infos var_id="0" max_kill="5" npc_id="214165"/>
+	</monster_hunt>
+	<!-- [Daily] Slaughtering Salt Fins -->
+	<monster_hunt id="35044" start_npc_id="799849">
+		<monster_infos var_id="0" max_kill="5" npc_id="214252"/>
+	</monster_hunt>
+	<!-- [Daily] Aether for the Poor -->
+	<item_collecting id="35045" start_npc_id="799800" end_npc_id="799801"/>
+	<!-- [Daily] Caloric Alms -->
+	<item_collecting id="35046" start_npc_id="799800" end_npc_id="799801"/>
+	<!-- [Daily] Pre-construction -->
+	<item_collecting id="35047" start_npc_id="799800" end_npc_id="799801"/>
+	<!-- [Daily] Potion Maker -->
+	<item_collecting id="35048" start_npc_id="799800" end_npc_id="799801"/>
+	<!-- [Daily] Driven to Distraction -->
+	<monster_hunt id="35049" start_npc_id="799800" end_npc_id="799801">
+		<monster_infos var_id="0" max_kill="5" npc_id="215492"/>
+	</monster_hunt>
+	<!-- [Daily] Vanquish Grim Puca -->
+	<monster_hunt id="35050" start_npc_id="799800" end_npc_id="799801">
+		<monster_infos var_id="0" max_kill="5" npc_id="215595"/>
+	</monster_hunt>
+	<!-- [Daily] Causing Much Angrief -->
+	<monster_hunt id="35051" start_npc_id="799800" end_npc_id="799801">
+		<monster_infos var_id="0" max_kill="5" npc_id="215863"/>
+	</monster_hunt>
+	<!-- 35100: TODO: Aetheric Field Observatory Reward 1 (lvl 99) -->
+	<!-- 35101: TODO: Alabaster Order Reward 1 (lvl 99) -->
+	<!-- 35102: TODO: Alabaster Order Reward 2 (lvl 99) -->
+	<!-- 35103: TODO: Alabaster Order Reward 3 (lvl 99) -->
+	<!-- 35104: TODO: Alabaster Order Reward 4 (lvl 99) -->
+	<!-- 35105: TODO: Alabaster Order Reward 5 (lvl 99) -->
+	<!-- 35106: TODO: Alabaster Order Reward 6 (lvl 99) -->
+	<!-- 35107: TODO: Alabaster Order Reward 7 (lvl 99) -->
+	<!-- 35108: TODO: Alabaster Order Reward 8 (lvl 99) -->
+	<!-- 35109: TODO: Alabaster Order Reward 9 (lvl 99) -->
+	<!-- 35110: TODO: Alabaster Order Reward 10 (lvl 99) -->
+	<!-- 35111: TODO: Alabaster Order Reward 11 (lvl 99) -->
+	<!-- 35112: TODO: Alabaster Order Reward 12 (lvl 99) -->
+	<!-- 38000: Call of the Alabaster Order (lvl 30) handled by script -->
+	<!-- 38003: TODO: Alabaster Order's Call (lvl 30) -->
+	<report_to id="38003" start_npc_id="203726" end_npc_id="799803"/>
+</quest_scripts>

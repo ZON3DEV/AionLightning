@@ -1,0 +1,34 @@
+README file for ZettaCore Remote Data Call Server
+
+1. How it works ?
+2. How to use ?
+3. Commands documentation
+4. External libraries
+
+== 1. How it works ? ==
+RDC Server is a socket-based engine listening
+on one or several network interfaces, and designed
+to serve real-time game data to remote client,
+using XML standardized-format.
+After authenticated based on configuration password,
+client sends a string identifying his request, which
+described what data to be served. Server parses that
+request and queries data across the emulator classes,
+then builds an output xml file and sends it through
+the socket. EOF tag then close connection.
+
+== 2. How to use ? ==
+--- Enable RDC server through gameserver.properties and
+tune network settings according to your infrastructure.
+--- Start GameServer.
+--- Start a telnet session to the IP:port specified in
+configuration. If you receive the "ATH-KY:" prompt, it
+means RDC server is online and ready for requests.
+--- Use any of available client libraries to interface
+your client platform language with RDC server.
+
+== 3. Commands documentation ==
+No commands implemented yet.
+
+== 4. External Libraries ==
+No external libraries available atm. 

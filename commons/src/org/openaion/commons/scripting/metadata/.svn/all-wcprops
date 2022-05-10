@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/metadata
+END
+OnClassLoad.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/metadata/OnClassLoad.java
+END
+OnClassUnload.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/metadata/OnClassUnload.java
+END

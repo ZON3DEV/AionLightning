@@ -1,0 +1,233 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5
+END
+MySQL5PlayerQuestListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PlayerQuestListDAO.java
+END
+MySQL5PlayerLifeStatsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PlayerLifeStatsDAO.java
+END
+MySQL5PlayerMacrossesDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PlayerMacrossesDAO.java
+END
+MySQL5PlayerAppearanceDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PlayerAppearanceDAO.java
+END
+MySQL5PlayerSettingsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PlayerSettingsDAO.java
+END
+MySQL5LegionDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5LegionDAO.java
+END
+MySQL5PlayerEmotionListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PlayerEmotionListDAO.java
+END
+MySQL5BrokerDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5BrokerDAO.java
+END
+MySQL5NpcShoutsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5NpcShoutsDAO.java
+END
+MySQL5ItemCooldownsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5ItemCooldownsDAO.java
+END
+MySQL5PlayerSkillListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PlayerSkillListDAO.java
+END
+MySQL5SpawnDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5SpawnDAO.java
+END
+MySQL5GameTimeDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5GameTimeDAO.java
+END
+MySQL5PlayerTitleListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PlayerTitleListDAO.java
+END
+MySQL5PetitionDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PetitionDAO.java
+END
+MySQL5PlayerDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PlayerDAO.java
+END
+MySQL5PlayerEffectsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PlayerEffectsDAO.java
+END
+MySQL5SiegeDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5SiegeDAO.java
+END
+MySQL5AbyssRankDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5AbyssRankDAO.java
+END
+MySQL5InventoryDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5InventoryDAO.java
+END
+MySQL5DropListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5DropListDAO.java
+END
+MySQL5DAOUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5DAOUtils.java
+END
+MySQL5FriendListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5FriendListDAO.java
+END
+MySQL5ItemStoneListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5ItemStoneListDAO.java
+END
+MySQL5PlayerRecipesDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PlayerRecipesDAO.java
+END
+MySQL5PurchaseLimitDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PurchaseLimitDAO.java
+END
+MySQL5AnnouncementsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5AnnouncementsDAO.java
+END
+MySQL5MailDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5MailDAO.java
+END
+MySQL5PlayerWorldBanDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PlayerWorldBanDAO.java
+END
+MySQL5BlockListDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5BlockListDAO.java
+END
+MySQL5IdViewDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5IdViewDAO.java
+END
+MySQL5PlayerPetsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PlayerPetsDAO.java
+END
+MySQL5PlayerInstanceCDDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PlayerInstanceCDDAO.java
+END
+MySQL5PlayerPunishmentsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PlayerPunishmentsDAO.java
+END
+MySQL5PlayerPasskeyDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5PlayerPasskeyDAO.java
+END
+MySQL5SurveyDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5SurveyDAO.java
+END
+MySQL5GuildDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5GuildDAO.java
+END
+MySQL5LegionMemberDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/database/mysql5/MySQL5LegionMemberDAO.java
+END

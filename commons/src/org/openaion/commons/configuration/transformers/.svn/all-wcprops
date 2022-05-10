@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/transformers
+END
+EnumTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/transformers/EnumTransformer.java
+END
+FloatTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/transformers/FloatTransformer.java
+END
+ClassTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/transformers/ClassTransformer.java
+END
+StringTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/transformers/StringTransformer.java
+END
+DoubleTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/transformers/DoubleTransformer.java
+END
+PatternTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/transformers/PatternTransformer.java
+END
+IntegerTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/transformers/IntegerTransformer.java
+END
+CharTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/transformers/CharTransformer.java
+END
+InetSocketAddressTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/transformers/InetSocketAddressTransformer.java
+END
+FileTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/transformers/FileTransformer.java
+END
+LongTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/transformers/LongTransformer.java
+END
+BooleanTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/transformers/BooleanTransformer.java
+END
+ShortTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/transformers/ShortTransformer.java
+END
+ByteTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/configuration/transformers/ByteTransformer.java
+END

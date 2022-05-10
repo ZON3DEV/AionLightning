@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zones.xsd">
+	<zone mapid="300060000" name="SULFUR_TREE_NEST_300060000" priority="16">
+		<points>
+			<point x="319.750000" y="305.980011" />
+			<point x="319.727234" y="633.166626" />
+			<point x="599.721619" y="633.684692" />
+			<point x="600.097290" y="306.095703" />
+		</points>
+	</zone>
+</zones>

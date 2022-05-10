@@ -1,0 +1,1280 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of Zetta Core
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Steel Rake
+	@author Zetta core Fix By Nephis
+ -->
+<spawns>
+	<!-- air vent cover (Object NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="700549" pool="2" interval="490">
+		<object x="699.17" y="458.485" z="1019.58" h="0" staticid="66"/>
+		<object x="500.293" y="552.641" z="960.056" h="0" staticid="42"/>
+	</spawn>
+	<!-- amabille (NPC NORMAL lvl:3) -->
+	<spawn map="300100000" npcid="798334" pool="1" interval="490">
+		<object x="480.554" y="438.386" z="887.706" h="0"/>
+	</spawn>
+	<!-- bhagwaninerk (NPC ELITE lvl:42) -->
+	<spawn map="300100000" npcid="215063" pool="1" interval="490">
+		<object x="400.131" y="512.141" z="945.683" h="0"/>
+	</spawn>
+	<!-- brass-eye grogget (NPC HERO lvl:46) -->
+	<spawn map="300100000" npcid="215081" pool="1" interval="490">
+		<object x="427.599" y="509.884" z="1075.38" h="59"/>
+	</spawn>
+	<!-- bronze teeth mosbear (NPC NORMAL lvl:44) -->
+	<spawn map="300100000" npcid="215052" pool="3" interval="490">
+		<object x="390.522" y="441.954" z="891.704" h="60"/>
+		<object x="389.2" y="434.544" z="891.706" h="58"/>
+		<object x="391.72" y="434.174" z="891.701" h="58"/>
+	</spawn>
+	<!-- calydon corsair (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="215031" pool="6" interval="490">
+		<object x="492.933" y="498.281" z="951.703" h="90"/>
+		<object x="395.121" y="584.95" z="948.005" h="88"/>
+		<object x="312.843" y="581.001" z="953.737" h="61"/>
+		<object x="469.145" y="492.125" z="952.535" h="0"/>
+		<object x="487.02" y="482.267" z="958.708" h="90"/>
+		<object x="321.475" y="567.409" z="953.802" h="70"/>
+	</spawn>
+	<!-- calydon corsair (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="215030" pool="8" interval="490">
+		<object x="410.811" y="541.845" z="947.204" h="104"/>
+		<object x="417.397" y="527.323" z="947.204" h="0"/>
+		<object x="399.324" y="573.983" z="948.037" h="0"/>
+		<object x="513.853" y="545.965" z="953.432" h="0"/>
+		<object x="410.061" y="567.241" z="948.062" h="0"/>
+		<object x="427.263" y="525.436" z="947.204" h="109"/>
+		<object x="438.949" y="549.083" z="947.204" h="29"/>
+		<object x="441.611" y="539.52" z="947.204" h="41"/>
+	</spawn>
+	<!-- calydon corsair (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="215029" pool="8" interval="490">
+		<object x="409.461" y="554.424" z="946.098" h="47"/>
+		<object x="337.337" y="486.436" z="949.732" h="30"/>
+		<object x="422.468" y="535.346" z="946.658" h="36"/>
+		<object x="513.411" y="466.795" z="951.705" h="90"/>
+		<object x="417.447" y="533.391" z="946.658" h="30"/>
+		<object x="432.359" y="551.511" z="945.906" h="82"/>
+		<object x="411.583" y="556.548" z="946.096" h="45"/>
+		<object x="434.547" y="528.444" z="946.658" h="46"/>
+	</spawn>
+	<!-- calydon dark shaman (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215405" pool="4" interval="490">
+		<object x="528.039" y="510.738" z="1023.2" h="60"/>
+		<object x="524.89" y="503.253" z="1023.2" h="60"/>
+		<object x="529.656" y="505.17" z="1023.2" h="60"/>
+		<object x="526.256" y="516.044" z="1023.21" h="60"/>
+	</spawn>
+	<!-- calydon mystic (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215410" pool="5" interval="490">
+		<object x="556.981" y="579.201" z="1021.27" h="90"/>
+		<object x="624.768" y="531.256" z="1031.07" h="0"/>
+		<object x="298.829" y="527.603" z="900.37" h="90"/>
+		<object x="536.945" y="445.354" z="1021.27" h="30"/>
+		<object x="329.251" y="518.595" z="894.431" h="0"/>
+	</spawn>
+	<!-- calydon sellsword (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215404" pool="4" interval="490">
+		<object x="524.242" y="510.002" z="1023.2" h="60"/>
+		<object x="523.824" y="517.494" z="1023.21" h="60"/>
+		<object x="527.773" y="503.974" z="1023.2" h="60"/>
+		<object x="530.199" y="509.808" z="1023.22" h="60"/>
+	</spawn>
+	<!-- calydon sentry (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215033" pool="1" interval="490">
+		<object x="456.652" y="455.743" z="1032.96" h="0"/>
+	</spawn>
+	<!-- calydon sentry (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215032" pool="2" interval="490">
+		<object x="366.772" y="526.036" z="899.987" h="60"/>
+		<object x="252.757" y="501.665" z="900.544" h="0"/>
+	</spawn>
+	<!-- calydon sentry (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215408" pool="7" interval="490">
+		<object x="502.608" y="539.423" z="1033.16" h="29"/>
+		<object x="583.043" y="507.453" z="1023.2" h="60"/>
+		<object x="625.5" y="528.158" z="1031.07" h="0"/>
+		<object x="524.047" y="447.418" z="1021.29" h="30"/>
+		<object x="500.513" y="473.346" z="1033.16" h="89"/>
+		<object x="521.611" y="548.91" z="1021.83" h="0"/>
+		<object x="720.06" y="526.23" z="1013.12" h="59"/>
+	</spawn>
+	<!-- calydon shaman (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="215036" pool="2" interval="490">
+		<object x="413.432" y="532.043" z="947.204" h="28"/>
+		<object x="396.485" y="572.36" z="948.037" h="0"/>
+	</spawn>
+	<!-- calydon shaman (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="215035" pool="3" interval="490">
+		<object x="437.33" y="531.301" z="946.658" h="46"/>
+		<object x="423.141" y="543.964" z="945.906" h="46"/>
+		<object x="406.089" y="583.436" z="948.048" h="58"/>
+	</spawn>
+	<!-- calydon shaman (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="215409" pool="3" interval="490">
+		<object x="487.583" y="520.798" z="951.335" h="46"/>
+		<object x="415.419" y="530.924" z="946.658" h="29"/>
+		<object x="430.367" y="552.3" z="945.906" h="82"/>
+	</spawn>
+	<!-- captain treasure box (NPC NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="700555" pool="1" interval="490">
+		<object staticid="79" x="427.25409" y="531.48999" z="1075.3529" h="0"/>
+	</spawn>
+	<!-- captain's cabin teleport device (NPC NORMAL lvl:3) -->
+	<spawn map="300100000" npcid="730197" pool="1" interval="490">
+		<object x="409.453" y="496.427" z="1071.85" h="102"/>
+	</spawn>
+	<!-- central deck mobile cannon (Object NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="700548" pool="1" interval="490">
+		<object x="577.58" y="531.18" z="1023.38" h="0" staticid="90"/>
+	</spawn>
+	<!-- chief gunner koakoa (NPC HERO lvl:45) -->
+	<spawn map="300100000" npcid="215070" pool="1" interval="490">
+		<object x="755.777" y="509.02" z="1012.3" h="59"/>
+	</spawn>
+	<!-- chief mate menekiki (NPC ELITE lvl:45) -->
+	<spawn map="300100000" npcid="215069" pool="1" interval="490">
+		<object x="473.178" y="508.966" z="1032.84" h="0"/>
+	</spawn>
+	<!-- cockroach (NPC JUNK lvl:1) -->
+	<spawn map="300100000" npcid="214714" pool="5" interval="490">
+		<object x="546.392" y="537.7" z="957.082" h="0"/>
+		<object x="640.281" y="452.619" z="1026.98" h="0"/>
+		<object x="696.637" y="457.895" z="1016.13" h="0"/>
+		<object x="540.55" y="557.409" z="955.482" h="0"/>
+		<object x="665.158" y="452.335" z="1018.02" h="0"/>
+	</spawn>
+	<!-- collector memekin (NPC ELITE lvl:42) -->
+	<spawn map="300100000" npcid="215064" pool="1" interval="490">
+		<object x="747.065" y="458.293" z="942.354" h="60"/>
+	</spawn>
+	<!-- discerner werikiki (NPC ELITE lvl:42) -->
+	<spawn map="300100000" npcid="215065" pool="1" interval="490">
+		<object x="728.008" y="541.524" z="942.354" h="59"/>
+	</spawn>
+	<!-- drana generator chamber access door (NPC NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="730202" pool="1" interval="490">
+		<object staticid="10" x="657.28003" y="509.10999" z="874.84003" h="0"/>
+	</spawn>
+	<!-- elevator lever (Object NORMAL lvl:3) -->
+	<spawn map="300100000" npcid="730210" pool="1" interval="490">
+		<object x="282.394" y="451.358" z="952.601" h="0" staticid="25"/>
+	</spawn>
+	<!-- elevator lever (Object NORMAL lvl:3) -->
+	<spawn map="300100000" npcid="730216" pool="1" interval="490">
+		<object x="282.184" y="451.398" z="902.447" h="0" staticid="35"/>
+	</spawn>
+	<!-- engineer lahulahu (NPC HERO lvl:45) -->
+	<spawn map="300100000" npcid="215080" pool="1" interval="490">
+		<object x="697.741" y="508.534" z="867.912" h="59"/>
+	</spawn>
+	<!-- escape anchor (NPC NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="730198" pool="1" interval="490">
+		<object staticid="68" x="235.49092" y="496.84229" z="948.66998" h="0"/>
+	</spawn>
+	<!-- escape exit (Object NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="700525" pool="1" interval="490">
+		<object staticid="9" x="505.8204" y="432.09839" z="887.2804" h="0"/>
+	</spawn>
+	<!-- firelord kadomch (NPC ELITE lvl:43) -->
+	<spawn map="300100000" npcid="215072" pool="1" interval="490">
+		<object x="435.348" y="530.322" z="946.658" h="46"/>
+	</spawn>
+	<!-- flame wing griffon (NPC NORMAL lvl:44) -->
+	<spawn map="300100000" npcid="215051" pool="2" interval="490">
+		<object x="406.172" y="434.693" z="891.693" h="59"/>
+		<object x="404.795" y="443.517" z="891.693" h="59"/>
+	</spawn>
+	<!-- freed genie (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215073" pool="1" interval="490">
+		<object x="316.851" y="574.41" z="900.986" h="0"/>
+	</spawn>
+	<!-- genie's incense burner (Object NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="700557" pool="1" interval="490">
+		<object x="319.553" y="569.427" z="900.856" h="0" staticid="5"/>
+	</spawn>
+	<!-- golden eye mantutu (NPC HERO lvl:43) -->
+	<spawn map="300100000" npcid="215079" pool="1" interval="490">
+		<object x="732.649" y="500.586" z="941.478" h="60"/>
+	</spawn>
+	<!-- grogget's safe door (NPC NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="730199" pool="1" interval="490">
+		<object staticid="63" x="691.00214" y="500.95282" z="942.59943" h="0"/>
+	</spawn>
+	<!-- guard quest sensorya (NPC NORMAL lvl:3) -->
+	<spawn map="300100000" npcid="206093" pool="1" interval="490">
+		<object x="444.754" y="459.265" z="887.706" h="0"/>
+	</spawn>
+	<!-- guard quest sensoryb (NPC NORMAL lvl:3) -->
+	<spawn map="300100000" npcid="206094" pool="1" interval="490">
+		<object x="481.527" y="459.039" z="887.706" h="0"/>
+	</spawn>
+	<!-- guard tog (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215028" pool="9" interval="490">
+		<object x="511.689" y="459.301" z="885.478" h="59"/>
+		<object x="253.914" y="483.907" z="900.544" h="0"/>
+		<object x="630.715" y="488.983" z="1031.13" h="89"/>
+		<object x="459.473" y="572.02" z="887.415" h="89"/>
+		<object x="604.616" y="493.056" z="879.78" h="30"/>
+		<object x="352.702" y="475.722" z="897.169" h="59"/>
+		<object x="464.104" y="571.932" z="887.415" h="89"/>
+		<object x="358.121" y="518.744" z="894.431" h="0"/>
+		<object x="465.692" y="477.624" z="1033.21" h="0"/>
+	</spawn>
+	<!-- haorunerk (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="798332" pool="1" interval="490">
+		<object x="406.312" y="499.564" z="885.76" h="30"/>
+	</spawn>
+	<!-- haorunerk's bag (NPC NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="700522" pool="1" interval="490">
+		<object x="401.239" y="503.193" z="885.76" h="119"/>
+	</spawn>
+	<!-- hidden escape exit (NPC NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="730206" pool="1" interval="490">
+		<object x="734.693" y="510.028" z="941.478" h="5"/>
+	</spawn>
+	<!-- hook the one-armed (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215068" pool="1" interval="490">
+		<object x="520.663" y="469.638" z="1021.83" h="0"/>
+	</spawn>
+	<!-- idshualckship loot depository sensory timer (NPC NORMAL lvl:3) -->
+	<spawn map="300100000" npcid="206103" pool="1" interval="490">
+		<object x="611.674" y="550.359" z="939.722" h="0"/>
+	</spawn>
+	<!-- incinerator (Object NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="730029" pool="5" interval="490">
+		<object x="484.888" y="555.526" z="951.69" h="0" staticid="109"/>
+		<object x="467.705" y="575.047" z="951.69" h="0" staticid="113"/>
+		<object x="465.461" y="557.719" z="951.69" h="0" staticid="114"/>
+		<object x="459.086" y="555.67" z="951.69" h="0" staticid="41"/>
+		<object x="469.606" y="580.332" z="958.046" h="0" staticid="118"/>
+	</spawn>
+	<!-- kaneron agent (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215041" pool="4" interval="490">
+		<object x="517.678" y="485.832" z="886.855" h="29"/>
+		<object x="511.599" y="486.338" z="886.406" h="33"/>
+		<object x="515.225" y="493.46" z="885.76" h="0"/>
+		<object x="516.198" y="489.708" z="885.76" h="0"/>
+	</spawn>
+	<!-- kedomke the drinker (NPC ELITE lvl:42) -->
+	<spawn map="300100000" npcid="215057" pool="1" interval="490">
+		<object x="398.592" y="572.096" z="948.037" h="43"/>
+	</spawn>
+	<!-- kobold peon (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215022" pool="3" interval="490">
+		<object x="343.86" y="447.305" z="894.566" h="0"/>
+		<object x="343.781" y="444.469" z="894.566" h="0"/>
+		<object x="406.204" y="432.241" z="891.693" h="0"/>
+	</spawn>
+	<!-- kobold peon (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215020" pool="1" interval="490">
+		<object x="573.638" y="554.807" z="882.068" h="60"/>
+	</spawn>
+	<!-- kobold peon (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215021" pool="30" interval="490">
+		<object x="368.401" y="514.348" z="894.432" h="0"/>
+		<object x="490.333" y="462.764" z="1033.23" h="0"/>
+		<object x="559.333" y="461.616" z="1022.02" h="0"/>
+		<object x="534.631" y="472.223" z="1021.82" h="0"/>
+		<object x="720.702" y="492.727" z="1013.12" h="0"/>
+		<object x="605.891" y="538.936" z="869.791" h="0"/>
+		<object x="720.725" y="490.953" z="1013.12" h="0"/>
+		<object x="569.188" y="558.088" z="1022.01" h="0"/>
+		<object x="539.468" y="542.159" z="1021.83" h="0"/>
+		<object x="580.399" y="518.589" z="1023.2" h="0"/>
+		<object x="595.754" y="470.55" z="869.792" h="0"/>
+		<object x="570.141" y="455.367" z="1022.01" h="0"/>
+		<object x="609.029" y="541.909" z="869.791" h="0"/>
+		<object x="485.06" y="554.175" z="886.018" h="0"/>
+		<object x="496.036" y="462.7" z="1033.27" h="0"/>
+		<object x="595.031" y="447.761" z="1021.27" h="0"/>
+		<object x="539.338" y="547.46" z="1021.83" h="0"/>
+		<object x="579.988" y="499.37" z="1023.2" h="0"/>
+		<object x="260.024" y="513.562" z="900.37" h="0"/>
+		<object x="532.87" y="547.379" z="1021.83" h="0"/>
+		<object x="297.81" y="475.316" z="900.37" h="0"/>
+		<object x="490.979" y="554.187" z="1033.2" h="0"/>
+		<object x="597.146" y="448.803" z="1021.27" h="0"/>
+		<object x="591.488" y="463.81" z="1021.8" h="0"/>
+		<object x="540.087" y="467.004" z="1021.83" h="0"/>
+		<object x="566.018" y="508.546" z="1023.2" h="0"/>
+		<object x="608.776" y="509.411" z="1023.21" h="0"/>
+		<object x="604.208" y="470.577" z="869.792" h="0"/>
+		<object x="611.604" y="538.712" z="869.791" h="0"/>
+		<object x="482.939" y="557.22" z="886.018" h="0"/>
+	</spawn>
+	<!-- kobold worker (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="215416" pool="5" interval="490">
+		<object x="480.286" y="546.461" z="951.703" h="0"/>
+		<object x="482.093" y="533.544" z="951.702" h="0"/>
+		<object x="502.201" y="522.646" z="951.774" h="0"/>
+		<object x="459.553" y="564.344" z="952.962" h="0"/>
+		<object x="495.386" y="490.533" z="951.704" h="0"/>
+	</spawn>
+	<!-- kobold worker (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="215018" pool="18" interval="490">
+		<object x="531.799" y="504.022" z="951.703" h="0"/>
+		<object x="719.965" y="536.78" z="942.427" h="0"/>
+		<object x="608.359" y="485.783" z="936.013" h="0"/>
+		<object x="335.932" y="546.123" z="951.665" h="96"/>
+		<object x="435.621" y="439.211" z="945.97" h="0"/>
+		<object x="367.387" y="616.769" z="948.104" h="0"/>
+		<object x="402.489" y="513.313" z="944.692" h="0"/>
+		<object x="437.133" y="442.317" z="946.057" h="0"/>
+		<object x="292.101" y="556.532" z="951.795" h="0"/>
+		<object x="609.756" y="566.65" z="936.685" h="0"/>
+		<object x="269.936" y="495.657" z="947.011" h="0"/>
+		<object x="379.987" y="474.512" z="946.111" h="0"/>
+		<object x="365.736" y="613.962" z="948.104" h="0"/>
+		<object x="479.719" y="570.146" z="951.703" h="0"/>
+		<object x="529.87" y="501.224" z="951.703" h="0"/>
+		<object x="282.851" y="497.288" z="949.709" h="0"/>
+		<object x="742.199" y="454.035" z="942.509" h="0"/>
+		<object x="279.454" y="517.996" z="949.709" h="0"/>
+	</spawn>
+	<!-- kobold worker (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="215019" pool="3" interval="490">
+		<object x="311.648" y="552.813" z="951.795" h="0"/>
+		<object x="489.6" y="485.373" z="951.703" h="0"/>
+		<object x="402.625" y="511.084" z="944.692" h="0"/>
+	</spawn>
+	<!-- kobold worker (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="215017" pool="2" interval="490">
+		<object x="643.709" y="507.217" z="935.673" h="0"/>
+		<object x="396.753" y="594.916" z="948.008" h="0"/>
+	</spawn>
+	<!-- krall elite prison guard (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215048" pool="42" interval="490">
+		<object x="575.728" y="565.92" z="882.068" h="89"/>
+		<object x="572.635" y="478.052" z="882.068" h="60"/>
+		<object x="425.969" y="539.916" z="885.478" h="89"/>
+		<object x="477.33" y="455.691" z="887.706" h="29"/>
+		<object x="425.894" y="482.395" z="885.478" h="90"/>
+		<object x="582.789" y="524.884" z="869.727" h="0"/>
+		<object x="542.898" y="464.836" z="882.068" h="90"/>
+		<object x="573.071" y="540.912" z="882.068" h="59"/>
+		<object x="378.816" y="503.795" z="894.792" h="0"/>
+		<object x="510.875" y="456.912" z="885.478" h="59"/>
+		<object x="575.947" y="530.236" z="869.727" h="0"/>
+		<object x="550.052" y="479.136" z="882.068" h="89"/>
+		<object x="458.909" y="551.239" z="887.424" h="89"/>
+		<object x="612.098" y="475.348" z="869.792" h="0"/>
+		<object x="481.671" y="455.715" z="887.706" h="29"/>
+		<object x="598.12" y="545.018" z="869.791" h="0"/>
+		<object x="582.116" y="479.974" z="869.792" h="0"/>
+		<object x="446.278" y="455.722" z="887.706" h="30"/>
+		<object x="464.856" y="551.187" z="887.424" h="89"/>
+		<object x="496.967" y="524.824" z="885.887" h="33"/>
+		<object x="461.301" y="461.454" z="887.706" h="89"/>
+		<object x="506.172" y="463.382" z="885.478" h="59"/>
+		<object x="572.255" y="442.423" z="882.068" h="60"/>
+		<object x="407.213" y="547.211" z="885.478" h="0"/>
+		<object x="442.966" y="555.536" z="886.018" h="59"/>
+		<object x="555.063" y="552.948" z="882.068" h="0"/>
+		<object x="420.023" y="509.81" z="886.019" h="0"/>
+		<object x="283.458" y="485.406" z="900.37" h="90"/>
+		<object x="365.344" y="474.876" z="894.764" h="0"/>
+		<object x="347.927" y="490.948" z="894.431" h="0"/>
+		<object x="544.529" y="542.162" z="882.068" h="0"/>
+		<object x="458.713" y="483.418" z="877.907" h="90"/>
+		<object x="589.973" y="471.639" z="869.792" h="0"/>
+		<object x="441.779" y="455.709" z="887.706" h="30"/>
+		<object x="560.306" y="552.987" z="882.068" h="0"/>
+		<object x="464.406" y="483.478" z="877.887" h="90"/>
+		<object x="429.77" y="557.442" z="886.018" h="93"/>
+		<object x="480.052" y="553.383" z="886.018" h="0"/>
+		<object x="280.668" y="513.469" z="900.37" h="90"/>
+		<object x="515.28" y="543.44" z="885.478" h="58"/>
+		<object x="572.154" y="578.802" z="882.068" h="89"/>
+		<object x="445.285" y="553.852" z="886.018" h="60"/>
+	</spawn>
+	<!-- large gun deck entrance (NPC NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="730203" pool="1" interval="490">
+		<object staticid="88" x="722.30072" y="507.51001" z="1014.5941" h="0"/>
+	</spawn>
+	<!-- large gun deck exit (NPC NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="730204" pool="1" interval="490">
+		<object staticid="89" x="724.14978" y="510.45001" z="1014.5238" h="0"/>
+	</spawn>
+	<!-- largimark the smoker (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215067" pool="1" interval="490">
+		<object x="520.643" y="472.31" z="1021.83" h="0"/>
+	</spawn>
+	<!-- madame bovariki (NPC HERO lvl:42) -->
+	<spawn map="300100000" npcid="215078" pool="1" interval="490">
+		<object x="512.573" y="540.854" z="952.434" h="89"/>
+		<object x="461.574" y="512.645" z="952.548" h="0"/>
+	</spawn>
+	<!-- nasuri (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="798335" pool="1" interval="490">
+		<object x="419.327" y="531.353" z="885.76" h="0"/>
+	</spawn>
+	<!-- old book (NPC NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="730195" pool="1" interval="490">
+		<object x="696.922" y="506.838" z="940.212" h="0"/>
+	</spawn>
+	<!-- parten (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="798336" pool="1" interval="490">
+		<object x="504.299" y="523.84" z="885.76" h="0"/>
+	</spawn>
+	<!-- patrol tog (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="215027" pool="6" interval="490">
+		<object x="380.814" y="556.732" z="946.096" h="19"/>
+		<object x="514.788" y="469.636" z="951.705" h="89"/>
+		<object x="264.863" y="506.509" z="947.004" h="60"/>
+		<object x="383.685" y="554.818" z="946.096" h="18"/>
+		<object x="618.947" y="531.283" z="936.064" h="60"/>
+		<object x="511.88" y="469.644" z="951.705" h="90"/>
+	</spawn>
+	<!-- petrahulk sentinel (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="215049" pool="17" interval="490">
+		<object x="669.719" y="482.936" z="942.374" h="0"/>
+		<object x="676.466" y="519.83" z="942.374" h="60"/>
+		<object x="565.419" y="501.469" z="951.703" h="60"/>
+		<object x="688.781" y="500.825" z="942.374" h="60"/>
+		<object x="617.58" y="475.071" z="936.046" h="30"/>
+		<object x="608.111" y="496.12" z="942.24" h="0"/>
+		<object x="611.039" y="505.001" z="935.673" h="0"/>
+		<object x="579.438" y="513.444" z="944.67" h="30"/>
+		<object x="650.218" y="529.328" z="936.057" h="90"/>
+		<object x="636.325" y="541.206" z="936.095" h="90"/>
+		<object x="650.487" y="492.997" z="935.673" h="60"/>
+		<object x="656.41" y="478.746" z="936.035" h="88"/>
+		<object x="641.041" y="512.571" z="935.734" h="60"/>
+		<object x="661.392" y="505.456" z="942.518" h="61"/>
+		<object x="661.43" y="495.822" z="942.253" h="61"/>
+		<object x="611.509" y="512.386" z="935.709" h="29"/>
+		<object x="579.244" y="560.801" z="944.67" h="90"/>
+	</spawn>
+	<!-- pirate ship anchor (Object NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="730209" pool="1" interval="490">
+		<object x="727.48755" y="463.31375" z="867.88269" h="0" staticid="12"/>
+	</spawn>
+	<!-- pirate ship treasure box (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="700554" pool="4" interval="490">
+		<object x="721.762" y="491.831" z="939.607" h="30"/>
+		<object x="720.41" y="511.637" z="939.607" h="89"/>
+		<object x="739.513" y="506.143" z="941.478" h="0"/>
+		<object x="736.647" y="493.738" z="941.478" h="0"/>
+	</spawn>
+	<!-- prison door (Object NORMAL lvl:3) -->
+	<spawn map="300100000" npcid="730208" pool="6" interval="490">
+		<object x="444.112" y="454.278" z="889.726" h="0" staticid="11"/>
+		<object x="479.57" y="454.312" z="889.726" h="0" staticid="1"/>
+		<object x="420.622" y="527.719" z="887.778" h="0" staticid="18"/>
+		<object x="503.108" y="527.4" z="887.784" h="0" staticid="14"/>
+		<object x="503.31" y="491.936" z="887.776" h="0" staticid="15"/>
+		<object x="420.719" y="492.283" z="887.778" h="0" staticid="17"/>
+	</spawn>
+	<!-- rabinerk (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="798331" pool="1" interval="490">
+		<object x="705.18" y="466.3" z="1015.19" h="88"/>
+	</spawn>
+	<!-- red journal (Object NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="730148" pool="1" interval="490">
+		<object x="355.678" y="594.705" z="948.904" h="0" staticid="65"/>
+	</spawn>
+	<!-- shining box (NPC NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="700509" pool="1" interval="490">
+		<object staticid="121" x="430.4259" y="531.61218" z="1075.3529" h="0"/>
+	</spawn>
+	<!-- shugo minion (NPC NORMAL lvl:40) -->
+	<spawn map="300100000" npcid="215435" pool="5" interval="490">
+		<object x="559.229" y="556.378" z="882.068" h="0"/>
+		<object x="559.758" y="543.177" z="882.068" h="0"/>
+		<object x="556.209" y="556.299" z="882.068" h="0"/>
+		<object x="557.78" y="557.654" z="882.068" h="0"/>
+		<object x="559.757" y="544.653" z="882.068" h="0"/>
+	</spawn>
+	<!-- shugo minion (NPC NORMAL lvl:40) -->
+	<spawn map="300100000" npcid="214966" pool="5" interval="490">
+		<object x="600.109" y="477.458" z="869.792" h="0"/>
+		<object x="597.312" y="479.639" z="869.792" h="0"/>
+		<object x="588.543" y="533.854" z="869.791" h="0"/>
+		<object x="571.381" y="576.141" z="882.068" h="0"/>
+		<object x="590.539" y="532.135" z="869.727" h="0"/>
+	</spawn>
+	<!-- shugo minion (NPC NORMAL lvl:40) -->
+	<spawn map="300100000" npcid="214965" pool="4" interval="490">
+		<object x="562.715" y="466.256" z="882.068" h="59"/>
+		<object x="561.759" y="468.276" z="882.068" h="60"/>
+		<object x="574.601" y="442.989" z="882.07" h="60"/>
+		<object x="574.514" y="441.119" z="882.068" h="60"/>
+	</spawn>
+	<!-- shugo minion (NPC NORMAL lvl:40) -->
+	<spawn map="300100000" npcid="215418" pool="2" interval="490">
+		<object x="281.312" y="508.133" z="900.37" h="0"/>
+		<object x="280.094" y="506.743" z="900.163" h="0"/>
+	</spawn>
+	<!-- shugo minion (NPC NORMAL lvl:40) -->
+	<spawn map="300100000" npcid="215419" pool="2" interval="490">
+		<object x="379.187" y="498.162" z="894.792" h="0"/>
+		<object x="376.435" y="497.329" z="894.792" h="0"/>
+	</spawn>
+	<!-- shulack captain's cabin entrance sensory (NPC NORMAL lvl:3) -->
+	<spawn map="300100000" npcid="206098" pool="1" interval="490">
+		<object x="384.996" y="524.758" z="1072.12" h="0"/>
+	</spawn>
+	<!-- shulack pirate ship boarding related sensory 01 (NPC NORMAL lvl:3) -->
+	<spawn map="300100000" npcid="206099" pool="1" interval="490">
+		<object x="240.902" y="505.54" z="948.674" h="0"/>
+	</spawn>
+	<!-- shulack pirate ship boarding related sensory 01 (NPC NORMAL lvl:3) -->
+	<spawn map="300100000" npcid="206100" pool="1" interval="490">
+		<object x="409.454" y="509.677" z="885.76" h="0"/>
+	</spawn>
+	<!-- sidrunerk (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="798337" pool="1" interval="490">
+		<object x="445.575" y="441.818" z="887.706" h="0"/>
+	</spawn>
+	<!-- silk hair arachna (NPC NORMAL lvl:44) -->
+	<spawn map="300100000" npcid="215053" pool="4" interval="490">
+		<object x="358.086" y="444.339" z="893.492" h="0"/>
+		<object x="373.495" y="440.918" z="891.733" h="60"/>
+		<object x="366.198" y="447.012" z="892.03" h="0"/>
+		<object x="363.929" y="449.139" z="892.434" h="0"/>
+	</spawn>
+	<!-- skurv hunter (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="215025" pool="4" interval="490">
+		<object x="288.057" y="486.728" z="949.709" h="30"/>
+		<object x="372.117" y="495.777" z="944.065" h="29"/>
+		<object x="379.06" y="495.668" z="944.065" h="30"/>
+		<object x="288.968" y="525.302" z="949.709" h="90"/>
+	</spawn>
+	<!-- skurv rake hunter (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215026" pool="5" interval="490">
+		<object x="690.945" y="467.344" z="1022.67" h="30"/>
+		<object x="248.07" y="526.366" z="900.544" h="0"/>
+		<object x="606.507" y="493.529" z="879.777" h="30"/>
+		<object x="671.598" y="529.337" z="1022.59" h="0"/>
+		<object x="566.295" y="440.85" z="1021.27" h="30"/>
+	</spawn>
+	<!-- skurv rake warrior (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215024" pool="12" interval="490">
+		<object x="298.041" y="525.331" z="900.37" h="91"/>
+		<object x="524.039" y="445.37" z="1021.28" h="30"/>
+		<object x="248.452" y="523.713" z="900.544" h="0"/>
+		<object x="523.571" y="550.226" z="1021.83" h="0"/>
+		<object x="688.174" y="466.48" z="1022.67" h="30"/>
+		<object x="269.875" y="490.342" z="900.371" h="58"/>
+		<object x="515.186" y="546.634" z="885.478" h="58"/>
+		<object x="343.589" y="517.913" z="894.431" h="0"/>
+		<object x="567.903" y="440.848" z="1021.27" h="30"/>
+		<object x="602.737" y="493.35" z="879.778" h="29"/>
+		<object x="379.942" y="474.556" z="894.764" h="30"/>
+		<object x="672.122" y="530.607" z="1022.59" h="0"/>
+	</spawn>
+	<!-- skurv warrior (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="215023" pool="6" interval="490">
+		<object x="382.689" y="599.308" z="946.096" h="89"/>
+		<object x="306.674" y="507.718" z="949.709" h="60"/>
+		<object x="473.998" y="514.403" z="951.7" h="0"/>
+		<object x="618.323" y="533.026" z="936.069" h="60"/>
+		<object x="306.721" y="504.763" z="949.709" h="59"/>
+		<object x="384.256" y="599.246" z="946.096" h="88"/>
+	</spawn>
+	<!-- sommelikinerk (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="798375" pool="1" interval="490">
+		<object x="529.747" y="523.48" z="952.491" h="90"/>
+	</spawn>
+	<!-- steam effusion nozzle (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="281113" pool="1" interval="490">
+		<object x="688.363" y="536.82" z="867.798" h="0"/>
+	</spawn>
+	<!-- steam effusion nozzle (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="281112" pool="1" interval="490">
+		<object x="669.51" y="528.695" z="867.8" h="0"/>
+	</spawn>
+	<!-- steam effusion nozzle (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="281114" pool="1" interval="490">
+		<object x="707.265" y="529.433" z="867.798" h="0"/>
+	</spawn>
+	<!-- steam effusion nozzle (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="281109" pool="1" interval="490">
+		<object x="688.168" y="482.262" z="868" h="0"/>
+	</spawn>
+	<!-- steam effusion nozzle (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="281323" pool="1" interval="490">
+		<object x="701.688" y="508.989" z="868" h="0"/>
+	</spawn>
+	<!-- steam effusion nozzle (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="281322" pool="1" interval="490">
+		<object x="716.048" y="507.126" z="867.798" h="0"/>
+	</spawn>
+	<!-- steam effusion nozzle (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="281108" pool="1" interval="490">
+		<object x="704.338" y="486.975" z="868" h="0"/>
+	</spawn>
+	<!-- steam effusion nozzle (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="281326" pool="1" interval="490">
+		<object x="689.137" y="522.365" z="868" h="0"/>
+	</spawn>
+	<!-- steam effusion nozzle (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="281325" pool="1" interval="490">
+		<object x="675.688" y="509.442" z="868" h="0"/>
+	</spawn>
+	<!-- steam effusion nozzle (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="281111" pool="1" interval="490">
+		<object x="661.379" y="509.586" z="868" h="0"/>
+	</spawn>
+	<!-- steam effusion nozzle (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="281324" pool="1" interval="490">
+		<object x="689.335" y="495.924" z="867.637" h="0"/>
+	</spawn>
+	<!-- steam effusion nozzle (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="281110" pool="1" interval="490">
+		<object x="671.043" y="488.819" z="868" h="0"/>
+	</spawn>
+	<!-- steel rake archer (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214976" pool="3" interval="490">
+		<object x="468.368" y="514.239" z="952.533" h="0"/>
+		<object x="468.218" y="512.911" z="958.708" h="60"/>
+		<object x="519.952" y="491.561" z="951.704" h="60"/>
+	</spawn>
+	<!-- steel rake archer (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214971" pool="2" interval="490">
+		<object x="705.459" y="546.97" z="942.354" h="90"/>
+		<object x="727.487" y="464.598" z="942.354" h="90"/>
+	</spawn>
+	<!-- steel rake archer (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214969" pool="11" interval="490">
+		<object x="337.1" y="515.914" z="949.732" h="90"/>
+		<object x="375.333" y="521.426" z="944.065" h="30"/>
+		<object x="317.101" y="506.239" z="949.542" h="60"/>
+		<object x="608.403" y="484.167" z="942.24" h="0"/>
+		<object x="644.008" y="500.226" z="942.24" h="60"/>
+		<object x="631.569" y="462.758" z="936.084" h="29"/>
+		<object x="528.788" y="513.482" z="957.645" h="89"/>
+		<object x="557.171" y="514.924" z="951.703" h="89"/>
+		<object x="366.614" y="479.514" z="946.795" h="17"/>
+		<object x="334.377" y="609.705" z="949.483" h="65"/>
+		<object x="386.986" y="616.802" z="948.104" h="60"/>
+	</spawn>
+	<!-- steel rake archer (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214975" pool="2" interval="490">
+		<object x="461.074" y="485.829" z="958.711" h="15"/>
+		<object x="463.905" y="571.428" z="951.703" h="0"/>
+	</spawn>
+	<!-- steel rake archer (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214974" pool="3" interval="490">
+		<object x="349.282" y="501.549" z="950.022" h="13"/>
+		<object x="651.409" y="541.199" z="936.095" h="0"/>
+		<object x="393.384" y="498.565" z="945.171" h="37"/>
+	</spawn>
+	<!-- steel rake archer (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214973" pool="1" interval="490">
+		<object x="488.943" y="483.57" z="951.703" h="0"/>
+	</spawn>
+	<!-- steel rake dark mage (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214995" pool="6" interval="490">
+		<object x="540.725" y="566.955" z="882.068" h="0"/>
+		<object x="604.219" y="567.554" z="1021.34" h="90"/>
+		<object x="299.282" y="492.281" z="900.37" h="59"/>
+		<object x="680.63" y="552.757" z="1022.37" h="0"/>
+		<object x="501.915" y="537.022" z="885.478" h="0"/>
+		<object x="345.07" y="507.889" z="894.431" h="0"/>
+	</spawn>
+	<!-- steel rake dark mage (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214994" pool="3" interval="490">
+		<object x="581.315" y="574.673" z="1021.27" h="90"/>
+		<object x="480.352" y="556.564" z="1033.18" h="0"/>
+		<object x="666.933" y="546.163" z="1022.37" h="0"/>
+	</spawn>
+	<!-- steel rake dark mage (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214999" pool="7" interval="490">
+		<object x="588.11" y="477.677" z="1021.8" h="0"/>
+		<object x="623.161" y="529.352" z="1031.07" h="0"/>
+		<object x="539.145" y="445.18" z="1021.27" h="30"/>
+		<object x="603.46" y="524.03" z="879.775" h="90"/>
+		<object x="692.136" y="524.564" z="1022.59" h="59"/>
+		<object x="380.867" y="472.661" z="894.764" h="30"/>
+		<object x="704.036" y="526.653" z="1013.12" h="0"/>
+	</spawn>
+	<!-- steel rake dark mage (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214998" pool="1" interval="490">
+		<object x="454.877" y="560.878" z="1032.92" h="0"/>
+	</spawn>
+	<!-- steel rake elite vaegir (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214951" pool="6" interval="490">
+		<object x="530.381" y="539.052" z="959.26" h="90"/>
+		<object x="706.708" y="546.876" z="942.354" h="90"/>
+		<object x="356.505" y="597.321" z="948.015" h="30"/>
+		<object x="653.474" y="461.114" z="936.089" h="30"/>
+		<object x="727.63" y="539.027" z="942.354" h="60"/>
+		<object x="532.19" y="484.395" z="958.708" h="60"/>
+	</spawn>
+	<!-- steel rake elite vaegir (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214949" pool="4" interval="490">
+		<object x="507.75" y="536.493" z="953.422" h="0"/>
+		<object x="470.781" y="537.872" z="951.7" h="23"/>
+		<object x="472.336" y="538.368" z="951.701" h="48"/>
+		<object x="508.927" y="536.473" z="953.422" h="60"/>
+	</spawn>
+	<!-- steel rake elite vaegir (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214952" pool="5" interval="490">
+		<object x="507.569" y="501.747" z="951.703" h="105"/>
+		<object x="499.029" y="533.041" z="952.388" h="0"/>
+		<object x="469.08" y="494.209" z="952.535" h="0"/>
+		<object x="482.042" y="548.004" z="958.708" h="60"/>
+		<object x="529.85" y="521.072" z="952.492" h="90"/>
+	</spawn>
+	<!-- steel rake elite vaegir (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214946" pool="3" interval="490">
+		<object x="379.241" y="471.742" z="946.111" h="60"/>
+		<object x="483.881" y="533.589" z="951.702" h="0"/>
+		<object x="412.911" y="440.486" z="945.777" h="59"/>
+	</spawn>
+	<!-- steel rake elite vaegir (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214947" pool="1" interval="490">
+		<object x="462.215" y="555.422" z="951.703" h="30"/>
+	</spawn>
+	<!-- steel rake elite vaegir (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214945" pool="5" interval="490">
+		<object x="615.576" y="510.006" z="942.24" h="90"/>
+		<object x="287.995" y="506.029" z="949.72" h="60"/>
+		<object x="728.914" y="464.618" z="942.358" h="89"/>
+		<object x="382.253" y="523.564" z="944.071" h="60"/>
+		<object x="620.513" y="461.918" z="942.24" h="0"/>
+	</spawn>
+	<!-- steel rake elite vaegir (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214950" pool="5" interval="490">
+		<object x="609.154" y="480.42" z="936.03" h="0"/>
+		<object x="349.224" y="488.588" z="950.018" h="0"/>
+		<object x="656.511" y="486.255" z="936.012" h="0"/>
+		<object x="351.642" y="524.808" z="950.018" h="0"/>
+		<object x="387.981" y="501.617" z="945.171" h="3"/>
+	</spawn>
+	<!-- steel rake gunner (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215403" pool="6" interval="490">
+		<object x="526.333" y="501.099" z="1023.21" h="60"/>
+		<object x="518.351" y="511.479" z="1023.71" h="60"/>
+		<object x="526.053" y="512.445" z="1023.2" h="60"/>
+		<object x="518.307" y="506.836" z="1023.77" h="60"/>
+		<object x="526.406" y="508" z="1023.2" h="60"/>
+		<object x="523.82" y="506.19" z="1023.2" h="60"/>
+	</spawn>
+	<!-- steel rake healer (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="215007" pool="4" interval="490">
+		<object x="748.202" y="452.499" z="942.354" h="30"/>
+		<object x="459.485" y="486.731" z="958.709" h="17"/>
+		<object x="570.286" y="537.324" z="951.703" h="60"/>
+		<object x="287.027" y="525.295" z="949.709" h="90"/>
+	</spawn>
+	<!-- steel rake healer (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="215003" pool="6" interval="490">
+		<object x="372.24" y="462.382" z="946.111" h="0"/>
+		<object x="610.587" y="497.127" z="942.24" h="0"/>
+		<object x="618.358" y="494.152" z="935.673" h="29"/>
+		<object x="749.35" y="464.461" z="942.354" h="89"/>
+		<object x="717.921" y="532.581" z="942.354" h="29"/>
+		<object x="634.139" y="488.428" z="942.24" h="0"/>
+	</spawn>
+	<!-- steel rake lookout (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214929" pool="10" interval="490">
+		<object x="491.207" y="479.556" z="958.708" h="60"/>
+		<object x="636.608" y="505.259" z="942.243" h="60"/>
+		<object x="705.026" y="534.501" z="942.354" h="0"/>
+		<object x="270.93" y="498.753" z="947.008" h="60"/>
+		<object x="265.408" y="535.42" z="947.016" h="90"/>
+		<object x="686.075" y="502.734" z="942.374" h="60"/>
+		<object x="270.894" y="513.407" z="947.005" h="60"/>
+		<object x="368.705" y="515.967" z="944.065" h="0"/>
+		<object x="384.256" y="487.631" z="946.809" h="59"/>
+		<object x="268.319" y="477.752" z="947.012" h="30"/>
+	</spawn>
+	<!-- steel rake lookout (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214931" pool="2" interval="490">
+		<object x="564.934" y="504.31" z="951.703" h="60"/>
+		<object x="627.481" y="525.042" z="942.24" h="60"/>
+	</spawn>
+	<!-- steel rake lookout (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214935" pool="4" interval="490">
+		<object x="613.75" y="539.042" z="942.24" h="89"/>
+		<object x="478.155" y="573.337" z="951.703" h="89"/>
+		<object x="313.072" y="554.073" z="951.795" h="0"/>
+		<object x="746.839" y="450.837" z="942.354" h="30"/>
+	</spawn>
+	<!-- steel rake lookout (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214936" pool="3" interval="490">
+		<object x="309.743" y="566.148" z="953.802" h="14"/>
+		<object x="504.202" y="517.881" z="951.386" h="7"/>
+		<object x="495.644" y="535.366" z="952.382" h="111"/>
+	</spawn>
+	<!-- steel rake lookout (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214934" pool="1" interval="490">
+		<object x="402.084" y="500.601" z="945.171" h="0"/>
+	</spawn>
+	<!-- steel rake marine (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214937" pool="19" interval="490">
+		<object x="476.65" y="479.53" z="1033.2" h="0"/>
+		<object x="616.891" y="507.474" z="879.774" h="59"/>
+		<object x="501.348" y="452.369" z="885.379" h="0"/>
+		<object x="493.542" y="463.533" z="885.478" h="0"/>
+		<object x="458.267" y="465.748" z="882.031" h="0"/>
+		<object x="253.907" y="482.03" z="900.544" h="0"/>
+		<object x="616.841" y="473.884" z="1031.07" h="0"/>
+		<object x="636.373" y="470.536" z="1031.04" h="60"/>
+		<object x="274.306" y="534.145" z="901.076" h="90"/>
+		<object x="615.727" y="468.101" z="1031.06" h="0"/>
+		<object x="485.689" y="539.448" z="886.018" h="28"/>
+		<object x="477.443" y="543.648" z="1033.18" h="0"/>
+		<object x="636.461" y="474.114" z="1031.04" h="60"/>
+		<object x="278.995" y="534.191" z="901.085" h="90"/>
+		<object x="660.734" y="495.368" z="1022.97" h="0"/>
+		<object x="616.693" y="511.982" z="879.774" h="59"/>
+		<object x="565.864" y="504.82" z="1023.2" h="0"/>
+		<object x="720.577" y="508.924" z="1012.9" h="59"/>
+		<object x="688.963" y="480.987" z="1022.67" h="89"/>
+	</spawn>
+	<!-- steel rake marine (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214938" pool="1" interval="490">
+		<object x="328.775" y="504.573" z="894.431" h="0"/>
+	</spawn>
+	<!-- steel rake marine (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214943" pool="6" interval="490">
+		<object x="427.75" y="468.254" z="885.479" h="29"/>
+		<object x="512.626" y="544.547" z="885.478" h="59"/>
+		<object x="438.951" y="539.281" z="886.022" h="29"/>
+		<object x="592.957" y="569.159" z="1021.33" h="90"/>
+		<object x="567.181" y="439.689" z="1021.27" h="30"/>
+		<object x="246.745" y="524.987" z="900.544" h="0"/>
+	</spawn>
+	<!-- steel rake marine (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214944" pool="1" interval="490">
+		<object x="351.866" y="473.67" z="897.166" h="59"/>
+	</spawn>
+	<!-- steel rake mate (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214967" pool="2" interval="490">
+		<object x="390.167" y="432.527" z="891.704" h="0"/>
+		<object x="366.091" y="449.987" z="892.045" h="0"/>
+	</spawn>
+	<!-- steel rake mate (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215402" pool="4" interval="490">
+		<object x="523.42" y="500.382" z="1023.21" h="60"/>
+		<object x="528.871" y="507.596" z="1023.27" h="60"/>
+		<object x="523.879" y="514.12" z="1023.2" h="60"/>
+		<object x="528.697" y="513.436" z="1023.2" h="60"/>
+	</spawn>
+	<!-- steel rake mate (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214968" pool="1" interval="490">
+		<object x="518.963" y="509.127" z="1023.5" h="60"/>
+	</spawn>
+	<!-- steel rake pirate (NPC ELITE lvl:45) -->
+	<spawn map="300100000" npcid="214922" pool="5" interval="490">
+		<object x="536.542" y="550.442" z="1021.81" h="0"/>
+		<object x="342.089" y="445.984" z="894.566" h="0"/>
+		<object x="493.739" y="457.497" z="1033.18" h="30"/>
+		<object x="356.547" y="518.47" z="894.431" h="0"/>
+		<object x="540.128" y="472.1" z="1021.83" h="0"/>
+	</spawn>
+	<!-- steel rake pirate (NPC ELITE lvl:45) -->
+	<spawn map="300100000" npcid="214924" pool="7" interval="490">
+		<object x="678.177" y="551.961" z="1022.37" h="0"/>
+		<object x="253.563" y="503.948" z="900.544" h="0"/>
+		<object x="705.784" y="511.376" z="1012.9" h="0"/>
+		<object x="318.043" y="556.768" z="901.713" h="28"/>
+		<object x="416.727" y="480.496" z="885.479" h="90"/>
+		<object x="506.015" y="436.098" z="885.184" h="30"/>
+		<object x="693.435" y="525.999" z="1022.59" h="59"/>
+	</spawn>
+	<!-- steel rake pirate (NPC ELITE lvl:45) -->
+	<spawn map="300100000" npcid="214926" pool="1" interval="490">
+		<object x="615.273" y="439.175" z="1031.04" h="0"/>
+	</spawn>
+	<!-- steel rake pirate (NPC ELITE lvl:45) -->
+	<spawn map="300100000" npcid="214927" pool="7" interval="490">
+		<object x="605.937" y="523.856" z="879.774" h="90"/>
+		<object x="500.404" y="536.901" z="1033.16" h="29"/>
+		<object x="670.595" y="530.574" z="1022.59" h="0"/>
+		<object x="555.673" y="577.268" z="1021.27" h="90"/>
+		<object x="330.086" y="526.911" z="899.987" h="0"/>
+		<object x="436.942" y="539.11" z="886.018" h="30"/>
+		<object x="557.704" y="552.142" z="882.068" h="0"/>
+	</spawn>
+	<!-- steel rake pirate (NPC ELITE lvl:45) -->
+	<spawn map="300100000" npcid="214921" pool="12" interval="490">
+		<object x="741.497" y="508.863" z="1011.69" h="61"/>
+		<object x="330.398" y="469.886" z="897.166" h="30"/>
+		<object x="566.25" y="518.296" z="1023.2" h="0"/>
+		<object x="298.755" y="494.364" z="900.37" h="59"/>
+		<object x="679.196" y="509.226" z="1022.93" h="90"/>
+		<object x="328.741" y="502.573" z="894.431" h="0"/>
+		<object x="654.885" y="507.132" z="875.266" h="59"/>
+		<object x="617.074" y="546.355" z="1031.06" h="62"/>
+		<object x="595.546" y="531.82" z="882.218" h="0"/>
+		<object x="568.552" y="462.471" z="882.068" h="60"/>
+		<object x="493.005" y="510.16" z="886.019" h="0"/>
+		<object x="654.859" y="511.504" z="875.271" h="60"/>
+	</spawn>
+	<!-- steel rake priest (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215015" pool="9" interval="490">
+		<object x="526.08" y="445.968" z="1021.28" h="30"/>
+		<object x="588.115" y="554.362" z="1021.8" h="0"/>
+		<object x="425.888" y="468.293" z="885.479" h="29"/>
+		<object x="612.43" y="457.623" z="1021.8" h="62"/>
+		<object x="521.595" y="551.604" z="1021.83" h="0"/>
+		<object x="718.444" y="524.637" z="1013.12" h="60"/>
+		<object x="474.146" y="464.035" z="1033.32" h="59"/>
+		<object x="502.749" y="474.697" z="1033.16" h="89"/>
+		<object x="329.233" y="516.491" z="894.431" h="0"/>
+	</spawn>
+	<!-- steel rake priest (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215010" pool="1" interval="490">
+		<object x="457.845" y="561.147" z="1032.94" h="0"/>
+	</spawn>
+	<!-- steel rake priest (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215011" pool="8" interval="490">
+		<object x="343.935" y="519.308" z="894.431" h="0"/>
+		<object x="703.676" y="516.27" z="1012.9" h="0"/>
+		<object x="347.865" y="495.281" z="894.431" h="0"/>
+		<object x="669.543" y="488.836" z="1022.67" h="0"/>
+		<object x="557.868" y="438.069" z="882.07" h="30"/>
+		<object x="299.059" y="509.682" z="900.374" h="60"/>
+		<object x="604.904" y="569.13" z="1021.31" h="90"/>
+		<object x="493.063" y="507.985" z="886.019" h="0"/>
+	</spawn>
+	<!-- steel rake priest (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215009" pool="1" interval="490">
+		<object x="541.958" y="568.338" z="882.068" h="0"/>
+	</spawn>
+	<!-- steel rake raider (NPC ELITE lvl:45) -->
+	<spawn map="300100000" npcid="214961" pool="17" interval="490">
+		<object x="391.036" y="547.913" z="1072.08" h="0"/>
+		<object x="557.809" y="531.693" z="1023.43" h="0"/>
+		<object x="573.04" y="531.554" z="1023.42" h="59"/>
+		<object x="557.219" y="484.536" z="1023.43" h="0"/>
+		<object x="347.355" y="463.33" z="896.897" h="60"/>
+		<object x="499.889" y="486.267" z="1033.17" h="29"/>
+		<object x="667.914" y="470.6" z="1022.67" h="29"/>
+		<object x="341.743" y="463.391" z="896.897" h="0"/>
+		<object x="392.042" y="544.911" z="1072.08" h="0"/>
+		<object x="574.554" y="528.196" z="1023.43" h="59"/>
+		<object x="492.093" y="529.651" z="1033.18" h="90"/>
+		<object x="616.998" y="533.656" z="879.709" h="60"/>
+		<object x="575.974" y="484.348" z="1023.42" h="0"/>
+		<object x="667.803" y="473.991" z="1022.67" h="89"/>
+		<object x="553.647" y="531.587" z="882.213" h="0"/>
+		<object x="296.353" y="553.674" z="901.244" h="0"/>
+		<object x="291.545" y="564.607" z="901.244" h="0"/>
+	</spawn>
+	<!-- steel rake sailor (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214913" pool="8" interval="490">
+		<object x="270.752" y="517.027" z="900.37" h="59"/>
+		<object x="725.641" y="512.331" z="1012.68" h="0"/>
+		<object x="503.983" y="434.265" z="885.184" h="30"/>
+		<object x="692.755" y="510.622" z="1022.93" h="59"/>
+		<object x="508.017" y="434.264" z="885.184" h="30"/>
+		<object x="604.635" y="509.751" z="880.054" h="59"/>
+		<object x="725.725" y="505.676" z="1012.69" h="0"/>
+		<object x="386.626" y="530.017" z="899.456" h="59"/>
+	</spawn>
+	<!-- steel rake sailor (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214914" pool="1" interval="490">
+		<object x="598.199" y="447.196" z="1021.27" h="30"/>
+	</spawn>
+	<!-- steel rake sailor (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214915" pool="3" interval="490">
+		<object x="540.041" y="572.904" z="1021.28" h="90"/>
+		<object x="523.534" y="572.575" z="1021.28" h="90"/>
+		<object x="578.102" y="441.277" z="1021.27" h="30"/>
+	</spawn>
+	<!-- steel rake sailor (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214916" pool="9" interval="490">
+		<object x="478.271" y="556.588" z="1033.18" h="0"/>
+		<object x="602.279" y="567.461" z="1021.34" h="90"/>
+		<object x="537.919" y="571.829" z="1021.28" h="90"/>
+		<object x="689.677" y="467.34" z="1022.67" h="30"/>
+		<object x="664.216" y="548.832" z="1022.81" h="0"/>
+		<object x="660.381" y="497.611" z="1022.96" h="0"/>
+		<object x="579.359" y="575.056" z="1021.27" h="90"/>
+		<object x="594.478" y="446.258" z="1021.27" h="30"/>
+		<object x="467.558" y="479.542" z="1033.19" h="0"/>
+	</spawn>
+	<!-- steel rake sailor (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214919" pool="10" interval="490">
+		<object x="692.653" y="507.808" z="1022.93" h="59"/>
+		<object x="473.962" y="461.831" z="1033.3" h="59"/>
+		<object x="296.284" y="527.81" z="900.37" h="90"/>
+		<object x="584.665" y="508.837" z="1023.2" h="59"/>
+		<object x="270.219" y="491.958" z="900.37" h="59"/>
+		<object x="586.308" y="477.678" z="1021.8" h="0"/>
+		<object x="554.682" y="579.357" z="1021.27" h="90"/>
+		<object x="378.904" y="472.987" z="894.764" h="30"/>
+		<object x="611.827" y="455.911" z="1021.8" h="62"/>
+		<object x="664.202" y="543.747" z="1022.81" h="0"/>
+	</spawn>
+	<!-- steel rake sailor (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214920" pool="1" interval="490">
+		<object x="486.109" y="519.347" z="951.335" h="46"/>
+	</spawn>
+	<!-- steel rake scout (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214954" pool="7" interval="490">
+		<object x="664.793" y="510.267" z="1022.93" h="0"/>
+		<object x="547.88" y="479.811" z="882.068" h="89"/>
+		<object x="361.071" y="477.788" z="894.764" h="0"/>
+		<object x="331.992" y="469.595" z="897.166" h="30"/>
+		<object x="684.382" y="528.716" z="1022.59" h="0"/>
+		<object x="718.265" y="491.867" z="1013.12" h="60"/>
+		<object x="573.725" y="566.155" z="882.068" h="90"/>
+	</spawn>
+	<!-- steel rake scout (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214955" pool="2" interval="490">
+		<object x="578.021" y="576.902" z="1021.27" h="90"/>
+		<object x="680.052" y="548.031" z="1022.37" h="0"/>
+	</spawn>
+	<!-- steel rake scout (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214953" pool="13" interval="490">
+		<object x="525.723" y="571.258" z="1021.29" h="90"/>
+		<object x="320.656" y="556.744" z="901.713" h="31"/>
+		<object x="365.231" y="490.306" z="894.431" h="59"/>
+		<object x="299.028" y="511.388" z="900.37" h="59"/>
+		<object x="507.34" y="478.536" z="885.478" h="60"/>
+		<object x="550.676" y="440.849" z="1021.27" h="30"/>
+		<object x="623.153" y="470.809" z="1031.05" h="0"/>
+		<object x="590.724" y="504.431" z="879.774" h="0"/>
+		<object x="590.657" y="515.477" z="879.774" h="0"/>
+		<object x="542.648" y="486.092" z="882.143" h="89"/>
+		<object x="499.165" y="558.118" z="1033.2" h="89"/>
+		<object x="616.762" y="531.874" z="879.709" h="60"/>
+		<object x="705.42" y="528.318" z="1013.12" h="0"/>
+	</spawn>
+	<!-- steel rake scout (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214958" pool="1" interval="490">
+		<object x="617.015" y="574.269" z="1031.05" h="0"/>
+	</spawn>
+	<!-- steel rake scout (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214959" pool="12" interval="490">
+		<object x="499.187" y="552.176" z="885.478" h="57"/>
+		<object x="409.384" y="545.549" z="885.478" h="0"/>
+		<object x="409.384" y="548.871" z="885.478" h="0"/>
+		<object x="342.236" y="518.813" z="894.431" h="0"/>
+		<object x="548.991" y="441.393" z="1021.27" h="30"/>
+		<object x="497.48" y="558.778" z="1033.31" h="89"/>
+		<object x="331.67" y="525.645" z="899.987" h="0"/>
+		<object x="582.975" y="510.111" z="1023.2" h="59"/>
+		<object x="500.12" y="539.602" z="1033.16" h="29"/>
+		<object x="343.305" y="507.836" z="894.435" h="0"/>
+		<object x="574.383" y="553.111" z="882.068" h="60"/>
+		<object x="270.701" y="515.602" z="900.37" h="59"/>
+	</spawn>
+	<!-- steel rake shaman (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214992" pool="2" interval="490">
+		<object x="504.933" y="516.762" z="951.408" h="7"/>
+		<object x="489.332" y="482.436" z="958.708" h="91"/>
+	</spawn>
+	<!-- steel rake shaman (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214990" pool="1" interval="490">
+		<object x="350.74" y="538.876" z="950.018" h="0"/>
+	</spawn>
+	<!-- steel rake shaman (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214991" pool="5" interval="490">
+		<object x="355.346" y="593.496" z="948.015" h="30"/>
+		<object x="610.443" y="494.855" z="942.24" h="0"/>
+		<object x="651.633" y="461.114" z="936.089" h="30"/>
+		<object x="648.276" y="529.3" z="936.057" h="90"/>
+		<object x="633.016" y="559.714" z="936.685" h="60"/>
+	</spawn>
+	<!-- steel rake shaman (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214985" pool="4" interval="490">
+		<object x="291.461" y="536.316" z="952.699" h="0"/>
+		<object x="364.275" y="488.565" z="946.818" h="0"/>
+		<object x="464.601" y="446.727" z="946.064" h="62"/>
+		<object x="291.778" y="476.049" z="952.627" h="0"/>
+	</spawn>
+	<!-- steel rake shaman (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214987" pool="4" interval="490">
+		<object x="606.56" y="463.903" z="942.24" h="0"/>
+		<object x="618.515" y="465.784" z="936.075" h="60"/>
+		<object x="615.851" y="539.059" z="942.24" h="90"/>
+		<object x="387.175" y="513.336" z="943.94" h="96"/>
+	</spawn>
+	<!-- steel rake sniper (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214982" pool="2" interval="490">
+		<object x="455.51" y="562.76" z="1032.88" h="0"/>
+		<object x="618.998" y="573.078" z="1031.05" h="0"/>
+	</spawn>
+	<!-- steel rake sniper (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214983" pool="2" interval="490">
+		<object x="589.625" y="553.047" z="1021.8" h="0"/>
+		<object x="556.104" y="437.708" z="882.068" h="30"/>
+	</spawn>
+	<!-- steel rake sniper (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214977" pool="22" interval="490">
+		<object x="500.161" y="553.851" z="885.478" h="57"/>
+		<object x="290.445" y="504.347" z="899.944" h="0"/>
+		<object x="739.869" y="511.428" z="1011.69" h="60"/>
+		<object x="533.072" y="440.425" z="882.133" h="59"/>
+		<object x="615.47" y="548.269" z="1031.05" h="62"/>
+		<object x="564.456" y="442.194" z="1021.27" h="30"/>
+		<object x="538.927" y="526.873" z="1023.43" h="0"/>
+		<object x="472.26" y="458.943" z="887.706" h="0"/>
+		<object x="739.815" y="506.261" z="1011.69" h="60"/>
+		<object x="427.378" y="556.63" z="886.018" h="92"/>
+		<object x="580.05" y="441.97" z="1021.27" h="30"/>
+		<object x="537.265" y="490.076" z="1023.44" h="0"/>
+		<object x="334.048" y="483.844" z="894.431" h="0"/>
+		<object x="616.36" y="544.2" z="1031.05" h="62"/>
+		<object x="489.824" y="530.242" z="1033.18" h="90"/>
+		<object x="628.552" y="488.695" z="1031.15" h="89"/>
+		<object x="508.739" y="477.263" z="885.478" h="60"/>
+		<object x="590.731" y="569.323" z="1021.32" h="90"/>
+		<object x="363.159" y="515.832" z="894.431" h="0"/>
+		<object x="497.928" y="486.28" z="1033.18" h="29"/>
+		<object x="593.773" y="506.52" z="879.774" h="0"/>
+		<object x="533.057" y="445.161" z="882.133" h="60"/>
+	</spawn>
+	<!-- steel rake sniper (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214978" pool="1" interval="490">
+		<object x="458.714" y="457.949" z="1032.99" h="0"/>
+	</spawn>
+	<!-- steel rake sniper (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="214979" pool="2" interval="490">
+		<object x="681.67" y="527.189" z="1022.59" h="0"/>
+		<object x="558.682" y="495.902" z="882.199" h="45"/>
+	</spawn>
+	<!-- steel rake swabbie (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214911" pool="9" interval="490">
+		<object x="532.801" y="485.83" z="958.711" h="60"/>
+		<object x="725.769" y="540.184" z="942.356" h="60"/>
+		<object x="747.279" y="464.38" z="942.354" h="89"/>
+		<object x="464.028" y="569.735" z="951.703" h="0"/>
+		<object x="632.981" y="562.602" z="936.685" h="60"/>
+		<object x="528.312" y="539.052" z="959.26" h="90"/>
+		<object x="383.457" y="597.726" z="946.096" h="89"/>
+		<object x="570.293" y="540.159" z="951.703" h="60"/>
+		<object x="354.266" y="597.235" z="948.015" h="30"/>
+	</spawn>
+	<!-- steel rake swabbie (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214908" pool="3" interval="490">
+		<object x="622.121" y="529.87" z="936.059" h="0"/>
+		<object x="686.029" y="498.784" z="942.374" h="60"/>
+		<object x="415.857" y="616.828" z="948.104" h="60"/>
+	</spawn>
+	<!-- steel rake swabbie (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214909" pool="2" interval="490">
+		<object x="491.883" y="546.64" z="953.665" h="89"/>
+		<object x="490.196" y="483.559" z="951.703" h="60"/>
+	</spawn>
+	<!-- steel rake swabbie (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214906" pool="1" interval="490">
+		<object x="459.047" y="557.585" z="951.703" h="119"/>
+	</spawn>
+	<!-- steel rake swabbie (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214907" pool="2" interval="490">
+		<object x="608.371" y="529.154" z="942.285" h="0"/>
+		<object x="257.437" y="488.134" z="947.042" h="29"/>
+	</spawn>
+	<!-- steel rake swabbie (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214905" pool="8" interval="490">
+		<object x="608.637" y="523.913" z="936.041" h="0"/>
+		<object x="495.505" y="488.074" z="951.704" h="0"/>
+		<object x="257.346" y="524.102" z="947.031" h="90"/>
+		<object x="630.042" y="473.15" z="942.24" h="60"/>
+		<object x="650.365" y="473.393" z="936.051" h="60"/>
+		<object x="460.478" y="518.07" z="958.708" h="90"/>
+		<object x="379.214" y="445.607" z="945.997" h="29"/>
+		<object x="458.536" y="578.219" z="958.078" h="0"/>
+	</spawn>
+	<!-- steel rake swabbie (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214912" pool="8" interval="490">
+		<object x="520.202" y="538.682" z="952.46" h="67"/>
+		<object x="309.705" y="581.349" z="953.737" h="0"/>
+		<object x="474.36" y="576.596" z="958.078" h="60"/>
+		<object x="512.18" y="527.35" z="952.439" h="12"/>
+		<object x="528.223" y="522.152" z="952.487" h="90"/>
+		<object x="457.013" y="496.038" z="952.562" h="0"/>
+		<object x="319.687" y="564.623" z="953.802" h="21"/>
+		<object x="472.636" y="574.867" z="958.078" h="60"/>
+	</spawn>
+	<!-- steel rake swabbie (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="215406" pool="2" interval="490">
+		<object x="491.941" y="545.569" z="953.665" h="28"/>
+		<object x="471.27" y="539.347" z="951.701" h="98"/>
+	</spawn>
+	<!-- steel rake swabbie (NPC ELITE lvl:41) -->
+	<spawn map="300100000" npcid="214910" pool="1" interval="490">
+		<object x="359.276" y="493.759" z="950.018" h="36"/>
+	</spawn>
+	<!-- steering house door (NPC NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="730205" pool="1" interval="490">
+		<object staticid="92" x="389.69821" y="547.40454" z="1073.8065" h="0"/>
+	</spawn>
+	<!-- stigma amplifier (NPC HERO lvl:45) -->
+	<spawn map="300100000" npcid="281180" pool="1" interval="490">
+		<object x="403.184" y="510.165" z="1071.74" h="0"/>
+	</spawn>
+	<!-- strongbox (NPC NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="700562" pool="1" interval="490">
+		<object x="352.659" y="588.666" z="948.019" h="30"/>
+	</spawn>
+	<!-- sturdy bubukin (NPC ELITE lvl:45) -->
+	<spawn map="300100000" npcid="215401" pool="1" interval="490">
+		<object x="357.596" y="506.387" z="894.431" h="0"/>
+	</spawn>
+	<!-- suspicious cannon (Object NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="730207" pool="1" interval="490">
+		<object x="681.724" y="550.67" z="1023.79" h="0" staticid="67"/>
+	</spawn>
+	<!-- sweeper nunukin (NPC ELITE lvl:42) -->
+	<spawn map="300100000" npcid="215062" pool="1" interval="490">
+		<object x="362.118" y="530.191" z="950.018" h="99"/>
+	</spawn>
+	<!-- tamer anikiki (NPC NORMAL lvl:40) -->
+	<spawn map="300100000" npcid="215436" pool="1" interval="490">
+		<object x="611.653" y="544.303" z="937.171" h="29"/>
+	</spawn>
+	<!-- tamer anikiki (NPC NORMAL lvl:45) -->
+	<spawn map="300100000" npcid="215412" pool="1" interval="490">
+		<object x="736.354" y="510.071" z="941.478" h="60"/>
+	</spawn>
+	<!-- technician binukin (NPC ELITE lvl:45) -->
+	<spawn map="300100000" npcid="215066" pool="1" interval="490">
+		<object x="544.711" y="550.891" z="882.068" h="0"/>
+	</spawn>
+	<!-- the brig entrance (NPC NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="730200" pool="1" interval="490">
+		<object staticid="30" x="461.77045" y="487.74203" z="879.50049" h="0"/>
+	</spawn>
+	<!-- the brig exit (NPC NORMAL lvl:1) -->
+	<spawn map="300100000" npcid="730201" pool="1" interval="490">
+		<object x="461.777" y="488.708" z="877.628" h="90"/>
+	</spawn>
+	<!-- timid alakin (NPC ELITE lvl:45) -->
+	<spawn map="300100000" npcid="215058" pool="1" interval="490">
+		<object x="463.452" y="537.515" z="886.018" h="29"/>
+	</spawn>
+	<!-- treasure box (NPC NORMAL lvl:20) -->
+	<spawn map="300100000" npcid="215421" pool="4" interval="490">
+		<object x="471.095" y="576.663" z="887.46" h="0"/>
+		<object x="472.588" y="514.175" z="877.62" h="0"/>
+		<object x="450.945" y="515.008" z="877.618" h="0"/>
+		<object x="451.161" y="575.938" z="887.41" h="0"/>
+	</spawn>
+	<!-- treasure box (NPC NORMAL lvl:3) -->
+	<spawn map="300100000" npcid="215489" pool="1" interval="490">
+		<object x="497.031" y="550.872" z="958.412" h="0"/>
+	</spawn>
+	<!-- warden tantaka (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215056" pool="1" interval="490">
+		<object x="461.756" y="570.704" z="887.417" h="89"/>
+	</spawn>
+	<!-- zerkin the one-eyed (NPC ELITE lvl:44) -->
+	<spawn map="300100000" npcid="215411" pool="1" interval="490">
+		<object x="716.977" y="509.168" z="1012.9" h="89"/>
+	</spawn>
+</spawns>

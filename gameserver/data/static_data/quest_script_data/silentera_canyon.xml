@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 30051: TODO: Banishing the Shadowborn (lvl 99) -->
+	<!-- Obtain Jotun Relics -->
+	<item_collecting id="30052" start_npc_id="799033" end_npc_id="798929" action_item_id="700568"/>
+	<!-- Poison Paradise -->
+	<monster_hunt id="30053" start_npc_id="799031">
+		<monster_infos var_id="0" max_kill="5" npc_id="216364"/>
+		<monster_infos var_id="1" max_kill="5" npc_id="216365"/>
+		<monster_infos var_id="2" max_kill="5" npc_id="216366"/>
+	</monster_hunt>
+	<!-- 30054: TODO: Petrification and Pride (lvl 53) -->
+	<!-- 30055: TODO: For My Wife (lvl 53) -->
+	<!-- 30056: TODO: Dirvisia's Sorrow (lvl 53) -->
+	<!-- 30057: TODO: Jotun Jaunt (lvl 53) -->
+	<!-- 30151: TODO: Snuff the Sunsuckers (lvl 99) -->
+	<!-- Important Relics -->
+	<item_collecting id="30152" start_npc_id="799338" end_npc_id="799227" action_item_id="700568"/>
+	<!-- Poison Problem -->
+	<monster_hunt id="30153" start_npc_id="799335">
+		<monster_infos var_id="0" max_kill="5" npc_id="216364"/>
+		<monster_infos var_id="1" max_kill="5" npc_id="216365"/>
+		<monster_infos var_id="2" max_kill="5" npc_id="216366"/>
+	</monster_hunt>
+	<!-- 30154: TODO: Flesh to Stone (lvl 53) -->
+	<!-- 30155: TODO: Stone to Flesh (lvl 53) -->
+	<!-- 30156: TODO: Nep's Love (lvl 53) -->
+	<!-- 30157: TODO: Vili's Mind (lvl 53) -->
+	<!-- 30158: TODO: Jotun Junket (lvl 53) -->
+	<!-- The Token of Iconrunerk -->
+	<item_collecting id="38504" start_npc_id="799087"/>
+	<!-- The Collector of Silentera -->
+	<item_collecting id="38507" start_npc_id="799087"/>
+	<!-- Shady Dealings? -->
+	<item_collecting id="48504" start_npc_id="799426"/>
+	<!-- A Special Deal -->
+	<item_collecting id="48507" start_npc_id="799426"/>
+</quest_scripts>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+	<!-- History of Ancient Atreia -->
+	<item_collecting id="90001" start_npc_id="730079"/>
+	<!-- Journal of an Explorer -->
+	<item_collecting id="90002" start_npc_id="730080"/>
+	<!-- Impetusium of Glory -->
+	<item_collecting id="90003" start_npc_id="730081"/>
+	<!-- Zemurru -->
+	<item_collecting id="90004" start_npc_id="730082"/>
+	<!-- Balaur Who Are They! -->
+	<item_collecting id="90005" start_npc_id="730083"/>
+	<!-- Asmo and Ellie -->
+	<item_collecting id="90006" start_npc_id="730084"/>
+	<!-- Interesting Asmodae -->
+	<item_collecting id="90007" start_npc_id="730085"/>
+	<!-- Femme Fatale of History 9 -->
+	<item_collecting id="90008" start_npc_id="730086"/>
+	<!-- In Defense of Humanity -->
+	<item_collecting id="90009" start_npc_id="730087"/>
+	<!-- The Mysteries of Shugos -->
+	<item_collecting id="90010" start_npc_id="730088"/>
+	<!-- Frozen in Time -->
+	<item_collecting id="90011" start_npc_id="730089"/>
+	<!-- Botanical Museum 7 -->
+	<item_collecting id="90012" start_npc_id="730090"/>
+	<!-- Rare Poison Guide -->
+	<item_collecting id="90013" start_npc_id="730091"/>
+	<!-- Guide to the Abyss -->
+	<item_collecting id="90014" start_npc_id="730092"/>
+	<!-- Book of Prophecy -->
+	<item_collecting id="90015" start_npc_id="730093"/>
+	<!-- Wind Breeze -->
+	<item_collecting id="90016" start_npc_id="730094"/>
+	<!-- Eltnen's Fall -->
+	<item_collecting id="90017" start_npc_id="730095"/>
+	<!-- Studies on Balaur Ruins -->
+	<item_collecting id="90018" start_npc_id="730096"/>
+	<!-- Fall of the Zumion Ruins -->
+	<item_collecting id="90019" start_npc_id="730097"/>
+	<!-- Deltras and Storm Legion -->
+	<item_collecting id="90020" start_npc_id="730098"/>
+	<!-- Introduction to Alchemy -->
+	<item_collecting id="90021" start_npc_id="730099"/>
+	<!-- A History of Legions -->
+	<item_collecting id="90022" start_npc_id="730100"/>
+	<!-- Flora of Elysea -->
+	<item_collecting id="90023" start_npc_id="730101"/>
+	<!-- A Treatise on Aether -->
+	<item_collecting id="90024" start_npc_id="730102"/>
+	<!-- The Death of Deltras the Prideful -->
+	<item_collecting id="90025" start_npc_id="730115"/>
+	<!-- Kentari Folktales of Morheim -->
+	<item_collecting id="90026" start_npc_id="730116"/>
+	<!-- Wonderful Tripeeds! -->
+	<item_collecting id="90027" start_npc_id="730117"/>
+	<!-- History of Eltnen Fortress -->
+	<item_collecting id="90028" start_npc_id="730118"/>
+	<!-- Legend of Eltnen 3 -->
+	<item_collecting id="90029" start_npc_id="730119"/>
+	<!-- Historical Criminals of Atreia -->
+	<item_collecting id="90030" start_npc_id="730120"/>
+	<!-- History of Pandaemonium -->
+	<item_collecting id="90031" start_npc_id="730121"/>
+	<!-- The Shadow Court -->
+	<item_collecting id="90032" start_npc_id="730122"/>
+	<!-- Dedication to Asmodians -->
+	<item_collecting id="90033" start_npc_id="730123"/>
+	<!-- Interesting Daevas of Asmodae -->
+	<item_collecting id="90034" start_npc_id="730124"/>
+	<!-- Glories of Sanctum -->
+	<item_collecting id="90035" start_npc_id="730125"/>
+	<!-- Memorable Daevas -->
+	<item_collecting id="90036" start_npc_id="730126"/>
+	<!-- The Right of Daeva -->
+	<item_collecting id="90037" start_npc_id="730127"/>
+	<!-- Expedition to Reshanta -->
+	<item_collecting id="90038" start_npc_id="730128"/>
+	<!-- The Struggle for Primum -->
+	<item_collecting id="90039" start_npc_id="730129"/>
+	<!-- Black Cloud Traders Guidebook -->
+	<item_collecting id="90040" start_npc_id="730130"/>
+	<!-- Report of the Research on Mutant Creatures 2 -->
+	<item_collecting id="90041" start_npc_id="730131"/>
+	<!-- Rediscovery of Superus Civilization -->
+	<item_collecting id="90042" start_npc_id="730132"/>
+	<!-- Arbolu, the Ancestor of Elim -->
+	<item_collecting id="90043" start_npc_id="730133"/>
+	<!-- The Tragedy of Heiron -->
+	<item_collecting id="90044" start_npc_id="730134"/>
+	<!-- The Golden Trumpet Temple -->
+	<item_collecting id="90045" start_npc_id="730135"/>
+	<!-- Namokata and the Dragon -->
+	<item_collecting id="90046" start_npc_id="730136"/>
+	<!-- Journal of Melleas -->
+	<item_collecting id="90047" start_npc_id="730179"/>
+	<!-- The Burning of Theobomos -->
+	<item_collecting id="90048" start_npc_id="730180"/>
+	<!-- The Mau Tribes -->
+	<item_collecting id="90049" start_npc_id="730181"/>
+	<!-- The Brohums -->
+	<item_collecting id="90050" start_npc_id="730182"/>
+	<!-- Terrible Dredgion -->
+	<item_collecting id="90051" start_npc_id="730183"/>
+	<!-- Ereshkigal Legend -->
+	<item_collecting id="90052" start_npc_id="730184"/>
+	<!-- Poeta Live Body Experiment White Paper -->
+	<item_collecting id="90053" start_npc_id="730193"/>
+	<!-- Book2 in the Mad Scientist's Room -->
+	<item_collecting id="90054" start_npc_id="730194"/>
+	<!-- Joining the Miragent Ranks -->
+	<item_collecting id="90055" start_npc_id="748000"/>
+	<!-- Fenris's Fangs Test Past Papers -->
+	<item_collecting id="90056" start_npc_id="748001"/>
+	<!-- Femme Fatale of History 2 -->
+	<item_collecting id="90057" start_npc_id="748002"/>
+	<!-- Femme Fatale of History 10 -->
+	<item_collecting id="90058" start_npc_id="748003"/>
+	<!-- Creatures of the Dawning Era -->
+	<item_collecting id="90059" start_npc_id="748004"/>
+	<!-- A Guardian's Life-The Early Years -->
+	<item_collecting id="90060" start_npc_id="748005"/>
+	<!-- Steel Beard -->
+	<item_collecting id="90061" start_npc_id="748006"/>
+	<!-- Legendary Weapons, Volume 1 -->
+	<item_collecting id="90062" start_npc_id="748007"/>
+	<!-- Agrif's Magic Sword -->
+	<item_collecting id="90063" start_npc_id="748008"/>
+	<!-- Song of Three Sages -->
+	<item_collecting id="90064" start_npc_id="748009"/>
+	<!-- Who's Who of Fashion -->
+	<item_collecting id="90065" start_npc_id="748010"/>
+	<!-- Dancing Children -->
+	<item_collecting id="90066" start_npc_id="748011"/>
+	<!-- Acetlar and Heimdal the Fool -->
+	<item_collecting id="90067" start_npc_id="748012"/>
+	<!-- Traditional Fairy Tales of Atreia, Vol. 6 -->
+	<item_collecting id="90068" start_npc_id="748013"/>
+	<!-- Traditional Fairy Tales of Atreia, Vol. 2 -->
+	<item_collecting id="90069" start_npc_id="748014"/>
+	<!-- Lionelo's Journal -->
+	<item_collecting id="90070" start_npc_id="748015"/>
+</quest_scripts>

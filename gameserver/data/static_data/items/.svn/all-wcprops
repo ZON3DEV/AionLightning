@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/items
+END
+item_templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/items/item_templates.xml
+END
+wrapped_items.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/items/wrapped_items.xsd
+END
+wrapped_items.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/items/wrapped_items.xml
+END
+item_templates.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/items/item_templates.xsd
+END

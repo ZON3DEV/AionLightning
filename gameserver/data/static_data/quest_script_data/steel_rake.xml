@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+	<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 3208: The Puzzling Blueprint (lvl 40) handled by script -->
+	<!-- 3211: TODO: [Group] Against the Steel Rake (lvl 43) -->
+	<!-- 3217: TODO: [Group] Imprisoned Guardian (lvl 43) -->
+	<!-- 3219: TODO: Key Item Hidden Quest 01 (Elyos) (lvl 1) -->
+	<!-- 3220: TODO: Key Item Hidden Quest 02 (Elyos) (lvl 1) -->
+	<!-- 4208: TODO: Truth of the Bookmark (lvl 40) -->
+	<!-- 4211: TODO: [Group] Steel Rake Slaughter (lvl 43) -->
+	<!-- 4217: TODO: [Group] The Imprisoned Executor (lvl 43) -->
+	<!-- 4219: TODO: Key Item Hidden Quest 01 (Asmodian) (lvl 1) -->
+	<!-- 4220: TODO: Key Item Hidden Quest 02 (Asmodian) (lvl 1) -->
+</quest_scripts>

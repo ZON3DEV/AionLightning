@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+	
+	<xs:include schemaLocation="../import.xsd" />
+	<xs:include schemaLocation="../global_types.xsd" />
+	
+	<xs:element name="shields">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="shield" type="Shield" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="Shield">
+		<xs:attribute name="name" type="ShieldName" />
+		<xs:attribute name="race" type="Race" />
+		<xs:attribute name="x" type="xs:float" />
+		<xs:attribute name="y" type="xs:float" />
+		<xs:attribute name="z" type="xs:float" />
+		<xs:attribute name="radius" type="xs:float" />
+		<xs:attribute name="skill" type="xs:int" />
+		<xs:attribute name="map" type="xs:int" />
+		<xs:attribute name="fortress_id" type="xs:int" />
+	</xs:complexType>
+	
+	<xs:simpleType name="ShieldName">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PRIMUM_SHIELD" />
+			<xs:enumeration value="TEMINON_SHIELD" />
+			<xs:enumeration value="SIELI_V" />
+			<xs:enumeration value="SIELI_Z" />
+			<xs:enumeration value="ARESHURAT" />
+			<xs:enumeration value="SERNOE" />
+			<xs:enumeration value="RU" />
+			<xs:enumeration value="KROTAN" />
+			<xs:enumeration value="TKISAS" />
+			<xs:enumeration value="ASTERIA" />
+			<xs:enumeration value="DIVINE" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

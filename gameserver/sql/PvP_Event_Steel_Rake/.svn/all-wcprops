@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/4/trunk/gameserver/sql/PvP_Event_Steel_Rake
+END
+steel_rake.sql
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/4/trunk/gameserver/sql/PvP_Event_Steel_Rake/steel_rake.sql
+END
+Fix_Delete_Steel_Rake_Spawns.sql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/sql/PvP_Event_Steel_Rake/Fix_Delete_Steel_Rake_Spawns.sql
+END
+update_Steel_Rake_Drops.sql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/sql/PvP_Event_Steel_Rake/update_Steel_Rake_Drops.sql
+END

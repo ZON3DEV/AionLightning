@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/skill_tree
+END
+skill_tree.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/skill_tree/skill_tree.xsd
+END
+craft_skill_tree.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/skill_tree/craft_skill_tree.xml
+END
+skill_tree.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/skill_tree/skill_tree.xml
+END

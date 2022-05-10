@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique. If not, see <http://www.gnu.org/licenses/>.
+
+	Geranaia
+
+-->
+<spawns>
+	<!-- Kimeia -->
+	<spawn map="310040000" npcid="204044" pool="1" interval="295">
+		<object x="269.78976" y="176.75081" z="204.34718" h="94"/>
+	</spawn>
+		<!-- Abyss Gate (Object Normal lvl:1) (Object Normal lvl:1) -->
+	<spawn map="310040000" npcid="700141" pool="1" interval="295">
+		<object x="276.24802" y="161.69484" z="205.62405" h="34"/>
+	</spawn>
+</spawns>

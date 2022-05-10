@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zones.xsd">
+	<zone mapid="320030000" name="BREGIRUN_320030000" priority="16">
+		<points>
+			<point x="157.679993" y="327.239990" />
+			<point x="319.279297" y="349.812592" />
+			<point x="348.521057" y="122.547562" />
+			<point x="182.304657" y="107.670166" />
+		</points>
+	</zone>
+</zones>

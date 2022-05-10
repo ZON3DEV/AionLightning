@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 45000: TODO: Aetheric Field Observatory Protectors FOBJ 01 (Asmodian) (lvl 99) -->
+	<!-- 45001: TODO: Aetheric Field Observatory Protectors FOBJ 02 (Asmodian) (lvl 99) -->
+	<!-- 45002: TODO: Aetheric Field Observatory Protectors FOBJ 03 (Asmodian) (lvl 99) -->
+	<!-- 45003: TODO: Aetheric Field Observatory Protectors NPC Chat 01 (Asmodian) (lvl 99) -->
+	<!-- 45004: TODO: Aetheric Field Observatory Protectors NPC Chat 02 (Asmodian) (lvl 99) -->
+	<!-- 45005: TODO: Aetheric Field Observatory Protectors Item Collection 01 (Asmodian) (lvl 99) -->
+	<!-- 45006: TODO: Aetheric Field Observatory Protectors Item Collection 02 (Asmodian) (lvl 99) -->
+	<!-- [Daily] Monitoring Beluslan -->
+	<item_collecting id="45007" start_npc_id="799848" action_item_id="700800"/>
+	<!-- [Daily] Scanning Beluslan -->
+	<item_collecting id="45008" start_npc_id="799848" action_item_id="700801"/>
+	<!-- [Daily] Oh the Entropy! -->
+	<monster_hunt id="45009" start_npc_id="799848">
+		<monster_infos var_id="0" max_kill="3" npc_id="700802"/>
+	</monster_hunt>
+	<!-- [Daily] Darkness Runs Across Water -->
+	<report_to id="45010" start_npc_id="204715" end_npc_id="799848"/>
+	<!-- [Daily] Hidden Missive -->
+	<report_to id="45011" start_npc_id="204772" end_npc_id="799848"/>
+	<!-- 45012: TODO: Aetheric Field Observatory Protectors Item Collection 01 (Asmodian) (lvl 99) -->
+	<!-- 45013: TODO: Aetheric Field Observatory Protectors Item Collection 02 (Asmodian) (lvl 99) -->
+	<!-- [Daily] Monitoring Brusthonin -->
+	<item_collecting id="45014" start_npc_id="799849" action_item_id="700803"/>
+	<!-- [Daily] Scanning Brusthonin -->
+	<item_collecting id="45015" start_npc_id="799849" action_item_id="700804"/>
+	<!-- [Daily] Control the Chaos -->
+	<monster_hunt id="45016" start_npc_id="799849">
+		<monster_infos var_id="0" max_kill="3" npc_id="700805"/>
+	</monster_hunt>
+	<!-- [Daily] A Flower Grows in Shade -->
+	<report_to id="45017" start_npc_id="205143" end_npc_id="799849"/>
+	<!-- [Daily] Secret Tidings -->
+	<report_to id="45018" start_npc_id="205130" end_npc_id="799849"/>
+	<!-- 45019: TODO: Aetheric Field Observatory Protectors Item Collection 01 (Asmodian) (lvl 99) -->
+	<!-- 45020: TODO: Aetheric Field Observatory Protectors Item Collection 02 (Asmodian) (lvl 99) -->
+	<!-- [Daily] Monitoring Gelkmaros -->
+	<item_collecting id="45021" start_npc_id="799842" end_npc_id="799843" action_item_id="700778"/>
+	<!-- [Daily] Scanning Gelkmaros -->
+	<item_collecting id="45022" start_npc_id="799842" end_npc_id="799843" action_item_id="700779"/>
+	<!-- [Daily] Dispel the Discord -->
+	<monster_hunt id="45023" start_npc_id="799842" end_npc_id="799843">
+		<monster_infos var_id="0" max_kill="3" npc_id="700780"/>
+	</monster_hunt>
+	<!-- [Daily] Those Who Grasp Fate -->
+	<report_to id="45024" start_npc_id="799244" end_npc_id="799842" add_end_npc_id="799843"/>
+	<!-- [Daily] Covert Intelligence -->
+	<report_to id="45025" start_npc_id="799271" end_npc_id="799842" add_end_npc_id="799843"/>
+	<!-- [Daily] Message from a Steward -->
+	<report_to id="45026" start_npc_id="799285" end_npc_id="799842" add_end_npc_id="799843"/>
+	<!-- [Daily] Message from a Legionary -->
+	<report_to id="45027" start_npc_id="799305" end_npc_id="799842" add_end_npc_id="799843"/>
+	<!-- [Daily] Message from an Outrider -->
+	<report_to id="45028" start_npc_id="799314" end_npc_id="799842" add_end_npc_id="799843"/>
+	<!-- [Daily] Message from a Centurion -->
+	<report_to id="45029" start_npc_id="799354" end_npc_id="799842" add_end_npc_id="799843"/>
+	<!-- [Daily] Message from a Warrior -->
+	<report_to id="45030" start_npc_id="799360" end_npc_id="799842" add_end_npc_id="799843"/>
+	<!-- [Daily] Sky Sweeper -->
+	<item_collecting id="45031" start_npc_id="799848"/>
+	<!-- [Daily] Warden Needs Food Badly -->
+	<item_collecting id="45032" start_npc_id="799848"/>
+	<!-- [Daily] This Ain't a Scene... -->
+	<item_collecting id="45033" start_npc_id="799848"/>
+	<!-- [Daily] Heavily Medicated -->
+	<item_collecting id="45034" start_npc_id="799848"/>
+	<!-- [Daily] Blue Jaw Breaker -->
+	<monster_hunt id="45035" start_npc_id="799848">
+		<monster_infos var_id="0" max_kill="5" npc_id="213009"/>
+	</monster_hunt>
+	<!-- [Daily] A Little Spriggle Room -->
+	<monster_hunt id="45036" start_npc_id="799848">
+		<monster_infos var_id="0" max_kill="5" npc_id="213029"/>
+	</monster_hunt>
+	<!-- [Daily] Gone Gone Gorgons! -->
+	<monster_hunt id="45037" start_npc_id="799848">
+		<monster_infos var_id="0" max_kill="5" npc_id="213080"/>
+	</monster_hunt>
+	<!-- [Daily] Gluttonous Ettins -->
+	<monster_hunt id="45038" start_npc_id="799848">
+		<monster_infos var_id="0" max_kill="5" npc_id="213098"/>
+	</monster_hunt>
+	<!-- [Daily] Om-Nom Aether -->
+	<item_collecting id="45039" start_npc_id="799849"/>
+	<!-- [Daily] Food Shortage -->
+	<item_collecting id="45040" start_npc_id="799849"/>
+	<!-- [Daily] Weapon Shortage -->
+	<item_collecting id="45041" start_npc_id="799849"/>
+	<!-- [Daily] Medicine Shortage -->
+	<item_collecting id="45042" start_npc_id="799849"/>
+	<!-- [Daily] Anubites on My Heels -->
+	<monster_hunt id="45043" start_npc_id="799849">
+		<monster_infos var_id="0" max_kill="5" npc_id="214373"/>
+	</monster_hunt>
+	<!-- [Daily] Yuck...I Smell Kurin -->
+	<monster_hunt id="45044" start_npc_id="799849">
+		<monster_infos var_id="0" max_kill="5" npc_id="214367"/>
+	</monster_hunt>
+	<!-- [Daily] Gathering Aether 3 -->
+	<item_collecting id="45045" start_npc_id="799842" end_npc_id="799843"/>
+	<!-- [Daily] Gathering Foodstuff 3 -->
+	<item_collecting id="45046" start_npc_id="799842" end_npc_id="799843"/>
+	<!-- [Daily] Gathering Weapon Materials 3 -->
+	<item_collecting id="45047" start_npc_id="799842" end_npc_id="799843"/>
+	<!-- [Daily] Gathering Herbs 3 -->
+	<item_collecting id="45048" start_npc_id="799842" end_npc_id="799843"/>
+	<!-- [Daily] Hunt the Starved Barghest -->
+	<monster_hunt id="45049" start_npc_id="799842" end_npc_id="799843">
+		<monster_infos var_id="0" max_kill="5" npc_id="216542"/>
+	</monster_hunt>
+	<!-- [Daily] Eradicate the Plains Baku -->
+	<monster_hunt id="45050" start_npc_id="799842" end_npc_id="799843">
+		<monster_infos var_id="0" max_kill="5" npc_id="215901"/>
+	</monster_hunt>
+	<!-- [Daily] Eradicate the Smiling Dragrint -->
+	<monster_hunt id="45051" start_npc_id="799842" end_npc_id="799843">
+		<monster_infos var_id="0" max_kill="5" npc_id="216022"/>
+	</monster_hunt>
+	<!-- 45100: TODO: Aetheric Field Observatory Reward 1 (Asmodian) (lvl 99) -->
+	<!-- 45101: TODO: [Asmodian] Warden's Wages 1A (lvl 99) -->
+	<!-- 45102: TODO: [Asmodian] Warden's Wages 1B (lvl 99) -->
+	<!-- 45103: TODO: [Asmodian] Warden's Wages 1C (lvl 99) -->
+	<!-- 45104: TODO: [Asmodian] Warden's Wages 1D (lvl 99) -->
+	<!-- 45105: TODO: [Asmodian] Warden's Wages 2A (lvl 99) -->
+	<!-- 45106: TODO: [Asmodian] Warden's Wages 2B (lvl 99) -->
+	<!-- 45107: TODO: [Asmodian] Warden's Wages 2C (lvl 99) -->
+	<!-- 45108: TODO: [Asmodian] Warden's Wages 2D (lvl 99) -->
+	<!-- 45109: TODO: [Asmodian] Warden's Wages 3A (lvl 99) -->
+	<!-- 45110: TODO: [Asmodian] Warden's Wages 3B (lvl 99) -->
+	<!-- 45111: TODO: [Asmodian] Warden's Wages 3C (lvl 99) -->
+	<!-- 45112: TODO: [Asmodian] Warden's Wages 3D (lvl 99) -->
+	<!-- 48000: Summons from the Wardens (lvl 30) handled by script -->
+	<!-- 48003: TODO: Message from the Field Wardens (lvl 30) -->
+	<report_to id="48003" start_npc_id="204191" end_npc_id="799845"/>
+</quest_scripts>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="lib" path="lib/trove-2.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.15-bin.jar"/>
+	<classpathentry kind="lib" path="lib/commons-io-2.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="lib/xSocket-2.8.15.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="data/scripts/system/database"/>
+	<classpathentry kind="src" path="data/scripts/system/handlers"/>
+	<classpathentry excluding="administration/|main/|network/" kind="src" path="config"/>
+	<classpathentry kind="lib" path="lib/javac.jar"/>
+	<classpathentry kind="lib" path="lib/junit-4.6.jar"/>
+	<classpathentry kind="lib" path="lib/commons-pool-1.5.5.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="lib/commons-dbcp-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/javolution-5.5.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/geoEngine-0.1.jar"/>
+	<classpathentry kind="lib" path="lib/open-aion-commons.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zones.xsd">
+	<zone mapid="310080000" name="SANCTUM_UNDERGROUND_ARENA_310080000" priority="16">
+		<points>
+			<point x="204.169144" y="129.649475" />
+			<point x="355.688232" y="129.212830" />
+			<point x="357.434814" y="349.286652" />
+			<point x="206.789063" y="347.976654" />
+		</points>
+	</zone>
+</zones>

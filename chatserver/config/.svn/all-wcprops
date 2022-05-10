@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/3/trunk/chatserver/config
+END
+log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/3/trunk/chatserver/config/log4j.xml
+END
+chatserver.properties
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/3/trunk/chatserver/config/chatserver.properties
+END
+log4j.dtd
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/3/trunk/chatserver/config/log4j.dtd
+END

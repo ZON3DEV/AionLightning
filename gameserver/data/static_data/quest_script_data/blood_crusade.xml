@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+	<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 45500: TODO: Request of the Military Authorities 1 (Asmodian) (lvl 99) -->
+	<!-- 45501: TODO: Request of the Military Authorities 2 (Asmodian) (lvl 99) -->
+	<!-- 45502: [Daily] Romp in Reshanta (lvl 40) handled by script -->
+	<!-- 45503: [Weekly] Clash in the Canyon (lvl 50) handled by script -->
+	<!-- 45504: [Daily] Grapple in Gelkmaros (lvl 50) handled by script -->
+	<!-- 45505: [Spy/Daily] Crush the Cowards (lvl 50) handled by script -->
+	<!-- 45506: [Weekly] Purge the Perpetrators (lvl 40) handled by script -->
+	<!-- 45507: [Spy/Weekly] Elysea Infiltration (lvl 40) handled by script -->
+	<!-- 45508: [Daily] Elyos Extermination Operation (lvl 40) handled by script -->
+	<!-- 45509: [Daily] Slaughter the Elyos (lvl 50) handled by script -->
+	<!-- 45602: TODO: Reward by Military Authorities 3 (Asmodian) (lvl 99) -->
+	<!-- 45603: TODO: Reward by Military Authorities 4 (Asmodian) (lvl 99) -->
+	<!-- 45604: TODO: [Asmodian] Crusader's Commission 1A (lvl 99) -->
+	<!-- 45605: TODO: [Asmodian] Crusader's Commission 1B (lvl 99) -->
+	<!-- 45606: TODO: [Asmodian] Crusader's Commission 1C (lvl 99) -->
+	<!-- 45607: TODO: [Asmodian] Crusader's Commission 1D (lvl 99) -->
+	<!-- 45608: TODO: [Asmodian] Crusader's Commission 2A (lvl 99) -->
+	<!-- 45609: TODO: [Asmodian] Crusader's Commission 2B (lvl 99) -->
+	<!-- 45610: TODO: [Asmodian] Crusader's Commission 2C (lvl 99) -->
+	<!-- 45611: TODO: [Asmodian] Crusader's Commission 2D (lvl 99) -->
+	<!-- 48001: Call of the Crusade (lvl 40) handled by script -->
+	<!-- 48004: TODO: Message from the Blood Crusade (lvl 40) -->
+	<report_to id="48004" start_npc_id="204191" end_npc_id="799868"/>
+</quest_scripts>

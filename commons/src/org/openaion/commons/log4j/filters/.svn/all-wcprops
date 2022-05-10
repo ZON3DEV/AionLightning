@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/log4j/filters
+END
+AuditFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/log4j/filters/AuditFilter.java
+END
+ThrowablePresentFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/log4j/filters/ThrowablePresentFilter.java
+END
+GmAuditFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/log4j/filters/GmAuditFilter.java
+END
+ItemFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/log4j/filters/ItemFilter.java
+END
+AntiCheatFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/log4j/filters/AntiCheatFilter.java
+END
+ChatLogFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/log4j/filters/ChatLogFilter.java
+END
+ConsoleFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/log4j/filters/ConsoleFilter.java
+END

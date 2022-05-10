@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Sanctum Underground Arena
+
+ -->
+<spawns>
+	<!-- Arena Drynac (Monster Normal lvl:25) (from client spawn)-->
+	<spawn map="310080000" npcid="213582" pool="4" interval="295">
+		<object x="237.20816" y="243.51447" z="158.91695" h="1"/>
+		<object x="232.63782" y="243.39253" z="158.91695" h="1"/>
+		<object x="232.05042" y="237.10599" z="158.91695" h="1"/>
+		<object x="237.63536" y="236.41849" z="158.91695" h="1"/>
+	</spawn>
+	<!-- Arena Kirrin (Monster Normal lvl:25) (from client spawn)-->
+	<spawn map="310080000" npcid="213580" pool="4" interval="295">
+		<object x="318.8805" y="243.11601" z="158.91695" h="61"/>
+		<object x="313.59833" y="237.33846" z="158.91695" h="61"/>
+		<object x="319.2344" y="237.02919" z="158.91695" h="61"/>
+		<object x="313.1789" y="243.78307" z="158.91695" h="61"/>
+	</spawn>
+	<!-- Arena Tigric (Monster Normal lvl:25) (from client spawn)-->
+	<spawn map="310080000" npcid="213581" pool="4" interval="295">
+		<object x="272.2841" y="164.57834" z="162.01436" h="31"/>
+		<object x="272.2313" y="169.79263" z="162.01436" h="31"/>
+		<object x="279.10925" y="169.58214" z="162.01436" h="31"/>
+		<object x="279.00266" y="164.7098" z="162.01436" h="31"/>
+	</spawn>
+</spawns>

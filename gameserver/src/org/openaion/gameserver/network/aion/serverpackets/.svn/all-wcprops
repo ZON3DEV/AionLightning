@@ -1,0 +1,1139 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets
+END
+SM_PET_MOVE.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_PET_MOVE.java
+END
+SM_SUMMON_UPDATE.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_SUMMON_UPDATE.java
+END
+SM_CUBE_UPDATE.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_CUBE_UPDATE.java
+END
+SM_LEGION_UPDATE_TITLE.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEGION_UPDATE_TITLE.java
+END
+SM_FRIEND_RESPONSE.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_FRIEND_RESPONSE.java
+END
+SM_PRIVATE_STORE.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_PRIVATE_STORE.java
+END
+SM_DIALOG_WINDOW.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_DIALOG_WINDOW.java
+END
+SM_WINDSTREAM_LOCATIONS.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_WINDSTREAM_LOCATIONS.java
+END
+SM_SUMMON_USESKILL.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_SUMMON_USESKILL.java
+END
+SM_TIME_CHECK.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_TIME_CHECK.java
+END
+SM_ABNORMAL_STATE.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_ABNORMAL_STATE.java
+END
+SM_TRADELIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_TRADELIST.java
+END
+SM_ABYSS_RANK.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_ABYSS_RANK.java
+END
+SM_SIEGE_STATE.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_SIEGE_STATE.java
+END
+SM_TITLE_SET.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_TITLE_SET.java
+END
+SM_SIEGE_LOCATION_INFO.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_SIEGE_LOCATION_INFO.java
+END
+SM_RESTORE_CHARACTER.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_RESTORE_CHARACTER.java
+END
+SM_REPURCHASE.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_REPURCHASE.java
+END
+SM_LEGION_SEND_CUSTOM_EMBLEM.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEGION_SEND_CUSTOM_EMBLEM.java
+END
+SM_MAIL_SERVICE.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_MAIL_SERVICE.java
+END
+SM_LEGION_EMBLEM_SEND.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEGION_EMBLEM_SEND.java
+END
+SM_EXCHANGE_ADD_ITEM.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_EXCHANGE_ADD_ITEM.java
+END
+SM_FRIEND_UPDATE.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_FRIEND_UPDATE.java
+END
+SM_STATS_INFO.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_STATS_INFO.java
+END
+SM_LOGIN_QUEUE.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LOGIN_QUEUE.java
+END
+SM_SELL_ITEM.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_SELL_ITEM.java
+END
+SM_STANCE_STATE.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_STANCE_STATE.java
+END
+SM_DELETE_CHARACTER.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_DELETE_CHARACTER.java
+END
+SM_DREDGION_INSTANCE.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_DREDGION_INSTANCE.java
+END
+SM_LEGION_LEAVE_MEMBER.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEGION_LEAVE_MEMBER.java
+END
+SM_NEARBY_QUESTS.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_NEARBY_QUESTS.java
+END
+SM_RECONNECT_KEY.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_RECONNECT_KEY.java
+END
+SM_ABYSS_RANKING_PLAYERS.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_ABYSS_RANKING_PLAYERS.java
+END
+SM_ALLIANCE_READY_CHECK.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_ALLIANCE_READY_CHECK.java
+END
+SM_NPC_INFO.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_NPC_INFO.java
+END
+SM_ABYSS_ARTIFACT_INFO3.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_ABYSS_ARTIFACT_INFO3.java
+END
+SM_ABYSS_RANK_UPDATE.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_ABYSS_RANK_UPDATE.java
+END
+SM_INVENTORY_UPDATE.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_INVENTORY_UPDATE.java
+END
+SM_MACRO_RESULT.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_MACRO_RESULT.java
+END
+SM_PONG.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_PONG.java
+END
+SM_BLOCK_RESPONSE.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_BLOCK_RESPONSE.java
+END
+SM_SKILL_LIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_SKILL_LIST.java
+END
+SM_WAREHOUSE_INFO.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_WAREHOUSE_INFO.java
+END
+SM_CREATE_CHARACTER.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_CREATE_CHARACTER.java
+END
+SM_PLASTIC_SURGERY.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_PLASTIC_SURGERY.java
+END
+SM_DELETE_ITEM.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_DELETE_ITEM.java
+END
+SM_ENTER_WORLD_CHECK.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_ENTER_WORLD_CHECK.java
+END
+SM_PLAYER_MOVE.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_PLAYER_MOVE.java
+END
+SM_SKILL_COOLDOWN.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_SKILL_COOLDOWN.java
+END
+SM_LEGION_UPDATE_NICKNAME.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEGION_UPDATE_NICKNAME.java
+END
+SM_QUESTIONNAIRE.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_QUESTIONNAIRE.java
+END
+SM_LEGION_INFO.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEGION_INFO.java
+END
+SM_SYSTEM_MESSAGE.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_SYSTEM_MESSAGE.java
+END
+SM_QUEST_ACCEPTED.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_QUEST_ACCEPTED.java
+END
+SM_GROUP_LOOT.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_GROUP_LOOT.java
+END
+SM_PETITION.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_PETITION.java
+END
+SM_QUEST_STEP.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_QUEST_STEP.java
+END
+SM_GROUP_MEMBER_INFO.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_GROUP_MEMBER_INFO.java
+END
+SM_FRIEND_NOTIFY.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_FRIEND_NOTIFY.java
+END
+SM_LEAVE_GROUP_MEMBER.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEAVE_GROUP_MEMBER.java
+END
+SM_DELETE.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_DELETE.java
+END
+SM_ITEM_COOLDOWN.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_ITEM_COOLDOWN.java
+END
+SM_UPDATE_NOTE.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_UPDATE_NOTE.java
+END
+SM_LEGION_SEND_EMBLEM.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEGION_SEND_EMBLEM.java
+END
+SM_ABYSS_RANKING_LEGIONS.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_ABYSS_RANKING_LEGIONS.java
+END
+SM_PING_RESPONSE.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_PING_RESPONSE.java
+END
+SM_WINDSTREAM.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_WINDSTREAM.java
+END
+SM_DP_INFO.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_DP_INFO.java
+END
+SM_LOOT_STATUS.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LOOT_STATUS.java
+END
+SM_FORTRESS_INFO.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_FORTRESS_INFO.java
+END
+SM_NPC_WEARING_OBJECT.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_NPC_WEARING_OBJECT.java
+END
+SM_USE_OBJECT.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_USE_OBJECT.java
+END
+SM_QUEST_DELETE.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_QUEST_DELETE.java
+END
+SM_TITLE_UPDATE.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_TITLE_UPDATE.java
+END
+SM_ALLIANCE_INFO.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_ALLIANCE_INFO.java
+END
+SM_BLOCK_LIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_BLOCK_LIST.java
+END
+SM_LEGION_TABS.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEGION_TABS.java
+END
+SM_EXCHANGE_REQUEST.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_EXCHANGE_REQUEST.java
+END
+SM_TELEPORT_LOC.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_TELEPORT_LOC.java
+END
+SM_INGAMESHOP_ITEMS.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_INGAMESHOP_ITEMS.java
+END
+SM_MACRO_LIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_MACRO_LIST.java
+END
+SM_MANTRA_EFFECT.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_MANTRA_EFFECT.java
+END
+SM_UPDATE_ITEM.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_UPDATE_ITEM.java
+END
+SM_LEGION_MEMBERLIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEGION_MEMBERLIST.java
+END
+SM_LEGION_UPDATE_EMBLEM.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEGION_UPDATE_EMBLEM.java
+END
+SM_PLAY_MOVIE.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_PLAY_MOVIE.java
+END
+SM_GROUP_INFO.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_GROUP_INFO.java
+END
+SM_RIFT_STATUS.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_RIFT_STATUS.java
+END
+SM_INSTANCE_COOLDOWN.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_INSTANCE_COOLDOWN.java
+END
+SM_LEVEL_UPDATE.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEVEL_UPDATE.java
+END
+SM_TRANSFORM.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_TRANSFORM.java
+END
+SM_TITLE_LIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_TITLE_LIST.java
+END
+SM_GATHER_UPDATE.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_GATHER_UPDATE.java
+END
+SM_UPDATE_PLAYER_APPEARANCE.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_UPDATE_PLAYER_APPEARANCE.java
+END
+SM_RESURRECT.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_RESURRECT.java
+END
+SM_ITEM_USAGE_ANIMATION.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_ITEM_USAGE_ANIMATION.java
+END
+SM_MESSAGE.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_MESSAGE.java
+END
+SM_NAME_CHANGE.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_NAME_CHANGE.java
+END
+SM_GAME_TIME.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_GAME_TIME.java
+END
+SM_CHARACTER_SELECT.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_CHARACTER_SELECT.java
+END
+SM_SET_BIND_POINT.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_SET_BIND_POINT.java
+END
+SM_CHAT_INIT.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_CHAT_INIT.java
+END
+SM_ABNORMAL_EFFECT.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_ABNORMAL_EFFECT.java
+END
+SM_PLAYER_INFO.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_PLAYER_INFO.java
+END
+SM_PLAYER_ID.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_PLAYER_ID.java
+END
+SM_ABYSS_ARTIFACT_INFO.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_ABYSS_ARTIFACT_INFO.java
+END
+SM_FORTRESS_STATUS.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_FORTRESS_STATUS.java
+END
+SM_SUMMON_PANEL_REMOVE.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_SUMMON_PANEL_REMOVE.java
+END
+SM_LEGION_ADD_MEMBER.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEGION_ADD_MEMBER.java
+END
+SM_BROKER_ITEMS.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_BROKER_ITEMS.java
+END
+SM_CHARACTER_LIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_CHARACTER_LIST.java
+END
+SM_LEARN_RECIPE.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEARN_RECIPE.java
+END
+SM_TARGET_UPDATE.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_TARGET_UPDATE.java
+END
+SM_KEY.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_KEY.java
+END
+SM_CASTSPELL.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_CASTSPELL.java
+END
+SM_CUSTOM_SETTINGS.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_CUSTOM_SETTINGS.java
+END
+SM_STATUPDATE_EXP.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_STATUPDATE_EXP.java
+END
+SM_VIEW_PLAYER_DETAILS.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_VIEW_PLAYER_DETAILS.java
+END
+SM_QUEST_LIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_QUEST_LIST.java
+END
+SM_FIND_GROUP.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_FIND_GROUP.java
+END
+SM_TARGET_SELECTED.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_TARGET_SELECTED.java
+END
+SM_LEGION_EMBLEM.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEGION_EMBLEM.java
+END
+SM_STIGMA_SKILL_REMOVE.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_STIGMA_SKILL_REMOVE.java
+END
+SM_CRAFT_UPDATE.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_CRAFT_UPDATE.java
+END
+SM_CUSTOM_PACKET.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_CUSTOM_PACKET.java
+END
+SM_DELETE_WAREHOUSE_ITEM.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_DELETE_WAREHOUSE_ITEM.java
+END
+SM_RECIPE_LIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_RECIPE_LIST.java
+END
+SM_FRIEND_LIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_FRIEND_LIST.java
+END
+SM_KISK_UPDATE.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_KISK_UPDATE.java
+END
+SM_TARGET_IMMOBILIZE.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_TARGET_IMMOBILIZE.java
+END
+SM_INFLUENCE_RATIO.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_INFLUENCE_RATIO.java
+END
+SM_INVENTORY_INFO.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_INVENTORY_INFO.java
+END
+SM_GATHERABLE_INFO.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_GATHERABLE_INFO.java
+END
+SM_ALLIANCE_MEMBER_INFO.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_ALLIANCE_MEMBER_INFO.java
+END
+SM_EMOTION.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_EMOTION.java
+END
+SM_STATUPDATE_MP.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_STATUPDATE_MP.java
+END
+SM_GATHER_STATUS.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_GATHER_STATUS.java
+END
+SM_CASTSPELL_END.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_CASTSPELL_END.java
+END
+SM_SKILL_CANCEL.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_SKILL_CANCEL.java
+END
+SM_PRICES.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_PRICES.java
+END
+SM_SIEGE_AETHERIC_FIELDS.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_SIEGE_AETHERIC_FIELDS.java
+END
+SM_SHOW_BRAND.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_SHOW_BRAND.java
+END
+SM_PRIVATE_STORE_NAME.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_PRIVATE_STORE_NAME.java
+END
+SM_ASCENSION_MORPH.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_ASCENSION_MORPH.java
+END
+SM_LOOT_ITEMLIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LOOT_ITEMLIST.java
+END
+SM_FORCED_MOVE.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_FORCED_MOVE.java
+END
+SM_DUEL.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_DUEL.java
+END
+SM_RIFT_ANNOUNCE.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_RIFT_ANNOUNCE.java
+END
+SM_WEATHER.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_WEATHER.java
+END
+SM_INGAMESHOP_BALANCE.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_INGAMESHOP_BALANCE.java
+END
+SM_SKILL_ACTIVATION.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_SKILL_ACTIVATION.java
+END
+SM_PLAYER_SPAWN.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_PLAYER_SPAWN.java
+END
+SM_EXCHANGE_ADD_KINAH.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_EXCHANGE_ADD_KINAH.java
+END
+SM_LEGION_UPDATE_MEMBER.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEGION_UPDATE_MEMBER.java
+END
+SM_INGAMESHOP_ITEM.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_INGAMESHOP_ITEM.java
+END
+SM_FLY_TIME.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_FLY_TIME.java
+END
+SM_SHOW_NPC_ON_MAP.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_SHOW_NPC_ON_MAP.java
+END
+SM_LOOKATOBJECT.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LOOKATOBJECT.java
+END
+SM_PLAYER_SEARCH.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_PLAYER_SEARCH.java
+END
+SM_STARTED_QUEST_LIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_STARTED_QUEST_LIST.java
+END
+SM_LEGION_EDIT.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEGION_EDIT.java
+END
+SM_VERSION_CHECK.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_VERSION_CHECK.java
+END
+SM_UPDATE_WAREHOUSE_ITEM.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_UPDATE_WAREHOUSE_ITEM.java
+END
+SM_CHANNEL_INFO.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_CHANNEL_INFO.java
+END
+SM_L2AUTH_LOGIN_CHECK.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_L2AUTH_LOGIN_CHECK.java
+END
+SM_PET.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_PET.java
+END
+SM_RECIPE_DELETE.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_RECIPE_DELETE.java
+END
+SM_INGAMESHOP.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_INGAMESHOP.java
+END
+SM_EXCHANGE_CONFIRMATION.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_EXCHANGE_CONFIRMATION.java
+END
+SM_TELEPORT_MAP.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_TELEPORT_MAP.java
+END
+SM_PLAYER_STATE.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_PLAYER_STATE.java
+END
+SM_UI_SETTINGS.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_UI_SETTINGS.java
+END
+SM_SUMMON_PANEL.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_SUMMON_PANEL.java
+END
+SM_CRAFT_ANIMATION.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_CRAFT_ANIMATION.java
+END
+SM_QUESTION_WINDOW.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_QUESTION_WINDOW.java
+END
+SM_INSTANCE_SCORE.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_INSTANCE_SCORE.java
+END
+SM_NICKNAME_CHECK_RESPONSE.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_NICKNAME_CHECK_RESPONSE.java
+END
+SM_QUIT_RESPONSE.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_QUIT_RESPONSE.java
+END
+SM_MAY_LOGIN_INTO_GAME.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_MAY_LOGIN_INTO_GAME.java
+END
+SM_STATUPDATE_DP.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_STATUPDATE_DP.java
+END
+SM_DIE.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_DIE.java
+END
+SM_LEGION_UPDATE_SELF_INTRO.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_LEGION_UPDATE_SELF_INTRO.java
+END
+SM_WAREHOUSE_UPDATE.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_WAREHOUSE_UPDATE.java
+END
+SM_STATUPDATE_HP.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_STATUPDATE_HP.java
+END
+SM_SUMMON_OWNER_REMOVE.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_SUMMON_OWNER_REMOVE.java
+END
+SM_EMOTION_LIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_EMOTION_LIST.java
+END
+SM_MOVE.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_MOVE.java
+END
+SM_ATTACK.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_ATTACK.java
+END
+SM_ATTACK_STATUS.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/aion/serverpackets/SM_ATTACK_STATUS.java
+END

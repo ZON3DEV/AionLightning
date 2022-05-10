@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AbyssStatus time="current_timestamp">
+	
+	<InfluenceRatio Elyos="25" Asmodians="25" Balaur="50" />
+	<AbyssTimer Remains="354" />
+	
+	<Locations>
+	
+		<SiegeLocation id="1011" type="FORTRESS">
+			<HoldingRace>ASMODIANS</HoldingRace>
+			<HoldingLegion>0</HoldingLegion>
+			<CurrentStatus>VULNERABLE</CurrentStatus>
+			<NextStatus>INVULNERABLE</NextStatus>
+		</SiegeLocation>
+		<SiegeLocation id="1012" type="ARTIFACT">
+			<HoldingRace>ELYOS</HoldingRace>
+			<HoldingLegion>25465</HoldingLegion>
+		</SiegeLocation>
+		<SiegeLocation id="1013" type="ARTIFACT">
+			<HoldingRace>BALAUR</HoldingRace>
+			<HoldingLegion>0</HoldingLegion>
+		</SiegeLocation>
+	
+	</Locations>
+	
+</AbyssStatus>

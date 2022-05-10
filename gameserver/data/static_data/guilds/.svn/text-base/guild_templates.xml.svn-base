@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--author HellBoy-->
+<guild_templates>
+	<guild_template id="10" nameId="1129000" npcId="799803" requiredLevel="30">
+		<guild_quests>
+			<guild_quest id="35007" lvl="30"/>
+			<guild_quest id="35008" lvl="30"/>
+			<guild_quest id="35009" lvl="30"/>
+			<guild_quest id="35010" lvl="30"/>
+			<guild_quest id="35011" lvl="30"/>
+			<guild_quest id="35031" lvl="30"/>
+			<guild_quest id="35032" lvl="30"/>
+			<guild_quest id="35033" lvl="30"/>
+			<guild_quest id="35034" lvl="30"/>
+			<guild_quest id="35035" lvl="30"/>
+			<guild_quest id="35036" lvl="34"/>
+			<guild_quest id="35037" lvl="37"/>
+			<guild_quest id="35014" lvl="40"/>
+			<guild_quest id="35015" lvl="40"/>
+			<guild_quest id="35016" lvl="40"/>
+			<guild_quest id="35017" lvl="40"/>
+			<guild_quest id="35018" lvl="40"/>
+			<guild_quest id="35038" lvl="40"/>
+			<guild_quest id="35039" lvl="40"/>
+			<guild_quest id="35040" lvl="40"/>
+			<guild_quest id="35041" lvl="40"/>
+			<guild_quest id="35042" lvl="40"/>
+			<guild_quest id="35043" lvl="44"/>
+			<guild_quest id="35044" lvl="47"/>
+			<guild_quest id="35021" lvl="50"/>
+			<guild_quest id="35022" lvl="50"/>
+			<guild_quest id="35023" lvl="50"/>
+			<guild_quest id="35024" lvl="50"/>
+			<guild_quest id="35025" lvl="50"/>
+			<guild_quest id="35026" lvl="50"/>
+			<guild_quest id="35027" lvl="50"/>
+			<guild_quest id="35028" lvl="50"/>
+			<guild_quest id="35029" lvl="50"/>
+			<guild_quest id="35030" lvl="50"/>
+			<guild_quest id="35045" lvl="50"/>
+			<guild_quest id="35046" lvl="50"/>
+			<guild_quest id="35047" lvl="50"/>
+			<guild_quest id="35048" lvl="50"/>
+			<guild_quest id="35049" lvl="50"/>
+			<guild_quest id="35050" lvl="53"/>
+			<guild_quest id="35051" lvl="55"/>
+		</guild_quests>
+	</guild_template>
+	<guild_template id="11" nameId="1129001" npcId="799828" requiredLevel="40">
+		<guild_quests>
+			<guild_quest id="35502" lvl="40"/>
+			<guild_quest id="35506" lvl="40"/>
+			<guild_quest id="35507" lvl="40"/>
+			<guild_quest id="35508" lvl="40"/>
+			<guild_quest id="35503" lvl="50"/>
+			<guild_quest id="35504" lvl="50"/>
+			<guild_quest id="35505" lvl="50"/>
+			<guild_quest id="35509" lvl="50"/>
+		</guild_quests>
+	</guild_template>
+	<guild_template id="12" nameId="1129002" npcId="799840" requiredLevel="50">
+		<guild_quests>
+			<guild_quest id="36015" lvl="50"/>
+			<guild_quest id="36016" lvl="50"/>
+			<guild_quest id="36017" lvl="50"/>
+			<guild_quest id="36500" lvl="50"/>
+			<guild_quest id="36502" lvl="50"/>
+			<guild_quest id="36503" lvl="50"/>
+			<guild_quest id="36504" lvl="50"/>
+			<guild_quest id="36505" lvl="50"/>
+			<guild_quest id="36518" lvl="50"/>
+			<guild_quest id="36519" lvl="50"/>
+			<guild_quest id="36520" lvl="50"/>
+			<guild_quest id="36521" lvl="50"/>
+			<guild_quest id="36522" lvl="50"/>
+			<guild_quest id="36506" lvl="53"/>
+			<guild_quest id="36508" lvl="53"/>
+			<guild_quest id="36509" lvl="53"/>
+			<guild_quest id="36510" lvl="53"/>
+			<guild_quest id="36511" lvl="53"/>
+			<guild_quest id="36523" lvl="53"/>
+			<guild_quest id="36524" lvl="53"/>
+			<guild_quest id="36525" lvl="53"/>
+			<guild_quest id="36512" lvl="55"/>
+			<guild_quest id="36514" lvl="55"/>
+			<guild_quest id="36515" lvl="55"/>
+			<guild_quest id="36516" lvl="55"/>
+			<guild_quest id="36517" lvl="55"/>
+			<guild_quest id="36526" lvl="55"/>
+			<guild_quest id="36527" lvl="55"/>
+			<guild_quest id="36528" lvl="55"/>
+		</guild_quests>
+	</guild_template>	
+	<guild_template id="20" nameId="1129003" npcId="799845" requiredLevel="30">
+		<guild_quests>
+			<guild_quest id="45007" lvl="30"/>
+			<guild_quest id="45008" lvl="30"/>
+			<guild_quest id="45009" lvl="30"/>
+			<guild_quest id="45010" lvl="30"/>
+			<guild_quest id="45011" lvl="30"/>
+			<guild_quest id="45031" lvl="30"/>
+			<guild_quest id="45032" lvl="30"/>
+			<guild_quest id="45033" lvl="30"/>
+			<guild_quest id="45034" lvl="30"/>
+			<guild_quest id="45035" lvl="30"/>
+			<guild_quest id="45036" lvl="34"/>
+			<guild_quest id="45037" lvl="37"/>
+			<guild_quest id="45014" lvl="40"/>
+			<guild_quest id="45015" lvl="40"/>
+			<guild_quest id="45016" lvl="40"/>
+			<guild_quest id="45017" lvl="40"/>
+			<guild_quest id="45018" lvl="40"/>
+			<guild_quest id="45038" lvl="40"/>
+			<guild_quest id="45039" lvl="40"/>
+			<guild_quest id="45040" lvl="40"/>
+			<guild_quest id="45041" lvl="40"/>
+			<guild_quest id="45042" lvl="40"/>
+			<guild_quest id="45043" lvl="44"/>
+			<guild_quest id="45044" lvl="47"/>
+			<guild_quest id="45021" lvl="50"/>
+			<guild_quest id="45022" lvl="50"/>
+			<guild_quest id="45023" lvl="50"/>
+			<guild_quest id="45024" lvl="50"/>
+			<guild_quest id="45025" lvl="50"/>
+			<guild_quest id="45026" lvl="50"/>
+			<guild_quest id="45027" lvl="50"/>
+			<guild_quest id="45028" lvl="50"/>
+			<guild_quest id="45029" lvl="50"/>
+			<guild_quest id="45030" lvl="50"/>
+			<guild_quest id="45045" lvl="50"/>
+			<guild_quest id="45046" lvl="50"/>
+			<guild_quest id="45047" lvl="50"/>
+			<guild_quest id="45048" lvl="50"/>
+			<guild_quest id="45049" lvl="50"/>
+			<guild_quest id="45050" lvl="53"/>
+			<guild_quest id="45051" lvl="55"/>
+		</guild_quests>
+	</guild_template>
+	<guild_template id="21" nameId="1129004" npcId="799868" requiredLevel="40">
+		<guild_quests>
+			<guild_quest id="45502" lvl="40"/>
+			<guild_quest id="45506" lvl="40"/>
+			<guild_quest id="45507" lvl="40"/>
+			<guild_quest id="45508" lvl="40"/>
+			<guild_quest id="45503" lvl="50"/>
+			<guild_quest id="45504" lvl="50"/>
+			<guild_quest id="45505" lvl="50"/>
+			<guild_quest id="45509" lvl="50"/>
+		</guild_quests>
+	</guild_template>
+	<guild_template id="22" nameId="1129005" npcId="799886" requiredLevel="50">
+		<guild_quests>
+			<guild_quest id="46015" lvl="50"/>
+			<guild_quest id="46016" lvl="50"/>
+			<guild_quest id="46017" lvl="50"/>
+			<guild_quest id="46500" lvl="50"/>
+			<guild_quest id="46502" lvl="50"/>
+			<guild_quest id="46503" lvl="50"/>
+			<guild_quest id="46504" lvl="50"/>
+			<guild_quest id="46505" lvl="50"/>
+			<guild_quest id="46518" lvl="50"/>
+			<guild_quest id="46519" lvl="50"/>
+			<guild_quest id="46520" lvl="50"/>
+			<guild_quest id="46521" lvl="50"/>
+			<guild_quest id="46522" lvl="50"/>
+			<guild_quest id="46506" lvl="53"/>
+			<guild_quest id="46508" lvl="53"/>
+			<guild_quest id="46509" lvl="53"/>
+			<guild_quest id="46510" lvl="53"/>
+			<guild_quest id="46511" lvl="53"/>
+			<guild_quest id="46523" lvl="53"/>
+			<guild_quest id="46524" lvl="53"/>
+			<guild_quest id="46525" lvl="53"/>
+			<guild_quest id="46512" lvl="55"/>
+			<guild_quest id="46514" lvl="55"/>
+			<guild_quest id="46515" lvl="55"/>
+			<guild_quest id="46516" lvl="55"/>
+			<guild_quest id="46517" lvl="55"/>
+			<guild_quest id="46526" lvl="55"/>
+			<guild_quest id="46527" lvl="55"/>
+			<guild_quest id="46528" lvl="55"/>
+		</guild_quests>
+	</guild_template>
+</guild_templates>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Azoturan Fortress
+
+ -->
+<spawns>
+	<!-- Acestes (NPC Normal lvl:45) (from client spawn)-->
+	<spawn map="310100000" npcid="204652" pool="1" interval="295">
+		<object x="309.6675" y="336.00333" z="1020.88" h="30"/>
+	</spawn>
+	<!-- Peitho (NPC Normal lvl:45) (from client spawn)-->
+	<spawn map="310100000" npcid="204653" pool="1" interval="295">
+		<object x="584.7464" y="508.8139" z="1188.181" h="21"/>
+	</spawn>
+</spawns>

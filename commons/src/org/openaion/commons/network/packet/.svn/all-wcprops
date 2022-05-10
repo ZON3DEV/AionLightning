@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/network/packet
+END
+BaseClientPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/network/packet/BaseClientPacket.java
+END
+BasePacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/network/packet/BasePacket.java
+END
+BaseServerPacket.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/network/packet/BaseServerPacket.java
+END

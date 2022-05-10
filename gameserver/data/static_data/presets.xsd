@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="custom_presets">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="preset">
+          <xs:complexType>
+            <xs:complexContent mixed="false">
+              <xs:extension base="PresetTemplate" />
+            </xs:complexContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="PresetTemplate">
+    <xs:sequence>
+      <xs:element name="height" type="xs:float" />
+      <xs:element minOccurs="0" name="hair_type" type="xs:int" />
+      <xs:element minOccurs="0" name="face_type" type="xs:int" />
+      <xs:element name="hair_color" type="xs:string" />
+      <xs:element name="lip_color" type="xs:string" />
+      <xs:element name="skin_color" type="xs:string" />
+      <xs:element name="detail" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="class" type="startingPlayerClass" use="required" />
+    <xs:attribute name="gender" type="Gender" use="required" />
+    <xs:attribute name="race" type="Race" use="required" />
+  </xs:complexType>
+</xs:schema>

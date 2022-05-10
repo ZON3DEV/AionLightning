@@ -1,0 +1,1 @@
+ALTER TABLE surveys MODIFY `message` varchar(1024) NOT NULL;

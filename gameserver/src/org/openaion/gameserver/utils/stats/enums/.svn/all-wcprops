@@ -1,0 +1,167 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums
+END
+MAGIC_BOOST.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/MAGIC_BOOST.java
+END
+ATTACK_SPEED.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/ATTACK_SPEED.java
+END
+MAIN_HAND_ACCURACY.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/MAIN_HAND_ACCURACY.java
+END
+MAGIC_ACCURACY.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/MAGIC_ACCURACY.java
+END
+BLOCK.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/BLOCK.java
+END
+WIND_RESIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/WIND_RESIST.java
+END
+ACCURACY.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/ACCURACY.java
+END
+POWER.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/POWER.java
+END
+EARTH_RESIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/EARTH_RESIST.java
+END
+PARRY.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/PARRY.java
+END
+SPEED.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/SPEED.java
+END
+AGILITY.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/AGILITY.java
+END
+EVASION.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/EVASION.java
+END
+HEALTH.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/HEALTH.java
+END
+MAIN_HAND_ATTACK.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/MAIN_HAND_ATTACK.java
+END
+MRES.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/MRES.java
+END
+WILL.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/WILL.java
+END
+MAXDP.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/MAXDP.java
+END
+FLY_SPEED.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/FLY_SPEED.java
+END
+WATER_RESIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/WATER_RESIST.java
+END
+MAIN_HAND_CRITRATE.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/MAIN_HAND_CRITRATE.java
+END
+MAXHP.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/MAXHP.java
+END
+FIRE_RESIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/FIRE_RESIST.java
+END
+PDEF.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/PDEF.java
+END
+KNOWLEDGE.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/KNOWLEDGE.java
+END
+MAXMP.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/MAXMP.java
+END
+ATTACK_RANGE.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/utils/stats/enums/ATTACK_RANGE.java
+END

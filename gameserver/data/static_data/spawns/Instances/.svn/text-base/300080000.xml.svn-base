@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Left Wing Chamber
+	@author Atomix
+ -->
+<spawns>
+	<!-- Treasurer Nabatma -->
+	<spawn map="300080000" npcid="215424" pool="1" interval="500">
+		<object x="485.7358" y="652.84595" z="352.94638" h="74"/>
+	</spawn>
+	<!-- Ashikar Ambusher (Monster Normal lvl:35) (from client spawn)-->
+	<spawn map="300080000" npcid="214741" pool="22" interval="295">
+		<object x="335.22107" y="473.95657" z="362.00156" h="48"/>
+		<object x="511.09937" y="591.4014" z="351.15314" h="75"/>
+		<object x="526.0184" y="595.37476" z="351.15314" h="89"/>
+		<object x="511.09937" y="579.8519" z="351.15314" h="110"/>
+		<object x="288.75674" y="436.80673" z="364.93622" h="87"/>
+		<object x="351.59875" y="477.63797" z="362.0818" h="18"/>
+		<object x="265.2715" y="655.67633" z="364.93622" h="9"/>
+		<object x="574.9002" y="578.4328" z="351.15314" h="100"/>
+		<object x="344.4086" y="602.9099" z="361.8223" h="2"/>
+		<object x="331.29758" y="696.4584" z="361.9554" h="59"/>
+		<object x="300.41965" y="511.78107" z="361.7754" h="48"/>
+		<object x="388.7467" y="598.43854" z="359.27368" h="0"/>
+		<object x="262.17853" y="514.8718" z="364.93622" h="98"/>
+		<object x="299.29288" y="659.6041" z="361.78033" h="25"/>
+		<object x="291.33658" y="560.6502" z="361.78036" h="108"/>
+		<object x="312.15207" y="608.9008" z="362.01566" h="61"/>
+		<object x="393.81427" y="569.843" z="358.89832" h="25"/>
+		<object x="344.13098" y="651.8651" z="361.96234" h="51"/>
+		<object x="257.95847" y="600.39624" z="364.93622" h="75"/>
+		<object x="407.4349" y="664.2842" z="359.15155" h="82"/>
+		<object x="574.9002" y="592.8974" z="351.15314" h="40"/>
+		<object x="439.75064" y="551.8069" z="353.865" h="110"/>
+	</spawn>
+	<!-- Ashikar Assailant (Monster Normal lvl:35) (from client spawn)-->
+	<spawn map="300080000" npcid="214740" pool="26" interval="295">
+		<object x="280.89102" y="708.25244" z="364.93622" h="8"/>
+		<object x="399.22473" y="538.31604" z="358.90497" h="112"/>
+		<object x="358.95383" y="683.21857" z="361.9139" h="111"/>
+		<object x="312.1194" y="562.7568" z="362.01538" h="22"/>
+		<object x="260.15054" y="570.52966" z="364.93622" h="35"/>
+		<object x="351.43158" y="521.56775" z="361.83804" h="104"/>
+		<object x="394.81583" y="601.6749" z="358.82004" h="3"/>
+		<object x="449.40555" y="648.2293" z="353.99564" h="88"/>
+		<object x="316.57547" y="464.74826" z="361.77533" h="18"/>
+		<object x="439.5783" y="619.6033" z="353.89655" h="57"/>
+		<object x="366.94186" y="567.9447" z="360.84964" h="89"/>
+		<object x="291.68854" y="610.7152" z="361.7804" h="91"/>
+		<object x="576.8731" y="578.4123" z="351.15314" h="32"/>
+		<object x="485.53632" y="649.6993" z="352.94638" h="72"/>
+		<object x="411.41925" y="513.2596" z="358.64874" h="95"/>
+		<object x="496.61795" y="589.4599" z="354.911" h="91"/>
+		<object x="278.09436" y="461.36676" z="364.93622" h="52"/>
+		<object x="449.45285" y="523.6047" z="353.94174" h="61"/>
+		<object x="319.75006" y="520.4624" z="362.0177" h="118"/>
+		<object x="394.88272" y="637.4739" z="359.33084" h="8"/>
+		<object x="321.23688" y="650.3749" z="362.04727" h="16"/>
+		<object x="576.8731" y="592.8769" z="351.15314" h="106"/>
+		<object x="270.4674" y="680.61914" z="364.93622" h="40"/>
+		<object x="369.9329" y="641.39484" z="361.02292" h="98"/>
+		<object x="485.2344" y="522.0616" z="352.94528" h="87"/>
+		<object x="496.60776" y="581.8544" z="354.911" h="114"/>
+	</spawn>
+	<!-- Ashikar Fleshmender (Monster Elite lvl:35) (from client spawn)-->
+	<spawn map="300080000" npcid="214826" pool="7" interval="300">
+		<object x="498.62015" y="488.06284" z="352.7172" h="104"/>
+		<object x="492.48242" y="632.71277" z="352.94638" h="49"/>
+		<object x="529.40045" y="591.5019" z="351.15314" h="9"/>
+		<object x="671.34644" y="555.0244" z="333.67874" h="7"/>
+		<object x="499.27527" y="680.5792" z="352.69922" h="112"/>
+		<object x="491.3378" y="536.70935" z="352.9463" h="10"/>
+		<object x="451.36746" y="585.7708" z="352.69846" h="31"/>
+	</spawn>
+	<!-- Ashikar Healer (Monster Normal lvl:35) (from client spawn)-->
+	<spawn map="300080000" npcid="214743" pool="14" interval="295">
+		<object x="482.3519" y="602.68115" z="352.9456" h="61"/>
+		<object x="261.32263" y="545.6874" z="364.93622" h="109"/>
+		<object x="482.45688" y="567.5025" z="352.9456" h="50"/>
+		<object x="440.5806" y="574.2432" z="353.2319" h="105"/>
+		<object x="405.2359" y="668.66833" z="359.45425" h="104"/>
+		<object x="260.5541" y="625.7843" z="364.93622" h="41"/>
+		<object x="317.72705" y="654.6749" z="361.97653" h="59"/>
+		<object x="385.45337" y="497.21054" z="360.8575" h="95"/>
+		<object x="367.18945" y="604.3341" z="360.84128" h="65"/>
+		<object x="335.3548" y="697.9085" z="362.00354" h="35"/>
+		<object x="397.0472" y="532.93286" z="359.18018" h="83"/>
+		<object x="320.75037" y="517.0718" z="362.01907" h="115"/>
+		<object x="349.8518" y="570.3008" z="361.6428" h="6"/>
+		<object x="319.36856" y="611.75684" z="362.12466" h="99"/>
+	</spawn>
+	<!-- Ashikar Serpentguard (Monster Elite lvl:35) (from client spawn)-->
+	<spawn map="300080000" npcid="214824" pool="7" interval="300">
+		<object x="554.1064" y="589.22253" z="350.90677" h="71"/>
+		<object x="459.0746" y="554.4599" z="352.69846" h="88"/>
+		<object x="493.25748" y="634.2081" z="352.94638" h="60"/>
+		<object x="459.0861" y="615.81213" z="352.69846" h="66"/>
+		<object x="674.3553" y="565.6938" z="333.27994" h="9"/>
+		<object x="552.075" y="581.686" z="350.90677" h="88"/>
+		<object x="492.10605" y="534.2591" z="352.94604" h="90"/>
+	</spawn>
+	<!-- Ashikar Shaman (Monster Elite lvl:35) (from client spawn)-->
+	<spawn map="300080000" npcid="214825" pool="8" interval="300">
+		<object x="485.5887" y="585.4208" z="355.34595" h="29"/>
+		<object x="497.4278" y="681.7858" z="352.69922" h="19"/>
+		<object x="696.95953" y="580.7482" z="325.3177" h="57"/>
+		<object x="615.97473" y="585.651" z="343.87656" h="5"/>
+		<object x="467.42123" y="520.04675" z="352.7052" h="22"/>
+		<object x="496.78067" y="487.161" z="352.7129" h="63"/>
+		<object x="536.67444" y="585.7708" z="350.90677" h="105"/>
+		<object x="466.73724" y="654.71027" z="352.69922" h="34"/>
+	</spawn>
+	<!-- Ashikar Sniper (Monster Normal lvl:35) (from client spawn)-->
+	<spawn map="300080000" npcid="214742" pool="14" interval="295">
+		<object x="317.02393" y="706.3012" z="361.78036" h="48"/>
+		<object x="471.04312" y="553.08966" z="352.9456" h="46"/>
+		<object x="529.41895" y="578.7923" z="351.15314" h="98"/>
+		<object x="429.7995" y="594.9851" z="354.7325" h="93"/>
+		<object x="396.82092" y="633.3293" z="359.0991" h="65"/>
+		<object x="365.55725" y="492.59564" z="361.78372" h="72"/>
+		<object x="333.39462" y="561.1267" z="362.00488" h="103"/>
+		<object x="471.04312" y="617.5045" z="352.9456" h="94"/>
+		<object x="399.31052" y="574.2224" z="358.36194" h="45"/>
+		<object x="384.54343" y="675.3706" z="360.93048" h="82"/>
+		<object x="372.3689" y="531.1116" z="360.89264" h="56"/>
+		<object x="269.02966" y="490.25903" z="364.93622" h="67"/>
+		<object x="408.5752" y="508.37042" z="359.01425" h="92"/>
+		<object x="290.68695" y="733.0676" z="364.93622" h="73"/>
+	</spawn>
+	<!-- Shining Magic Ward (Object Normal lvl:1) -->
+	<spawn map="300080000" npcid="700530" pool="1" interval="295">
+		<object staticid="1" x="672.83" y="606.22" z="321.19" h="66"/>
+	</spawn>
+	<!-- TreasureRoom_Sensory_C (NPC Normal lvl:3) -->
+	<spawn map="300080000" npcid="206089" pool="1" interval="295">
+		<object x="572.7178" y="585.92645" z="354.0" h="60"/>
+	</spawn>
+	<!-- Ancient Treasure Box (Object Normal lvl:1) -->
+    <spawn map="300080000" npcid="214804" pool="6" interval="295">
+        <object x="196.13242" y="619.54596" z="364.6045" h="117"/>
+        <object x="208.58965" y="684.08765" z="364.6045" h="115"/>
+        <object x="232.86606" y="745.9801" z="364.6045" h="110"/>
+        <object x="196.0384" y="552.0275" z="364.6045" h="1"/>
+        <object x="210.71431" y="486.84216" z="364.6045" h="4"/>
+        <object x="233.32706" y="425.46622" z="364.6045" h="7"/>
+    </spawn>
+</spawns>

@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model
+END
+NpcType.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/NpcType.java
+END
+PlayerClass.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/PlayerClass.java
+END
+DuelResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/DuelResult.java
+END
+SkillElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/SkillElement.java
+END
+AbyssRankingResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/AbyssRankingResult.java
+END
+Announcement.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/Announcement.java
+END
+Petition.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/Petition.java
+END
+FloodIP.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/FloodIP.java
+END
+PetitionType.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/PetitionType.java
+END
+PetitionStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/PetitionStatus.java
+END
+DescriptionId.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/DescriptionId.java
+END
+NpcShout.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/NpcShout.java
+END
+Gender.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/Gender.java
+END
+ShoutEventType.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/ShoutEventType.java
+END
+Race.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/Race.java
+END
+EmotionType.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/EmotionType.java
+END
+TaskId.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/TaskId.java
+END
+ChatType.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/ChatType.java
+END

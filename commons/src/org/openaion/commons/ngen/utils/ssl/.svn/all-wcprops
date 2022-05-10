@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/ngen/utils/ssl
+END
+CertificateAuthority.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/ngen/utils/ssl/CertificateAuthority.java
+END
+ResourceLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/ngen/utils/ssl/ResourceLoader.java
+END
+PrivateKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/ngen/utils/ssl/PrivateKey.java
+END
+KeyStore.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/ngen/utils/ssl/KeyStore.java
+END

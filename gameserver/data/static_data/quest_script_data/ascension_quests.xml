@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+	<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 1006: Ascension (lvl 9) handled by script -->
+	<!-- 1007: A Ceremony in Sanctum (lvl 10) handled by script -->
+	<!-- 1913: Dispatch to Verteron (lvl 10) handled by script -->
+	<!-- 1914: Dispatch to Verteron (lvl 10) handled by script -->
+	<!-- 1915: Dispatch to Verteron (lvl 10) handled by script -->
+	<!-- 1916: Dispatch to Verteron (lvl 10) handled by script -->
+	<!-- 2008: Ascension (lvl 9) handled by script -->
+	<!-- 2009: A Ceremony in Pandaemonium (lvl 9) handled by script -->
+	<!-- 2010: TODO: Asmodian Quest (lvl 1) -->
+	<!-- 2901: Dispatch to Altgard (lvl 9) handled by script -->
+	<!-- 2902: Dispatch to Altgard (lvl 9) handled by script -->
+	<!-- 2903: Dispatch to Altgard (lvl 9) handled by script -->
+	<!-- 2904: Dispatch to Altgard (lvl 9) handled by script -->
+</quest_scripts>

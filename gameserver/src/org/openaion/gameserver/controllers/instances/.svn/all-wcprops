@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/controllers/instances
+END
+KromedesTrialController.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/controllers/instances/KromedesTrialController.java
+END
+BeshmundirTempleController.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/controllers/instances/BeshmundirTempleController.java
+END
+FortressInstanceTimer.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/controllers/instances/FortressInstanceTimer.java
+END
+HaramelController.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/controllers/instances/HaramelController.java
+END
+SteelRakeController.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/controllers/instances/SteelRakeController.java
+END

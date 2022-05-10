@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/chatserver/clientpackets
+END
+CM_CS_PLAYER_AUTH_RESPONSE.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/chatserver/clientpackets/CM_CS_PLAYER_AUTH_RESPONSE.java
+END
+CM_CS_AUTH_RESPONSE.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/network/chatserver/clientpackets/CM_CS_AUTH_RESPONSE.java
+END

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<summon_stats_templates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../stats.xsd">
+	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="13">
+		<stats_template maxHp="774" pdefense="195" mresist="305" main_hand_attack="96" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="14">
+		<stats_template maxHp="852" pdefense="206" mresist="322" main_hand_attack="101" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="15">
+		<stats_template maxHp="930" pdefense="217" mresist="339" main_hand_attack="105" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="16">
+		<stats_template maxHp="1008" pdefense="228" mresist="356" main_hand_attack="110" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="17">
+		<stats_template maxHp="1086" pdefense="239" mresist="373" main_hand_attack="114" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="18">
+		<stats_template maxHp="1164" pdefense="250" mresist="390" main_hand_attack="119" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="19">
+		<stats_template maxHp="1242" pdefense="261" mresist="407" main_hand_attack="123" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="20">
+		<stats_template maxHp="1320" pdefense="272" mresist="424" main_hand_attack="128" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201012" npc_id_dark="201013" level="21">
+		<stats_template maxHp="1398" pdefense="283" mresist="441" main_hand_attack="132" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201016" npc_id_dark="201017" level="25">
+		<stats_template maxHp="1707" pdefense="330" mresist="515" main_hand_attack="160" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201016" npc_id_dark="201017" level="26">
+		<stats_template maxHp="1829" pdefense="341" mresist="532" main_hand_attack="163" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201016" npc_id_dark="201017" level="27">
+		<stats_template maxHp="1951" pdefense="352" mresist="549" main_hand_attack="169" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201016" npc_id_dark="201017" level="28">
+		<stats_template maxHp="2073" pdefense="363" mresist="566" main_hand_attack="173" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201016" npc_id_dark="201017" level="29">
+		<stats_template maxHp="2195" pdefense="374" mresist="583" main_hand_attack="177" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201016" npc_id_dark="201017" level="30">
+		<stats_template maxHp="2317" pdefense="385" mresist="600" main_hand_attack="182" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201016" npc_id_dark="201017" level="31">
+		<stats_template maxHp="2439" pdefense="396" mresist="617" main_hand_attack="187" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201016" npc_id_dark="201017" level="32">
+		<stats_template maxHp="2561" pdefense="407" mresist="634" main_hand_attack="191" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201016" npc_id_dark="201017" level="33">
+		<stats_template maxHp="2683" pdefense="418" mresist="651" main_hand_attack="196" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="37">
+		<stats_template maxHp="3181" pdefense="462" mresist="725" main_hand_attack="223" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="38">
+		<stats_template maxHp="3305" pdefense="473" mresist="742" main_hand_attack="229" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="39">
+		<stats_template maxHp="3429" pdefense="484" mresist="759" main_hand_attack="235" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="40">
+		<stats_template maxHp="3553" pdefense="495" mresist="776" main_hand_attack="240" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="41">
+		<stats_template maxHp="3677" pdefense="506" mresist="793" main_hand_attack="246" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="42">
+		<stats_template maxHp="3801" pdefense="517" mresist="810" main_hand_attack="251" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="43">
+		<stats_template maxHp="3925" pdefense="528" mresist="827" main_hand_attack="256" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="44">
+		<stats_template maxHp="4049" pdefense="539" mresist="844" main_hand_attack="262" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201020" npc_id_dark="201021" level="45">
+		<stats_template maxHp="4173" pdefense="552" mresist="861" main_hand_attack="265" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201036" npc_id_dark="201037" level="47">
+		<stats_template maxHp="4456" pdefense="576" mresist="900" main_hand_attack="281" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201036" npc_id_dark="201037" level="48">
+		<stats_template maxHp="4606" pdefense="587" mresist="917" main_hand_attack="285" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201036" npc_id_dark="201037" level="49">
+		<stats_template maxHp="4756" pdefense="598" mresist="934" main_hand_attack="290" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201036" npc_id_dark="201037" level="50">
+		<stats_template maxHp="4906" pdefense="609" mresist="951" main_hand_attack="294" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201036" npc_id_dark="201037" level="51">
+		<stats_template maxHp="5056" pdefense="620" mresist="968" main_hand_attack="299" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201036" npc_id_dark="201037" level="52">
+		<stats_template maxHp="5206" pdefense="631" mresist="975" main_hand_attack="303" run_speed="11.0"/>
+	</summon_stats>
+	<summon_stats npc_id_light="201036" npc_id_dark="201037" level="53">
+		<stats_template maxHp="5356" pdefense="642" mresist="992" main_hand_attack="307" run_speed="11.0"/>
+	</summon_stats>	
+	<summon_stats npc_id_light="201036" npc_id_dark="201037" level="54">
+		<stats_template maxHp="5506" pdefense="653" mresist="1009" main_hand_attack="313" run_speed="11.0"/>
+	</summon_stats>	
+	<summon_stats npc_id_light="201036" npc_id_dark="201037" level="55">
+		<stats_template maxHp="5656" pdefense="664" mresist="1026" main_hand_attack="317" run_speed="11.0"/>
+	</summon_stats>		
+</summon_stats_templates>

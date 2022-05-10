@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of Zetta Core <http://forum.zetta-core.org/>.
+
+	Zetta Core is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	Zetta Core is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Silentera Canyon From client/Retail spawn
+	@author Nephis
+ -->
+<spawns>
+	<!-- Defender Sentinel lvl:55 -->
+	<spawn map="600010000" npcid="209251" pool="14" interval="295">
+		<object x="571.7678" y="1212.317" z="303.125" h="60"/>
+		<object x="527.2758" y="1234.465" z="303.5075" h="105"/>
+		<object x="491.6791" y="1131.986" z="332.6845" h="20"/>
+		<object x="480.5434" y="1096.311" z="334.5491" h="21"/>
+		<object x="571.2549" y="1214.185" z="303.1258" h="61"/>
+		<object x="505.1626" y="1129.287" z="332.5126" h="19"/>
+		<object x="516.3759" y="1145.869" z="332.5385" h="73"/>
+		<object x="525.735" y="1232.765" z="303.5497" h="104"/>
+		<object x="501.8433" y="1126.478" z="332.4988" h="20"/>
+		<object x="649.25" y="1069.25" z="319.27" h="0"/>
+		<object x="650.5894" y="1071.25" z="319.2767" h="0"/>
+		<object x="650.9013" y="1067.138" z="319.2767" h="0"/>
+		<object x="674.9732" y="1094.775" z="319.2767" h="91"/>
+		<object x="676.9732" y="1095.721" z="319.2767" h="91"/>
+	</spawn>
+	<!-- Defender Sentinel lvl:55 -->
+	<spawn map="600010000" npcid="209256" pool="7" interval="295">
+		<object x="524.588" y="1183.713" z="329.875" h="20"/>
+		<object x="514.8454" y="1191.553" z="329.999" h="20"/>
+		<object x="414.5113" y="1278.544" z="308.7945" h="60"/>
+		<object x="412.8887" y="1295.142" z="305.6508" h="60"/>
+		<object x="585.4473" y="1052.942" z="331.8325" h="60"/>
+		<object x="581.6642" y="1080.637" z="330.7716" h="60"/>
+		<object x="583.76" y="1065.679" z="331.4156" h="60"/>
+	</spawn>
+	<!-- Jotun Relics lvl:1 -->
+	<spawn map="600010000" npcid="700568" pool="53" interval="295">
+		<object staticid="64" x="466.60507" y="1003.629" z="313.3992" h="60"/>
+		<object staticid="99" x="421.17508" y="1029.6172" z="313.3992" h="60"/>
+		<object staticid="106" x="553.91974" y="1034.2358" z="313.26074" h="60"/>
+		<object staticid="114" x="383.72797" y="1083.029" z="305.52155" h="60"/>
+		<object staticid="113" x="377.88675" y="1113.411" z="305.35217" h="60"/>
+		<object staticid="75" x="1103.0345" y="898.9522" z="302.08884" h="60"/>
+		<object staticid="86" x="1195.54" y="890.0149" z="301.09555" h="60"/>
+		<object staticid="76" x="1106.5269" y="838.401" z="301.72232" h="60"/>
+		<object staticid="80" x="1162.7711" y="819.678" z="301.36255" h="60"/>
+		<object staticid="91" x="1186.277" y="819.84174" z="296.68817" h="60"/>
+		<object staticid="78" x="1229.0048" y="828.1635" z="297.34225" h="60"/>
+		<object staticid="89" x="1215.1614" y="663.56616" z="301.43448" h="60"/>
+		<object staticid="90" x="1281.1046" y="670.5245" z="301.956" h="60"/>
+		<object staticid="81" x="1183.813" y="651.6864" z="298.4337" h="60"/>
+		<object staticid="82" x="1135.139" y="610.4807" z="303.24396" h="60"/>
+		<object staticid="104" x="1091.8604" y="660.62476" z="299.44348" h="60"/>
+		<object staticid="88" x="1066.0787" y="687.1779" z="302.48816" h="60"/>
+		<object staticid="84" x="1114.7334" y="576.9296" z="311.13354" h="60"/>
+		<object staticid="87" x="978.9579" y="674.9659" z="302.77386" h="60"/>
+		<object staticid="83" x="1113.3652" y="510.8501" z="310.63434" h="60"/>
+		<object staticid="95" x="354.51257" y="1202.9897" z="297.76746" h="60"/>
+		<object staticid="102" x="353.681" y="1152.8411" z="306.3308" h="60"/>
+		<object staticid="59" x="354.793" y="1072.4503" z="305.35217" h="60"/>
+		<object staticid="58" x="421.56012" y="1004.115" z="313.3992" h="60"/>
+		<object staticid="116" x="568.4652" y="970.8336" z="306.10364" h="60"/>
+		<object staticid="93" x="579.13153" y="1012.3017" z="312.88022" h="60"/>
+		<object staticid="54" x="598.08325" y="1012.0692" z="317.5125" h="60"/>
+		<object staticid="115" x="592.1358" y="1028.0234" z="317.1516" h="60"/>
+		<object staticid="71" x="609.50964" y="986.18567" z="310.76096" h="60"/>
+		<object staticid="72" x="645.28516" y="953.9456" z="304.95575" h="60"/>
+		<object staticid="94" x="952.44727" y="880.90344" z="300.86237" h="60"/>
+		<object staticid="96" x="843.37256" y="810.89636" z="296.66452" h="60"/>
+		<object staticid="69" x="701.0729" y="837.0533" z="292.78546" h="60"/>
+		<object staticid="85" x="748.81274" y="796.08765" z="289.51376" h="60"/>
+		<object staticid="56" x="678.8417" y="852.05023" z="293.06927" h="60"/>
+		<object staticid="55" x="787.9402" y="760.9259" z="292.74658" h="60"/>
+		<object staticid="97" x="687.649" y="824.222" z="293.1451" h="60"/>
+		<object staticid="79" x="735.0842" y="736.1854" z="289.51373" h="60"/>
+		<object staticid="61" x="759.83344" y="708.1635" z="293.42398" h="60"/>
+		<object staticid="68" x="658.22656" y="755.07135" z="292.9176" h="60"/>
+		<object staticid="60" x="681.76044" y="740.27185" z="289.51376" h="60"/>
+		<object staticid="110" x="672.7195" y="708.3209" z="293.0692" h="60"/>
+		<object staticid="98" x="615.45746" y="815.02026" z="293.06918" h="60"/>
+		<object staticid="62" x="640.0084" y="726.0744" z="293.06924" h="60"/>
+		<object staticid="70" x="600.57074" y="848.7423" z="293.06927" h="60"/>
+		<object staticid="101" x="594.90533" y="848.83795" z="293.06927" h="60"/>
+		<object staticid="108" x="638.46844" y="881.609" z="296.3658" h="60"/>
+		<object staticid="53" x="582.33344" y="777.4052" z="299.84106" h="60"/>
+		<object staticid="67" x="601.4874" y="693.73206" z="293.06924" h="60"/>
+		<object staticid="63" x="598.3263" y="690.69617" z="293.06924" h="60"/>
+		<object staticid="74" x="630.2431" y="644.7245" z="296.45703" h="60"/>
+		<object staticid="73" x="924.7756" y="820.70953" z="296.65448" h="60"/>
+		<object staticid="111" x="1288.4229" y="880.60614" z="301.95798" h="60"/>
+	</spawn>
+	<!-- Statue Dirvisia lvl:1 -->
+	<spawn map="600010000" npcid="700569" pool="1" interval="295">
+		<object x="556" y="308" z="310.3281" h="0"/>
+	</spawn>
+	<!-- Statue Sinigalla lvl:1 -->
+	<spawn map="600010000" npcid="700570" pool="1" interval="295">
+		<object staticid="149" x="546.7519" y="1233.693" z="304.2989" h="0"/>
+	</spawn>
+	<!-- Beshmundir's Walk lvl:1 -->
+	<spawn map="600010000" npcid="730231" pool="1" interval="295">
+		<object staticid="33" x="1420.116" y="767.1011" z="321.7967" h="0"/>
+	</spawn>
+	<!-- Angrief Pass lvl:60 -->
+	<spawn map="600010000" npcid="730257" pool="1" interval="295">
+		<object staticid="121" x="489.3474" y="105.0555" z="330.8495" h="60"/>
+	</spawn>
+	<!-- Hanarkand Pass lvl:60 -->
+	<spawn map="600010000" npcid="730258" pool="1" interval="295">
+		<object staticid="122" x="920.274" y="149.0756" z="351.0518" h="60"/>
+	</spawn>
+	<!-- Primeval Pass lvl:60 -->
+	<spawn map="600010000" npcid="730259" pool="1" interval="295">
+		<object staticid="127" x="981.4182" y="555.5464" z="315.8903" h="60"/>
+	</spawn>
+	<!-- Mitrakand Pass lvl:60 -->
+	<spawn map="600010000" npcid="730261" pool="1" interval="295">
+		<object staticid="124" x="493.6751" y="1440.799" z="333.5478" h="60"/>
+	</spawn>
+	<!-- Vorgaltem Pass lvl:60 -->
+	<spawn map="600010000" npcid="730262" pool="1" interval="295">
+		<object staticid="123" x="931.4075" y="1405.169" z="344.7267" h="60"/>
+	</spawn>
+	<!-- Earthfang Pass lvl:60 -->
+	<spawn map="600010000" npcid="730263" pool="1" interval="295">
+		<object staticid="118" x="1020.21" y="970.324" z="314.9597" h="60"/>
+	</spawn>
+	<!-- Inggison Gateway lvl:60 -->
+	<spawn map="600010000" npcid="730270" pool="1" interval="295">
+		<object staticid="48" x="466.3901" y="465.9861" z="329.1753" h="60"/>
+	</spawn>
+	<!-- Gelkmaros Gateway lvl:60 -->
+	<spawn map="600010000" npcid="730271" pool="1" interval="295">
+		<object staticid="47" x="471.4859" y="1076.655" z="334.2582" h="60"/>
+	</spawn>
+	<!-- Rueur lvl:56 -->
+	<spawn map="600010000" npcid="799338" pool="1" interval="295">
+		<object x="496.7976" y="1109.36" z="333.3062" h="70"/>
+	</spawn>
+	<!-- Vergelan lvl:55 -->
+	<spawn map="600010000" npcid="799383" pool="1" interval="295">
+		<object x="558.3917" y="1137.315" z="332.8574" h="60"/>
+	</spawn>
+	<!-- Arne lvl:55 -->
+	<spawn map="600010000" npcid="799384" pool="1" interval="295">
+		<object x="555.6047" y="1143.927" z="332.8574" h="60"/>
+	</spawn>
+	<!-- Fatebound Legionary lvl:54 -->
+	<spawn map="600010000" npcid="799393" pool="2" interval="295">
+		<object x="543.1363" y="1139.983" z="332.7305" h="0"/>
+		<object x="547.4975" y="1137.269" z="332.7305" h="0"/>
+	</spawn>
+	<!-- Fatebound Legionary lvl:54 -->
+	<spawn map="600010000" npcid="799394" pool="1" interval="295">
+		<object x="547.5543" y="1140.024" z="332.7305" h="0"/>
+	</spawn>
+	<!-- Fatebound Legionary lvl:54 -->
+	<spawn map="600010000" npcid="799395" pool="1" interval="295">
+		<object x="547.5827" y="1134.629" z="332.7766" h="0"/>
+	</spawn>
+	<!-- Fatebound Legionary lvl:54 -->
+	<spawn map="600010000" npcid="799396" pool="1" interval="295">
+		<object x="545.2659" y="1134.616" z="332.7772" h="0"/>
+	</spawn>
+	<!-- Fatebound Legionary lvl:54 -->
+	<spawn map="600010000" npcid="799397" pool="1" interval="295">
+		<object x="545.1807" y="1137.257" z="332.7305" h="0"/>
+	</spawn>
+	<!-- Fatebound Legionary lvl:54 -->
+	<spawn map="600010000" npcid="799398" pool="1" interval="295">
+		<object x="545.2375" y="1140.011" z="332.7305" h="0"/>
+	</spawn>
+	<!-- Fatebound Legionary lvl:54 -->
+	<spawn map="600010000" npcid="799399" pool="1" interval="295">
+		<object x="543.1647" y="1134.588" z="332.797" h="0"/>
+	</spawn>
+	<!-- Fatebound Legionary lvl:54 -->
+	<spawn map="600010000" npcid="799400" pool="1" interval="295">
+		<object x="543.0795" y="1137.229" z="332.7305" h="0"/>
+	</spawn>
+	<!-- Raffinerk lvl:55 -->
+	<spawn map="600010000" npcid="799426" pool="1" interval="295">
+		<object x="511" y="1274" z="313.5625" h="75"/>
+	</spawn>
+	<!-- Defender Sentinel lvl:55 -->
+	<spawn map="600010000" npcid="209051" pool="15" interval="295">
+		<object x="643.1567" y="476.3099" z="320.3297" h="59"/>
+		<object x="642.9282" y="472.25" z="320.3708" h="60"/>
+		<object x="642.9009" y="474.3712" z="320.3859" h="59"/>
+		<object x="498.75" y="418.25" z="327.38" h="45"/>
+		<object x="504.0296" y="420.4362" z="327.365" h="98"/>
+		<object x="495.3316" y="414.4236" z="327.1567" h="105"/>
+		<object x="493.25" y="407.0704" z="327.1427" h="90"/>
+		<object x="443.096" y="257.3135" z="310.487" h="72"/>
+		<object x="441.5284" y="253.4188" z="311.0275" h="74"/>
+		<object x="721.1299" y="429.3138" z="319.9365" h="114"/>
+		<object x="681.75" y="434.25" z="319.2031" h="102"/>
+		<object x="595.75" y="316.25" z="304.12" h="60"/>
+		<object x="594.4212" y="319.8403" z="304.3169" h="52"/>
+		<object x="529.75" y="300.25" z="305.0313" h="18"/>
+		<object x="529.5071" y="302.3893" z="304.7554" h="18"/>
+	</spawn>
+	<!-- Defender Sentinel lvl:55 -->
+	<spawn map="600010000" npcid="209056" pool="7" interval="295">
+		<object x="582.9498" y="489.4076" z="332.2459" h="55"/>
+		<object x="585.6636" y="465.2825" z="332.3463" h="60"/>
+		<object x="585.1741" y="479.8395" z="332.3861" h="48"/>
+		<object x="414.2437" y="254.8129" z="317.1005" h="60"/>
+		<object x="412.618" y="240.6459" z="318.3369" h="60"/>
+		<object x="531.5436" y="363.0083" z="323.4313" h="90"/>
+		<object x="540.0557" y="362.4338" z="322.8925" h="90"/>
+	</spawn>
+	<!-- Elatos lvl:55 -->
+	<spawn map="600010000" npcid="799382" pool="1" interval="295">
+		<object x="481.8353" y="362.6312" z="327.5098" h="21"/>
+	</spawn>
+	<!-- Wisplight Legionary (NPC Normal Elyos) -->
+	<spawn map="600010000" npcid="799386" pool="1" interval="295">
+		<object x="489.79" y="373.16" z="327.17" h="21"/>
+	</spawn>
+	<!-- Wisplight Legionary (NPC Normal Elyos) -->
+	<spawn map="600010000" npcid="799387" pool="1" interval="295">
+		<object x="488.27" y="370.68" z="327.13" h="20"/>
+	</spawn>
+	<!-- Wisplight Legionary (NPC Normal Elyos) -->
+	<spawn map="600010000" npcid="799388" pool="1" interval="295">
+		<object x="486.79" y="367.78" z="327.13" h="18"/>
+	</spawn>
+	<!-- Wisplight Legionary (NPC Normal Elyos) -->
+	<spawn map="600010000" npcid="799389" pool="2" interval="295">
+		<object x="479.49" y="374.85" z="327.08" h="20"/>
+		<object x="481.16" y="377.825" z="327.151" h="20"/>
+	</spawn>
+	<!-- Wisplight Legionary (NPC Normal Elyos) -->
+	<spawn map="600010000" npcid="799390" pool="1" interval="295">
+		<object x="478.17" y="372.17" z="327.08" h="20"/>
+	</spawn>
+	<!-- Wisplight Legionary (NPC Normal Elyos) -->
+	<spawn map="600010000" npcid="799391" pool="1" interval="295">
+		<object x="483.99" y="376.13" z="327.3829" h="21"/>
+	</spawn>
+	<!-- Wisplight Legionary (NPC Normal Elyos) -->
+	<spawn map="600010000" npcid="799392" pool="1" interval="295">
+		<object x="484.41" y="369.01" z="327.382" h="20"/>
+	</spawn>
+	<!-- Icorunerk -->
+	<spawn map="600010000" pool="1" npcid="799087" interval="295">
+		<object x="531" y="335" z="299.625" h="110"/>
+	</spawn>
+	<!-- Pradaaknerk (NPC Normal) -->
+	<spawn map="600010000" npcid="799510" pool="1" interval="295">
+		<object x="915.907" y="1397.71" z="341.397" h="97"/>
+	</spawn>
+	<!-- Armanerk (NPC Normal) -->
+	<spawn map="600010000" npcid="799507" pool="1" interval="295">
+		<object x="912.16315" y="164.37044" z="342.38107" h="66"/>
+	</spawn>
+</spawns>

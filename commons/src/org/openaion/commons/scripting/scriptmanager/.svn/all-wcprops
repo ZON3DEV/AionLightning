@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/scriptmanager
+END
+ScriptManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/scriptmanager/ScriptManager.java
+END
+ScriptInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/scriptmanager/ScriptInfo.java
+END
+ScriptList.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/scripting/scriptmanager/ScriptList.java
+END

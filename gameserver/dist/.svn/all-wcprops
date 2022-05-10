@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/4/trunk/gameserver/dist
+END
+StopGS.sh
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/4/trunk/gameserver/dist/StopGS.sh
+END
+StartGS_loop.sh
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/4/trunk/gameserver/dist/StartGS_loop.sh
+END
+initialize.sh
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/4/trunk/gameserver/dist/initialize.sh
+END
+StartGS.bat
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/4/trunk/gameserver/dist/StartGS.bat
+END
+StartGS.sh
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/4/trunk/gameserver/dist/StartGS.sh
+END

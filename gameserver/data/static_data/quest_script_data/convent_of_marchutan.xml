@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+	<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 20000: Vidar's Call (lvl 50) handled by script -->
+	<!-- 20001: Traveling to Gelkmaros (lvl 50) handled by script -->
+	<!-- 29500: TODO: Gaining the Templar's Stigma (lvl 99) -->
+	<!-- 29501: TODO: Gaining the Gladiator's Stigma (lvl 99) -->
+	<!-- 29502: TODO: Gaining the Cleric's Stigma (lvl 99) -->
+	<!-- 29503: TODO: Gaining the Chanter's Stigma (lvl 99) -->
+	<!-- 29504: TODO: Gaining the Assassin's Stigma (lvl 99) -->
+	<!-- 29505: TODO: Gaining the Ranger's Stigma (lvl 99) -->
+	<!-- 29506: TODO: Gaining the Sorcerer's Stigma (lvl 99) -->
+	<!-- 29507: TODO: Gaining the Spiritmaster's Stigma (lvl 99) -->
+</quest_scripts>

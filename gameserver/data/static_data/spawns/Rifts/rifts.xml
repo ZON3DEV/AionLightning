@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Rifts
+	@author ATracer
+	@author Atomix
+	
+ -->
+<spawns>
+	<!-- Rift Eltnen Master -->
+	<spawn map="210020000" npcid="700137" pool="1" handler="RIFT" anchor="ELTNEN_AM">
+        <object x="225.58" y="2943.81" z="156.6" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700137" pool="1" handler="RIFT" anchor="ELTNEN_BM">
+        <object x="768.29" y="1881.09" z="265.3" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700137" pool="1" handler="RIFT" anchor="ELTNEN_CM">
+        <object x="1639.89" y="1724.06" z="345.2" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700137" pool="1" handler="RIFT" anchor="ELTNEN_DM">
+	<object x="1024.32" y="61.013" z="316.9384" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700137" pool="1" handler="RIFT" anchor="ELTNEN_EM">
+        <object x="1532.46" y="485.71" z="363.7" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700137" pool="1" handler="RIFT" anchor="ELTNEN_FM">
+        <object x="2210.18" y="2604.57" z="271.63" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700137" pool="1" handler="RIFT" anchor="ELTNEN_GM">
+        <object x="2176.14" y="557.24" z="435.3" h="0"/>
+	</spawn>
+	<!-- Rift Morheim Slave -->
+	<spawn map="220020000" npcid="700138" pool="1" handler="RIFT" anchor="MORHEIM_AS">
+        <object x="563.96" y="1910.28" z="430" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700138" pool="1" handler="RIFT" anchor="MORHEIM_BS">
+        <object x="1462.3" y="1277.33" z="226" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700138" pool="1" handler="RIFT" anchor="MORHEIM_CS">
+        <object x="633.13" y="187.57" z="526" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700138" pool="1" handler="RIFT" anchor="MORHEIM_DS">
+        <object x="1821.12" y="1275.31" z="48" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700138" pool="1" handler="RIFT" anchor="MORHEIM_ES">
+		<object x="1559.136" y="2757.688" z="358.77148" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700138" pool="1" handler="RIFT" anchor="MORHEIM_FS">
+		<object x="2613.383" y="2235.682" z="95.959" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700138" pool="1" handler="RIFT" anchor="MORHEIM_GS">
+        <object x="3020" y="879" z="362.9" h="0"/>
+	</spawn>
+	<!-- Rift Heiron Master-->
+	<spawn map="210040000" npcid="700137" pool="1" handler="RIFT" anchor="HEIRON_AM">
+        <object x="2564" y="509.58" z="387" h="0"/>
+	</spawn>
+	<spawn map="210040000" npcid="700137" pool="1" handler="RIFT" anchor="HEIRON_BM">
+		<object x="1300.266" y="1437.922" z="112.788124" h="0"/>
+	</spawn>
+	<spawn map="210040000" npcid="700137" pool="1" handler="RIFT" anchor="HEIRON_CM">
+        <object x="533.53" y="560.14" z="143.1" h="0"/>
+	</spawn>
+	<spawn map="210040000" npcid="700137" pool="1" handler="RIFT" anchor="HEIRON_DM">
+		<object x="649.655" y="1821.228" z="105.33188" h="0"/>
+	</spawn>
+	<spawn map="210040000" npcid="700137" pool="1" handler="RIFT" anchor="HEIRON_EM">
+		<object x="722.99475" y="2524.7415" z="126.140175" h="0"/>
+	</spawn>
+	<spawn map="210040000" npcid="700137" pool="1" handler="RIFT" anchor="HEIRON_FM">
+		<object x="503.393" y="555.31" z="128.5" h="0"/>
+	</spawn>
+	<spawn map="210040000" npcid="700137" pool="1" handler="RIFT" anchor="HEIRON_GM">
+		<object x="2742.70" y="2078.44" z="142.5325" h="0"/>
+	</spawn>
+	<!-- Rift Beluslan Slave-->
+	<spawn map="220040000" npcid="700138" pool="1" handler="RIFT" anchor="BELUSLAN_AS">
+		<object x="127.16362" y="1064.9808" z="297.60693" h="0"/>
+	</spawn>
+	<spawn map="220040000" npcid="700138" pool="1" handler="RIFT" anchor="BELUSLAN_BS">
+		<object x="1068.4355" y="315.97458" z="348.88293" h="0"/>
+	</spawn>
+	<spawn map="220040000" npcid="700138" pool="1" handler="RIFT" anchor="BELUSLAN_CS">
+		<object x="1044.3553" y="2056.8694" z="277.61957" h="0"/>
+	</spawn>
+	<spawn map="220040000" npcid="700138" pool="1" handler="RIFT" anchor="BELUSLAN_DS">
+		<object x="2125.49" y="456.098" z="387.24017" h="0"/>
+	</spawn>
+	<spawn map="220040000" npcid="700138" pool="1" handler="RIFT" anchor="BELUSLAN_ES">
+		<object x="2826.6746" y="564.567" z="509.71457" h="0"/>
+	</spawn>
+	<spawn map="220040000" npcid="700138" pool="1" handler="RIFT" anchor="BELUSLAN_FS">
+		<object x="2725.693" y="2343.179" z="596.10583" h="0"/>
+	</spawn>
+	<spawn map="220040000" npcid="700138" pool="1" handler="RIFT" anchor="BELUSLAN_GS">
+		<object x="1744.005" y="1900.656" z="589.0837" h="0"/>
+	</spawn>
+	<!-- Rift Morheim Master-->
+	<spawn map="220020000" npcid="700137" pool="1" handler="RIFT" anchor="MORHEIM_AM">
+        <object x="453.87" y="2308.07" z="440.06" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700137" pool="1" handler="RIFT" anchor="MORHEIM_BM">
+        <object x="771.07" y="912.61" z="330" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700137" pool="1" handler="RIFT" anchor="MORHEIM_CM">
+        <object x="227.9" y="488.45" z="438" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700137" pool="1" handler="RIFT" anchor="MORHEIM_DM">
+        <object x="1668.38" y="1462.6" z="165" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700137" pool="1" handler="RIFT" anchor="MORHEIM_EM">
+        <object x="1527.5" y="1130.13" z="155" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700137" pool="1" handler="RIFT" anchor="MORHEIM_FM">
+        <object x="2356.19" y="2336.73" z="115.1" h="0"/>
+	</spawn>
+	<spawn map="220020000" npcid="700137" pool="1" handler="RIFT" anchor="MORHEIM_GM">
+		<object x="2450" y="600" z="266" h="0"/>
+	</spawn>
+	<!-- Rift Eltnen Slave-->
+	<spawn map="210020000" npcid="700138" pool="1" handler="RIFT" anchor="ELTNEN_AS">
+		<object x="730.1719" y="2741.9104" z="244.6082" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700138" pool="1" handler="RIFT" anchor="ELTNEN_BS">
+        <object x="440.47" y="1232.64" z="287" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700138" pool="1" handler="RIFT" anchor="ELTNEN_CS">
+        <object x="1453.57" y="2442.45" z="289" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700138" pool="1" handler="RIFT" anchor="ELTNEN_DS">
+        <object x="116.98" y="351.12" z="111.8" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700138" pool="1" handler="RIFT" anchor="ELTNEN_ES">
+		<object x="1432.9285" y="367.17282" z="367.17932" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700138" pool="1" handler="RIFT" anchor="ELTNEN_FS">
+		<object x="2206.623" y="2608.3738" z="274.15503" h="0"/>
+	</spawn>
+	<spawn map="210020000" npcid="700138" pool="1" handler="RIFT" anchor="ELTNEN_GS">
+        <object x="2176.14" y="557.24" z="435.3" h="0"/>
+	</spawn>
+	<!-- Rift Beluslan Master-->
+	<spawn map="220040000" npcid="700137" pool="1" handler="RIFT" anchor="BELUSLAN_AM">
+		<object x="233.323" y="150.91" z="240.881" h="0"/>
+	</spawn>
+	<spawn map="220040000" npcid="700137" pool="1" handler="RIFT" anchor="BELUSLAN_BM">
+        <object x="1367.26" y="735.73" z="275.7" h="0"/>
+	</spawn>
+	<spawn map="220040000" npcid="700137" pool="1" handler="RIFT" anchor="BELUSLAN_CM">
+        <object x="719.65" y="2245.34" z="246.01" h="0"/>
+	</spawn>
+	<spawn map="220040000" npcid="700137" pool="1" handler="RIFT" anchor="BELUSLAN_DM">
+		<object x="2069.539" y="262.812" z="382.4038" h="0"/>
+	</spawn>
+	<spawn map="220040000" npcid="700137" pool="1" handler="RIFT" anchor="BELUSLAN_EM">
+		<object x="2842.682" y="618.865" z="514.5" h="0"/>
+	</spawn>
+	<spawn map="220040000" npcid="700137" pool="1" handler="RIFT" anchor="BELUSLAN_FM">
+		<object x="2812.163" y="2561.897" z="646.98" h="0"/>
+	</spawn>
+	<spawn map="220040000" npcid="700137" pool="1" handler="RIFT" anchor="BELUSLAN_GM">
+		<object x="1596.497" y="2053.25" z="582.12" h="0"/>
+	</spawn>
+	<!-- Rift Heiron Slave-->
+	<spawn map="210040000" npcid="700138" pool="1" handler="RIFT" anchor="HEIRON_AS">
+		<object x="2132.444" y="434.266" z="228" h="0"/>
+	</spawn>
+	<spawn map="210040000" npcid="700138" pool="1" handler="RIFT" anchor="HEIRON_BS">
+		<object x="1955.4146" y="1833.3224" z="124.30182" h="0"/>
+	</spawn>
+	<spawn map="210040000" npcid="700138" pool="1" handler="RIFT" anchor="HEIRON_CS">
+		<object x="881.9689" y="903.9242" z="119.970474" h="0"/>
+	</spawn>
+	<spawn map="210040000" npcid="700138" pool="1" handler="RIFT" anchor="HEIRON_DS">
+		<object x="861.482" y="2194.447" z="124.491196" h="0"/>
+	</spawn>
+	<spawn map="210040000" npcid="700138" pool="1" handler="RIFT" anchor="HEIRON_ES">
+		<object x="291.566" y="2658.449" z="103.40212" h="0"/>
+	</spawn>
+	<spawn map="210040000" npcid="700138" pool="1" handler="RIFT" anchor="HEIRON_FS">
+		<object x="362.175" y="514.962" z="133.875" h="0"/>
+	</spawn>
+	<spawn map="210040000" npcid="700138" pool="1" handler="RIFT" anchor="HEIRON_GS">
+		<object x="1905.486" y="2577.753" z="148.36946" h="0"/>
+	</spawn>
+</spawns>

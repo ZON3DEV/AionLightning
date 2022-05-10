@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 1031: The Manduri's Secret (lvl 19) handled by script -->
+	<!-- 1032: A Ruler's Duty (lvl 19) handled by script -->
+	<!-- 1033: Sataloca's Heart (lvl 20) handled by script -->
+	<!-- 1034: Disappearing Aether (lvl 21) handled by script -->
+	<!-- 1035: Refreshing the Springs (lvl 26) handled by script -->
+	<!-- 1036: Kaidan Prisoner (lvl 24) handled by script -->
+	<!-- 1037: Secrets of the Temple (lvl 25) handled by script -->
+	<!-- 1038: The Shadow's Command (lvl 29) handled by script -->
+	<!-- 1039: Something in the Water (lvl 29) handled by script -->
+	<!-- 1040: Scouting the Scouts (lvl 31) handled by script -->
+	<!-- 1041: A Dangerous Artifact (lvl 33) handled by script -->
+	<!-- 1042: Keeper of the Kaidan Key (lvl 35) handled by script -->
+	<!-- 1043: Balaur Conspiracy (lvl 35) handled by script -->
+	<!-- 1300: Orders from Telemachus (lvl 19) handled by script -->
+	<!-- Aether Powder -->
+	<item_collecting id="1301" start_npc_id="203918"/>
+	<!-- The Manduri Problem -->
+	<report_to id="1302" start_npc_id="203921" end_npc_id="203932"/>
+	<!-- Pluma Attack! -->
+	<item_collecting id="1303" start_npc_id="203917"/>
+	<!-- Nature's Balance -->
+	<monster_hunt id="1304" start_npc_id="203917">
+		<monster_infos var_id="0" max_kill="10" npc_id="211682"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="211683"/>
+	</monster_hunt>
+	<!-- More Manduri Frillnecks -->
+	<monster_hunt id="1305" start_npc_id="203935">
+		<monster_infos var_id="0" max_kill="15" npc_id="211687"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="211688"/>
+	</monster_hunt>
+	<!-- Cleansing The Forest -->
+	<monster_hunt id="1306" start_npc_id="203935">
+		<monster_infos var_id="0" max_kill="7" npc_id="210755"/>
+		<monster_infos var_id="1" max_kill="9" npc_id="210756"/>
+		<monster_infos var_id="1" max_kill="9" npc_id="210761"/>
+	</monster_hunt>
+	<!-- Stolen Goods -->
+	<item_collecting id="1307" start_npc_id="203936"/>
+	<!-- Wily Kundu -->
+	<monster_hunt id="1308" start_npc_id="203936">
+		<monster_infos var_id="0" max_kill="1" npc_id="213000"/>
+	</monster_hunt>
+	<!-- 1309: Manduri's Diary (lvl 22) handled by script -->
+	<!-- Seeds of Restoration -->
+	<report_to id="1310" start_npc_id="203932" end_npc_id="203997"/>
+	<!-- 1311: A Germ of Hope (lvl 20) handled by script -->
+	<!-- Hopeful Delivery -->
+	<report_to id="1312" start_npc_id="203997" end_npc_id="203932" item_id="182201306"/>
+	<!-- Preserving Forest Soil -->
+	<monster_hunt id="1313" start_npc_id="204030">
+		<monster_infos var_id="0" max_kill="5" npc_id="210766"/>
+		<monster_infos var_id="0" max_kill="5" npc_id="210773"/>
+		<monster_infos var_id="1" max_kill="12" npc_id="210760"/>
+		<monster_infos var_id="1" max_kill="12" npc_id="210768"/>
+	</monster_hunt>
+	<!-- 1314: An Elim out of Water (lvl 19) handled by script -->
+	<!-- Scourge of the Elim -->
+	<monster_hunt id="1315" start_npc_id="730021">
+		<monster_infos var_id="0" max_kill="10" npc_id="210772"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="210780"/>
+	</monster_hunt>
+	<!-- Plague of the Elim -->
+	<monster_hunt id="1316" start_npc_id="730021">
+		<monster_infos var_id="0" max_kill="10" npc_id="211285"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="211286"/>
+	</monster_hunt>
+	<!-- Revenge of the Elim -->
+	<item_collecting id="1317" start_npc_id="210774"/>
+	<!-- Kerubian Horns -->
+	<item_collecting id="1318" start_npc_id="730020"/>
+	<!-- 1319: Prorite's Money (lvl 19) handled by script -->
+	<!-- Kurin Hunt -->
+	<monster_hunt id="1320" start_npc_id="730019">
+		<monster_infos var_id="0" max_kill="12" npc_id="210776"/>
+		<monster_infos var_id="0" max_kill="12" npc_id="210785"/>
+	</monster_hunt>
+	<!-- The Elim Tragedy -->
+	<monster_hunt id="1321" start_npc_id="730019">
+		<monster_infos var_id="0" max_kill="13" npc_id="210786"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="210793"/>
+	</monster_hunt>
+	<!-- 1322: A Leaf From Lodas (lvl 21) handled by script -->
+	<!-- 1323: Lost Jewel Box (lvl 22) handled by script -->
+	<!-- 1324: Confidential Orders (lvl 24) handled by script -->
+	<!-- Spiner Pincers -->
+	<item_collecting id="1325" start_npc_id="204031"/>
+	<!-- Killing Crestliches -->
+	<monster_hunt id="1326" start_npc_id="203940">
+		<monster_infos var_id="0" max_kill="7" npc_id="210775"/>
+		<monster_infos var_id="1" max_kill="14" npc_id="210784"/>
+		<monster_infos var_id="1" max_kill="14" npc_id="210790"/>
+	</monster_hunt>
+	<!-- When Statues go Bad -->
+	<monster_hunt id="1327" start_npc_id="203939">
+		<monster_infos var_id="0" max_kill="15" npc_id="210804"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="210814"/>
+	</monster_hunt>
+	<!-- Maeki Attack -->
+	<monster_hunt id="1328" start_npc_id="203939">
+		<monster_infos var_id="0" max_kill="24" npc_id="210803"/>
+		<monster_infos var_id="0" max_kill="24" npc_id="210813"/>
+	</monster_hunt>
+	<!-- Thirst-Quencher -->
+	<report_to id="1329" start_npc_id="203918" end_npc_id="203998" item_id="182201375"/>
+	<!-- [Daily/Coin] Sataloca's Heartbeat -->
+	<monster_hunt id="1330" start_npc_id="203999">
+		<monster_infos var_id="0" max_kill="14" npc_id="211648"/>
+		<monster_infos var_id="1" max_kill="13" npc_id="210800"/>
+	</monster_hunt>
+	<!-- 1331: TODO: [Spend Coin] Bronze (Warrior and Scout) (lvl 99) -->
+	<!-- 1332: TODO: [Spend Coin] Bronze (Warrior And Scout) (lvl 99) -->
+	<!-- Acheron Drake Research -->
+	<item_collecting id="1333" start_npc_id="203998"/>
+	<!-- Fire Sword -->
+	<item_collecting id="1334" start_npc_id="204000"/>
+	<!-- Support for the Desert Scouts -->
+	<report_to id="1335" start_npc_id="203999" end_npc_id="204006"/>
+	<!-- 1336: TODO: Scouting for Demokritos (lvl 27) -->
+	<!-- A Package For Crios -->
+	<report_to id="1337" start_npc_id="203938" end_npc_id="798150" item_id="182201315"/>
+	<!-- Scout Leader's Request -->
+	<report_to id="1338" start_npc_id="204006" end_npc_id="204008"/>
+	<!-- The Scolopen Sting -->
+	<monster_hunt id="1339" start_npc_id="204008">
+		<monster_infos var_id="0" max_kill="10" npc_id="210801"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="210810"/>
+	</monster_hunt>
+	<!-- Basilisk Purge -->
+	<monster_hunt id="1340" start_npc_id="204008">
+		<monster_infos var_id="0" max_kill="7" npc_id="210809"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="210820"/>
+	</monster_hunt>
+	<!-- Trinkets for Children -->
+	<item_collecting id="1341" start_npc_id="204009"/>
+	<!-- Killer Ksellids -->
+	<item_collecting id="1342" start_npc_id="204007"/>
+	<!-- Speedy -->
+	<monster_hunt id="1343" start_npc_id="204007">
+		<monster_infos var_id="0" max_kill="1" npc_id="210909"/>
+	</monster_hunt>
+	<!-- Reporting to Castor -->
+	<report_to id="1344" start_npc_id="212917" end_npc_id="204006"/>
+	<!-- 1345: TODO: Bearer of Bad News (lvl 26) -->
+	<!-- 1346: Killing for Castor (lvl 28) handled by script -->
+	<!-- 1347: Raiding Klaw (lvl 30) handled by script -->
+	<!-- Seeking the Seekers -->
+	<monster_hunt id="1348" start_npc_id="203966">
+		<monster_infos var_id="0" max_kill="5" npc_id="210928"/>
+	</monster_hunt>
+	<!-- The Klaws' Secret -->
+	<monster_hunt id="1349" start_npc_id="203966">
+		<monster_infos var_id="0" max_kill="4" npc_id="700169"/>
+	</monster_hunt>
+	<!-- [Daily/Coin] Desert Dangers -->
+	<monster_hunt id="1350" start_npc_id="204011">
+		<monster_infos var_id="0" max_kill="10" npc_id="210880"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="210901"/>
+		<monster_infos var_id="1" max_kill="9" npc_id="210897"/>
+		<monster_infos var_id="1" max_kill="9" npc_id="210936"/>
+		<monster_infos var_id="2" max_kill="9" npc_id="210902"/>
+		<monster_infos var_id="2" max_kill="9" npc_id="210920"/>
+	</monster_hunt>
+	<!-- 1351: [Group] Earning Marana's Respect (lvl 29) handled by script -->
+	<!-- [Group] Siren Song -->
+	<monster_hunt id="1352" start_npc_id="203965">
+		<monster_infos var_id="0" max_kill="5" npc_id="211746"/>
+		<monster_infos var_id="0" max_kill="5" npc_id="211747"/>
+		<monster_infos var_id="1" max_kill="3" npc_id="211748"/>
+		<monster_infos var_id="1" max_kill="3" npc_id="211749"/>
+	</monster_hunt>
+	<!-- Eating Better -->
+	<item_collecting id="1353" start_npc_id="204010"/>
+	<!-- 1354: TODO: Practical Aerobatics (lvl 30) -->
+	<!-- 1355: The Fire Temple Key (lvl 30) handled by script -->
+	<!-- A Gift for Acteon -->
+	<report_to id="1356" start_npc_id="203969" end_npc_id="203933" item_id="182201367"/>
+	<!-- Interfering Skyrays -->
+	<monster_hunt id="1357" start_npc_id="203933">
+		<monster_infos var_id="0" max_kill="7" npc_id="211843"/>
+	</monster_hunt>
+	<!-- Spring Water Essence -->
+	<item_collecting id="1358" start_npc_id="798055"/>
+	<!-- A Pain in the Nyerk -->
+	<report_to id="1359" start_npc_id="798055" end_npc_id="798051" item_id="182201324"/>
+	<!-- A Favor for Brirunyerk -->
+	<report_to id="1360" start_npc_id="798055" end_npc_id="203944" item_id="182201325"/>
+	<!-- 1361: Finding Drinking Water (lvl 28) handled by script -->
+	<!-- Mother's Keepsake -->
+	<item_collecting id="1362" start_npc_id="203944"/>
+	<!-- 1363: Thanking Mabangtah (lvl 29) handled by script -->
+	<!-- 1364: TODO: Journey to Agairon (lvl 29) -->
+	<!-- Mabangtah's First Test -->
+	<monster_hunt id="1365" start_npc_id="204020">
+		<monster_infos var_id="0" max_kill="5" npc_id="211633"/>
+		<monster_infos var_id="1" max_kill="5" npc_id="210913"/>
+	</monster_hunt>
+	<!-- Mabangtah's Second Test -->
+	<item_collecting id="1366" start_npc_id="204020"/>
+	<!-- 1367: Mabangtah's Feast (lvl 30) handled by script -->
+	<!-- A Secret Recipe -->
+	<item_collecting id="1368" start_npc_id="210332"/>
+	<!-- Mabangtah's Message -->
+	<report_to id="1369" start_npc_id="204020" end_npc_id="203949"/>
+	<!-- [Group] Betrayal of Isson -->
+	<monster_hunt id="1370" start_npc_id="203949">
+		<monster_infos var_id="0" max_kill="1" npc_id="210970"/>
+	</monster_hunt>
+	<!-- 1371: Flowers for Isson (lvl 32) handled by script -->
+	<!-- Food For Agairon Village -->
+	<item_collecting id="1372" start_npc_id="203947"/>
+	<!-- 1373: TODO: Water Therapy (lvl 34) -->
+	<!-- Warning to Laquepin -->
+	<report_to id="1374" start_npc_id="203946" end_npc_id="203992"/>
+	<!-- Arming the Watch -->
+	<item_collecting id="1375" start_npc_id="203947"/>
+	<!-- 1376: A Mountain of Trouble (lvl 34) handled by script -->
+	<!-- [Daily/Coin] Kerubs in Kuriullu -->
+	<monster_hunt id="1377" start_npc_id="203964">
+		<monster_infos var_id="0" max_kill="12" npc_id="210976"/>
+		<monster_infos var_id="0" max_kill="12" npc_id="210986"/>
+		<monster_infos var_id="1" max_kill="17" npc_id="210977"/>
+		<monster_infos var_id="1" max_kill="17" npc_id="210987"/>
+	</monster_hunt>
+	<!-- Supplies for Hylas -->
+	<report_to id="1378" start_npc_id="203948" end_npc_id="203995" item_id="182201339"/>
+	<!-- Drake Hunt -->
+	<monster_hunt id="1379" start_npc_id="203993">
+		<monster_infos var_id="0" max_kill="8" npc_id="210832"/>
+		<monster_infos var_id="0" max_kill="8" npc_id="210853"/>
+		<monster_infos var_id="1" max_kill="4" npc_id="210889"/>
+	</monster_hunt>
+	<!-- Drakie Hunt -->
+	<monster_hunt id="1380" start_npc_id="203993">
+		<monster_infos var_id="0" max_kill="8" npc_id="210833"/>
+		<monster_infos var_id="0" max_kill="8" npc_id="210851"/>
+	</monster_hunt>
+	<!-- Armor for Pilgrims -->
+	<item_collecting id="1381" start_npc_id="204040"/>
+	<!-- Gimme Shelter -->
+	<report_to id="1382" start_npc_id="203993" end_npc_id="203943"/>
+	<!-- Griffon's Threat -->
+	<monster_hunt id="1383" start_npc_id="204039">
+		<monster_infos var_id="0" max_kill="7" npc_id="210940"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="210951"/>
+	</monster_hunt>
+	<!-- Fire Feather -->
+	<item_collecting id="1384" start_npc_id="204028"/>
+	<!-- 1385: Rescuing Griffo (lvl 31) handled by script -->
+	<!-- Sentinel Viragos -->
+	<item_collecting id="1386" start_npc_id="204040"/>
+	<!-- Corpse-Hunting Viragos -->
+	<monster_hunt id="1387" start_npc_id="204040">
+		<monster_infos var_id="0" max_kill="12" npc_id="210953"/>
+		<monster_infos var_id="0" max_kill="12" npc_id="210958"/>
+	</monster_hunt>
+	<!-- Shumerurk's Trade -->
+	<item_collecting id="1388" start_npc_id="798054"/>
+	<!-- Suspicious Pretors -->
+	<item_collecting id="1389" start_npc_id="203993"/>
+	<!-- Delivery to the Lyceum -->
+	<report_to id="1390" start_npc_id="203993" end_npc_id="203761" item_id="182201368"/>
+	<!-- 1391: RM-12b (lvl 34) handled by script -->
+	<!-- A Mysterious Crystal -->
+	<report_to id="1392" start_npc_id="203992" end_npc_id="203994" item_id="182201369"/>
+	<!-- 1393: TODO: New Flight Path (lvl 33) -->
+	<!-- 1394: Reporting the New Flight Path (lvl 33) handled by script -->
+	<!-- A Wrench in the Works -->
+	<monster_hunt id="1395" start_npc_id="204042">
+		<monster_infos var_id="0" max_kill="7" npc_id="211012"/>
+		<monster_infos var_id="1" max_kill="9" npc_id="211665"/>
+		<monster_infos var_id="2" max_kill="11" npc_id="211666"/>
+	</monster_hunt>
+	<!-- Pressing the Advantage -->
+	<monster_hunt id="1396" start_npc_id="204042">
+		<monster_infos var_id="0" max_kill="7" npc_id="211025"/>
+		<monster_infos var_id="1" max_kill="9" npc_id="211024"/>
+		<monster_infos var_id="2" max_kill="12" npc_id="211023"/>
+		<monster_infos var_id="3" max_kill="3" npc_id="211031"/>
+	</monster_hunt>
+	<!-- Lepharists Amok -->
+	<monster_hunt id="1397" start_npc_id="204042">
+		<monster_infos var_id="0" max_kill="10" npc_id="211718"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="210788"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="211723"/>
+	</monster_hunt>
+	<!-- 1398: TODO: [Spend Coin] Silver (Warrior and Scout) (lvl 99) -->
+	<!-- 1399: TODO: [Spend Coin] Silver (Mage and Priest) (lvl 99) -->
+	<!-- Paion's Worry -->
+	<monster_hunt id="1400" start_npc_id="203941">
+		<monster_infos var_id="0" max_kill="7" npc_id="210979"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="210990"/>
+		<monster_infos var_id="1" max_kill="3" npc_id="211671"/>
+		<monster_infos var_id="1" max_kill="3" npc_id="211672"/>
+	</monster_hunt>
+	<!-- A Lie Begets a Lie -->
+	<monster_hunt id="1401" start_npc_id="203941">
+		<monster_infos var_id="0" max_kill="3" npc_id="211000"/>
+		<monster_infos var_id="1" max_kill="2" npc_id="211673"/>
+	</monster_hunt>
+	<!-- Specialty Hides -->
+	<item_collecting id="1402" start_npc_id="203942"/>
+	<!-- Heart of the Mamut -->
+	<item_collecting id="1403" start_npc_id="203942"/>
+	<!-- A Head Start on Hylas -->
+	<monster_hunt id="1404" start_npc_id="203995">
+		<monster_infos var_id="0" max_kill="9" npc_id="210982"/>
+		<monster_infos var_id="0" max_kill="9" npc_id="210992"/>
+	</monster_hunt>
+	<!-- Crystals for Hylas -->
+	<item_collecting id="1405" start_npc_id="203995"/>
+	<!-- Tigrics of Ill Omen -->
+	<monster_hunt id="1406" start_npc_id="203990">
+		<monster_infos var_id="0" max_kill="7" npc_id="210989"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="210998"/>
+	</monster_hunt>
+	<!-- Encountering Akeras -->
+	<monster_hunt id="1407" start_npc_id="203990">
+		<monster_infos var_id="0" max_kill="1" npc_id="210999"/>
+	</monster_hunt>
+	<!-- Trespassers at the Observatory -->
+	<item_collecting id="1408" start_npc_id="285972"/>
+	<!-- [Group] Mamaki Patrol -->
+	<monster_hunt id="1409" start_npc_id="203990">
+		<monster_infos var_id="0" max_kill="7" npc_id="211005"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="211009"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="211824"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="211825"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="211006"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="211010"/>
+		<monster_infos var_id="2" max_kill="5" npc_id="211004"/>
+	</monster_hunt>
+	<!-- Tumblusen's Call -->
+	<report_to id="1410" start_npc_id="203989" end_npc_id="203989"/>
+	<!-- [Group] The Kaidan Surge -->
+	<item_collecting id="1411" start_npc_id="203989"/>
+	<!-- A Dangerous Potion -->
+	<report_to id="1412" start_npc_id="203989" end_npc_id="203902"/>
+	<!-- Infiltrate the Kaidan -->
+	<report_to id="1413" start_npc_id="203901" end_npc_id="203989"/>
+	<!-- 1414: [Group] Operation Windmill (lvl 36) handled by script -->
+	<!-- [Group] Reducing Kaidan Strength -->
+	<item_collecting id="1415" start_npc_id="203989"/>
+	<!-- 1416: TODO: [Group] Defeating Saendukal (lvl 99) -->
+	<!-- The Kaidan Report -->
+	<report_to id="1417" start_npc_id="203989" end_npc_id="203901"/>
+	<!-- [Daily/Coin] Fortress Beasts -->
+	<monster_hunt id="1418" start_npc_id="203931">
+		<monster_infos var_id="0" max_kill="10" npc_id="211684"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="211685"/>
+		<monster_infos var_id="1" max_kill="13" npc_id="210758"/>
+		<monster_infos var_id="1" max_kill="13" npc_id="210763"/>
+		<monster_infos var_id="2" max_kill="13" npc_id="210759"/>
+		<monster_infos var_id="2" max_kill="13" npc_id="210764"/>
+	</monster_hunt>
+	<!-- Ferenna's Test -->
+	<item_collecting id="1419" start_npc_id="203931"/>
+	<!-- Trespassers at the Observatory -->
+	<item_collecting id="1420" start_npc_id="285972"/>
+	<!-- The Frillneck Threat -->
+	<monster_hunt id="1421" start_npc_id="203935">
+		<monster_infos var_id="0" max_kill="11" npc_id="211687"/>
+		<monster_infos var_id="0" max_kill="11" npc_id="211688"/>
+	</monster_hunt>
+	<!-- 1422: A Better Sword (lvl 20) handled by script -->
+	<!-- Expert Advice -->
+	<report_to id="1423" start_npc_id="203983" end_npc_id="203983"/>
+	<!-- [Group] Raiding The Raiders -->
+	<item_collecting id="1424" start_npc_id="203903"/>
+	<!-- [Group] Odium Marks -->
+	<item_collecting id="1425" start_npc_id="203902"/>
+	<!-- [Group] Killing Kaidan Guards -->
+	<item_collecting id="1426" start_npc_id="203904"/>
+	<!-- Cleansing The Forest -->
+	<monster_hunt id="1427" start_npc_id="203935">
+		<monster_infos var_id="0" max_kill="7" npc_id="210755"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="210756"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="210761"/>
+	</monster_hunt>
+	<!-- 1428: TODO: [Spend Coin] Bronze (Mage and Priest) (lvl 99) -->
+	<!-- 1429: TODO: [Spend Coin] Silver or Bronze (Mage and Priest) (lvl 99) -->
+	<!-- 1430: A Teleportation Experiment (lvl 19) handled by script -->
+	<!-- The River Predators -->
+	<item_collecting id="1431" start_npc_id="203328"/>
+	<!-- Stalking the Wily Lapia -->
+	<item_collecting id="1432" start_npc_id="203328"/>
+	<!-- Girrinerk's Potions -->
+	<item_collecting id="1433" start_npc_id="798050"/>
+	<!-- Medicinal Roots -->
+	<item_collecting id="1434" start_npc_id="203936" action_item_id="152000004"/>
+	<!-- The Price of Titanium -->
+	<item_collecting id="1435" start_npc_id="203922"/>
+	<!-- Desert Fess -->
+	<item_collecting id="1436" start_npc_id="203923"/>
+	<!-- Worth Your Weight in Gold -->
+	<item_collecting id="1437" start_npc_id="203922"/>
+	<!-- [Manastone] One for Three -->
+	<item_collecting id="1438" start_npc_id="203334"/>
+	<!-- The Strongest Spear -->
+	<item_collecting id="1439" start_npc_id="203334"/>
+	<!-- First Aid -->
+	<item_collecting id="1440" start_npc_id="204009"/>
+	<!-- The Vital Ingredient -->
+	<item_collecting id="1441" start_npc_id="203969"/>
+	<!-- [Manastone] Better for Worse -->
+	<item_collecting id="1442" start_npc_id="203334"/>
+	<!-- Untouchable Aether Crystals -->
+	<item_collecting id="1443" start_npc_id="798047"/>
+	<!-- Combat Preparation -->
+	<item_collecting id="1444" start_npc_id="204013"/>
+	<!-- Delivery For Vulcanus -->
+	<report_to id="1445" start_npc_id="204013" end_npc_id="203790" item_id="182201376"/>
+	<!-- Like Mother Used to Make -->
+	<item_collecting id="1446" start_npc_id="203945"/>
+	<!-- A Tender Concern -->
+	<item_collecting id="1447" start_npc_id="203947"/>
+	<!-- Mace Making Materials -->
+	<item_collecting id="1448" start_npc_id="790004" end_npc_id="203934"/>
+	<!-- Letter to Ophelos -->
+	<report_to id="1449" start_npc_id="790004" end_npc_id="203992" item_id="182201377" readable_item_id="182201377"/>
+	<!-- Ore for Hannet -->
+	<item_collecting id="1450" start_npc_id="203992"/>
+	<!-- Delivery for Hannet -->
+	<report_to id="1451" start_npc_id="203992" end_npc_id="790004" item_id="182201378"/>
+	<!-- 1452: Doubtful Characters (lvl 32) handled by script -->
+	<!-- The Garnet Earrings -->
+	<item_collecting id="1453" start_npc_id="203963"/>
+	<!-- Arkel's Signposts -->
+	<item_collecting id="1454" start_npc_id="203948"/>
+	<!-- A Daeva's Reputation -->
+	<item_collecting id="1455" start_npc_id="798049"/>
+	<!-- Garnets For Krato -->
+	<item_collecting id="1456" start_npc_id="203923"/>
+	<!-- Magical Shugo Grass -->
+	<item_collecting id="1457" start_npc_id="798102"/>
+	<!-- A Daeva's Reputation (II) -->
+	<item_collecting id="1458" start_npc_id="798049"/>
+	<!-- Krato Needs Lazuli -->
+	<item_collecting id="1459" start_npc_id="203923"/>
+	<!-- A Strange Turn of Phrase -->
+	<item_collecting id="1460" start_npc_id="203934"/>
+	<!-- Plant Poison Antidote -->
+	<item_collecting id="1461" start_npc_id="204030"/>
+	<!-- [Spy] Celestine's Antidote -->
+	<item_collecting id="1462" start_npc_id="204030"/>
+	<!-- 1463: [Spy] Message to a Spy (lvl 24) handled by script -->
+	<!-- 1464: [Spy] A Gift of Love (lvl 24) handled by script -->
+	<!-- [Spy] That Old Elyos Spirit -->
+	<report_to id="1465" start_npc_id="203903" end_npc_id="212649"/>
+	<!-- 1466: [Spy] Respect For Deltras (lvl 26) handled by script -->
+	<!-- 1467: [Group] The Four Leaders (lvl 29) handled by script -->
+	<!-- 1468: Hannet's Lost Love (lvl 32) handled by script -->
+	<!-- 1469: [Group] Looking for Denlavis (lvl 32) handled by script -->
+	<!-- 1470: [Group] Hannet's Revenge (lvl 32) handled by script -->
+	<!-- 1471: Fake Stigma (lvl 36) handled by script -->
+	<!-- 1472: [Spy] Ganimerk's Espionage (lvl 38) handled by script -->
+	<!-- [Spy/Group] Tayga, Bane of Shugos -->
+	<item_collecting id="1473" start_npc_id="798115"/>
+	<!-- [Group] Blood Feud -->
+	<monster_hunt id="1474" start_npc_id="203951">
+		<monster_infos var_id="0" max_kill="1" npc_id="211727"/>
+		<monster_infos var_id="1" max_kill="1" npc_id="211704"/>
+	</monster_hunt>
+	<!-- Bait and Switch -->
+	<item_collecting id="1475" start_npc_id="203328"/>
+	<!-- Violent Frillneck -->
+	<monster_hunt id="1476" start_npc_id="203997">
+		<monster_infos var_id="0" max_kill="7" npc_id="211690"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="211691"/>
+	</monster_hunt>
+	<!-- The Manduri Polluters -->
+	<monster_hunt id="1477" start_npc_id="203997">
+		<monster_infos var_id="0" max_kill="6" npc_id="210770"/>
+		<monster_infos var_id="1" max_kill="6" npc_id="210771"/>
+	</monster_hunt>
+	<!-- A Feast for Phomona -->
+	<item_collecting id="1478" start_npc_id="730019"/>
+	<!-- Helping Memnes -->
+	<report_to id="1479" start_npc_id="730020" end_npc_id="203912"/>
+	<!-- Kerubian Weapons -->
+	<item_collecting id="1480" start_npc_id="203912" end_npc_id="203898" action_item_id="211732"/>
+	<!-- Troll Hammers -->
+	<item_collecting id="1481" start_npc_id="203898"/>
+	<!-- 1482: [Spy] A Teleportation Adventure (lvl 21) handled by script -->
+	<!-- 1483: Harumonerk's Request (lvl 23) handled by script -->
+	<!-- 1484: Chiyorinrinerk's Request (lvl 23) handled by script -->
+	<!-- Dirty Chindu -->
+	<monster_hunt id="1485" start_npc_id="204030">
+		<monster_infos var_id="0" max_kill="1" npc_id="213794"/>
+	</monster_hunt>
+	<!-- A Treat For Adelphie -->
+	<item_collecting id="1486" start_npc_id="203923" action_item_id="700312"/>
+	<!-- 1487: Balaur Bones (lvl 23) handled by script -->
+	<!-- Three Kurin Brothers -->
+	<monster_hunt id="1488" start_npc_id="730019">
+		<monster_infos var_id="0" max_kill="1" npc_id="213795"/>
+		<monster_infos var_id="1" max_kill="1" npc_id="213796"/>
+		<monster_infos var_id="2" max_kill="1" npc_id="213797"/>
+	</monster_hunt>
+	<!-- 1489: TODO: Marfonda of Darkness (lvl 24) -->
+	<!-- A Lepharist Box -->
+	<item_collecting id="1490" start_npc_id="798126" end_npc_id="204007" action_item_id="700316"/>
+	<!-- [Group] Korumonerk in Danger -->
+	<item_collecting id="1491" start_npc_id="798151"/>
+	<!-- [Group] The Lost Glove Box -->
+	<item_collecting id="1492" start_npc_id="798151"/>
+	<!-- Korumonerk's Pauldrons -->
+	<item_collecting id="1493" start_npc_id="798151"/>
+	<!-- [Group] Korumonerk's Worry -->
+	<item_collecting id="1494" start_npc_id="798151"/>
+	<!-- [Group] Korumonerk's Backpack -->
+	<item_collecting id="1495" start_npc_id="798151"/>
+	<!-- [Group] Enemy in the Kaidan Mine -->
+	<item_collecting id="1496" start_npc_id="204045"/>
+	<!-- [Group] Enemy Miner -->
+	<monster_hunt id="1497" start_npc_id="204045">
+		<monster_infos var_id="0" max_kill="7" npc_id="211831"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="211830"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="212070"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="212071"/>
+	</monster_hunt>
+	<!-- [Group] Geologist in Jeopardy -->
+	<item_collecting id="1498" start_npc_id="204045"/>
+	<!-- Mysterious Water Source -->
+	<item_collecting id="3303" start_npc_id="203994"/>
+	<!-- [Group] Ring Around the Citadel -->
+	<item_collecting id="3304" start_npc_id="204042"/>
+	<!-- [Group] Concerning a Necklace -->
+	<item_collecting id="3305" start_npc_id="204042"/>
+	<!-- [Group] Your Neck is on the Line -->
+	<item_collecting id="3306" start_npc_id="204042"/>
+	<!-- [Group] Important Targets -->
+	<monster_hunt id="3307" start_npc_id="204041">
+		<monster_infos var_id="0" max_kill="1" npc_id="214790"/>
+		<monster_infos var_id="1" max_kill="1" npc_id="214791"/>
+	</monster_hunt>
+	<!-- [Group] A Message in Blood -->
+	<monster_hunt id="3308" start_npc_id="204041">
+		<monster_infos var_id="0" max_kill="1" npc_id="214792"/>
+		<monster_infos var_id="1" max_kill="1" npc_id="214793"/>
+	</monster_hunt>
+	<!-- [Group] The Hand of Justice -->
+	<monster_hunt id="3309" start_npc_id="204041">
+		<monster_infos var_id="0" max_kill="1" npc_id="214795"/>
+		<monster_infos var_id="1" max_kill="1" npc_id="214794"/>
+	</monster_hunt>
+	<!-- [Group] Marana's Worry -->
+	<item_collecting id="3310" start_npc_id="203983"/>
+	<!-- [Group] Bumpy Ride -->
+	<monster_hunt id="3311" start_npc_id="203983">
+		<monster_infos var_id="0" max_kill="7" npc_id="211738"/>
+		<monster_infos var_id="1" max_kill="4" npc_id="211751"/>
+		<monster_infos var_id="1" max_kill="4" npc_id="211752"/>
+	</monster_hunt>
+	<!-- [Group] Whomping Whirlwinds -->
+	<monster_hunt id="3312" start_npc_id="203983">
+		<monster_infos var_id="0" max_kill="10" npc_id="211784"/>
+	</monster_hunt>
+	<!-- Reel Time -->
+	<item_collecting id="3313" start_npc_id="203328"/>
+	<!-- Eco-Shock -->
+	<monster_hunt id="3314" start_npc_id="203997">
+		<monster_infos var_id="0" max_kill="7" npc_id="211691"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="211690"/>
+	</monster_hunt>
+	<!-- Mystic Manduri -->
+	<monster_hunt id="3315" start_npc_id="203997">
+		<monster_infos var_id="0" max_kill="6" npc_id="210770"/>
+		<monster_infos var_id="1" max_kill="6" npc_id="210771"/>
+	</monster_hunt>
+	<!-- 3316: TODO: Tuning Horn (lvl 99) -->
+	<!-- The Power of Stew -->
+	<item_collecting id="3317" start_npc_id="204010"/>
+	<!-- Pilgrims' Progress -->
+	<item_collecting id="3318" start_npc_id="204040"/>
+	<!-- 3319: An Order for Gojirunerk (lvl 20) handled by script -->
+	<!-- An Ambitious Merchant -->
+	<item_collecting id="3320" start_npc_id="203925"/>
+	<!-- Sounds in the Night -->
+	<monster_hunt id="3321" start_npc_id="203928">
+		<monster_infos var_id="0" max_kill="10" npc_id="210781"/>
+	</monster_hunt>
+	<!-- Sculpting a Vision -->
+	<item_collecting id="3322" start_npc_id="203937"/>
+	<!-- Thieving Lepharists -->
+	<monster_hunt id="3323" start_npc_id="204007">
+		<monster_infos var_id="0" max_kill="5" npc_id="210789"/>
+		<monster_infos var_id="1" max_kill="5" npc_id="210788"/>
+	</monster_hunt>
+	<!-- Terrors in the Night -->
+	<monster_hunt id="3324" start_npc_id="203944">
+		<monster_infos var_id="0" max_kill="10" npc_id="210843"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="210819"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="211707"/>
+		<monster_infos var_id="1" max_kill="8" npc_id="210825"/>
+		<monster_infos var_id="1" max_kill="8" npc_id="210812"/>
+	</monster_hunt>
+	<!-- A Scout's Request -->
+	<monster_hunt id="3325" start_npc_id="204010">
+		<monster_infos var_id="0" max_kill="5" npc_id="211651"/>
+		<monster_infos var_id="1" max_kill="5" npc_id="210900"/>
+		<monster_infos var_id="1" max_kill="5" npc_id="210873"/>
+		<monster_infos var_id="2" max_kill="5" npc_id="211652"/>
+	</monster_hunt>
+	<!-- 3326: The Shugo Menace (lvl 25) handled by script -->
+	<!-- [Coin/Group] Kromede in the Temple -->
+	<monster_hunt id="3327" start_npc_id="203933">
+		<monster_infos var_id="0" max_kill="1" npc_id="212846"/>
+	</monster_hunt>
+	<!-- 80003: TODO: [Event] Heart Headband Safari (lvl 21) -->
+</quest_scripts>

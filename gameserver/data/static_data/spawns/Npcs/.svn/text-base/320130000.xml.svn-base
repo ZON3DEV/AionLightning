@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Adma Stronghold
+
+ -->
+<spawns>
+	<!-- Heavy Crate -->
+	<spawn map="320130000" npcid="700436" pool="1" interval="105">
+		<object x="352.72714" y="521.8454" z="180.33087" h="91"/>
+	</spawn>
+	<!-- Adma Stronghold Exit -->
+	<spawn map="320130000" npcid="730166" pool="2" interval="105">
+		<object x="451.32483" y="196.323" z="167.96098" h="89" staticid="445"/>
+		<object x="624.03296" y="745.4517" z="199.97066" h="60"/>
+	</spawn>
+	<!-- Adma Stronghold Secret Passage (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="320130000" npcid="730151" pool="1" interval="295">
+		<object staticid="211" x="335.71085" y="673.2014" z="169.23643" h="115"/>
+	</spawn>
+	<!-- Genie's Incense Burner (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="320130000" npcid="700557" pool="1" interval="295">
+		<object staticid="161" x="595.72003" y="609.56067" z="191.08676" h="89"/>
+	</spawn>
+	<!-- Glowing Grain Sack (Object Normal lvl:3) (from client spawn)-->
+	<spawn map="320130000" npcid="700433" pool="2" interval="295">
+		<object staticid="93" x="354.56226" y="214.0249" z="164.00677" h="100"/>
+		<object staticid="96" x="494.56824" y="212.22911" z="164.00676" h="44"/>
+	</spawn>
+	<!-- Golden Goblet (Object Normal lvl:3) (from client spawn)-->
+	<spawn map="320130000" npcid="700435" pool="1" interval="295">
+		<object staticid="98" x="470.3033" y="383.16382" z="190.31592" h="16"/>
+	</spawn>
+	<!-- Imowen (NPC Normal lvl:48) (from client spawn)-->
+	<spawn map="320130000" npcid="205206" pool="1" interval="295">
+		<object x="455.23825" y="591.75420" z="163.99910" h="85"/>
+	</spawn>
+	<!-- Jewel Box (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="320130000" npcid="730032" pool="1" interval="295">
+		<object staticid="97" x="602.6906" y="632.4575" z="191.52599" h="61"/>
+	</spawn>
+	<!-- Ntuamu's Teddy Bear (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="320130000" npcid="700396" pool="1" interval="295">
+		<object staticid="160" x="650.9656" y="608.5318" z="191.0868" h="44"/>
+	</spawn>
+	<!-- Q2094 (NPC Normal lvl:3) (from client spawn)-->
+	<spawn map="320130000" npcid="206079" pool="1" interval="295">
+		<object x="473.1933" y="812.337" z="165.54733" h="62"/>
+	</spawn>
+	<!-- Suspicious Coffin (Object Junk lvl:50) (from client spawn)-->
+	<spawn map="320130000" npcid="281057" pool="1" interval="295">
+		<object x="582.4945" y="750.6145" z="198.60979" h="40"/>
+	</spawn>
+	<!-- Suspicious Coffin (Object Normal lvl:50) (from client spawn)-->
+	<spawn map="320130000" npcid="280942" pool="1" interval="295">
+		<object x="600.93933" y="768.17395" z="198.62938" h="84"/>
+	</spawn>
+	<!-- Suspicious Coffin (Object Junk lvl:50) (from client spawn)-->
+	<spawn map="320130000" npcid="281056" pool="1" interval="295">
+		<object x="595.97644" y="721.2781" z="198.62476" h="90"/>
+	</spawn>
+	<!-- Suspicious Coffin (Object Junk lvl:50) (from client spawn)-->
+	<spawn map="320130000" npcid="281055" pool="1" interval="295">
+		<object x="574.20996" y="722.4946" z="198.64093" h="6"/>
+	</spawn>
+	<!-- Suspicious Coffin (Object Normal lvl:50) (from client spawn)-->
+	<spawn map="320130000" npcid="281058" pool="1" interval="295">
+		<object x="622.8963" y="760.1835" z="198.61732" h="6"/>
+	</spawn>
+	<!-- Suspicious Coffin (Object Normal lvl:50) (from client spawn)-->
+	<spawn map="320130000" npcid="280950" pool="1" interval="295">
+		<object x="621.0434" y="722.87054" z="198.61337" h="75"/>
+	</spawn>
+</spawns>

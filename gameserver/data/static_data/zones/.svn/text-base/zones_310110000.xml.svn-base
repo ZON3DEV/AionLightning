@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zones.xsd">
+	<zone mapid="310110000" name="RESEARCHERS_310110000" priority="16">
+		<points>
+			<point x="235.257675" y="150.471313" />
+			<point x="394.759338" y="150.353775" />
+			<point x="394.682373" y="281.640656" />
+			<point x="447.065796" y="281.577209" />
+			<point x="447.134460" y="317.692017" />
+			<point x="355.481995" y="317.537872" />
+			<point x="355.362152" y="219.771652" />
+			<point x="235.147568" y="220.005081" />
+		</points>
+	</zone>
+	<zone mapid="310110000" name="WASTE_TREATMENT_FACILITY_310110000" priority="16">
+		<points>
+			<point x="416.980194" y="650.329590" />
+			<point x="485.427887" y="650.576294" />
+			<point x="485.790985" y="721.309143" />
+			<point x="498.694611" y="738.400940" />
+			<point x="497.472168" y="804.218750" />
+			<point x="465.969513" y="825.577271" />
+			<point x="465.964569" y="857.272583" />
+			<point x="439.154266" y="857.023315" />
+			<point x="439.102844" y="810.545471" />
+			<point x="417.209900" y="792.348816" />
+			<point x="417.818726" y="743.255371" />
+		</points>
+	</zone>
+	<zone mapid="310110000" name="ELEMENTAL_FIRE_EXTRACTION_310110000" priority="13">
+		<points>
+			<point x="621.660522" y="124.632477" />
+			<point x="684.607300" y="123.946259" />
+			<point x="684.349487" y="187.092987" />
+			<point x="621.676514" y="186.954926" />
+		</points>
+	</zone>
+	<zone mapid="310110000" name="ELEMENTAL_EARTH_EXTRACTION_310110000" priority="16">
+		<points>
+			<point x="348.420624" y="475.504883" />
+			<point x="411.367432" y="474.818665" />
+			<point x="411.109619" y="537.965393" />
+			<point x="348.436584" y="537.827332" />
+		</points>
+	</zone>
+	<zone mapid="310110000" name="SECRET_RESEARCH_CENTER_VAULT_310110000" priority="15">
+		<points>
+			<point x="465.204376" y="829.246460" />
+			<point x="527.467773" y="829.005920" />
+			<point x="527.839539" y="802.708435" />
+			<point x="569.309875" y="782.996338" />
+			<point x="568.977295" y="607.631409" />
+			<point x="562.117188" y="604.059998" />
+			<point x="562.117188" y="586.562073" />
+			<point x="569.862183" y="580.538208" />
+			<point x="589.367920" y="580.251343" />
+			<point x="596.557373" y="588.349670" />
+			<point x="604.962158" y="589.307007" />
+			<point x="604.821411" y="597.052979" />
+			<point x="596.557373" y="598.963196" />
+			<point x="593.228271" y="610.292664" />
+			<point x="593.085938" y="668.786865" />
+			<point x="611.186768" y="695.057739" />
+			<point x="611.195679" y="859.410400" />
+			<point x="465.334198" y="859.256897" />
+		</points>
+	</zone>
+	<zone mapid="310110000" name="ELEMENTAL_WATER_EXTRACTION_310110000" priority="16">
+		<points>
+			<point x="281.810760" y="466.432312" />
+			<point x="326.983765" y="512.602661" />
+			<point x="286.552155" y="553.913330" />
+			<point x="239.801239" y="508.738251" />
+		</points>
+	</zone>
+	<zone mapid="310110000" name="ELEMENTAL_CORE_TESTING_ROOM_310110000" priority="13">
+		<points>
+			<point x="566.622864" y="449.825317" />
+			<point x="657.808044" y="449.821289" />
+			<point x="657.740479" y="529.136963" />
+			<point x="566.638794" y="528.998901" />
+		</points>
+	</zone>
+	<zone mapid="310110000" name="THEOBOMOS_LAB_INTERIOR_310110000" priority="20">
+		<points>
+			<point x="220.779419" y="91.768974" />
+			<point x="753.648315" y="92.852142" />
+			<point x="753.580688" y="888.422974" />
+			<point x="222.184250" y="888.284790" />
+		</points>
+	</zone>
+	<zone mapid="310110000" name="ELEMENTAL_WIND_EXTRACTION_310110000" priority="16">
+		<points>
+			<point x="474.937531" y="469.237030" />
+			<point x="520.110535" y="515.407349" />
+			<point x="479.678925" y="556.718079" />
+			<point x="432.928009" y="511.542969" />
+		</points>
+	</zone>
+	<zone mapid="310110000" name="LEPHARIST_RESEARCH_CENTER_ENTRANCE_310110000" priority="15">
+		<points>
+			<point x="446.380585" y="239.350937" />
+			<point x="510.412506" y="239.207275" />
+			<point x="510.335541" y="324.598816" />
+			<point x="446.396545" y="324.822449" />
+		</points>
+	</zone>
+	<zone mapid="310110000" name="ELEMENTAL_CORE_GENESIS_310110000" priority="14">
+		<points>
+			<point x="358.970001" y="714.659973" />
+			<point x="382.875061" y="714.234802" />
+			<point x="385.030640" y="709.743958" />
+			<point x="398.503174" y="709.743958" />
+			<point x="399.940247" y="714.594055" />
+			<point x="425.509491" y="714.512695" />
+			<point x="425.431305" y="782.509521" />
+			<point x="358.985962" y="782.371460" />
+		</points>
+	</zone>
+	<zone mapid="310110000" name="WASTE_ELEVATOR_310110000" priority="14">
+		<points>
+			<point x="603.640442" y="579.809998" />
+			<point x="634.016785" y="579.706055" />
+			<point x="633.988464" y="607.419739" />
+			<point x="603.791199" y="607.269104" />
+		</points>
+	</zone>
+	<zone mapid="310110000" name="LIBRARY_OF_THEOBOMOS_310110000" priority="13">
+		<points>
+			<point x="510.646606" y="693.986816" />
+			<point x="557.706909" y="693.934326" />
+			<point x="557.892639" y="759.940063" />
+			<point x="510.409210" y="759.801941" />
+		</points>
+	</zone>
+	<zone mapid="310110000" name="ELEMENTAL_CORE_STORAGE_ROOM_310110000" priority="15">
+		<points>
+			<point x="421.628204" y="649.818359" />
+			<point x="462.815704" y="649.793030" />
+			<point x="462.496948" y="624.572449" />
+			<point x="498.340942" y="618.931091" />
+			<point x="514.005005" y="635.436279" />
+			<point x="504.715576" y="646.215637" />
+			<point x="520.226624" y="661.067810" />
+			<point x="511.867096" y="690.601379" />
+			<point x="486.272858" y="712.278870" />
+			<point x="421.644165" y="712.140808" />
+		</points>
+	</zone>
+	<zone mapid="310110000" name="CENTRAL_CONTROL_ROOM_310110000" priority="16">
+		<points>
+			<point x="498.368530" y="376.686371" />
+			<point x="565.955444" y="376.750732" />
+			<point x="565.562744" y="447.262054" />
+			<point x="498.519318" y="447.056335" />
+		</points>
+	</zone>
+	<zone mapid="310110000" name="ICE_CORRIDOR_310110000" priority="14">
+		<points>
+			<point x="656.804749" y="183.868256" />
+			<point x="673.070251" y="184.042999" />
+			<point x="673.078369" y="190.478165" />
+			<point x="714.962524" y="190.714325" />
+			<point x="714.969543" y="277.901123" />
+			<point x="594.134460" y="277.644928" />
+			<point x="594.056885" y="310.314606" />
+			<point x="509.661682" y="310.513489" />
+			<point x="509.694763" y="291.592834" />
+			<point x="537.973755" y="291.497620" />
+			<point x="537.868225" y="191.562790" />
+			<point x="656.775391" y="190.688980" />
+		</points>
+	</zone>
+</zones>

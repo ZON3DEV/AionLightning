@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/flight_zones
+END
+flight_zones.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/flight_zones/flight_zones.xsd
+END
+flight_zones.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/flight_zones/flight_zones.xml
+END

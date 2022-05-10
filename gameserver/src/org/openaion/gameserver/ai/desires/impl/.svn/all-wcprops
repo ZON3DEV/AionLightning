@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/desires/impl
+END
+GeneralDesireIteratorHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/desires/impl/GeneralDesireIteratorHandler.java
+END
+AttackDesire.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/desires/impl/AttackDesire.java
+END
+RestoreHealthDesire.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/desires/impl/RestoreHealthDesire.java
+END
+SkillUseDesire.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/desires/impl/SkillUseDesire.java
+END
+WalkDesire.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/desires/impl/WalkDesire.java
+END
+MoveToTargetDesire.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/desires/impl/MoveToTargetDesire.java
+END
+AggressionDesire.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/desires/impl/AggressionDesire.java
+END
+MoveToHomeDesire.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/desires/impl/MoveToHomeDesire.java
+END
+CounterBasedDesireFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/desires/impl/CounterBasedDesireFilter.java
+END

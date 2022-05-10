@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dataholders/loadingutils/adapters
+END
+NpcEquippedGearAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dataholders/loadingutils/adapters/NpcEquippedGearAdapter.java
+END
+NpcEquipmentList.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/dataholders/loadingutils/adapters/NpcEquipmentList.java
+END

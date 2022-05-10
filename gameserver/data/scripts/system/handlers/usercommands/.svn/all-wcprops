@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/usercommands
+END
+BothChannelMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/usercommands/BothChannelMessage.java
+END
+ExchangeToll.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/usercommands/ExchangeToll.java
+END
+GMList.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/usercommands/GMList.java
+END
+AsmosChannelMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/usercommands/AsmosChannelMessage.java
+END
+ExperienceOff.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/usercommands/ExperienceOff.java
+END
+ExperienceOn.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/usercommands/ExperienceOn.java
+END
+WorldChannelMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/usercommands/WorldChannelMessage.java
+END
+GiveMissingSkills.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/usercommands/GiveMissingSkills.java
+END
+PlayerInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/usercommands/PlayerInfo.java
+END
+ElyosChannelMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/4/trunk/gameserver/data/scripts/system/handlers/usercommands/ElyosChannelMessage.java
+END

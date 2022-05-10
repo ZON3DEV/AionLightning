@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver
+END
+GameServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/GameServer.java
+END
+GameServerError.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/GameServerError.java
+END
+ShutdownHook.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ShutdownHook.java
+END

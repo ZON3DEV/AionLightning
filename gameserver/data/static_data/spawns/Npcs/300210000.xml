@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Chantra Dredgion From client spawn
+	@author Nephis
+ -->
+<spawns>
+	<!-- Weapon Chest -->
+	<spawn map="300210000" interval="295" npcid="700836" pool="12">
+		<object staticid="145" x="432.61469" y="278.62134" z="409.72235" h="0"/>
+		<object staticid="118" x="554.5553" y="298.67249" z="409.56042" h="0"/>
+		<object staticid="148" x="401.19568" y="282.93854" z="410.09802" h="0"/>
+		<object staticid="144" x="429.09814" y="264.37674" z="409.72235" h="0"/>
+		<object staticid="131" x="570.68848" y="287.48849" z="410.3638" h="0"/>
+		<object staticid="147" x="416.87045" y="299.0592" z="409.72235" h="0"/>
+		<object staticid="134" x="568.13556" y="269.95218" z="409.87991" h="0"/>
+		<object staticid="137" x="538.70697" y="290.14844" z="409.66641" h="0"/>
+		<object staticid="149" x="407.61917" y="265.64264" z="409.66641" h="0"/>
+		<object staticid="146" x="430.69876" y="291.90088" z="409.72235" h="0"/>
+		<object staticid="136" x="537.89832" y="277.14233" z="409.8688" h="0"/>
+		<object staticid="135" x="540.5567" y="265.74448" z="409.74835" h="0"/>
+	</spawn>
+	<!-- Balaur Weapon -->
+	<spawn map="300210000" interval="295" npcid="700948" pool="12">
+		<object staticid="158" x="570.59308" y="287.59137" z="411.07193" h="0"/>
+		<object staticid="64" x="416.80634" y="298.85071" z="410.40125" h="0"/>
+		<object staticid="160" x="567.64368" y="270.08945" z="409.95734" h="0"/>
+		<object staticid="49" x="432.73969" y="278.62134" z="410.30725" h="0"/>
+		<object staticid="65" x="401.52963" y="283.01334" z="410.08698" h="0"/>
+		<object staticid="91" x="428.87259" y="264.36536" z="409.71182" h="0"/>
+		<object staticid="159" x="538.66241" y="277.14902" z="410.59061" h="0"/>
+		<object staticid="163" x="540.62366" y="265.88641" z="410.39618" h="0"/>
+		<object staticid="156" x="430.47748" y="291.82193" z="410.47348" h="0"/>
+		<object staticid="161" x="538.88611" y="290.03235" z="409.62915" h="0"/>
+		<object staticid="155" x="407.76978" y="266.11749" z="410.38855" h="0"/>
+		<object staticid="162" x="554.61279" y="298.35638" z="410.13425" h="0"/>
+	</spawn>
+	<!-- Balaur Supplies -->
+	<spawn map="300210000" interval="295" npcid="700837" pool="12">
+		<object staticid="93" x="562.63232" y="714.33685" z="403.12708" h="0"/>
+		<object staticid="6" x="589.48749" y="701.35193" z="402.19339" h="0"/>
+		<object staticid="108" x="590.46301" y="716.15936" z="402.19888" h="0"/>
+		<object staticid="139" x="377.61652" y="710.0556" z="402.19339" h="0"/>
+		<object staticid="138" x="404.14856" y="695.82312" z="403.12708" h="0"/>
+		<object staticid="114" x="584.70227" y="723.64008" z="402.19339" h="0"/>
+		<object staticid="140" x="409.04288" y="708.29089" z="403.151" h="0"/>
+		<object staticid="109" x="568.86292" y="695.55884" z="402.19339" h="0"/>
+		<object staticid="143" x="405.26926" y="715.20154" z="402.19339" h="0"/>
+		<object staticid="141" x="380.33847" y="697.06158" z="402.19339" h="0"/>
+		<object staticid="142" x="387.53107" y="724.72626" z="403.24188" h="0"/>
+		<object staticid="15" x="562.13953" y="699.6568" z="403.151" h="0"/>
+	</spawn>
+	<!-- Shulack Drudge -->
+	<spawn map="300210000" interval="295" npcid="799525" pool="8">
+		<object x="381.086" y="707.66" h="0" z="402.224"/>
+		<object x="588.398" y="713.769" h="0" z="402.23"/>
+		<object x="565.348" y="702.107" h="0" z="402.213"/>
+		<object x="380.453" y="705.971" h="0" z="402.224"/>
+		<object x="404.753" y="713.7" h="0" z="402.278"/>
+		<object x="589.35" y="711.248" h="0" z="402.224"/>
+		<object x="564.954" y="699.627" h="0" z="402.209"/>
+		<object x="405.785" y="711.248" h="0" z="402.353"/>
+	</spawn>
+</spawns>

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/npcai
+END
+ServantAi.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/npcai/ServantAi.java
+END
+TrapAi.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/npcai/TrapAi.java
+END
+MonsterAi.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/npcai/MonsterAi.java
+END
+TotemAi.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/npcai/TotemAi.java
+END
+SkillAreaNpcAi.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/npcai/SkillAreaNpcAi.java
+END
+DummyAi.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/npcai/DummyAi.java
+END
+AggressiveAi.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/npcai/AggressiveAi.java
+END
+NpcAi.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/npcai/NpcAi.java
+END
+HomingAi.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/ai/npcai/HomingAi.java
+END

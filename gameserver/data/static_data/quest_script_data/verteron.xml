@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 1011: Danger From Above (lvl 10) handled by script -->
+	<!-- 1012: Masked Loiterers (lvl 10) handled by script -->
+	<!-- 1013: Hunting Lepharist Revolutionaries (lvl 10) handled by script -->
+	<!-- 1014: Odium in the Dukaki Settlement (lvl 10) handled by script -->
+	<!-- 1015: Frillneck Hunt (lvl 10) handled by script -->
+	<!-- 1016: Source of the Pollution (lvl 12) handled by script -->
+	<!-- 1017: Held Sacred (lvl 13) handled by script -->
+	<!-- 1018: Mark of Vengeance (lvl 13) handled by script -->
+	<!-- 1019: Flying Reconnaissance (lvl 14) handled by script -->
+	<!-- 1020: Sealing the Abyss Gate (lvl 15) handled by script -->
+	<!-- 1021: Trandila's Eggs (lvl 11) handled by script -->
+	<!-- 1022: Krall Desecration (lvl 14) handled by script -->
+	<!-- 1023: A Nest of Lepharists (lvl 15) handled by script -->
+	<!-- 1130: Summons to the Citadel (lvl 10) handled by script -->
+	<!-- 1131: Undelivered Armor (lvl 10) handled by script -->
+	<!-- An Honest Merchant -->
+	<item_collecting id="1132" start_npc_id="203101" end_npc_id="203097"/>
+	<!-- Lobnite Hunt -->
+	<monster_hunt id="1133" start_npc_id="203096">
+		<monster_infos var_id="0" max_kill="11" npc_id="210264"/>
+		<monster_infos var_id="0" max_kill="11" npc_id="210265"/>
+	</monster_hunt>
+	<!-- Polluted Fountainhead -->
+	<monster_hunt id="1134" start_npc_id="203102">
+		<monster_infos var_id="0" max_kill="10" npc_id="210203"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="210204"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="210063"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="210064"/>
+	</monster_hunt>
+	<!-- Guardian Tog -->
+	<monster_hunt id="1135" start_npc_id="203190">
+		<monster_infos var_id="0" max_kill="9" npc_id="210268"/>
+	</monster_hunt>
+	<!-- Decorative Weapons -->
+	<item_collecting id="1136" start_npc_id="203100" action_item_id="700116"/>
+	<!-- Ancient Lobnite Fossil -->
+	<item_collecting id="1137" start_npc_id="203111" action_item_id="700108"/>
+	<!-- A Mother's Worry -->
+	<report_to id="1138" start_npc_id="203110" end_npc_id="203123"/>
+	<!-- The Forest Outlaw -->
+	<monster_hunt id="1139" start_npc_id="203124">
+		<monster_infos var_id="0" max_kill="9" npc_id="210138"/>
+		<monster_infos var_id="0" max_kill="9" npc_id="210139"/>
+		<monster_infos var_id="1" max_kill="5" npc_id="210140"/>
+		<monster_infos var_id="1" max_kill="5" npc_id="210359"/>
+		<monster_infos var_id="1" max_kill="5" npc_id="210326"/>
+	</monster_hunt>
+	<!-- Abandoned Scarecrow -->
+	<report_to id="1140" start_npc_id="203123" end_npc_id="730001"/>
+	<!-- 1141: Belbua's Treasure (lvl 11) handled by script -->
+	<!-- An Unwanted Dagger -->
+	<report_to id="1142" start_npc_id="203133" end_npc_id="203100" item_id="182203101"/>
+	<!-- Nola's Request -->
+	<monster_hunt id="1143" start_npc_id="730001">
+		<monster_infos var_id="0" max_kill="15" npc_id="210698"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="210077"/>
+	</monster_hunt>
+	<!-- Pumpkin Season -->
+	<item_collecting id="1144" start_npc_id="730001" end_npc_id="203130" action_item_id="700109"/>
+	<!-- Collecting Kukuru -->
+	<item_collecting id="1145" start_npc_id="203124"/>
+	<!-- 1146: Delicate Mandrake (lvl 12) handled by script -->
+	<!-- Supplies for the Watch -->
+	<report_to id="1147" start_npc_id="203096" end_npc_id="203126" item_id="182200520"/>
+	<!-- Lostes the Braggart -->
+	<item_collecting id="1148" start_npc_id="203154"/>
+	<!-- 1149: Missing Poppy (lvl 14) handled by script -->
+	<!-- A Father's Letter -->
+	<report_to id="1150" start_npc_id="790000" end_npc_id="203125" item_id="182200523"/>
+	<!-- Belbua is Missing -->
+	<item_collecting id="1151" start_npc_id="203125"/>
+	<!-- 1152: Odella Recipe (lvl 12) handled by script -->
+	<!-- Feeding Hianu -->
+	<report_to id="1153" start_npc_id="203130" end_npc_id="203150" item_id="182200527"/>
+	<!-- A Special Omelette -->
+	<item_collecting id="1154" start_npc_id="203150" end_npc_id="203130" action_item_id="700031"/>
+	<!-- Retrieving Supplies -->
+	<item_collecting id="1155" start_npc_id="203126" action_item_id="700117"/>
+	<!-- 1156: Stolen Village Seal (lvl 14) handled by script -->
+	<!-- 1157: Gaphyrk's Love (lvl 14) handled by script -->
+	<!-- 1158: Village Seal Found (lvl 14) handled by script -->
+	<!-- Collecting Poison Sacs -->
+	<item_collecting id="1159" start_npc_id="203151"/>
+	<!-- Stolen Jewelry -->
+	<item_collecting id="1160" start_npc_id="203127"/>
+	<!-- [Manastone] New Manastones for Old -->
+	<item_collecting id="1161" start_npc_id="203332"/>
+	<!-- 1162: Alteno's Wedding Ring (lvl 15) handled by script -->
+	<!-- 1163: Arachna Antidote (lvl 15) handled by script -->
+	<!-- The Potion Maker's Mistake -->
+	<report_to id="1164" start_npc_id="203131" end_npc_id="203149" item_id="182200536"/>
+	<!-- Gift to a Pilgrim -->
+	<report_to id="1165" start_npc_id="203141" end_npc_id="203163" item_id="182200537"/>
+	<!-- Contaminated Samples -->
+	<item_collecting id="1166" start_npc_id="203148"/>
+	<!-- Pilgrim in Trouble -->
+	<item_collecting id="1167" start_npc_id="203162"/>
+	<!-- Soporific Mushroom -->
+	<item_collecting id="1168" start_npc_id="203163" action_item_id="700114"/>
+	<!-- Lightningfoot Tuka -->
+	<monster_hunt id="1169" start_npc_id="203126">
+		<monster_infos var_id="0" max_kill="1" npc_id="210317"/>
+	</monster_hunt>
+	<!-- 1170: Headless Stone Statue (lvl 15) handled by script -->
+	<!-- An Antidote for Roseino -->
+	<report_to id="1171" start_npc_id="203103" end_npc_id="203155" item_id="182200542"/>
+	<!-- A Foolish Gamble -->
+	<item_collecting id="1172" start_npc_id="203110" end_npc_id="203146" action_item_id="700115"/>
+	<!-- Slaying Slimes -->
+	<monster_hunt id="1173" start_npc_id="203155">
+		<monster_infos var_id="0" max_kill="12" npc_id="210121"/>
+		<monster_infos var_id="0" max_kill="12" npc_id="210122"/>
+		<monster_infos var_id="0" max_kill="12" npc_id="210123"/>
+	</monster_hunt>
+	<!-- Ribbit Blood -->
+	<item_collecting id="1174" start_npc_id="203155"/>
+	<!-- Poisoned Plumas -->
+	<monster_hunt id="1175" start_npc_id="203156">
+		<monster_infos var_id="0" max_kill="9" npc_id="210344"/>
+	</monster_hunt>
+	<!-- Kalgolem's Essence -->
+	<item_collecting id="1176" start_npc_id="203158"/>
+	<!-- Mysterious Stones -->
+	<item_collecting id="1177" start_npc_id="203156" end_npc_id="203157" action_item_id="700006"/>
+	<!-- Swamp Plant Samples -->
+	<item_collecting id="1178" start_npc_id="203155" action_item_id="700113"/>
+	<!-- Dispelling Ancient Spirits -->
+	<monster_hunt id="1179" start_npc_id="203158">
+		<monster_infos var_id="0" max_kill="10" npc_id="210343"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="211099"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="211135"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="211153"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="211960"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="211961"/>
+	</monster_hunt>
+	<!-- Tribute to the Temple -->
+	<report_to id="1180" start_npc_id="203157" end_npc_id="203178" item_id="182200548"/>
+	<!-- [Group] Culling Krall -->
+	<monster_hunt id="1181" start_npc_id="203147">
+		<monster_infos var_id="0" max_kill="10" npc_id="210176"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="210166"/>
+	</monster_hunt>
+	<!-- 1182: Ancient Stone Fragment (lvl 18) handled by script -->
+	<!-- 1183: Spirit Of Nature (lvl 18) handled by script -->
+	<!-- Investigating Wind Spirits -->
+	<report_to id="1184" start_npc_id="203165" end_npc_id="203097"/>
+	<!-- Unquiet Spirits -->
+	<monster_hunt id="1185" start_npc_id="203178">
+		<monster_infos var_id="0" max_kill="6" npc_id="210080"/>
+	</monster_hunt>
+	<!-- The Wriggot Menace -->
+	<item_collecting id="1186" start_npc_id="730012"/>
+	<!-- [Manastone] Lovely Manastones -->
+	<item_collecting id="1187" start_npc_id="203332"/>
+	<!-- Message From Morai -->
+	<report_to id="1188" start_npc_id="203164" end_npc_id="203167"/>
+	<!-- Potcrab, the Headache -->
+	<item_collecting id="1189" start_npc_id="203166"/>
+	<!-- Shipwreck Revolutionaries -->
+	<item_collecting id="1190" start_npc_id="203183"/>
+	<!-- An Urgent Letter -->
+	<report_to id="1191" start_npc_id="203099" end_npc_id="203183" item_id="182200555"/>
+	<!-- 1192: Verteron Reinforcements (lvl 19) handled by script -->
+	<!-- [Group] Krall Conspiracy -->
+	<item_collecting id="1193" start_npc_id="203098"/>
+	<!-- 1194: [Group] Reducing Tursin Strength (lvl 19) handled by script -->
+	<!-- [Group] Tursin Assassination -->
+	<monster_hunt id="1195" start_npc_id="203098">
+		<monster_infos var_id="0" max_kill="1" npc_id="210187"/>
+	</monster_hunt>
+	<!-- [Daily/Coin] Dampening Spirits -->
+	<monster_hunt id="1196" start_npc_id="203179">
+		<monster_infos var_id="0" max_kill="14" npc_id="210086"/>
+		<monster_infos var_id="1" max_kill="8" npc_id="210711"/>
+	</monster_hunt>
+	<!-- 1197: Krall Book (lvl 14) handled by script -->
+	<!-- The Writing on the Wall -->
+	<report_to id="1198" start_npc_id="203339" end_npc_id="203098" item_id="182200559"/>
+	<!-- Eninte's Request -->
+	<report_to id="1199" start_npc_id="203161" end_npc_id="203893" item_id="182200560"/>
+	<!-- Eninte -->
+	<monster_hunt id="1200" start_npc_id="203893">
+		<monster_infos var_id="0" max_kill="1" npc_id="210743"/>
+	</monster_hunt>
+	<!-- A Favor for Gaione -->
+	<monster_hunt id="1201" start_npc_id="203190">
+		<monster_infos var_id="0" max_kill="9" npc_id="210268"/>
+	</monster_hunt>
+	<!-- [Group] Persistent Krall -->
+	<monster_hunt id="1202" start_npc_id="203147">
+		<monster_infos var_id="0" max_kill="10" npc_id="210176"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="210166"/>
+	</monster_hunt>
+	<!-- Wriggot Resurgence -->
+	<item_collecting id="1203" start_npc_id="730012"/>
+	<!-- Potcrab Pincers -->
+	<item_collecting id="1204" start_npc_id="203166"/>
+	<!-- Secret Trade -->
+	<item_collecting id="1208" start_npc_id="203137"/>
+	<!-- 1209: TODO: [Spend Coin] Iron (Warrior and Scout) (lvl 99) -->
+	<!-- Feed a Cold -->
+	<item_collecting id="1210" start_npc_id="203157"/>
+	<!-- Targena for Titania -->
+	<item_collecting id="1211" start_npc_id="203180"/>
+	<!-- 1212: TODO: [Spend Coin] Iron (Mage and Priest) (lvl 99) -->
+	<!-- A Hungry Abex -->
+	<item_collecting id="1213" start_npc_id="203153"/>
+	<!-- Give and Take -->
+	<item_collecting id="1214" start_npc_id="203153" end_npc_id="203157"/>
+	<!-- Can't Please Everyone -->
+	<item_collecting id="1215" start_npc_id="203172"/>
+	<!-- Saving the Snappers -->
+	<monster_hunt id="1216" start_npc_id="203169">
+		<monster_infos var_id="0" max_kill="12" npc_id="210112"/>
+	</monster_hunt>
+	<!-- Flotsam -->
+	<monster_hunt id="1217" start_npc_id="203184">
+		<monster_infos var_id="0" max_kill="12" npc_id="210299"/>
+		<monster_infos var_id="0" max_kill="12" npc_id="210085"/>
+		<monster_infos var_id="0" max_kill="12" npc_id="210197"/>
+	</monster_hunt>
+	<!-- 1218: Numonerk's Demand Note (lvl 19) handled by script -->
+	<!-- Lepharist Treasure Box -->
+	<item_collecting id="1219" start_npc_id="203172" action_item_id="700283"/>
+	<!-- 1220: A Secret Delivery (lvl 19) handled by script -->
+	<!-- Brainwashed Tursin Krall -->
+	<monster_hunt id="1221" start_npc_id="203097">
+		<monster_infos var_id="0" max_kill="3" npc_id="216913"/>
+	</monster_hunt>
+	<!-- 9554: TODO: [Event] Lato's Blessing (lvl 10) -->
+	<!-- 9555: TODO: [Event] Fei's Blessing (lvl 10) -->
+	<!-- 80002: TODO: [Event] Heart Headband Hunt (lvl 10) -->
+</quest_scripts>

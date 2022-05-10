@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration>
+
+    <!-- This appender prints information to console -->
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="[%p] %d{yyyy-MM-dd HH:mm:ss} - %m%n"/>
+        </layout>
+		<filter class="org.openaion.commons.log4j.filters.ConsoleFilter"/>
+    </appender>
+
+    <!-- This appender prints all that is shown in console to file -->
+    <appender name="CONSOLE_TO_FILE" class="org.openaion.commons.log4j.appenders.TruncateToZipFileAppender">
+        <param name="file" value="log/console.log"/>
+        <param name="append" value="false"/>
+        <param name="backupDir" value="log/backup"/>
+        <!-- Windows systems doesn't support : char in file names -->
+        <param name="backupDateFormat" value="yyyy-MM-dd HH-mm-ss"/>
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="[%p] %d{yyyy-MM-dd HH:mm:ss} - %c:%L - %m%n"/>
+        </layout>
+	  <filter class="org.openaion.commons.log4j.filters.ConsoleFilter"/>
+    </appender>
+
+    <!-- This appender accepts only messages with exceptions and logs them to separate file -->
+    <appender name="ERROR_APPENDER" class="org.openaion.commons.log4j.appenders.TruncateToZipFileAppender">
+        <param name="file" value="log/errors.log"/>
+        <param name="append" value="false"/>
+        <param name="backupDir" value="log/backup"/>
+        <!-- Windows systems doesn't support : char in file names -->
+        <param name="backupDateFormat" value="yyyy-MM-dd HH-mm-ss"/>
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="[%p %d{yyyy-MM-dd HH:mm:ss}] %c:%L - %m%n"/>
+        </layout>
+        <filter class="org.openaion.commons.log4j.filters.ThrowablePresentFilter"/>
+    </appender>
+	
+	<!-- Chat Log -->
+    <appender name="CHATLOG" class="org.openaion.commons.log4j.appenders.TruncateToZipFileAppender">
+        <param name="file" value="log/chat.log"/>
+        <param name="append" value="false"/>
+        <param name="backupDir" value="log/backup"/>
+        <!-- Windows systems doesn't support : char in file names -->
+        <param name="backupDateFormat" value="yyyy-MM-dd HH-mm-ss"/>
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-dd-MM HH:mm:ss}] %m%n"/>
+        </layout>
+        <filter class="org.openaion.commons.log4j.filters.ChatLogFilter"/>
+    </appender>
+	
+	<!-- GM Audit -->
+    <appender name="GMAUDIT" class="org.openaion.commons.log4j.appenders.TruncateToZipFileAppender">
+        <param name="file" value="log/gmaudit.log"/>
+        <param name="append" value="false"/>
+        <param name="backupDir" value="log/backup"/>
+        <!-- Windows systems doesn't support : char in file names -->
+        <param name="backupDateFormat" value="yyyy-MM-dd HH-mm-ss"/>
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-dd-MM HH:mm:ss}] %m%n"/>
+        </layout>
+        <filter class="org.openaion.commons.log4j.filters.GmAuditFilter"/>
+    </appender>
+    
+    <!-- Audit -->
+    <appender name="AUDIT" class="org.openaion.commons.log4j.appenders.TruncateToZipFileAppender">
+        <param name="file" value="log/audit.log"/>
+        <param name="append" value="false"/>
+        <param name="backupDir" value="log/backup"/>
+        <!-- Windows systems doesn't support : char in file names -->
+        <param name="backupDateFormat" value="yyyy-MM-dd HH-mm-ss"/>
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-dd-MM HH:mm:ss}] %m%n"/>
+        </layout>
+        <filter class="org.openaion.commons.log4j.filters.AuditFilter"/>
+    </appender>
+    
+    <!-- Item -->
+    <appender name="ITEM" class="org.openaion.commons.log4j.appenders.TruncateToZipFileAppender">
+        <param name="file" value="log/item.log"/>
+        <param name="append" value="false"/>
+        <param name="backupDir" value="log/backup"/>
+        <!-- Windows systems doesn't support : char in file names -->
+        <param name="backupDateFormat" value="yyyy-MM-dd HH-mm-ss"/>
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-dd-MM HH:mm:ss}] %m%n"/>
+        </layout>
+        <filter class="org.openaion.commons.log4j.filters.ItemFilter"/>
+    </appender>
+    
+    <!-- Cheat -->
+    <appender name="CHEAT" class="org.openaion.commons.log4j.appenders.TruncateToZipFileAppender">
+        <param name="file" value="log/anticheat.log"/>
+        <param name="append" value="false"/>
+        <param name="backupDir" value="log/backup"/>
+        <!-- Windows systems doesn't support : char in file names -->
+        <param name="backupDateFormat" value="yyyy-MM-dd HH-mm-ss"/>
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-dd-MM HH:mm:ss}] %m%n"/>
+        </layout>
+        <filter class="org.openaion.commons.log4j.filters.AntiCheatFilter"/>
+    </appender>
+
+    <!-- Root Logger -->
+    <root>
+        <priority value="info"/>
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="CONSOLE_TO_FILE"/>
+        <appender-ref ref="ERROR_APPENDER"/>
+        <appender-ref ref="CHATLOG"/>
+        <appender-ref ref="GMAUDIT"/>
+        <appender-ref ref="AUDIT"/>
+        <appender-ref ref="ITEM"/>
+        <appender-ref ref="CHEAT"/>
+    </root>
+
+    <!--
+        This property represents default LoggerFactory for categories.
+        For intance we have class x.y.z.Main that uses it's own name to get logger.
+
+        If we have category or logger x.y.z (or any hierarchy category), then Main will use
+        logger factory that is specified by system property "log4j.loggerfactory".
+
+        But if we have exact match of requested logger name and category name, then categoryFactory element
+        will be used to create logger.
+
+        For instance, to make Main to use this category factory we should create category called
+        x.y.z.Main.
+
+
+
+
+        More examples:
+
+        This example will use LoggerFactory from log4j.loggerfactory
+        getLoger("org.openaion.commons.test.Logger")
+
+
+        This example will use LoggerFactory from categoryFactory element
+        getLoger("org.openaion.commons.test.Logger")
+        <category name="org.openaion.commons.test.Logger"/>
+
+
+        This example will use LoggerFactory from log4j.loggerfactory
+        getLoger("org.openaion.commons.test.Logger")
+        <category name="org.openaion.commons.test"/>
+
+
+
+        Also, categories can use their own loggers by specifiing logger class.
+        <category name="some name" class="org.openaion.commons.log4j.MyLoggerInstance"/>
+
+        In such case specified logger class must contain public static method called getLogger(String name)
+
+        Example:
+        public static class MyLoggerInstance extends Logger{
+
+                public static MyLoggerInstance getLogger(String name){
+                    return new MyLoggerInstance(); // caching with WeakHashMap can be used here     
+                }
+        }
+
+    -->
+    <categoryFactory class="org.openaion.commons.log4j.ThrowableAsMessageAwareFactory"/>
+
+</log4j:configuration>

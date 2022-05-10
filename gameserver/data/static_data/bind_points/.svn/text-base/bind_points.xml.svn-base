@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bind_points xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="bind_points.xsd">
+	<!-- Sanctum -->
+	<bind_point name="Sanctum" npcid="700018" bindid="1" mapid="110010000" posX="1476.3" posY="1595.5" posZ="572.9" price="1540"/>
+	<!-- Pandemonium -->
+	<bind_point name="Pandaemonium" npcid="700068" bindid="2" mapid="120010000" posX="1456.9" posY="1417.0" posZ="177.5" price="1540"/>
+	<!-- Poeta -->
+	<bind_point name="Akarios Village" npcid="700013" bindid="3" mapid="210010000" posX="855.3" posY="1209.4" posZ="117.8" price="97"/>
+	<bind_point name="Melponeh Campsite" npcid="700014" bindid="4" mapid="210010000" posX="425.8" posY="1744.5" posZ="119.8" price="134"/>
+	<!-- Eltnen -->
+	<bind_point name="Eltnen Fortress" npcid="700021" bindid="5" mapid="210020000"  posX="285.20267" posY="2750.2732" posZ="270.4558" price="3740"/>
+	<bind_point name="Golden Bough Garrison" npcid="700022" bindid="6" mapid="210020000" posX="666.4" posY="423.4" posZ="331.9" price="4490"/>
+	<bind_point name="Agairon Village" npcid="700023" bindid="7" mapid="210020000" posX="1945.8" posY="2014.7" posZ="361.6" price="5910"/>
+	<bind_point name="Kuriullu Outpost" npcid="700257" bindid="8" mapid="210020000" posX="2415.1" posY="2755.7" posZ="364.2" price="6450"/>
+	<bind_point name="Novan Crossing" npcid="700256" bindid="9" mapid="210020000" posX="943.8" posY="2208.3" posZ="252.4" price="7370"/>
+	<bind_point name="Eltnen Observatory" npcid="700255" bindid="10" mapid="210020000" posX="1768.215" posY="892.12" posZ="422.125" price="8698"/>
+	<!-- Verteron -->
+	<bind_point name="Verteron Citadel" npcid="700015" bindid="11" mapid="210030000" posX="1690.4" posY="1481.4" posZ="121.4" price="1050"/>
+	<bind_point name="Pilgrim's Respite" npcid="700020" bindid="12" mapid="210030000" posX="2051.8" posY="2408.5" posZ="275.1" price="1180"/>
+	<bind_point name="Cantas Coast" npcid="700019" bindid="13" mapid="210030000" posX="2367.0" posY="834.6" posZ="101.6" price="1200"/>
+	<bind_point name="Ardus Shrine" npcid="700017" bindid="14" mapid="210030000" posX="2316.0" posY="1799.1" posZ="195.3" price="1380"/>
+	<bind_point name="Tolbas Village" npcid="700016" bindid="15" mapid="210030000" posX="1269.3" posY="2173.9" posZ="151.1" price="1440"/>
+	<!-- Heiron -->
+	<bind_point name="New Heiron Gate" npcid="700024" bindid="16" mapid="210040000" posX="2469.6" posY="304.2" posZ="415.6" price="4800"/>
+	<bind_point name="Heiron Observatory" npcid="700025" bindid="17" mapid="210040000" posX="1454.4" posY="1346.6" posZ="174.8" price="5110"/>
+	<bind_point name="Jeiaparan Village" npcid="700027" bindid="18" mapid="210040000" posX="1624.1" posY="2741.1" posZ="122.9" price="6870"/>
+	<bind_point name="Arbolus Haven" npcid="700026" bindid="19" mapid="210040000" posX="157.2" posY="1611.7" posZ="121.0" price="7880"/>
+	<bind_point name="Senea Campsite" npcid="700818" bindid="20" mapid="210040000" posX="988.41724" posY="707.014" posZ="135.83427" price="8880"/>
+	<bind_point name="Changarnerk's Campsite" npcid="700820" bindid="21" mapid="210040000" posX="899.58014" posY="2249.6348" posZ="158.05762" price="9880"/>
+	<bind_point name="Kishar Observation Post" npcid="700819" bindid="22" mapid="210040000" posX="1997.8174" posY="1402.8821" posZ="118.845024" price="10880"/>
+	<!-- Theomobos -->
+	<bind_point name="Meniherk Excavation Camp" npcid="700343" bindid="23" mapid="210060000" posX="1424.7" posY="1567.6" posZ="30.9" price="2970"/>
+	<bind_point name="Observatory Village" npcid="700399" bindid="24" mapid="210060000" posX="2277.6" posY="2250.0" posZ="61.9" price="3500"/>
+	<bind_point name="Jamanok Inn" npcid="700400" bindid="25" mapid="210060000" posX="546.7" posY="1241.8" posZ="89.6" price="4500"/>
+	<bind_point name="Josnack's Vigil" npcid="700817" bindid="26" mapid="210060000" posX="914.8197" posY="2779.6018" posZ="62.742218" price="5550"/>
+	<bind_point name="Port Anangke" npcid="700816" bindid="27" mapid="210060000" posX="2673.3025" posY="808.04376" posZ="139.0627" price="6550"/>
+	<!--
+	This obelisk is for quest users only,Elyos quest The Archon of Storms (1059) No bind here is only quest related.
+	<bind_point name="Storm Circle" npcid="250093" bindid="61" mapid="210040000" posX="861.7" posY="2873.9" posZ="146.4" price="100"/>
+	This obelisk is for quest users only,Elyos quest The Archon of Storms (1059) No bind here is only quest related.
+	-->
+	<!-- Ishalgen -->
+	<bind_point name="Aldelle Village" npcid="700063" bindid="28" mapid="220010000" posX="587.5" posY="2467.3" posZ="279.1" price="97"/>
+	<bind_point name="Anturoon Sentry Post" npcid="700064" bindid="29" mapid="220010000" posX="936.5" posY="1705.1" posZ="259.8" price="134"/>
+	<!-- Morheim -->
+	<bind_point name="Morheim Ice Fortress" npcid="700231" bindid="30" mapid="220020000" posX="268.11118" posY="2338.7603" posZ="444.12332" price="3740"/>
+	<bind_point name="Desert Garrison" npcid="700213" bindid="31" mapid="220020000" posX="626.85535" posY="907.9542" posZ="360.8577" price="4050"/>
+	<bind_point name="Alsig Village" npcid="700232" bindid="32" mapid="220020000" posX="2384.3293" posY="1750.1542" posZ="102.37332" price="5470"/>
+	<bind_point name="Slag Bulwark" npcid="700259" bindid="33" mapid="220020000" posX="1782.77" posY="1669.43" posZ="197.93684" price="6050"/>
+	<bind_point name="Morheim Observatory" npcid="700260" bindid="34" mapid="220020000" posX="2803.15" posY="1100.83" posZ="171.83853" price="7900"/>
+	<bind_point name="Kellans Cabin" npcid="700258" bindid="35" mapid="220020000" posX="1095.6698" posY="2482.17" posZ="240.37282" price="8570"/>
+	<bind_point name="Halabana Outpost" npcid="700261" bindid="36" mapid="220020000" posX="2348.211" posY="2225.0847" posZ="127.22615" price="9780"/>
+	<!-- Altgard -->
+	<bind_point name="Altgard Fortress" npcid="700065" bindid="37" mapid="220030000" posX="1658.4401" posY="1815.3014" posZ="254.09914" price="452"/>
+	<bind_point name="Basfelt Village" npcid="700066" bindid="38" mapid="220030000" posX="1800.3569" posY="711.3729" posZ="262.3994" price="632"/>
+	<bind_point name="Heart Of Impetusium" npcid="700067" bindid="39" mapid="220030000" posX="2656.1924" posY="1660.5903" posZ="325.05225" price="813"/>
+	<bind_point name="Altgard Observatory" npcid="700822" bindid="40" mapid="220030000" posX="1461.8221" posY="2553.6057" posZ="299.21405" price="2037"/>
+	<bind_point name="Trader Berth" npcid="700821" bindid="41" mapid="220030000" posX="2686.7495" posY="1020.9011" posZ="312.61285" price="2037"/>
+	<!-- Beluslan -->
+	<bind_point name="Beluslan Fortress" npcid="700297" bindid="42" mapid="220040000" posX="318.6807" posY="334.07504" posZ="229.96956" price="5800"/>
+	<bind_point name="Besfer Refugee Camp" npcid="700298" bindid="43" mapid="220040000" posX="513.87885" posY="1894.1604" posZ="261.61157" price="6530"/>
+	<bind_point name="Red Mane Cavern" npcid="700299" bindid="44" mapid="220040000" posX="2270.2292" posY="1191.833" posZ="469.8503" price="11580"/>
+	<bind_point name="Camp Kistenian" npcid="700300" bindid="45" mapid="220040000" posX="1902.7335" posY="504.08722" posZ="412.4924" price="8780"/>
+	<bind_point name="Hoarfrost Shelter" npcid="700301" bindid="46" mapid="220040000" posX="2469.5771" posY="2070.583" posZ="577.56683" price="9860"/>
+	<bind_point name="Kidorun Campsite" npcid="700825" bindid="47" mapid="220040000" posX="1276.8048" posY="838.87933" posZ="262.72675" price="7860"/>
+	<!-- Brusthonin -->
+	<bind_point name="Settlers Campsite" npcid="700344" bindid="48" mapid="220050000" posX="2928.9907" posY="2432.1233" posZ="16.998373" price="2970"/>
+	<bind_point name="Baltasar Hill Village" npcid="700401" bindid="49" mapid="220050000" posX="1387.1495" posY="2025.1904" posZ="51.8407" price="3500"/>
+	<bind_point name="BuBu Village" npcid="700402" bindid="50" mapid="220050000" posX="443.2767" posY="853.649" posZ="75.33361" price="4750"/>
+	<bind_point name="Edge Of Forment" npcid="700823" bindid="51" mapid="220050000" posX="1535.9053" posY="392.9955" posZ="231.60039" price="5750"/>
+	<bind_point name="Iollu Overlook" npcid="700824" bindid="52" mapid="220050000" posX="837.59656" posY="2004.274" posZ="307.55252" price="6750"/>
+	<!-- Reshanta -->
+	<bind_point name="Teminon Fortresss" npcid="730071" bindid="53" mapid="400010000" posX="2986.6" posY="899.1" posZ="1545.5" price="10500"/>
+	<bind_point name="Primum Fortress" npcid="730072" bindid="54" mapid="400010000" posX="926.4" posY="3002.9" posZ="1655.3525" price="10500"/>
+	<!-- Inggison -->
+	<bind_point name="Inggison Illusion Fortress" npcid="730235" bindid="55" mapid="210050000" posX="1377.938" posY="302.92316" posZ="588.7365" price="1540"/>
+	<bind_point name="Undirborg Observation Post" npcid="730281" bindid="56" mapid="210050000" posX="382.98096" posY="953.6693" posZ="460.8131" price="2540"/>
+	<bind_point name="Soteria Sanctuary" npcid="730236" bindid="57" mapid="210050000" posX="2711.1152" posY="1483.5526" posZ="383.96405" price="3540"/>
+	<bind_point name="Hanarkand Observation Post" npcid="730282" bindid="58" mapid="210050000" posX="1893.0393" posY="1747.7858" posZ="327.625" price="3540"/>
+	<!-- Gelkmaros -->
+	<bind_point name="Gelkmaros Fortress" npcid="730238" bindid="59" mapid="220070000" posX="1764.3" posY="2911.3" posZ="554.8" price="1540"/>
+	<bind_point name="Rhonnam Refugee Village" npcid="730239" bindid="60" mapid="220070000" posX="844.6458" posY="1739.4966" posZ="354.27255" price="2540"/>
+	<bind_point name="Subterranea Obsvervation Post" npcid="730283" bindid="61" mapid="220070000" posX="2502.826" posY="2148.6318" posZ="464.52808" price="3540"/>
+	<bind_point name="Vorgaltem Scout Post" npcid="730284" bindid="62" mapid="220070000" posX="1294.6537" posY="1562.8391" posZ="304.375" price="3540"/>
+</bind_points>

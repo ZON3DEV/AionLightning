@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<siege_locations>
+	<siege_location id="0" type="UNDERPASS" world="210050000"/>
+	<siege_location id="0" type="UNDERPASS" world="220070000"/>
+	<siege_location id="1" type="INDUN" world="210040000"/>
+	<siege_location id="2" type="INDUN" world="220040000"/>
+	<siege_location id="3" type="INDUN" world="210020000"/>
+	<siege_location id="3" type="INDUN" world="220020000"/>
+	<siege_location id="4" type="INDUN" world="210040000"/>
+	<siege_location id="5" type="INDUN" world="220040000"/>
+	<siege_location id="6" type="INDUN" world="210060000"/>
+	<siege_location id="7" type="INDUN" world="220050000"/>
+	<siege_location id="8" type="INDUN" world="400010000"/>
+	<siege_location id="8" type="INDUN" world="400010000"/>
+	<siege_location id="9" type="INDUN" world="210040000"/>
+	<siege_location id="9" type="INDUN" world="220040000"/>
+	<siege_location id="18" type="INDUN" world="120010000"/>
+	<siege_location id="18" type="INDUN" world="110010000"/>
+	<siege_location id="25" type="INDUN" world="210040000"/>
+	<siege_location id="26" type="INDUN" world="210050000"/>
+	<siege_location id="26" type="INDUN" world="220070000"/>
+	<siege_location id="27" type="INDUN" world="210050000"/>
+	<siege_location id="27" type="INDUN" world="220070000"/>
+	<siege_location id="28" type="INDUN" world="600010000"/>
+	<siege_location id="29" type="INDUN" world="210050000"/>
+	<siege_location id="29" type="INDUN" world="220070000"/>
+	<siege_location id="45" type="INDUN" world="210040000"/>
+	<siege_location id="45" type="INDUN" world="220040000"/>
+	<siege_location id="46" type="INDUN" world="220030000"/>
+	<siege_location id="46" type="INDUN" world="210030000"/>
+	<siege_location id="1011" type="FORTRESS" world="400010000" influence_value="20" artifact_cooldown="7200">
+		<siege_reward grade="1" top="20" itemid="186000030" count="5"/>
+		<siege_reward grade="2" top="40" itemid="186000030" count="4"/>
+		<siege_reward grade="3" top="60" itemid="186000030" count="3"/>
+		<defense_reward gold="150" silver="150" />
+	</siege_location>
+	<siege_location id="1012" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="1800"/>
+	<siege_location id="1013" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="1014" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="1015" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="900"/>
+	<siege_location id="1016" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="1017" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="1018" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="1019" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="1020" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="900"/>
+	<siege_location id="1131" type="FORTRESS" world="400010000" influence_value="10" artifact_cooldown="3600">
+		<siege_reward grade="1" top="10" itemid="186000030" count="2"/>
+		<siege_reward grade="2" top="20" itemid="186000031" count="3"/>
+		<siege_reward grade="3" top="30" itemid="186000031" count="2"/>
+		<defense_reward gold="20" silver="60" />
+	</siege_location>
+	<siege_location id="1132" type="FORTRESS" world="400010000" influence_value="3" artifact_cooldown="3600">
+		<siege_reward grade="1" top="10" itemid="186000030" count="2"/>
+		<siege_reward grade="2" top="20" itemid="186000031" count="3"/>
+		<siege_reward grade="3" top="30" itemid="186000031" count="2"/>
+		<defense_reward gold="20" silver="60" />
+	</siege_location>
+	<siege_location id="1133" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="1134" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="1135" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="900"/>
+	<siege_location id="1141" type="FORTRESS" world="400010000" influence_value="10" artifact_cooldown="3600">
+		<siege_reward grade="1" top="10" itemid="186000030" count="2"/>
+		<siege_reward grade="2" top="20" itemid="186000031" count="3"/>
+		<siege_reward grade="3" top="30" itemid="186000031" count="2"/>
+		<defense_reward gold="20" silver="60" />
+	</siege_location>
+	<siege_location id="1142" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="1143" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="900"/>
+	<siege_location id="1144" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="900"/>
+	<siege_location id="1145" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="1146" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="1211" type="FORTRESS" world="400010000" influence_value="10" artifact_cooldown="5400">
+		<siege_reward grade="1" top="15" itemid="186000030" count="3"/>
+		<siege_reward grade="2" top="30" itemid="186000030" count="2"/>
+		<siege_reward grade="3" top="45" itemid="186000031" count="3"/>
+		<defense_reward gold="50" silver="70" />
+	</siege_location>
+	<siege_location id="1212" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="1213" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="900"/>
+	<siege_location id="1214" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="1215" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="900"/>
+	<siege_location id="1221" type="FORTRESS" world="400010000" influence_value="20" artifact_cooldown="5400">
+		<siege_reward grade="1" top="15" itemid="186000030" count="4"/>
+		<siege_reward grade="2" top="30" itemid="186000030" count="3"/>
+		<siege_reward grade="3" top="45" itemid="186000031" count="4"/>
+		<defense_reward gold="70" silver="90" />
+	</siege_location>
+	<siege_location id="1222" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="1223" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="1224" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="900"/>
+	<siege_location id="1231" type="FORTRESS" world="400010000" influence_value="10" artifact_cooldown="5400">
+		<siege_reward grade="1" top="15" itemid="186000030" count="4"/>
+		<siege_reward grade="2" top="30" itemid="186000030" count="3"/>
+		<siege_reward grade="3" top="45" itemid="186000031" count="4"/>
+		<defense_reward gold="70" silver="90" />
+	</siege_location>
+	<siege_location id="1232" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="1233" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="900"/>
+	<siege_location id="1241" type="FORTRESS" world="400010000" influence_value="10" artifact_cooldown="5400">
+		<siege_reward grade="1" top="15" itemid="186000030" count="4"/>
+		<siege_reward grade="2" top="30" itemid="186000030" count="3"/>
+		<siege_reward grade="3" top="45" itemid="186000031" count="4"/>
+		<defense_reward gold="70" silver="90" />
+	</siege_location>
+	<siege_location id="1242" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="1243" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="900"/>
+	<siege_location id="1251" type="FORTRESS" world="400010000" influence_value="3" artifact_cooldown="5400">
+		<siege_reward grade="1" top="15" itemid="186000030" count="3"/>
+		<siege_reward grade="2" top="30" itemid="186000030" count="2"/>
+		<siege_reward grade="3" top="45" itemid="186000031" count="3"/>
+		<defense_reward gold="50" silver="70" />
+	</siege_location>
+	<siege_location id="1252" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="900"/>
+	<siege_location id="1253" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="900"/>
+	<siege_location id="1254" type="ARTIFACT" world="400010000" influence_value="3" artifact_cooldown="2700"/>
+	<siege_location id="2011" type="FORTRESS" world="210050000" influence_value="20" artifact_cooldown="7200">
+		<siege_reward grade="1" top="10" itemid="186000030" count="5"/>
+		<siege_reward grade="2" top="20" itemid="186000030" count="4"/>
+		<siege_reward grade="3" top="50" itemid="186000031" count="5"/>
+		<defense_reward gold="80" silver="100" />
+	</siege_location>
+	<siege_location id="2012" type="ARTIFACT" world="210050000" influence_value="3" artifact_cooldown="1800"/>
+	<siege_location id="2013" type="ARTIFACT" world="210050000" influence_value="3" artifact_cooldown="1800"/>
+	<siege_location id="2021" type="FORTRESS" world="210050000" influence_value="10" artifact_cooldown="7200">
+		<siege_reward grade="1" top="10" itemid="186000030" count="5"/>
+		<siege_reward grade="2" top="20" itemid="186000030" count="4"/>
+		<siege_reward grade="3" top="50" itemid="186000031" count="5"/>
+		<defense_reward gold="80" silver="100" />
+	</siege_location>
+	<siege_location id="2022" type="ARTIFACT" world="210050000" influence_value="3" artifact_cooldown="1800"/>
+	<siege_location id="2023" type="ARTIFACT" world="210050000" influence_value="3" artifact_cooldown="1800"/>
+	<siege_location id="2111" type="BOSSRAID_LIGHT" world="210050000" influence_value="3"/>
+	<siege_location id="3011" type="FORTRESS" world="220070000" influence_value="3" artifact_cooldown="7200">
+		<siege_reward grade="1" top="10" itemid="186000030" count="5"/>
+		<siege_reward grade="2" top="20" itemid="186000030" count="4"/>
+		<siege_reward grade="3" top="50" itemid="186000031" count="5"/>
+		<defense_reward gold="80" silver="100" />
+	</siege_location>
+	<siege_location id="3012" type="ARTIFACT" world="220070000" influence_value="3" artifact_cooldown="1800"/>
+	<siege_location id="3013" type="ARTIFACT" world="220070000" influence_value="3" artifact_cooldown="1800"/>
+	<siege_location id="3021" type="FORTRESS" world="220070000" influence_value="3" artifact_cooldown="7200">
+		<siege_reward grade="1" top="10" itemid="186000030" count="5"/>
+		<siege_reward grade="2" top="20" itemid="186000030" count="4"/>
+		<siege_reward grade="3" top="50" itemid="186000031" count="5"/>
+		<defense_reward gold="80" silver="100" />
+	</siege_location>
+	<siege_location id="3022" type="ARTIFACT" world="220070000" influence_value="3" artifact_cooldown="1800"/>
+	<siege_location id="3023" type="ARTIFACT" world="220070000" influence_value="3" artifact_cooldown="1800"/>
+	<siege_location id="3111" type="BOSSRAID_DARK" world="220070000" influence_value="3"/>
+</siege_locations>

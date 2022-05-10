@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/4/trunk/loginserver/dist
+END
+StartLS.sh
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/4/trunk/loginserver/dist/StartLS.sh
+END
+StopLS.sh
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/4/trunk/loginserver/dist/StopLS.sh
+END
+StartLS.bat
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/4/trunk/loginserver/dist/StartLS.bat
+END

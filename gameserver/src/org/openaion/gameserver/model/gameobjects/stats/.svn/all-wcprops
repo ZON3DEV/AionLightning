@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats
+END
+CreatureGameStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/CreatureGameStats.java
+END
+PlayerGameStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/PlayerGameStats.java
+END
+SummonGameStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/SummonGameStats.java
+END
+NpcGameStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/NpcGameStats.java
+END
+CreatureLifeStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/CreatureLifeStats.java
+END
+StatEffectType.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/StatEffectType.java
+END
+PlayerLifeStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/PlayerLifeStats.java
+END
+Stat.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/Stat.java
+END
+StatModifierPriority.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/StatModifierPriority.java
+END
+StatModifiers.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/StatModifiers.java
+END
+SummonLifeStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/SummonLifeStats.java
+END
+NpcLifeStats.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/NpcLifeStats.java
+END
+StatEnum.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/model/gameobjects/stats/StatEnum.java
+END

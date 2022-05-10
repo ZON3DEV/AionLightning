@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Right Wing Chamber
+
+ -->
+<spawns>
+	<!-- Ancient Treasure Box (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="300090000" npcid="700471" pool="3" interval="295">
+		<object x="219.61551" y="227.06093" z="102.33293" h="117"/>
+		<object x="288.77032" y="245.76599" z="102.33297" h="50"/>
+		<object x="238.66106" y="213.49998" z="102.33298" h="100"/>
+	</spawn>
+	<spawn map="300090000" npcid="700469" pool="5" interval="3600">
+		<object x="212.66" y="269.86" z="101.84082" h="70"/>
+		<object x="307.55" y="209.72" z="102.33296" h="70"/>
+		<object x="276.1" y="204.76" z="102.33298" h="70"/>
+		<object x="250.72" y="212.48" z="102.332985" h="70"/>
+		<object x="249.62" y="255.52" z="102.09304" h="70"/>
+	</spawn>
+	<spawn map="300090000" npcid="700470" pool="10" interval="3600">
+		<object x="279.97" y="285.31" z="101.84085" h="29"/>
+		<object x="257.35" y="153.45" z="101.84089" h="29"/>
+		<object x="260.4574" y="266.0" z="102.33314" h="29"/>
+		<object x="260.65" y="215.79" z="102.332985" h="29"/>
+		<object x="257.9" y="184.9" z="102.33297" h="29"/>
+		<object x="318.03" y="192.07" z="101.84086" h="29"/>
+		<object x="291.55" y="168.34" z="101.84086" h="29"/>
+		<object x="268.38" y="175.52" z="102.33297" h="29"/>
+		<object x="277.21" y="153.45" z="101.84086" h="29"/>
+		<object x="235.28" y="209.72" z="102.33297" h="29"/>
+	</spawn>
+	<!-- TreasureRoom_Sensory_C (NPC Normal lvl:3) (from client spawn)-->
+	<spawn map="300090000" npcid="206089" pool="1" interval="295">
+		<object x="260" y="310" z="102" h="60"/>
+	</spawn>
+	<!-- Stone Gate (NPC Object lvl:1) (from client spawn)-->
+	<spawn map="300090000" npcid="700457" pool="1" interval="295">
+		<object staticid="14" x="263.59274" y="395.44913" z="103.24831" h="0"/>
+	</spawn>
+</spawns>

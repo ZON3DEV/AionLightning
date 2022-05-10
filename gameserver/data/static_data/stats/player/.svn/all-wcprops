@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/player
+END
+cleric-templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/player/cleric-templates.xml
+END
+assassin-templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/player/assassin-templates.xml
+END
+templar-templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/player/templar-templates.xml
+END
+chanter-templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/player/chanter-templates.xml
+END
+sorcerer-templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/player/sorcerer-templates.xml
+END
+warrior-templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/player/warrior-templates.xml
+END
+gladiator-templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/player/gladiator-templates.xml
+END
+priest-templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/player/priest-templates.xml
+END
+spiritmaster-templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/player/spiritmaster-templates.xml
+END
+mage-templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/player/mage-templates.xml
+END
+scout-templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/player/scout-templates.xml
+END
+ranger-templates.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/gameserver/data/static_data/stats/player/ranger-templates.xml
+END

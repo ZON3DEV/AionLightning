@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of Zetta Core
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Chamber of Roah
+
+ -->
+<spawns>
+	<!-- Old Stone Statue -->
+	<spawn map="300070000" npcid="700480" pool="1" interval="105">
+		<object staticid="33" x="505.27969" y="375.68188" z="93.839989" h="0"/>
+	</spawn>
+	<!-- Golden Fortress Crate -->
+	<spawn map="300070000" npcid="700472" pool="1" interval="105">
+		<object x="380.31073" y="516.80597" z="102.618126" h="47"/>
+	</spawn>
+	<!--  Magic Fortress Crate -->
+	<spawn map="300070000" npcid="700474" pool="1" interval="105">
+		<object x="630.1139" y="451.67737" z="102.63267" h="107"/>
+	</spawn>
+	<!-- Jeweled Fortress Crate -->
+	<spawn map="300070000" npcid="700473" pool="1" interval="105">
+		<object x="514.3094" y="632.51044" z="103.69621" h="88"/>
+	</spawn>
+</spawns>

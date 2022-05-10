@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<world_maps xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="world_maps.xsd">
+	<map id="110010000" name="Sanctum" death_level="400" water_level="16" world_type="ELYSEA" world_size="3072"/>
+	<map id="110020000" name="Kaisinel" death_level="400" water_level="16" world_type="ELYSEA" world_size="3072"/>
+	<map id="110070000" name="Kaisinel Academy" death_level="0" water_level="16" world_type="ELYSEA" world_size="1024"/>
+	<map id="120010000" name="Pandaemonium" death_level="150" water_level="16" world_type="ASMODAE" world_size="3072"/>
+	<map id="120020000" name="Marchutan" death_level="150" water_level="16" world_type="ASMODAE" world_size="3072"/>
+	<map id="120080000" name="Marchutan Priory" death_level="0" water_level="16" world_type="ASMODAE" world_size="1024"/>
+	<map id="210010000" name="Poeta" max_user="200" twin_count="2" death_level="0" water_level="100" world_type="ELYSEA" world_size="3072"/>
+	<map id="210020000" name="Eltnen" death_level="0" water_level="6" world_type="ELYSEA" world_size="3072"/>
+	<map id="210030000" name="Verteron" max_user="200" death_level="0" water_level="100" world_type="ELYSEA" world_size="3072"/>
+	<map id="210040000" name="Heiron" death_level="0" water_level="100" world_type="ELYSEA" world_size="3072"/>
+	<map id="210050000" name="Inggison" death_level="0" water_level="16" world_type="BALAUREA" world_size="3072"/>
+	<map id="210060000" name="Theomobos" death_level="0" water_level="1" world_type="ELYSEA" world_size="3072"/>
+	<map id="220010000" name="Ishalgen" max_user="200" twin_count="2" death_level="0" water_level="248" world_type="ASMODAE" world_size="3072"/>
+	<map id="220030000" name="Altgard" max_user="200" death_level="0" water_level="248" world_type="ASMODAE" world_size="3072"/>
+	<map id="220020000" name="Morheim" death_level="0" water_level="16" world_type="ASMODAE" world_size="3072"/>
+	<map id="220040000" name="Beluslan" death_level="0" water_level="16" world_type="ASMODAE" world_size="3072"/>
+	<map id="220050000" name="Brusthonin" death_level="0" water_level="5" world_type="ASMODAE" world_size="3072"/>
+	<map id="220070000" name="Gelkmaros" death_level="0" water_level="16" world_type="BALAUREA" world_size="3072"/>
+	<map id="300010000" name="IDAbPro" death_level="0" water_level="16" world_size="512"/>
+	<map id="300020000" name="IDTest_Dungeon" death_level="0" water_level="16" world_size="256"/>
+	<map id="300030000" name="NochsanaTrainingCamp" nameid="401161" instance="true" instanceMapId="8" cooldown="1080" death_level="0" water_level="16" world_type="ABYSS" world_size="1024"/>
+	<map id="300040000" name="DarkPoeta" nameid="401172" instance="true" instanceMapId="9" cooldown="720" death_level="0" water_level="16" world_size="1536" world_type="ABYSS"/>
+	<map id="300050000" name="AstreiaChamber" nameid="401201" instance="true" instanceMapId="13" cooldown="1080" death_level="0" water_level="16" world_type="ABYSS" world_size="1024"/>
+	<map id="300060000" name="SulfurTreeNest" nameid="401198" instance="true" instanceMapId="10" cooldown="1080" death_level="0" water_level="16" world_type="ABYSS" world_size="1024"/>
+	<map id="300070000" name="ChamberOfRoah" nameid="401202" instance="true" instanceMapId="14" cooldown="1080" death_level="0" water_level="16" world_type="ABYSS" world_size="1024"/>
+	<map id="300080000" name="LeftWingChamber" nameid="401200" instance="true" instanceMapId="12" cooldown="720" death_level="0" water_level="16" world_type="ABYSS" world_size="1024"/>
+	<map id="300090000" name="RightWingChamber" nameid="401199" instance="true" instanceMapId="11" cooldown="720" death_level="0" water_level="16" world_type="ABYSS" world_size="512"/>
+	<map id="300100000" name="SteelRake" nameid="401255" instance="true" instanceMapId="18" cooldown="300" death_level="0" water_level="16" world_size="1024"/>
+	<map id="300110000" name="Dredgion" nameid="401193" instance="true" instanceMapId="19" cooldown="120" death_level="0" water_level="16" world_type="ABYSS" world_size="1024"/>
+	<map id="300120000" name="KysisChamber" nameid="401204" instance="true" instanceMapId="16" cooldown="1080" death_level="0" water_level="16" world_type="ABYSS" world_size="1024"/>
+	<map id="300130000" name="MirenChamber" nameid="401205" instance="true" instanceMapId="17" cooldown="1080" death_level="0" water_level="16" world_type="ABYSS" world_size="1024"/>
+	<map id="300140000" name="KrotanChamber" nameid="401203" instance="true" instanceMapId="15" cooldown="1080" death_level="0" water_level="16" world_type="ABYSS" world_size="1024"/>
+	<map id="300150000" name="IDTemple_Up" nameid="401311" instance="true" instanceMapId="26" cooldown="360" death_level="0" water_level="16" world_size="1024" world_type="ABYSS"/>	
+	<map id="300160000" name="IDTemple_Low" nameid="401325" instance="true" instanceMapId="27" cooldown="360" death_level="0" water_level="16" world_size="2048" world_type="ABYSS"/>
+	<map id="300170000" name="IDCatacombs" nameid="401411" instance="true" instanceMapId="28" cooldown="720" death_level="0" water_level="16" world_size="2048" world_type="ABYSS"/>
+	<map id="300190000" name="IDElim" nameid="401295" instance="true" instanceMapId="29" cooldown="2760" death_level="0" water_level="16" world_size="2048"/>
+	<map id="300200000" name="IDNovice" nameid="401728" instance="true" instanceMapId="46" cooldown="180" death_level="0" water_level="16" world_size="512"/>
+	<map id="300210000" name="IDDreadgion_02" nameid="401675" instance="true" instanceMapId="43" cooldown="120" death_level="0" water_level="16" world_type="ABYSS" world_size="1024"/>
+	<map id="300220000" name="IDAbRe_Core" nameid="401676" instance="true" instanceMapId="44" cooldown="2760" death_level="0" water_level="16" world_size="1024"/>
+	<map id="300230000" name="IDCromede" nameid="401727" instance="true" instanceMapId="45" cooldown="1320" death_level="0" water_level="16" world_size="1024"/>
+	<map id="310010000" name="IDAbProL1" instance="true" instanceMapId="30" cooldown="0" death_level="0" water_level="16" world_size="1024"/>
+	<map id="310020000" name="IDAbProL2" instance="true" instanceMapId="31" cooldown="0" death_level="0" water_level="16" world_size="1024"/>
+	<map id="310030000" name="IDAbGateL1" instance="true" instanceMapId="20" cooldown="0" death_level="0" water_level="16" world_size="1024"/>
+	<map id="310040000" name="IDAbGateL2" instance="true" instanceMapId="21" cooldown="0" death_level="0" water_level="16" world_size="1024"/>
+	<map id="310050000" name="IDLF3Lp" nameid="400736" instance="true" instanceMapId="4" cooldown="10" death_level="0" water_level="16" world_size="1024"/>
+	<map id="310060000" name="IDLF1B" instance="true" instanceMapId="40" cooldown="0" death_level="0" water_level="16" world_size="3072"/>
+	<map id="310070000" name="IDLF1B_Stigma" instance="true" instanceMapId="41" cooldown="0" death_level="0" water_level="16" world_size="512"/>
+	<map id="310080000" name="IDLC1_arena" death_level="0" water_level="16" world_size="512"/>
+	<map id="310090000" name="IDLF3_Castle_indratoo" nameid="401030" instance="true" instanceMapId="1" cooldown="360" death_level="0" water_level="16" world_size="1024"/>
+	<map id="310100000" name="IDLF3_Castle_Lehpar" instance="true" instanceMapId="25" cooldown="0" death_level="0" water_level="16" world_size="1024"/>
+	<map id="310110000" name="TheobomosLab" nameid="401151" instance="true" instanceMapId="6" cooldown="180" death_level="0" water_level="16" world_size="1024"/>
+	<map id="310120000" name="IDAbProL3" instance="true" instanceMapId="32" cooldown="0" death_level="0" water_level="16" world_size="1024"/>
+	<map id="320010000" name="IDAbProD1" instance="true" instanceMapId="33" cooldown="0" death_level="0" water_level="16" world_size="1024"/>
+	<map id="320020000" name="IDAbProD2" instance="true" instanceMapId="34" cooldown="0" death_level="0" water_level="16" world_size="1024"/>
+	<map id="320030000" name="IDAbGateD1" instance="true" instanceMapId="22" cooldown="0" death_level="0" water_level="16" world_size="1024"/>
+	<map id="320040000" name="IDAbGateD2" instance="true" instanceMapId="23" cooldown="0" death_level="0" water_level="16" world_size="1024"/>
+	<map id="320050000" name="IDDF2Flying" instance="true" instanceMapId="24" cooldown="0" death_level="0" water_level="16" world_size="512"/>
+	<map id="320060000" name="IDDF1B" instance="true" instanceMapId="38" cooldown="0" death_level="0" water_level="16" world_size="3072"/>
+	<map id="320070000" name="IDSpace" instance="true" instanceMapId="42" cooldown="0" death_level="0" water_level="16" world_size="512"/>
+	<map id="320080000" name="IDDF3_Dragon" nameid="401022" instance="true" instanceMapId="2" cooldown="360" death_level="0" water_level="16" world_size="1024"/>
+	<map id="320090000" name="IDDC1_arena" death_level="0" water_level="16" world_size="512"/>
+	<map id="320100000" name="IDDF2_Dflame" nameid="400836" instance="true" instanceMapId="3" cooldown="30" death_level="0" water_level="16" world_size="512"/>
+	<map id="320110000" name="IDDF3_LP" nameid="401023" instance="true" instanceMapId="5" cooldown="10" death_level="0" water_level="16" world_size="1024"/>
+	<map id="320120000" name="IDDC1_Arena_3F" death_level="0" water_level="16" world_size="1024"/>
+	<map id="320130000" name="AdmaStronghold" nameid="401152" instance="true" instanceMapId="7" cooldown="180" death_level="0" water_level="16" world_size="1024"/>
+	<map id="320140000" name="IDAbProD3" instance="true" instanceMapId="35" cooldown="0" death_level="0" water_level="16" world_size="1024"/>
+	<map id="400010000" name="Ab1" death_level="500" water_level="16" world_type="ABYSS" world_size="4096"/>
+	<map id="510010000" prison="true" name="LF_Prison" death_level="0" water_level="16" world_size="512"/>
+	<map id="520010000" prison="true" name="DF_Prison" death_level="0" water_level="16" world_size="512"/>
+	<map id="600010000" name="Underpass" death_level="0" water_level="16" world_type="BALAUREA" world_size="1536"/>
+	<map id="900020000" twin_count="10" name="Test_Basic" death_level="0" water_level="16" world_size="256"/>
+	<map id="900030000" twin_count="5" name="Test_Server" death_level="0" water_level="1" world_size="1024"/>
+	<map id="900100000" name="Test_GiantMonster" death_level="0" water_level="16" world_size="1024"/>
+	<map id="900110000" name="Housing_barrack" death_level="0" water_level="16" world_size="512"/>
+	<map id="300240000" name="Aturam Sky Fortress" instance="true" instanceMapId="50" death_level="0" water_level="16" world_size="1024"/>
+	<map id="300250000" name="Esoterrace" instance="true" instanceMapId="51" cooldown="1320" death_level="0" water_level="16" world_size="2048"/>
+	<map id="300260000" name="Ladis Forest" instance="true" instanceMapId="47" death_level="0" water_level="16" world_size="2048"/>
+	<map id="300270000" name="Dorgel Manor" instance="true" instanceMapId="48" death_level="0" water_level="16" world_size="2048"/>
+	<map id="300280000" name="Lentor Outpost" instance="true" instanceMapId="49" death_level="0" water_level="16" world_size="2048"/>
+	<map id="300300000" name="Empyrean Crucible" instance="true" instanceMapId="54" cooldown="10" death_level="0" water_level="16" world_size="1024"/>
+	<map id="300310000" name="Tahmes" instance="true" instanceMapId="156" death_level="0" water_level="16" world_size="2048"/>
+	<map id="300240000" name="IDStation" instance="true" instanceMapId="147" death_level="0" water_level="16" world_size="2048"/>
+	<map id="300250000" name="IDF4Re_Drana" instance="true" instanceMapId="148" death_level="0" water_level="16" world_size="2048"/>
+	<map id="300260000" name="IDElemental_1" instance="true" instanceMapId="149" death_level="0" water_level="16" world_size="2048"/>
+	<map id="300270000" name="IDElemental_2" instance="true" instanceMapId="150" death_level="0" water_level="16" world_size="2048"/>
+	<map id="300280000" name="IDYun" instance="true" instanceMapId="151" death_level="0" water_level="16" world_size="2048"/>
+	<map id="300290000" name="Test_MRT_IDZone" instance="true" instanceMapId="152" death_level="0" water_level="16" world_size="2048"/>
+	<map id="300300000" name="IDArena" instance="true" instanceMapId="153" death_level="0" water_level="16" world_size="2048"/>
+	<map id="300310000" name="IDRaksha" instance="true" instanceMapId="154" death_level="0" water_level="16" world_size="2048"/>
+	<map id="120080000" name="Arena_D_Lobby" death_level="0" water_level="16" world_type="ASMODAE" world_size="2048"/>
+	<map id="110070000" name="Arena_L_Lobby" death_level="0" water_level="16" world_type="ELYSEA" world_size="2048"/>
+</world_maps>

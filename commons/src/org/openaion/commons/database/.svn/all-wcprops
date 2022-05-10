@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/database
+END
+ReadStH.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/database/ReadStH.java
+END
+DatabaseConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/database/DatabaseConfig.java
+END
+PoolableConnectionFactoryAE.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/database/PoolableConnectionFactoryAE.java
+END
+ParamReadStH.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/database/ParamReadStH.java
+END
+IUStH.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/database/IUStH.java
+END
+DatabaseFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/database/DatabaseFactory.java
+END
+DB.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/database/DB.java
+END
+Transaction.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/database/Transaction.java
+END
+CallReadStH.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/database/CallReadStH.java
+END

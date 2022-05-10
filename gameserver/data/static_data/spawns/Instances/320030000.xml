@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique. If not, see <http://www.gnu.org/licenses/>.
+
+	Bregirun
+
+-->
+<spawns>
+	<!-- Dimension Exit (Object Normal lvl:1) -->
+	<spawn map="320030000" npcid="700089" pool="1" interval="295">
+		<object x="276.86542" y="159.01343" z="202.38808" h="34"/>
+	</spawn>
+	<!-- Fissure Of Destiny (Object Normal lvl:1) -->
+	<spawn map="320030000" npcid="700141" pool="1" interval="295">
+		<object x="250.8047" y="273.29163" z="227.987" h="92"/>
+	</spawn>
+	<!-- Abyss Gate Guardian Stone (Object Normal lvl:1) -->
+	<spawn map="320030000" npcid="700142" pool="1" interval="295">
+		<object x="261.4184" y="229.53114" z="213.9178" h="0"/>
+	</spawn>
+	<!-- Crusader (Monster Normal lvl:20) -->
+	<spawn map="320030000" npcid="211624" pool="9" interval="295">
+		<object x="267.6457" y="223.56506" z="211.54387" h="95"/>
+		<object x="256.78497" y="221.17638" z="211.42029" h="94"/>
+		<object x="264.44717" y="235.25882" z="215.53331" h="94"/>
+		<object x="254.65485" y="232.8151" z="215.89958" h="94"/>
+		<object x="235.47346" y="243.34067" z="223.02365" h="91"/>
+		<object x="222.61208" y="242.56155" z="223.24586" h="89"/>
+		<object x="275.959" y="245.41096" z="216.13551" h="84"/>
+		<object x="288.2693" y="205.5249" z="207.25185" h="68"/>
+		<object x="234.90633" y="221.3235" z="213.3423" h="98"/>
+	</spawn>
+	<!-- Draconute Vaegir (Monster Normal lvl:20) -->
+	<spawn map="320030000" npcid="211625" pool="2" interval="295">
+		<object x="258.05542" y="241.45262" z="219.08037" h="94"/>
+		<object x="264.05435" y="215.51732" z="210.2014" h="95"/>
+	</spawn>
+</spawns>

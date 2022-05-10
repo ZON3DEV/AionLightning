@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="../import.xsd"/>
+	<xs:element name="spawns">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="import" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="spawn" type="SpawnGroup" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="SpawnGroup">
+		<xs:sequence>
+			<xs:element name="object" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="x" type="xs:float"/>
+					<xs:attribute name="y" type="xs:float"/>
+					<xs:attribute name="z" type="xs:float"/>
+					<xs:attribute name="h" type="Heading"/>
+					<xs:attribute name="w" type="xs:int"/>
+					<xs:attribute name="rw" type="xs:int"/>
+					<xs:attribute name="staticid" type="xs:int"/>
+					<xs:attribute name="fly" type="xs:int"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="time" type="SpawnTime"/>
+		<xs:attribute name="anchor" type="xs:string"/>
+		<xs:attribute name="handler" type="SpawnHandlerType"/>
+		<xs:attribute name="interval" type="xs:int"/>
+		<xs:attribute name="pool" type="xs:int"/>
+		<xs:attribute name="npcid" type="xs:int"/>
+		<xs:attribute name="map" type="xs:int"/>
+		<xs:attribute name="rw" type="xs:int"/>
+		<xs:attribute name="siegeid" type="xs:int"/>
+		<xs:attribute name="race" type="SiegeRace"/>
+		<xs:attribute name="protector" type="xs:boolean"/>
+		<xs:attribute name="stype" type="SiegeSpawnType"/>
+	</xs:complexType>
+	<xs:simpleType name="Heading">
+		<xs:restriction base="xs:byte">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="120"/>
+		</xs:restriction>
+	</xs:simpleType>
+		<xs:simpleType name="SiegeSpawnType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PEACE"/>
+			<xs:enumeration value="GUARD"/>
+			<xs:enumeration value="ARTIFACT"/>
+			<xs:enumeration value="PROTECTOR"/>
+			<xs:enumeration value="MINE"/>
+			<xs:enumeration value="PORTAL"/>
+			<xs:enumeration value="GENERATOR"/>
+			<xs:enumeration value="SPRING"/>
+			<xs:enumeration value="RACEPROTECTOR"/>
+			<xs:enumeration value="UNDERPASS"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SpawnHandlerType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="RIFT"/>
+			<xs:enumeration value="STATIC"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SpawnTime">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DAY"/>
+			<xs:enumeration value="NIGHT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SiegeRace">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ELYOS"/>
+			<xs:enumeration value="ASMODIANS"/>
+			<xs:enumeration value="BALAUR"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

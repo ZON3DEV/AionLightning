@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- edited with XMLSpy v2009 (http://www.altova.com) by Croquette (EMBRACE) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+		
+	<xs:element name="siege_spawns">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="siege_spawn" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="guards" type="SiegeGuards" minOccurs="0" maxOccurs="1" />
+							<xs:element name="instance_portal" type="InstancePortal" minOccurs="0" maxOccurs="1" />
+							<xs:element name="fortress_general" type="FortressGeneral" minOccurs="0" maxOccurs="1" />
+							<xs:element name="fortress_gate" type="FortressGate" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="artifact" type="Artifact" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="aetheric_field" type="AethericField" minOccurs="0" maxOccurs="1" />
+						</xs:sequence>
+						<xs:attribute name="location_id" type="xs:int" use="required"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="SingleSpawnBaseInfo">
+		<xs:attribute name="npcid_dr" type="xs:int" use="required" />
+		<xs:attribute name="npcid_da" type="xs:int" use="required" />
+		<xs:attribute name="npcid_li" type="xs:int" use="required" />
+		<xs:attribute name="x" type="xs:float" use="required" />
+		<xs:attribute name="y" type="xs:float" use="required" />
+		<xs:attribute name="z" type="xs:float" use="required" />
+		<xs:attribute name="h" type="xs:int" use="required" />
+		<xs:attribute name="static_id" type="xs:int" use="optional" />
+	</xs:complexType>
+	
+	<xs:complexType name="MultipleSpawnInfo">
+		<xs:attribute name="x" type="xs:float" use="required" />
+		<xs:attribute name="y" type="xs:float" use="required" />
+		<xs:attribute name="z" type="xs:float" use="required" />
+		<xs:attribute name="h" type="xs:int" use="required" />
+	</xs:complexType>
+	
+	<xs:complexType name="Guard">
+		<xs:sequence>
+			<xs:element name="loc" type="MultipleSpawnInfo" minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="npcid_dr" type="xs:int" use="required" />
+		<xs:attribute name="npcid_da" type="xs:int" use="required" />
+		<xs:attribute name="npcid_li" type="xs:int" use="required" />
+	</xs:complexType>
+	
+	<xs:complexType name="SiegeGuards">
+		<xs:sequence>
+			<xs:element name="siege_guard" type="Guard" minOccurs="1" maxOccurs="unbounded" />
+			<xs:element name="peace_guard" type="Guard" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="rf_guard" type="Guard" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="InstancePortal">
+		<xs:sequence>
+			<xs:element name="baseinfo" type="SingleSpawnBaseInfo" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="FortressGeneral">
+		<xs:sequence>
+			<xs:element name="baseinfo" type="SingleSpawnBaseInfo" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="FortressGateArtifact">
+		<xs:sequence>
+			<xs:element name="baseinfo" type="SingleSpawnBaseInfo" minOccurs="1" maxOccurs="1" />
+			<xs:element name="heal_gate" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:attribute name="percent" type="xs:int" use="required" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="FortressGate">
+		<xs:sequence>
+			<xs:element name="baseinfo" type="SingleSpawnBaseInfo" minOccurs="1" maxOccurs="1" />
+			<xs:element name="fortress_gate_artifact" type="FortressGateArtifact" minOccurs="0" maxOccurs="1" />
+			<xs:element name="tele_enter" type="MultipleSpawnInfo" minOccurs="0" maxOccurs="1" />
+			<xs:element name="tele_exit" type="MultipleSpawnInfo" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Artifact">
+		<xs:sequence>
+			<xs:element name="baseinfo" type="SingleSpawnBaseInfo" minOccurs="1" maxOccurs="1" />
+			<xs:element name="artifact_effect" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:attribute name="skillid" type="xs:int" use="required" />
+					<xs:attribute name="range" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="WORLD" />
+								<xs:enumeration value="ABYSS" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="artifact_protector" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="baseinfo" type="SingleSpawnBaseInfo" minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!--<xs:complexType name="AethericField">
+		<xs:sequence>
+			<xs:element name="generator" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="baseinfo" type="SingleSpawnBaseInfo" minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="aetheric_shield" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="baseinfo" type="SingleSpawnBaseInfo" minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>-->
+	
+	<xs:complexType name="AethericField">
+		<xs:sequence>
+			<xs:element name="baseinfo" type="SingleSpawnBaseInfo" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

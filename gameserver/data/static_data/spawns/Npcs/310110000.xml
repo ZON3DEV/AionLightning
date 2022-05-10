@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Theobomos Lab
+
+ -->
+<spawns>
+	<!-- Mikurinrinerk -->
+	<spawn map="310110000" npcid="798223" pool="1" interval="105">
+		<object x="360" y="525" z="186" h="79"/>
+	</spawn>
+	<!-- Wind Element Device -->
+	<spawn map="310110000" npcid="700426" pool="1" interval="105">
+		<object staticid="266" x="478.52997" y="514.54663" z="189.34767" h="0"/>
+	</spawn>
+	<!-- Earth Element Device -->
+	<spawn map="310110000" npcid="700425" pool="1" interval="105">
+		<object staticid="264" x="380.75" y="509.44" z="187.76282" h="0"/>
+	</spawn>
+	<!-- Water Element Device -->
+	<spawn map="310110000" npcid="700424" pool="1" interval="105">
+		<object staticid="265" x="282.12234" y="514.53522" z="189.28932" h="0"/>
+	</spawn>
+	<!-- Fire Element Device -->
+	<spawn map="310110000" npcid="700423" pool="1" interval="105">
+		<object staticid="267" x="654.24506" y="153.35245" z="167.65126" h="0"/>
+	</spawn>
+	<!-- Faded Book -->
+	<spawn map="310110000" npcid="700422" pool="1" interval="105">
+		<object staticid="268" x="542.86298" y="741.07666" z="203.07074" h="0"/>
+	</spawn>
+	<!-- Assistant's Journal -->
+	<spawn map="310110000" npcid="730153" pool="1" interval="105">
+		<object staticid="92" x="525.77069" y="740.42542" z="203.87508" h="0"/>
+	</spawn>
+	<!-- Theobomos Lab Exit -->
+	<spawn map="310110000" npcid="730168" pool="1" interval="105">
+		<object staticid="74" x="477.62" y="196.8" z="169.92999" h="0"/>
+	</spawn>
+	<!-- Unstable Entrance Fragment -->
+	<spawn map="310110000" npcid="730177" pool="1" interval="105">
+		<object staticid="0" x="554.6808" y="490.37527" z="196.8186" h="118"/>
+	</spawn>
+	<!-- Unstable Exit Fragement -->
+	<spawn map="310110000" npcid="730178" pool="1" interval="105">
+		<object staticid="37" x="570.521" y="490.37527" z="196.8489" h="118"/>
+	</spawn>
+	<!-- BIDLF2A_BabyElementalSummon_50_n (NPC Normal lvl:50) (from client spawn)-->
+	<spawn map="310110000" npcid="280983" pool="1" interval="295">
+		<object x="602.1701" y="488.8053" z="196.02222" h="11"/>
+	</spawn>
+	<!-- Hidden Escape Exit (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="310110000" npcid="730206" pool="1" interval="295">
+		<object staticid="74" x="477.62" y="196.8" z="170.13184" h="106"/>
+	</spawn>
+	<!-- Kypros (NPC Normal lvl:50) (from client spawn)-->
+	<spawn map="310110000" npcid="798226" pool="1" interval="295">
+		<object x="473.8976" y="634.0264" z="199.2172" h="90"/>
+	</spawn>
+	<!-- Q1094 (NPC Normal lvl:3) (from client spawn)-->
+	<spawn map="310110000" npcid="206084" pool="1" interval="295">
+		<object x="522.9093" y="734.77985" z="202.83875" h="34"/>
+	</spawn>
+	<!-- Red Journal (Object Normal lvl:1) (from client spawn)-->
+	<spawn map="310110000" npcid="730148" pool="1" interval="295">
+		<object staticid="268" x="542.863" y="741.07666" z="203.00626" h="111"/>
+	</spawn>
+</spawns>

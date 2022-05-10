@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 2051: Saving Beluslan Fortress (lvl 30) handled by script -->
+	<!-- 2052: An Undead Occupation (lvl 30) handled by script -->
+	<!-- 2053: A Missing Father (lvl 31) handled by script -->
+	<!-- 2054: Light up the Lighthouse (lvl 35) handled by script -->
+	<!-- 2055: The Seiren's Treasure (lvl 38) handled by script -->
+	<!-- 2056: Thawing Kurngalfberg (lvl 32) handled by script -->
+	<!-- 2057: Glaciont the Hardy (lvl 38) handled by script -->
+	<!-- 2058: A Spy Among the Lepharists (lvl 40) handled by script -->
+	<!-- 2059: A Peace Offering (lvl 38) handled by script -->
+	<!-- 2060: Restoring Beluslan Observatory (lvl 39) handled by script -->
+	<!-- 2061: Suppressing the Bakarma Legion (lvl 39) handled by script -->
+	<!-- 2500: Orders From Nerita (lvl 30) handled by script -->
+	<!-- 2501: Falling Fragments (lvl 30) handled by script -->
+	<!-- Monitor Glue -->
+	<item_collecting id="2502" start_npc_id="204701"/>
+	<!-- The Fragment Hazard -->
+	<item_collecting id="2503" start_npc_id="204733" action_item_id="700327"/>
+	<!-- Only for Her -->
+	<item_collecting id="2504" start_npc_id="204720"/>
+	<!-- 2505: Let Cooking Experts Cook (lvl 30) handled by script -->
+	<!-- The Outlaw of Black Plains -->
+	<monster_hunt id="2506" start_npc_id="204702">
+		<monster_infos var_id="0" max_kill="10" npc_id="213017"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="213018"/>
+	</monster_hunt>
+	<!-- Nerita's Encouragement -->
+	<report_to id="2507" start_npc_id="204702" end_npc_id="204801" item_id="182204406"/>
+	<!-- Shugo Grass -->
+	<report_to id="2508" start_npc_id="204734" end_npc_id="204802"/>
+	<!-- Gigrite's Drakie Problem -->
+	<monster_hunt id="2509" start_npc_id="204703" end_npc_id="204801">
+		<monster_infos var_id="0" max_kill="15" npc_id="213020"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="213021"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="213053"/>
+	</monster_hunt>
+	<!-- 2510: TODO: Vanished Quest (lvl 99) -->
+	<!-- Ambitions for Success -->
+	<item_collecting id="2511" start_npc_id="204711"/>
+	<!-- 2512: Food for Remote Places (lvl 35) handled by script -->
+	<!-- 2513: TODO: The Strange Cottage (lvl 36) -->
+	<!-- 2514: The Red Mane Report (lvl 36) handled by script -->
+	<!-- 2515: Leanor's Errand (lvl 31) handled by script -->
+	<!-- [Daily/Coin] Beluslan Pest Hunt -->
+	<monster_hunt id="2516" start_npc_id="204781">
+		<monster_infos var_id="0" max_kill="24" npc_id="213007"/>
+		<monster_infos var_id="0" max_kill="24" npc_id="213008"/>
+		<monster_infos var_id="1" max_kill="17" npc_id="213013"/>
+		<monster_infos var_id="1" max_kill="17" npc_id="213014"/>
+		<monster_infos var_id="1" max_kill="17" npc_id="213233"/>
+	</monster_hunt>
+	<!-- 2517: TODO: [Spend Coin] Warrior/Scout (lvl 99) -->
+	<!-- 2518: TODO: [Spend Coin] Mage/Priest (lvl 99) -->
+	<!-- [Manastone] Cadoc's Exchange -->
+	<item_collecting id="2519" start_npc_id="204778"/>
+	<!-- [Manastone] Cadoc's Trade -->
+	<item_collecting id="2520" start_npc_id="204778"/>
+	<!-- Gigrite's Secret -->
+	<monster_hunt id="2521" start_npc_id="204801">
+		<monster_infos var_id="0" max_kill="15" npc_id="213015"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="213016"/>
+	</monster_hunt>
+	<!-- Decreasing Drakies -->
+	<monster_hunt id="2522" start_npc_id="204801">
+		<monster_infos var_id="0" max_kill="15" npc_id="213054"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="213064"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="213065"/>
+		<monster_infos var_id="1" max_kill="3" npc_id="213246"/>
+	</monster_hunt>
+	<!-- 2523: Grass for the Grave Robbers (lvl 32) handled by script -->
+	<!-- The Mosbear Frenzy -->
+	<monster_hunt id="2524" start_npc_id="204803">
+		<monster_infos var_id="0" max_kill="15" npc_id="213022"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="213023"/>
+		<monster_infos var_id="1" max_kill="3" npc_id="213024"/>
+	</monster_hunt>
+	<!-- The Mosbear Trophy -->
+	<item_collecting id="2525" start_npc_id="204803"/>
+	<!-- A Grateful Sentinel -->
+	<report_to id="2526" start_npc_id="204804" end_npc_id="204811"/>
+	<!-- The Starving Sprigg -->
+	<item_collecting id="2527" start_npc_id="204811" action_item_id="700328"/>
+	<!-- Snowfield Beasts -->
+	<monster_hunt id="2528" start_npc_id="204804">
+		<monster_infos var_id="0" max_kill="15" npc_id="213027"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="213028"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213035"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213036"/>
+	</monster_hunt>
+	<!-- Mutant Earth Spirits -->
+	<item_collecting id="2529" start_npc_id="204802"/>
+	<!-- Hunting the Undead -->
+	<monster_hunt id="2530" start_npc_id="204801">
+		<monster_infos var_id="0" max_kill="10" npc_id="213042"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="213043"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="213044"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="213045"/>
+		<monster_infos var_id="2" max_kill="3" npc_id="213046"/>
+	</monster_hunt>
+	<!-- Containing the Poison -->
+	<item_collecting id="2531" start_npc_id="204102"/>
+	<!-- A Poison Container -->
+	<report_to id="2532" start_npc_id="204102" end_npc_id="204801" item_id="182204424"/>
+	<!-- 2533: TODO: Beritra's Curse (lvl 34) -->
+	<!-- A Fortunate Medicine -->
+	<report_to id="2534" start_npc_id="204801" end_npc_id="204768" item_id="182204427"/>
+	<!-- Some of My Best Friends -->
+	<monster_hunt id="2535" start_npc_id="204804">
+		<monster_infos var_id="0" max_kill="1" npc_id="213708"/>
+		<monster_infos var_id="1" max_kill="1" npc_id="213709"/>
+	</monster_hunt>
+	<!-- 2536: TODO: Offering Business to Grave Robbers (lvl 99) -->
+	<!-- [Group] Freki's Request -->
+	<monster_hunt id="2537" start_npc_id="204826">
+		<monster_infos var_id="0" max_kill="5" npc_id="213524"/>
+		<monster_infos var_id="0" max_kill="5" npc_id="213525"/>
+		<monster_infos var_id="1" max_kill="3" npc_id="213523"/>
+		<monster_infos var_id="2" max_kill="4" npc_id="213540"/>
+		<monster_infos var_id="2" max_kill="4" npc_id="213541"/>
+	</monster_hunt>
+	<!-- 2538: TODO: Curse of the Were-Ribbit (lvl 36) -->
+	<!-- 2539: Tryst of the Shadow (lvl 36) handled by script -->
+	<!-- Granker for Gark -->
+	<item_collecting id="2540" start_npc_id="204811"/>
+	<!-- Ore-Eating Wriggots -->
+	<item_collecting id="2541" start_npc_id="798118"/>
+	<!-- Pure Malek -->
+	<item_collecting id="2542" start_npc_id="798117" action_item_id="700347"/>
+	<!-- Mahisha's Heart -->
+	<item_collecting id="2543" start_npc_id="798117"/>
+	<!-- Ice Tail Kirrins -->
+	<monster_hunt id="2544" start_npc_id="798131">
+		<monster_infos var_id="0" max_kill="15" npc_id="213050"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="213051"/>
+	</monster_hunt>
+	<!-- Deformed Malek -->
+	<item_collecting id="2545" start_npc_id="798131" end_npc_id="204734"/>
+	<!-- A Gift in Return -->
+	<report_to id="2546" start_npc_id="204734" end_npc_id="798131" item_id="182204432"/>
+	<!-- Barosunerk's New Business -->
+	<item_collecting id="2547" start_npc_id="798083"/>
+	<!-- Repaying the Debt -->
+	<item_collecting id="2548" start_npc_id="798083" end_npc_id="798119"/>
+	<!-- A Gift For Amma -->
+	<report_to id="2549" start_npc_id="798119" end_npc_id="204720" item_id="182204436"/>
+	<!-- Revenge of the Displaced -->
+	<monster_hunt id="2550" start_npc_id="204811">
+		<monster_infos var_id="0" max_kill="30" npc_id="213022"/>
+		<monster_infos var_id="0" max_kill="30" npc_id="213023"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="213024"/>
+	</monster_hunt>
+	<!-- Mist Valley Temple -->
+	<monster_hunt id="2551" start_npc_id="798119">
+		<monster_infos var_id="0" max_kill="11" npc_id="213073"/>
+		<monster_infos var_id="0" max_kill="11" npc_id="213074"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213075"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213076"/>
+		<monster_infos var_id="2" max_kill="1" npc_id="700329"/>
+	</monster_hunt>
+	<!-- Lepharist Miners -->
+	<monster_hunt id="2552" start_npc_id="798117">
+		<monster_infos var_id="0" max_kill="10" npc_id="213263"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="213264"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213278"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213279"/>
+	</monster_hunt>
+	<!-- 2553: The Brigade General's Call (lvl 35) handled by script -->
+	<!-- Malek Nuggets -->
+	<item_collecting id="2554" start_npc_id="798119" action_item_id="700330"/>
+	<!-- [Group] Supervisor Yotunmork -->
+	<monster_hunt id="2555" start_npc_id="798119">
+		<monster_infos var_id="0" max_kill="1" npc_id="213714"/>
+	</monster_hunt>
+	<!-- Finding Stua -->
+	<report_to id="2556" start_npc_id="798118" end_npc_id="204809"/>
+	<!-- [Group] An Expensive Spellbook -->
+	<item_collecting id="2557" start_npc_id="798117"/>
+	<!-- Stua's Reinforcements -->
+	<item_collecting id="2558" start_npc_id="204809"/>
+	<!-- [Group] Malek Transport Plan -->
+	<item_collecting id="2559" start_npc_id="204809"/>
+	<!-- [Daily/Coin] Combat Miners -->
+	<monster_hunt id="2560" start_npc_id="204809">
+		<monster_infos var_id="0" max_kill="7" npc_id="213259"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="213260"/>
+		<monster_infos var_id="1" max_kill="6" npc_id="213268"/>
+		<monster_infos var_id="1" max_kill="6" npc_id="213269"/>
+		<monster_infos var_id="2" max_kill="6" npc_id="213261"/>
+		<monster_infos var_id="2" max_kill="6" npc_id="213262"/>
+	</monster_hunt>
+	<!-- Frozen Ghosts -->
+	<monster_hunt id="2561" start_npc_id="295178">
+		<monster_infos var_id="0" max_kill="10" npc_id="213084"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="213085"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213086"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213087"/>
+		<monster_infos var_id="2" max_kill="10" npc_id="213088"/>
+		<monster_infos var_id="2" max_kill="10" npc_id="213089"/>
+	</monster_hunt>
+	<!-- Furs For Warmth -->
+	<item_collecting id="2562" start_npc_id="204786"/>
+	<!-- The Frozen Orb -->
+	<item_collecting id="2563" start_npc_id="295178"/>
+	<!-- 2564: With the Power of Flame (lvl 37) handled by script -->
+	<!-- Good for Frostbite -->
+	<item_collecting id="2565" start_npc_id="798094"/>
+	<!-- The Roar of the Ettins -->
+	<monster_hunt id="2566" start_npc_id="790016">
+		<monster_infos var_id="0" max_kill="7" npc_id="213095"/>
+	</monster_hunt>
+	<!-- Why Etun Can't Meditate -->
+	<monster_hunt id="2567" start_npc_id="790016">
+		<monster_infos var_id="0" max_kill="9" npc_id="213096"/>
+		<monster_infos var_id="0" max_kill="9" npc_id="213097"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="213092"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="213093"/>
+	</monster_hunt>
+	<!-- Misdirected Letter -->
+	<report_to id="2568" start_npc_id="204755" end_npc_id="204763" item_id="182204446"/>
+	<!-- 2569: Tafi's Flame Scroll (lvl 38) handled by script -->
+	<!-- Malek Drakes and Drakies -->
+	<item_collecting id="2570" start_npc_id="798119"/>
+	<!-- Delivering Medical Supplies -->
+	<report_to id="2571" start_npc_id="204768" end_npc_id="204776" item_id="182204448"/>
+	<!-- To Build a Fire -->
+	<item_collecting id="2572" start_npc_id="204746"/>
+	<!-- Undead Wildlife -->
+	<monster_hunt id="2573" start_npc_id="204768">
+		<monster_infos var_id="0" max_kill="6" npc_id="213146"/>
+		<monster_infos var_id="0" max_kill="6" npc_id="213147"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213148"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213149"/>
+	</monster_hunt>
+	<!-- Let No Tether Remain -->
+	<item_collecting id="2574" start_npc_id="204825"/>
+	<!-- The Nervous Sentry -->
+	<monster_hunt id="2575" start_npc_id="204740">
+		<monster_infos var_id="0" max_kill="10" npc_id="213142"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="213158"/>
+	</monster_hunt>
+	<!-- A Fearsome Forest -->
+	<monster_hunt id="2576" start_npc_id="204769">
+		<monster_infos var_id="0" max_kill="7" npc_id="213166"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="213167"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213168"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213169"/>
+	</monster_hunt>
+	<!-- Benyar's Request -->
+	<monster_hunt id="2577" start_npc_id="204735">
+		<monster_infos var_id="0" max_kill="13" npc_id="213170"/>
+		<monster_infos var_id="0" max_kill="13" npc_id="213171"/>
+	</monster_hunt>
+	<!-- 2578: A Ring for Luck (lvl 37) handled by script -->
+	<!-- When I Seafood, I Eat It -->
+	<item_collecting id="2579" start_npc_id="790017"/>
+	<!-- The Lighthouse Ghost -->
+	<report_to id="2580" start_npc_id="204748" end_npc_id="204771"/>
+	<!-- Brilliant Kernel of the Night -->
+	<item_collecting id="2581" start_npc_id="204771"/>
+	<!-- Safe Harbor -->
+	<monster_hunt id="2582" start_npc_id="204769">
+		<monster_infos var_id="0" max_kill="7" npc_id="213188"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213202"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213203"/>
+	</monster_hunt>
+	<!-- 2583: A Polite Request (lvl 33) handled by script -->
+	<!-- 2584: TODO: The Starturtle and the Sprigg (lvl 99) -->
+	<!-- Priceless Coral -->
+	<item_collecting id="2585" start_npc_id="204739" action_item_id="700331"/>
+	<!-- [Group] Dangerous Sea Creature -->
+	<item_collecting id="2586" start_npc_id="204743"/>
+	<!-- [Group] Rubelik's Request -->
+	<monster_hunt id="2587" start_npc_id="204743">
+		<monster_infos var_id="0" max_kill="7" npc_id="213355"/>
+		<monster_infos var_id="1" max_kill="13" npc_id="213367"/>
+		<monster_infos var_id="1" max_kill="13" npc_id="213368"/>
+	</monster_hunt>
+	<!-- [Group] The Elixir of Life -->
+	<item_collecting id="2588" start_npc_id="204741"/>
+	<!-- [Daily/Coin] Ghosts of Anair Harbor -->
+	<monster_hunt id="2589" start_npc_id="204762">
+		<monster_infos var_id="0" max_kill="12" npc_id="213204"/>
+		<monster_infos var_id="1" max_kill="8" npc_id="213240"/>
+		<monster_infos var_id="2" max_kill="11" npc_id="213205"/>
+		<monster_infos var_id="2" max_kill="11" npc_id="213206"/>
+	</monster_hunt>
+	<!-- 2590: TODO: [Daily/Coin] Safety of the Village (lvl 39) -->
+	<!-- 2591: TODO: [Spend Coin] Gold (Warrior/Scout 41) (lvl 99) -->
+	<!-- 2592: TODO: [Spend Coin] Gold (Mage/Priest 41) (lvl 99) -->
+	<!-- Wandering Souls -->
+	<monster_hunt id="2593" start_npc_id="204771">
+		<monster_infos var_id="0" max_kill="10" npc_id="213164"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="213165"/>
+		<monster_infos var_id="1" max_kill="16" npc_id="213162"/>
+		<monster_infos var_id="1" max_kill="16" npc_id="213163"/>
+	</monster_hunt>
+	<!-- A Procession of the Dead -->
+	<monster_hunt id="2594" start_npc_id="204776">
+		<monster_infos var_id="0" max_kill="7" npc_id="213173"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="213174"/>
+		<monster_infos var_id="1" max_kill="3" npc_id="213172"/>
+		<monster_infos var_id="2" max_kill="5" npc_id="213782"/>
+	</monster_hunt>
+	<!-- Crisis of Reyrinirerk -->
+	<item_collecting id="2595" start_npc_id="798090"/>
+	<!-- [Group] Power Shard Materials -->
+	<item_collecting id="2596" start_npc_id="204735"/>
+	<!-- [Group] Carapaces for Armor -->
+	<item_collecting id="2597" start_npc_id="204735"/>
+	<!-- A Preventive Measure -->
+	<item_collecting id="2599" start_npc_id="204725"/>
+	<!-- 2600: Humongous Malek (lvl 35) handled by script -->
+	<!-- [Group] Pollution in the Palace -->
+	<monster_hunt id="2601" start_npc_id="204808">
+		<monster_infos var_id="0" max_kill="20" npc_id="213356"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="213357"/>
+		<monster_infos var_id="1" max_kill="4" npc_id="213781"/>
+	</monster_hunt>
+	<!-- Blue Pearls -->
+	<item_collecting id="2602" start_npc_id="204808"/>
+	<!-- The House on the Cliff -->
+	<report_to id="2605" start_npc_id="204732" end_npc_id="204826"/>
+	<!-- A Ribbit in Need -->
+	<report_to id="2606" start_npc_id="204732" end_npc_id="204827"/>
+	<!-- Silencing the Hermit -->
+	<report_to id="2607" start_npc_id="204732" end_npc_id="790022"/>
+	<!-- Halt the Contamination -->
+	<monster_hunt id="2608" start_npc_id="204804">
+		<monster_infos var_id="0" max_kill="6" npc_id="213034"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213033"/>
+	</monster_hunt>
+	<!-- 2611: Consulting the Leaders (lvl 38) handled by script -->
+	<!-- A Tonic for Nargatal -->
+	<item_collecting id="2612" start_npc_id="204790"/>
+	<!-- Devoted Husband Akagitan -->
+	<report_to id="2613" start_npc_id="204790" end_npc_id="204787" item_id="182204465"/>
+	<!-- Decorative Skulls -->
+	<item_collecting id="2614" start_npc_id="204784"/>
+	<!-- Assuming Con-Troll -->
+	<monster_hunt id="2615" start_npc_id="204783">
+		<monster_infos var_id="0" max_kill="5" npc_id="700333"/>
+	</monster_hunt>
+	<!-- Eradication Pa-Troll -->
+	<monster_hunt id="2616" start_npc_id="204783">
+		<monster_infos var_id="0" max_kill="20" npc_id="213211"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="213212"/>
+		<monster_infos var_id="1" max_kill="30" npc_id="213213"/>
+		<monster_infos var_id="1" max_kill="30" npc_id="213214"/>
+	</monster_hunt>
+	<!-- Mamut's Bones -->
+	<item_collecting id="2617" start_npc_id="204750" action_item_id="700334"/>
+	<!-- Freyja's Desire -->
+	<monster_hunt id="2618" start_npc_id="204763">
+		<monster_infos var_id="0" max_kill="11" npc_id="213105"/>
+		<monster_infos var_id="0" max_kill="11" npc_id="213106"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="213107"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="213108"/>
+	</monster_hunt>
+	<!-- Hoarfrost Diplomacy -->
+	<report_to id="2619" start_npc_id="204700" end_npc_id="204817" item_id="182204502"/>
+	<!-- 2620: Summoning Phagrasul (lvl 41) handled by script -->
+	<!-- A Family Letter -->
+	<report_to id="2621" start_npc_id="204763" end_npc_id="204059" item_id="182204468"/>
+	<!-- Hunting the Hunters -->
+	<monster_hunt id="2622" start_npc_id="204751">
+		<monster_infos var_id="0" max_kill="12" npc_id="213133"/>
+		<monster_infos var_id="0" max_kill="12" npc_id="213134"/>
+		<monster_infos var_id="1" max_kill="6" npc_id="213135"/>
+		<monster_infos var_id="1" max_kill="6" npc_id="213136"/>
+	</monster_hunt>
+	<!-- Feast Fit for a Skurv -->
+	<item_collecting id="2623" start_npc_id="204751" end_npc_id="204751"/>
+	<!-- Before the Stew Gets Cold -->
+	<report_to id="2624" start_npc_id="204751" end_npc_id="204791" item_id="182204471"/>
+	<!-- Bring Me Down -->
+	<item_collecting id="2625" start_npc_id="204792"/>
+	<!-- Red Mane Tribe's Secret Remedy -->
+	<item_collecting id="2626" start_npc_id="204752"/>
+	<!-- Spirit's Tears -->
+	<item_collecting id="2627" start_npc_id="204790" end_npc_id="204748" action_item_id="700335"/>
+	<!-- Restive Spirits -->
+	<monster_hunt id="2628" start_npc_id="204787">
+		<monster_infos var_id="0" max_kill="4" npc_id="213119"/>
+		<monster_infos var_id="0" max_kill="4" npc_id="213120"/>
+		<monster_infos var_id="1" max_kill="8" npc_id="213237"/>
+		<monster_infos var_id="1" max_kill="8" npc_id="213238"/>
+	</monster_hunt>
+	<!-- Once a Friend, Now an Enemy -->
+	<monster_hunt id="2629" start_npc_id="204787">
+		<monster_infos var_id="0" max_kill="10" npc_id="213122"/>
+		<monster_infos var_id="0" max_kill="10" npc_id="213123"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="213124"/>
+	</monster_hunt>
+	<!-- 2630: The Dutiful Spy (lvl 40) handled by script -->
+	<!-- [Group] Jaadis's Bioweapon -->
+	<item_collecting id="2631" start_npc_id="204784"/>
+	<!-- [Group] Get 'Em Young -->
+	<monster_hunt id="2632" start_npc_id="204799">
+		<monster_infos var_id="0" max_kill="4" npc_id="213563"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="213564"/>
+	</monster_hunt>
+	<!-- 2633: TODO: [Group] Destroying Balaur Weapons (lvl 44) -->
+	<!-- 2634: TODO: [Group] The Draupnir Redemption (lvl 44) -->
+	<!-- [Daily/Coin/Group] Bakarma Barracks -->
+	<monster_hunt id="2635" start_npc_id="204817">
+		<monster_infos var_id="0" max_kill="10" npc_id="213663"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213669"/>
+		<monster_infos var_id="2" max_kill="10" npc_id="213672"/>
+	</monster_hunt>
+	<!-- 2636: TODO: [Spend Coin] Gold (Warrior/Scout 46) (lvl 99) -->
+	<!-- 2637: TODO: [Spend Coin] Gold (Mage/Priest 46) (lvl 99) -->
+	<!-- Hoarfrost's Hunt -->
+	<monster_hunt id="2638" start_npc_id="204796">
+		<monster_infos var_id="0" max_kill="10" npc_id="213102"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213104"/>
+	</monster_hunt>
+	<!-- Divided They Fall -->
+	<monster_hunt id="2639" start_npc_id="204795">
+		<monster_infos var_id="0" max_kill="1" npc_id="216894"/>
+		<monster_infos var_id="1" max_kill="1" npc_id="216895"/>
+		<monster_infos var_id="2" max_kill="1" npc_id="216896"/>
+	</monster_hunt>
+	<!-- I'm a Skurv- -Get Me Out of Here! -->
+	<item_collecting id="2640" start_npc_id="204792"/>
+	<!-- 2641: Powwow With the Mau (lvl 41) handled by script -->
+	<!-- Supplies for the Survivors -->
+	<item_collecting id="2642" start_npc_id="204796"/>
+	<!-- Mau's Lament -->
+	<item_collecting id="2643" start_npc_id="204795"/>
+	<!-- Hoarfrost Tribe's Enemy -->
+	<monster_hunt id="2644" start_npc_id="204795">
+		<monster_infos var_id="0" max_kill="20" npc_id="213229"/>
+		<monster_infos var_id="0" max_kill="20" npc_id="213230"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="213231"/>
+		<monster_infos var_id="1" max_kill="15" npc_id="213232"/>
+	</monster_hunt>
+	<!-- Hoarfrost Tribe's Symbol -->
+	<item_collecting id="2645" start_npc_id="204795" action_item_id="700336"/>
+	<!-- 2646: The Inscrutable Stranger (lvl 42) handled by script -->
+	<!-- Belated Regret -->
+	<report_to id="2647" start_npc_id="204775" end_npc_id="204785"/>
+	<!-- [Group] Drakes and Their Breeders -->
+	<monster_hunt id="2648" start_npc_id="204795">
+		<monster_infos var_id="0" max_kill="15" npc_id="213308"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="213309"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213704"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213705"/>
+	</monster_hunt>
+	<!-- [Group] Recovering the Keepsakes -->
+	<item_collecting id="2649" start_npc_id="204796"/>
+	<!-- [Group] Balaur Assassin -->
+	<monster_hunt id="2650" start_npc_id="204775">
+		<monster_infos var_id="0" max_kill="5" npc_id="213700"/>
+		<monster_infos var_id="0" max_kill="5" npc_id="213701"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213702"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213703"/>
+		<monster_infos var_id="2" max_kill="10" npc_id="213304"/>
+		<monster_infos var_id="2" max_kill="10" npc_id="213305"/>
+	</monster_hunt>
+	<!-- 2651: [Spy] A Friend's Whereabouts (lvl 43) handled by script -->
+	<!-- [Spy] Medicine for Nesteto -->
+	<item_collecting id="2652" start_npc_id="204650"/>
+	<!-- 2653: [Spy] Finding Bollvig (lvl 43) handled by script -->
+	<!-- 2654: [Spy] The Last Persuasion (lvl 43) handled by script -->
+	<!-- [Spy] Reaper Squad Squish -->
+	<monster_hunt id="2655" start_npc_id="204655">
+		<monster_infos var_id="0" max_kill="7" npc_id="204649"/>
+	</monster_hunt>
+	<!-- [Spy] Letter to a Friend -->
+	<report_to id="2656" start_npc_id="204655" end_npc_id="204775" item_id="182204506"/>
+	<!-- [Group] Materials for All Magic Wards -->
+	<item_collecting id="2657" start_npc_id="204817"/>
+	<!-- [Spy/Group] No Reinforcements -->
+	<item_collecting id="2658" start_npc_id="204785"/>
+	<!-- 2659: [Spy/Group] Clear the Way -->
+	<monster_hunt id="2659" start_npc_id="204651">
+		<monster_infos var_id="0" max_kill="11" npc_id="213577" />
+		<monster_infos var_id="1" max_kill="20" npc_id="213579" />
+	</monster_hunt>
+	<!-- [Spy/Group] Open the Path -->
+	<item_collecting id="2660" start_npc_id="204651"/>
+	<!-- An Unobtrusive Journey -->
+	<monster_hunt id="2661" start_npc_id="204777">
+		<monster_infos var_id="0" max_kill="11" npc_id="213217"/>
+		<monster_infos var_id="0" max_kill="11" npc_id="213218"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213219"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213220"/>
+	</monster_hunt>
+	<!-- [Group] Dead Men Tell No Tales -->
+	<monster_hunt id="2662" start_npc_id="204777">
+		<monster_infos var_id="0" max_kill="7" npc_id="213324"/>
+		<monster_infos var_id="0" max_kill="7" npc_id="213325"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="213328"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="213329"/>
+		<monster_infos var_id="2" max_kill="7" npc_id="213332"/>
+		<monster_infos var_id="2" max_kill="7" npc_id="213333"/>
+	</monster_hunt>
+	<!-- 2663: Acquiring an Antidote (lvl 42) handled by script -->
+	<!-- 2664: An Antidote to the Lepharists (lvl 42) handled by script -->
+	<!-- [Group] Closing the Gate -->
+	<monster_hunt id="2665" start_npc_id="204777">
+		<monster_infos var_id="0" max_kill="1" npc_id="700345"/>
+		<monster_infos var_id="1" max_kill="1" npc_id="700346"/>
+	</monster_hunt>
+	<!-- 2666: TODO: [Group] Replacing Orders (lvl 99) -->
+	<!-- Strahein's Letter -->
+	<report_to id="2667" start_npc_id="204814" end_npc_id="204749" item_id="182204499"/>
+	<!-- [Group] Saving Atla -->
+	<monster_hunt id="2668" start_npc_id="204815">
+		<monster_infos var_id="0" max_kill="11" npc_id="213934"/>
+		<monster_infos var_id="0" max_kill="11" npc_id="213935"/>
+		<monster_infos var_id="1" max_kill="6" npc_id="213947"/>
+		<monster_infos var_id="1" max_kill="6" npc_id="213948"/>
+	</monster_hunt>
+	<!-- 2669: TODO: [Group] Atla's Escape (lvl 43) -->
+	<!-- 2670: The Ancient Book (lvl 43) handled by script -->
+	<!-- [Group] Decimating Bakarma Legion -->
+	<monster_hunt id="2671" start_npc_id="204785">
+		<monster_infos var_id="0" max_kill="9" npc_id="213624"/>
+		<monster_infos var_id="0" max_kill="9" npc_id="213625"/>
+		<monster_infos var_id="0" max_kill="9" npc_id="213627"/>
+	</monster_hunt>
+	<!-- 2672: A Careful Eggs-amination -->
+	<item_collecting id="2672" start_npc_id="204785" action_item_id="700337"/>
+	<!-- [Spy/Group] Getting Through Indratu -->
+	<item_collecting id="2673" start_npc_id="204785"/>
+	<!-- [Group] Dangerous Drake -->
+	<monster_hunt id="2674" start_npc_id="204785">
+		<monster_infos var_id="0" max_kill="5" npc_id="213642"/>
+		<monster_infos var_id="0" max_kill="5" npc_id="213643"/>
+		<monster_infos var_id="1" max_kill="6" npc_id="213644"/>
+		<monster_infos var_id="1" max_kill="6" npc_id="213645"/>
+		<monster_infos var_id="2" max_kill="11" npc_id="213648"/>
+		<monster_infos var_id="2" max_kill="11" npc_id="213649"/>
+	</monster_hunt>
+	<!-- [Group] Balaur Weapons -->
+	<item_collecting id="2675" start_npc_id="204785"/>
+	<!-- [Group] Loud Nagas and Nagarants -->
+	<monster_hunt id="2676" start_npc_id="204785">
+		<monster_infos var_id="0" max_kill="12" npc_id="213667"/>
+		<monster_infos var_id="0" max_kill="12" npc_id="213668"/>
+		<monster_infos var_id="1" max_kill="12" npc_id="213670"/>
+		<monster_infos var_id="1" max_kill="12" npc_id="213671"/>
+		<monster_infos var_id="2" max_kill="7" npc_id="213676"/>
+		<monster_infos var_id="2" max_kill="7" npc_id="213677"/>
+		<monster_infos var_id="3" max_kill="7" npc_id="213679"/>
+		<monster_infos var_id="3" max_kill="7" npc_id="213680"/>
+	</monster_hunt>
+	<!-- [Group] Making a Small Flame Ward -->
+	<item_collecting id="2677" start_npc_id="204817"/>
+	<!-- [Group] Making a Huge Flame Ward -->
+	<item_collecting id="2678" start_npc_id="204817"/>
+	<!-- [Group] Making a Blue Flame Ward -->
+	<item_collecting id="2679" start_npc_id="204817"/>
+	<!-- Amma's Birthstone -->
+	<item_collecting id="2680" start_npc_id="204720"/>
+	<!-- Cure for Stomach Pain -->
+	<item_collecting id="2681" start_npc_id="204804"/>
+	<!-- Comfort Food -->
+	<item_collecting id="2682" start_npc_id="798117"/>
+	<!-- Wishing on the Moon -->
+	<item_collecting id="2683" start_npc_id="204745"/>
+	<!-- Zeller Soup -->
+	<item_collecting id="2684" start_npc_id="204786"/>
+	<!-- Drinking for Two -->
+	<item_collecting id="2685" start_npc_id="204788"/>
+	<!-- Carpe Carpen -->
+	<item_collecting id="2686" start_npc_id="204751"/>
+	<!-- Craving for Almeha -->
+	<item_collecting id="2687" start_npc_id="790017"/>
+	<!-- Divine Asvata Log -->
+	<item_collecting id="2688" start_npc_id="204798"/>
+	<!-- Fruit of Solace -->
+	<item_collecting id="2689" start_npc_id="204795"/>
+	<!-- [Spy] Reliable Report -->
+	<report_to id="2690" start_npc_id="204763" end_npc_id="204777"/>
+	<!-- 2691: [Spy] A Spy's Advice (lvl 40) handled by script -->
+	<!-- 2692: Broken Music Box (lvl 40) handled by script -->
+	<!-- 2693: [Spy] [Group] Krall Gone Mad (lvl 39) handled by script -->
+	<!-- [Spy] Looking for Strange Aether -->
+	<item_collecting id="2694" start_npc_id="204702"/>
+	<!-- Atla Rescue Report -->
+	<report_to id="2695" start_npc_id="204777" end_npc_id="204208"/>
+	<!-- [Spy/Group] The Enemy of My Enemy -->
+	<monster_hunt id="2696" start_npc_id="204652">
+		<monster_infos var_id="0" max_kill="6" npc_id="214521"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="214516"/>
+	</monster_hunt>
+	<!-- [Group] Contacting Strahein -->
+	<report_to id="2697" start_npc_id="204777" end_npc_id="204814"/>
+	<!-- [Group] Reviving Strahein -->
+	<item_collecting id="2698" start_npc_id="204814"/>
+	<!-- [Group] A Mysterious Book -->
+	<item_collecting id="2699" start_npc_id="204774"/>
+	<!-- 4200: A Suspicious Call (lvl 40) handled by script -->
+	<!-- The Shugo from Pandaemonium -->
+	<report_to id="4221" start_npc_id="204710" end_npc_id="204839"/>
+	<!-- [Spy/Group] For the Good of All -->
+	<item_collecting id="4500" start_npc_id="204652"/>
+	<!-- 4501: Delayed Order (lvl 31) handled by script -->
+	<!-- 4502: TODO: [Group] Essence of Fate (lvl 50) -->
+	<!-- [Group] The Road to Dark Poeta -->
+	<item_collecting id="4503" start_npc_id="204837"/>
+	<!-- More Priceless Coral -->
+	<item_collecting id="4504" start_npc_id="204739" action_item_id="700331"/>
+	<!-- Blue Pearl Dress -->
+	<item_collecting id="4505" start_npc_id="204808" action_item_id="700332"/>
+	<!-- Continuing the Hunt -->
+	<monster_hunt id="4506" start_npc_id="204763">
+		<monster_infos var_id="0" max_kill="11" npc_id="213106"/>
+		<monster_infos var_id="0" max_kill="11" npc_id="213105"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="213108"/>
+		<monster_infos var_id="1" max_kill="7" npc_id="213107"/>
+	</monster_hunt>
+	<!-- Keep Bringing Me Down! -->
+	<item_collecting id="4507" start_npc_id="204792"/>
+	<!-- More Crimson Might -->
+	<item_collecting id="4508" start_npc_id="204752"/>
+	<!-- Aiding the Survivors -->
+	<item_collecting id="4509" start_npc_id="204796"/>
+	<!-- An Inconspicuous Journey -->
+	<monster_hunt id="4510" start_npc_id="204777">
+		<monster_infos var_id="0" max_kill="11" npc_id="213218"/>
+		<monster_infos var_id="0" max_kill="11" npc_id="213217"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213220"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="213219"/>
+	</monster_hunt>
+	<!-- It's the Wriggots Ore Me! -->
+	<item_collecting id="4511" start_npc_id="798118"/>
+	<!-- Facing Her Fears -->
+	<monster_hunt id="4512" start_npc_id="204801">
+		<monster_infos var_id="0" max_kill="15" npc_id="213016"/>
+		<monster_infos var_id="0" max_kill="15" npc_id="213015"/>
+	</monster_hunt>
+	<!-- Drakes and Drakies Strike Back! -->
+	<item_collecting id="4513" start_npc_id="798119"/>
+	<!-- It's Always Cold Season -->
+	<item_collecting id="4514" start_npc_id="204725"/>
+	<!-- The Cold Earth Rises -->
+	<item_collecting id="4515" start_npc_id="204802"/>
+	<!-- So Close, Yet So Far -->
+	<monster_hunt id="4516" start_npc_id="798119">
+		<monster_infos var_id="0" max_kill="11" npc_id="213073"/>
+		<monster_infos var_id="0" max_kill="11" npc_id="213074"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213076"/>
+		<monster_infos var_id="1" max_kill="11" npc_id="213075"/>
+		<monster_infos var_id="2" max_kill="1" npc_id="700329"/>
+	</monster_hunt>
+	<!-- A Big Labor Strike -->
+	<monster_hunt id="4517" start_npc_id="204777">
+		<monster_infos var_id="0" max_kill="12" npc_id="213514"/>
+		<monster_infos var_id="0" max_kill="12" npc_id="213513"/>
+	</monster_hunt>
+	<!-- Luck for Molota's Cub -->
+	<item_collecting id="4518" start_npc_id="204798"/>
+	<!-- Scarlet Warmth -->
+	<item_collecting id="4519" start_npc_id="204790"/>
+	<!-- Halting the Blizzards -->
+	<monster_hunt id="4520" start_npc_id="204787">
+		<monster_infos var_id="0" max_kill="1" npc_id="213118"/>
+		<monster_infos var_id="1" max_kill="2" npc_id="213121"/>
+		<monster_infos var_id="2" max_kill="8" npc_id="213236"/>
+		<monster_infos var_id="3" max_kill="10" npc_id="213239"/>
+	</monster_hunt>
+	<!-- International News -->
+	<report_to id="4521" start_npc_id="204725" end_npc_id="205143" item_id="182204554"/>
+	<!-- Gotta Keep Warm! -->
+	<item_collecting id="4522" start_npc_id="204777"/>
+	<!-- [Coin/Group] Trials By Fire -->
+	<monster_hunt id="4523" start_npc_id="204766">
+		<monster_infos var_id="0" max_kill="1" npc_id="214028"/>
+	</monster_hunt>
+	<!-- [Coin/Group] Foolish Recklessness -->
+	<monster_hunt id="4524" start_npc_id="204773">
+		<monster_infos var_id="0" max_kill="1" npc_id="212588"/>
+	</monster_hunt>
+	<!-- [Coin/Group] Drakan Gone Qooqoo -->
+	<monster_hunt id="4525" start_npc_id="204767">
+		<monster_infos var_id="0" max_kill="1" npc_id="213780"/>
+	</monster_hunt>
+	<!-- [Coin/Group] Menacing Traitor -->
+	<monster_hunt id="4526" start_npc_id="204789">
+		<monster_infos var_id="0" max_kill="1" npc_id="214598"/>
+	</monster_hunt>
+	<!-- [Spy/Alliance] To the Island of Eternity -->
+	<monster_hunt id="4527" start_npc_id="204702">
+		<monster_infos var_id="0" max_kill="1" npc_id="280755"/>
+		<monster_infos var_id="1" max_kill="1" npc_id="280757"/>
+		<monster_infos var_id="2" max_kill="1" npc_id="280759"/>
+	</monster_hunt>
+	<!-- [Coin/Group] It's Alive! Undead? -->
+	<monster_hunt id="4528" start_npc_id="204781">
+		<monster_infos var_id="0" max_kill="1" npc_id="212211"/>
+	</monster_hunt>
+	<!-- 28600: Suspicious Errand (lvl 37) handled by script -->
+	<!-- Nightmares and Dreamscapes -->
+	<report_to id="28601" start_npc_id="204702" end_npc_id="205234" item_id="182213006"/>
+	<!-- 28602: Into the Unknown (lvl 37) handled by script -->
+	<!-- 28605 Seeking Slumber --> 
+	<monster_hunt id="28605" start_npc_id="205235"> 
+		<monster_infos npc_id="216971" var_id="0" max_kill="8"/> 
+	</monster_hunt>	
+	<!-- 28606 An Honorable Death--> 
+	<monster_hunt id="28606" start_npc_id="205236"> 
+		<monster_infos npc_id="216968" var_id="0" max_kill="1"/> 
+	</monster_hunt>	
+	<!-- A Blacksmith's Dream -->
+	<item_collecting id="28607" start_npc_id="205237"/>
+	<!-- Judge's Tear-Soaked Sword -->
+	<item_collecting id="28608" start_npc_id="205237"/>
+	<!-- Judge's Tear-Soaked Warhammer -->
+	<item_collecting id="28609" start_npc_id="205237"/>
+	<!-- Judge's Tear-Soaked Dagger -->
+	<item_collecting id="28610" start_npc_id="205237"/>
+	<!-- Judge's Tear-Soaked Jewel -->
+	<item_collecting id="28611" start_npc_id="205237"/>
+	<!-- Judge's Tear-Soaked Tome -->
+	<item_collecting id="28612" start_npc_id="205237"/>
+	<!-- Judge's Tear-Soaked Greatsword -->
+	<item_collecting id="28613" start_npc_id="205237"/>
+	<!-- Judge's Tear-Soaked Spear -->
+	<item_collecting id="28614" start_npc_id="205237"/>
+	<!-- Judge's Tear-Soaked Staff -->
+	<item_collecting id="28615" start_npc_id="205237"/>
+	<!-- Judge's Tear-Soaked Longbow -->
+	<item_collecting id="28616" start_npc_id="205237"/>
+	<!-- [Coin] Confirmation in Dreams -->
+	<monster_hunt id="28617" start_npc_id="204760">
+		<monster_infos var_id="0" max_kill="1" npc_id="217006"/>
+	</monster_hunt>
+	<!-- Judge's Flame-Heated Sword -->
+	<item_collecting id="28628" start_npc_id="205237"/>
+	<!-- Judge's Flame-Heated Warhammer -->
+	<item_collecting id="28629" start_npc_id="205237"/>
+	<!-- Judge's Flame-Heated Dagger -->
+	<item_collecting id="28630" start_npc_id="205237"/>
+	<!-- Judge's Flame-Heated Jewel -->
+	<item_collecting id="28631" start_npc_id="205237"/>
+	<!-- Judge's Flame-Heated Tome -->
+	<item_collecting id="28632" start_npc_id="205237"/>
+	<!-- Judge's Flame-Heated Greatsword -->
+	<item_collecting id="28633" start_npc_id="205237"/>
+	<!-- Judge's Flame-Heated Spear -->
+	<item_collecting id="28634" start_npc_id="205237"/>
+	<!-- Judge's Flame-Heated Staff -->
+	<item_collecting id="28635" start_npc_id="205237"/>
+	<!-- Judge's Flame-Heated Longbow -->
+	<item_collecting id="28636" start_npc_id="205237"/>
+	<!-- 80007: TODO: [Event] Heart Headband Chase (lvl 41) -->
+</quest_scripts>

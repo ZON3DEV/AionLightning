@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/quest/handlers/models/xmlQuest
+END
+QuestDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/quest/handlers/models/xmlQuest/QuestDialog.java
+END
+QuestNpc.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/quest/handlers/models/xmlQuest/QuestNpc.java
+END
+QuestVar.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/quest/handlers/models/xmlQuest/QuestVar.java
+END

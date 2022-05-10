@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zones.xsd">
+	<zone mapid="320040000" name="NIDALBER_320040000" priority="16">
+		<points>
+			<point x="135.979996" y="321.320007" />
+			<point x="208.583115" y="88.760437" />
+			<point x="365.792847" y="138.133942" />
+			<point x="291.730713" y="369.134918" />
+		</points>
+	</zone>
+</zones>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- Goal of the Dragonbound -->
+	<item_collecting id="30002" start_npc_id="799029"/>
+	<!-- 30003: [Group] Secret of the Udas Temple (lvl 52) handled by script -->
+	<!-- 30004: TODO: [Group] Nexus's Point (lvl 99) -->
+	<!-- [Group] Heal Me, Kill Me -->
+	<monster_hunt id="30005" start_npc_id="799029">
+		<monster_infos var_id="0" max_kill="30" npc_id="215857"/>
+		<monster_infos var_id="0" max_kill="30" npc_id="215814"/>
+		<monster_infos var_id="0" max_kill="30" npc_id="215858"/>
+		<monster_infos var_id="0" max_kill="30" npc_id="215815"/>
+	</monster_hunt>
+	<!-- [Group] Poison Coating -->
+	<item_collecting id="30010" start_npc_id="799031" action_item_id="700567"/>
+	<!-- Secret of the Dragonbound -->
+	<item_collecting id="30102" start_npc_id="799333"/>
+	<!-- 30103: [Group] Lair of the Dragonbound (lvl 52) handled by script -->
+	<!-- 30104: TODO: [Group] Head of the Dragonbound (lvl 99) -->
+	<!-- [Group] Suppressing the Dragonbound -->
+	<monster_hunt id="30105" start_npc_id="799333">
+		<monster_infos var_id="0" max_kill="25" npc_id="215857"/>
+		<monster_infos var_id="0" max_kill="25" npc_id="215858"/>
+		<monster_infos var_id="0" max_kill="25" npc_id="215814"/>
+		<monster_infos var_id="0" max_kill="25" npc_id="215815"/>
+	</monster_hunt>
+	<!-- [Group] Swimming in Poison -->
+	<item_collecting id="30110" start_npc_id="799335" action_item_id="700567"/>
+</quest_scripts>

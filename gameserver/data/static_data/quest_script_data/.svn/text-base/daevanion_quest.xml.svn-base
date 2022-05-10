@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+	<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- 1923: TODO: A Sage's Precious Weapon (lvl 99) -->
+	<!-- 1924: TODO: A Sage's Precious Weapon (lvl 99) -->
+	<!-- 1925: TODO: A Sage's Precious Weapon (lvl 99) -->
+	<!-- 1988: A Meeting with a Sage (lvl 30) handled by script -->
+	<!-- 1989: A Sage's Teachings (lvl 30) handled by script -->
+	<!-- 1990: A Sage's Gift (lvl 30) handled by script -->
+	<!-- 1991: TODO: A Sage's Encouragement (lvl 99) -->
+	<!-- 1992: TODO: A Sage's Precious Weapon (lvl 99) -->
+	<!-- 1993: Another Beginning (lvl 30) handled by script -->
+	<!-- 1994: A New Choice (lvl 30) handled by script -->
+	<!-- 1995: TODO: Another Beginning (lvl 99) -->
+	<!-- 1996: TODO: A New Choice (lvl 99) -->
+	<!-- 1997: TODO: A Sage's Gift (lvl 99) -->
+	<!-- 1998: TODO: A Sage's Gift (lvl 99) -->
+	<!-- 1999: TODO: A Sage's Gift (lvl 99) -->
+	<!-- 2986: TODO: Daevanion Weapon (lvl 99) -->
+	<!-- 2987: TODO: Daevanion Weapon (lvl 99) -->
+	<!-- 2988: The Wise in Disguise (lvl 30) handled by script -->
+	<!-- 2989: Ceremony of the Wise (lvl 30) handled by script -->
+	<!-- 2990: Making the Daevanion Weapon (lvl 30) handled by script -->
+	<!-- 2991: TODO: Obtaining Daevanion Armor (lvl 99) -->
+	<!-- 2992: TODO: Daevanion Weapon (lvl 99) -->
+	<!-- 2993: Another Beginning (lvl 30) handled by script -->
+	<!-- 2994: A New Choice (lvl 30) handled by script -->
+	<!-- 2995: TODO: Another Beginning (lvl 99) -->
+	<!-- 2996: TODO: A New Choice (lvl 99) -->
+	<!-- 2997: TODO: Daevanion Ceremony (lvl 99) -->
+	<!-- 2998: TODO: Daevanion Ceremony (lvl 99) -->
+	<!-- 2999: TODO: Daevanion Ceremony (lvl 99) -->
+</quest_scripts>

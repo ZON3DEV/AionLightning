@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique. If not, see <http://www.gnu.org/licenses/>.
+
+	Ataxiar
+
+-->
+<spawns>
+	<!-- Hagen -->
+	<spawn map="320010000" npcid="205020" pool="1" interval="105">
+		<object x="434.75" y="399.5" z="235.0" h="25"/>
+	</spawn>
+	<spawn map="320010000" npcid="205023" pool="1" interval="105">
+		<object x="444.0" y="416.0" z="229.0" h="0"/>
+	</spawn>
+	<spawn map="320010000" npcid="205024" pool="2" interval="105">
+		<object x="444.0" y="409.0" z="230.0" h="45"/>
+		<object x="448.0" y="420.0" z="230.0" h="0"/>
+	</spawn>
+	<spawn map="320010000" npcid="205035" pool="2" interval="105">
+		<object x="451.0" y="415.0" z="229.0" h="45"/>
+		<object x="442.0" y="413.0" z="230.0" h="0"/>
+	</spawn>
+	<spawn map="320010000" npcid="205036" pool="1" interval="105">
+		<object x="447.0" y="412.0" z="229.0" h="45"/>
+	</spawn>
+	<spawn map="320010000" npcid="205003" pool="3" interval="95">
+		<object x="406.0" y="395.0" z="357.0" h="90" fly="1"/>
+		<object x="375.0" y="383.0" z="246.0" h="90" fly="1"/>
+		<object x="398.0" y="380.0" z="246.0" h="90" fly="1"/>
+	</spawn>
+	<spawn map="320010000" npcid="205021" pool="3" interval="95">
+		<object x="400.0" y="394.0" z="227.0" h="90" fly="1"/>
+		<object x="368.0" y="380.0" z="246.0" h="90" fly="1"/>
+		<object x="405.0" y="381.0" z="246.0" h="90" fly="1"/>
+	</spawn>
+	<spawn map="320010000" npcid="205004" pool="3" interval="95">
+		<object x="432.0" y="376.0" z="369.0" h="90" fly="1"/>
+		<object x="413.0" y="351.0" z="229.0" h="90" fly="1"/>
+		<object x="369.0" y="344.0" z="219.0" h="90" fly="1"/>
+	</spawn>
+	<spawn map="320010000" npcid="205022" pool="3" interval="95">
+		<object x="439.0" y="374.0" z="239.0" h="90" fly="1"/>
+		<object x="405.0" y="345.0" z="229.0" h="90" fly="1"/>
+		<object x="362.0" y="344.0" z="219.0" h="90" fly="1"/>
+	</spawn>
+	<spawn map="320010000" npcid="205004" pool="3" interval="95">
+		<object x="332.0" y="343.0" z="212.0" h="90" fly="1"/>
+		<object x="332.0" y="373.0" z="233.0" h="90" fly="1"/>
+		<object x="340.0" y="345.0" z="244.0" h="90" fly="1"/>
+	</spawn>
+	<spawn map="320010000" npcid="205022" pool="3" interval="95">
+		<object x="324.0" y="342.0" z="212.0" h="90" fly="1"/>
+		<object x="338.0" y="379.0" z="233.0" h="90" fly="1"/>
+		<object x="339.0" y="335.0" z="244.0" h="90" fly="1"/>
+	</spawn>
+	<spawn map="320010000" npcid="205005" pool="3" interval="95">
+		<object x="339.0" y="298.0" z="243.0" h="90" fly="1"/>
+		<object x="346.0" y="255.0" z="238.0" h="90" fly="1"/>
+		<object x="380.0" y="255.0" z="234.0" h="90" fly="1"/>
+	</spawn>
+	<spawn map="320010000" npcid="205021" pool="3" interval="95">
+		<object x="341.0" y="289.0" z="243.0" h="90" fly="1"/>
+		<object x="347.0" y="246.0" z="238.0" h="90" fly="1"/>
+		<object x="389.0" y="258.0" z="234.0" h="90" fly="1"/>
+	</spawn>
+	<spawn map="320010000" npcid="205004" pool="3" interval="95">
+		<object x="406.0" y="285.0" z="253.0" h="90" fly="1"/>
+		<object x="372.0" y="294.0" z="216.0" h="90" fly="1"/>
+		<object x="362.0" y="247.0" z="210.0" h="90" fly="1"/>
+	</spawn>
+	<spawn map="320010000" npcid="205022" pool="3" interval="95">
+		<object x="409.0" y="293.0" z="253.0" h="90" fly="1"/>
+		<object x="368.0" y="290.0" z="216.0" h="90" fly="1"/>
+		<object x="358.0" y="242.0" z="210.0" h="90" fly="1"/>
+	</spawn>
+	<spawn map="320010000" npcid="205003" pool="3" interval="95">
+		<object x="364.0" y="294.0" z="215.0" h="90" fly="1"/>
+		<object x="397.0" y="352.0" z="213.0" h="90" fly="1"/>
+		<object x="409.0" y="362.0" z="264.0" h="90" fly="1"/>
+	</spawn>
+	<spawn map="320010000" npcid="205021" pool="3" interval="95">
+		<object x="365.0" y="299.0" z="215.0" h="90" fly="1"/>
+		<object x="400.0" y="359.0" z="213.0" h="90" fly="1"/>
+		<object x="410.0" y="355.0" z="264.0" h="90" fly="1"/>
+	</spawn>
+	<spawn map="320010000" npcid="205004" pool="2" interval="95">
+		<object x="382.0" y="324.0" z="249.0" h="90" fly="1"/>
+		<object x="350.0" y="295.0" z="214.0" h="90" fly="1"/>
+	</spawn>
+	<spawn map="320010000" npcid="205022" pool="2" interval="95">
+		<object x="378.0" y="324.0" z="249.0" h="90" fly="1"/>
+		<object x="346.0" y="288.0" z="214.0" h="90" fly="1"/>
+	</spawn>
+</spawns>

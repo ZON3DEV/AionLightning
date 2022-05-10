@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Ishalgen
+	@author Atomix
+ -->
+<spawns>
+	<!-- Tamed Worg lvl:20 -->
+	<spawn map="220010000" npcid="203356" pool="1" interval="295">
+		<object x="588.3535" y="2449.894" z="278.375" h="23"/>
+	</spawn>
+	<!-- Asak lvl:10 -->
+	<spawn map="220010000" npcid="203500" pool="1" interval="295">
+		<object x="560.9888" y="2787.956" z="299.0618" h="83"/>
+	</spawn>
+	<!-- Guheitun lvl:20 -->
+	<spawn map="220010000" npcid="203501" pool="1" interval="295">
+		<object x="223.9746" y="2679.865" z="295.25" h="105"/>
+	</spawn>
+	<!-- Vanar lvl:10 -->
+	<spawn map="220010000" npcid="203502" pool="1" interval="295">
+		<object x="220.2813" y="2678.704" z="295.25" h="0"/>
+	</spawn>
+	<!-- Gurt lvl:10 -->
+	<spawn map="220010000" npcid="203503" pool="1" interval="295">
+		<object x="235.4983" y="2700.156" z="295.1612" h="60"/>
+	</spawn>
+	<!-- Vandar lvl:20 -->
+	<spawn map="220010000" npcid="203504" pool="1" interval="295">
+		<object x="527.0044" y="2775.671" z="295.751" h="1"/>
+	</spawn>
+	<!-- Ulgorn Raider lvl:5 -->
+	<spawn map="220010000" npcid="203505" pool="24" interval="295">
+		<object x="527.019" y="2742.707" z="294.3774" h="35"/>
+		<object x="637.1816" y="2809.898" z="295.9679" h="98"/>
+		<object x="636.0817" y="2778.288" z="294.9957" h="21"/>
+		<object x="612.6589" y="2821.32" z="297.1252" h="32"/>
+		<object x="527.2816" y="2737.976" z="294.3316" h="57"/>
+		<object x="516.25" y="2704.25" z="291.5625" h="45"/>
+		<object x="460.5281" y="2774.492" z="288.9692" h="110"/>
+		<object x="469.0058" y="2876.395" z="308.75" h="1"/>
+		<object x="353.0747" y="2720.848" z="289.8795" h="22"/>
+		<object x="306.0049" y="2548.591" z="288.25" h="117"/>
+		<object x="276.663" y="2674.744" z="286.63443" h="104"/>
+		<object x="188.7268" y="2573.422" z="300.5703" h="92"/>
+		<object x="167.9509" y="2571.43" z="303.5712" h="46"/>
+		<object x="390.0176" y="2802.649" z="296.6557" h="91"/>
+		<object x="387.75" y="2810.543" z="298.0237" h="90"/>
+		<object x="364.7069" y="2830.248" z="304.25" h="9"/>
+		<object x="424.5361" y="2835.954" z="296" h="67"/>
+		<object x="389.4605" y="2239.526" z="251.875" h="88"/>
+		<object x="445.5098" y="2161.252" z="249.75" h="20"/>
+		<object x="659.8621" y="2111.049" z="250.5553" h="15"/>
+		<object x="613.8874" y="2069.309" z="252.2093" h="10"/>
+		<object x="566.0999" y="2074.854" z="253.75" h="4"/>
+		<object x="613.3264" y="2068.697" z="252.196" h="12"/>
+		<object x="443.0303" y="2156.392" z="249.8018" h="81"/>
+	</spawn>
+	<!-- Ulgorn Raider lvl:5 -->
+	<spawn map="220010000" npcid="203506" pool="8" interval="295">
+		<object x="611.6502" y="2819.883" z="297.1322" h="48"/>
+		<object x="596.095" y="2865.498" z="303.375" h="4"/>
+		<object x="609.4031" y="2793.494" z="294.6924" h="26"/>
+		<object x="141.56" y="2551.589" z="308.8563" h="66"/>
+		<object x="144.3563" y="2652.814" z="305.5286" h="22"/>
+		<object x="175.3261" y="2698.522" z="303.0406" h="18"/>
+		<object x="429.8102" y="2227.705" z="249.75" h="55"/>
+		<object x="586.1839" y="2046.653" z="256.3712" h="117"/>
+	</spawn>
+	<!-- Galar lvl:10 -->
+	<spawn map="220010000" npcid="203507" pool="1" interval="295">
+		<object x="539.7026" y="2551.808" z="268" h="75"/>
+	</spawn>
+	<!-- Laborer lvl:10 -->
+	<spawn map="220010000" npcid="203508" pool="1" interval="295">
+		<object x="546.7316" y="2546.346" z="268.0072" h="119" w="203"/>
+	</spawn>
+	<!-- Laborer lvl:10 -->
+	<spawn map="220010000" npcid="203509" pool="1" interval="295">
+		<object x="553.4513" y="2558.031" z="270.3427" h="15"/>
+	</spawn>
+	<!-- Laborer lvl:10 -->
+	<spawn map="220010000" npcid="203510" pool="1" interval="295">
+		<object x="541.7627" y="2562.506" z="269.4066" h="15"/>
+	</spawn>
+	<!-- Joreston lvl:40 -->
+	<spawn map="220010000" npcid="203511" pool="1" interval="295">
+		<object x="559.6642" y="2402.033" z="278.8955" h="25"/>
+	</spawn>
+	<!-- Linevir lvl:45 -->
+	<spawn map="220010000" npcid="203512" pool="1" interval="295">
+		<object x="585.4244" y="2467.06" z="278.625" h="96"/>
+	</spawn>
+	<!-- Sheofin lvl:40 -->
+	<spawn map="220010000" npcid="203513" pool="1" interval="295">
+		<object x="525.2255" y="2448.829" z="281.5926" h="116"/>
+	</spawn>
+	<!-- Hephe lvl:10 -->
+	<spawn map="220010000" npcid="203514" pool="1" interval="295">
+		<object x="624.5444" y="2433.924" z="280.731" h="55"/>
+	</spawn>
+	<!-- Dalor lvl:10 -->
+	<spawn map="220010000" npcid="203515" pool="1" interval="295">
+		<object x="618.2363" y="2430.118" z="280.731" h="55"/>
+	</spawn>
+	<!-- Ulgorn lvl:20 -->
+	<spawn map="220010000" npcid="203516" pool="1" interval="295">
+		<object x="589.3486" y="2450.162" z="278.375" h="23"/>
+	</spawn>
+	<!-- Tobu lvl:10 -->
+	<spawn map="220010000" npcid="203517" pool="1" interval="295">
+		<object x="591.3425" y="2449.545" z="278.375" h="43"/>
+	</spawn>
+	<!-- Boromer lvl:20 -->
+	<spawn map="220010000" npcid="203518" pool="1" interval="295">
+		<object x="537.9714" y="2419.03" z="277.5389" h="30"/>
+	</spawn>
+	<!-- Nobekk lvl:20 -->
+	<spawn map="220010000" npcid="203519" pool="1" interval="295">
+		<object x="490" y="2415" z="266.5" h="76"/>
+	</spawn>
+	<!-- Ulgorn Raider lvl:9 -->
+	<spawn map="220010000" npcid="203520" pool="1" interval="295">
+		<object x="605.0463" y="2453.702" z="280.4226" h="100"/>
+	</spawn>
+	<!-- Ulgorn Raider lvl:9 -->
+	<spawn map="220010000" npcid="203521" pool="1" interval="295">
+		<object x="609.1265" y="2456.58" z="280.5" h="99"/>
+	</spawn>
+	<!-- Kaindal lvl:20 -->
+	<spawn map="220010000" npcid="203522" pool="1" interval="295">
+		<object x="537.4014" y="2426.417" z="276.66125" h="76" w="204"/>
+	</spawn>
+	<!-- Glifko lvl:20 -->
+	<spawn map="220010000" npcid="203523" pool="1" interval="295">
+		<object x="590.0526" y="2462.785" z="278.65247" h="4" w="205"/>
+	</spawn>
+	<!-- Megin lvl:20 -->
+	<spawn map="220010000" npcid="203524" pool="1" interval="295">
+		<object x="581.5524" y="2518.656" z="275.1998" h="36"/>
+	</spawn>
+	<!-- Srat lvl:10 -->
+	<spawn map="220010000" npcid="203525" pool="1" interval="295">
+		<object x="405" y="2356" z="259.9375" h="0"/>
+	</spawn>
+	<!-- Ungfu lvl:10 -->
+	<spawn map="220010000" npcid="203526" pool="1" interval="295">
+		<object x="583.871" y="2424.672" z="278.5" h="33"/>
+	</spawn>
+	<!-- Minu lvl:10 -->
+	<spawn map="220010000" npcid="203527" pool="1" interval="295">
+		<object x="607" y="2460" z="280.4375" h="90"/>
+	</spawn>
+	<!-- Wiokan lvl:10 -->
+	<spawn map="220010000" npcid="203528" pool="1" interval="295">
+		<object x="571.8954" y="2461.993" z="278.5" h="93"/>
+	</spawn>
+	<!-- Jurwen lvl:10 -->
+	<spawn map="220010000" npcid="203529" pool="1" interval="295">
+		<object x="565.35" y="2401.54" z="278.8955" h="40"/>
+	</spawn>
+	<!-- Kirhen lvl:10 -->
+	<spawn map="220010000" npcid="203530" pool="1" interval="295">
+		<object x="554.14" y="2403.8" z="278.8778" h="15"/>
+	</spawn>
+	<!-- Negi lvl:10 -->
+	<spawn map="220010000" npcid="203531" pool="1" interval="295">
+		<object x="505.7681" y="2297.508" z="248.7173" h="40"/>
+	</spawn>
+	<!-- Bolir lvl:10 -->
+	<spawn map="220010000" npcid="203532" pool="1" interval="295">
+		<object x="488" y="2294" z="248.25" h="100"/>
+	</spawn>
+	<!-- Motgar lvl:20 -->
+	<spawn map="220010000" npcid="203533" pool="1" interval="295">
+		<object x="853.3995" y="2224.9" z="265.8563" h="90"/>
+	</spawn>
+	<!-- Dabi lvl:20 -->
+	<spawn map="220010000" npcid="203534" pool="1" interval="295">
+		<object x="856" y="2216" z="266" h="80"/>
+	</spawn>
+	<!-- Kard lvl:20 -->
+	<spawn map="220010000" npcid="203535" pool="1" interval="295">
+		<object x="1048.389" y="2060.312" z="252.1445" h="0"/>
+	</spawn>
+	<!-- Blabbermouth Angmu lvl:10 -->
+	<spawn map="220010000" npcid="203536" pool="1" interval="295">
+		<object x="939.33" y="2299.84" z="266.0737" h="100"/>
+	</spawn>
+	<!-- Strange Ribbit lvl:17 -->
+	<spawn map="220010000" npcid="203537" pool="6" interval="295" rw="5">
+		<object x="936.832" y="2289.018" z="265.56" h="63"/>
+		<object x="933.7829" y="2291.454" z="265.868" h="10"/>
+		<object x="943.1752" y="2301.01" z="265.7397" h="9"/>
+		<object x="940.9825" y="2289.808" z="265.3016" h="79"/>
+		<object x="944.9994" y="2295.23" z="265.2644" h="65"/>
+		<object x="947.5574" y="2289.572" z="264.8759" h="7"/>
+	</spawn>
+	<!-- Cute Ribbit lvl:17 -->
+	<spawn map="220010000" npcid="203538" pool="1" interval="295">
+		<object x="940.4021" y="2291.844" z="265.4651" h="77"/>
+	</spawn>
+	<!-- Derot lvl:20 -->
+	<spawn map="220010000" npcid="203539" pool="1" interval="295">
+		<object x="948.9698" y="1700.725" z="259.625" h="18"/>
+	</spawn>
+	<!-- Mijou lvl:20 -->
+	<spawn map="220010000" npcid="203540" pool="1" interval="295">
+		<object x="946.2529" y="1702.775" z="259.625" h="18"/>
+	</spawn>
+	<!-- Lidun lvl:20 -->
+	<spawn map="220010000" npcid="203541" pool="1" interval="295">
+		<object x="936.3183" y="1681.933" z="261.8558" h="80"/>
+	</spawn>
+	<!-- Denma lvl:10 -->
+	<spawn map="220010000" npcid="203542" pool="1" interval="295">
+		<object x="933.1669" y="1685.701" z="261.813" h="6"/>
+	</spawn>
+	<!-- Alfrigh lvl:20 -->
+	<spawn map="220010000" npcid="203543" pool="1" interval="295">
+		<object x="928" y="1566" z="284.125" h="43"/>
+	</spawn>
+	<!-- Devalin lvl:34 -->
+	<spawn map="220010000" npcid="203544" pool="1" interval="295">
+		<object x="925.3575" y="1563.701" z="284.6437" h="23"/>
+	</spawn>
+	<!-- Garhara lvl:40 -->
+	<spawn map="220010000" npcid="203545" pool="1" interval="295">
+		<object x="942" y="1707" z="259.6728" h="51"/>
+	</spawn>
+	<!-- Skuld lvl:20 -->
+	<spawn map="220010000" npcid="203546" pool="1" interval="295">
+		<object x="1114.312" y="1718.41" z="271.1786" h="50"/>
+	</spawn>
+	<!-- Delle lvl:20 -->
+	<spawn map="220010000" npcid="203547" pool="1" interval="295">
+		<object x="667.9615" y="1767.089" z="271.5831" h="90"/>
+	</spawn>
+	<!-- Jephani lvl:20 -->
+	<spawn map="220010000" npcid="203548" pool="1" interval="295">
+		<object x="669.813" y="1725.244" z="271.3679" h="30"/>
+	</spawn>
+	<!-- Tanmarn lvl:20 -->
+	<spawn map="220010000" npcid="203549" pool="1" interval="295">
+		<object x="667.8377" y="1727.967" z="271.6432" h="116"/>
+	</spawn>
+	<!-- Munin lvl:50 -->
+	<spawn map="220010000" npcid="203550" pool="1" interval="295">
+		<object x="378.93" y="1895.39" z="328.8381" h="10"/>
+	</spawn>
+	<!-- Crypto's Ghost lvl:20 -->
+	<spawn map="220010000" npcid="203551" pool="1" interval="295">
+		<object x="673.3419" y="1793.411" z="271.34375" h="106" w="206"/>
+	</spawn>
+	<!-- Nalto lvl:10 -->
+	<spawn map="220010000" npcid="203552" pool="1" interval="295">
+		<object x="729.1016" y="1156.882" z="302.7373" h="23"/>
+	</spawn>
+	<!-- Rae lvl:5 -->
+	<spawn map="220010000" npcid="203554" pool="1" interval="295">
+		<object x="648.4191" y="920.7731" z="310.8067" h="60"/>
+	</spawn>
+	<!-- Osmar lvl:40 -->
+	<spawn map="220010000" npcid="203679" pool="1" interval="295">
+		<object x="525.5294" y="2450.733" z="281.5926" h="116"/>
+	</spawn>
+	<!-- Rusalka lvl:45 -->
+	<spawn map="220010000" npcid="203680" pool="1" interval="295">
+		<object x="934.5181" y="1705.469" z="259.4082" h="30"/>
+	</spawn>
+	<!-- Dobar lvl:40 -->
+	<spawn map="220010000" npcid="203692" pool="1" interval="295">
+		<object x="620.3312" y="2439.216" z="280.731" h="81"/>
+	</spawn>
+	<!-- Small Cage lvl:1 -->
+	<spawn map="220010000" npcid="700041" pool="5" interval="295">
+		<object x="410.6697" y="2336.534" z="259.8416" h="86"/>
+		<object x="405.2858" y="2341.984" z="259.75" h="105"/>
+		<object x="428.6377" y="2306.672" z="255.3351" h="61"/>
+		<object x="430.6761" y="2303.013" z="255.25" h="70"/>
+		<object x="406.1411" y="2332.776" z="259.875" h="10"/>
+	</spawn>
+	<!-- Box lvl:1 -->
+	<spawn map="220010000" npcid="700044" pool="1" interval="295">
+		<object staticid="218" x="1086.592" y="1689.077" z="274.326" h="0"/>
+	</spawn>
+	<!-- Sticky Mushroom lvl:1 -->
+	<spawn map="220010000" npcid="700045" pool="6" interval="295">
+		<object x="918.9661" y="2239.836" z="262.8621" h="0"/>
+		<object x="979.6487" y="2297.317" z="266.6156" h="0"/>
+		<object x="949.3465" y="2190.419" z="256.2396" h="0"/>
+		<object x="998.2709" y="2162.615" z="253.9446" h="0"/>
+		<object x="1056.557" y="2296.856" z="258.0275" h="0"/>
+		<object x="1051.176" y="2164.003" z="255.2594" h="0"/>
+	</spawn>
+	<!-- Tombstone lvl:1 -->
+	<spawn map="220010000" npcid="700047" pool="15" interval="295">
+		<object staticid="253" x="597.0778" y="1880.67" z="282.4312" h="100"/>
+		<object staticid="246" x="580.597" y="1856.876" z="287.8988" h="0"/>
+		<object staticid="247" x="576.241" y="1885.616" z="285.3154" h="0"/>
+		<object staticid="216" x="579.2573" y="1879.145" z="285.0238" h="0"/>
+		<object staticid="252" x="568.2529" y="1848.773" z="292.279" h="103"/>
+		<object staticid="245" x="588.9809" y="1875.347" z="284.5782" h="0"/>
+		<object staticid="248" x="579.7815" y="1902.987" z="284.4783" h="26"/>
+		<object staticid="254" x="586.0166" y="1894.985" z="283.9413" h="0"/>
+		<object staticid="244" x="568.3754" y="1876.77" z="285.843" h="3"/>
+		<object staticid="243" x="569.459" y="1899.412" z="284.8749" h="66"/>
+		<object staticid="222" x="564.1444" y="1888.632" z="285.5088" h="3"/>
+		<object staticid="251" x="582.9603" y="1913.005" z="284.0545" h="100"/>
+		<object staticid="249" x="557.7531" y="1897.111" z="284.3383" h="6"/>
+		<object staticid="250" x="569.0325" y="1918.751" z="284.651" h="0"/>
+		<object staticid="255" x="575.8258" y="1927.207" z="285.7527" h="100"/>
+	</spawn>
+	<!-- Small Bone Pile lvl:1 -->
+	<spawn map="220010000" npcid="700049" pool="1" interval="295">
+		<object x="890.7283" y="1761.76" z="265.7484" h="76"/>
+	</spawn>
+	<!-- Obelisk Aldelle Village lvl:1 -->
+	<spawn map="220010000" npcid="700063" pool="1" interval="295">
+		<object staticid="725" x="587.6882" y="2467.103" z="278.7882" h="0"/>
+	</spawn>
+	<!-- Obelisk Anturoon Sentry Post lvl:1 -->
+	<spawn map="220010000" npcid="700064" pool="1" interval="295">
+		<object staticid="565" x="936.8892" y="1704.714" z="259.4756" h="15"/>
+	</spawn>
+	<!-- Mailbox lvl:1 -->
+	<spawn map="220010000" npcid="700079" pool="1" interval="295">
+		<object staticid="54" x="562.2391" y="2426.294" z="278.4699" h="0"/>
+	</spawn>
+	<!-- Ishalgen Abyss Gate lvl:1 -->
+	<spawn map="220010000" npcid="700084" pool="1" interval="295">
+		<object staticid="564" x="667.7986" y="848.1782" z="321.07" h="0"/>
+	</spawn>
+	<!-- Green Power Generator lvl:1 -->
+	<spawn map="220010000" npcid="700085" pool="1" interval="295">
+		<object staticid="516" x="677.5606" y="908.0101" z="310.5893" h="0"/>
+	</spawn>
+	<!-- Blue Power Generator lvl:1 -->
+	<spawn map="220010000" npcid="700086" pool="1" interval="295">
+		<object staticid="517" x="625.1172" y="893.5571" z="309.8062" h="0"/>
+	</spawn>
+	<!-- Violet Power Generator lvl:1 -->
+	<spawn map="220010000" npcid="700087" pool="1" interval="295">
+		<object staticid="518" x="666.1432" y="857.9041" z="321.2765" h="0"/>
+	</spawn>
+	<!-- Sprigg Grain Sack lvl:1 -->
+	<spawn map="220010000" npcid="700093" pool="17" interval="295">
+		<object x="424.5568" y="2225.351" z="249.75" h="0"/>
+		<object x="427.3094" y="2220.133" z="249.6279" h="0"/>
+		<object x="389.3256" y="2254.3" z="251.9313" h="0"/>
+		<object x="438.4673" y="2215.088" z="249.75" h="0"/>
+		<object x="443.85" y="2177.683" z="249.875" h="0"/>
+		<object x="383.9675" y="2232.764" z="251.875" h="0"/>
+		<object x="444.0053" y="2166.723" z="249.7497" h="0"/>
+		<object x="439.1833" y="2155.33" z="249.7671" h="0"/>
+		<object x="658.3429" y="2100.681" z="250.75" h="0"/>
+		<object x="659.1241" y="2108.305" z="250.6167" h="0"/>
+		<object x="649.4291" y="2104.031" z="250.3393" h="0"/>
+		<object x="618.0617" y="2073.577" z="252.2508" h="0"/>
+		<object x="615.3806" y="2062.661" z="252.4302" h="0"/>
+		<object x="607.79" y="2058.06" z="252.9234" h="0"/>
+		<object x="571.565" y="2072.968" z="253.75" h="0"/>
+		<object x="578.8366" y="2042.953" z="256.5655" h="0"/>
+		<object x="587.486" y="2040.527" z="256.375" h="0"/>
+	</spawn>
+	<!-- Mau Grain Sack lvl:1 -->
+	<spawn map="220010000" npcid="700095" pool="19" interval="295">
+		<object staticid="179" x="742.8007" y="1515.767" z="292.5646" h="0"/>
+		<object staticid="180" x="714.8851" y="1526.584" z="294.2479" h="0"/>
+		<object staticid="502" x="694.5055" y="1522.052" z="295.6003" h="0"/>
+		<object staticid="503" x="681.6614" y="1501.289" z="295.4685" h="0"/>
+		<object staticid="504" x="681.2058" y="1498.098" z="295.503" h="0"/>
+		<object staticid="187" x="643.7601" y="1519.709" z="291.8869" h="0"/>
+		<object staticid="505" x="669.1351" y="1430.959" z="297.6686" h="0"/>
+		<object staticid="348" x="623.8992" y="1516.856" z="292.75" h="0"/>
+		<object staticid="184" x="608.6351" y="1454.959" z="296.0468" h="0"/>
+		<object staticid="181" x="572.1351" y="1530.084" z="314.2468" h="0"/>
+		<object staticid="507" x="556.0509" y="1531.063" z="314.769" h="0"/>
+		<object staticid="185" x="566.5101" y="1440.584" z="310.2407" h="0"/>
+		<object staticid="506" x="621.6205" y="1423.427" z="298.5375" h="0"/>
+		<object staticid="182" x="531.5101" y="1501.584" z="310.1423" h="0"/>
+		<object staticid="509" x="511.4954" y="1439.512" z="317.6282" h="0"/>
+		<object staticid="510" x="520.4016" y="1450.328" z="317.6197" h="0"/>
+		<object staticid="508" x="468.1951" y="1351.941" z="331.9532" h="0"/>
+		<object staticid="186" x="485.5101" y="1336.709" z="326.0306" h="0"/>
+		<object staticid="183" x="494.1351" y="1552.334" z="322.3944" h="0"/>
+	</spawn>
+	<!-- Fruit Basket lvl:1 -->
+	<spawn map="220010000" npcid="700124" pool="31" interval="295">
+		<object x="544.6986" y="2731.912" z="298.0928" h="0"/>
+		<object x="531.2373" y="2729.868" z="294.5" h="0"/>
+		<object x="470.3868" y="2776.253" z="288.875" h="0"/>
+		<object x="588.2679" y="2868.112" z="303.375" h="0"/>
+		<object x="540.0047" y="2723.629" z="298.6491" h="0"/>
+		<object x="596.3719" y="2870.159" z="303.3768" h="0"/>
+		<object x="455.0316" y="2780.937" z="288.875" h="0"/>
+		<object x="481.35" y="2896.18" z="311.3862" h="0"/>
+		<object x="471.99" y="2883.81" z="308.7505" h="0"/>
+		<object x="356.5319" y="2733.696" z="289.875" h="0"/>
+		<object x="341.6309" y="2720.529" z="289.1119" h="0"/>
+		<object x="349.0103" y="2727.739" z="289.75" h="0"/>
+		<object x="292.9304" y="2551.273" z="288.25" h="0"/>
+		<object x="309.2685" y="2542.678" z="288.25" h="0"/>
+		<object x="301.485" y="2542.808" z="288.25" h="0"/>
+		<object x="195.4013" y="2542.826" z="302.897" h="0"/>
+		<object x="178.9922" y="2532.406" z="307.1124" h="0"/>
+		<object x="161.6972" y="2580.437" z="303.8003" h="0"/>
+		<object x="184.6768" y="2547.672" z="303.1168" h="0"/>
+		<object x="164.7891" y="2541.018" z="306.8607" h="0"/>
+		<object x="142.6691" y="2530.622" z="308.8246" h="0"/>
+		<object x="140.963" y="2653.232" z="305.9769" h="0"/>
+		<object x="135.3903" y="2643.841" z="306.337" h="0"/>
+		<object x="145.2085" y="2668.289" z="305.2995" h="0"/>
+		<object x="348.6603" y="2830.764" z="304.8402" h="0"/>
+		<object x="355.5517" y="2836.672" z="304.5794" h="0"/>
+		<object x="366.4597" y="2835.75" z="304.1371" h="0"/>
+		<object x="413.9809" y="2835.007" z="296.0635" h="0"/>
+		<object x="425.6703" y="2841.927" z="296.0198" h="0"/>
+		<object x="433.0537" y="2835.236" z="295.9749" h="0"/>
+		<object x="458.7679" y="2884.932" z="308.7089" h="0"/>
+	</spawn>
+	<!-- Ampreh Flower lvl:1 -->
+	<spawn map="220010000" npcid="700125" pool="20" interval="295">
+		<object x="493.4306" y="2281.111" z="247.5" h="0"/>
+		<object x="511.1803" y="2277.195" z="247.5" h="0"/>
+		<object x="541.6023" y="2253.621" z="247.5" h="0"/>
+		<object x="507.7571" y="2233.791" z="247.3886" h="0"/>
+		<object x="518.8187" y="2189.773" z="247.5" h="0"/>
+		<object x="479.9631" y="2132.992" z="247.5" h="0"/>
+		<object x="494.2542" y="2136.582" z="247.5" h="0"/>
+		<object x="491.6509" y="2114.095" z="247.5" h="0"/>
+		<object x="515.5164" y="2138.844" z="247.5" h="0"/>
+		<object x="595.7114" y="2246.756" z="247.5" h="0"/>
+		<object x="612.1631" y="2258.61" z="247.3821" h="0"/>
+		<object x="613.5958" y="2213.441" z="247.375" h="0"/>
+		<object x="590.5984" y="2166.052" z="247.5" h="0"/>
+		<object x="622.7463" y="2171.331" z="247.5" h="0"/>
+		<object x="576.9407" y="2136.353" z="247.5" h="0"/>
+		<object x="657.6072" y="2190.834" z="247.5" h="0"/>
+		<object x="661.9561" y="2154.55" z="247.5" h="0"/>
+		<object x="611.46" y="2114.233" z="247.5" h="0"/>
+		<object x="561.7109" y="2118.93" z="247.5" h="0"/>
+		<object x="546.5397" y="2111.144" z="247.6448" h="0"/>
+	</spawn>
+	<!-- Jewel Box lvl:1 -->
+	<spawn map="220010000" npcid="700127" pool="1" interval="295">
+		<object x="1082.013" y="1603.221" z="260.8893" h="0"/>
+	</spawn>
+	<!-- Methu Egg lvl:1 -->
+	<spawn map="220010000" npcid="700128" pool="8" interval="295">
+		<object x="689" y="1497" z="295.5" h="0"/>
+		<object x="693.1089" y="1495.956" z="295.5" h="0"/>
+		<object x="692.1124" y="1498.615" z="295.5" h="0"/>
+		<object x="684.9684" y="1499.186" z="295.5" h="0"/>
+		<object x="683.95" y="1496.21" z="295.5" h="0"/>
+		<object x="457.8242" y="1355.176" z="332" h="0"/>
+		<object x="461.6986" y="1353.469" z="332" h="0"/>
+		<object x="460.5805" y="1349.657" z="332" h="0"/>
+	</spawn>
+	<!-- Dundun Urn lvl:1 -->
+	<spawn map="220010000" npcid="700129" pool="20" interval="295">
+		<object x="711.897" y="1521.846" z="294.25" h="0"/>
+		<object x="687.3692" y="1523.17" z="295.5173" h="0"/>
+		<object x="674.6953" y="1439.104" z="297.899" h="0"/>
+		<object x="630.68" y="1493.22" z="292.1494" h="0"/>
+		<object x="623.6832" y="1520.493" z="292.7015" h="0"/>
+		<object x="614.78" y="1467.13" z="295.1638" h="0"/>
+		<object x="632.38" y="1435.02" z="296.3979" h="0"/>
+		<object x="606.09" y="1446.54" z="296.4538" h="0"/>
+		<object x="659.8" y="1404.19" z="298.7733" h="0"/>
+		<object x="559.69" y="1533.1" z="315.1744" h="0"/>
+		<object x="566.93" y="1435.36" z="310.1431" h="0"/>
+		<object x="534.76" y="1539.13" z="317.498" h="0"/>
+		<object x="521.67" y="1490.6" z="312.8306" h="0"/>
+		<object x="516.67" y="1427.32" z="316.1669" h="0"/>
+		<object x="509.6859" y="1443.796" z="317.625" h="0"/>
+		<object x="498.06" y="1532.6" z="323.6364" h="0"/>
+		<object x="494.6427" y="1417.701" z="317.625" h="0"/>
+		<object x="458.1073" y="1423.214" z="335.08" h="0"/>
+		<object x="458.28" y="1362.53" z="331.9622" h="0"/>
+		<object x="495.72" y="1327.98" z="326" h="0"/>
+	</spawn>
+	<!-- Map of Eyvindr lvl:1 -->
+	<spawn map="220010000" npcid="700139" pool="1" interval="295">
+		<object x="1206.294" y="1885.246" z="255.417" h="0"/>
+	</spawn>
+	<!-- Iron Axe lvl:1 -->
+	<spawn map="220010000" npcid="700146" pool="1" interval="295">
+		<object staticid="422" x="1087.06" y="2350.783" z="263.2901" h="0"/>
+	</spawn>
+	<!-- Bone Piles lvl:1 -->
+	<spawn map="220010000" npcid="700148" pool="13" interval="295">
+		<object staticid="630" x="600.875" y="1865.875" z="284" h="0"/>
+		<object staticid="632" x="585" y="1856.375" z="287.4141" h="0"/>
+		<object staticid="634" x="567" y="1885.75" z="285.805" h="0"/>
+		<object staticid="636" x="557.375" y="1848.875" z="292.9141" h="0"/>
+		<object staticid="631" x="587.875" y="1928.875" z="286.7646" h="0"/>
+		<object staticid="635" x="546.875" y="1932.5" z="286.6275" h="0"/>
+		<object staticid="637" x="518.25" y="1836.625" z="300.0062" h="0"/>
+		<object staticid="628" x="511.5" y="1928.375" z="291.631" h="0"/>
+		<object staticid="638" x="480.375" y="1908.25" z="305.2727" h="0"/>
+		<object staticid="633" x="447.9642" y="1954.69" z="308.0298" h="0"/>
+		<object staticid="639" x="423.8919" y="1927.364" z="308.8664" h="0"/>
+		<object staticid="641" x="413.25" y="1901.5" z="319.1361" h="0"/>
+		<object staticid="640" x="406.125" y="1888.125" z="321.7325" h="0"/>
+	</spawn>
+	<!-- Incinerator lvl:1 -->
+	<spawn map="220010000" npcid="730029" pool="1" interval="295">
+		<object staticid="485" x="496.3707" y="1947.253" z="295.3213" h="0"/>
+	</spawn>
+	<!-- Verdandi lvl:10 -->
+	<spawn map="220010000" npcid="790002" pool="1" interval="295">
+		<object x="938" y="2298" z="266.125" h="100"/>
+	</spawn>
+	<!-- Urd lvl:10 -->
+	<spawn map="220010000" npcid="790003" pool="1" interval="295">
+		<object x="587.621" y="2412.879" z="278.5568" h="30"/>
+	</spawn>
+	<!-- Gunghelm lvl:50 -->
+	<spawn map="220010000" npcid="790009" pool="1" interval="295" time="NIGHT">
+		<object x="1080.6844" y="2368.71" z="259.6514" h="74"/>
+	</spawn>
+	<!-- Bacorerk lvl:9 -->
+	<spawn map="220010000" npcid="798037" pool="1" interval="295">
+		<object x="617.0826" y="2421.989" z="280.625" h="60"/>
+	</spawn>
+	<!-- Crizpinerk lvl:9 -->
+	<spawn map="220010000" npcid="798038" pool="1" interval="295">
+		<object x="611.0172" y="2417.959" z="280.625" h="23"/>
+	</spawn>
+	<!-- Herosir lvl:50 -->
+	<spawn map="220010000" npcid="798368" pool="1" interval="295">
+		<object x="298.9303" y="2773.013" z="312.649" h="95"/>
+	</spawn>
+</spawns>

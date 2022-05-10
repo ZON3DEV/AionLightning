@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- [Daily] A Taste for Adventure -->
+	<item_collecting id="36015" start_npc_id="799837" end_npc_id="799838" action_item_id="700768"/>
+	<!-- [Daily] The Jeweled Box -->
+	<item_collecting id="36016" start_npc_id="799837" end_npc_id="799838" action_item_id="700769"/>
+	<!-- [Spy/Weekly] What a Beautiful Chest -->
+	<item_collecting id="36017" start_npc_id="799837" end_npc_id="799838" action_item_id="700795"/>
+	<!-- 36018: TODO: Catching Mice 01 (lvl 99) -->
+	<!-- 36019: TODO: Catching Mice 02 (lvl 99) -->
+	<!-- 36500: [Daily] Redfur, Dead or Alive (lvl 50) handled by script -->
+	<!-- 36501: TODO: [Daily] (lvl 99) -->
+	<!-- [Daily] Going Shulack Hunting -->
+	<monster_hunt id="36502" start_npc_id="799837" end_npc_id="799838">
+		<monster_infos var_id="0" max_kill="1" npc_id="216606"/>
+	</monster_hunt>
+	<!-- [Daily] Aether He Goes or I Do -->
+	<item_collecting id="36503" start_npc_id="799837" end_npc_id="799838"/>
+	<!-- 36504: [Daily] The Avian Flew (lvl 50) handled by script -->
+	<!-- 36505: [Daily] The Tainted Spirit (lvl 50) handled by script -->
+	<!-- 36506: [Daily] Underground, Understand? (lvl 53) handled by script -->
+	<!-- 36507: TODO: [Daily] (lvl 99) -->
+	<!-- [Daily] No Time for Tricks -->
+	<monster_hunt id="36508" start_npc_id="799837" end_npc_id="799838">
+		<monster_infos var_id="0" max_kill="1" npc_id="216612"/>
+	</monster_hunt>
+	<!-- [Daily] Whip It Good -->
+	<item_collecting id="36509" start_npc_id="799837" end_npc_id="799838"/>
+	<!-- 36510: [Daily] Straighten Out the Twister (lvl 53) handled by script -->
+	<!-- 36511: [Daily] Teaching a Scholar to Die (lvl 53) handled by script -->
+	<!-- 36512: [Daily] Blackheart, Cold Hands (lvl 55) handled by script -->
+	<!-- 36513: TODO: [Daily] (lvl 99) -->
+	<!-- [Daily] Find, Kill, and Drink Ale -->
+	<monster_hunt id="36514" start_npc_id="799837" end_npc_id="799838">
+		<monster_infos var_id="0" max_kill="1" npc_id="216618"/>
+	</monster_hunt>
+	<!-- [Daily] Kill Orb Be Killed -->
+	<item_collecting id="36515" start_npc_id="799837" end_npc_id="799838"/>
+	<!-- 36516: [Daily] Releasing Bad Gas (lvl 55) handled by script -->
+	<!-- 36517: [Daily] Killing Pride (lvl 55) handled by script -->
+	<!-- [Spy/Weekly] A Killer Hunts a Killer -->
+	<monster_hunt id="36518" start_npc_id="799837" end_npc_id="799838">
+		<monster_infos var_id="0" max_kill="1" npc_id="216622"/>
+	</monster_hunt>
+	<!-- [Spy/Weekly] The Bowmaster Disaster -->
+	<item_collecting id="36519" start_npc_id="799837" end_npc_id="799838"/>
+	<!-- [Daily] Watching You Die -->
+	<item_collecting id="36520" start_npc_id="799837" end_npc_id="799838"/>
+	<!-- [Daily] Das Spidona -->
+	<monster_hunt id="36521" start_npc_id="799837" end_npc_id="799838">
+		<monster_infos var_id="0" max_kill="1" npc_id="217008"/>
+	</monster_hunt>
+	<!-- [Daily] The Drana Huffer -->
+	<item_collecting id="36522" start_npc_id="799837" end_npc_id="799838"/>
+	<!-- [Daily] A Part of Ricardo -->
+	<monster_hunt id="36523" start_npc_id="799837" end_npc_id="799838">
+		<monster_infos var_id="0" max_kill="1" npc_id="217010"/>
+	</monster_hunt>
+	<!-- [Daily] Reian, Reian, Go Away -->
+	<item_collecting id="36524" start_npc_id="799837" end_npc_id="799838"/>
+	<!-- [Daily] A Tall Tail -->
+	<item_collecting id="36525" start_npc_id="799837" end_npc_id="799838"/>
+	<!-- [Daily] Cut Up the Nightbutcher -->
+	<monster_hunt id="36526" start_npc_id="799837" end_npc_id="799838">
+		<monster_infos var_id="0" max_kill="1" npc_id="217013"/>
+	</monster_hunt>
+	<!-- [Daily] To Kill a Gryphu -->
+	<item_collecting id="36527" start_npc_id="799837" end_npc_id="799838"/>
+	<!-- [Daily] A Sticky Situation -->
+	<item_collecting id="36528" start_npc_id="799837" end_npc_id="799838"/>
+	<!-- 36600: TODO: Fortuneers Reward 1 (lvl 99) -->
+	<!-- 36601: TODO: Fortuneers Reward 2 (lvl 99) -->
+	<!-- 36602: TODO: Fortuneers Reward 3 (lvl 99) -->
+	<!-- 36603: TODO: Fortuneers Reward 4 (lvl 99) -->
+	<!-- 38002: Fortuneers Call to Arms (lvl 50) handled by script -->
+	<!-- 38005: TODO: Fortuneers Call to Arms (lvl 50) -->
+	<report_to id="38005" start_npc_id="203726" end_npc_id="799840"/>
+</quest_scripts>

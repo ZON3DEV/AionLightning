@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zones.xsd">
+	<zone mapid="310030000" name="AERDINA_310030000" priority="16">
+		<points>
+			<point x="130.441940" y="325.004883" />
+			<point x="213.212173" y="74.778458" />
+			<point x="373.082581" y="121.184601" />
+			<point x="284.034698" y="371.857086" />
+		</points>
+	</zone>
+</zones>

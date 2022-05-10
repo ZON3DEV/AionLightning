@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/gameserver/clientpackets
+END
+CM_BAN.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/gameserver/clientpackets/CM_BAN.java
+END
+CM_ACCOUNT_RECONNECT_KEY.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/gameserver/clientpackets/CM_ACCOUNT_RECONNECT_KEY.java
+END
+CM_ACCOUNT_LIST.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/gameserver/clientpackets/CM_ACCOUNT_LIST.java
+END
+CM_GS_AUTH.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/gameserver/clientpackets/CM_GS_AUTH.java
+END
+CM_GS_CHARACTER_COUNT.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/gameserver/clientpackets/CM_GS_CHARACTER_COUNT.java
+END
+CM_ACCOUNT_AUTH.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/gameserver/clientpackets/CM_ACCOUNT_AUTH.java
+END
+CM_LS_CONTROL.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/gameserver/clientpackets/CM_LS_CONTROL.java
+END
+CM_ACCOUNT_DISCONNECTED.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/network/gameserver/clientpackets/CM_ACCOUNT_DISCONNECTED.java
+END

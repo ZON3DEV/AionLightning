@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/effect/modifier
+END
+FlyingDamageModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/effect/modifier/FlyingDamageModifier.java
+END
+FrontDamageModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/effect/modifier/FrontDamageModifier.java
+END
+AbnormalDamageModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/effect/modifier/AbnormalDamageModifier.java
+END
+ActionModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/effect/modifier/ActionModifier.java
+END
+BackDamageModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/effect/modifier/BackDamageModifier.java
+END
+ActionModifiers.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/effect/modifier/ActionModifiers.java
+END
+TargetRaceDamageModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/effect/modifier/TargetRaceDamageModifier.java
+END
+NonFlyingDamageModifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4/trunk/gameserver/src/org/openaion/gameserver/skill/effect/modifier/NonFlyingDamageModifier.java
+END

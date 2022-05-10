@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+	This file is part of aion-unique <aion-unique.org>.
+
+	aion-unique is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	aion-unique is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+	
+	Aetherogenetics Lab
+
+ -->
+<spawns>
+	<!-- Lepharist Secret Safe (Object Normal lvl:1) -->
+	<spawn map="310050000" npcid="700279" pool="1" interval="295">
+		<object staticid="64" x="255.30194" y="310.36423" z="128.24968" h="28"/>
+	</spawn>
+	<!-- Lepharist Research Facility (Object Normal lvl:1) -->
+	<spawn map="310050000" npcid="700219" pool="10" interval="295">
+		<object staticid="173" x="236.52" y="303.01" z="129.35" h="20"/>
+		<object staticid="174" x="225.72" y="303.19" z="129.35" h="120"/>
+		<object staticid="176" x="236.52" y="342.82" z="129.35" h="46"/>
+		<object staticid="179" x="177.56" y="245.98" z="136.99" h="106"/>
+		<object staticid="181" x="177.56" y="224.56" z="136.99" h="20"/>
+		<object staticid="178" x="215.51" y="343" z="129.35" h="4"/>
+		<object staticid="182" x="177.56" y="213.31" z="137.04" h="58"/>
+		<object staticid="180" x="177.56" y="235.86" z="136.99" h="98"/>
+		<object staticid="177" x="225.72" y="343" z="129.35" h="111"/>
+		<object staticid="175" x="215.51" y="303.19" z="129.35" h="46"/>
+	</spawn>
+	<!-- Old Book (Object Normal lvl:1) -->
+	<spawn map="310050000" npcid="730195" pool="2" interval="295">
+		<object staticid="190" x="331.33105" y="265.5989" z="144.013" h="50"/>
+		<object staticid="191" x="348.80023" y="279.79837" z="144.82722" h="101"/>
+	</spawn>
+	<!-- Red Journal (Object Normal lvl:1) -->
+	<spawn map="310050000" npcid="730148" pool="2" interval="295">
+		<object staticid="206" x="327.3615" y="267.95163" z="143.0199" h="92"/>
+		<object staticid="61" x="328.20352" y="275.62253" z="142.92867" h="11"/>
+	</spawn>
+	<!-- Research Center Cabinet (Object Normal lvl:1) -->
+	<spawn map="310050000" npcid="700362" pool="6" interval="295">
+		<object staticid="187" x="250.0754" y="205.78523" z="132.83665" h="110"/>
+		<object staticid="184" x="244.78468" y="347.20062" z="124.97072" h="55"/>
+		<object staticid="185" x="175.47067" y="206.04492" z="132.59932" h="30"/>
+		<object staticid="186" x="250.11287" y="253.6061" z="132.83665" h="73"/>
+		<object staticid="189" x="327.49274" y="284.26334" z="142.00102" h="91"/>
+		<object staticid="188" x="368.32376" y="186.23009" z="141.87175" h="104"/>
+	</spawn>
+	<!-- Research Center Exit (Object Normal lvl:3) -->
+	<spawn map="310050000" npcid="700229" pool="1" interval="295">
+		<object staticid="183" x="385.33084" y="230.23882" z="158.76749" h="111"/>
+	</spawn>
+	<!-- Enhanced Rotron (Monster Elite lvl:43) -->
+	<spawn map="310050000" npcid="212204" pool="5" interval="300">
+		<object x="180.17699" y="299.9278" z="124.85524" h="76"/>
+		<object x="197.4862" y="298.6778" z="124.85524" h="96"/>
+		<object x="180.17697" y="315.3028" z="124.85524" h="120"/>
+		<object x="180.11043" y="344.5528" z="124.85523" h="91"/>
+		<object x="180.17697" y="328.4278" z="124.85523" h="75"/>
+	</spawn>
+	<!-- Expert Lab Investigator (Monster Elite lvl:41) -->
+	<spawn map="310050000" npcid="212183" pool="1" interval="300">
+		<object x="363.68094" y="170.25343" z="142.00883" h="1"/>
+	</spawn>
+	<!-- Expert Lab Medic (Monster Elite lvl:41) -->
+	<spawn map="310050000" npcid="212184" pool="2" interval="300">
+		<object x="341.41516" y="192.07341" z="141.87166" h="88"/>
+		<object x="317.0029" y="192.00235" z="141.87166" h="119"/>
+	</spawn>
+	<!-- Expert Lab Scholar (Monster Elite lvl:41) -->
+	<spawn map="310050000" npcid="212176" pool="1" interval="300">
+		<object x="335.1197" y="266.91162" z="141.97816" h="62"/>
+	</spawn>
+	<!-- Expert Lab Scholar (Monster Hero lvl:42) -->
+	<spawn map="310050000" npcid="212175" pool="1" interval="14400">
+		<object x="353.0754" y="286.93408" z="141.96535" h="14"/>
+	</spawn>
+	<!-- Expert Lab Scholar (Monster Elite lvl:41) -->
+	<spawn map="310050000" npcid="212177" pool="2" interval="300">
+		<object x="357.1706" y="275.8446" z="141.96873" h="11"/>
+		<object x="331.71225" y="275.81088" z="141.98207" h="16"/>
+	</spawn>
+	<!-- Gatekeeper (Monster Elite lvl:43) -->
+	<spawn map="310050000" npcid="212173" pool="1" interval="300">
+		<object x="312.18" y="230.16" z="144.14554" h="25"/>
+	</spawn>
+	<!-- Head Chef Pamsey (Monster Hero lvl:42) -->
+	<spawn map="310050000" npcid="212181" pool="1" interval="14400">
+		<object x="322.0778" y="168.79204" z="141.87166" h="24"/>
+	</spawn>
+	<!-- Key Eater (Monster Hero lvl:44) -->
+	<spawn map="310050000" npcid="212342" pool="1" interval="14400">
+		<object x="196.9862" y="345.9278" z="124.85524" h="64"/>
+	</spawn>
+	<!-- Laboratory Rotron (Monster Elite lvl:42) -->
+	<spawn map="310050000" npcid="212199" pool="4" interval="300">
+		<object x="186.69386" y="246.21838" z="132.6022" h="104"/>
+		<object x="186.407" y="224.51236" z="132.6022" h="119"/>
+		<object x="189.30078" y="205.5528" z="132.6022" h="95"/>
+		<object x="196.83028" y="245.97528" z="132.6022" h="81"/>
+	</spawn>
+	<!-- Perfected Pretor (Monster Elite lvl:44) -->
+	<spawn map="310050000" npcid="212205" pool="1" interval="300">
+		<object x="222.95406" y="323.4278" z="124.99657" h="39"/>
+	</spawn>
+	<!-- Pretor Key Keeper (Monster Hero lvl:43) -->
+	<spawn map="310050000" npcid="212193" pool="1" interval="14400">
+		<object x="205.9862" y="245.9278" z="132.83391" h="27"/>
+	</spawn>
+	<!-- Pretor Lab Sentry (Monster Elite lvl:42) -->
+	<spawn map="310050000" npcid="212195" pool="5" interval="300">
+		<object x="207.88" y="251.20467" z="132.83417" h="116"/>
+		<object x="228.5775" y="255.63144" z="132.8344" h="5"/>
+		<object x="222.1" y="239.27" z="132.83432" h="34"/>
+		<object x="207.47" y="241.42761" z="132.83368" h="47"/>
+		<object x="191.9862" y="214.4278" z="132.6022" h="41"/>
+	</spawn>
+	<!-- Pretor Lab Sentry (Monster Elite lvl:42) -->
+	<spawn map="310050000" npcid="212194" pool="4" interval="300">
+		<object x="235.74" y="238.69" z="132.83458" h="84"/>
+		<object x="268.9862" y="233.6778" z="136.75626" h="62"/>
+		<object x="269.03305" y="227.21837" z="136.75626" h="15"/>
+		<object x="238.45862" y="255.5723" z="132.8344" h="31"/>
+	</spawn>
+	<!-- RM-108c (Monster Elite lvl:45) -->
+	<spawn map="310050000" npcid="212191" pool="1" interval="300">
+		<object x="177.6112" y="224.5528" z="134.15515" h="39"/>
+	</spawn>
+	<!-- RM-113B (Monster Elite lvl:43) -->
+	<spawn map="310050000" npcid="212192" pool="3" interval="300">
+		<object x="177.7362" y="235.8028" z="134.15515" h="99"/>
+		<object x="177.4862" y="213.3028" z="134.20831" h="101"/>
+		<object x="177.8612" y="245.9278" z="134.15515" h="15"/>
+	</spawn>
+	<!-- RM-78c (Boss Hero lvl:45) -->
+	<spawn map="310050000" npcid="212211" pool="1" interval="14400">
+		<object x="253.66034" y="322.5528" z="127.27161" h="64"/>
+	</spawn>
+	<!-- Special Lab Ambusher (Monster Elite lvl:41) -->
+	<spawn map="310050000" npcid="212169" pool="2" interval="300">
+		<object x="298.12854" y="228.1344" z="141.96434" h="115"/>
+		<object x="296.9944" y="232.5972" z="141.66771" h="81"/>
+	</spawn>
+	<!-- Special Lab Assassin (Monster Elite lvl:41) -->
+	<spawn map="310050000" npcid="212189" pool="2" interval="300">
+		<object x="338.19073" y="168.0333" z="141.87166" h="75"/>
+		<object x="363.85913" y="199.20059" z="141.87166" h="115"/>
+	</spawn>
+	<!-- Special Lab Assassin (Monster Elite lvl:41) -->
+	<spawn map="310050000" npcid="212188" pool="1" interval="300">
+		<object x="317.14328" y="210.53828" z="144.17572" h="12"/>
+	</spawn>
+	<!-- Special Lab Defender (Monster Elite lvl:41) -->
+	<spawn map="310050000" npcid="212172" pool="1" interval="300">
+		<object x="333.94022" y="240.62965" z="144.15102" h="93"/>
+	</spawn>
+	<!-- Special Lab Fencer (Monster Elite lvl:41) -->
+	<spawn map="310050000" npcid="212179" pool="1" interval="300">
+		<object x="355.70334" y="254.6377" z="141.98393" h="49"/>
+	</spawn>
+	<!-- Special Lab Footsoldier (Monster Elite lvl:41) -->
+	<spawn map="310050000" npcid="212186" pool="2" interval="300">
+		<object x="316.28458" y="193.25226" z="141.87166" h="102"/>
+		<object x="344.1112" y="200.6778" z="141.87166" h="33"/>
+	</spawn>
+	<!-- Special Lab Footsoldier (Monster Elite lvl:41) -->
+	<spawn map="310050000" npcid="212187" pool="4" interval="300">
+		<object x="362.01608" y="202.41676" z="141.87166" h="90"/>
+		<object x="318.26974" y="173.28584" z="141.87166" h="102"/>
+		<object x="337.82175" y="169.78882" z="141.87166" h="14"/>
+		<object x="339.2787" y="192.20236" z="141.87166" h="80"/>
+	</spawn>
+	<!-- Special Lab Overseer (Monster Elite lvl:41) -->
+	<spawn map="310050000" npcid="212185" pool="1" interval="300">
+		<object x="364.5379" y="201.0428" z="141.87166" h="108"/>
+	</spawn>
+	<!-- Special Lab Security Guard (Monster Elite lvl:41) -->
+	<spawn map="310050000" npcid="212171" pool="1" interval="300">
+		<object x="334.01227" y="219.47156" z="144.14966" h="39"/>
+	</spawn>
+	<!-- Special Lab Sniper (Monster Elite lvl:41) -->
+	<spawn map="310050000" npcid="212190" pool="1" interval="300">
+		<object x="334.16" y="182.95" z="141.87166" h="72"/>
+	</spawn>
+	<!-- Special Lab Strategist (Monster Elite lvl:41) -->
+	<spawn map="310050000" npcid="212178" pool="2" interval="300">
+		<object x="354.3957" y="256.72232" z="141.9838" h="1"/>
+		<object x="333.27673" y="287.70255" z="141.9834" h="112"/>
+	</spawn>
+	<!-- Special Lab Vaegir (Monster Elite lvl:41) -->
+	<spawn map="310050000" npcid="212180" pool="1" interval="300">
+		<object x="330.53088" y="262.05008" z="141.97113" h="33"/>
+	</spawn>
+	<!-- The Gatekeeper (Monster Elite lvl:44) -->
+	<spawn map="310050000" npcid="212202" pool="1" interval="300">
+		<object x="198.31" y="323.46" z="124.85524" h="6"/>
+	</spawn>
+	<!-- The Keykeeper (Monster Hero lvl:42) -->
+	<spawn map="310050000" npcid="212341" pool="1" interval="14400">
+		<object x="360.64465" y="171.2528" z="141.87166" h="93"/>
+	</spawn>
+</spawns>

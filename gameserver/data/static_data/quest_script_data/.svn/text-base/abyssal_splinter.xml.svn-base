@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest_scripts>
+<!--
+  ~ This file is part of aion-unique.
+  ~
+  ~ aion-unique is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ aion-unique is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with aion-unique.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+	<!-- The Road to Reshanta -->
+	<report_to id="30251" start_npc_id="799053" end_npc_id="278549"/>
+	<!-- To the Abyssal Splinter -->
+	<report_to id="30252" start_npc_id="278549" end_npc_id="260264"/>
+	<!-- [Alliance] Fifth Column? -->
+	<item_collecting id="30253" start_npc_id="260264"/>
+	<!-- [Alliance] What's Down There? -->
+	<monster_hunt id="30254" start_npc_id="260264">
+		<monster_infos var_id="0" max_kill="1" npc_id="216948"/>
+		<monster_infos var_id="0" max_kill="1" npc_id="216949"/>
+	</monster_hunt>
+	<!-- 30255: Handled By Script [Alliance] The Last Crusade -->
+	<!-- [Alliance] Leize-y Shoes -->
+	<monster_hunt id="30256" start_npc_id="278652">
+		<monster_infos var_id="0" max_kill="3" npc_id="216942"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281896"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281919"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216958"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281918"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216947"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216959"/>
+	</monster_hunt>
+	<!-- [Alliance] Leize-ing Gloves Away -->
+	<monster_hunt id="30257" start_npc_id="278652">
+		<monster_infos var_id="0" max_kill="3" npc_id="216942"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281896"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281919"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216958"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281918"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216947"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216959"/>
+	</monster_hunt>
+	<!-- [Alliance] Leize-y Shrug -->
+	<monster_hunt id="30258" start_npc_id="278652">
+		<monster_infos var_id="0" max_kill="3" npc_id="216942"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281896"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281919"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216958"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281918"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216947"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216959"/>
+	</monster_hunt>
+	<!-- [Alliance] Leize's Legs -->
+	<monster_hunt id="30259" start_npc_id="278652">
+		<monster_infos var_id="0" max_kill="3" npc_id="216946"/>
+		<monster_infos var_id="0" max_kill="3" npc_id="281895"/>
+		<monster_infos var_id="0" max_kill="3" npc_id="216957"/>
+		<monster_infos var_id="0" max_kill="3" npc_id="281917"/>
+		<monster_infos var_id="1" max_kill="2" npc_id="216944"/>
+	</monster_hunt>
+	<!-- [Alliance] Rosarea's Heart -->
+	<monster_hunt id="30260" start_npc_id="278652">
+		<monster_infos var_id="0" max_kill="3" npc_id="216946"/>
+		<monster_infos var_id="0" max_kill="3" npc_id="281895"/>
+		<monster_infos var_id="0" max_kill="3" npc_id="216957"/>
+		<monster_infos var_id="0" max_kill="3" npc_id="281917"/>
+		<monster_infos var_id="1" max_kill="2" npc_id="216944"/>
+	</monster_hunt>
+	<!-- Weird Fragment -->
+	<monster_hunt id="30261" start_npc_id="260264">
+		<monster_infos var_id="0" max_kill="10" npc_id="700863"/>
+	</monster_hunt>
+	<!-- 30262: [Alliance] Fragment Removal -->
+	<monster_hunt id="30262" start_npc_id="260264">
+		<monster_infos var_id="0" npc_id="700863" max_kill="10"/>
+	</monster_hunt>
+	<!-- 30263: Handled By Script [Alliance] Daevas Fear To Tread -->
+	<!-- 30264: Handled By Script A Necklace with History -->
+	<!-- 30265: Handled By Scipt A Polearm Walks into a Bar -->
+	<!-- [Alliance] Watch the Watcher Die -->
+	<monster_hunt id="30266" start_npc_id="260264">
+		<monster_infos var_id="0" max_kill="3" npc_id="216945"/>
+	</monster_hunt>
+	<!-- [Alliance] Fragmenting Fragments -->
+	<monster_hunt id="30267" start_npc_id="260264">
+		<monster_infos var_id="0" max_kill="2" npc_id="700955"/>
+	</monster_hunt>
+	<!-- Visiting Vare -->
+	<report_to id="30351" start_npc_id="799364" end_npc_id="278048"/>
+	<!-- A New Abyss -->
+	<report_to id="30352" start_npc_id="278048" end_npc_id="260265"/>
+	<!-- [Alliance] Debug the Abyssal Splinter -->
+	<monster_hunt id="30353" start_npc_id="260265">
+		<monster_infos var_id="0" max_kill="2" npc_id="216950"/>
+	</monster_hunt>
+	<!-- [Alliance] Like Night and Day -->
+	<monster_hunt id="30354" start_npc_id="260265">
+		<monster_infos var_id="0" max_kill="1" npc_id="216948"/>
+		<monster_infos var_id="1" max_kill="1" npc_id="216949"/>
+	</monster_hunt>
+	<!-- 30355: TODO: [Alliance] The Protector's Madness (lvl 54) -->
+	<!-- [Alliance] Laize's Panoply: Shoes -->
+	<monster_hunt id="30356" start_npc_id="278152">
+		<monster_infos var_id="0" max_kill="3" npc_id="216942"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281896"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281919"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216958"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281918"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216947"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216959"/>
+	</monster_hunt>
+	<!-- [Alliance] Laize's Panoply: Gloves -->
+	<monster_hunt id="30357" start_npc_id="278152">
+		<monster_infos var_id="0" max_kill="3" npc_id="216942"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281896"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281919"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216958"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281918"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216947"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216959"/>
+	</monster_hunt>
+	<!-- [Alliance] Laize's Panoply: Shoulderplates -->
+	<monster_hunt id="30358" start_npc_id="278152">
+		<monster_infos var_id="0" max_kill="3" npc_id="216942"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281896"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281919"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216958"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="281918"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216947"/>
+		<monster_infos var_id="1" max_kill="10" npc_id="216959"/>
+	</monster_hunt>
+	<!-- [Alliance] Laize's Panoply: Gaiters -->
+	<monster_hunt id="30359" start_npc_id="278152">
+		<monster_infos var_id="0" max_kill="3" npc_id="216946"/>
+		<monster_infos var_id="0" max_kill="3" npc_id="281895"/>
+		<monster_infos var_id="0" max_kill="3" npc_id="216957"/>
+		<monster_infos var_id="0" max_kill="3" npc_id="281917"/>
+		<monster_infos var_id="1" max_kill="2" npc_id="216944"/>
+	</monster_hunt>
+	<!-- [Alliance] Laize's Panoply: Breastplate -->
+	<monster_hunt id="30360" start_npc_id="278152">
+		<monster_infos var_id="0" max_kill="3" npc_id="216946"/>
+		<monster_infos var_id="0" max_kill="3" npc_id="281895"/>
+		<monster_infos var_id="0" max_kill="3" npc_id="216957"/>
+		<monster_infos var_id="0" max_kill="3" npc_id="281917"/>
+		<monster_infos var_id="1" max_kill="2" npc_id="216944"/>
+	</monster_hunt>
+	<!-- 30361: Handled By Script Strange Fragment -->
+	<!-- 30362: [Alliance] Obliterate the Orcanimum -->
+	<monster_hunt start_npc_id="260265" id="30362">
+		<monster_infos var_id="0" npc_id="700863" max_kill="10"/>
+	</monster_hunt>
+	<!-- 30363: Handled By Script [Alliance] Fools Rush In... -->
+	<!-- 30364: Handled By Script Remembrance of Spirits Past -->
+	<!-- 30365: Handled By Script A Ray of Hope -->
+	<!-- 30366: [Alliance] Whipping the Watchers -->
+	<monster_hunt start_npc_id="260265" id="30366">
+		<monster_infos var_id="0" npc_id="216945" max_kill="3"/>
+	</monster_hunt>
+	<!-- 30367: [Alliance] Fragmentary Knowledge -->
+	<monster_hunt start_npc_id="260265" id="30367">
+		<monster_infos var_id="0" npc_id="700955" max_kill="2"/>
+	</monster_hunt>
+</quest_scripts>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/log4j
+END
+ThrowableAsMessageLogger.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/log4j/ThrowableAsMessageLogger.java
+END
+JuliToLog4JHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/log4j/JuliToLog4JHandler.java
+END
+ThrowableAsMessageAwareFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/4/trunk/commons/src/org/openaion/commons/log4j/ThrowableAsMessageAwareFactory.java
+END

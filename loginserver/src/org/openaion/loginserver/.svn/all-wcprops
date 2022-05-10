@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver
+END
+Shutdown.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/Shutdown.java
+END
+GameServerInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/GameServerInfo.java
+END
+LoginServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/LoginServer.java
+END
+GameServerTable.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/4/trunk/loginserver/src/org/openaion/loginserver/GameServerTable.java
+END

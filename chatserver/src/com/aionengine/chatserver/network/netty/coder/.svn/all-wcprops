@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/netty/coder
+END
+GameServerPacketDecoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/netty/coder/GameServerPacketDecoder.java
+END
+LoginPacketEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/netty/coder/LoginPacketEncoder.java
+END
+LoginPacketDecoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/netty/coder/LoginPacketDecoder.java
+END
+PacketFrameDecoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/netty/coder/PacketFrameDecoder.java
+END
+GameServerPacketEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/netty/coder/GameServerPacketEncoder.java
+END

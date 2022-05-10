@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/aion/clientpackets
+END
+CM_CHANNEL_MESSAGE.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/aion/clientpackets/CM_CHANNEL_MESSAGE.java
+END
+CM_PLAYER_AUTH.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/aion/clientpackets/CM_PLAYER_AUTH.java
+END
+CM_CHANNEL_REQUEST.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/aion/clientpackets/CM_CHANNEL_REQUEST.java
+END
+CM_CHANNEL_JOIN.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/3/trunk/chatserver/src/com/aionengine/chatserver/network/aion/clientpackets/CM_CHANNEL_JOIN.java
+END
