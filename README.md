@@ -1,6 +1,6 @@
 ![](https://raw.githubusercontent.com/ZON3DEV/AionLightning/7.8.0/Docs/images/al_banner.png)
 
-# Aion EU Emulator
+# EU Server Solution
 ### Version: 7.8
 
 **Client:** [Gameforge](https://de.aion.gameforge.com/website/download/) **+** [Launcher](https://github.com/AionGermany/aion-germany/blob/master/AL-Tools/AionLauncherEU_5.x.rar)
