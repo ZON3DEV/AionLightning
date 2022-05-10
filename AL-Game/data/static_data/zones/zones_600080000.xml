@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones>
+    <zone mapid="600080000" name="CONCERT_GROUNDS_2_600080000" area_type="POLYGON" zone_type="SUB" priority="16" flags="54">
+        <points bottom="542.520996" top="642.520996">
+            <point x="1658.248779" y="1677.074951"/>
+            <point x="1334.130493" y="1679.952148"/>
+            <point x="1334.082031" y="1349.943848"/>
+            <point x="1657.786377" y="1348.890747"/>
+        </points>
+    </zone>
+    <zone mapid="600080000" name="LIMITAREAIDIU_DESIGN2_2_600080000" area_type="POLYGON" zone_type="LIMIT" flags="0">
+        <points bottom="532.0" top="632.0">
+            <point x="1344.835938" y="1356.796631"/>
+            <point x="1653.968384" y="1357.848145"/>
+            <point x="1653.442627" y="1685.381226"/>
+            <point x="1344.835938" y="1684.855469"/>
+        </points>
+    </zone>
+</zones>

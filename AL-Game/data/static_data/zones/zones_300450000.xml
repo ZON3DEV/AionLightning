@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zones>
+    <zone mapid="300450000" name="ANCIENT_SAND_TEMPLE_300450000" area_type="POLYGON" zone_type="SUB" priority="17" flags="52">
+        <points bottom="230.181122" top="830.181152">
+            <point x="84.107422" y="858.967041"/>
+            <point x="811.468933" y="864.335388"/>
+            <point x="817.735413" y="1393.005005"/>
+            <point x="83.237" y="1393.921387"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="BATTLE_GROUNDS_300450000" area_type="POLYGON" zone_type="SUB" priority="17" flags="52">
+        <points bottom="227.582977" top="827.583008">
+            <point x="1233.153564" y="1506.402222"/>
+            <point x="2035.277344" y="1497.508057"/>
+            <point x="2033.163696" y="1995.59021"/>
+            <point x="1245.921143" y="1992.667358"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="BGM_MUTE_47" area_type="POLYGON" zone_type="FLY" flags="60">
+        <points bottom="0.1" top="1000.099976">
+            <point x="2191.360107" y="-183.380005"/>
+            <point x="2165.030762" y="2308.01709"/>
+            <point x="-128.897949" y="2196.118164"/>
+            <point x="-132.189209" y="2021.687378"/>
+            <point x="-112.442139" y="-193.253677"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="BLAZING_HEART_OF_THE_VOLCANO_300450000" area_type="POLYGON" zone_type="SUB" priority="17" flags="52">
+        <points bottom="134.122116" top="934.122131">
+            <point x="1183.032227" y="-25.829704"/>
+            <point x="1990.745972" y="-11.089653"/>
+            <point x="1959.53894" y="670.613892"/>
+            <point x="1144.657715" y="669.677246"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="FLYINGZONE_STAGE_02" area_type="POLYGON" zone_type="FLY" flags="60">
+        <points bottom="123.539558" top="183.539551">
+            <point x="437.643127" y="1747.314453"/>
+            <point x="437.920898" y="1814.629883"/>
+            <point x="553.732117" y="1814.564209"/>
+            <point x="554.546082" y="1746.881836"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="IDARENA_ITEMUSEAREA_ALL_5" area_type="POLYGON" zone_type="ITEM_USE" flags="52">
+        <points bottom="20.467133" top="620.467163">
+            <point x="1658.351196" y="1597.402954"/>
+            <point x="2027.436646" y="1598.969482"/>
+            <point x="2010.775757" y="1957.609619"/>
+            <point x="1669.686401" y="1913.211792"/>
+            <point x="1659.437378" y="1621.454468"/>
+            <point x="578.154907" y="1848.36084"/>
+            <point x="378.683838" y="1835.105347"/>
+            <point x="379.441406" y="1729.726807"/>
+            <point x="406.943726" y="1221.675781"/>
+            <point x="407.103149" y="1047.041504"/>
+            <point x="427.358032" y="458.140015"/>
+            <point x="420.738892" y="305.069092"/>
+            <point x="568.523071" y="301.84021"/>
+            <point x="1464.353882" y="272.362915"/>
+            <point x="1669.518066" y="273.881348"/>
+            <point x="1668.387695" y="479.836548"/>
+            <point x="1879.710938" y="1121.613892"/>
+            <point x="1882.772705" y="1236.268677"/>
+            <point x="1778.782837" y="1237.535767"/>
+            <point x="1784.768555" y="1113.77417"/>
+            <point x="1878.526489" y="1122.292725"/>
+            <point x="1660.827637" y="478.751343"/>
+            <point x="1461.172607" y="462.916992"/>
+            <point x="1464.064941" y="279.472168"/>
+            <point x="581.386841" y="311.679565"/>
+            <point x="578.788452" y="460.960327"/>
+            <point x="441.75" y="461.216553"/>
+            <point x="416.305176" y="1047.008545"/>
+            <point x="584.21521" y="1026.872559"/>
+            <point x="590.929565" y="1248.556763"/>
+            <point x="416.578613" y="1220.436646"/>
+            <point x="380.950806" y="1720.277588"/>
+            <point x="577.93042" y="1718.600952"/>
+            <point x="578.849243" y="1847.76355"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="IDARENA_PVP_ITEMUSEAREA_ALL_5" area_type="POLYGON" zone_type="ITEM_USE" flags="52">
+        <points bottom="21.042511" top="621.04248">
+            <point x="1655.759033" y="1590.313721"/>
+            <point x="2035.484741" y="1550.989136"/>
+            <point x="2022.775757" y="2020.752197"/>
+            <point x="1681.686401" y="1976.35437"/>
+            <point x="1656.845215" y="1614.365234"/>
+            <point x="577.624634" y="1846.615845"/>
+            <point x="383.175903" y="1838.049683"/>
+            <point x="382.403198" y="1711.073486"/>
+            <point x="399.127075" y="1215.351685"/>
+            <point x="408.091797" y="1035.528076"/>
+            <point x="395.300049" y="475.562012"/>
+            <point x="412.788086" y="306.696777"/>
+            <point x="568.053833" y="279.360596"/>
+            <point x="1469.004028" y="277.132813"/>
+            <point x="1665.472412" y="273.144287"/>
+            <point x="1666.494019" y="481.044922"/>
+            <point x="1879.491821" y="1123.103638"/>
+            <point x="1882.472168" y="1237.694702"/>
+            <point x="1778.156982" y="1238.244995"/>
+            <point x="1782.130127" y="1114.221924"/>
+            <point x="1878.328735" y="1122.677246"/>
+            <point x="1665.36145" y="481.694092"/>
+            <point x="1457.763062" y="458.36377"/>
+            <point x="1465.847168" y="279.446411"/>
+            <point x="580.917603" y="289.199951"/>
+            <point x="589.125854" y="475.057251"/>
+            <point x="409.692017" y="478.63855"/>
+            <point x="417.293701" y="1035.495117"/>
+            <point x="566.063843" y="1035.416504"/>
+            <point x="580.927124" y="1220.430054"/>
+            <point x="408.761963" y="1214.112671"/>
+            <point x="379.740723" y="1713.811646"/>
+            <point x="575.586304" y="1710.786743"/>
+            <point x="575.490845" y="1845.636353"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="IDARENA_PVP_ITEMUSEAREA_ALL_LOSE_5" area_type="POLYGON" zone_type="ITEM_USE" flags="52">
+        <points bottom="21.484039" top="621.484009">
+            <point x="1639.556396" y="1582.769775"/>
+            <point x="2008.641846" y="1584.336304"/>
+            <point x="1991.980957" y="1942.97644"/>
+            <point x="1650.891602" y="1898.578613"/>
+            <point x="1642.732056" y="1606.040771"/>
+            <point x="576.394653" y="1847.700439"/>
+            <point x="383.133911" y="1836.021851"/>
+            <point x="381.587646" y="1717.741577"/>
+            <point x="388.148926" y="1207.042603"/>
+            <point x="388.30835" y="1032.408325"/>
+            <point x="408.563232" y="443.506836"/>
+            <point x="401.944092" y="290.435913"/>
+            <point x="549.728271" y="287.207031"/>
+            <point x="1465.377197" y="279.050659"/>
+            <point x="1672.69397" y="271.135986"/>
+            <point x="1667.792114" y="477.38501"/>
+            <point x="1879.393433" y="1122.803467"/>
+            <point x="1883.175293" y="1237.015015"/>
+            <point x="1777.348633" y="1236.407959"/>
+            <point x="1782.624512" y="1115.61499"/>
+            <point x="1878.298218" y="1122.906616"/>
+            <point x="1669.479126" y="480.238403"/>
+            <point x="1455.938965" y="458.185425"/>
+            <point x="1466.14856" y="276.658691"/>
+            <point x="562.592041" y="297.046387"/>
+            <point x="559.993652" y="446.327148"/>
+            <point x="422.9552" y="446.583374"/>
+            <point x="397.510376" y="1032.375366"/>
+            <point x="565.42041" y="1012.23938"/>
+            <point x="572.134766" y="1233.923584"/>
+            <point x="397.783813" y="1205.803467"/>
+            <point x="381.01416" y="1718.798096"/>
+            <point x="575.433594" y="1717.484741"/>
+            <point x="576.283936" y="1846.908936"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="IDARENA_TEAM01_BASIC" area_type="POLYGON" zone_type="FLY" flags="60">
+        <points bottom="0.1" top="1000.099976">
+            <point x="1198.410034" y="1562.209961"/>
+            <point x="2080.437256" y="1483.222412"/>
+            <point x="2087.019287" y="2072.337402"/>
+            <point x="1195.118896" y="2065.755371"/>
+            <point x="1185.245483" y="1976.894287"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="IDARENA_TEAM01_DAMAGE" area_type="POLYGON" zone_type="FLY" flags="60">
+        <points bottom="0.1" top="1000.099976">
+            <point x="1043.72998" y="8.78"/>
+            <point x="2047.529297" y="25.235794"/>
+            <point x="2047.529297" y="742.705627"/>
+            <point x="1070.059082" y="722.95874"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="IDARENA_TEAM01_FLYING" area_type="POLYGON" zone_type="FLY" flags="60">
+        <points bottom="0.1" top="1000.099976">
+            <point x="-6.15" y="1552.329956"/>
+            <point x="1047.016602" y="1558.912354"/>
+            <point x="1033.852051" y="2065.748779"/>
+            <point x="-2.858907" y="2065.748779"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="IDARENA_TEAM01_FLYINGZONE_S2" area_type="POLYGON" zone_type="FLY" flags="60">
+        <points bottom="105.491768" top="205.49176">
+            <point x="415.758606" y="1724.035767"/>
+            <point x="566.923889" y="1721.50415"/>
+            <point x="563.716675" y="1849.617188"/>
+            <point x="416.878967" y="1848.20105"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="IDARENA_TEAM01_MAZE" area_type="POLYGON" zone_type="FLY" flags="60">
+        <points bottom="0.1" top="1000.099976">
+            <point x="1122.719971" y="782.200012"/>
+            <point x="2054.114258" y="792.073486"/>
+            <point x="2063.987793" y="1400.935547"/>
+            <point x="1122.719971" y="1391.062012"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="IDARENA_TEAM01_PILLAR" area_type="POLYGON" zone_type="FLY" flags="60">
+        <points bottom="0.1" top="1000.099976">
+            <point x="-2.85" y="769.039978"/>
+            <point x="1000.949524" y="792.078064"/>
+            <point x="1007.531799" y="1502.965576"/>
+            <point x="-19.305777" y="1470.053955"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="IDARENA_TEAM01_PVPZONE_S1" area_type="POLYGON" zone_type="PVP" flags="64">
+        <points bottom="293.937531" top="493.937531">
+            <point x="1732.183838" y="1863.957642"/>
+            <point x="1716.03894" y="1639.202271"/>
+            <point x="1942.181763" y="1607.108276"/>
+            <point x="1962.606079" y="1858.784058"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="IDARENA_TEAM01_PVPZONE_S2" area_type="POLYGON" zone_type="PVP" flags="64">
+        <points bottom="107.943207" top="207.943207">
+            <point x="422.24176" y="1729.928467"/>
+            <point x="569.661743" y="1724.989136"/>
+            <point x="569.971008" y="1835.588989"/>
+            <point x="423.757111" y="1834.767578"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="IDARENA_TEAM01_PVPZONE_S3" area_type="POLYGON" zone_type="PVP" flags="64">
+        <points bottom="347.311005" top="547.311035">
+            <point x="413.494415" y="1061.420776"/>
+            <point x="566.647705" y="1066.837646"/>
+            <point x="562.029785" y="1200.92981"/>
+            <point x="411.089355" y="1206.521606"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="IDARENA_TEAM01_PVPZONE_S4" area_type="POLYGON" zone_type="PVP" flags="64">
+        <points bottom="148.357651" top="348.357666">
+            <point x="1510.764526" y="317.230469"/>
+            <point x="1602.446289" y="314.391541"/>
+            <point x="1599.126465" y="417.449432"/>
+            <point x="1503.80835" y="415.791656"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="IDARENA_TEAM01_PVPZONE_S5" area_type="POLYGON" zone_type="PVP" flags="64">
+        <points bottom="203.632553" top="303.632568">
+            <point x="1800.106201" y="1120.567261"/>
+            <point x="1881.917358" y="1117.511108"/>
+            <point x="1877.808594" y="1216.641357"/>
+            <point x="1801.296875" y="1207.651733"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="IDARENA_TEAM01_PVPZONE_S6" area_type="POLYGON" zone_type="PVP" flags="64">
+        <points bottom="144.825516" top="344.8255">
+            <point x="418.434906" y="302.318146"/>
+            <point x="577.734497" y="293.172607"/>
+            <point x="576.145325" y="468.461212"/>
+            <point x="417.896179" y="463.36261"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="IDARENA_TEAM01_TRIANGLE" area_type="POLYGON" zone_type="FLY" flags="60">
+        <points bottom="0.1" top="1000.099976">
+            <point x="-16.02" y="12.08"/>
+            <point x="987.779358" y="31.826887"/>
+            <point x="994.361694" y="686.765015"/>
+            <point x="-22.602345" y="686.764954"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="TEMPLE_OF_THE_FORGOTTEN_LABYRINTH_300450000" area_type="POLYGON" zone_type="SUB" priority="17" flags="52">
+        <points bottom="157.978134" top="857.978149">
+            <point x="1137.784302" y="774.485962"/>
+            <point x="2072.911621" y="771.420044"/>
+            <point x="2075.977539" y="1445.937988"/>
+            <point x="1134.71814" y="1427.541992"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="TREPHONE_TOWER_300450000" area_type="POLYGON" zone_type="SUB" priority="17" flags="52">
+        <points bottom="16.5" top="616.5">
+            <point x="15.807068" y="-9.01104"/>
+            <point x="954.309204" y="-0.346245"/>
+            <point x="918.618958" y="673.75592"/>
+            <point x="16.637421" y="659.58844"/>
+        </points>
+    </zone>
+    <zone mapid="300450000" name="VALLEY_OF_AETHER_300450000" area_type="POLYGON" zone_type="SUB" priority="17" flags="52">
+        <points bottom="35.530533" top="835.530518">
+            <point x="88.281006" y="1564.393188"/>
+            <point x="1008.445007" y="1557.845825"/>
+            <point x="1008.961182" y="2033.756958"/>
+            <point x="88.811584" y="2035.494507"/>
+        </points>
+    </zone>
+</zones>

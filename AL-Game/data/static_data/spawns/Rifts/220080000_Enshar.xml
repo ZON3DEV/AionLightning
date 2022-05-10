@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spawns>
+    <spawn_map map_id="220080000">
+        <!-- Rift -->
+        <spawn npc_id="700137" handler="RIFT"> <!-- Entrys in Enshar -->
+            <spot x="115.34533" y="2609.8462" z="132.28868" h="30" anchor="ENSHAR_AM"/> <!-- checked -->
+            <spot x="1308.2982" y="2396.4216" z="285.474" h="30" anchor="ENSHAR_BM"/> <!-- checked -->
+            <spot x="2326.0474" y="1177.0006" z="325.64798" h="30" anchor="ENSHAR_CM"/> <!-- checked -->
+            <spot x="118.37503" y="1463.7329" z="315.77695" anchor="ENSHAR_DM"/> <!-- checked -->
+            <spot x="1076.916" y="657.25085" z="227.56952" h="75" anchor="ENSHAR_EM"/> <!-- checked -->
+            <spot x="2415.4614" y="163.09802" z="252.86307" h="30" anchor="ENSHAR_FM"/> <!-- checked -->
+        </spawn>
+        <spawn npc_id="700138" handler="RIFT"> <!-- Exits in Enshar -->
+            <spot x="602.5796" y="2703.217" z="216.28278" anchor="ENSHAR_AS"/> <!-- checked -->
+            <spot x="954.0637" y="2551.1965" z="302.14624" anchor="ENSHAR_BS"/> <!-- checked -->
+            <spot x="2739.662" y="1591.5354" z="347.85513" anchor="ENSHAR_CS"/> <!-- checked -->
+            <spot x="232.77876" y="1363.8507" z="328.36523" anchor="ENSHAR_DS"/> <!-- checked -->
+            <spot x="1915.154" y="548.2501" z="262.72296" h="90" anchor="ENSHAR_ES"/> <!-- checked -->
+            <spot x="2731.43" y="973.4546" z="289.3475" h="60" anchor="ENSHAR_FS"/> <!-- checked -->
+        </spawn>
+        
+        <!-- Volatile Rift -->
+        <spawn npc_id="702723" handler="RIFT"> <!-- Entrys in Enshar --> <!--  handler="VOLATILE_RIFT" -->
+            <spot x="2866.201" y="2398.226" z="178.47922" h="45" anchor="ENSHAR_GM"/> <!-- ID:2286 - checked -->
+            <spot x="97.66176" y="142.2359" z="168.0986" h="30" anchor="ENSHAR_HM"/> <!-- ID:2287 - checked -->
+            <spot x="1793.5022" y="1245.6637" z="222.57458" h="75" anchor="ENSHAR_IM"/> <!-- ID:2288 - checked -->
+        </spawn>
+        <spawn npc_id="702724" handler="RIFT"> <!-- Exits in Enshar --> <!--  handler="VOLATILE_RIFT" -->
+            <spot x="2855.709" y="2550.7583" z="260.3752" h="60" anchor="ENSHAR_GS"/> <!-- ID:2176 - checked -->
+            <spot x="131.92842" y="366.53183" z="221.98703" anchor="ENSHAR_HS"/> <!-- ID:2177 - checked -->
+            <spot x="1927.2534" y="1017.1204" z="187.88315" h="60" anchor="ENSHAR_IS"/> <!-- ID:2178 - checked -->
+        </spawn>
+
+        <!-- ENSHAR_AS -->
+        <rift_spawn id="2170">
+        </rift_spawn>
+        <!-- ENSHAR_BS -->
+        <rift_spawn id="2171">
+        </rift_spawn>
+        <!-- ENSHAR_CS -->
+        <rift_spawn id="2172">
+        </rift_spawn>
+        <!-- ENSHAR_DS -->
+        <rift_spawn id="2173">
+        </rift_spawn>
+        <!-- ENSHAR_ES -->
+        <rift_spawn id="2174">
+        </rift_spawn>
+        <!-- ENSHAR_FS -->
+        <rift_spawn id="2175">
+        </rift_spawn>
+
+        <rift_spawn id="2176"> <!-- Tal der Aquaner -->
+        </rift_spawn>
+        <rift_spawn id="2177">
+        </rift_spawn>
+        <rift_spawn id="2178">
+        </rift_spawn>
+    </spawn_map>
+</spawns>
