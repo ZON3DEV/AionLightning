@@ -1,6 +1,10 @@
 <div align="center"><img src="https://raw.githubusercontent.com/ZON3DEV/AionLightning/7.8.0/Docs/images/al_banner.png" width=40%>
 
 # EU Server Solution
+### Version: 1.9
+  ```sh
+  .git clone --recursive -b 1.9.0 https://github.com/ZON3DEV/AionLightning.git
+  ```
 ### Version: 4.6
   ```sh
   .git clone --recursive -b 4.6.0 https://github.com/ZON3DEV/AionLightning.git
