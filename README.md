@@ -1,4 +1,4 @@
-<div align="center"><img src="https://raw.githubusercontent.com/ZON3DEV/AionLightning/7.8.0/Docs/images/al_banner.png">
+<div align="center"><img src="https://raw.githubusercontent.com/ZON3DEV/AionLightning/7.8.0/Docs/images/al_banner.png" width=40%>
 
 # EU Server Solution
 ### Version: 4.6
