@@ -1,9 +1,8 @@
-![](https://raw.githubusercontent.com/ZON3DEV/AionLightning/7.8.0/Docs/images/al_banner.png)
+<div align="center"><img src="https://raw.githubusercontent.com/ZON3DEV/AionLightning/7.8.0/Docs/images/al_banner.png">
 
 # EU Server Solution
 ### Version: 7.8
-
-**Client:** [Gameforge](https://de.aion.gameforge.com/website/download/) **+** [Launcher](https://github.com/AionGermany/aion-germany/blob/master/AL-Tools/AionLauncherEU_5.x.rar)
+</div>
 
 ```sh
 Launcher Settings (add this to your config File):
