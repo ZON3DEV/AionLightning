@@ -1,6 +1,4 @@
-![](http://falke34.bplaced.net/Splash01.png)
-
-###Development Ended
+![](https://raw.githubusercontent.com/ZON3DEV/AionLightning/7.8.0/Docs/images/al_banner.png)
 
 # Aion EU Emulator
 ### Version: 7.8
