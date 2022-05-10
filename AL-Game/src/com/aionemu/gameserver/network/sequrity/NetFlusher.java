@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.sequrity;
 
 import java.util.Timer;
@@ -28,13 +29,11 @@ public final class NetFlusher {
 
 	public static void add(final Runnable runnable, long interval) {
 		_timer.scheduleAtFixedRate(new TimerTask() {
-
 			@Override
 			public void run() {
 				try {
 					runnable.run();
-				}
-				catch (RuntimeException e) {
+				} catch (RuntimeException e) {
 					e.printStackTrace();
 				}
 			}

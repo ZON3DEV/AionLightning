@@ -14,11 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model;
 
 import javax.xml.bind.annotation.XmlEnum;
-
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
  * This enum represent class that a player may belong to.
@@ -45,15 +44,15 @@ public enum PlayerClass {
 	GUNNER(14),
 	ARTIST(15, true),
 	BARD(16),
-	PAINTER(17),
-	ALL(18);
+	ALL(17);
 
 	/**
 	 * This id is used on client side
 	 */
 	private byte classId;
 	/**
-	 * This is the mask for this class id, used with bitwise AND in arguments that contain more than one possible class
+	 * This is the mask for this class id, used with bitwise AND in arguments
+	 * that contain more than one possible class
 	 */
 	private int idMask;
 	/**
@@ -85,7 +84,9 @@ public enum PlayerClass {
 	 *
 	 * @param classId
 	 *            - id of player class
-	 * @return PlayerClass objects that matches the given classId. If there isn't any objects that matches given id, then <b>IllegalArgumentException</b> is being thrown.
+	 * @return PlayerClass objects that matches the given classId. If there
+	 *         isn't any objects that matches given id, then
+	 *         <b>IllegalArgumentException</b> is being thrown.
 	 */
 	public static PlayerClass getPlayerClassById(byte classId) {
 		for (PlayerClass pc : values()) {
@@ -98,7 +99,8 @@ public enum PlayerClass {
 	}
 
 	/**
-	 * @return true if this is one of starting classes ( player can create char with this class )
+	 * @return true if this is one of starting classes ( player can create char
+	 *         with this class )
 	 */
 	public boolean isStartingClass() {
 		return startingClass;
@@ -109,7 +111,8 @@ public enum PlayerClass {
 	 * @return starting class for second class
 	 */
 	public static PlayerClass getStartingClassFor(PlayerClass pc) {
-		// TODO: remove that shit, we already have everything in the enum itself!
+		// TODO: remove that shit, we already have everything in the enum
+		// itself!
 		switch (pc) {
 			case ASSASSIN:
 			case RANGER:
@@ -127,7 +130,6 @@ public enum PlayerClass {
 			case RIDER:
 				return ENGINEER;
 			case BARD:
-			case PAINTER:
 				return ARTIST;
 			case SCOUT:
 			case WARRIOR:
@@ -153,28 +155,4 @@ public enum PlayerClass {
 	public int getMask() {
 		return idMask;
 	}
-
-    public String getClassType(final Player player) {
-        switch (player.getPlayerClass()) {
-            case ASSASSIN:
-            case RANGER:
-            case GLADIATOR:
-            case TEMPLAR:
-            case PAINTER:
-            case GUNNER: {
-                break;
-            }
-            case CHANTER:
-            case CLERIC:
-            case SORCERER:
-            case SPIRIT_MASTER:
-            case BARD:
-            case RIDER: {
-                break;
-            }
-		default:
-			break;
-        }
-        return null;
-    }
 }

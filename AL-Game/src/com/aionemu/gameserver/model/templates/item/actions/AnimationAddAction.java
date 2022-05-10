@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item.actions;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -62,9 +63,9 @@ public class AnimationAddAction extends AbstractItemAction {
 	@Override
 	public void act(final Player player, final Item parentItem, Item targetItem) {
 		player.getController().cancelUseItem();
-		PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, parentItem.getObjectId(), parentItem.getItemTemplate().getTemplateId(), 1000, 0));
+		PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), parentItem.getObjectId(), parentItem.getItemTemplate()
+				.getTemplateId(), 1000, 0, 0));
 		player.getController().addTask(TaskId.ITEM_USE, ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				if (player.getInventory().decreaseItemCount(parentItem, 1) != 0) {
@@ -85,7 +86,8 @@ public class AnimationAddAction extends AbstractItemAction {
 				if (shop != null) {
 					addMotion(player, shop);
 				}
-				PacketSendUtility.broadcastPacketAndReceive(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, parentItem.getObjectId(), parentItem.getItemId(), 0, 1));
+				PacketSendUtility.broadcastPacketAndReceive(player,
+						new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), parentItem.getObjectId(), parentItem.getItemId(), 0, 1, 0));
 				PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300423, new DescriptionId(parentItem.getItemTemplate().getNameId())));
 				PacketSendUtility.broadcastPacket(player, new SM_MOTION(player.getObjectId(), player.getMotions().getActiveMotions()), false);
 			}

@@ -15,21 +15,20 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.utils.internal.chmv8;
+
+import com.aionemu.commons.utils.SystemPropertyUtil;
+import sun.misc.Cleaner;
+import sun.misc.Unsafe;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 
-import com.aionemu.commons.utils.SystemPropertyUtil;
-
-import sun.misc.Cleaner;
-import sun.misc.Unsafe;
-
 /**
- * The {@link PlatformDependent} operations which requires access to
- * {@code sun.misc.*}.
+ * The {@link PlatformDependent} operations which requires access to {@code sun.misc.*}.
  */
 final class PlatformDependent0 {
 
@@ -39,9 +38,7 @@ final class PlatformDependent0 {
 	/**
 	 * {@code true} if and only if the platform supports unaligned access.
 	 *
-	 * @see <a href=
-	 *      "http://en.wikipedia.org/wiki/Segmentation_fault#Bus_error">Wikipedia
-	 *      on segfault</a>
+	 * @see <a href="http://en.wikipedia.org/wiki/Segmentation_fault#Bus_error">Wikipedia on segfault</a>
 	 */
 	private static final boolean UNALIGNED;
 
@@ -53,7 +50,8 @@ final class PlatformDependent0 {
 			cleanerField.setAccessible(true);
 			Cleaner cleaner = (Cleaner) cleanerField.get(direct);
 			cleaner.clean();
-		} catch (Throwable t) {
+		}
+		catch (Throwable t) {
 			cleanerField = null;
 		}
 
@@ -63,7 +61,8 @@ final class PlatformDependent0 {
 			addressField.setAccessible(true);
 			if (addressField.getLong(ByteBuffer.allocate(1)) != 0) {
 				addressField = null;
-			} else {
+			}
+			else {
 				direct = ByteBuffer.allocateDirect(1);
 				if (addressField.getLong(direct) == 0) {
 					addressField = null;
@@ -73,7 +72,8 @@ final class PlatformDependent0 {
 					cleaner.clean();
 				}
 			}
-		} catch (Throwable t) {
+		}
+		catch (Throwable t) {
 			addressField = null;
 		}
 
@@ -84,17 +84,17 @@ final class PlatformDependent0 {
 				unsafeField.setAccessible(true);
 				unsafe = (Unsafe) unsafeField.get(null);
 
-				// Ensure the unsafe supports all necessary methods to work
-				// around the mistake in the latest OpenJDK.
+				// Ensure the unsafe supports all necessary methods to work around the mistake in the latest OpenJDK.
 				// http://www.mail-archive.com/jdk6-dev@openjdk.java.net/msg00698.html
-				unsafe.getClass().getDeclaredMethod("copyMemory",
-						new Class[] { Object.class, long.class, Object.class, long.class, long.class });
-			} catch (Throwable cause) {
+				unsafe.getClass().getDeclaredMethod(
+								"copyMemory", new Class[]{Object.class, long.class, Object.class, long.class, long.class});
+			}
+			catch (Throwable cause) {
 				unsafe = null;
 			}
-		} else {
-			// If we cannot access the address of a direct buffer, there's no
-			// point of using unsafe.
+		}
+		else {
+			// If we cannot access the address of a direct buffer, there's no point of using unsafe.
 			// Let's just pretend unsafe is unavailable for overall simplicity.
 			unsafe = null;
 		}
@@ -104,7 +104,8 @@ final class PlatformDependent0 {
 			CLEANER_FIELD_OFFSET = -1;
 			ADDRESS_FIELD_OFFSET = -1;
 			UNALIGNED = false;
-		} else {
+		}
+		else {
 			ADDRESS_FIELD_OFFSET = objectFieldOffset(addressField);
 			CLEANER_FIELD_OFFSET = objectFieldOffset(cleanerField);
 
@@ -114,10 +115,11 @@ final class PlatformDependent0 {
 				Method unalignedMethod = bitsClass.getDeclaredMethod("unaligned");
 				unalignedMethod.setAccessible(true);
 				unaligned = Boolean.TRUE.equals(unalignedMethod.invoke(null));
-			} catch (Throwable t) {
+			}
+			catch (Throwable t) {
 				// We at least know x86 and x64 support unaligned access.
 				String arch = SystemPropertyUtil.get("os.arch", "");
-				// noinspection DynamicRegexReplaceableByCompiledPattern
+				//noinspection DynamicRegexReplaceableByCompiledPattern
 				unaligned = arch.matches("^(i[3-6]86|x86(_64)?|x64|amd64)$");
 			}
 			UNALIGNED = unaligned;
@@ -137,11 +139,11 @@ final class PlatformDependent0 {
 		try {
 			cleaner = (Cleaner) getObject(buffer, CLEANER_FIELD_OFFSET);
 			if (cleaner == null) {
-				throw new IllegalArgumentException(
-						"attempted to deallocate the buffer which was allocated via JNIEnv->NewDirectByteBuffer()");
+				throw new IllegalArgumentException("attempted to deallocate the buffer which was allocated via JNIEnv->NewDirectByteBuffer()");
 			}
 			cleaner.clean();
-		} catch (Throwable t) {
+		}
+		catch (Throwable t) {
 			// Nothing we can do here.
 		}
 	}
@@ -177,7 +179,8 @@ final class PlatformDependent0 {
 	static short getShort(long address) {
 		if (UNALIGNED) {
 			return UNSAFE.getShort(address);
-		} else {
+		}
+		else {
 			return (short) (getByte(address) << 8 | getByte(address + 1) & 0xff);
 		}
 	}
@@ -185,20 +188,28 @@ final class PlatformDependent0 {
 	static int getInt(long address) {
 		if (UNALIGNED) {
 			return UNSAFE.getInt(address);
-		} else {
-			return getByte(address) << 24 | (getByte(address + 1) & 0xff) << 16 | (getByte(address + 2) & 0xff) << 8
-					| getByte(address + 3) & 0xff;
+		}
+		else {
+			return getByte(address) << 24
+							| (getByte(address + 1) & 0xff) << 16
+							| (getByte(address + 2) & 0xff) << 8
+							| getByte(address + 3) & 0xff;
 		}
 	}
 
 	static long getLong(long address) {
 		if (UNALIGNED) {
 			return UNSAFE.getLong(address);
-		} else {
-			return (long) getByte(address) << 56 | ((long) getByte(address + 1) & 0xff) << 48
-					| ((long) getByte(address + 2) & 0xff) << 40 | ((long) getByte(address + 3) & 0xff) << 32
-					| ((long) getByte(address + 4) & 0xff) << 24 | ((long) getByte(address + 5) & 0xff) << 16
-					| ((long) getByte(address + 6) & 0xff) << 8 | (long) getByte(address + 7) & 0xff;
+		}
+		else {
+			return (long) getByte(address) << 56
+							| ((long) getByte(address + 1) & 0xff) << 48
+							| ((long) getByte(address + 2) & 0xff) << 40
+							| ((long) getByte(address + 3) & 0xff) << 32
+							| ((long) getByte(address + 4) & 0xff) << 24
+							| ((long) getByte(address + 5) & 0xff) << 16
+							| ((long) getByte(address + 6) & 0xff) << 8
+							| (long) getByte(address + 7) & 0xff;
 		}
 	}
 
@@ -209,7 +220,8 @@ final class PlatformDependent0 {
 	static void putShort(long address, short value) {
 		if (UNALIGNED) {
 			UNSAFE.putShort(address, value);
-		} else {
+		}
+		else {
 			putByte(address, (byte) (value >>> 8));
 			putByte(address + 1, (byte) value);
 		}
@@ -218,7 +230,8 @@ final class PlatformDependent0 {
 	static void putInt(long address, int value) {
 		if (UNALIGNED) {
 			UNSAFE.putInt(address, value);
-		} else {
+		}
+		else {
 			putByte(address, (byte) (value >>> 24));
 			putByte(address + 1, (byte) (value >>> 16));
 			putByte(address + 2, (byte) (value >>> 8));
@@ -229,7 +242,8 @@ final class PlatformDependent0 {
 	static void putLong(long address, long value) {
 		if (UNALIGNED) {
 			UNSAFE.putLong(address, value);
-		} else {
+		}
+		else {
 			putByte(address, (byte) (value >>> 56));
 			putByte(address + 1, (byte) (value >>> 48));
 			putByte(address + 2, (byte) (value >>> 40));

@@ -14,13 +14,18 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.templates.tradelist.TradeListTemplate;
+import com.aionemu.gameserver.model.templates.tradelist.TradeListTemplate.TradeTab;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
+/**
+ * @author MrPoke
+ */
 public class SM_TRADE_IN_LIST extends AionServerPacket {
 
 	private Npc npc;
@@ -35,13 +40,15 @@ public class SM_TRADE_IN_LIST extends AionServerPacket {
 
 	@Override
 	protected void writeImpl(AionConnection con) {
-		if ((tlist != null) && (tlist.getNpcId() != 0) && (tlist.getCount() != 0))
-			writeD(this.npc.getObjectId().intValue());
-		writeC(this.tlist.getTradeNpcType().index());
-		writeD(this.buyPriceModifier);
-		writeD(this.buyPriceModifier);
-		writeH(this.tlist.getCount());
-		for (TradeListTemplate.TradeTab tradeTabl : this.tlist.getTradeTablist())
-			writeD(tradeTabl.getId());
+		if ((tlist != null) && (tlist.getNpcId() != 0) && (tlist.getCount() != 0)) {
+			writeD(npc.getObjectId());
+			writeC(tlist.getTradeNpcType().index());
+			writeD(buyPriceModifier);
+			writeD(buyPriceModifier);
+			writeH(tlist.getCount());
+			for (TradeTab tradeTabl : tlist.getTradeTablist()) {
+				writeD(tradeTabl.getId());
+			}
+		}
 	}
 }

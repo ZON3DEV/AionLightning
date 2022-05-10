@@ -15,26 +15,25 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.database;
+
+import com.aionemu.commons.configs.DatabaseConfig;
+import com.jolbox.bonecp.BoneCP;
+import com.jolbox.bonecp.BoneCPConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.aionemu.commons.configs.DatabaseConfig;
-import com.jolbox.bonecp.BoneCP;
-import com.jolbox.bonecp.BoneCPConfig;
-
 /**
  * <b>Database Factory</b><br>
  * <br>
  * This file is used for creating a pool of connections for the server.<br>
- * It utilizes database.properties and creates a pool of connections and
- * automatically recycles them when closed.<br>
+ * It utilizes database.properties and creates a pool of connections and automatically recycles them when closed.<br>
  * <br>
  * DB.java utilizes the class.<br>
  * <br>
@@ -56,20 +55,17 @@ public class DatabaseFactory {
 	private static BoneCP connectionPool;
 
 	/**
-	 * Returns name of the database that is used For isntance, MySQL returns
-	 * "MySQL"
+	 * Returns name of the database that is used For isntance, MySQL returns "MySQL"
 	 */
 	private static String databaseName;
 
 	/**
-	 * Retursn major version that is used For instance, MySQL 5.0.51 community
-	 * edition returns 5
+	 * Retursn major version that is used For instance, MySQL 5.0.51 community edition returns 5
 	 */
 	private static int databaseMajorVersion;
 
 	/**
-	 * Retursn minor version that is used For instance, MySQL 5.0.51 community
-	 * edition returns 0
+	 * Retursn minor version that is used For instance, MySQL 5.0.51 community edition returns 0
 	 */
 	private static int databaseMinorVersion;
 
@@ -83,31 +79,33 @@ public class DatabaseFactory {
 
 		try {
 			DatabaseConfig.DATABASE_DRIVER.newInstance();
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.error("Error obtaining DB driver", e);
 			throw new Error("DB Driver doesnt exist!");
 		}
 
-		if (DatabaseConfig.DATABASE_BONECP_PARTITION_CONNECTIONS_MIN > DatabaseConfig.DATABASE_BONECP_PARTITION_CONNECTIONS_MAX) {
-			log.error("Please check your database configuration. Minimum amount of connections is > maximum");
-			DatabaseConfig.DATABASE_BONECP_PARTITION_CONNECTIONS_MAX = DatabaseConfig.DATABASE_BONECP_PARTITION_CONNECTIONS_MIN;
-		}
+        if (DatabaseConfig.DATABASE_BONECP_PARTITION_CONNECTIONS_MIN > DatabaseConfig.DATABASE_BONECP_PARTITION_CONNECTIONS_MAX) {
+            log.error("Please check your database configuration. Minimum amount of connections is > maximum");
+            DatabaseConfig.DATABASE_BONECP_PARTITION_CONNECTIONS_MAX = DatabaseConfig.DATABASE_BONECP_PARTITION_CONNECTIONS_MIN;
+        }
 
-		BoneCPConfig config = new BoneCPConfig();
-		config.setPartitionCount(DatabaseConfig.DATABASE_BONECP_PARTITION_COUNT);
-		config.setMinConnectionsPerPartition(DatabaseConfig.DATABASE_BONECP_PARTITION_CONNECTIONS_MIN);
-		config.setMaxConnectionsPerPartition(DatabaseConfig.DATABASE_BONECP_PARTITION_CONNECTIONS_MAX);
-		config.setUsername(DatabaseConfig.DATABASE_USER);
-		config.setPassword(DatabaseConfig.DATABASE_PASSWORD);
-		config.setJdbcUrl(DatabaseConfig.DATABASE_URL);
-		config.setDisableJMX(true);
+        BoneCPConfig config = new BoneCPConfig();
+        config.setPartitionCount(DatabaseConfig.DATABASE_BONECP_PARTITION_COUNT);
+        config.setMinConnectionsPerPartition(DatabaseConfig.DATABASE_BONECP_PARTITION_CONNECTIONS_MIN);
+        config.setMaxConnectionsPerPartition(DatabaseConfig.DATABASE_BONECP_PARTITION_CONNECTIONS_MAX);
+        config.setUsername(DatabaseConfig.DATABASE_USER);
+        config.setPassword(DatabaseConfig.DATABASE_PASSWORD);
+        config.setJdbcUrl(DatabaseConfig.DATABASE_URL);
+        config.setDisableJMX(true);
 
-		try {
-			connectionPool = new BoneCP(config);
-		} catch (SQLException e) {
-			log.error("Error while creating DB Connection pool", e);
-			throw new Error("DatabaseFactory not initialized!", e);
-		}
+
+        try {
+            connectionPool = new BoneCP(config);
+        } catch (SQLException e) {
+            log.error("Error while creating DB Connection pool", e);
+            throw new Error("DatabaseFactory not initialized!", e);
+        }
 		/* test if connection is still valid before returning */
 		// connectionPool.setTestOnBorrow(true);
 
@@ -118,7 +116,8 @@ public class DatabaseFactory {
 			databaseMajorVersion = dmd.getDatabaseMajorVersion();
 			databaseMinorVersion = dmd.getDatabaseMinorVersion();
 			c.close();
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.error("Error with connection string: " + DatabaseConfig.DATABASE_URL, e);
 			throw new Error("DatabaseFactory not initialized!");
 		}
@@ -127,24 +126,22 @@ public class DatabaseFactory {
 	}
 
 	/**
-	 * Returns an active connection from pool. This function utilizes the
-	 * dataSource which grabs an object from the ObjectPool within its limits.
-	 * The GenericObjectPool.borrowObject()' function utilized in
-	 * 'DataSource.getConnection()' does not allow any connections to be
-	 * returned as null, thus a null check is not needed. Throws SQLException in
-	 * case of a Failed Connection
+	 * Returns an active connection from pool. This function utilizes the dataSource which grabs an object from the
+	 * ObjectPool within its limits. The GenericObjectPool.borrowObject()' function utilized in
+	 * 'DataSource.getConnection()' does not allow any connections to be returned as null, thus a null check is not
+	 * needed. Throws SQLException in case of a Failed Connection
 	 *
 	 * @return Connection pooled connection
 	 * @throws java.sql.SQLException
-	 *             if can't get connection
+	 *           if can't get connection
 	 */
 	public static Connection getConnection() throws SQLException {
 		Connection con = connectionPool.getConnection();
 
-		if (!con.getAutoCommit()) {
-			log.error("Connection Settings Error: Connection obtained from database factory should be in auto-commit"
-					+ " mode. Forsing auto-commit to true. Please check source code for connections beeing not properly"
-					+ " closed.");
+		if(!con.getAutoCommit()){
+			log.error("Connection Settings Error: Connection obtained from database factory should be in auto-commit" +
+					" mode. Forsing auto-commit to true. Please check source code for connections beeing not properly" +
+					" closed.");
 			con.setAutoCommit(true);
 		}
 
@@ -161,10 +158,9 @@ public class DatabaseFactory {
 	}
 
 	/**
-	 * Returns number of Idle connections. Idle connections represent the number
-	 * of instances in Database Connections that have once been connected and
-	 * now are closed and ready for re-use. The 'getConnection' function will
-	 * grab idle connections before creating new ones.
+	 * Returns number of Idle connections. Idle connections represent the number of instances in Database Connections that
+	 * have once been connected and now are closed and ready for re-use. The 'getConnection' function will grab idle
+	 * connections before creating new ones.
 	 *
 	 * @return int Idle DB Connections
 	 */
@@ -178,7 +174,8 @@ public class DatabaseFactory {
 	public static synchronized void shutdown() {
 		try {
 			connectionPool.shutdown();
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.warn("Failed to shutdown DatabaseFactory", e);
 		}
 
@@ -186,15 +183,13 @@ public class DatabaseFactory {
 		connectionPool = null;
 	}
 
+
 	/**
 	 * Closes both prepared statement and result set
-	 * 
-	 * @param st
-	 *            prepared statement to close
-	 * @param con
-	 *            connection to close
+	 * @param st prepared statement to close
+	 * @param con connection to close
 	 */
-	public static void close(PreparedStatement st, Connection con) {
+	public static void close(PreparedStatement st, Connection con){
 		close(st);
 		close(con);
 	}
@@ -202,17 +197,15 @@ public class DatabaseFactory {
 	/**
 	 * Helper method for silently close PreparedStament object.<br>
 	 * Associated connection object will not be closed.
-	 * 
-	 * @param st
-	 *            prepared statement to close
+	 * @param st prepared statement to close
 	 */
-	public static void close(PreparedStatement st) {
-		if (st == null) {
+	public static void close(PreparedStatement st){
+		if(st == null){
 			return;
 		}
 
-		try {
-			if (!st.isClosed()) {
+		try{
+			if(!st.isClosed()){
 				st.close();
 			}
 		} catch (SQLException e) {
@@ -223,19 +216,17 @@ public class DatabaseFactory {
 	/**
 	 * Closes connection and returns it to the pool.<br>
 	 * It's ok to pass null variable here.<br>
-	 * When closing connection - this method will make sure that connection
-	 * returned to the pool in in autocommit mode.<br>
-	 * . If it's not - autocommit mode will be forced to 'true'
+	 * When closing connection - this method will make sure that connection returned to the pool in in
+	 * autocommit mode.<br>. If it's not - autocommit mode will be forced to 'true'
 	 *
-	 * @param con
-	 *            Connection object to close, can be null
+	 * @param con Connection object to close, can be null
 	 */
 	public static void close(Connection con) {
 		if (con == null)
 			return;
 
-		try {
-			if (!con.getAutoCommit()) {
+		try{
+			if(!con.getAutoCommit()){
 				con.setAutoCommit(true);
 			}
 		} catch (SQLException e) {
@@ -244,14 +235,14 @@ public class DatabaseFactory {
 
 		try {
 			con.close();
-		} catch (SQLException e) {
+		}
+		catch (SQLException e) {
 			log.error("DatabaseFactory: Failed to close database connection!", e);
 		}
 	}
 
 	/**
-	 * Returns database name. For instance MySQL 5.0.51 community edition
-	 * returns MySQL
+	 * Returns database name. For instance MySQL 5.0.51 community edition returns MySQL
 	 *
 	 * @return database name that is used.
 	 */
@@ -260,8 +251,7 @@ public class DatabaseFactory {
 	}
 
 	/**
-	 * Returns database version. For instance MySQL 5.0.51 community edition
-	 * returns 5
+	 * Returns database version. For instance MySQL 5.0.51 community edition returns 5
 	 *
 	 * @return database major version
 	 */
@@ -270,8 +260,7 @@ public class DatabaseFactory {
 	}
 
 	/**
-	 * Returns database minor version. For instance MySQL 5.0.51 community
-	 * edition reutnrs 0
+	 * Returns database minor version. For instance MySQL 5.0.51 community edition reutnrs 0
 	 *
 	 * @return database minor version
 	 */

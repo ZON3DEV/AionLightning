@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.util.List;
@@ -51,7 +52,9 @@ public class SM_ALLIANCE_MEMBER_INFO extends AionServerPacket {
 		WorldPosition wp = player.getPosition();
 
 		/**
-		 * Required so that when member is disconnected, and his playerAllianceGroup slot is changed, he will continue to appear as disconnected to the alliance.
+		 * Required so that when member is disconnected, and his
+		 * playerAllianceGroup slot is changed, he will continue to appear as
+		 * disconnected to the alliance.
 		 */
 		if (event == PlayerAllianceEvent.ENTER && !player.isOnline()) {
 			event = PlayerAllianceEvent.ENTER_OFFLINE;
@@ -67,8 +70,7 @@ public class SM_ALLIANCE_MEMBER_INFO extends AionServerPacket {
 			writeD(pls.getCurrentMp());
 			writeD(pls.getMaxFp());
 			writeD(pls.getCurrentFp());
-		}
-		else {
+		} else {
 			writeD(0);
 			writeD(0);
 			writeD(0);
@@ -79,7 +81,7 @@ public class SM_ALLIANCE_MEMBER_INFO extends AionServerPacket {
 
 		writeD(0);// unk 3.5
 		writeD(wp.getMapId());
-		writeD(wp.getMapId()); // TODO Looks like some ObjId and not mapId
+		writeD(wp.getMapId());
 		writeF(wp.getX());
 		writeF(wp.getY());
 		writeF(wp.getZ());
@@ -87,8 +89,8 @@ public class SM_ALLIANCE_MEMBER_INFO extends AionServerPacket {
 		writeC(pcd.getGender().getGenderId());
 		writeC(pcd.getLevel());
 		writeC(this.event.getId());
-		writeH(0); // channel 0x01?
-		writeH(0);
+		writeH(0x00); // channel 0x01?
+		writeC(0x0);
 		switch (this.event) {
 			case LEAVE:
 			case LEAVE_TIMEOUT:
@@ -106,39 +108,29 @@ public class SM_ALLIANCE_MEMBER_INFO extends AionServerPacket {
 			case DEMOTE_VICE_CAPTAIN:
 			case APPOINT_CAPTAIN:
 				writeS(pcd.getName());
-				writeD(0); // TODO some values 4096 or 256
-				writeD(0); // unk
+				writeD(0x00); // unk
+				writeD(0x00); // unk
 				if (player.isOnline()) {
+					writeC(0x7F); // 4.5 slots ?
 					List<Effect> abnormalEffects = player.getEffectController().getAbnormalEffects();
-					writeC(127);
 					writeH(abnormalEffects.size());
-					if (abnormalEffects.size() > 0) {
-						for (Effect effect : abnormalEffects) {
-							writeD(effect.getEffectorId());
-							writeH(effect.getSkillId());
-							writeC(effect.getSkillLevel());
-							writeC(effect.getTargetSlot());
-							writeD(effect.getRemainingTime());
-							writeH(0);
-						}
+					for (Effect effect : abnormalEffects) {
+						writeD(effect.getEffectorId());
+						writeH(effect.getSkillId());
+						writeC(effect.getSkillLevel());
+						writeC(effect.getTargetSlot());
+						writeD(effect.getRemainingTime());
 					}
-					writeB(new byte[32]);
-				}
-				else {
-					List<Effect> abnormalEffects = player.getEffectController().getAbnormalEffects();
-					writeC(0);
-					writeH(abnormalEffects.size());
-					if (abnormalEffects.size() > 0) {
-						for (Effect effect : abnormalEffects) {
-							writeD(effect.getEffectorId());
-							writeH(effect.getSkillId());
-							writeC(effect.getSkillLevel());
-							writeC(effect.getTargetSlot());
-							writeD(effect.getRemainingTime());
-							writeH(0);
-						}
-					}
-					writeB(new byte[32]);
+					writeD(0x00); // unk 4.5
+					writeD(0x00); // unk 4.5
+					writeD(0x00); // unk 4.5
+					writeD(0x00); // unk 4.5
+					writeD(0x00); // unk 4.5
+					writeD(0x00); // unk 4.5
+					writeD(0x00); // unk 4.5
+					writeD(0x00); // unk 4.5
+				} else {
+					writeH(0);
 				}
 				break;
 			case MEMBER_GROUP_CHANGE:

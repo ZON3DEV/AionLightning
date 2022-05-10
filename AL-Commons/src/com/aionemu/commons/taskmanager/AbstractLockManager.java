@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.taskmanager;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -27,10 +28,7 @@ public abstract class AbstractLockManager {
 	private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 
 	private final ReentrantReadWriteLock.WriteLock writeLock = lock.writeLock();
-	private final ReentrantReadWriteLock.ReadLock readLock = lock.readLock(); // Later
-																				// could
-																				// be
-																				// used.
+	private final ReentrantReadWriteLock.ReadLock readLock = lock.readLock(); // Later could be used.
 
 	public final void writeLock() {
 		writeLock.lock();

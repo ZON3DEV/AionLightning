@@ -14,10 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 /**
  * @author kecimis
+ *
  */
-public class SubTypeExtendDurationEffect extends BuffEffect {
+public class SubTypeExtendDurationEffect extends BufEffect {
 }

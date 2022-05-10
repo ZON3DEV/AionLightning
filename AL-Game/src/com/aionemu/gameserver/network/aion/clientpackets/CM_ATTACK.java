@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.slf4j.Logger;
@@ -35,8 +36,11 @@ public class CM_ATTACK extends AionClientPacket {
 	 * Target object id that client wants to TALK WITH or 0 if wants to unselect
 	 */
 	private int targetObjectId;
-	private int attackNo;
+	// TODO: Question, are they really needed?
+	@SuppressWarnings("unused")
+	private int attackno;
 	private int time;
+	@SuppressWarnings("unused")
 	private int type;
 
 	public CM_ATTACK(int opcode, State state, State... restStates) {
@@ -46,9 +50,9 @@ public class CM_ATTACK extends AionClientPacket {
 	@Override
 	protected void readImpl() {
 		targetObjectId = readD();// empty
-		attackNo = readC();// AttackCounter 
+		attackno = readC();// empty
 		time = readH();// empty
-		type = readC();// type
+		type = readC();// empty
 	}
 
 	@Override
@@ -64,9 +68,8 @@ public class CM_ATTACK extends AionClientPacket {
 
 		VisibleObject obj = player.getKnownList().getObject(targetObjectId);
 		if (obj != null && obj instanceof Creature) {
-			player.getController().attackTarget((Creature) obj, attackNo, time, type);
-		}
-		else {
+			player.getController().attackTarget((Creature) obj, time);
+		} else {
 			if (obj != null) {
 				log.warn("Attacking unsupported target" + obj + " id " + obj.getObjectTemplate().getTemplateId());
 			}

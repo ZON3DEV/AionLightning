@@ -14,23 +14,25 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.quests;
 
 import java.util.List;
 
+import ai.ActionItemNpcAI2;
+
 import com.aionemu.gameserver.ai2.AI2Actions;
-import com.aionemu.gameserver.ai2.AI2Actions.SelectDialogResult;
 import com.aionemu.gameserver.ai2.AIName;
-import com.aionemu.gameserver.model.DialogAction;
+import com.aionemu.gameserver.ai2.AI2Actions.SelectDialogResult;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.model.DialogAction;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-
-import ai.ActionItemNpcAI2;
 
 /**
  * @author Cheatkiller
+ *
  */
 @AIName("quest_start_use_item")
 public class QuestStartItemNpcAi2 extends ActionItemNpcAI2 {

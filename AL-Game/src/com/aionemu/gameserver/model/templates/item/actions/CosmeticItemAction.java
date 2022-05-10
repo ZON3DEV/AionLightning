@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item.actions;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,6 +33,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_INFO;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
+ *
  * @author xTz
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -69,41 +71,28 @@ public class CosmeticItemAction extends AbstractItemAction {
 		int id = template.getId();
 		if (type.equals("hair_color")) {
 			playerAppearance.setHairRGB(id);
-		}
-		else if (type.equals("face_color")) {
+		} else if (type.equals("face_color")) {
 			playerAppearance.setSkinRGB(id);
-		}
-		else if (type.equals("lip_color")) {
+		} else if (type.equals("lip_color")) {
 			playerAppearance.setLipRGB(id);
-		}
-		else if (type.equals("eye_color")) {
+		} else if (type.equals("eye_color")) {
 			playerAppearance.setEyeRGB(id);
-		}
-		else if (type.equals("eye_color2")) {
-			playerAppearance.setRightEyeRGB(id);
-		}
-		else if (type.equals("hair_type")) {
+		} else if (type.equals("hair_type")) {
 			playerAppearance.setHair(id);
-		}
-		else if (type.equals("face_type")) {
+		} else if (type.equals("face_type")) {
 			playerAppearance.setFace(id);
-		}
-		else if (type.equals("voice_type")) {
+		} else if (type.equals("voice_type")) {
 			playerAppearance.setVoice(id);
-		}
-		else if (type.equals("makeup_type")) {
+		} else if (type.equals("makeup_type")) {
 			playerAppearance.setTattoo(id);
-		}
-		else if (type.equals("tattoo_type")) {
+		} else if (type.equals("tattoo_type")) {
 			playerAppearance.setDeco(id);
-		}
-		else if (type.equals("preset_name")) {
+		} else if (type.equals("preset_name")) {
 			CosmeticItemTemplate.Preset preset = template.getPreset();
 			playerAppearance.setEyeRGB((preset.getEyeColor()));
-			playerAppearance.setRightEyeRGB((preset.getEyeColor2()));
 			playerAppearance.setLipRGB((preset.getLipColor()));
 			playerAppearance.setHairRGB((preset.getHairColor()));
-			playerAppearance.setSkinRGB((preset.getSkinColor()));
+			playerAppearance.setSkinRGB((preset.getEyeColor()));
 			playerAppearance.setHair((preset.getHairType()));
 			playerAppearance.setFace((preset.getFaceType()));
 			playerAppearance.setHeight((preset.getScale()));

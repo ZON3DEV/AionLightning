@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.model;
 
 import java.util.HashMap;
@@ -33,7 +34,6 @@ import com.aionemu.gameserver.skillengine.action.Actions;
 import com.aionemu.gameserver.skillengine.condition.ChainCondition;
 import com.aionemu.gameserver.skillengine.condition.Condition;
 import com.aionemu.gameserver.skillengine.condition.Conditions;
-import com.aionemu.gameserver.skillengine.condition.DpCondition;
 import com.aionemu.gameserver.skillengine.condition.HpCondition;
 import com.aionemu.gameserver.skillengine.condition.PlayerMovedCondition;
 import com.aionemu.gameserver.skillengine.condition.SkillChargeCondition;
@@ -47,7 +47,8 @@ import com.aionemu.gameserver.skillengine.properties.Properties;
  * @author ATracer modified by Wakizashi
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "skillTemplate", propOrder = { "properties", "startconditions", "useconditions", "endconditions", "useequipmentconditions", "effects", "actions", "periodicActions", "motion" })
+@XmlType(name = "skillTemplate", propOrder = { "properties", "startconditions", "useconditions", "endconditions", "useequipmentconditions", "effects",
+		"actions", "periodicActions", "motion" })
 public class SkillTemplate {
 
 	protected Properties properties;
@@ -64,8 +65,6 @@ public class SkillTemplate {
 	protected int skillId;
 	@XmlAttribute(required = true)
 	protected String name;
-	@XmlAttribute(name = "name_desc")
-	private String namedesc;
 	@XmlAttribute(required = true)
 	protected int nameId;
 	@XmlAttribute
@@ -120,16 +119,10 @@ public class SkillTemplate {
 	protected AttackStatus counterSkill = null;
 	@XmlAttribute(name = "noremoveatdie")
 	protected boolean noRemoveAtDie = false;
-	@XmlAttribute(name = "boost_casting_time")
-	protected boolean boostCastingTime = false;
 	@XmlAttribute(name = "stigma")
 	protected StigmaType stigmaType = StigmaType.NONE;
-    @XmlAttribute(name = "is_minion_skill")
-    protected boolean isminionSkill = false;
-    @XmlTransient
+	@XmlTransient
 	protected HashMap<Integer, Integer> effectIds = null;
-	@XmlAttribute(name="skill_group")
-	private String skill_group;
 
 	/**
 	 * @return the Properties
@@ -145,10 +138,6 @@ public class SkillTemplate {
 	 */
 	public Conditions getStartconditions() {
 		return startconditions;
-	}
-
-	public int getToggleTimer() {
-		return toggleTimer;
 	}
 
 	/**
@@ -221,10 +210,6 @@ public class SkillTemplate {
 		return name;
 	}
 
-	public String getNamedesc() {
-		return namedesc;
-	}
-
 	/**
 	 * @return the nameId
 	 */
@@ -237,13 +222,6 @@ public class SkillTemplate {
 	 */
 	public String getStack() {
 		return stack;
-	}
-
-	/**
-	 * @return SkillGroup
-	 */
-	public String getSkillGroup() {
-		return skill_group;
 	}
 
 	/**
@@ -298,6 +276,13 @@ public class SkillTemplate {
 	}
 
 	/**
+	 * @return the ToogleTimer
+	 */
+	public int getToggleTimer() {
+		return toggleTimer;
+	}
+
+	/**
 	 * @return the duration
 	 */
 	public int getDuration() {
@@ -341,10 +326,6 @@ public class SkillTemplate {
 	public boolean isCharge() {
 		return activationAttribute == ActivationAttribute.CHARGE;
 	}
-
-    public boolean isMinionSkill() {
-        return isminionSkill;
-    }
 
 	/**
 	 * @param position
@@ -418,14 +399,6 @@ public class SkillTemplate {
 
 	public boolean hasRecallInstant() {
 		return getEffects() != null && getEffects().isEffectTypePresent(EffectType.RECALLINSTANT);
-	}
-
-	public boolean hasHealEffect() {
-		return getEffects() != null && (getEffects().isEffectTypePresent(EffectType.HEAL) || getEffects().isEffectTypePresent(EffectType.HEALINSTANT));
-	}
-
-	public boolean hasRandomMoveEffect() {
-		return getEffects() != null && getEffects().isEffectTypePresent(EffectType.RANDOMMOVELOC) && (getSkillId() != 3818 || getSkillId() != 3853); // all move loc except hypergate detonation
 	}
 
 	public int getCooldownId() {
@@ -529,18 +502,6 @@ public class SkillTemplate {
 		return null;
 	}
 
-	/**
-	 * @return
-	 */
-	public DpCondition getDpCondition() {
-		for (Condition c : startconditions.getConditions()) {
-			if (c instanceof DpCondition) {
-				return ((DpCondition) c);
-			}
-		}
-		return null;
-	}
-
 	public PlayerMovedCondition getMovedCondition() {
 		for (Condition c : startconditions.getConditions()) {
 			if (c instanceof PlayerMovedCondition) {
@@ -552,13 +513,5 @@ public class SkillTemplate {
 
 	public Conditions getEndConditions() {
 		return endconditions;
-	}
-
-	public void setNoRemoveAtDie(boolean noRemoveAtDie) {
-		this.noRemoveAtDie = noRemoveAtDie;
-	}
-
-	public boolean isBoostCastingTime() {
-		return boostCastingTime;
 	}
 }

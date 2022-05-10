@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.condition;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -41,7 +42,7 @@ public class MpCondition extends Condition {
 	public boolean validate(Skill skill) {
 		int valueWithDelta = value + delta * skill.getSkillLevel();
 		if (ratio) {
-			valueWithDelta = (skill.getEffector().getLifeStats().getMaxMp() * valueWithDelta) / 100;
+			valueWithDelta = (int) ((skill.getEffector().getLifeStats().getMaxMp() * valueWithDelta) / 100);
 		}
 		return skill.getEffector().getLifeStats().getCurrentMp() > valueWithDelta;
 	}

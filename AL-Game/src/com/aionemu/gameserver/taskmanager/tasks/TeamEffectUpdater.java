@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.taskmanager.tasks;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -51,7 +52,8 @@ public final class TeamEffectUpdater extends AbstractIterativePeriodicTaskManage
 				PlayerAllianceService.updateAlliance(player, PlayerAllianceEvent.UPDATE);
 			}
 		}
-		// Remove task from list. It will be re-added if player effect changes again.
+		// Remove task from list. It will be re-added if player effect changes
+		// again.
 		this.stopTask(player);
 	}
 

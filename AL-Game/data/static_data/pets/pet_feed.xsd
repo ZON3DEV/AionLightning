@@ -8,7 +8,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
+  
     <xs:complexType name="PetFlavour">
         <xs:sequence>
             <xs:element maxOccurs="unbounded" name="food" type="PetRewards"/>
@@ -18,20 +18,20 @@
         <xs:attribute default="0" name="loved_limit" type="xs:int"/>
         <xs:attribute name="cd" type="xs:int" use="required"/>
     </xs:complexType>
-
+  
     <xs:complexType name="PetRewards">
         <xs:sequence minOccurs="0" maxOccurs="unbounded">
             <xs:element maxOccurs="unbounded" name="result" type="PetFeedResult"/>
         </xs:sequence>
         <xs:attribute name="group" type="FoodType" use="required"/>
         <xs:attribute name="loved" type="xs:boolean" default="false"/>
-    </xs:complexType>
-
+    </xs:complexType> 
+    
     <xs:complexType name="PetFeedResult">
         <xs:attribute name="item" type="xs:int" use="required"/>
         <xs:attribute name="name" type="xs:string"/>
     </xs:complexType>
-
+  
     <xs:simpleType name="FoodType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="AETHER_CRYSTAL_BISCUIT"/>
@@ -41,10 +41,8 @@
             <xs:enumeration value="BALAUR_SCALES"/>
             <xs:enumeration value="BONES"/>
             <xs:enumeration value="FLUIDS"/>
-			<xs:enumeration value="INNOCENT_MEREK_XP"/>
             <xs:enumeration value="HEALTHY_FOOD_ALL"/>
             <xs:enumeration value="HEALTHY_FOOD_SPICY"/>
-			<xs:enumeration value="NEW_YEAR_PET_FOOD"/>
             <xs:enumeration value="MISCELLANEOUS"/>
             <xs:enumeration value="POPPY_SNACK"/>
             <xs:enumeration value="POPPY_SNACK_TASTY"/>

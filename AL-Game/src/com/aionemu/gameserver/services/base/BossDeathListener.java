@@ -14,29 +14,26 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.services.base;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.aionemu.gameserver.services.base;
 
 import com.aionemu.gameserver.ai2.AbstractAI;
 import com.aionemu.gameserver.ai2.eventcallback.OnDieEventCallback;
-import com.aionemu.gameserver.configs.main.BaseConfig;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.team2.TemporaryPlayerTeam;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.model.team2.alliance.PlayerAlliance;
+import com.aionemu.gameserver.model.team2.alliance.PlayerAllianceGroup;
+import com.aionemu.gameserver.model.team2.group.PlayerGroup;
+import com.aionemu.gameserver.model.team2.league.League;
 import com.aionemu.gameserver.services.BaseService;
-import com.aionemu.gameserver.services.HTMLService;
-import com.aionemu.gameserver.skillengine.SkillEngine;
-import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.world.World;
-import com.aionemu.gameserver.world.knownlist.Visitor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
+ *
  * @author Source
  */
 @SuppressWarnings("rawtypes")
@@ -52,101 +49,36 @@ public class BossDeathListener extends OnDieEventCallback {
 
 	@Override
 	public void onBeforeDie(AbstractAI obj) {
-		AionObject winner = base.getBoss().getAggroList().getMostDamage();
+		AionObject killer = base.getBoss().getAggroList().getMostDamage();
 		Npc boss = base.getBoss();
 		Race race = null;
 
-		if (winner instanceof Creature) {
-			final Creature kill = (Creature) winner;
-			applyBaseBuff();
-            if (kill.getRace().isPlayerRace()) {
-                base.setRace(kill.getRace());
-                race = kill.getRace();
+		if (killer instanceof PlayerGroup) {
+			race = ((PlayerGroup) killer).getRace();
+		} else if (killer instanceof PlayerAlliance) {
+			race = ((PlayerAlliance) killer).getRace();
+		} else if (killer instanceof PlayerAllianceGroup) {
+			race = ((PlayerAllianceGroup) killer).getRace();
+		} else if (killer instanceof League) {
+			race = ((League) killer).getRace();
+			/*
+			 * for (PlayerAlliance playerAlliance : ((League)
+			 * killer).getMembers()) { }
+			 */
+		} else if (killer instanceof Player) {
+			race = ((Player) killer).getRace();
+		} else if (killer instanceof Creature) {
+			race = ((Creature) killer).getRace();
+		}
 
-                if (BaseConfig.ENABLE_BASE_REWARDS) {
-                    if (kill instanceof Player) {
-                        giveBaseRewardsToPlayers((Player) kill);
-                    }
-                }
-			}
-			announceCapture(null, kill);
-		}
-		else if (winner instanceof TemporaryPlayerTeam) {
-			final TemporaryPlayerTeam team = (TemporaryPlayerTeam) winner;
-			applyBaseBuff();
-			if (team.getRace().isPlayerRace()) {
-				base.setRace(team.getRace());
-				race = team.getRace();
-			}
-			announceCapture(team, null);
-		}
-		else {
-			base.setRace(Race.NPC);
-		}
+		base.setRace(race);
 		BaseService.getInstance().capture(base.getId(), base.getRace());
-		log.info("Legat kill ! BOSS: " + boss + " in BaseId: " + base.getBaseLocation().getId() + " killed by RACE: " + race);
-	}
+		log.info("Legat kill ! BOSS: " + boss + " in BaseId: " + base.getBaseLocation().getId() + "killed by RACE: " + race);
 
-	public void announceCapture(final TemporaryPlayerTeam team, final Creature kill) {
-		final String baseName = base.getBaseLocation().getName();
-		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
-			@Override
-			public void visit(Player player) {
-				if (team != null && kill == null) {
-					// %0 succeeded in conquering %1
-					PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1301039, team.getRace().getRaceDescriptionId(), baseName));
-				}
-				else {
-					// %0 succeeded in conquering %1
-					PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1301039, kill.getRace().getRaceDescriptionId(), baseName));
-				}
-			}
-		});
-	}
-
-	public void applyBaseBuff() {
-		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
-			@Override
-			public void visit(Player player) {
-				if (player.getCommonData().getRace() == Race.ELYOS) {
-					SkillEngine.getInstance().applyEffectDirectly(12115, player, player, 0); // Kaisinel's Bane
-					// The power of Kaisinel's Protection surrounds you
-					PacketSendUtility.playerSendPacketTime(player, SM_SYSTEM_MESSAGE.STR_MSG_WEAK_RACE_BUFF_LIGHT_GAIN, 10000);
-				}
-				else if (player.getCommonData().getRace() == Race.ASMODIANS) {
-					SkillEngine.getInstance().applyEffectDirectly(12117, player, player, 0); // Marchutan's Bane
-					// The power of Marchutan's Protection surrounds you
-					PacketSendUtility.playerSendPacketTime(player, SM_SYSTEM_MESSAGE.STR_MSG_WEAK_RACE_BUFF_DARK_GAIN, 10000);
-				}
-			}
-		});
-	}
-
-	protected void giveBaseRewardsToPlayers(Player player) {
-		switch (player.getWorldId()) {
-			case 210020000: // Eltnen
-			case 210040000: // Heiron
-			case 220020000: // Morheim
-			case 220040000: // Beluslan
-				HTMLService.sendGuideHtml(player, "adventurers_base1");
-				break;
-			case 600090000: // Kaldor
-			case 600100000: // Levinshor
-				HTMLService.sendGuideHtml(player, "adventurers_base2");
-				break;
-			case 400020000: // Belus
-			case 400040000: // Aspida
-			case 400050000: // Atanatos
-			case 400060000: // Disillon
-				HTMLService.sendGuideHtml(player, "adventurers_base3");
-				break;
-		}
+		// Add activity point to group
 	}
 
 	@Override
 	public void onAfterDie(AbstractAI obj) {
 	}
-
 }

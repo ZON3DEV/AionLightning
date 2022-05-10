@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.condition;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -29,6 +30,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author kecimis
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "FormCondition")
@@ -39,20 +41,23 @@ public class FormCondition extends Condition {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.condition.Condition#validate(com.aionemu.gameserver.skillengine.model.Skill) defines tranformtype in which player can cast given skill
+	 *
+	 * @see
+	 * com.aionemu.gameserver.skillengine.condition.Condition#validate(com.aionemu
+	 * .gameserver.skillengine.model.Skill)
+	 *
+	 * defines tranformtype in which player can cast given skill
 	 */
 	@Override
 	public boolean validate(Skill env) {
 		if (env.getEffector() instanceof Player) {
 			if (env.getEffector().getTransformModel().isActive() && env.getEffector().getTransformModel().getType() == value) {
 				return true;
-			}
-			else {
+			} else {
 				PacketSendUtility.sendPacket((Player) env.getEffector(), SM_SYSTEM_MESSAGE.STR_SKILL_CAN_NOT_CAST_IN_THIS_FORM);
 				return false;
 			}
-		}
-		else {
+		} else {
 			return true;
 		}
 	}

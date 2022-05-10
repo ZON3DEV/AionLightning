@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import java.lang.reflect.Field;
@@ -41,13 +42,11 @@ public class Channel extends AdminCommand {
 			if (params[0].equalsIgnoreCase("on") && !CustomConfig.FACTION_CMD_CHANNEL) {
 				someField.set(null, Boolean.valueOf(true));
 				PacketSendUtility.sendMessage(player, "The command .faction is ON.");
-			}
-			else if (params[0].equalsIgnoreCase("off") && CustomConfig.FACTION_CMD_CHANNEL) {
+			} else if (params[0].equalsIgnoreCase("off") && CustomConfig.FACTION_CMD_CHANNEL) {
 				someField.set(null, Boolean.valueOf(false));
 				PacketSendUtility.sendMessage(player, "The command .faction is OFF.");
 			}
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			PacketSendUtility.sendMessage(player, "Error! Wrong property or value.");
 			return;
 		}

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.toypet;
 
 /**
@@ -21,11 +22,7 @@ package com.aionemu.gameserver.services.toypet;
  */
 public enum PetHungryLevel {
 
-	HUNGRY(0),
-	CONTENT(1),
-	SEMIFULL(2),
-	FULL(3);
-
+	HUNGRY(0), CONTENT(1), SEMIFULL(2), FULL(3);
 	private byte value;
 
 	PetHungryLevel(int value) {

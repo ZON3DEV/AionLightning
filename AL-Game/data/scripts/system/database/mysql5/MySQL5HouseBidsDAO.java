@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
@@ -30,23 +31,6 @@ import com.aionemu.commons.database.DatabaseFactory;
 import com.aionemu.gameserver.dao.HouseBidsDAO;
 import com.aionemu.gameserver.dao.MySQL5DAOUtils;
 import com.aionemu.gameserver.model.house.PlayerHouseBid;
-
-/*
- * This file is part of aion-lightning <aion-lightning.com>.
- *
- *  aion-lightning is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  aion-lightning is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with aion-lightning.  If not, see <http://www.gnu.org/licenses/>.
- */
 
 /**
  * @author Rolandas
@@ -81,11 +65,9 @@ public class MySQL5HouseBidsDAO extends HouseBidsDAO {
 				results.add(bid);
 			}
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Cannot read house bids", e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return results;
@@ -103,12 +85,10 @@ public class MySQL5HouseBidsDAO extends HouseBidsDAO {
 			stmt.setTimestamp(4, time);
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Cannot insert house bid", e);
 			return false;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return true;
@@ -126,11 +106,9 @@ public class MySQL5HouseBidsDAO extends HouseBidsDAO {
 			stmt.setInt(4, houseId);
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Cannot update house bid", e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 
@@ -145,11 +123,9 @@ public class MySQL5HouseBidsDAO extends HouseBidsDAO {
 			stmt.setInt(1, houseId);
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Cannot delete house bids", e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 

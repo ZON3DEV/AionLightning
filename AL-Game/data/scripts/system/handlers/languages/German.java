@@ -98,7 +98,7 @@ public class German extends Language {
 		addTranslatedMessage(CustomMessageId.COMMAND_XP_ALREADY_ENABLED, "Accrual XP already enabled");
 		addTranslatedMessage(CustomMessageId.DREDGION_LEVEL_TOO_LOW, "Ihr derzeitges Level ist zu niedrig, um in die Dredgion einzutreten.");
 		addTranslatedMessage(CustomMessageId.DEFAULT_FINISH_MESSAGE, "Ende!");
-
+		
 		/**
 		 * PvP Service
 		 */
@@ -152,6 +152,7 @@ public class German extends Language {
 		addTranslatedMessage(CustomMessageId.CANNOTCLEAN2, "Du besitzt dieses Item nicht!");
 		addTranslatedMessage(CustomMessageId.SUCCESSCLEAN, "Item wurde erfolgreich aus deinem Wuerfel entfernt!");
 
+
 		/**
 		 * Mission check command related
 		 */
@@ -186,7 +187,7 @@ public class German extends Language {
 		addTranslatedMessage(CustomMessageId.WRONGTOLLNUM, "Irgendwas lief schief!");
 
 		/**
-		 * Cube Command
+		* Cube Command
 		 */
 		addTranslatedMessage(CustomMessageId.CUBE_ALLREADY_EXPANDED, "Dein Wuerfel ist voll erweitert!");
 		addTranslatedMessage(CustomMessageId.CUBE_SUCCESS_EXPAND, "Dein Wuerfel wurde erfolgreich erweitert!");
@@ -199,7 +200,7 @@ public class German extends Language {
 		addTranslatedMessage(CustomMessageId.NO_GM_ONLINE, "Es ist kein Team Mitglied online!");
 
 		/**
-		 * Go Command (PvP Command)
+		* Go Command (PvP Command)
 		 */
 		addTranslatedMessage(CustomMessageId.NOT_USE_WHILE_FIGHT, "Du kannst dieses Kommando nicht waehrend des Kampfes nutzen!");
 		addTranslatedMessage(CustomMessageId.NOT_USE_ON_PVP_MAP, "Du kannst dieses Kommando nicht auf einer PvP Map benutzen!");
@@ -305,13 +306,6 @@ public class German extends Language {
 		addTranslatedMessage(CustomMessageId.INVASION_RIFT_MIN_LEVEL, "Dein Level ist zu niedrig um zu passieren.");
 		addTranslatedMessage(CustomMessageId.INVASION_RIFT_ELYOS, "A rift for Pandaemonium is open at Ingisson");
 		addTranslatedMessage(CustomMessageId.INVASION_RIFT_ASMOS, "A rift for Sanctum is open at Gelkmaros");
-
-		/**
-		 * Additional Chest Drops
-		 */
-		addTranslatedMessage(CustomMessageId.DECOMPOSE_SERVICE_MESSAGE1, "%s hat erhalten %s von %s.");
-		addTranslatedMessage(CustomMessageId.DECOMPOSE_SERVICE_MESSAGE2, "%s hat zus�tzlich erhalten %s von %s (Premium).");
-		addTranslatedMessage(CustomMessageId.DECOMPOSE_SERVICE_MESSAGE3, "%s hat zus�tzlich erhalten %s von %s (VIP).");
 
 		/**
 		 * PvP Spree Service

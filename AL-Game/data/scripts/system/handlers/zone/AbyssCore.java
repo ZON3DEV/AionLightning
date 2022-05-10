@@ -14,9 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package zone;
 
 import java.io.IOException;
+
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.controllers.observer.CollisionDieActor;
 import com.aionemu.gameserver.geoEngine.GeoWorldLoader;
@@ -28,8 +31,6 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 import com.aionemu.gameserver.world.zone.handler.ZoneHandler;
 import com.aionemu.gameserver.world.zone.handler.ZoneNameAnnotation;
-
-import javolution.util.FastMap;
 
 /**
  * @author MrPoke
@@ -44,8 +45,7 @@ public class AbyssCore implements ZoneHandler {
 		try {
 			this.geometry = (Node) GeoWorldLoader.loadMeshs("data/geo/models/na_ab_lmark_col_01a.mesh").values().toArray()[0];
 			this.geometry.setTransform(new Matrix3f(1.15f, 0, 0, 0, 1.15f, 0, 0, 0, 1.15f), new Vector3f(2140.104f, 1925.5823f, 2303.919f), 1f);
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		geometry.updateModelBound();

@@ -14,20 +14,20 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.handlers.template;
 
-import java.util.Iterator;
+import javolution.util.FastMap;
 import java.util.List;
+import java.util.Iterator;
 
-import com.aionemu.gameserver.model.DialogAction;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.handlers.models.QuestSkillData;
+import com.aionemu.gameserver.model.DialogAction;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
-
-import javolution.util.FastMap;
 
 /**
  * @author vlog, modified Bobobear
@@ -45,8 +45,7 @@ public class SkillUse extends QuestHandler {
 		this.startNpc = startNpc;
 		if (endNpc != 0) {
 			this.endNpc = endNpc;
-		}
-		else {
+		} else {
 			this.endNpc = startNpc;
 		}
 		this.qsd = qsd;
@@ -79,26 +78,23 @@ public class SkillUse extends QuestHandler {
 			if (targetId == startNpc) {
 				if (dialog == DialogAction.QUEST_SELECT) {
 					return sendQuestDialog(env, 4762);
-				}
-				else {
+				} else {
 					return sendQuestStartDialog(env);
 				}
 			}
-		}
-		else if (qs.getStatus() == QuestStatus.START) {
-			// TODO: check skill use count, see MonsterHunt.java how to get total count
+		} else if (qs.getStatus() == QuestStatus.START) {
+			// TODO: check skill use count, see MonsterHunt.java how to get
+			// total count
 			int var = qs.getQuestVarById(0);
 			if (targetId == endNpc) {
 				if (dialog == DialogAction.QUEST_SELECT) {
 					return sendQuestDialog(env, 10002);
-				}
-				else if (dialog == DialogAction.SELECT_QUEST_REWARD) {
+				} else if (dialog == DialogAction.SELECT_QUEST_REWARD) {
 					changeQuestStep(env, var, var, true); // reward
 					return sendQuestDialog(env, 5);
 				}
 			}
-		}
-		else if (qs.getStatus() == QuestStatus.REWARD) {
+		} else if (qs.getStatus() == QuestStatus.REWARD) {
 			if (targetId == endNpc) {
 				return sendQuestEndDialog(env);
 			}
@@ -121,8 +117,7 @@ public class SkillUse extends QuestHandler {
 						total += currentVar << ((varId - qd.getVarNum()) * 6);
 						endVar >>= 6;
 						varId++;
-					}
-					while (endVar > 0);
+					} while (endVar > 0);
 					total += 1;
 					if (total <= qd.getEndVar()) {
 						for (int varsUsed = qd.getVarNum(); varsUsed < varId; varsUsed++) {

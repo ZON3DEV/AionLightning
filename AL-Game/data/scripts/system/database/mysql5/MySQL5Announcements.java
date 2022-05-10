@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.PreparedStatement;
@@ -41,11 +42,11 @@ public class MySQL5Announcements extends AnnouncementsDAO {
 	public Set<Announcement> getAnnouncements() {
 		final Set<Announcement> result = new HashSet<Announcement>();
 		DB.select("SELECT * FROM announcements ORDER BY id", new ReadStH() {
-
 			@Override
 			public void handleRead(ResultSet resultSet) throws SQLException {
 				while (resultSet.next()) {
-					result.add(new Announcement(resultSet.getInt("id"), resultSet.getString("announce"), resultSet.getString("faction"), resultSet.getString("type"), resultSet.getInt("delay")));
+					result.add(new Announcement(resultSet.getInt("id"), resultSet.getString("announce"), resultSet.getString("faction"), resultSet
+							.getString("type"), resultSet.getInt("delay")));
 				}
 			}
 		});
@@ -58,7 +59,6 @@ public class MySQL5Announcements extends AnnouncementsDAO {
 	@Override
 	public void addAnnouncement(final Announcement announce) {
 		DB.insertUpdate("INSERT INTO announcements (announce, faction, type, delay) VALUES (?, ?, ?, ?)", new IUStH() {
-
 			@Override
 			public void handleInsertUpdate(PreparedStatement preparedStatement) throws SQLException {
 				preparedStatement.setString(1, announce.getAnnounce());
@@ -76,7 +76,6 @@ public class MySQL5Announcements extends AnnouncementsDAO {
 	@Override
 	public boolean delAnnouncement(final int idAnnounce) {
 		return DB.insertUpdate("DELETE FROM announcements WHERE id = ?", new IUStH() {
-
 			@Override
 			public void handleInsertUpdate(PreparedStatement preparedStatement) throws SQLException {
 				preparedStatement.setInt(1, idAnnounce);

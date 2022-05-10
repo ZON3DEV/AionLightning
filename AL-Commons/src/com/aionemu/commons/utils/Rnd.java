@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.utils;
 
 /**
@@ -36,7 +37,7 @@ public class Rnd {
 	 * Gets a random number from 0(inclusive) to n(exclusive)
 	 * 
 	 * @param n
-	 *            The superior limit (exclusive)
+	 *          The superior limit (exclusive)
 	 * @return A number from 0 to n-1
 	 */
 	public static int get(int n) {
@@ -53,14 +54,14 @@ public class Rnd {
 	{
 		return min + (int) Math.floor(rnd.nextDouble() * (max - min + 1));
 	}
-
+	
 	public static boolean chance(int chance) {
 		return (chance >= 1) && ((chance > 99) || (nextInt(99) + 1 <= chance));
 	}
-
+  
 	public static boolean chance(double chance) {
 		return nextDouble() <= chance / 100.0D;
-	}
+	}	
 
 	/**
 	 * @param n

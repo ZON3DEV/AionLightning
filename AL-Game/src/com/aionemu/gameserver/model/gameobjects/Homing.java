@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects;
 
 import org.apache.commons.lang.StringUtils;
@@ -28,7 +29,6 @@ import com.aionemu.gameserver.model.templates.spawns.SpawnTemplate;
 
 /**
  * @author ATracer
- * @modified Lilith
  */
 public class Homing extends SummonedObject<Creature> {
 
@@ -82,7 +82,7 @@ public class Homing extends SummonedObject<Creature> {
 
 	@Override
 	public boolean isEnemyFrom(Player player) {
-		return getCreator() != null ? getCreator().isEnemyFrom(player) : false;
+		return getCreator() != null && getCreator().isEnemyFrom(player);
 	}
 
 	/**
@@ -100,16 +100,13 @@ public class Homing extends SummonedObject<Creature> {
 
 	@Override
 	public ItemAttackType getAttackType() {
-		if (getName().equalsIgnoreCase("fire energy")) {
+		if (getName().contains("fire")) {
 			return ItemAttackType.MAGICAL_FIRE;
-		}
-		else if (getName().equalsIgnoreCase("stone energy")) {
+		} else if (getName().contains("stone")) {
 			return ItemAttackType.MAGICAL_EARTH;
-		}
-		else if (getName().equalsIgnoreCase("water energy")) {
+		} else if (getName().contains("water")) {
 			return ItemAttackType.MAGICAL_WATER;
-		}
-		else if ((getName().equalsIgnoreCase("wind servant")) || (getName().equalsIgnoreCase("cyclone servant"))) {
+		} else if ((getName().contains("wind")) || (getName().contains("cyclone"))) {
 			return ItemAttackType.MAGICAL_WIND;
 		}
 		return ItemAttackType.PHYSICAL;

@@ -18,17 +18,12 @@
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
-import com.aionemu.gameserver.model.templates.npc.NpcTemplate;
 import com.aionemu.gameserver.model.templates.spawns.SpawnSearchResult;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SHOW_NPC_ON_MAP;
 import com.aionemu.gameserver.services.teleport.TeleportService2;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author Lyahim
@@ -61,27 +56,12 @@ public class CM_OBJECT_SEARCH extends AionClientPacket {
 	@Override
 	protected void runImpl() {
 		SpawnSearchResult searchResult = DataManager.SPAWNS_DATA2.getFirstSpawnByNpcId(0, npcId);
-		final Player player = getConnection().getActivePlayer();
-		NpcTemplate npc = DataManager.NPC_DATA.getNpcTemplate(npcId);
+    	Player player = getConnection().getActivePlayer();
 		if (searchResult != null) {
 			sendPacket(new SM_SHOW_NPC_ON_MAP(npcId, searchResult.getWorldId(), searchResult.getSpot().getX(), searchResult.getSpot().getY(), searchResult.getSpot().getZ()));
-			if (player.isGM()) {
-				RequestResponseHandler responseHandler = new RequestResponseHandler(player) {
-
-					@Override
-					public void acceptRequest(Creature requester, Player responder) {
-						TeleportService2.teleportToNpc(player, npcId);
-					}
-
-					@Override
-					public void denyRequest(Creature requester, Player responder) {
-						// Do nothing
-					}
-				};
-
-				player.getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_HOTSPOT_CONFIRM_NO_COST, responseHandler);
-				PacketSendUtility.sendPacket(player, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_HOTSPOT_CONFIRM_NO_COST, 0, 0, npc.getName()));
+      		if (player.isGM()) {
+        		TeleportService2.teleportToNpc(player, this.npcId);
 			}
 		}
-	}
+  	}
 }

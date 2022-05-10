@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.controllers;
 
-import org.apache.commons.lang.NullArgumentException;
+package com.aionemu.gameserver.controllers;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.EmotionType;
@@ -38,6 +37,7 @@ import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.taskmanager.tasks.PlayerMoveTaskManager;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
+import org.apache.commons.lang.NullArgumentException;
 
 /**
  * @author ATracer
@@ -56,7 +56,7 @@ public class SummonController extends CreatureController<Summon> {
 			return;
 		}
 
-		if (object.getObjectId() == getOwner().getMaster().getObjectId()) {
+		if (object.getObjectId().equals(getOwner().getMaster().getObjectId())) {
 			SummonsService.release(getOwner(), UnsummonType.DISTANCE, isAttacked);
 		}
 	}
@@ -102,7 +102,7 @@ public class SummonController extends CreatureController<Summon> {
 	}
 
 	@Override
-	public void attackTarget(Creature target, int attackNo, int time, int type) {
+	public void attackTarget(Creature target, int time) {
 		Player master = getOwner().getMaster();
 
 		if (!RestrictionsManager.canAttack(master, target)) {
@@ -118,7 +118,7 @@ public class SummonController extends CreatureController<Summon> {
 			return;
 		}
 		lastAttackMilis = milis;
-		super.attackTarget(target, attackNo, time, type);
+		super.attackTarget(target, time);
 	}
 
 	@Override
@@ -133,7 +133,7 @@ public class SummonController extends CreatureController<Summon> {
 		}
 
 		super.onAttack(creature, skillId, type, damage, notifyAttack, log);
-		PacketSendUtility.broadcastPacket(getOwner(), new SM_ATTACK_STATUS(getOwner(), creature, TYPE.REGULAR, 0, damage, log));
+		PacketSendUtility.broadcastPacket(getOwner(), new SM_ATTACK_STATUS(getOwner(), TYPE.REGULAR, 0, damage, log));
 		PacketSendUtility.sendPacket(getOwner().getMaster(), new SM_SUMMON_UPDATE(getOwner()));
 	}
 
@@ -148,9 +148,9 @@ public class SummonController extends CreatureController<Summon> {
 		final Player master = getOwner().getMaster();
 		PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, EmotionType.DIE, 0, lastAttacker.equals(owner) ? 0 : lastAttacker.getObjectId()));
 
-		if (!master.equals(lastAttacker) && !owner.equals(lastAttacker) && !master.getLifeStats().isAlreadyDead() && !lastAttacker.getLifeStats().isAlreadyDead()) {
+		if (!master.equals(lastAttacker) && !owner.equals(lastAttacker) && !master.getLifeStats().isAlreadyDead()
+				&& !lastAttacker.getLifeStats().isAlreadyDead()) {
 			ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
 					lastAttacker.getAggroList().addHate(master, 1);
@@ -171,7 +171,6 @@ public class SummonController extends CreatureController<Summon> {
 			// If skill succeeds, handle automatic release if expected
 			if (skill.useSkill() && skillId == releaseAfterSkill) {
 				ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 					@Override
 					public void run() {
 						SummonsService.release(getOwner(), UnsummonType.UNSPECIFIED, isAttacked);
@@ -186,7 +185,8 @@ public class SummonController extends CreatureController<Summon> {
 	 * Handle automatic release if Ultra Skill demands it
 	 *
 	 * @param is
-	 *            the skill commanded by summoner, after which pet is automatically dismissed
+	 *            the skill commanded by summoner, after which pet is
+	 *            automatically dismissed
 	 */
 	public void setReleaseAfterSkill(int skillId) {
 		this.releaseAfterSkill = skillId;

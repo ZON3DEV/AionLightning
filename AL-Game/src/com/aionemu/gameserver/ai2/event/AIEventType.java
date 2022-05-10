@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.ai2.event;
 
 /**
@@ -25,6 +26,7 @@ public enum AIEventType {
 	DEACTIVATE,
 	FREEZE,
 	UNFREEZE,
+
 	/**
 	 * Creature is being attacked (internal)
 	 */

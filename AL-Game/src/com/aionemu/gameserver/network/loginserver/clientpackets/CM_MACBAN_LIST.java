@@ -14,13 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.loginserver.clientpackets;
 
 import com.aionemu.gameserver.network.BannedMacManager;
 import com.aionemu.gameserver.network.loginserver.LsClientPacket;
 
 /**
+ *
  * @author KID
+ *
  */
 public class CM_MACBAN_LIST extends LsClientPacket {
 

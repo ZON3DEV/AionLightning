@@ -14,10 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.items.storage;
 
-import java.util.List;
-import java.util.Queue;
+package com.aionemu.gameserver.model.items.storage;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
@@ -26,8 +24,10 @@ import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.services.item.ItemPacketService.ItemAddType;
 import com.aionemu.gameserver.services.item.ItemPacketService.ItemDeleteType;
 import com.aionemu.gameserver.services.item.ItemPacketService.ItemUpdateType;
-
 import javolution.util.FastList;
+
+import java.util.List;
+import java.util.Queue;
 
 /**
  * Public interface for Storage, later will rename probably
@@ -119,7 +119,8 @@ public interface IStorage {
 	long decreaseItemCount(Item item, long count, ItemUpdateType updateType, QuestStatus questStatus);
 
 	/**
-	 * Add operation should be used for new items incoming into storage from outside
+	 * Add operation should be used for new items incoming into storage from
+	 * outside
 	 */
 	Item add(Item item);
 

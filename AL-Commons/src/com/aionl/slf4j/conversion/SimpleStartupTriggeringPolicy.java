@@ -15,23 +15,23 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionl.slf4j.conversion;
 
 import java.io.File;
 
 import ch.qos.logback.core.rolling.TriggeringPolicyBase;
 
-/**
- * SimpleStartupTriggeringPolicy triggers a rollover once at startup only. This
- * is useful for preserving older logfiles during development.
+/** 
+ * SimpleStartupTriggeringPolicy triggers a rollover once at startup only. This 
+ * is useful for preserving older logfiles during development. 
  * 
- * @author Rick Beton
- */
+ * @author Rick Beton 
+ */ 
 public final class SimpleStartupTriggeringPolicy<E> extends TriggeringPolicyBase<E> {
-
+	
 	private boolean fired = false;
-
-	@Override
+  
 	public boolean isTriggeringEvent(File activeFile, E event) {
 		boolean result = (!this.fired) && (activeFile.length() > 0L);
 		this.fired = true;

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.loginserver.serverpackets;
 
 import com.aionemu.gameserver.network.loginserver.LoginServerConnection;
@@ -24,24 +25,28 @@ import com.aionemu.gameserver.network.loginserver.LsServerPacket;
  */
 public class SM_ACCOUNT_TOLL_INFO extends LsServerPacket {
 
-	private final int type;
 	private final long toll;
-	private final long luna;
 	private final String accountName;
+	private final int type;
 
-	public SM_ACCOUNT_TOLL_INFO(int type, long toll, long luna, String accountName) {
+	public SM_ACCOUNT_TOLL_INFO(long toll, String accountName) {
 		super(0x09);
-		this.type = type;
-		this.toll = toll;
-		this.luna = luna;
 		this.accountName = accountName;
+		this.toll = toll;
+		this.type = 0;
+	}
+
+	public SM_ACCOUNT_TOLL_INFO(long toll, int type, String accountName) {
+		super(0x09);
+		this.accountName = accountName;
+		this.toll = toll;
+		this.type = type;
 	}
 
 	@Override
 	protected void writeImpl(LoginServerConnection con) {
-		writeC(type); // type 0 = toll, 1 = luna, 10 = TODO
+		writeC(type); // type 0 = toll, 10 = point boutique (add only)
 		writeQ(toll);
-		writeQ(luna);
 		writeS(accountName);
 	}
 }

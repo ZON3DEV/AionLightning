@@ -15,13 +15,14 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.utils;
 
 import java.util.Iterator;
 import java.util.Set;
 
-import javolution.util.FastCollection.Record;
 import javolution.util.FastMap;
+import javolution.util.FastCollection.Record;
 
 /**
  * @author NB4L1
@@ -48,8 +49,7 @@ public class AEFastSet<E> extends AEFastCollection<E> implements Set<E> {
 	}
 
 	/*
-	 * public AEFastSet<E> setShared(boolean isShared) {
-	 * map.setShared(isShared); return this; }
+	 * public AEFastSet<E> setShared(boolean isShared) { map.setShared(isShared); return this; }
 	 */
 
 	public boolean isShared() {

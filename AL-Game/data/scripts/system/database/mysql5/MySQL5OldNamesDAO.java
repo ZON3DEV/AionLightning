@@ -14,14 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import org.slf4j.Logger;
 
 import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.IUStH;
@@ -44,12 +46,10 @@ public class MySQL5OldNamesDAO extends OldNamesDAO {
 			ResultSet rs = s.executeQuery();
 			rs.next();
 			return rs.getInt("cnt") > 0;
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Can't check if name " + name + ", is used, returning possitive result", e);
 			return true;
-		}
-		finally {
+		} finally {
 			DB.close(s);
 		}
 	}
@@ -57,7 +57,6 @@ public class MySQL5OldNamesDAO extends OldNamesDAO {
 	@Override
 	public void insertNames(final int id, final String oldname, final String newname) {
 		DB.insertUpdate(INSERT_QUERY, new IUStH() {
-
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
 				stmt.setInt(1, id);

@@ -14,20 +14,18 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.items.storage;
 
-import static ch.lambdaj.Lambda.having;
-import static ch.lambdaj.Lambda.on;
-import static ch.lambdaj.Lambda.select;
-import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.lessThan;
+import com.aionemu.gameserver.model.gameobjects.Item;
+import javolution.util.FastList;
+import javolution.util.FastMap;
 
 import java.util.List;
 
-import com.aionemu.gameserver.model.gameobjects.Item;
-
-import javolution.util.FastList;
-import javolution.util.FastMap;
+import static ch.lambdaj.Lambda.*;
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.lessThan;
 
 /**
  * @author KID
@@ -124,8 +122,7 @@ public class ItemStorage {
 		Item item = this.getItemByObjId(objId);
 		if (item != null) {
 			return item.getEquipmentSlot();
-		}
-		else {
+		} else {
 			return -1;
 		}
 	}

@@ -14,17 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.flypath;
 
 /**
+ *
  * @author xTz
  */
 public enum FlyPathType {
 
-	GEYSER(0),
-	ONE_WAY(1),
-	TWO_WAY(2);
-
+	GEYSER(0), ONE_WAY(1), TWO_WAY(2);
 	private int id;
 
 	private FlyPathType(int id) {

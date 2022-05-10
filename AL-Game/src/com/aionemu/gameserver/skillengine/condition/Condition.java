@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.condition;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -46,9 +47,6 @@ public abstract class Condition implements StatCondition {
 		return true;
 	}
 
-	/**
-	 * @param effect
-	 */
 	public boolean validate(Effect effect) {
 		return true;
 	}

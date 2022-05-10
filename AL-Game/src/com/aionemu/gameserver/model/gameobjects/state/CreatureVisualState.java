@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.state;
 
 /**
@@ -29,9 +30,7 @@ public enum CreatureVisualState {
 	HIDE10(10), // Hide from Npc?
 	HIDE13(13), // Hide from Npc?
 	HIDE20(20), // Hide from Npc?
-	BLINKING(64), // Blinking when entering to zone
-	INVISIBLE(128); // Invisible
-
+	BLINKING(64); // Blinking when entering to zone
 	private int id;
 
 	private CreatureVisualState(int id) {

@@ -14,11 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.assemblednpc;
 
 import javolution.util.FastList;
 
 /**
+ *
  * @author xTz
  */
 public class AssembledNpc {

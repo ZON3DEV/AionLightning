@@ -14,24 +14,23 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
-
-import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.base.BaseLocation;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_FLAG_INFO;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_NPC_INFO;
 import com.aionemu.gameserver.services.base.Base;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.knownlist.Visitor;
-
 import javolution.util.FastMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Map;
 
 /**
  * @author Source
@@ -43,19 +42,16 @@ public class BaseService {
 	private Map<Integer, BaseLocation> bases;
 
 	public void initBaseLocations() {
+		log.info("Initializing bases...");
 		bases = DataManager.BASE_DATA.getBaseLocations();
-		log.info("[BaseService] Loaded " + bases.size() + " Bases");
+		log.info("Loaded " + bases.size() + " bases.");
 	}
 
 	public void initBases() {
-		log.info("[BaseService] started ...");
+        log.info("Init Bases...");
 		for (BaseLocation base : getBaseLocations().values()) {
 			start(base.getId());
 		}
-	}
-
-	public void basesDisabled() {
-		log.info("[BaseService] Disabled ...");
 	}
 
 	public Map<Integer, BaseLocation> getBaseLocations() {
@@ -82,7 +78,7 @@ public class BaseService {
 
 	public void stop(int id) {
 		if (!isActive(id)) {
-			log.info("[BaseService] Trying to stop not active base:" + id);
+			log.info("Trying to stop not active base:" + id);
 			return;
 		}
 
@@ -92,7 +88,7 @@ public class BaseService {
 		}
 
 		if (base == null || base.isFinished()) {
-			log.info("[BaseService] Trying to stop null or finished base:" + id);
+			log.info("Trying to stop null or finished base:" + id);
 			return;
 		}
 
@@ -102,7 +98,7 @@ public class BaseService {
 
 	public void capture(int id, Race race) {
 		if (!isActive(id)) {
-			log.info("[BaseService] Detecting not active base capture baseId: " + id);
+			log.info("Detecting not active base capture.");
 			return;
 		}
 
@@ -123,8 +119,7 @@ public class BaseService {
 		for (BaseLocation baseLocation : getBaseLocations().values()) {
 			if (baseLocation.getWorldId() == player.getWorldId() && isActive(baseLocation.getId())) {
 				Base<?> base = getActiveBase(baseLocation.getId());
-				PacketSendUtility.sendPacket(player, new SM_FLAG_INFO(1, base.getFlag()));
-				player.getController().updateZone();
+				PacketSendUtility.sendPacket(player, new SM_NPC_INFO(base.getFlag(), player));
 				player.getController().updateNearbyQuests();
 			}
 		}
@@ -132,14 +127,12 @@ public class BaseService {
 
 	public void broadcastUpdate(final BaseLocation baseLocation) {
 		World.getInstance().getWorldMap(baseLocation.getWorldId()).getMainWorldMapInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player player) {
 				if (isActive(baseLocation.getId())) {
 					Base<?> base = getActiveBase(baseLocation.getId());
-					PacketSendUtility.sendPacket(player, new SM_FLAG_INFO(1, base.getFlag()));
-					player.getController().updateZone();
-			        player.getController().updateNearbyQuests();
+					PacketSendUtility.sendPacket(player, new SM_NPC_INFO(base.getFlag(), player));
+					player.getController().updateNearbyQuests();
 				}
 			}
 		});

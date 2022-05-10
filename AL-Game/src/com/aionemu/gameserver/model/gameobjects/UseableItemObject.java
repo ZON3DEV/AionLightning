@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects;
 
 import java.nio.ByteBuffer;
@@ -70,8 +71,7 @@ public class UseableItemObject extends HouseObject<HousingUseableItem> {
 		protected void writeMe(ByteBuffer buffer) {
 			if (obj.getObjectTemplate().getUseCount() != null) {
 				writeD(buffer, obj.getOwnerUsedCount() + obj.getVisitorUsedCount());
-			}
-			else {
+			} else {
 				writeD(buffer, 0);
 			}
 			int checkType = 0;
@@ -136,8 +136,10 @@ public class UseableItemObject extends HouseObject<HousingUseableItem> {
 			// Counter is for both, but could be made custom from configs
 			currentUseCount = getOwnerUsedCount() + getVisitorUsedCount();
 			if (currentUseCount >= useCount && !isOwner || currentUseCount > useCount && isOwner) {
-				// if expiration is set then final reward has to be given for owner only
-				// due to inventory full. If inventory was not full, the object had to be despawned, so
+				// if expiration is set then final reward has to be given for
+				// owner only
+				// due to inventory full. If inventory was not full, the object
+				// had to be despawned, so
 				// we wouldn't reach this check.
 				if (!mustGiveLastReward || !isOwner) {
 					warnAndRelease(player, SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_OBJECT_ACHIEVE_USE_COUNT);
@@ -148,13 +150,12 @@ public class UseableItemObject extends HouseObject<HousingUseableItem> {
 
 		final Integer requiredItem = getObjectTemplate().getRequiredItem();
 
-		if (mustGiveLastReward && !isOwner) {
+		if (mustGiveLastReward && !isOwner && requiredItem != null) {
 			// Expired, waiting owner
 			int descId = DataManager.ITEM_DATA.getItemTemplate(requiredItem).getNameId();
 			warnAndRelease(player, SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_OBJECT_DELETE_EXPIRE_TIME(descId));
 			return;
-		}
-		else if (requiredItem != null) {
+		} else if (requiredItem != null) {
 			int checkType = action.getCheckType();
 			if (checkType == 1) { // equip item needed
 				List<Item> items = player.getEquipment().getEquippedItemsByItemId(requiredItem);
@@ -163,8 +164,7 @@ public class UseableItemObject extends HouseObject<HousingUseableItem> {
 					warnAndRelease(player, SM_SYSTEM_MESSAGE.STR_MSG_CANT_USE_HOUSE_OBJECT_ITEM_EQUIP(new DescriptionId(descId)));
 					return;
 				}
-			}
-			else if (player.getInventory().getItemCountByItemId(requiredItem) < action.getRemoveCount()) {
+			} else if (player.getInventory().getItemCountByItemId(requiredItem) < action.getRemoveCount()) {
 				int descId = DataManager.ITEM_DATA.getItemTemplate(requiredItem).getNameId();
 				warnAndRelease(player, SM_SYSTEM_MESSAGE.STR_MSG_CANT_USE_HOUSE_OBJECT_ITEM_CHECK(new DescriptionId(descId)));
 				return;
@@ -180,7 +180,6 @@ public class UseableItemObject extends HouseObject<HousingUseableItem> {
 		final int ownerId = getOwnerHouse().getOwnerId();
 		final int usedCount = useCount == null ? 0 : currentUseCount + 1;
 		final ItemUseObserver observer = new ItemUseObserver() {
-
 			@Override
 			public void abort() {
 				PacketSendUtility.sendPacket(player, new SM_USE_OBJECT(player.getObjectId(), getObjectId(), 0, 9));
@@ -198,12 +197,11 @@ public class UseableItemObject extends HouseObject<HousingUseableItem> {
 		PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_OBJECT_USE(getObjectTemplate().getNameId()));
 		PacketSendUtility.sendPacket(player, new SM_USE_OBJECT(player.getObjectId(), getObjectId(), delay, 8));
 		player.getController().addTask(TaskId.HOUSE_OBJECT_USE, ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				try {
 					PacketSendUtility.sendPacket(player, new SM_USE_OBJECT(player.getObjectId(), getObjectId(), 0, 9));
-					if (action.getRemoveCount() != null && action.getRemoveCount() != 0) {
+					if (action.getRemoveCount() != null && action.getRemoveCount() != 0 && requiredItem != null) {
 						player.getInventory().decreaseByItemId(requiredItem, action.getRemoveCount());
 					}
 
@@ -217,24 +215,21 @@ public class UseableItemObject extends HouseObject<HousingUseableItem> {
 							rewardId = action.getFinalRewardId();
 							ItemService.addItem(player, rewardId, 1);
 							delete = true;
-						}
-						else if (action.getRewardId() != null) {
+						} else if (action.getRewardId() != null) {
 							rewardId = action.getRewardId();
 							ItemService.addItem(player, rewardId, 1);
 							if (useCount == usedCount) {
 								PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_FLOWERPOT_GOAL(myself.getObjectTemplate().getNameId()));
 								if (action.getFinalRewardId() == null) {
 									delete = true;
-								}
-								else {
+								} else {
 									myself.setMustGiveLastReward(true);
 									myself.setExpireTime((int) (System.currentTimeMillis() / 1000));
 									myself.setPersistentState(PersistentState.UPDATE_REQUIRED);
 								}
 							}
 						}
-					}
-					else if (action.getRewardId() != null) {
+					} else if (action.getRewardId() != null) {
 						rewardId = action.getRewardId();
 						ItemService.addItem(player, rewardId, 1);
 					}
@@ -242,8 +237,7 @@ public class UseableItemObject extends HouseObject<HousingUseableItem> {
 						if (!delete) {
 							if (player.getObjectId() == ownerId) {
 								myself.incrementOwnerUsedCount();
-							}
-							else {
+							} else {
 								myself.incrementVisitorUsedCount();
 							}
 						}
@@ -251,12 +245,12 @@ public class UseableItemObject extends HouseObject<HousingUseableItem> {
 					}
 					if (rewardId > 0) {
 						int rewardNameId = DataManager.ITEM_DATA.getItemTemplate(rewardId).getNameId();
-						PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_OBJECT_REWARD_ITEM(myself.getObjectTemplate().getNameId(), rewardNameId));
+						PacketSendUtility.sendPacket(player,
+								SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_OBJECT_REWARD_ITEM(myself.getObjectTemplate().getNameId(), rewardNameId));
 					}
 					if (delete) {
 						selfDestroy(player, SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_OBJECT_DELETE_USE_COUNT_FINAL(getObjectTemplate().getNameId()));
-					}
-					else {
+					} else {
 						Integer cd = myself.getObjectTemplate().getCd();
 						DateTime repeatDate;
 						if (cd == null || cd == 0) {
@@ -267,8 +261,7 @@ public class UseableItemObject extends HouseObject<HousingUseableItem> {
 						}
 						player.getHouseObjectCooldownList().addHouseObjectCooldown(myself.getObjectId(), cd);
 					}
-				}
-				finally {
+				} finally {
 					player.getObserveController().removeObserver(observer);
 					warnAndRelease(player, null);
 				}
@@ -302,8 +295,7 @@ public class UseableItemObject extends HouseObject<HousingUseableItem> {
 		final SM_SYSTEM_MESSAGE msg = SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_OBJECT_DELETE_EXPIRE_TIME(descId);
 		if (isSpawnedByPlayer()) {
 			selfDestroy(player, msg);
-		}
-		else {
+		} else {
 			PacketSendUtility.sendPacket(player, new SM_HOUSE_EDIT(4, 1, getObjectId()));
 			PacketSendUtility.sendPacket(player, msg);
 			super.expireEnd(player);

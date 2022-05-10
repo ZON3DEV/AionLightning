@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers.movement;
 
 import com.aionemu.gameserver.configs.main.FallDamageConfig;
@@ -43,7 +44,7 @@ public class PlayerMoveController extends PlayableMoveController<Player> {
 		owner.getObserveController().notifyMoveObservers();
 	}
 
-	public void stopFalling() {
+	public void stopFalling(float newZ) {
 		if (lastFallZ != 0) {
 			if (!owner.isFlying()) {
 				StatFunctions.calculateFallDamage(owner, fallDistance, true);

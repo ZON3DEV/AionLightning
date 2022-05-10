@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.portals;
 
 import com.aionemu.gameserver.ai2.AIName;
@@ -29,7 +30,6 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  * @author Rolandas
  */
 @AIName("friendportal")
-// 810003, 810031
 public class FriendPortalAI2 extends NpcAI2 {
 
 	@Override
@@ -38,12 +38,11 @@ public class FriendPortalAI2 extends NpcAI2 {
 		int playerOwner = me.getCreator().getOwnerId();
 
 		boolean allowed = player.getObjectId() == playerOwner || player.getFriendList().getFriend(playerOwner) != null
-			|| (player.getLegion() != null && player.getLegion().isMember(playerOwner));
+				|| (player.getLegion() != null && player.getLegion().isMember(playerOwner));
 
 		if (allowed) {
 			PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(getOwner().getObjectId(), DialogPage.HOUSING_FRIENDLIST.id()));
-		}
-		else {
+		} else {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_HOUSING_TELEPORT_CANT_USE);
 		}
 	}

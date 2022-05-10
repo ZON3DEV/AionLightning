@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.taskmanager;
 
 import java.util.concurrent.locks.ReentrantLock;
@@ -39,8 +40,7 @@ public abstract class FIFOExecutableQueue implements Runnable {
 			}
 
 			state = QUEUED;
-		}
-		finally {
+		} finally {
 			unlock();
 		}
 
@@ -65,13 +65,11 @@ public abstract class FIFOExecutableQueue implements Runnable {
 					while (!isEmpty()) {
 						removeAndExecuteFirst();
 					}
-				}
-				finally {
+				} finally {
 					setState(RUNNING, QUEUED);
 				}
 			}
-		}
-		finally {
+		} finally {
 			setState(QUEUED, NONE);
 		}
 	}
@@ -82,8 +80,7 @@ public abstract class FIFOExecutableQueue implements Runnable {
 			if (state != expected) {
 				throw new IllegalStateException("state: " + state + ", expected: " + expected);
 			}
-		}
-		finally {
+		} finally {
 			state = value;
 
 			unlock();

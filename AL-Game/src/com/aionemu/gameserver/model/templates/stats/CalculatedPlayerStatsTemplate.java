@@ -65,10 +65,6 @@ public class CalculatedPlayerStatsTemplate extends PlayerStatsTemplate {
 		return ClassStats.getBlockFor(playerClass);
 	}
 
-	public int getCritSpell() {
-		return ClassStats.getCritSpellFor(playerClass);
-	}
-
 	@Override
 	public int getEvasion() {
 		return ClassStats.getEvasionFor(playerClass);
@@ -118,16 +114,6 @@ public class CalculatedPlayerStatsTemplate extends PlayerStatsTemplate {
 	@Override
 	public float getRunSpeed() {
 		return ClassStats.getSpeedFor(playerClass);
-	}
-
-	@Override
-	public int getSpellResist() {
-		return ClassStats.getSpellResistFor(playerClass);
-	}
-
-	@Override
-	public int getStrikeResist() {
-		return ClassStats.getStrikeResistFor(playerClass);
 	}
 
 	@Override

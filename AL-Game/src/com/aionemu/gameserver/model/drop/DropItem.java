@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.drop;
 
 import com.aionemu.commons.utils.Rnd;
@@ -47,7 +48,8 @@ public class DropItem {
 	}
 
 	/**
-	 * Regenerates item count upon each call // TODO input parameters - based on attacker stats // TODO more precise calculations (non-linear)
+	 * Regenerates item count upon each call // TODO input parameters - based on
+	 * attacker stats // TODO more precise calculations (non-linear)
 	 */
 	public void calculateCount() {
 		count = Rnd.get(dropTemplate.getMinAmount(), dropTemplate.getMaxAmount());

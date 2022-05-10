@@ -14,25 +14,25 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model;
 
 /**
+ *
  * @author xTz
  */
 public enum TeleportAnimation {
 
 	NO_ANIMATION(0, 0),
 	BEAM_ANIMATION(1, 3),
-	JUMP_ANIMATION(3, 10),
-	JUMP_ANIMATION_2(4, 10),
-	FIRE_ANIMATION(4, 0x0B), // 5.0
-	JUMP_ANIMATION_3(8, 3),
-	MAGE_ANIMATION(8, 10);// Mage Grp Gate
+	JUMP_AIMATION(3, 10),
+	JUMP_AIMATION_2(4, 10),
+	JUMP_AIMATION_3(8, 3);
 
 	private int startAnimation;
 	private int endAnimation;
 
-	private TeleportAnimation(int startAnimation, int endAnimation) {
+	TeleportAnimation(int startAnimation, int endAnimation) {
 		this.startAnimation = startAnimation;
 		this.endAnimation = endAnimation;
 	}

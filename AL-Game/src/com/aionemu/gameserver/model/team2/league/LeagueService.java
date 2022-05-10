@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.league;
 
 import java.util.Map;
@@ -33,8 +34,6 @@ import com.aionemu.gameserver.model.team2.league.events.LeagueLeftEvent;
 import com.aionemu.gameserver.model.team2.league.events.LeagueLeftEvent.LeaveReson;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.restrictions.RestrictionsManager;
-import com.aionemu.gameserver.services.AutoGroupService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.google.common.base.Preconditions;
 
@@ -54,34 +53,19 @@ public class LeagueService {
 		if (canInvite(inviter, invited)) {
 			LeagueInvite invite = new LeagueInvite(inviter, invited);
 			if (invited.getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_MSGBOX_UNION_INVITE_ME, invite)) {
-                if (invited.isInAlliance2()) {
-					PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE.STR_UNION_INVITE_HIM(invited.getName(), inviter.getName()));
-				}
+				PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE.STR_UNION_INVITE_HIM(invited.getName(), invited.getPlayerAlliance2().size()));
 				PacketSendUtility.sendPacket(invited, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_MSGBOX_UNION_INVITE_ME, 0, 0, inviter.getName()));
 			}
 		}
 	}
 
 	public static final boolean canInvite(Player inviter, Player invited) {
-        if (inviter.isInInstance()) {
-            if (AutoGroupService.getInstance().isAutoInstance(inviter.getInstanceId())) {
-                //You cannot use invite, leave or kick commands related to your group or alliance in this region.
-				PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE.STR_MSG_INSTANCE_CANT_OPERATE_PARTY_COMMAND);
-                return false;
-            }
-        } if (invited.isInInstance()) {
-            if (AutoGroupService.getInstance().isAutoInstance(invited.getInstanceId())) {
-                //You cannot use invite, leave or kick commands related to your group or alliance in this region.
-				PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE.STR_MSG_INSTANCE_CANT_OPERATE_PARTY_COMMAND);
-                return false;
-            }
-        }
-		return RestrictionsManager.canInviteToLeague(inviter, invited);
-    }
-	
+		return inviter.isInAlliance2() && invited.isInAlliance2() && inviter.getPlayerAlliance2().isLeader(inviter);
+	}
+
 	public static final League createLeague(Player inviter, Player invited) {
 		PlayerAlliance alliance = inviter.getPlayerAlliance2();
-        Preconditions.checkNotNull(alliance, "League can not be null");
+		Preconditions.checkNotNull(alliance, "Alliance can not be null");
 		League newLeague = new League(new LeagueMember(alliance, 0));
 		leagues.put(newLeague.getTeamId(), newLeague);
 		addAlliance(newLeague, alliance);
@@ -119,7 +103,8 @@ public class LeagueService {
 		Preconditions.checkNotNull(expelGiver, "ExpelGiver player should not be null");
 		Preconditions.checkArgument(expelGiver.isInLeague(), "Expelled player should be in league");
 		Preconditions.checkArgument(expelledPlayer.isInLeague(), "ExpelGiver should be in league");
-		Preconditions.checkArgument(expelGiver.getPlayerAlliance2().getLeague().isLeader(expelGiver.getPlayerAlliance2()), "ExpelGiver alliance should be the leader of league");
+		Preconditions.checkArgument(expelGiver.getPlayerAlliance2().getLeague().isLeader(expelGiver.getPlayerAlliance2()),
+				"ExpelGiver alliance should be the leader of league");
 		Preconditions.checkArgument(expelGiver.getPlayerAlliance2().isLeader(expelGiver), "ExpelGiver should be the leader of alliance");
 		PlayerAlliance alliance = expelGiver.getPlayerAlliance2();
 		League league = alliance.getLeague();
@@ -149,8 +134,7 @@ public class LeagueService {
 						league.onEvent(new LeagueLeftEvent(league, alliance));
 					}
 				}
-			}
-			catch (Throwable t) {
+			} catch (Throwable t) {
 				log.error("Error during alliance disband listen", t);
 			}
 		}

@@ -14,13 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.rift;
 
-import java.util.ArrayList;
-import java.util.List;
+package com.aionemu.gameserver.model.rift;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.templates.rift.RiftTemplate;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Source

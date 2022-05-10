@@ -14,14 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect.modifier;
 
+import com.aionemu.gameserver.skillengine.change.Func;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.skillengine.change.Func;
 import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**

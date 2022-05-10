@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.ai2.handler;
 
 import com.aionemu.gameserver.ai2.AI2Logger;

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.toypet;
 
 /**
@@ -80,8 +81,7 @@ public final class PetFeedProgress {
 	public void incrementCount(boolean lovedFood) {
 		if (lovedFood) {
 			lovedConsumed++;
-		}
-		else {
+		} else {
 			regularConsumed++;
 		}
 	}
@@ -89,8 +89,7 @@ public final class PetFeedProgress {
 	public void reset() {
 		if (lovedFeeded) {
 			lovedFeeded = false;
-		}
-		else {
+		} else {
 			totalPoints = 0;
 			regularConsumed = 0;
 		}

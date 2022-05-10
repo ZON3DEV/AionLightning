@@ -14,9 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.instance.playerreward;
 
 /**
+ *
  * @author xTz
  */
 public class CruciblePlayerReward extends InstancePlayerReward {

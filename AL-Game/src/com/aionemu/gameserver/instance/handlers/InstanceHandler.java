@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.instance.handlers;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -23,7 +24,6 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.instance.StageList;
 import com.aionemu.gameserver.model.instance.StageType;
 import com.aionemu.gameserver.model.instance.instancereward.InstanceReward;
-import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.world.WorldMapInstance;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 
@@ -63,8 +63,6 @@ public interface InstanceHandler {
 	void onLeaveZone(Player player, ZoneInstance zone);
 
 	void onPlayMovieEnd(Player player, int movieId);
-	
-	public void onSkillUse(Player player, SkillTemplate template);
 
 	boolean onReviveEvent(Player player);
 
@@ -93,6 +91,4 @@ public interface InstanceHandler {
 	boolean onPassFlyingRing(Player player, String flyingRing);
 
 	void handleUseItemFinish(Player player, Npc npc);
-
-	boolean isEnemy(Player attacker, Player target);
 }

@@ -14,10 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.spawnengine;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.aionemu.gameserver.spawnengine;
 
 import com.aionemu.gameserver.controllers.StaticObjectController;
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -32,6 +30,8 @@ import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.geo.GeoService;
 import com.aionemu.gameserver.world.knownlist.PlayerAwareKnownList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author MrPoke
@@ -52,7 +52,8 @@ public class StaticDoorSpawnManager {
 		int counter = 0;
 		for (StaticDoorTemplate data : staticDoorWorld.getStaticDoors()) {
 			if (data.getDoorType() != DoorType.DOOR) {
-				// TODO: assign house doors to houses, so geo doors could be triggered by changing house settings;
+				// TODO: assign house doors to houses, so geo doors could be
+				// triggered by changing house settings;
 				// The same for abyss doors, they need to have owners.
 				continue;
 			}

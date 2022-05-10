@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.pet;
 
 import java.util.Arrays;
@@ -50,18 +51,14 @@ public class PetDopingBag {
 
 	/**
 	 * Adds or removes item to the bag
-	 *
-	 * @param itemId
-	 *            - item Id, or 0 to remove
-	 * @param slot
-	 *            - slot number; 0 for food, 1 for drink, the rest are for scrolls
+	 * @param itemId - item Id, or 0 to remove
+	 * @param slot - slot number; 0 for food, 1 for drink, the rest are for scrolls
 	 */
 	public void setItem(int itemId, int slot) {
 		if (itemBag == null) {
 			itemBag = new int[slot + 1];
 			isDirty = true;
-		}
-		else if (slot > itemBag.length - 1) {
+		} else if (slot > itemBag.length - 1) {
 			itemBag = Arrays.copyOf(itemBag, slot + 1);
 			isDirty = true;
 		}

@@ -14,12 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers.movement;
 
 import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.gameserver.ai2.AI2Logger;
 import com.aionemu.gameserver.ai2.AIState;
@@ -28,15 +26,15 @@ import com.aionemu.gameserver.ai2.NpcAI2;
 import com.aionemu.gameserver.ai2.handler.TargetEventHandler;
 import com.aionemu.gameserver.ai2.manager.WalkManager;
 import com.aionemu.gameserver.configs.main.GeoDataConfig;
-import com.aionemu.gameserver.model.actions.CreatureActions;
+import com.aionemu.gameserver.model.actions.NpcActions;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
-import com.aionemu.gameserver.model.geometry.Point3D;
 import com.aionemu.gameserver.model.stats.calc.Stat2;
 import com.aionemu.gameserver.model.templates.walker.RouteStep;
 import com.aionemu.gameserver.model.templates.zone.Point2D;
+import com.aionemu.gameserver.model.geometry.Point3D;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
 import com.aionemu.gameserver.spawnengine.WalkerGroup;
 import com.aionemu.gameserver.taskmanager.tasks.MoveTaskManager;
@@ -46,11 +44,15 @@ import com.aionemu.gameserver.utils.collections.LastUsedCache;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.geo.GeoService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @author ATracer
  */
 public class NpcMoveController extends CreatureMoveController<Npc> {
 
+	@SuppressWarnings("unused")
 	private static final Logger log = LoggerFactory.getLogger(NpcMoveController.class);
 	public static final float MOVE_CHECK_OFFSET = 0.1f;
 	private static final float MOVE_OFFSET = 0.05f;
@@ -73,8 +75,7 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 
 	private static enum Destination {
 
-		TARGET_OBJECT,
-		POINT;
+		TARGET_OBJECT, POINT
 	}
 
 	/**
@@ -124,7 +125,7 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 		if (owner.getAi2().isLogging()) {
 			AI2Logger.moveinfo(owner, "moveToDestination destination: " + destination);
 		}
-		if (CreatureActions.isAlreadyDead(owner)) {
+		if (NpcActions.isAlreadyDead(owner)) {
 			abortMove();
 			return;
 		}
@@ -137,8 +138,7 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 			}
 			updateLastMove();
 			return;
-		}
-		else if (started.compareAndSet(false, true)) {
+		} else if (started.compareAndSet(false, true)) {
 			movementMask = MovementMask.NPC_STARTMOVE;
 			PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner));
 		}
@@ -151,7 +151,7 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 
 		switch (destination) {
 			case TARGET_OBJECT:
-				Npc npc = owner;
+				Npc npc = (Npc) owner;
 				VisibleObject target = owner.getTarget();// todo no target
 				if (target == null) {
 					return;
@@ -260,7 +260,8 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 		if ((ownerX == newX) && (ownerY == newY) && owner.getSpawn().getRandomWalk() > 0) {
 			return;
 		}
-		if (GeoDataConfig.GEO_NPC_MOVE && GeoDataConfig.GEO_ENABLE && owner.getAi2().getSubState() != AISubState.WALK_PATH && owner.getAi2().getState() != AIState.RETURNING && owner.getGameStats().getLastGeoZUpdate() < System.currentTimeMillis()) {
+		if (GeoDataConfig.GEO_NPC_MOVE && GeoDataConfig.GEO_ENABLE && owner.getAi2().getSubState() != AISubState.WALK_PATH
+				&& owner.getAi2().getState() != AIState.RETURNING && owner.getGameStats().getLastGeoZUpdate() < System.currentTimeMillis()) {
 			// fix Z if npc doesn't move to spawn point
 			if (owner.getSpawn().getX() != targetDestX || owner.getSpawn().getY() != targetDestY || owner.getSpawn().getZ() != targetDestZ) {
 				float geoZ = GeoService.getInstance().getZ(owner.getWorldId(), newX, newY, newZ, 0, owner.getInstanceId());
@@ -291,11 +292,9 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 	private byte getMoveMask(boolean directionChanged) {
 		if (directionChanged) {
 			return MovementMask.NPC_STARTMOVE;
-		}
-		else if (owner.getAi2().getState() == AIState.RETURNING) {
+		} else if (owner.getAi2().getState() == AIState.RETURNING) {
 			return MovementMask.NPC_RUN_FAST;
-		}
-		else if (owner.getAi2().getState() == AIState.FOLLOWING) {
+		} else if (owner.getAi2().getState() == AIState.FOLLOWING) {
 			return MovementMask.NPC_WALK_SLOW;
 		}
 
@@ -303,8 +302,7 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 		final Stat2 stat = owner.getGameStats().getMovementSpeed();
 		if (owner.isInState(CreatureState.WEAPON_EQUIPPED)) {
 			mask = stat.getBonus() < 0 ? MovementMask.NPC_RUN_FAST : MovementMask.NPC_RUN_SLOW;
-		}
-		else if (owner.isInState(CreatureState.WALKING) || owner.isInState(CreatureState.ACTIVE)) {
+		} else if (owner.isInState(CreatureState.WALKING) || owner.isInState(CreatureState.ACTIVE)) {
 			mask = stat.getBonus() < 0 ? MovementMask.NPC_WALK_FAST : MovementMask.NPC_WALK_SLOW;
 		}
 		if (owner.isFlying()) {
@@ -346,8 +344,7 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 	public void setCurrentRoute(List<RouteStep> currentRoute) {
 		if (currentRoute == null) {
 			AI2Logger.info(owner.getAi2(), String.format("MC: setCurrentRoute is setting route to null (NPC id: {})!!!", owner.getNpcId()));
-		}
-		else {
+		} else {
 			this.currentRoute = currentRoute;
 		}
 		this.currentPoint = 0;
@@ -362,8 +359,7 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 				// TODO: fix Z
 			}
 			owner.getWalkerGroup().setStep(owner, step.getRouteStep());
-		}
-		else {
+		} else {
 			this.pointZ = step.getZ();
 		}
 		this.currentPoint = step.getRouteStep() - 1;
@@ -385,13 +381,13 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 		int oldPoint = currentPoint;
 		if (currentRoute == null) {
 			WalkManager.stopWalking((NpcAI2) owner.getAi2());
-			log.warn("Bad Walker Id: " + owner.getNpcId() + " - point: " + oldPoint);
+			// log.warn("Bad Walker Id: " + owner.getNpcId() + " - point: " +
+			// oldPoint);
 			return;
 		}
 		if (currentPoint < (currentRoute.size() - 1)) {
 			currentPoint++;
-		}
-		else {
+		} else {
 			currentPoint = 0;
 		}
 		setRouteStep(currentRoute.get(currentPoint), currentRoute.get(oldPoint));
@@ -458,8 +454,7 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 			targetDestY = owner.getSpawn().getY();
 			targetDestZ = owner.getSpawn().getZ();
 			result = new Point3D(targetDestX, targetDestY, targetDestZ);
-		}
-		else {
+		} else {
 			if (owner.getAi2().isLogging()) {
 				AI2Logger.moveinfo(owner, "recall back step: X=" + result.getX() + " Y=" + result.getY() + " Z=" + result.getZ());
 			}
@@ -475,10 +470,5 @@ public class NpcMoveController extends CreatureMoveController<Npc> {
 		stepSequenceNr = 0;
 		lastSteps = null;
 		movementMask = MovementMask.IMMEDIATE;
-	}
-
-	@Override
-	public void skillMovement() {
-		this.movementMask = MovementMask.IMMEDIATE;
 	}
 }

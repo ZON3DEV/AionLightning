@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.alliance.events;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -30,9 +31,7 @@ public class AssignViceCaptainEvent extends AbstractTeamPlayerEvent<PlayerAllian
 
 	public static enum AssignType {
 
-		PROMOTE,
-		DEMOTE_CAPTAIN_TO_VICECAPTAIN,
-		DEMOTE
+		PROMOTE, DEMOTE_CAPTAIN_TO_VICECAPTAIN, DEMOTE
 	}
 
 	private final AssignType assignType;
@@ -73,10 +72,10 @@ public class AssignViceCaptainEvent extends AbstractTeamPlayerEvent<PlayerAllian
 		int messageId = 0;
 		switch (assignType) {
 			case PROMOTE:
-				messageId = SM_ALLIANCE_INFO.FORCE_PROMOTE_MANAGER;
+				messageId = SM_ALLIANCE_INFO.VICECAPTAIN_PROMOTE;
 				break;
 			case DEMOTE:
-				messageId = SM_ALLIANCE_INFO.FORCE_DEMOTE_MANAGER;
+				messageId = SM_ALLIANCE_INFO.VICECAPTAIN_DEMOTE;
 				break;
 			default:
 				break;

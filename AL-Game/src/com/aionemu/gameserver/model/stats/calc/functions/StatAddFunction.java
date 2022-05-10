@@ -19,13 +19,7 @@ package com.aionemu.gameserver.model.stats.calc.functions;
 import com.aionemu.gameserver.model.stats.calc.Stat2;
 import com.aionemu.gameserver.model.stats.container.StatEnum;
 
-/**
- * @author ATracer
- */
 public class StatAddFunction extends StatFunction {
-
-	public StatAddFunction() {
-	}
 
 	public StatAddFunction(StatEnum name, int value, boolean bonus) {
 		super(name, value, bonus);
@@ -35,8 +29,7 @@ public class StatAddFunction extends StatFunction {
 	public void apply(Stat2 stat) {
 		if (isBonus()) {
 			stat.addToBonus(getValue());
-		}
-		else {
+		} else {
 			stat.addToBase(getValue());
 		}
 	}
@@ -49,5 +42,8 @@ public class StatAddFunction extends StatFunction {
 	@Override
 	public String toString() {
 		return "StatAddFunction [" + super.toString() + "]";
+	}
+
+	public StatAddFunction() {
 	}
 }

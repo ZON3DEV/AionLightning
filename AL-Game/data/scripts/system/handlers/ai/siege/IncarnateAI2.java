@@ -14,10 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.siege;
 
-import java.util.concurrent.Future;
-
+import ai.AggressiveNpcAI2;
 import com.aionemu.gameserver.ai2.AIName;
 import com.aionemu.gameserver.configs.main.SiegeConfig;
 import com.aionemu.gameserver.controllers.effect.EffectController;
@@ -29,10 +29,10 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.stats.AbyssRankEnum;
 import com.aionemu.gameserver.world.knownlist.Visitor;
-
-import ai.AggressiveNpcAI2;
+import java.util.concurrent.Future;
 
 /**
+ *
  * @author Source
  */
 @AIName("incarnate")
@@ -44,12 +44,10 @@ public class IncarnateAI2 extends AggressiveNpcAI2 {
 	protected void handleSpawned() {
 		super.handleSpawned();
 		avatar_scan = ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 			@Override
 			public void run() {
 				if (SiegeConfig.SIEGE_IDA_ENABLED) {
 					getOwner().getKnownList().doOnAllPlayers(new Visitor<Player>() {
-
 						@Override
 						public void visit(Player player) {
 							if (player.getAbyssRank().getRank().getId() > AbyssRankEnum.STAR4_OFFICER.getId()) {

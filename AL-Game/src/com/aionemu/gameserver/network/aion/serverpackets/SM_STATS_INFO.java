@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -59,209 +60,153 @@ public class SM_STATS_INFO extends AionServerPacket {
 	 */
 	@Override
 	protected void writeImpl(AionConnection con) {
-		writeD(player.getObjectId()); // <-- OK
-		writeD(GameTimeManager.getGameTime().getTime());// Minutes since 1/1/00 00:00:00
-		writeH(pgs.getPower().getCurrent()); // <-- OK
-		writeH(pgs.getHealth().getCurrent()); // <-- OK
-		writeH(pgs.getAccuracy().getCurrent()); // <-- OK
-		writeH(pgs.getAgility().getCurrent()); // <-- OK
-		writeH(pgs.getKnowledge().getCurrent()); // <-- OK
-		writeH(pgs.getWill().getCurrent()); // <-- OK
-		writeH(pgs.getStat(StatEnum.WATER_RESISTANCE, 0).getCurrent());// [current water] <-- TODO
-		writeH(pgs.getStat(StatEnum.WIND_RESISTANCE, 0).getCurrent());// [current wind] <-- TODO
-		writeH(pgs.getStat(StatEnum.EARTH_RESISTANCE, 0).getCurrent());// [current earth] <-- TODO
-		writeH(pgs.getStat(StatEnum.FIRE_RESISTANCE, 0).getCurrent());// [current fire] <-- TODO
-		writeH(pgs.getStat(StatEnum.ELEMENTAL_RESISTANCE_LIGHT, 0).getCurrent());// [current light resistance] <-- TODO
-		writeH(pgs.getStat(StatEnum.ELEMENTAL_RESISTANCE_DARK, 0).getCurrent());// [current dark resistance] <-- TODO
-		writeH(player.getLevel()); // <-- OK
-		writeH(16445);
-		writeH(1);
-		writeH(0);
-		writeQ(pcd.getExpNeed()); // <-- OK
-		writeQ(pcd.getExpRecoverable()); // <-- OK
-		writeQ(pcd.getExpShown()); // <-- OK
-		writeD(0);// [unk 0]
-		
-		writeD(pgs.getMaxHp().getCurrent());
-		writeD(pls.getCurrentHp());
-		writeD(pgs.getMaxMp().getCurrent());
-		writeD(pls.getCurrentMp()); //
-		writeH(pgs.getMaxDp().getCurrent()); // <-- OK
-		writeH(pcd.getDp()); // <-- OK
-		
-		writeD(pgs.getFlyTime().getCurrent()); // <-- OK
-		writeD(pls.getCurrentFp()); // <-- OK
-		writeH(player.getFlyState());// [fly state] TODO (Naked Char changes Val)
-		writeH(16386); // TODO
+		writeD(player.getObjectId());// Player ObjectId
+        writeD(GameTimeManager.getGameTime().getTime());// Minutes since 1/1/00 00:00:00
 
-		if (player.getEquipment().getMainHandWeapon() != null) {
-			int mainHandminDMG = player.getEquipment().getMainHandWeapon().getItemTemplate().getWeaponStats().getMinDamage();
-			int mainHandmaxDMG = player.getEquipment().getMainHandWeapon().getItemTemplate().getWeaponStats().getMaxDamage();
-			int mainHandfinalDamage = mainHandminDMG + mainHandmaxDMG;
-			writeD(mainHandfinalDamage / 2); // TODO add Mboost
-		} else {
-			writeD(0); // <-- OK
-		}
-		if (player.getEquipment().getOffHandWeapon() != null) {
-			int offHandminDMG = player.getEquipment().getOffHandWeapon().getItemTemplate().getWeaponStats().getMinDamage();
-			int offHandmaxDMG = player.getEquipment().getOffHandWeapon().getItemTemplate().getWeaponStats().getMaxDamage();
-			int offHandfinalDamage = offHandminDMG + offHandmaxDMG;
-			writeD(offHandfinalDamage / 2); // TODO add Mboost
-		} else {
-			writeD(0); // <-- OK
-		}
-		writeB(new byte[16]); // <-- UNK 16*0
-		writeD(pgs.getMResist().getCurrent()); // <-- OK
-		writeF(pgs.getAttackRange().getCurrent() / 1000); // <-- OK
-		writeD(pgs.getAttackSpeed().getCurrent()); // <-- OK
-		writeD(pgs.getEvasion().getCurrent()); // <-- OK
-		writeD(pgs.getParry().getCurrent()); // <-- OK
-		writeD(pgs.getBlock().getCurrent()); // <-- OK
-		writeD(pgs.getMainHandPCritical().getCurrent()); // <-- OK
-		writeD(pgs.getMainHandPAccuracy().getCurrent()); // <-- OK
-		writeD(pgs.getOffHandPAccuracy().getCurrent()); // <-- OK
-		writeH(0);
-		writeH(0);
-		writeD(pgs.getMAccuracy().getCurrent()); // <-- OK
-		writeD(pgs.getMCritical().getCurrent()); // <-- OK
-		writeF(pgs.getReverseStat(StatEnum.BOOST_CASTING_TIME, 1000).getCurrent() / 1000f);  
-		writeH(0); // ??
-		writeH(17); // Cleri LVL 66 = 7, Asmo Artist LVL 1 = 14, Gunner LVL 69 = 17
-		writeD(pgs.getMainHandPAttack().getCurrent()); // <-- OK
-		writeD(pgs.getPDef().getCurrent()); // <-- OK
-		writeD(pgs.getMAttack().getCurrent()); // <-- OK
-		writeD(pgs.getMResist().getCurrent()); //
-		writeD(pgs.getPVPAttack().getCurrent());// TODO Zus. PVP-Angr. Checked 7.5
-		writeD(pgs.getPVPDefense().getCurrent());// TODO Zus. PVP-Abwehr Checked 7.5
-		writeD(pgs.getPVEAttack().getCurrent());// TODO Zus. PVE-Angr. Checked 7.5
-		writeD(pgs.getPVEDefense().getCurrent());// TODO Zus. PVE-Abwehr Checked 7.5
-		
-		writeH(0);// TODO Phys. krit. Schaden Checked 7.5
-		writeH(0);// TODO Mag. krit. Schaden Checked 7.5
-		
-		writeD(pgs.getMBoost().getCurrent()); // TODO add Magie Abwehr + Magie Ausgleich (Mag. Angriff)
-		writeD(0);//pgs.getMDef().getCurrent());// ??
-		writeH(0);
-		writeH(pgs.getStat(StatEnum.HEAL_BOOST, 0).getCurrent()); // <-- OK
-		writeH(0);//294);// ??
-		writeH(0);//40);// ??
-		writeH(pgs.getStrikeResist().getCurrent()); // <-- OK
-		writeH(pgs.getSpellResist().getCurrent()); // <-- OK
-		writeD(player.getInventory().getLimit()); //
-		writeD(player.getInventory().size()); //
-		writeQ(0); // TODO
-		writeD(pcd.getPlayerClass().getClassId()); // <-- OK
-		writeH(player.getPlayerSettings().getDisplay()); // <-- OK
-		writeH(player.getPlayerSettings().getDeny()); // <-- OK
-		writeH(0);
-		writeH(0);
-		writeQ(pcd.getCurrentReposteEnergy()); // <-- OK
-		writeQ(pcd.getMaxReposteEnergy()); // <-- OK
-		writeD(0); // TODO
-		writeF(1.0f); // <-- OK
-		writeQ(0);
-		writeQ(pcd.getGoldenStarEnergy()); // Golden Star Energy
-		writeQ(pcd.getGrowthEnergy()); // Energy of Growth
-		writeQ(pcd.getSilverStarEnergy()); // SilverStarEnergy
-		writeB(new byte[22]);
-		
-		// START Zustands Wiederstände
-		writeH(0); // Äthergriff
-		writeH(0); // Angst
-		writeH(0); // Betäubung
-		writeH(0); // Stolpern
-		writeH(0); // Lähmung
-		writeH(0); // Rückschlag
-		writeH(0); // Binden
-		writeH(0); // Unbeweglcih
-		writeH(0); // Schlaf
-		writeH(0); // Blind
-		writeH(0); // Geschwindigkeit verringern
-		writeH(0); // Schweigen
-		// ENDE Zustands Wiederstände
-		
-		// START Zustands Durchdringung
-		writeH(0); // Äthergriff
-		writeH(0); // Angst
-		writeH(0); // Betäubung
-		writeH(0); // Stolpern
-		writeH(0); // Lähmung
-		writeH(0); // Rückschlag
-		writeH(0); // Binden
-		writeH(0); // Unbeweglcih
-		writeH(0); // Schlaf
-		writeH(0); // Blind
-		writeH(0); // Geschwindigkeit verringern
-		writeH(0); // Schweigen
-		// ENDE Zustands Durchdringung
-		writeH(0);
-		
-		//Base Stats
-		writeH(pgs.getPower().getBase()); // <-- OK
-		writeH(pgs.getHealth().getBase()); // <-- OK
-		writeH(pgs.getAgility().getBase()); // <-- OK
-		writeH(pgs.getAccuracy().getBase()); // <-- OK
-		writeH(pgs.getKnowledge().getBase()); // <-- OK
-		writeH(pgs.getWill().getBase()); // <-- OK
-		writeH(pgs.getStat(StatEnum.WATER_RESISTANCE, 0).getBase());// [base water res] <-- TODO
-		writeH(pgs.getStat(StatEnum.WIND_RESISTANCE, 0).getBase());// [base water res] <-- TODO
-		writeH(pgs.getStat(StatEnum.EARTH_RESISTANCE, 0).getBase());// [base earth resist] <-- TODO
-		writeH(pgs.getStat(StatEnum.FIRE_RESISTANCE, 0).getBase());// [base water res] <-- TODO
-		writeH(pgs.getStat(StatEnum.ELEMENTAL_RESISTANCE_LIGHT, 0).getBase());// [base light resistance] <-- TODO
-		writeH(pgs.getStat(StatEnum.ELEMENTAL_RESISTANCE_DARK, 0).getBase());// [base dark resistance] <-- TODO
-		writeD(pgs.getMaxHp().getBase()); // <-- OK
-		writeD(pgs.getMaxMp().getBase()); // <-- OK
-		writeH(pgs.getMaxDp().getBase()); // <-- OK
-		writeH(0);
-		writeD(pgs.getFlyTime().getBase()); // <-- OK
+		writeH(pgs.getPower().getCurrent());// [current power]
+		writeH(pgs.getHealth().getCurrent());// [current health]
+		writeH(pgs.getAccuracy().getCurrent());// [current accuracy]
+		writeH(pgs.getAgility().getCurrent());// [current agility]
+		writeH(pgs.getKnowledge().getCurrent());// [current knowledge]
+		writeH(pgs.getWill().getCurrent());// [current will]
 
-		if (player.getEquipment().getMainHandWeapon() != null) {
-			int mainHandminDMG = player.getEquipment().getMainHandWeapon().getItemTemplate().getWeaponStats().getMinDamage();
-			int mainHandmaxDMG = player.getEquipment().getMainHandWeapon().getItemTemplate().getWeaponStats().getMaxDamage();
-			int mainHandfinalDamage = mainHandminDMG + mainHandmaxDMG;
-			writeD(mainHandfinalDamage / 2); // TODO add Mboost
-		} else {
-			writeD(0);
-		}
-		if (player.getEquipment().getOffHandWeapon() != null) {
-			int offHandminDMG = player.getEquipment().getOffHandWeapon().getItemTemplate().getWeaponStats().getMinDamage();
-			int offHandmaxDMG = player.getEquipment().getOffHandWeapon().getItemTemplate().getWeaponStats().getMaxDamage();
-			int offHandfinalDamage = offHandminDMG + offHandmaxDMG;
-			writeD(offHandfinalDamage / 2); // TODO add Mboost
-		} else {
-			writeD(0);
-		}
-		
-		writeD(0);
-		writeD(0);
-		writeD(0);
-		writeD(0);
-		writeD(pgs.getMResist().getBase());
-		writeF(pgs.getAttackRange().getBase());
-		writeD(pgs.getEvasion().getBase()); // <-- OK
-		writeD(pgs.getParry().getBase()); // <-- OK
-		writeD(pgs.getBlock().getBase()); // <-- OK
-		writeD(pgs.getMainHandPCritical().getBase()); // <-- OK
-		writeD(pgs.getMCritical().getBase());
-		writeD(pgs.getMainHandPAccuracy().getBase()); // <-- OK
-		writeD(0);
-		writeD(0); //  TODO
-		writeD(pgs.getMAccuracy().getBase()); // <-- OK
-		writeH(0); // UNK
-		writeH(0); // UNK
-		writeD(pgs.getMainHandPAttack().getBase()); // <-- OK
-		writeD(pgs.getPDef().getBase());//Phy Def  <-- OK
-		writeD(0); // <-- Changes M-Attack
-		writeD(0); // <-- Changes M-DEF
-		writeH(0); // TODO Phys. krit. Sc....
-		writeH(0); // TODO Mag. krit. Sc....
-		writeD(pgs.getMAttack().getBase()); // <-- OK
-		writeD(pgs.getMDef().getBase()); // <-- OK
-		writeH(pgs.getStat(StatEnum.HEAL_BOOST, 0).getBase()); // <-- OK);
+		writeH(pgs.getStat(StatEnum.WATER_RESISTANCE, 0).getCurrent());// [current water]
+		writeH(pgs.getStat(StatEnum.WIND_RESISTANCE, 0).getCurrent());// [current wind]
+		writeH(pgs.getStat(StatEnum.EARTH_RESISTANCE, 0).getCurrent());// [current earth]
+		writeH(pgs.getStat(StatEnum.FIRE_RESISTANCE, 0).getCurrent());// [current fire]
+		writeH(pgs.getStat(StatEnum.ELEMENTAL_RESISTANCE_LIGHT, 0).getCurrent());// [current light resistance]
+		writeH(pgs.getStat(StatEnum.ELEMENTAL_RESISTANCE_DARK, 0).getCurrent());// [current dark resistance]
+
+		writeH(player.getLevel());// [level]
+
+		// something like very dynamic
+		writeH(0);// [unk]
+		writeH(0);// [unk]
+		writeH(0);// [unk]
+
+		writeQ(pcd.getExpNeed());// [xp till next lv]
+		writeQ(pcd.getExpRecoverable());// [recoverable exp]
+		writeQ(pcd.getExpShown());// [current xp]
+
+		writeD(0);// [unk]
+
+		writeD(pgs.getMaxHp().getCurrent());// [max hp]
+		writeD(pls.getCurrentHp());// [current hp]
+
+		writeD(pgs.getMaxMp().getCurrent());// [max mana]
+		writeD(pls.getCurrentMp());// [current mana]
+
+		writeH(pgs.getMaxDp().getCurrent());// [max dp]
+		writeH(pcd.getDp());// [current dp]
+
+		writeD(pgs.getFlyTime().getCurrent());// [max fly time]
+		writeD(pls.getCurrentFp());// [current fly time]
+
+		writeH(player.getFlyState());// [fly state]
+
+		writeH(pgs.getMainHandPAttack().getCurrent());// [current main hand attack]
+		writeH(pgs.getOffHandPAttack().getCurrent());// [off hand attack]
+
+		writeH(0);// unk 3.0
+
+		writeD(pgs.getPDef().getCurrent());// [current pdef]
+		writeH(pgs.getMainHandMAttack().getCurrent());// [current magic attack]
+		writeH(pgs.getOffHandMAttack().getCurrent());// unk 3.0
+		writeD(pgs.getMDef().getCurrent()); // [Current magic def]
+		writeH(pgs.getMResist().getCurrent());// [current mres]
+		writeH(0);// unk 3.0
+		writeF(pgs.getAttackRange().getCurrent() / 1000f);// attack range
+		writeH(pgs.getAttackSpeed().getCurrent());// attack speed
+		writeH(pgs.getEvasion().getCurrent());// [current evasion]
+		writeH(pgs.getParry().getCurrent());// [current parry]
+		writeH(pgs.getBlock().getCurrent());// [current block]
+		writeH(pgs.getMainHandPCritical().getCurrent());// [current main hand crit rate]
+		writeH(pgs.getOffHandPCritical().getCurrent());// [current off hand crit rate]
+		writeH(pgs.getMainHandPAccuracy().getCurrent());// [current main_hand_accuracy]
+		writeH(pgs.getOffHandPAccuracy().getCurrent());// [current off_hand_accuracy]
+
+		writeH(1);// [unk]
+
+		writeH(pgs.getMainHandMAccuracy().getCurrent());// [current magic accuracy]
+		writeH(pgs.getMCritical().getCurrent());// [current crit spell]
+
+		writeH(0);// [unk]
+
+		writeF(pgs.getReverseStat(StatEnum.BOOST_CASTING_TIME, 1000).getCurrent() / 1000f);// [current casting speed]
+		writeH(0); // [unk 3.5]
+		writeH(pgs.getStat(StatEnum.CONCENTRATION, 0).getCurrent());// [current concetration]
+		writeH(pgs.getMBoost().getCurrent());// [current magic boost]
+		writeH(pgs.getMBResist().getCurrent());// [current magic suppression]
+		writeH(pgs.getHealBoost().getCurrent());// [current heal_boost]
+		writeH(pgs.getPCR().getCurrent()); // [current strike resist]
+		writeH(pgs.getMCR().getCurrent());// [current spell resist]
+		writeH(pgs.getStat(StatEnum.PHYSICAL_CRITICAL_DAMAGE_REDUCE, 0).getCurrent());// [current strike fortitude]
+		writeH(pgs.getStat(StatEnum.MAGICAL_CRITICAL_DAMAGE_REDUCE, 0).getCurrent());// [current spell fortitude]
+		writeH(0); // [unk 3.5]
+		writeD(player.getInventory().getLimit());
+		writeD(player.getInventory().size());
+		writeD(0);// [unk]
+		writeD(0);// [unk]
+		writeD(pcd.getPlayerClass().getClassId());// [Player Class id]
+
+		writeH(0);// unk 3.0
+		writeH(0);// unk 3.0
+		writeH(0); // [unk 3.5]
+		writeH(0); // [unk 3.5]
+		writeQ(pcd.getCurrentReposteEnergy());
+		writeQ(pcd.getMaxReposteEnergy());
+		writeQ(pcd.getCurrentSalvationPercent());
+
+		writeH(0); // 4.3 NA
+		writeH(0); // 4.3 NA
+		writeH(1); // 4.3 NA
+		writeH(0); // 4.3 NA
+
+		writeH(pgs.getPower().getBase());// [base power]
+		writeH(pgs.getHealth().getBase());// [base health]
+		writeH(pgs.getAccuracy().getBase());// [base accuracy]
+		writeH(pgs.getAgility().getBase());// [base agility]
+		writeH(pgs.getKnowledge().getBase());// [base knowledge]
+		writeH(pgs.getWill().getBase());// [base will]
+		writeH(pgs.getStat(StatEnum.WATER_RESISTANCE, 0).getBase());// [base water res]
+		writeH(pgs.getStat(StatEnum.WIND_RESISTANCE, 0).getBase());// [base water res]
+		writeH(pgs.getStat(StatEnum.EARTH_RESISTANCE, 0).getBase());// [base earth resist]
+		writeH(pgs.getStat(StatEnum.FIRE_RESISTANCE, 0).getBase());// [base water res]
+		writeH(pgs.getStat(StatEnum.ELEMENTAL_RESISTANCE_LIGHT, 0).getBase());// [base light resistance]
+		writeH(pgs.getStat(StatEnum.ELEMENTAL_RESISTANCE_DARK, 0).getBase());// [base dark resistance]
+		writeD(pgs.getMaxHp().getBase());// [base hp]
+		writeD(pgs.getMaxMp().getBase());// [base mana]
+		writeD(pgs.getMaxDp().getBase());// [base dp]
+		writeD(pgs.getFlyTime().getBase());// [fly time]
+		writeH(pgs.getMainHandPAttack().getBase());// [base main hand attack]
+		writeH(pgs.getOffHandPAttack().getBase());// [base off hand attack]
+		writeD(pgs.getMainHandMAttack().getBase());// [base magic attack]
+		writeD(pgs.getPDef().getBase()); // [base pdef]
+		writeD(pgs.getMDef().getBase());// [base magic def]
+		writeH(pgs.getMResist().getBase());// [base magic res]
+		writeF(pgs.getAttackRange().getBase() / 1000f);// [base attack range]
+		writeH(0); // [unk 3.5]
+		writeH(pgs.getEvasion().getBase());// [base evasion]
+		writeH(pgs.getParry().getBase());// [base parry]
+		writeH(pgs.getBlock().getBase());// [base block]
+		writeH(pgs.getMainHandPCritical().getBase());// [base main hand crit rate]
+		writeH(pgs.getOffHandPCritical().getBase());// [base off hand crit rate]
+		writeH(pgs.getMCritical().getBase());// [base magical crit rate]
+
+		writeH(0);// [unk]
+		writeH(pgs.getMainHandPAccuracy().getBase());// [base main hand accuracy]
+		writeH(pgs.getOffHandPAccuracy().getBase());// [base off hand accuracy]
+
+		writeH(pgs.getMainHandMAccuracy().getBase());// [unk]
+		writeH(pgs.getOffHandMAccuracy().getBase());// [base magic accuracy]
+		writeH(pgs.getStat(StatEnum.CONCENTRATION, 0).getBase());// [base concentration]
+		writeH(pgs.getMBoost().getBase());// [base magic boost]
+		writeH(pgs.getMBResist().getBase()); // [base magic suppression]
+		writeH(pgs.getHealBoost().getBase());// [base healboost]
+		writeH(pgs.getPCR().getBase());// [base strike resist]
+		writeH(pgs.getMCR().getBase());// [base spell resist]
+		writeH(pgs.getStat(StatEnum.PHYSICAL_CRITICAL_DAMAGE_REDUCE, 0).getBase());// [base strike fortitude]
+		writeH(pgs.getStat(StatEnum.MAGICAL_CRITICAL_DAMAGE_REDUCE, 0).getBase());// [base spell fortitude]
 		writeH(0);
-		writeH(0);
-		writeH(0);
-		writeD(0);
 	}
 }
-

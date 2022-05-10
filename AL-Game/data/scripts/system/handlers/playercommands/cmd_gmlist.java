@@ -14,12 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
+
+import com.aionemu.gameserver.configs.administration.AdminConfig;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.FriendList;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -42,10 +44,9 @@ public class cmd_gmlist extends PlayerCommand {
 	public void execute(Player player, String... params) {
 		final List<Player> admins = new ArrayList<Player>();
 		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player object) {
-				if (object.getAccessLevel() > 0 && object.getFriendList().getStatus() != FriendList.Status.OFFLINE) {
+				if (object.getAccessLevel() > 0 && object.getFriendList().getStatus() != FriendList.Status.OFFLINE && object.isGmMode()) {
 					admins.add(object);
 				}
 			}
@@ -55,8 +56,7 @@ public class cmd_gmlist extends PlayerCommand {
 			PacketSendUtility.sendMessage(player, "====================");
 			if (admins.size() == 1) {
 				PacketSendUtility.sendMessage(player, LanguageHandler.translate(CustomMessageId.ONE_GM_ONLINE));
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(player, LanguageHandler.translate(CustomMessageId.MORE_GMS_ONLINE));
 			}
 
@@ -67,20 +67,15 @@ public class cmd_gmlist extends PlayerCommand {
 					StringBuilder sb = new StringBuilder(adminTag);
 					if (player.getAccessLevel() == 1) {
 						adminTag = sb.insert(0, AdminConfig.CUSTOMTAG_ACCESS1.substring(0, AdminConfig.CUSTOMTAG_ACCESS1.length() - 3)).toString();
-					}
-					else if (player.getAccessLevel() == 2) {
+					} else if (player.getAccessLevel() == 2) {
 						adminTag = sb.insert(0, AdminConfig.CUSTOMTAG_ACCESS2.substring(0, AdminConfig.CUSTOMTAG_ACCESS2.length() - 3)).toString();
-					}
-					else if (player.getAccessLevel() == 3) {
+					} else if (player.getAccessLevel() == 3) {
 						adminTag = sb.insert(0, AdminConfig.CUSTOMTAG_ACCESS3.substring(0, AdminConfig.CUSTOMTAG_ACCESS3.length() - 3)).toString();
-					}
-					else if (player.getAccessLevel() == 4) {
+					} else if (player.getAccessLevel() == 4) {
 						adminTag = sb.insert(0, AdminConfig.CUSTOMTAG_ACCESS4.substring(0, AdminConfig.CUSTOMTAG_ACCESS4.length() - 3)).toString();
-					}
-					else if (player.getAccessLevel() == 5) {
+					} else if (player.getAccessLevel() == 5) {
 						adminTag = sb.insert(0, AdminConfig.CUSTOMTAG_ACCESS5.substring(0, AdminConfig.CUSTOMTAG_ACCESS5.length() - 3)).toString();
-					}
-					else if (player.getAccessLevel() == 6) {
+					} else if (player.getAccessLevel() == 6) {
 						adminTag = sb.insert(0, AdminConfig.CUSTOMTAG_ACCESS6.substring(0, AdminConfig.CUSTOMTAG_ACCESS6.length() - 3)).toString();
 					}
 					PacketSendUtility.sendMessage(player, String.format(adminTag, admin.getName()));
@@ -88,8 +83,7 @@ public class cmd_gmlist extends PlayerCommand {
 			}
 			PacketSendUtility.sendMessage(player, "====================");
 
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(player, LanguageHandler.translate(CustomMessageId.NO_GM_ONLINE));
 		}
 

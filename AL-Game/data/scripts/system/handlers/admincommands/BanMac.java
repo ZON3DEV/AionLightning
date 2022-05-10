@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -46,12 +47,12 @@ public class BanMac extends AdminCommand {
 		try {
 			time = Integer.parseInt(params[0]);
 
-			if (time == 0) // 0 is 10 years since system don't allow infinte banns without rework - it's pseudo infinity
+			if (time == 0) // 0 is 10 years since system don't allow infinte
+							// banns without rework - it's pseudo infinity
 			{
 				time = 60 * 24 * 365 * 10;
 			}
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			onFail(player, "Please enter a valid integer amount of minutes");
 			return;
 		}
@@ -59,11 +60,10 @@ public class BanMac extends AdminCommand {
 		// is mac defined?
 		if (params.length > 1) {
 			address = params[1];
-		}
-		else { // no address defined
+		} else { // no address defined
 			VisibleObject target = player.getTarget();
 			if (target != null && target instanceof Player) {
-				if (target.getObjectId() == player.getObjectId()) {
+				if (target.getObjectId().equals(player.getObjectId())) {
 					onFail(player, "Omg, disselect yourself please.");
 					return;
 				}
@@ -72,14 +72,14 @@ public class BanMac extends AdminCommand {
 				address = targetpl.getClientConnection().getMacAddress();
 				targetName = targetpl.getName();
 				targetpl.getClientConnection().closeNow();
-			}
-			else {
+			} else {
 				onFail(player, "You should select a player or give me any mac address");
 				return;
 			}
 		}
 
-		BannedMacManager.getInstance().banAddress(address, System.currentTimeMillis() + time * 60 * 1000, "author=" + player.getName() + ", " + player.getObjectId() + "; target=" + targetName);
+		BannedMacManager.getInstance().banAddress(address, System.currentTimeMillis() + time * 60 * 1000,
+				"author=" + player.getName() + ", " + player.getObjectId() + "; target=" + targetName);
 	}
 
 	@Override

@@ -1,7 +1,5 @@
 @echo off
-mode con:cols=150 
-color 1B 
-TITLE Aion German - Game Server Console
+TITLE Aion Lightning - Game Server Console
 REM SET PATH="Type here your path to java jdk/jre (including bin folder)."
 REM NOTE: Remove tag REM from previous line.
 :START
@@ -9,7 +7,7 @@ CLS
 
 echo.
 
-echo Starting Aion German Version 6.x Game Server.
+echo Starting Aion Lightning Version 4.6 Game Server.
 
 echo.
 

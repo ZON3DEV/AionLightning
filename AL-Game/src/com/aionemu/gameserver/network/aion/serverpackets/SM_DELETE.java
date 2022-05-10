@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.AionObject;
@@ -24,7 +25,6 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  * This packet is informing client that some AionObject is no longer visible.
  *
  * @author -Nemesiss-
- * @update FrozenKiller
  */
 public class SM_DELETE extends AionServerPacket {
 
@@ -49,8 +49,10 @@ public class SM_DELETE extends AionServerPacket {
 	 */
 	@Override
 	protected void writeImpl(AionConnection con) {
-		writeD(objectId);
-		writeC(time); // removal animation speed
-		writeC(time == 15 ? 0x00 : 0xFF);
+		int action = 0;
+		if (action != 1) {
+			writeD(objectId);
+			writeC(time); // removal animation speed
+		}
 	}
 }

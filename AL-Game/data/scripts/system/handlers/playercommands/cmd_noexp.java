@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -34,8 +35,7 @@ public class cmd_noexp extends PlayerCommand {
 		if (player.getCommonData().getNoExp()) {
 			player.getCommonData().setNoExp(false);
 			PacketSendUtility.sendMessage(player, "Experience rewards are reactivated !");
-		}
-		else {
+		} else {
 			player.getCommonData().setNoExp(true);
 			PacketSendUtility.sendMessage(player, "Experience rewards are desactivated !");
 		}

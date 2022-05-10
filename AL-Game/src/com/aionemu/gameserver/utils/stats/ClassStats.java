@@ -14,22 +14,22 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.stats;
 
+import com.aionemu.gameserver.utils.stats.enums.MAGICAL_OFF_HAND_ATTACK;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.utils.stats.enums.ACCURACY;
 import com.aionemu.gameserver.utils.stats.enums.AGILITY;
 import com.aionemu.gameserver.utils.stats.enums.ATTACK_RANGE;
 import com.aionemu.gameserver.utils.stats.enums.ATTACK_SPEED;
 import com.aionemu.gameserver.utils.stats.enums.BLOCK;
-import com.aionemu.gameserver.utils.stats.enums.CRIT_SPELL;
 import com.aionemu.gameserver.utils.stats.enums.EARTH_RESIST;
 import com.aionemu.gameserver.utils.stats.enums.EVASION;
 import com.aionemu.gameserver.utils.stats.enums.FIRE_RESIST;
 import com.aionemu.gameserver.utils.stats.enums.FLY_SPEED;
 import com.aionemu.gameserver.utils.stats.enums.HEALTH;
 import com.aionemu.gameserver.utils.stats.enums.KNOWLEDGE;
-import com.aionemu.gameserver.utils.stats.enums.MAGICAL_OFF_HAND_ATTACK;
 import com.aionemu.gameserver.utils.stats.enums.MAGIC_ACCURACY;
 import com.aionemu.gameserver.utils.stats.enums.MAIN_HAND_ACCURACY;
 import com.aionemu.gameserver.utils.stats.enums.MAIN_HAND_ATTACK;
@@ -38,8 +38,6 @@ import com.aionemu.gameserver.utils.stats.enums.MAXHP;
 import com.aionemu.gameserver.utils.stats.enums.PARRY;
 import com.aionemu.gameserver.utils.stats.enums.POWER;
 import com.aionemu.gameserver.utils.stats.enums.SPEED;
-import com.aionemu.gameserver.utils.stats.enums.SPELL_RESIST;
-import com.aionemu.gameserver.utils.stats.enums.STRIKE_RESIST;
 import com.aionemu.gameserver.utils.stats.enums.WATER_RESIST;
 import com.aionemu.gameserver.utils.stats.enums.WILL;
 import com.aionemu.gameserver.utils.stats.enums.WIND_RESIST;
@@ -170,36 +168,8 @@ public class ClassStats {
 		return MAGIC_ACCURACY.valueOf(playerClass.toString()).getValue();
 	}
 
-	/**
-	 * @param playerClass
-	 * @return int
-	 */
 	public static int getMagicalOffHandAttackFor(PlayerClass playerClass) {
 		return MAGICAL_OFF_HAND_ATTACK.valueOf(playerClass.toString()).getValue();
-	}
-
-	/**
-	 * @param playerClass
-	 * @return int
-	 */
-	public static int getCritSpellFor(PlayerClass playerClass) {
-		return CRIT_SPELL.valueOf(playerClass.toString()).getValue();
-	}
-
-	/**
-	 * @param playerClass
-	 * @return int
-	 */
-	public static int getSpellResistFor(PlayerClass playerClass) {
-		return SPELL_RESIST.valueOf(playerClass.toString()).getValue();
-	}
-
-	/**
-	 * @param playerClass
-	 * @return int
-	 */
-	public static int getStrikeResistFor(PlayerClass playerClass) {
-		return STRIKE_RESIST.valueOf(playerClass.toString()).getValue();
 	}
 
 	/**

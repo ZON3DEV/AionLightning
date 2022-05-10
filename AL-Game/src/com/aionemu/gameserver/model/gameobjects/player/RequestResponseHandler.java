@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -45,8 +46,7 @@ public abstract class RequestResponseHandler {
 	public void handle(Player responder, int response) {
 		if (response == 0) {
 			denyRequest(requester, responder);
-		}
-		else {
+		} else {
 			acceptRequest(requester, responder);
 		}
 	}

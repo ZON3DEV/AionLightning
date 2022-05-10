@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers;
 
 import java.util.ArrayList;
@@ -22,6 +23,8 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
+
+import javolution.util.FastList;
 
 import com.aionemu.gameserver.controllers.attack.AttackResult;
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
@@ -36,8 +39,6 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.effect.AbnormalState;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.skillengine.model.Skill;
-
-import javolution.util.FastList;
 
 /**
  * Notes:<br>
@@ -64,8 +65,7 @@ public class ObserveController {
 		lock.lock();
 		try {
 			onceUsedObservers.add(observer);
-		}
-		finally {
+		} finally {
 			lock.unlock();
 		}
 	}
@@ -92,8 +92,7 @@ public class ObserveController {
 		lock.lock();
 		try {
 			onceUsedObservers.remove(observer);
-		}
-		finally {
+		} finally {
 			lock.unlock();
 		}
 	}
@@ -125,8 +124,7 @@ public class ObserveController {
 					}
 				}
 			}
-		}
-		finally {
+		} finally {
 			lock.unlock();
 		}
 
@@ -188,8 +186,7 @@ public class ObserveController {
 	}
 
 	/**
-	 * @param notify
-	 *            that creature died
+	 * @param notify that creature died
 	 */
 	public void notifyDeathObservers(Creature creature) {
 		notifyObservers(ObserverType.DEATH, creature);
@@ -263,6 +260,7 @@ public class ObserveController {
 	}
 
 	/**
+	 *
 	 * notify that abnormalstate is setted in effectcontroller
 	 */
 	public void notifyAbnormalSettedObservers(AbnormalState state) {
@@ -270,6 +268,7 @@ public class ObserveController {
 	}
 
 	/**
+	 *
 	 * notify that abnormalstate is setted in effectcontroller
 	 */
 	public void notifySummonReleaseObservers() {
@@ -357,8 +356,7 @@ public class ObserveController {
 		lock.lock();
 		try {
 			onceUsedObservers.clear();
-		}
-		finally {
+		} finally {
 			lock.unlock();
 		}
 		observers.clear();

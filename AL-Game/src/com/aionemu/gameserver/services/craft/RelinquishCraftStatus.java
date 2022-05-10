@@ -14,21 +14,19 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.craft;
 
 import com.aionemu.gameserver.configs.main.CraftConfig;
 import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.model.craft.ExpertQuestsList;
-import com.aionemu.gameserver.model.craft.MasterQuestsList;
+import com.aionemu.gameserver.model.craft.*;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.skill.PlayerSkillEntry;
 import com.aionemu.gameserver.model.templates.CraftLearnTemplate;
 import com.aionemu.gameserver.model.templates.recipe.RecipeTemplate;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_COMPLETED_LIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.*;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.services.trade.PricesService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -87,7 +85,10 @@ public class RelinquishCraftStatus {
 		if (craftLearnTemplate == null || !craftLearnTemplate.isCraftSkill()) {
 			return false;
 		}
-		return !(skill == null || skill.getSkillLevel() < minValue || skill.getSkillLevel() > maxValue);
+		if (skill == null || skill.getSkillLevel() < minValue || skill.getSkillLevel() > maxValue) {
+			return false;
+		}
+		return true;
 	}
 
 	private static boolean successDecreaseKinah(Player player, int basePrice) {
@@ -129,7 +130,6 @@ public class RelinquishCraftStatus {
 			}
 		}
 		PacketSendUtility.sendPacket(player, new SM_QUEST_COMPLETED_LIST(player.getQuestStateList().getAllFinishedQuests()));
-		player.getController().updateZone();
 		player.getController().updateNearbyQuests();
 	}
 
@@ -141,7 +141,9 @@ public class RelinquishCraftStatus {
 		int maxCraftStatus = isExpert ? CraftConfig.MAX_EXPERT_CRAFTING_SKILLS : CraftConfig.MAX_MASTER_CRAFTING_SKILLS;
 		int countCraftStatus;
 		for (PlayerSkillEntry skill : player.getSkillList().getBasicSkills()) {
-			countCraftStatus = isExpert ? CraftSkillUpdateService.getTotalMasterCraftingSkills(player) + CraftSkillUpdateService.getTotalExpertCraftingSkills(player) : CraftSkillUpdateService.getTotalMasterCraftingSkills(player);
+			countCraftStatus = isExpert ? CraftSkillUpdateService.getTotalMasterCraftingSkills(player) +
+					CraftSkillUpdateService.getTotalExpertCraftingSkills(player) :
+					CraftSkillUpdateService.getTotalMasterCraftingSkills(player);
 			if (countCraftStatus > maxCraftStatus) {
 				skillId = skill.getSkillId();
 				skillLevel = skill.getSkillLevel();

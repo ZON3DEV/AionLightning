@@ -14,13 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.geoEngine.math;
 
 import java.util.logging.Logger;
 
 /**
- * <code>Plane</code> defines a plane where Normal dot (x,y,z) = Constant. This provides methods for calculating a "distance" of a point from this plane. The distance is pseudo due to the fact that it
- * can be negative if the point is on the non-normal side of the plane.
+ * <code>Plane</code> defines a plane where Normal dot (x,y,z) = Constant. This
+ * provides methods for calculating a "distance" of a point from this plane. The
+ * distance is pseudo due to the fact that it can be negative if the point is on
+ * the non-normal side of the plane.
  *
  * @author Mark Powell
  * @author Joshua Slack
@@ -31,9 +34,7 @@ public class Plane implements Cloneable {
 
 	public static enum Side {
 
-		None,
-		Positive,
-		Negative
+		None, Positive, Negative
 	}
 
 	/**
@@ -46,14 +47,16 @@ public class Plane implements Cloneable {
 	protected float constant;
 
 	/**
-	 * Constructor instantiates a new <code>Plane</code> object. This is the default object and contains a normal of (0,0,0) and a constant of 0.
+	 * Constructor instantiates a new <code>Plane</code> object. This is the
+	 * default object and contains a normal of (0,0,0) and a constant of 0.
 	 */
 	public Plane() {
 		normal = new Vector3f();
 	}
 
 	/**
-	 * Constructor instantiates a new <code>Plane</code> object. The normal and constant values are set at creation.
+	 * Constructor instantiates a new <code>Plane</code> object. The normal and
+	 * constant values are set at creation.
 	 *
 	 * @param normal
 	 *            the normal of the plane.
@@ -107,7 +110,8 @@ public class Plane implements Cloneable {
 	}
 
 	/**
-	 * <code>setConstant</code> sets the constant value that helps define the plane.
+	 * <code>setConstant</code> sets the constant value that helps define the
+	 * plane.
 	 *
 	 * @param constant
 	 *            the new constant value.
@@ -148,8 +152,10 @@ public class Plane implements Cloneable {
 	}
 
 	/**
-	 * <code>pseudoDistance</code> calculates the distance from this plane to a provided point. If the point is on the negative side of the plane the distance returned is negative, otherwise it is
-	 * positive. If the point is on the plane, it is zero.
+	 * <code>pseudoDistance</code> calculates the distance from this plane to a
+	 * provided point. If the point is on the negative side of the plane the
+	 * distance returned is negative, otherwise it is positive. If the point is
+	 * on the plane, it is zero.
 	 *
 	 * @param point
 	 *            the point to check.
@@ -160,7 +166,9 @@ public class Plane implements Cloneable {
 	}
 
 	/**
-	 * <code>whichSide</code> returns the side at which a point lies on the plane. The positive values returned are: NEGATIVE_SIDE, POSITIVE_SIDE and NO_SIDE.
+	 * <code>whichSide</code> returns the side at which a point lies on the
+	 * plane. The positive values returned are: NEGATIVE_SIDE, POSITIVE_SIDE and
+	 * NO_SIDE.
 	 *
 	 * @param point
 	 *            the point to check.
@@ -170,23 +178,16 @@ public class Plane implements Cloneable {
 		float dis = pseudoDistance(point);
 		if (dis < 0) {
 			return Side.Negative;
-		}
-		else if (dis > 0) {
+		} else if (dis > 0) {
 			return Side.Positive;
-		}
-		else {
+		} else {
 			return Side.None;
 		}
 	}
 
 	public boolean isOnPlane(Vector3f point) {
 		float dist = pseudoDistance(point);
-		if (dist < FastMath.FLT_EPSILON && dist > -FastMath.FLT_EPSILON) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return dist < FastMath.FLT_EPSILON && dist > -FastMath.FLT_EPSILON;
 	}
 
 	/**
@@ -227,8 +228,11 @@ public class Plane implements Cloneable {
 	}
 
 	/**
-	 * <code>toString</code> returns a string thta represents the string representation of this plane. It represents the normal as a <code>Vector3f</code> object, so the format is the following:
-	 * com.jme.math.Plane [Normal: org.jme.math.Vector3f [X=XX.XXXX, Y=YY.YYYY, Z=ZZ.ZZZZ] - Constant: CC.CCCCC]
+	 * <code>toString</code> returns a string thta represents the string
+	 * representation of this plane. It represents the normal as a
+	 * <code>Vector3f</code> object, so the format is the following:
+	 * com.jme.math.Plane [Normal: org.jme.math.Vector3f [X=XX.XXXX, Y=YY.YYYY,
+	 * Z=ZZ.ZZZZ] - Constant: CC.CCCCC]
 	 *
 	 * @return the string representation of this plane.
 	 */
@@ -247,8 +251,7 @@ public class Plane implements Cloneable {
 			Plane p = (Plane) super.clone();
 			p.normal = normal.clone();
 			return p;
-		}
-		catch (CloneNotSupportedException e) {
+		} catch (CloneNotSupportedException e) {
 			throw new AssertionError();
 		}
 	}

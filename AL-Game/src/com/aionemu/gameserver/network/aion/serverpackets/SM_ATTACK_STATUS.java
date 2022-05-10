@@ -14,10 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -29,7 +29,6 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 public class SM_ATTACK_STATUS extends AionServerPacket {
 
 	private Creature creature;
-	private Creature attacker;
 	private TYPE type;
 	private int skillId;
 	private int value;
@@ -41,8 +40,8 @@ public class SM_ATTACK_STATUS extends AionServerPacket {
 		USED_HP(4), // when skill uses hp as cost parameter
 		REGULAR(5),
 		ABSORBED_HP(6),
-		HP(7),
 		DAMAGE(7),
+		HP(7),
 		PROTECTDMG(8),
 		DELAYDAMAGE(10),
 		FALL_DAMAGE(17),
@@ -50,10 +49,9 @@ public class SM_ATTACK_STATUS extends AionServerPacket {
 		ABSORBED_MP(20),
 		MP(21),
 		NATURAL_MP(22),
-		ATTACK(23),
-		FP_RINGS(24),
+		FP_RINGS(23),
 		FP(25),
-		NATURAL_FP(27); //Old 26 New 5.4 = 27
+		NATURAL_FP(26);
 
 		private int value;
 
@@ -75,14 +73,12 @@ public class SM_ATTACK_STATUS extends AionServerPacket {
 		SPELLATKDRAININSTANT(24),
 		POISON(25),
 		BLEED(26),
-		PROCATKINSTANT(93), // Old 92 New 93
-		DELAYEDSPELLATKINSTANT(97), // Old 95 New 97
+		PROCATKINSTANT(92),
+		DELAYEDSPELLATKINSTANT(95),
 		SPELLATKDRAIN(130),
 		FPHEAL(133),
 		REGULARHEAL(170),
-		REGULAR(189),
-		LEECH_HP(200), // new 7.x - Painter Life Binding, Time Holding and Band of Rage
-		ATTACK(206); // Old 195 (5.4) 196 (5.6) 197 (5.8) 198 (6.5) 204(7.x) 206(7.5)
+		REGULAR(181);
 
 		private int value;
 
@@ -95,21 +91,20 @@ public class SM_ATTACK_STATUS extends AionServerPacket {
 		}
 	}
 
-	public SM_ATTACK_STATUS(Creature creature, Creature attacker, TYPE type, int skillId, int value, LOG log) {
+	public SM_ATTACK_STATUS(Creature creature, TYPE type, int skillId, int value, LOG log) {
 		this.creature = creature;
-		this.attacker = attacker;
 		this.type = type;
 		this.skillId = skillId;
 		this.value = value;
 		this.logId = log.getValue();
 	}
 
-	public SM_ATTACK_STATUS(Creature creature, Creature attacker, TYPE type, int skillId, int value) {
-		this(creature, attacker, type, skillId, value, LOG.REGULAR);
+	public SM_ATTACK_STATUS(Creature creature, TYPE type, int skillId, int value) {
+		this(creature, type, skillId, value, LOG.REGULAR);
 	}
 
-	public SM_ATTACK_STATUS(Creature creature, Creature attacker, int value) {
-		this(creature, attacker, TYPE.REGULAR, 0, value, LOG.REGULAR);
+	public SM_ATTACK_STATUS(Creature creature, int value) {
+		this(creature, TYPE.REGULAR, 0, value, LOG.REGULAR);
 	}
 
 	/**
@@ -117,41 +112,43 @@ public class SM_ATTACK_STATUS extends AionServerPacket {
 	 */
 	@Override
 	protected void writeImpl(AionConnection con) {
-		if (type.getValue() == 5 || type.getValue() == 7 || type.getValue() == 10) {
-			writeD(creature.getObjectId());
-			writeD(attacker.getObjectId());
-		}
-		else {
-			writeD(attacker.getObjectId());
-			writeD(0x00);
-		}
+		writeD(creature.getObjectId());
 		switch (type) {
-			case ATTACK:
 			case DAMAGE:
 			case DELAYDAMAGE:
 				writeD(-value);
 				break;
 			default:
 				writeD(value);
-				break;
 		}
 		writeC(type.getValue());
 		writeC(creature.getLifeStats().getHpPercentage());
 		writeH(skillId);
-		if (attacker instanceof Player) {
-			Player player = (Player) attacker;
-			if (player != null) {
-				writeH(player.getSkillSkinList().getSkinId(skillId));
-			} else {
-				writeH(0);
-			}
-		} else {
-			writeH(0); // 5.3
-		} 
-		if (skillId != 0) {
-			writeH(logId);
-		} else {
-			writeH(LOG.ATTACK.getValue());
-		}
+		writeH(logId);
 	}
+	// logId
+	// depends on effecttemplate
+	// effecttemplate (TYPE) LOG.getValue()
+	// spellattack(hp) 1
+	// poison(hp) 25
+	// delaydamage(hp) 95
+	// bleed(hp) 26
+	// mp regen(natural_mp) 171
+	// hp regen(natural_hp) 171
+	// fp regen(natural_fp) 171
+	// fp pot(fp) 171
+	// prochp(hp) 171
+	// procmp(mp) 171
+	// heal_instant (regular) 171
+	// SpellAtkDrainInstantEffect(absorbed_mp) 24(refactoring shard)
+	// mpheal(mp) 4
+	// heal(hp) 3
+	// fpheal(fp) 133
+	// spellatkdrain(hp) 130
+	// falldmg (17) 170
+	// mpheal (19) 171
+	// hp as cost parameter(4) logId 170
+	// procatkinstant - (7) 92
+	// protecteffect on protector - (8) 171
+	// TODO find rest of logIds
 }

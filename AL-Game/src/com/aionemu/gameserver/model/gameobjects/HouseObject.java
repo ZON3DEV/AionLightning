@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.controllers.PlaceableObjectController;
@@ -67,8 +68,7 @@ public abstract class HouseObject<T extends PlaceableHouseObject> extends Visibl
 			case DELETED:
 				if (this.persistentState == PersistentState.NEW) {
 					this.persistentState = PersistentState.NOACTION;
-				}
-				else if (this.persistentState != PersistentState.DELETED) {
+				} else if (this.persistentState != PersistentState.DELETED) {
 					this.persistentState = PersistentState.DELETED;
 					ownerHouse.getRegistry().setPersistentState(PersistentState.UPDATE_REQUIRED);
 				}
@@ -319,7 +319,7 @@ public abstract class HouseObject<T extends PlaceableHouseObject> extends Visibl
 	}
 
 	public void setColor(Integer color) {
-		if (color != this.color) {
+		if (!color.equals(this.color)) {
 			this.color = color;
 			setPersistentState(PersistentState.UPDATE_REQUIRED);
 		}

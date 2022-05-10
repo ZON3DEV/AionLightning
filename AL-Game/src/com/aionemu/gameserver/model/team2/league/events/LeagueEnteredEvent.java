@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.league.events;
 
 import com.aionemu.gameserver.model.team2.TeamEvent;
@@ -55,7 +56,7 @@ public class LeagueEnteredEvent implements Predicate<LeagueMember>, TeamEvent {
 	@Override
 	public boolean apply(LeagueMember member) {
 		PlayerAlliance alliance = member.getObject();
-        alliance.sendPacket(new SM_ALLIANCE_INFO(alliance, SM_ALLIANCE_INFO.UNION_ENTER, league.getLeaderObject().getLeader().getName()));
+		alliance.sendPacket(new SM_ALLIANCE_INFO(alliance, SM_ALLIANCE_INFO.LEAGUE_ENTERED, league.getLeaderObject().getLeader().getName()));
 		alliance.sendPacket(new SM_SHOW_BRAND(0, 0));
 		return true;
 	}

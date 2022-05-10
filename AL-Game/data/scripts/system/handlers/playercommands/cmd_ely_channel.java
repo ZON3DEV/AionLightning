@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import com.aionemu.gameserver.configs.administration.AdminConfig;
@@ -51,32 +52,23 @@ public class cmd_ely_channel extends PlayerCommand {
 			if (AdminConfig.CUSTOMTAG_ENABLE) {
 				if (player.getAccessLevel() == 1) {
 					adminTag = LanguageHandler.translate(CustomMessageId.TAG_1);
-				}
-				else if (player.getAccessLevel() == 2) {
+				} else if (player.getAccessLevel() == 2) {
 					adminTag = LanguageHandler.translate(CustomMessageId.TAG_2);
-				}
-				else if (player.getAccessLevel() == 3) {
+				} else if (player.getAccessLevel() == 3) {
 					adminTag = LanguageHandler.translate(CustomMessageId.TAG_3);
-				}
-				else if (player.getAccessLevel() == 4) {
+				} else if (player.getAccessLevel() == 4) {
 					adminTag = LanguageHandler.translate(CustomMessageId.TAG_4);
-				}
-				else if (player.getAccessLevel() == 5) {
+				} else if (player.getAccessLevel() == 5) {
 					adminTag = LanguageHandler.translate(CustomMessageId.TAG_5);
-				}
-				else if (player.getAccessLevel() == 6) {
+				} else if (player.getAccessLevel() == 6) {
 					adminTag = LanguageHandler.translate(CustomMessageId.TAG_6);
-				}
-				else if (player.getAccessLevel() == 7) {
+				} else if (player.getAccessLevel() == 7) {
 					adminTag = LanguageHandler.translate(CustomMessageId.TAG_7);
-				}
-				else if (player.getAccessLevel() == 8) {
+				} else if (player.getAccessLevel() == 8) {
 					adminTag = LanguageHandler.translate(CustomMessageId.TAG_8);
-				}
-				else if (player.getAccessLevel() == 9) {
+				} else if (player.getAccessLevel() == 9) {
 					adminTag = LanguageHandler.translate(CustomMessageId.TAG_9);
-				}
-				else if (player.getAccessLevel() == 10) {
+				} else if (player.getAccessLevel() == 10) {
 					adminTag = LanguageHandler.translate(CustomMessageId.TAG_10);
 				}
 			}
@@ -86,8 +78,7 @@ public class cmd_ely_channel extends PlayerCommand {
 			StringBuilder sbMessage;
 			if (player.isGM()) {
 				sbMessage = new StringBuilder("[Elyos]" + " " + adminTag);
-			}
-			else {
+			} else {
 				sbMessage = new StringBuilder("[Elyos]" + " " + player.getName() + " : ");
 			}
 			Race adminRace = Race.ELYOS;
@@ -106,7 +97,6 @@ public class cmd_ely_channel extends PlayerCommand {
 			final Race race = adminRace;
 
 			World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 				@Override
 				public void visit(Player player) {
 					if (toAll || player.getRace() == race || (player.getAccessLevel() > 0)) {
@@ -114,8 +104,7 @@ public class cmd_ely_channel extends PlayerCommand {
 					}
 				}
 			});
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(player, LanguageHandler.translate(CustomMessageId.ELY_FAIL));
 		}
 	}

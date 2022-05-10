@@ -14,23 +14,18 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
-
-import java.util.List;
-
-import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 import com.aionemu.gameserver.model.siege.ArtifactLocation;
 import com.aionemu.gameserver.model.siege.FortressLocation;
+import com.aionemu.gameserver.model.siege.OutpostLocation;
 import com.aionemu.gameserver.model.siege.SiegeLocation;
 import com.aionemu.gameserver.model.siege.SourceLocation;
 import com.aionemu.gameserver.model.templates.siegelocation.SiegeLocationTemplate;
-
+import java.util.List;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.*;
 import javolution.util.FastMap;
 
 /**
@@ -50,6 +45,8 @@ public class SiegeLocationData {
 	@XmlTransient
 	private FastMap<Integer, FortressLocation> fortressLocations = new FastMap<Integer, FortressLocation>();
 	@XmlTransient
+	private FastMap<Integer, OutpostLocation> outpostLocations = new FastMap<Integer, OutpostLocation>();
+	@XmlTransient
 	private FastMap<Integer, SourceLocation> sourceLocations = new FastMap<Integer, SourceLocation>();
 	@XmlTransient
 	private FastMap<Integer, SiegeLocation> siegeLocations = new FastMap<Integer, SiegeLocation>();
@@ -57,6 +54,7 @@ public class SiegeLocationData {
 	void afterUnmarshal(Unmarshaller u, Object parent) {
 		artifactLocations.clear();
 		fortressLocations.clear();
+		outpostLocations.clear();
 		sourceLocations.clear();
 		siegeLocations.clear();
 		for (SiegeLocationTemplate template : siegeLocationTemplates) {
@@ -71,6 +69,12 @@ public class SiegeLocationData {
 					ArtifactLocation artifact = new ArtifactLocation(template);
 					artifactLocations.put(template.getId(), artifact);
 					siegeLocations.put(template.getId(), artifact);
+					break;
+				case BOSSRAID_LIGHT:
+				case BOSSRAID_DARK:
+					OutpostLocation protector = new OutpostLocation(template);
+					outpostLocations.put(template.getId(), protector);
+					siegeLocations.put(template.getId(), protector);
 					break;
 				case SOURCE:
 					SourceLocation source = new SourceLocation(template);
@@ -93,6 +97,10 @@ public class SiegeLocationData {
 
 	public FastMap<Integer, FortressLocation> getFortress() {
 		return fortressLocations;
+	}
+
+	public FastMap<Integer, OutpostLocation> getOutpost() {
+		return outpostLocations;
 	}
 
 	public FastMap<Integer, SourceLocation> getSource() {

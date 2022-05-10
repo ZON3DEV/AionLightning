@@ -14,12 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.instance.haramel;
 
+import ai.ChestAI2;
 import com.aionemu.gameserver.ai2.AIName;
 import com.aionemu.gameserver.world.WorldPosition;
-
-import ai.ChestAI2;
 
 /**
  * @author xTz

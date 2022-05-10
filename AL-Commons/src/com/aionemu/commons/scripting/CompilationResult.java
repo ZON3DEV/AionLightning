@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.scripting;
 
 import java.util.Arrays;
@@ -37,13 +38,13 @@ public class CompilationResult {
 	private final ScriptClassLoader classLoader;
 
 	/**
-	 * Creates new instance of CompilationResult with classes that has to be
-	 * parsed and classloader that was used to load classes
+	 * Creates new instance of CompilationResult with classes that has to be parsed and classloader that was used to load
+	 * classes
 	 * 
 	 * @param compiledClasses
-	 *            classes compiled by compiler
+	 *          classes compiled by compiler
 	 * @param classLoader
-	 *            classloader that was used by compiler
+	 *          classloader that was used by compiler
 	 */
 	public CompilationResult(Class<?>[] compiledClasses, ScriptClassLoader classLoader) {
 		this.compiledClasses = compiledClasses;
@@ -75,7 +76,7 @@ public class CompilationResult {
 		sb.append("CompilationResult");
 		sb.append("{classLoader=").append(classLoader);
 		sb.append(", compiledClasses=")
-				.append(compiledClasses == null ? "null" : Arrays.asList(compiledClasses).toString());
+			.append(compiledClasses == null ? "null" : Arrays.asList(compiledClasses).toString());
 		sb.append('}');
 		return sb.toString();
 	}

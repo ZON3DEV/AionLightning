@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import java.util.Iterator;
@@ -27,8 +28,8 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_RENAME;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.player.PlayerService;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.audit.AuditLogger;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 
 /**
@@ -57,7 +58,8 @@ public class RenameService {
 			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1400155));
 			return false;
 		}
-		if ((player.getInventory().getItemByObjId(item).getItemId() != 169670000 && player.getInventory().getItemByObjId(item).getItemId() != 169670001) || (!player.getInventory().decreaseByObjectId(item, 1))) {
+		if ((player.getInventory().getItemByObjId(item).getItemId() != 169670000 && player.getInventory().getItemByObjId(item).getItemId() != 169670001)
+				|| (!player.getInventory().decreaseByObjectId(item, 1))) {
 			AuditLogger.info(player, "Try rename youself without coupon.");
 			return false;
 		}
@@ -98,7 +100,8 @@ public class RenameService {
 			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1400154));
 			return false;
 		}
-		if ((player.getInventory().getItemByObjId(item).getItemId() != 169680000 && player.getInventory().getItemByObjId(item).getItemId() != 169680001) || (!player.getInventory().decreaseByObjectId(item, 1))) {
+		if ((player.getInventory().getItemByObjId(item).getItemId() != 169680000 && player.getInventory().getItemByObjId(item).getItemId() != 169680001)
+				|| (!player.getInventory().decreaseByObjectId(item, 1))) {
 			AuditLogger.info(player, "Try rename legion without coupon.");
 			return false;
 		}

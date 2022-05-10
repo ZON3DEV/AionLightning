@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.iteminfo;
 
 import java.nio.ByteBuffer;
@@ -27,7 +28,6 @@ import com.aionemu.gameserver.network.aion.iteminfo.ItemInfoBlob.ItemBlobType;
  *
  * @author -Nemesiss-
  * @modified Rolandas
- * @reworked Kill3r
  */
 public class StigmaInfoBlobEntry extends ItemBlobEntry {
 
@@ -43,12 +43,11 @@ public class StigmaInfoBlobEntry extends ItemBlobEntry {
 		writeD(buf, stigma.getSkills().get(0).getSkillId()); // skill id 1
 		if (stigma.getSkills().size() >= 2) {
 			writeD(buf, stigma.getSkills().get(1).getSkillId()); // skill id 2
-		}
-		else {
+		} else {
 			writeD(buf, 0);
 		}
 
-		writeD(buf, stigma.getKinah());
+		writeD(buf, stigma.getShard());
 
 		skip(buf, 192);
 		writeH(buf, 0x1); // unk

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.instance;
 
 import java.io.File;
@@ -49,7 +50,7 @@ public class InstanceEngine implements GameEngine {
 
 	@Override
 	public void load(CountDownLatch progressLatch) {
-		log.info("[InstanceEngine] Instance engine load started");
+		log.info("Instance engine load started");
 		scriptManager = new ScriptManager();
 
 		AggregatedClassListener acl = new AggregatedClassListener();
@@ -60,12 +61,10 @@ public class InstanceEngine implements GameEngine {
 
 		try {
 			scriptManager.load(INSTANCE_DESCRIPTOR_FILE);
-			log.info("[InstanceEngine] Loaded " + handlers.size() + " instance handlers.");
-		}
-		catch (Exception e) {
-			throw new GameServerError("[InstanceEngine] Can't initialize instance handlers.", e);
-		}
-		finally {
+			log.info("Loaded " + handlers.size() + " instance handlers.");
+		} catch (Exception e) {
+			throw new GameServerError("Can't initialize instance handlers.", e);
+		} finally {
 			if (progressLatch != null) {
 				progressLatch.countDown();
 			}
@@ -74,16 +73,16 @@ public class InstanceEngine implements GameEngine {
 
 	@Override
 	public void shutdown() {
-		log.info("[InstanceEngine] Instance engine shutdown started");
+		log.info("Instance engine shutdown started");
 		scriptManager.shutdown();
 		scriptManager = null;
 		handlers.clear();
-		log.info("[InstanceEngine] Instance engine shutdown complete");
+		log.info("Instance engine shutdown complete");
 	}
 
 	public void reload() {
 		Util.printSection("Instances");
-		log.info("[InstanceEngine] Reloading instances");
+		log.info("Reloading instances");
 		ScriptManager tmpSM;
 		try {
 			tmpSM = new ScriptManager();
@@ -94,18 +93,14 @@ public class InstanceEngine implements GameEngine {
 			tmpSM.setGlobalClassListener(acl);
 			try {
 				tmpSM.load(INSTANCE_DESCRIPTOR_FILE);
+			} catch (Exception e) {
+				throw new GameServerError("Error", e);
 			}
-			catch (Exception e) {
-				throw new GameServerError("[InstanceEngine] Error", e);
-			}
+		} catch (Exception e) {
+			throw new GameServerError("Error", e);
 		}
-		catch (Exception e) {
-			throw new GameServerError("[InstanceEngine] Error", e);
-		}
-		if (tmpSM != null) {
-			shutdown();
-			load(null);
-		}
+		shutdown();
+		load(null);
 	}
 
 	public InstanceHandler getNewInstanceHandler(int worldId) {
@@ -114,9 +109,8 @@ public class InstanceEngine implements GameEngine {
 		if (instanceClass != null) {
 			try {
 				instanceHandler = instanceClass.newInstance();
-			}
-			catch (Exception ex) {
-				log.warn("[InstanceEngine] Can't instantiate instance handler " + worldId, ex);
+			} catch (Exception ex) {
+				log.warn("Can't instantiate instance handler " + worldId, ex);
 			}
 		}
 		if (instanceHandler == null) {

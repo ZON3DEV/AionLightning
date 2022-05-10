@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item.actions;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -47,11 +48,9 @@ public class QuestStartAction extends AbstractItemAction {
 		QuestState qs = player.getQuestStateList().getQuestState(questid);
 		if (qs == null || qs.getStatus() == QuestStatus.NONE || qs.canRepeat()) {
 			return true;
-		}
-		else if (qs.getStatus() != QuestStatus.COMPLETE) {
+		} else if (qs.getStatus() != QuestStatus.COMPLETE) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_QUEST_ACQUIRE_ERROR_WORKING_QUEST);
-		}
-		else if (!qs.canRepeat()) {
+		} else if (!qs.canRepeat()) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_QUEST_ACQUIRE_ERROR_NONE_REPEATABLE(DataManager.QUEST_DATA.getQuestById(questid).getName()));
 		}
 

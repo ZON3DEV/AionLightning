@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.toypet;
 
 import java.util.ArrayList;
@@ -34,9 +35,9 @@ import com.aionemu.gameserver.model.templates.pet.PetRewards;
 /**
  * @author Rolandas
  */
-
 /**
- * <b>Current pre-calculated values multiplied by 4; in packet 14 bits. Max value: 17600 / 4 is 13 bits; feed points as in retail packets.</b><br>
+ * <b>Current pre-calculated values multiplied by 4; in packet 14 bits. Max
+ * value: 17600 / 4 is 13 bits; feed points as in retail packets.</b><br>
  * static final byte[][] pointValues = new byte[][] {<br>
  * // 10 25 40 50 100 200 -- feed max count<br>
  * { 0, 0, 0, 0, 0, 0 }, // level 1~5 items (feed points 0)<br>
@@ -51,7 +52,7 @@ import com.aionemu.gameserver.model.templates.pet.PetRewards;
  * { 720, 1800, 2880, 3600, 7200, 14400 }, // level 46~50 items (feed points 72)<br>
  * { 800, 2000, 3200, 4000, 8000, 16000 }, // level 51~55 items (feed points 80)<br>
  * { 880, 2200, 3520, 4400, 8800, 17600 } // level 56~60 items (feed points 88)<br>
- * };
+ * ;
  */
 public final class PetFeedCalculator {
 
@@ -101,9 +102,10 @@ public final class PetFeedCalculator {
 				if (finalLevel % 5 == 0) {
 					finalLevel--;
 				}
-				int pointLevel = itemLevels[(finalLevel / 5)];
+				int pointLevel = (int) itemLevels[(int) (finalLevel / 5)];
 				int feedPoints = Math.max(0, pointLevel - 5) / 5 * 8;
-				// System.out.println("ITEM LEVEL: " + level + ", COUNT: " + count + ", STEP: " + feedPoints);
+				// System.out.println("ITEM LEVEL: " + level + ", COUNT: " +
+				// count + ", STEP: " + feedPoints);
 				pointValues[finalLevel / 5][countIndex++] = getPoints(feedPoints, count);
 			}
 		}
@@ -125,7 +127,8 @@ public final class PetFeedCalculator {
 		while (consumed < maxFeedCount) {
 			boolean needSwitch = false;
 			int oldPoints = points;
-			if ((state == 0 && consumed > maxFeedCount * 0.5f) || (state == 1 && consumed > maxFeedCount * 0.8f) || (state == 2 && consumed > maxFeedCount * 1.05)) {
+			if ((state == 0 && consumed > maxFeedCount * 0.5f) || (state == 1 && consumed > maxFeedCount * 0.8f)
+					|| (state == 2 && consumed > maxFeedCount * 1.05)) {
 				needSwitch = true;
 			}
 			points += feedPoints;
@@ -155,17 +158,18 @@ public final class PetFeedCalculator {
 		int oldPoints = progress.getTotalPoints();
 		boolean needSwitch = false;
 
-		if ((currHungryLevel == PetHungryLevel.HUNGRY && progress.getRegularCount() > maxFeedCount * 0.5f) || (currHungryLevel == PetHungryLevel.CONTENT && progress.getRegularCount() > maxFeedCount * 0.8f) || (currHungryLevel == PetHungryLevel.SEMIFULL && progress.getRegularCount() > maxFeedCount * 1.05)) {
+		if ((currHungryLevel == PetHungryLevel.HUNGRY && progress.getRegularCount() > maxFeedCount * 0.5f)
+				|| (currHungryLevel == PetHungryLevel.CONTENT && progress.getRegularCount() > maxFeedCount * 0.8f)
+				|| (currHungryLevel == PetHungryLevel.SEMIFULL && progress.getRegularCount() > maxFeedCount * 1.05)) {
 			// forcefully switch level
 			needSwitch = true;
-		}
-		else {
+		} else {
 			int finalLevel = itemLevel;
 			if (finalLevel % 5 == 0) {
 				finalLevel--;
 			}
 
-			byte pointLevel = itemLevels[(finalLevel / 5)];
+			byte pointLevel = itemLevels[(int) (finalLevel / 5)];
 			byte pointsEarned = (byte) (Math.max(0, pointLevel - 5) / 5 * 8);
 			int feedProgress = progress.getTotalPoints() + pointsEarned;
 			progress.setTotalPoints(feedProgress);
@@ -174,10 +178,10 @@ public final class PetFeedCalculator {
 		if (needSwitch) {
 			// just a prevention to not switch level
 			PetHungryLevel nextLevel = progress.getHungryLevel().getNextValue();
-			if (nextLevel == PetHungryLevel.CONTENT && progress.getRegularCount() <= 0.487f * maxFeedCount || nextLevel == PetHungryLevel.SEMIFULL && progress.getRegularCount() <= 0.78f * maxFeedCount) {
+			if (nextLevel == PetHungryLevel.CONTENT && progress.getRegularCount() <= 0.487f * maxFeedCount || nextLevel == PetHungryLevel.SEMIFULL
+					&& progress.getRegularCount() <= 0.78f * maxFeedCount) {
 				progress.setTotalPoints(oldPoints);
-			}
-			else {
+			} else {
 				progress.setHungryLevel(nextLevel);
 			}
 		}
@@ -232,8 +236,7 @@ public final class PetFeedCalculator {
 		// Fix rounding discrepancy
 		if (rewardIndex < 0) {
 			rewardIndex = 0;
-		}
-		else if (rewardIndex > rewardGroup.getResults().size() - 1) {
+		} else if (rewardIndex > rewardGroup.getResults().size() - 1) {
 			rewardIndex = rewardGroup.getResults().size() - 1;
 		}
 

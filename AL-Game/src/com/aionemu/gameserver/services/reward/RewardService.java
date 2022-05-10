@@ -14,7 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.reward;
+
+import javolution.util.FastList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,10 +30,10 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.rewards.RewardEntryItem;
 import com.aionemu.gameserver.services.mail.SystemMailService;
 
-import javolution.util.FastList;
-
 /**
+ *
  * @author KID
+ *
  */
 public class RewardService {
 
@@ -61,13 +64,13 @@ public class RewardService {
 			}
 
 			try {
-				if (!SystemMailService.getInstance().sendMail("$$CASH_ITEM_MAIL", player.getName(), item.id + ", " + item.count, "0, " + (System.currentTimeMillis() / 1000) + ",", item.id, (int) item.count, 0, LetterType.BLACKCLOUD)) {
+				if (!SystemMailService.getInstance().sendMail("$$CASH_ITEM_MAIL", player.getName(), item.id + ", " + item.count,
+						"0, " + (System.currentTimeMillis() / 1000) + ",", item.id, (int) item.count, 0, LetterType.BLACKCLOUD)) {
 					continue;
 				}
 				log.info("[RewardController][" + item.unique + "] player " + player.getName() + " has received (" + item.count + ")" + item.id + ".");
 				rewarded.add(item.unique);
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 				log.error("[RewardController][" + item.unique + "] failed to add item (" + item.count + ")" + item.id + " to " + player.getObjectId(), e);
 				continue;
 			}

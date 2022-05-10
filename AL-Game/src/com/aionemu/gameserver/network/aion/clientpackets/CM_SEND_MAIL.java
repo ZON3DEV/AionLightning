@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.LetterType;
@@ -31,8 +32,8 @@ public class CM_SEND_MAIL extends AionClientPacket {
 	private String title;
 	private String message;
 	private int itemObjId;
-	private long itemCount;
-	private long kinahCount;
+	private int itemCount;
+	private int kinahCount;
 	private int idLetterType;
 
 	public CM_SEND_MAIL(int opcode, State state, State... restStates) {
@@ -45,8 +46,10 @@ public class CM_SEND_MAIL extends AionClientPacket {
 		title = readS();
 		message = readS();
 		itemObjId = readD();
-		itemCount = readQ();
-		kinahCount = readQ();
+		itemCount = readD();
+		readD();
+		kinahCount = readD();
+		readD();
 		idLetterType = readC();
 	}
 
@@ -54,7 +57,8 @@ public class CM_SEND_MAIL extends AionClientPacket {
 	protected void runImpl() {
 		Player player = getConnection().getActivePlayer();
 		if (!player.isTrading() && kinahCount < 1000000000 && kinahCount > -1 && itemCount > -2) {
-			MailService.getInstance().sendMail(player, recipientName, title, message, itemObjId, itemCount, kinahCount, LetterType.getLetterTypeById(idLetterType));
+			MailService.getInstance().sendMail(player, recipientName, title, message, itemObjId, itemCount, kinahCount,
+					LetterType.getLetterTypeById(idLetterType));
 		}
 	}
 }

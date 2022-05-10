@@ -1,88 +1,64 @@
-/**
- * This file is part of Aion-Lightning <aion-lightning.org>.
- *
- *  Aion-Lightning is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  Aion-Lightning is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details. *
- *  You should have received a copy of the GNU General Public License
- *  along with Aion-Lightning.
- *  If not, see <http://www.gnu.org/licenses/>.
- */
 package com.aionemu.gameserver.network.aion.gmhandler;
 
 import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.templates.item.ItemTemplate;
+import com.aionemu.gameserver.model.templates.npc.NpcTemplate;
+import com.aionemu.gameserver.model.templates.spawns.SpawnTemplate;
 import com.aionemu.gameserver.services.item.ItemService;
+import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.Util;
-import com.aionemu.gameserver.world.World;
+import gnu.trove.map.hash.TIntObjectHashMap;
 
 /**
- * @author Alcapwnd
+ * @author Kill3r
  */
-public class CmdWish extends AbstractGMHandler {
+public final class CmdWish extends AbstractGMHandler {
 
-	public CmdWish(Player admin, String params) {
-		super(admin, params);
-		run();
-	}
+    public CmdWish(Player admin, String params) {
+        super(admin, params);
+        run();
+    }
 
-	public void run() {
-		Player t = admin;
+    public void run() {
+        if(params.length() == 0){
+        /*  if (p.length != 1) {
+            PacketSendUtility.sendMessage(admin, "Npc Not Found");
+            return;
+        }
+*/          // WISH NPC is still not working..
+            String npcName = params;
+            TIntObjectHashMap<NpcTemplate> npcTemp = DataManager.NPC_DATA.getNpcData();
 
-		if (admin.getTarget() != null && admin.getTarget() instanceof Player)
-			t = World.getInstance().findPlayer(Util.convertName(admin.getTarget().getName()));
+            float x = admin.getX();
+            float y = admin.getY();
+            float z = admin.getZ();
+            byte heading = admin.getHeading();
+            int worldId = admin.getWorldId();
 
-		String[] p = params.split(" ");
-		if (p.length != 2) {
-			PacketSendUtility.sendMessage(admin, "not enough parameters");
-			return;
-		}
+            for(NpcTemplate nTemp : npcTemp.valueCollection()){
+                if(nTemp.getName().equalsIgnoreCase(npcName)){
+                    SpawnTemplate spawn = SpawnEngine.addNewSpawn(worldId, nTemp.getTemplateId(), x, y, z, heading, 0);
+                    VisibleObject visibleObject = SpawnEngine.spawnObject(spawn, admin.getInstanceId());
+                    String objectName = visibleObject.getObjectTemplate().getName();
+                    PacketSendUtility.sendMessage(admin, objectName + " spawned (ID:"+nTemp.getTemplateId()+ ")");
+                }
+            }
 
-		if (p[0].length() < 6) {
-			Integer qty = Integer.parseInt(p[0]);
-			Integer itemId = Integer.parseInt(p[1]);
+        }else{
+            //WORKING PERFECTLY
+            String[] itemN = params.split(" ");
 
-			if (qty > 0 && itemId > 0) {
-				if (DataManager.ITEM_DATA.getItemTemplate(itemId) == null) {
-					PacketSendUtility.sendMessage(admin, "Item id is incorrect: " + itemId);
-				}
-				else {
-					long count = ItemService.addItem(t, itemId, qty);
-					if (count == 0) {
-						PacketSendUtility.sendMessage(admin, "You successfully gave " + qty + " x [item:" + itemId + "] to " + t.getName() + ".");
-					}
-					else {
-						PacketSendUtility.sendMessage(admin, "Item couldn't be added");
-					}
-				}
-			}
-		}
+            String itemName = itemN[0];
+            Integer itemcount = Integer.parseInt(itemN[1]);
+            if(itemcount == 0){
+                itemcount = 1;
+            }
 
-		if (p[0].length() > 6) {
-			String itemDesc = p[0];
-			Integer countitems = Integer.parseInt(p[1]);
+            if(itemName.equalsIgnoreCase(DataManager.ITEM_DATA.getItemDescr(itemName))){
+                ItemService.addItem(admin, DataManager.ITEM_DATA.giveItemIdOf(itemName), itemcount);
+            }
+        }
+    }
 
-			if (itemDesc != null && countitems > 0) {
-				for (ItemTemplate template : DataManager.ITEM_DATA.getItemData().valueCollection()) {
-					if (template.getNamedesc() != null && template.getNamedesc().equalsIgnoreCase(itemDesc)) {
-						long count = ItemService.addItem(t, template.getTemplateId(), countitems);
-						if (count == 0) {
-							PacketSendUtility.sendMessage(admin, "You successfully gave " + countitems + " x [item:" + template.getTemplateId() + "] ID: " + template.getTemplateId() + " to " + t.getName() + ".");
-						}
-						else {
-							PacketSendUtility.sendMessage(admin, "Item couldn't be added");
-						}
-					}
-				}
-			}
-		}
-	}
 }

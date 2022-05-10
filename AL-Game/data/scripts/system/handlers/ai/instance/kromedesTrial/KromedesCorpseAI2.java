@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.instance.kromedesTrial;
 
 import com.aionemu.gameserver.ai2.AIName;
@@ -35,11 +36,16 @@ public class KromedesCorpseAI2 extends NpcAI2 {
 		if (dialogId == 1012) {
 			if (player.getInventory().getItemCountByItemId(164000141) < 1) {
 				PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(getObjectId(), 1012));
-				PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1400701)); // TODO: more sys messages, but for now
+				PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1400701)); // TODO:
+																						// more
+																						// sys
+																						// messages,
+																						// but
+																						// for
+																						// now
 				// not needed!
 				ItemService.addItem(player, 164000141, 1);
-			}
-			else {
+			} else {
 				PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(getObjectId(), 27));
 			}
 		}

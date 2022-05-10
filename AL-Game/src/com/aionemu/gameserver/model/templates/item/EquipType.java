@@ -14,6 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
+
 package com.aionemu.gameserver.model.templates.item;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -26,19 +28,21 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum EquipType {
 
-	ARMOR,
-	WEAPON,
-	STIGMA,
-	ESTIMA,
-    ACCESSORY,
-    GRIND,
-	NONE;
+    ARMOR,
+    WEAPON,
+    HEAD,
+    EAR,
+    FINGER,
+    NECK,
+    WAIST,
+    STIGMA,
+    NONE;
 
-	public String value() {
-		return name();
-	}
+    public String value() {
+        return name();
+    }
 
-	public static EquipType fromValue(String v) {
-		return valueOf(v);
-	}
+    public static EquipType fromValue(String v) {
+        return valueOf(v);
+    }
 }

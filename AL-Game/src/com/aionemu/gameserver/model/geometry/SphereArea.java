@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.geometry;
 
 import com.aionemu.gameserver.model.templates.zone.Point2D;
@@ -138,10 +139,7 @@ public class SphereArea implements Area {
 
 	@Override
 	public boolean intersectsRectangle(RectangleArea area) {
-		if (area.getDistance3D(x, y, z) <= r) {
-			return true;
-		}
-		return false;
+		return area.getDistance3D(x, y, z) <= r;
 	}
 
 	@Override

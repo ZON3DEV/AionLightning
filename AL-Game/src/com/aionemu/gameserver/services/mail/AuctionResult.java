@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.mail;
 
 /**
@@ -21,18 +22,10 @@ package com.aionemu.gameserver.services.mail;
  */
 public enum AuctionResult {
 
-	FAILED_BID(0),
-	CANCELED_BID(1),
-	FAILED_SALE(2),
-	SUCCESS_SALE(3),
-	WIN_BID(4),
-	GRACE_START(5),
-	GRACE_FAIL(6),
-	GRACE_SUCCESS(7);
-
+	FAILED_BID(0), CANCELED_BID(1), FAILED_SALE(2), SUCCESS_SALE(3), WIN_BID(4), GRACE_START(5), GRACE_FAIL(6), GRACE_SUCCESS(7);
 	private int value;
 
-	AuctionResult(int value) {
+	private AuctionResult(int value) {
 		this.value = value;
 	}
 

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai;
 
 import com.aionemu.gameserver.ai2.AIName;
@@ -21,6 +22,7 @@ import com.aionemu.gameserver.skillengine.SkillEngine;
 
 /**
  * @author Ritsu
+ *
  */
 @AIName("general_first_skill")
 public class GeneralFirstSkillAI2 extends GeneralNpcAI2 {

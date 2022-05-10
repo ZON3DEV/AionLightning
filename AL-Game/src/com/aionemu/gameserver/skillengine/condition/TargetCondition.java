@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.condition;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -56,7 +57,8 @@ public class TargetCondition extends Condition {
 		if (skill.getSkillTemplate().getProperties().getTargetType().equals(TargetRangeAttribute.AREA)) {
 			return true;
 		}
-		if (skill.getSkillTemplate().getProperties().getFirstTarget() != FirstTargetAttribute.TARGET && skill.getSkillTemplate().getProperties().getFirstTarget() != FirstTargetAttribute.TARGETORME) {
+		if (skill.getSkillTemplate().getProperties().getFirstTarget() != FirstTargetAttribute.TARGET
+				&& skill.getSkillTemplate().getProperties().getFirstTarget() != FirstTargetAttribute.TARGETORME) {
 			return true;
 		}
 		if (skill.getSkillTemplate().getProperties().getFirstTarget() == FirstTargetAttribute.TARGETORME && skill.getEffector() == skill.getFirstTarget()) {

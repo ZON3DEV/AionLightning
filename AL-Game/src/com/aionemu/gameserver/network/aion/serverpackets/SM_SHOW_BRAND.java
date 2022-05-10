@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -32,7 +33,7 @@ public class SM_SHOW_BRAND extends AionServerPacket {
 		this.targetObjectId = targetObjectId;
 	}
 
-	@Override // TODO GRP SIZE + FOR ?
+	@Override
 	protected void writeImpl(AionConnection con) {
 		writeH(0x01);
 		writeD(0x01); // unk

@@ -14,14 +14,18 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
 
+/**
+ * @author xXMashUpXx
+ *
+ */
 public class CM_CHECK_MAIL_SIZE extends AionClientPacket {
-
-	public int onlyExpress;
+	public int mailSize;
 
 	/**
 	 * @param opcode
@@ -34,19 +38,21 @@ public class CM_CHECK_MAIL_SIZE extends AionClientPacket {
 
 	/*
 	 * (non-Javadoc)
+	 *
 	 * @see com.aionemu.commons.network.packet.BaseClientPacket#readImpl()
 	 */
 	@Override
 	protected void readImpl() {
-		onlyExpress = readC();
+		mailSize = readC();
 	}
 
 	/*
 	 * (non-Javadoc)
+	 *
 	 * @see com.aionemu.commons.network.packet.BaseClientPacket#runImpl()
 	 */
 	@Override
 	protected void runImpl() {
-		// We will still use postboxai2 for handle this. it's maybe better :)
+        //We will still use postboxai2 for handle this. it's maybe better :)
 	}
 }

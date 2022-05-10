@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -49,8 +50,7 @@ public class Morph extends AdminCommand {
 			try {
 				param = Integer.parseInt(params[0]);
 
-			}
-			catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				PacketSendUtility.sendMessage(admin, "Parameter must be an integer, or cancel.");
 				return;
 			}
@@ -67,17 +67,14 @@ public class Morph extends AdminCommand {
 		if (param == 0) {
 			if (target.equals(admin)) {
 				PacketSendUtility.sendMessage(target, "Morph successfully cancelled.");
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(target, "Your morph has been cancelled by " + admin.getName() + ".");
 				PacketSendUtility.sendMessage(admin, "You have cancelled " + target.getName() + "'s morph.");
 			}
-		}
-		else {
+		} else {
 			if (target.equals(admin)) {
 				PacketSendUtility.sendMessage(target, "Successfully morphed to npcId " + param + ".");
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(target, admin.getName() + " morphs you into an NPC form.");
 				PacketSendUtility.sendMessage(admin, "You morph " + target.getName() + " to npcId " + param + ".");
 			}

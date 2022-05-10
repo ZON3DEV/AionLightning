@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="global_types.xsd"/>
+    <xs:include schemaLocation="../global_types.xsd"/>
 
     <xs:element name="mails">
         <xs:complexType>
@@ -84,7 +84,7 @@
                     </xs:complexContent>
                 </xs:complexType>
             </xs:element>
-
+			
             <xs:element name="title">
                 <xs:complexType>
                     <xs:complexContent>
@@ -92,7 +92,7 @@
                     </xs:complexContent>
                 </xs:complexType>
             </xs:element>
-
+			
             <xs:element name="header">
                 <xs:complexType>
                     <xs:complexContent>
@@ -100,7 +100,7 @@
                     </xs:complexContent>
                 </xs:complexType>
             </xs:element>
-
+			
             <xs:element name="body">
                 <xs:complexType>
                     <xs:complexContent>
@@ -108,7 +108,7 @@
                     </xs:complexContent>
                 </xs:complexType>
             </xs:element>
-
+			
             <xs:element name="tail">
                 <xs:complexType>
                     <xs:complexContent>
@@ -130,5 +130,5 @@
             <xs:enumeration value="TAIL"/>
         </xs:restriction>
     </xs:simpleType>
-
+	
 </xs:schema>

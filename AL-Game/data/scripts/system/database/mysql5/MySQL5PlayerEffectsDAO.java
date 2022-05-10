@@ -14,18 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Iterator;
-
-import javax.annotation.Nullable;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.DatabaseFactory;
@@ -37,6 +27,15 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterators;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.annotation.Nullable;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Iterator;
 
 /**
  * @author ATracer
@@ -48,7 +47,6 @@ public class MySQL5PlayerEffectsDAO extends PlayerEffectsDAO {
 	public static final String DELETE_QUERY = "DELETE FROM `player_effects` WHERE `player_id`=?";
 	public static final String SELECT_QUERY = "SELECT `skill_id`, `skill_lvl`, `current_time`, `end_time` FROM `player_effects` WHERE `player_id`=?";
 	private static final Predicate<Effect> insertableEffectsPredicate = new Predicate<Effect>() {
-
 		@Override
 		public boolean apply(@Nullable Effect input) {
 			return input != null && input.getRemainingTime() > 28000;
@@ -58,7 +56,6 @@ public class MySQL5PlayerEffectsDAO extends PlayerEffectsDAO {
 	@Override
 	public void loadPlayerEffects(final Player player) {
 		DB.select(SELECT_QUERY, new ParamReadStH() {
-
 			@Override
 			public void setParams(PreparedStatement stmt) throws SQLException {
 				stmt.setInt(1, player.getObjectId());
@@ -111,18 +108,15 @@ public class MySQL5PlayerEffectsDAO extends PlayerEffectsDAO {
 
 			ps.executeBatch();
 			con.commit();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Exception while saving effects of player " + player.getObjectId(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(ps, con);
 		}
 	}
 
 	private void deletePlayerEffects(final Player player) {
 		DB.insertUpdate(DELETE_QUERY, new IUStH() {
-
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
 				stmt.setInt(1, player.getObjectId());

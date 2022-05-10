@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.slf4j.Logger;
@@ -69,14 +70,12 @@ public class CM_ABYSS_RANKING_LEGIONS extends AionClientPacket {
 			Player player = this.getConnection().getActivePlayer();
 			if (player.isAbyssRankListUpdated(updateType)) {
 				sendPacket(new SM_ABYSS_RANKING_LEGIONS(AbyssRankingCache.getInstance().getLastUpdate(), queriedRace));
-			}
-			else {
+			} else {
 				SM_ABYSS_RANKING_LEGIONS results = AbyssRankingCache.getInstance().getLegions(queriedRace);
 				sendPacket(results);
 				player.setAbyssRankListUpdated(updateType);
 			}
-		}
-		else {
+		} else {
 			log.warn("Received invalid raceId: " + raceId);
 		}
 	}

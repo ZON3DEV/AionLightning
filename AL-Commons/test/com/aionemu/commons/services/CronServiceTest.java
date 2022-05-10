@@ -15,12 +15,10 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.services;
 
-import java.lang.reflect.Constructor;
-import java.util.Collection;
-import java.util.List;
-
+import com.aionemu.commons.services.cron.CurrentThreadRunnableRunner;
 import org.apache.commons.lang.mutable.MutableBoolean;
 import org.apache.commons.lang.mutable.MutableInt;
 import org.quartz.JobDetail;
@@ -30,7 +28,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.aionemu.commons.services.cron.CurrentThreadRunnableRunner;
+import java.lang.reflect.Constructor;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * @author SoulKeeper
@@ -41,7 +41,7 @@ public class CronServiceTest extends Assert {
 	private CronService cronService;
 
 	@BeforeClass
-	public void init() throws Exception {
+	public void init() throws Exception{
 		Constructor<CronService> constructor = CronService.class.getDeclaredConstructor();
 		constructor.setAccessible(true);
 		cronService = constructor.newInstance();
@@ -111,7 +111,6 @@ public class CronServiceTest extends Assert {
 				cronService.cancel(this);
 			}
 
-			@Override
 			public void finalize() throws Throwable {
 				collected.setValue(true);
 				super.finalize();
@@ -121,14 +120,14 @@ public class CronServiceTest extends Assert {
 		cronService.schedule(r, "0/2 * * * * ?");
 		r = null;
 		sleep(5);
-		for (int i = 0; i < 100; i++) {
+		for(int i = 0; i < 100; i++){
 			System.gc();
 		}
 		assertEquals(collected.booleanValue(), true);
 	}
 
 	@Test
-	public void testGetJobTriggers() {
+	public void testGetJobTriggers(){
 		Runnable r = newRunnable();
 		cronService.schedule(r, "0 15 * * * ?");
 		JobDetail jd = cronService.getRunnables().get(r);
@@ -157,10 +156,10 @@ public class CronServiceTest extends Assert {
 	}
 
 	@Test(enabled = false)
-	public static void sleep(int seconds) {
-		try {
+	public static void sleep(int seconds){
+		try{
 			Thread.sleep(seconds * 1000);
-		} catch (InterruptedException e) {
+		} catch (InterruptedException e){
 			throw new RuntimeException("Sleep Interrupted", e);
 		}
 	}

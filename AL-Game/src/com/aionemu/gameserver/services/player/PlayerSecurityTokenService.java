@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.player;
 
 import java.security.MessageDigest;
@@ -34,6 +35,21 @@ public class PlayerSecurityTokenService {
 	private final Logger log = LoggerFactory.getLogger(PlayerSecurityTokenService.class);
 	String token;
 
+	public String MD5(String md5) {
+		try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			byte[] array = md.digest(md5.getBytes());
+			StringBuffer sb = new StringBuffer();
+			for (int i = 0; i < array.length; ++i) {
+				sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1, 3));
+			}
+			return token = sb.toString();
+		} catch (NoSuchAlgorithmException e) {
+			log.warn("[SecurityToken] Error to generate token for player!");
+		}
+		return null;
+	}
+
 	public void generateToken(Player player) {
 		if (player == null) {
 			log.warn("[SecurityToken] Player don't exist O.o");
@@ -52,25 +68,12 @@ public class PlayerSecurityTokenService {
 	}
 
 	public void sendToken(Player player, String token) {
-		if (player == null)
+		if (player == null) {
 			return;
-		PacketSendUtility.sendPacket(player, new SM_SECURITY_TOKEN(token));
-	}
+		}
 
-	public String MD5(String md5) {
-		try {
-			MessageDigest md = MessageDigest.getInstance("MD5");
-			byte[] array = md.digest(md5.getBytes());
-			StringBuffer sb = new StringBuffer();
-			for (int i = 0; i < array.length; ++i) {
-				sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1, 3));
-			}
-			return token = sb.toString();
-		}
-		catch (NoSuchAlgorithmException e) {
-			log.warn("[SecurityToken] Error to generate token for player!");
-		}
-		return null;
+		PacketSendUtility.sendPacket(player, new SM_SECURITY_TOKEN(token));
+
 	}
 
 	public static final PlayerSecurityTokenService getInstance() {

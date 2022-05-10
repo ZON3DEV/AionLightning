@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -29,7 +30,7 @@ public class CM_BUY_BROKER_ITEM extends AionClientPacket {
 	@SuppressWarnings("unused")
 	private int brokerId;
 	private int itemUniqueId;
-	private long itemCount;
+	private int itemCount;
 
 	public CM_BUY_BROKER_ITEM(int opcode, State state, State... restStates) {
 		super(opcode, state, restStates);
@@ -39,17 +40,16 @@ public class CM_BUY_BROKER_ITEM extends AionClientPacket {
 	protected void readImpl() {
 		this.brokerId = readD();
 		this.itemUniqueId = readD();
-		this.itemCount = readQ();
+		this.itemCount = readH();
 	}
 
 	@Override
 	protected void runImpl() {
 		Player player = getConnection().getActivePlayer();
-		if (player == null)
-			return;
+
 		if (itemCount < 1) {
 			return;
 		}
-		BrokerService.getInstance().buyBrokerItem(player, itemUniqueId, itemCount);
+		BrokerService.getInstance().buyBrokerItem(player, itemUniqueId);
 	}
 }

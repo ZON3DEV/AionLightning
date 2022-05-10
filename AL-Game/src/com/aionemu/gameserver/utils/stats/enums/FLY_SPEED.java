@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.stats.enums;
 
 /**
@@ -37,7 +38,6 @@ public enum FLY_SPEED {
 	RIDER(9),
 	GUNNER(9),
 	ARTIST(9),
-	PAINTER(9),
 	BARD(9);
 
 	private int value;

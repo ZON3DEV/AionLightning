@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -25,5 +26,5 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BoostSkillCastingTimeEffect")
-public class BoostSkillCastingTimeEffect extends BuffEffect {
+public class BoostSkillCastingTimeEffect extends BufEffect {
 }

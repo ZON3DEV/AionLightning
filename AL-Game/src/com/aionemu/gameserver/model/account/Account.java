@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.account;
 
 import java.sql.Timestamp;
@@ -32,8 +33,10 @@ import com.aionemu.gameserver.model.items.storage.Storage;
  * <ul>
  * <li>account id</li>
  * <li>account name</li>
- * <li>{@link AccountTime account time info}</li>
- * <li>a list of {@link PlayerAccountData} objects each of which keeping information about player that must be available on character selection screen.</li>
+ * <li> {@link AccountTime account time info}</li>
+ * <li>a list of {@link PlayerAccountData} objects each of which keeping
+ * information about player that must be available on character selection
+ * screen.</li>
  * </ul>
  *
  * @author SoulKeeper
@@ -64,8 +67,6 @@ public class Account implements Iterable<PlayerAccountData> {
 	private int numberOfElyos = 0;
 	private CharacterPasskey characterPasskey;
 	private String securityToken = "";
-	private byte isReturn;
-	private long lunaCount;
 
 	public Account(int id) {
 		this.id = id;
@@ -123,18 +124,6 @@ public class Account implements Iterable<PlayerAccountData> {
 	 */
 	public void setMembership(byte membership) {
 		this.membership = membership;
-	}
-
-	public byte getIsReturn() {
-		return isReturn;
-	}
-
-	/**
-	 * @param membership
-	 *            the membership to set
-	 */
-	public void setIsReturn(byte isReturn) {
-		this.isReturn = isReturn;
 	}
 
 	@Override
@@ -221,15 +210,13 @@ public class Account implements Iterable<PlayerAccountData> {
 		ArrayList<PlayerAccountData> list = new ArrayList<PlayerAccountData>();
 		list.addAll(players.values());
 		Collections.sort(list, new Comparator<PlayerAccountData>() {
-
 			@Override
 			public int compare(PlayerAccountData x, PlayerAccountData y) {
 				Timestamp t1 = x.getPlayerCommonData().getLastOnline();
 				Timestamp t2 = y.getPlayerCommonData().getLastOnline();
 				if (t2 == null) {
 					return 1;
-				}
-				else if (t1 == null) {
+				} else if (t1 == null) {
 					return -1;
 				}
 				return y.getPlayerCommonData().getLastOnline().compareTo(x.getPlayerCommonData().getLastOnline());
@@ -279,14 +266,6 @@ public class Account implements Iterable<PlayerAccountData> {
 
 	public long getToll() {
 		return tollCount;
-	}
-
-	public void setLuna(long luna) {
-		lunaCount = luna;
-	}
-
-	public long getLuna() {
-		return lunaCount;
 	}
 
 	public boolean isEmpty() {

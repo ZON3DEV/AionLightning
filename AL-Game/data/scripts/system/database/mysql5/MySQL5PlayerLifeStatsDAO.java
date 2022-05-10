@@ -14,14 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import org.slf4j.Logger;
 
 import com.aionemu.commons.database.DatabaseFactory;
 import com.aionemu.gameserver.dao.MySQL5DAOUtils;
@@ -55,17 +57,14 @@ public class MySQL5PlayerLifeStatsDAO extends PlayerLifeStatsDAO {
 				lifeStats.setCurrentHp(rset.getInt("hp"));
 				lifeStats.setCurrentMp(rset.getInt("mp"));
 				lifeStats.setCurrentFp(rset.getInt("fp"));
-			}
-			else {
+			} else {
 				insertPlayerLifeStat(player);
 			}
 			rset.close();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not restore PlayerLifeStat data for playerObjId: " + player.getObjectId() + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}
@@ -82,11 +81,9 @@ public class MySQL5PlayerLifeStatsDAO extends PlayerLifeStatsDAO {
 			stmt.setInt(4, player.getLifeStats().getCurrentFp());
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not store PlayerLifeStat data for player " + player.getObjectId() + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}
@@ -103,11 +100,9 @@ public class MySQL5PlayerLifeStatsDAO extends PlayerLifeStatsDAO {
 			stmt.setInt(4, player.getObjectId());
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not update PlayerLifeStat data for player " + player.getObjectId() + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}

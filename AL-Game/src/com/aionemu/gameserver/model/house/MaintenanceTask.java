@@ -14,18 +14,20 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.house;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.Date;
 
+import javolution.util.FastList;
+
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.gameserver.GameServer;
 import com.aionemu.gameserver.configs.main.HousingConfig;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -40,8 +42,6 @@ import com.aionemu.gameserver.taskmanager.AbstractCronTask;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 
-import javolution.util.FastList;
-
 /**
  * @author Rolandas
  */
@@ -55,8 +55,7 @@ public class MaintenanceTask extends AbstractCronTask {
 		maintainedHouses = FastList.newInstance();
 		try {
 			instance = new MaintenanceTask(HousingConfig.HOUSE_MAINTENANCE_TIME);
-		}
-		catch (ParseException pe) {
+		} catch (ParseException pe) {
 		}
 	}
 
@@ -93,13 +92,13 @@ public class MaintenanceTask extends AbstractCronTask {
 
 	@Override
 	protected void preInit() {
-		GameServer.log.info("[HouseService] Initializing House maintenance task...");
+		log.info("Initializing House maintenance task...");
 	}
 
 	@Override
 	protected void preRun() {
 		updateMaintainedHouses();
-		GameServer.log.info("[HouseService] Executing House maintenance. Maintained Houses: " + maintainedHouses.size());
+		log.info("Executing House maintenance. Maintained Houses: " + maintainedHouses.size());
 	}
 
 	private void updateMaintainedHouses() {
@@ -126,8 +125,7 @@ public class MaintenanceTask extends AbstractCronTask {
 						house.setNextPay(new Timestamp((long) getRunTime() * 1000));
 					}
 					house.save();
-				}
-				else {
+				} else {
 					continue;
 				}
 			}
@@ -144,7 +142,7 @@ public class MaintenanceTask extends AbstractCronTask {
 		// Get times based on configuration values
 		DateTime now = new DateTime();
 		DateTime previousRun = now.minus(getPeriod()); // usually week ago
-		DateTime beforePreviousRun = previousRun.minus(getPeriod()); // usually two weeks ago
+        DateTime beforePreviousRun = previousRun.minus(getPeriod()); // usually two weeks ago
 
 		for (House house : maintainedHouses) {
 			if (house.isFeePaid()) {
@@ -158,14 +156,13 @@ public class MaintenanceTask extends AbstractCronTask {
 			Player player = World.getInstance().findPlayer(house.getOwnerId());
 			if (player == null) {
 				pcd = DAOManager.getDAO(PlayerDAO.class).loadPlayerCommonData(house.getOwnerId());
-			}
-			else {
+			} else {
 				pcd = player.getCommonData();
 			}
 
 			if (pcd == null) {
 				// player doesn't exist already for some reasons
-				log.warn("[HouseService] House " + house.getAddress().getId() + " had player assigned but no player exists. Auctioned.");
+				log.warn("House " + house.getAddress().getId() + " had player assigned but no player exists. Auctioned.");
 				putHouseToAuction(house, null);
 				continue;
 			}
@@ -173,30 +170,26 @@ public class MaintenanceTask extends AbstractCronTask {
 			if (payTime <= beforePreviousRun.getMillis()) {
 				DateTime plusDay = beforePreviousRun.minusDays(1);
 				if (payTime <= plusDay.getMillis()) {
-					// player didn't pay after the second warning and one day passed
+                    // player didn't pay after the second warning and one day passed
 					impoundTime = now.getMillis();
 					warnCount = 3;
 					putHouseToAuction(house, pcd);
-				}
-				else {
+				} else {
 					impoundTime = now.plusDays(1).getMillis();
 					warnCount = 2;
 				}
-			}
-			else if (payTime <= previousRun.getMillis()) {
+			} else if (payTime <= previousRun.getMillis()) {
 				// player did't pay 1 period
 				impoundTime = now.plus(getPeriod()).plusDays(1).getMillis();
 				warnCount = 1;
-			}
-			else {
+			} else {
 				continue; // should not happen
 			}
 
 			if (pcd.isOnline()) {
 				if (warnCount == 3) {
 					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_SEQUESTRATE);
-				}
-				else {
+				} else {
 					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_OVERDUE);
 				}
 			}
@@ -208,7 +201,7 @@ public class MaintenanceTask extends AbstractCronTask {
 		house.revokeOwner();
 		HousingBidService.getInstance().addHouseToAuction(house);
 		house.save();
-		log.info("[HouseService] House " + house.getAddress().getId() + " overdued and put to auction.");
+		log.info("House " + house.getAddress().getId() + " overdued and put to auction.");
 		if (playerCommonData == null) {
 			return;
 		}

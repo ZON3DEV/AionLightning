@@ -14,11 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
 
 import static ch.lambdaj.Lambda.extractIterator;
 import static ch.lambdaj.Lambda.flatten;
 import static ch.lambdaj.Lambda.on;
+import gnu.trove.map.hash.TIntObjectHashMap;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -42,6 +44,8 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
+import javolution.util.FastMap;
+
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,7 +62,6 @@ import com.aionemu.gameserver.model.templates.spawns.SpawnSearchResult;
 import com.aionemu.gameserver.model.templates.spawns.SpawnSpotTemplate;
 import com.aionemu.gameserver.model.templates.spawns.SpawnTemplate;
 import com.aionemu.gameserver.model.templates.spawns.basespawns.BaseSpawn;
-import com.aionemu.gameserver.model.templates.spawns.dynamicportalspawns.DynamicPortalSpawn;
 import com.aionemu.gameserver.model.templates.spawns.riftspawns.RiftSpawn;
 import com.aionemu.gameserver.model.templates.spawns.siegespawns.SiegeSpawn;
 import com.aionemu.gameserver.model.templates.spawns.vortexspawns.VortexSpawn;
@@ -67,9 +70,6 @@ import com.aionemu.gameserver.spawnengine.SpawnHandlerType;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.WorldMap;
-
-import gnu.trove.map.hash.TIntObjectHashMap;
-import javolution.util.FastMap;
 
 /**
  * @author xTz
@@ -88,7 +88,6 @@ public class SpawnsData2 {
 	private TIntObjectHashMap<List<SpawnGroup2>> riftSpawnMaps = new TIntObjectHashMap<List<SpawnGroup2>>();
 	private TIntObjectHashMap<List<SpawnGroup2>> siegeSpawnMaps = new TIntObjectHashMap<List<SpawnGroup2>>();
 	private TIntObjectHashMap<List<SpawnGroup2>> vortexSpawnMaps = new TIntObjectHashMap<List<SpawnGroup2>>();
-	private TIntObjectHashMap<List<SpawnGroup2>> dynamicPortalSpawnMaps = new TIntObjectHashMap<List<SpawnGroup2>>();
 	private TIntObjectHashMap<Spawn> customs = new TIntObjectHashMap<Spawn>();
 
 	/**
@@ -110,8 +109,7 @@ public class SpawnsData2 {
 							allSpawnMaps.get(mapId).remove(spawn.getNpcId());
 						}
 						customs.put(spawn.getNpcId(), spawn);
-					}
-					else if (customs.containsKey(spawn.getNpcId())) {
+					} else if (customs.containsKey(spawn.getNpcId())) {
 						continue;
 					}
 					allSpawnMaps.get(mapId).put(spawn.getNpcId(), new SimpleEntry(new SpawnGroup2(mapId, spawn), spawn));
@@ -131,8 +129,7 @@ public class SpawnsData2 {
 									allSpawnMaps.get(mapId).remove(spawn.getNpcId());
 								}
 								customs.put(spawn.getNpcId(), spawn);
-							}
-							else if (customs.containsKey(spawn.getNpcId())) {
+							} else if (customs.containsKey(spawn.getNpcId())) {
 								continue;
 							}
 							SpawnGroup2 spawnGroup = new SpawnGroup2(mapId, spawn, baseId, simpleRace.getBaseRace());
@@ -152,8 +149,7 @@ public class SpawnsData2 {
 								allSpawnMaps.get(mapId).remove(spawn.getNpcId());
 							}
 							customs.put(spawn.getNpcId(), spawn);
-						}
-						else if (customs.containsKey(spawn.getNpcId())) {
+						} else if (customs.containsKey(spawn.getNpcId())) {
 							continue;
 						}
 						SpawnGroup2 spawnGroup = new SpawnGroup2(mapId, spawn, id);
@@ -177,8 +173,7 @@ public class SpawnsData2 {
 										allSpawnMaps.get(mapId).remove(spawn.getNpcId());
 									}
 									customs.put(spawn.getNpcId(), spawn);
-								}
-								else if (customs.containsKey(spawn.getNpcId())) {
+								} else if (customs.containsKey(spawn.getNpcId())) {
 									continue;
 								}
 								SpawnGroup2 spawnGroup = new SpawnGroup2(mapId, spawn, siegeId, race.getSiegeRace(), mod.getSiegeModType());
@@ -203,8 +198,7 @@ public class SpawnsData2 {
 									allSpawnMaps.get(mapId).remove(spawn.getNpcId());
 								}
 								customs.put(spawn.getNpcId(), spawn);
-							}
-							else if (customs.containsKey(spawn.getNpcId())) {
+							} else if (customs.containsKey(spawn.getNpcId())) {
 								continue;
 							}
 							SpawnGroup2 spawnGroup = new SpawnGroup2(mapId, spawn, id, type.getStateType());
@@ -212,29 +206,7 @@ public class SpawnsData2 {
 						}
 					}
 				}
-				for (DynamicPortalSpawn DynamicPortalSpawn : spawnMap.getDynamicPortalSpawns()) {
-					int id = DynamicPortalSpawn.getId();
-					if (!dynamicPortalSpawnMaps.containsKey(id)) {
-						dynamicPortalSpawnMaps.put(id, new ArrayList<SpawnGroup2>());
-					}
-					for (DynamicPortalSpawn.DynamicPortalStateTemplate type : DynamicPortalSpawn.getSiegeModTemplates()) {
-						if (type == null || type.getSpawns() == null) {
-							continue;
-						}
-						for (Spawn spawn : type.getSpawns()) {
-							if (spawn.isCustom()) {
-								if (allSpawnMaps.get(mapId).containsKey(spawn.getNpcId())) {
-									allSpawnMaps.get(mapId).remove(spawn.getNpcId());
-								}
-								customs.put(spawn.getNpcId(), spawn);
-							} else if (customs.containsKey(spawn.getNpcId())) {
-								continue;
-							}
-							SpawnGroup2 spawnGroup = new SpawnGroup2(mapId, spawn, id, type.getDynamicPortalType());
-							dynamicPortalSpawnMaps.get(id).add(spawnGroup);
-						}
-					}
-				}
+				customs.clear();
 			}
 		}
 	}
@@ -276,10 +248,6 @@ public class SpawnsData2 {
 		return vortexSpawnMaps.get(id);
 	}
 
-	public List<SpawnGroup2> getDynamicPortalSpawnsByLocId(int id) {
-		return dynamicPortalSpawnMaps.get(id);
-	}
-
 	public synchronized boolean saveSpawn(Player admin, VisibleObject visibleObject, boolean delete) throws IOException {
 		SpawnTemplate spawn = visibleObject.getSpawn();
 		Spawn oldGroup = DataManager.SPAWNS_DATA2.getSpawnsForNpc(visibleObject.getWorldId(), spawn.getNpcId());
@@ -294,9 +262,12 @@ public class SpawnsData2 {
 		try {
 			schema = sf.newSchema(new File("./data/static_data/spawns/spawns.xsd"));
 			jc = JAXBContext.newInstance(SpawnsData2.class);
-		}
-		catch (Exception e) {
-			// ignore, if schemas are wrong then we even could not call the command;
+		} catch (Exception e) {
+			// ignore, if schemas are wrong then we even could not call the
+			// command;
+			log.error("cannot load spawn data schema", e);
+			PacketSendUtility.sendMessage(admin, "Could not load spawn schema!");
+			return false;
 		}
 
 		FileInputStream fin = null;
@@ -306,13 +277,11 @@ public class SpawnsData2 {
 				Unmarshaller unmarshaller = jc.createUnmarshaller();
 				unmarshaller.setSchema(schema);
 				data = (SpawnsData2) unmarshaller.unmarshal(fin);
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 				log.error(e.getMessage());
 				PacketSendUtility.sendMessage(admin, "Could not load old XML file!");
 				return false;
-			}
-			finally {
+			} finally {
 				if (fin != null) {
 					fin.close();
 				}
@@ -329,8 +298,7 @@ public class SpawnsData2 {
 				oldGroup = new Spawn(spawn.getNpcId(), spawn.getRespawnTime(), spawn.getHandlerType());
 				addGroup = true;
 			}
-		}
-		else {
+		} else {
 			if (data == null) {
 				data = DataManager.SPAWNS_DATA2;
 			}
@@ -339,7 +307,8 @@ public class SpawnsData2 {
 			addGroup = true;
 		}
 
-		SpawnSpotTemplate spot = new SpawnSpotTemplate(visibleObject.getX(), visibleObject.getY(), visibleObject.getZ(), visibleObject.getHeading(), visibleObject.getSpawn().getRandomWalk(), visibleObject.getSpawn().getWalkerId(), visibleObject.getSpawn().getWalkerIndex());
+		SpawnSpotTemplate spot = new SpawnSpotTemplate(visibleObject.getX(), visibleObject.getY(), visibleObject.getZ(), visibleObject.getHeading(),
+				visibleObject.getSpawn().getRandomWalk(), visibleObject.getSpawn().getWalkerId(), visibleObject.getSpawn().getWalkerIndex());
 		boolean changeX = visibleObject.getX() != spawn.getX();
 		boolean changeY = visibleObject.getY() != spawn.getY();
 		boolean changeZ = visibleObject.getZ() != spawn.getZ();
@@ -347,7 +316,8 @@ public class SpawnsData2 {
 		if (changeH && visibleObject instanceof Npc) {
 			Npc npc = (Npc) visibleObject;
 			if (!npc.isAtSpawnLocation() || !npc.isInState(CreatureState.NPC_IDLE) || changeX || changeY || changeZ) {
-				// if H changed, XSD validation fails, because it may be negative; thus, reset it back
+				// if H changed, XSD validation fails, because it may be
+				// negative; thus, reset it back
 				visibleObject.setXYZH(null, null, null, spawn.getHeading());
 				changeH = false;
 			}
@@ -359,12 +329,13 @@ public class SpawnsData2 {
 				if (delete || !StringUtils.equals(s.getWalkerId(), spot.getWalkerId())) {
 					oldSpot = s;
 					break;
-				}
-				else {
+				} else {
 					return false; // nothing to change
 				}
-			}
-			else if (changeX && s.getY() == spot.getY() && s.getZ() == spot.getZ() && s.getHeading() == spot.getHeading() || changeY && s.getX() == spot.getX() && s.getZ() == spot.getZ() && s.getHeading() == spot.getHeading() || changeZ && s.getX() == spot.getX() && s.getY() == spot.getY() && s.getHeading() == spot.getHeading() || changeH && s.getX() == spot.getX() && s.getY() == spot.getY() && s.getZ() == spot.getZ()) {
+			} else if (changeX && s.getY() == spot.getY() && s.getZ() == spot.getZ() && s.getHeading() == spot.getHeading() || changeY
+					&& s.getX() == spot.getX() && s.getZ() == spot.getZ() && s.getHeading() == spot.getHeading() || changeZ && s.getX() == spot.getX()
+					&& s.getY() == spot.getY() && s.getHeading() == spot.getHeading() || changeH && s.getX() == spot.getX() && s.getY() == spot.getY()
+					&& s.getZ() == spot.getZ()) {
 				oldSpot = s;
 				break;
 			}
@@ -383,8 +354,7 @@ public class SpawnsData2 {
 			data.templates = new ArrayList<SpawnMap>();
 			map = new SpawnMap(spawn.getWorldId());
 			data.templates.add(map);
-		}
-		else {
+		} else {
 			map = data.templates.get(0);
 		}
 
@@ -404,13 +374,11 @@ public class SpawnsData2 {
 			DataManager.SPAWNS_DATA2.afterUnmarshal(null, null);
 			DataManager.SPAWNS_DATA2.clearTemplates();
 			data.clearTemplates();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error(e.getMessage());
 			PacketSendUtility.sendMessage(admin, "Could not save XML file!");
 			return false;
-		}
-		finally {
+		} finally {
 			if (fos != null) {
 				fos.close();
 			}
@@ -423,14 +391,11 @@ public class SpawnsData2 {
 		WorldMap map = World.getInstance().getWorldMap(visibleObject.getWorldId());
 		if (visibleObject.getSpawn().getHandlerType() == SpawnHandlerType.RIFT) {
 			path = "Rifts";
-		}
-		else if (visibleObject instanceof Gatherable) {
+		} else if (visibleObject instanceof Gatherable) {
 			path = "Gather";
-		}
-		else if (map.isInstanceType()) {
+		} else if (map.isInstanceType()) {
 			path = "Instances";
-		}
-		else {
+		} else {
 			path = "Npcs";
 		}
 		return path + "/New/" + visibleObject.getWorldId() + "_" + map.getName().replace(' ', '_') + ".xml";
@@ -480,7 +445,6 @@ public class SpawnsData2 {
 		templates.add(spawnMap);
 	}
 
-	@SuppressWarnings("unlikely-arg-type")
 	public void removeEventSpawnObjects(List<VisibleObject> objects) {
 		for (VisibleObject visObj : objects) {
 			if (!allSpawnMaps.contains(visObj.getWorldId())) {
@@ -499,12 +463,4 @@ public class SpawnsData2 {
 	public List<SpawnMap> getTemplates() {
 		return templates;
 	}
-
-	@Override
-	public SpawnsData2 clone() {
-		SpawnsData2 sd = new SpawnsData2();
-		sd.allSpawnMaps.putAll(allSpawnMaps);
-		return sd;
-	}
-
 }

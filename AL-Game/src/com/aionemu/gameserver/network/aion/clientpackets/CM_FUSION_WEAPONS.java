@@ -14,9 +14,9 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
 import com.aionemu.gameserver.services.ArmsfusionService;
@@ -48,9 +48,6 @@ public class CM_FUSION_WEAPONS extends AionClientPacket {
 	 */
 	@Override
 	protected void runImpl() {
-		Player player = getConnection().getActivePlayer();
-		if (player == null)
-			return;
 		ArmsfusionService.fusionWeapons(getConnection().getActivePlayer(), firstItemId, secondItemId);
 	}
 }

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import java.util.List;
@@ -64,7 +65,6 @@ public class WarehouseService {
 				 */
 				final int price = getPriceByLevel(expandTemplate, player.getWarehouseSize() + 1);
 				RequestResponseHandler responseHandler = new RequestResponseHandler(npc) {
-
 					@Override
 					public void acceptRequest(Creature requester, Player responder) {
 						if (player.getInventory().getKinah() < price) {
@@ -86,8 +86,7 @@ public class WarehouseService {
 					PacketSendUtility.sendPacket(player, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_WAREHOUSE_EXPAND_WARNING, 0, 0, String.valueOf(price)));
 				}
 			}
-		}
-		else {
+		} else {
 			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300432));
 		}
 	}
@@ -99,7 +98,9 @@ public class WarehouseService {
 		if (!canExpand(player)) {
 			return;
 		}
-		PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300433, "8")); // 8 Slots added
+		PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300433, "8")); // 8
+																					// Slots
+																					// added
 		player.setWarehouseSize(player.getWarehouseSize() + 1);
 
 		sendWarehouseInfo(player, false);
@@ -137,7 +138,8 @@ public class WarehouseService {
 	}
 
 	/**
-	 * The guy who created cube template should blame himself :) One day I will rewrite them
+	 * The guy who created cube template should blame himself :) One day I will
+	 * rewrite them
 	 *
 	 * @param template
 	 * @param level
@@ -166,11 +168,13 @@ public class WarehouseService {
 			int index = 0;
 
 			while (index + 10 < itemsSize) {
-				PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(items.subList(index, index + 10), StorageType.REGULAR_WAREHOUSE.getId(), whSize, firstPacket, player));
+				PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(items.subList(index, index + 10), StorageType.REGULAR_WAREHOUSE.getId(), whSize,
+						firstPacket, player));
 				index += 10;
 				firstPacket = false;
 			}
-			PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(items.subList(index, itemsSize), StorageType.REGULAR_WAREHOUSE.getId(), whSize, firstPacket, player));
+			PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(items.subList(index, itemsSize), StorageType.REGULAR_WAREHOUSE.getId(), whSize,
+					firstPacket, player));
 		}
 
 		PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(null, StorageType.REGULAR_WAREHOUSE.getId(), whSize, false, player));
@@ -179,7 +183,8 @@ public class WarehouseService {
 			/**
 			 * Account warehouse
 			 */
-			PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).getItemsWithKinah(), StorageType.ACCOUNT_WAREHOUSE.getId(), 0, true, player));
+			PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(player.getStorage(StorageType.ACCOUNT_WAREHOUSE.getId()).getItemsWithKinah(),
+					StorageType.ACCOUNT_WAREHOUSE.getId(), 0, true, player));
 		}
 
 		PacketSendUtility.sendPacket(player, new SM_WAREHOUSE_INFO(null, StorageType.ACCOUNT_WAREHOUSE.getId(), 0, false, player));

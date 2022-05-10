@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -87,8 +88,7 @@ public class HouseDecoration extends AionObject {
 	public boolean equals(Object object) {
 		if (!(object instanceof HouseDecoration)) {
 			return false;
-		}
-		else {
+		} else {
 			return ((HouseDecoration) object).getObjectId().equals(this.getObjectId());
 		}
 	}

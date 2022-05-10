@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import com.aionemu.gameserver.skillengine.action.DamageType;
@@ -21,6 +22,7 @@ import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
  * @author kecimis
+ *
  */
 public class DeathBlowEffect extends DamageEffect {
 

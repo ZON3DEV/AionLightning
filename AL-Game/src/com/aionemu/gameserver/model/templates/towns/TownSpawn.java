@@ -14,7 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.towns;
+
+import gnu.trove.map.hash.TIntObjectHashMap;
 
 import java.util.Collection;
 import java.util.List;
@@ -24,10 +27,9 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-import gnu.trove.map.hash.TIntObjectHashMap;
-
 /**
  * @author ViAl
+ *
  */
 @XmlType(name = "town_spawn")
 public class TownSpawn {

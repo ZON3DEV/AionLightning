@@ -14,10 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.worlds;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
+import ai.ActionItemNpcAI2;
 import com.aionemu.gameserver.ai2.AI2Actions;
 import com.aionemu.gameserver.ai2.AIName;
 import com.aionemu.gameserver.ai2.poll.AIAnswer;
@@ -25,8 +25,7 @@ import com.aionemu.gameserver.ai2.poll.AIAnswers;
 import com.aionemu.gameserver.ai2.poll.AIQuestion;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.SkillEngine;
-
-import ai.ActionItemNpcAI2;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @author xTz
@@ -48,16 +47,16 @@ public class DefensiveCannonAI2 extends ActionItemNpcAI2 {
 
 	private int getMorphSkill() {
 		switch (getNpcId()) {
-			/**
-			 * Invade Vortex 3.5 Theobomos/Bruthonin
-			 */
+		/**
+		 * Invade Vortex 3.5 Theobomos/Bruthonin
+		 */
 			case 831338: // elyos defensive cannon
 				return 0x4F8C3C; // 20364
 			case 831339: // asmodian defensive cannon
 				return 0x4F8D3C; // 20365
-			/**
-			 * Danaria Sieges 4.0 needed 186000246 to use skills
-			 */
+				/**
+				 * Danaria Sieges 4.0 needed 186000246 to use skills
+				 */
 			case 273313: // Empty Aetheric Cannon
 			case 272841: // mounted elyos cannon
 			case 272848: // mounted elyos sky cannon
@@ -66,9 +65,9 @@ public class DefensiveCannonAI2 extends ActionItemNpcAI2 {
 			case 272854: // mounted asmodian cannon
 			case 272861: // mounted asmodian sky cannon
 				return 0x538A00; // 21386
-			/**
-			 * Tank Station Abyss 4.5
-			 */
+				/**
+				 * Tank Station Abyss 4.5
+				 */
 			case 251723: // Lightbringer
 				return 0x525300; // 21075
 			case 251724: // Shadecaster

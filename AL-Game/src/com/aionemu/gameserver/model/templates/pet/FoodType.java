@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.pet;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -42,7 +43,7 @@ public enum FoodType {
 	POPPY_SNACK_NUTRITIOUS,
 	SOULS,
 	SHUGO_EVENT_COIN,
-	STINKY, // Other excuded items
+	STINKY, // Other excuded																																							// items
 	THORNS;
 
 	public String value() {

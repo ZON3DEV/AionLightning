@@ -16,5 +16,5 @@
 	along with aion-emu. If not, see <http://www.gnu.org/licenses/>.
 -->
 <scriptlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../contexts.xsd">
-    <!--<scriptinfo root="./data/scripts/custom/somedir"/>-->
+	<!--<scriptinfo root="./data/scripts/custom/somedir"/>-->
 </scriptlist>

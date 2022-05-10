@@ -14,11 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world.geo;
 
-import org.apache.commons.lang.StringUtils;
-
 import com.aionemu.gameserver.geoEngine.models.GeoMap;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * @author ATracer

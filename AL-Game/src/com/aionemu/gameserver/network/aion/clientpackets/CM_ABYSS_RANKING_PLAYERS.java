@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import java.util.List;
@@ -70,16 +71,14 @@ public class CM_ABYSS_RANKING_PLAYERS extends AionClientPacket {
 			Player player = this.getConnection().getActivePlayer();
 			if (player.isAbyssRankListUpdated(updateType)) {
 				sendPacket(new SM_ABYSS_RANKING_PLAYERS(AbyssRankingCache.getInstance().getLastUpdate(), queriedRace));
-			}
-			else {
+			} else {
 				List<SM_ABYSS_RANKING_PLAYERS> results = AbyssRankingCache.getInstance().getPlayers(queriedRace);
 				for (SM_ABYSS_RANKING_PLAYERS packet : results) {
 					sendPacket(packet);
 				}
 				player.setAbyssRankListUpdated(updateType);
 			}
-		}
-		else {
+		} else {
 			log.warn("Received invalid raceId: " + raceId);
 		}
 	}

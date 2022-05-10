@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion;
 
 import java.io.IOException;
@@ -21,6 +22,8 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.atomic.AtomicReference;
+
+import javolution.util.FastList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +33,6 @@ import com.aionemu.commons.network.Dispatcher;
 import com.aionemu.commons.network.PacketProcessor;
 import com.aionemu.commons.utils.concurrent.ExecuteWrapper;
 import com.aionemu.commons.utils.concurrent.RunnableStatsManager;
-import com.aionemu.gameserver.configs.main.GSConfig;
 import com.aionemu.gameserver.configs.main.SecurityConfig;
 import com.aionemu.gameserver.configs.network.NetworkConfig;
 import com.aionemu.gameserver.model.account.Account;
@@ -46,8 +48,6 @@ import com.aionemu.gameserver.services.player.PlayerLeaveWorldService;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.google.common.base.Preconditions;
 
-import javolution.util.FastList;
-
 /**
  * Object representing connection between GameServer and Aion Client.
  *
@@ -59,75 +59,9 @@ public class AionConnection extends AConnection {
 	 * Logger for this class.
 	 */
 	private static final Logger log = LoggerFactory.getLogger(AionConnection.class);
-	private static final PacketProcessor<AionConnection> packetProcessor = new PacketProcessor<AionConnection>(NetworkConfig.PACKET_PROCESSOR_MIN_THREADS, NetworkConfig.PACKET_PROCESSOR_MAX_THREADS, NetworkConfig.PACKET_PROCESSOR_THREAD_SPAWN_THRESHOLD, NetworkConfig.PACKET_PROCESSOR_THREAD_KILL_THRESHOLD, new ExecuteWrapper());
-	private String hdd_serial;
-	private String ipv4list;
-	private String local_ip;
-	private String windows;
-	private int countryCode = GSConfig.SERVER_COUNTRY_CODE;
-	private String aionBin;
-	private int memory;
-	private int winEncode;
-	private String traceroute;
-
-	public int getCountryCode() {
-		if (getIP().equals("109.87.238.83")) {
-			return 7;
-		}
-		return countryCode;
-	}
-
-	public void setCountryCode(int countryCode) {
-		this.countryCode = countryCode;
-	}
-
-	public void setLocalIP(String local_ip) {
-		this.local_ip = local_ip;
-	}
-
-	public void setIPv4List(String iplist) {
-		this.ipv4list = iplist;
-	}
-
-	public void setHDDSerial(String hdd_serial) {
-		this.hdd_serial = hdd_serial;
-	}
-
-	public void setWindows(String windows) {
-		this.windows = windows;
-	}
-
-	public void setMemoryPC(int memory) {
-		this.memory = memory;
-	}
-
-	public void setAionBin(String AionBinConnection) {
-		this.aionBin = AionBinConnection;
-	}
-
-	public String getAionBin() {
-		return aionBin;
-	}
-
-	public int getMemory() {
-		return memory;
-	}
-
-	public void setWindowsEncoding(int enc) {
-		winEncode = enc;
-	}
-
-	public int getWindowsEncoding() {
-		return winEncode;
-	}
-
-	public String getTracerouteIP() {
-		return traceroute;
-	}
-
-	public void setTracerouteIP(String ips) {
-		traceroute = ips;
-	}
+	private static final PacketProcessor<AionConnection> packetProcessor = new PacketProcessor<AionConnection>(NetworkConfig.PACKET_PROCESSOR_MIN_THREADS,
+			NetworkConfig.PACKET_PROCESSOR_MAX_THREADS, NetworkConfig.PACKET_PROCESSOR_THREAD_SPAWN_THRESHOLD,
+			NetworkConfig.PACKET_PROCESSOR_THREAD_KILL_THRESHOLD, new ExecuteWrapper());
 
 	/**
 	 * Possible states of AionConnection
@@ -175,13 +109,11 @@ public class AionConnection extends AConnection {
 	// TODO! why there is no any comments what is this doing? i have no clue what is it for [Nemesiss]
 	private final static int MAX_INVALID_PACKETS = 3;
 	private String macAddress;
-	/**
-	 * Ping checker - for detecting hanged up connections *
-	 */
+
+	/** Ping checker - for detecting hanged up connections **/
 	private PingChecker pingChecker;
-	/**
-	 * packet flood filter *
-	 */
+
+	/**  packet flood filter  **/
 	private int[] pff;
 	private long[] pffRequests;
 
@@ -221,8 +153,8 @@ public class AionConnection extends AConnection {
 	}
 
 	/**
-	 * Enable crypt key - generate random key that will be used to encrypt second server packet [first one is unencrypted] and decrypt client packets. This method is called from SM_KEY server packet,
-	 * that packet sends key to aion client.
+	 * Enable crypt key - generate random key that will be used to encrypt second server packet [first one is unencrypted]
+	 * and decrypt client packets. This method is called from SM_KEY server packet, that packet sends key to aion client.
 	 *
 	 * @return "false key" that should by used by aion client to encrypt/decrypt packets.
 	 */
@@ -248,8 +180,7 @@ public class AionConnection extends AConnection {
 				}
 				return true;
 			}
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			log.error("Exception caught during decrypt!" + ex.getMessage());
 			return false;
 		}
@@ -272,8 +203,7 @@ public class AionConnection extends AConnection {
 						long last = this.pffRequests[opcode];
 						if (last == 0) {
 							this.pffRequests[opcode] = System.currentTimeMillis();
-						}
-						else {
+						} else {
 							long diff = System.currentTimeMillis() - last;
 							if (diff < pff[opcode]) {
 								log.warn(this + " has flooding " + pck.getClass().getSimpleName() + " " + diff);
@@ -284,9 +214,7 @@ public class AionConnection extends AConnection {
 										break;
 								}
 							}
-							else {
-								this.pffRequests[opcode] = System.currentTimeMillis();
-							}
+							else this.pffRequests[opcode] = System.currentTimeMillis();
 						}
 					}
 				}
@@ -320,8 +248,7 @@ public class AionConnection extends AConnection {
 			try {
 				packet.write(this, data);
 				return true;
-			}
-			finally {
+			} finally {
 				RunnableStatsManager.handleStats(packet.getClass(), "runImpl()", System.nanoTime() - begin);
 			}
 
@@ -349,7 +276,7 @@ public class AionConnection extends AConnection {
 		pingChecker.stop();
 		if (getAccount() != null) {
 			LoginServer.getInstance().aionClientDisconnected(getAccount().getId());
-			LoginServer.getInstance().sendPacket(new SM_MAC(getAccount().getId(), macAddress, hdd_serial));
+			LoginServer.getInstance().sendPacket(new SM_MAC(getAccount().getId(), macAddress));
 		}
 		Player player = getActivePlayer();
 		if (player != null) {
@@ -396,9 +323,14 @@ public class AionConnection extends AConnection {
 	}
 
 	/**
-	 * Its guaranteed that closePacket will be sent before closing connection, but all past and future packets wont. Connection will be closed [by Dispatcher Thread], and onDisconnect() method will be
-	 * called to clear all other things. forced means that server shouldn't wait with removing this connection. closePacket Packet that will be send before closing. forced have no effect in this
-	 * implementation.
+	 * Its guaranteed that closePacket will be sent before closing connection, but all past and future packets wont.
+	 * Connection will be closed [by Dispatcher Thread], and onDisconnect() method will be called to clear all other
+	 * things. forced means that server shouldn't wait with removing this connection.
+	 *
+	 * @param closePacket
+	 *            Packet that will be send before closing.
+	 * @param forced
+	 *            have no effect in this implementation.
 	 */
 	public final void close(AionServerPacket closePacket, boolean forced) {
 		synchronized (guard) {
@@ -463,12 +395,10 @@ public class AionConnection extends AConnection {
 		if (player == null) {
 			activePlayer.set(player);
 			setState(State.AUTHED);
-		}
-		else if (activePlayer.compareAndSet(null, player)) {
+		} else if (activePlayer.compareAndSet(null, player)) {
 			setState(State.IN_GAME);
 			lastPlayerName = player.getName();
-		}
-		else {
+		} else {
 			return false;
 		}
 		return true;
@@ -510,27 +440,11 @@ public class AionConnection extends AConnection {
 		return macAddress;
 	}
 
-	public String getHddSerial() {
-		return hdd_serial;
-	}
-
-	public String getIpv4list() {
-		return ipv4list;
-	}
-
-	public String getLocalIP() {
-		return local_ip;
-	}
-
-	public String getWindows() {
-		return windows;
-	}
-
 	@Override
 	public String toString() {
 		Player player = activePlayer.get();
 		if (player != null) {
-			return "AionConnection [state=" + state + ", account=" + account + ", getObjectId()=" + player.getObjectId() + ", lastPlayerName=" + lastPlayerName + ", macAddress=" + macAddress + ",hddSerial=" + hdd_serial + ", getIP()=" + getIP() + "]";
+			return "AionConnection [state=" + state + ", account=" + account + ", getObjectId()=" + player.getObjectId() + ", lastPlayerName=" + lastPlayerName + ", macAddress=" + macAddress + ", getIP()=" + getIP() + "]";
 		}
 		return "";
 	}

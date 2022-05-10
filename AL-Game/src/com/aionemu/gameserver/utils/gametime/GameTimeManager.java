@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.gametime;
 
 import org.slf4j.Logger;
@@ -52,12 +53,11 @@ public class GameTimeManager {
 	/**
 	 * Starts the counter that increases the clock every tick
 	 *
-	 * @throws IllegalStateException
-	 *             If called twice
+     * @throws IllegalStateException If called twice
 	 */
 	public static void startClock() {
 		if (clockStarted) {
-			throw new IllegalStateException("[GameTimeService] Clock is already started");
+			throw new IllegalStateException("Clock is already started");
 		}
 
 		updater = new GameTimeUpdater(getGameTime());
@@ -72,7 +72,7 @@ public class GameTimeManager {
 	 * @return Success
 	 */
 	public static boolean saveTime() {
-		log.debug("Game time saved...");
+		log.info("Game time saved...");
 		return DAOManager.getDAO(ServerVariablesDAO.class).store("time", getGameTime().getTime());
 	}
 
@@ -86,6 +86,6 @@ public class GameTimeManager {
 		clockStarted = false;
 
 		startClock();
-		log.info("[GameTimeService] Game time changed by admin and clock restarted...");
+		log.info("Game time changed by admin and clock restarted...");
 	}
 }

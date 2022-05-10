@@ -14,17 +14,18 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.itemgroups;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 
+import javolution.util.FastMap;
+
 import org.apache.commons.lang.math.IntRange;
 
 import com.aionemu.gameserver.model.templates.rewards.CraftReward;
-
-import javolution.util.FastMap;
 
 /**
  * @author Rolandas
@@ -41,7 +42,7 @@ public abstract class CraftGroup extends BonusItemGroup {
 		for (List<CraftReward> items : dataHolder.get(skillId).values()) {
 			result.addAll(items);
 		}
-		return result.toArray(new ItemRaceEntry[0]);
+		return result.toArray(new ItemRaceEntry[result.size()]);
 	}
 
 	public ItemRaceEntry[] getRewards(Integer skillId, Integer skillPoints) {
@@ -55,7 +56,7 @@ public abstract class CraftGroup extends BonusItemGroup {
 			}
 			result.addAll(entry.getValue());
 		}
-		return result.toArray(new ItemRaceEntry[0]);
+		return result.toArray(new ItemRaceEntry[result.size()]);
 	}
 
 	/**

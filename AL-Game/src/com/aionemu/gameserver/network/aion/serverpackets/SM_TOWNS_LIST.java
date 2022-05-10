@@ -14,17 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
-
-import java.util.Map;
-
 import com.aionemu.gameserver.model.town.Town;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+import java.util.Map;
 
-/**
- * @author ViAl
- */
 public class SM_TOWNS_LIST extends AionServerPacket {
 
 	private Map<Integer, Town> towns;

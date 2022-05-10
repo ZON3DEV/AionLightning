@@ -14,21 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package admincommands;
 
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.math.NumberUtils;
+package admincommands;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.SiegeDAO;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
-import com.aionemu.gameserver.model.siege.ArtifactLocation;
-import com.aionemu.gameserver.model.siege.FortressLocation;
-import com.aionemu.gameserver.model.siege.SiegeLocation;
-import com.aionemu.gameserver.model.siege.SiegeModType;
-import com.aionemu.gameserver.model.siege.SiegeRace;
+import com.aionemu.gameserver.model.siege.*;
 import com.aionemu.gameserver.model.team.legion.Legion;
 import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.SiegeService;
@@ -36,6 +30,8 @@ import com.aionemu.gameserver.services.siegeservice.BalaurAssaultService;
 import com.aionemu.gameserver.services.siegeservice.Siege;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.math.NumberUtils;
 
 @SuppressWarnings("rawtypes")
 public class SiegeCommand extends AdminCommand {
@@ -62,17 +58,13 @@ public class SiegeCommand extends AdminCommand {
 
 		if (COMMAND_STOP.equalsIgnoreCase(params[0]) || COMMAND_START.equalsIgnoreCase(params[0])) {
 			handleStartStopSiege(player, params);
-		}
-		else if (COMMAND_LIST.equalsIgnoreCase(params[0])) {
+		} else if (COMMAND_LIST.equalsIgnoreCase(params[0])) {
 			handleList(player, params);
-		}
-		else if (COMMAND_LIST_SIEGES.equals(params[0])) {
+		} else if (COMMAND_LIST_SIEGES.equals(params[0])) {
 			listLocations(player);
-		}
-		else if (COMMAND_CAPTURE.equals(params[0])) {
+		} else if (COMMAND_CAPTURE.equals(params[0])) {
 			capture(player, params);
-		}
-		else if (COMMAND_ASSAULT.equals(params[0])) {
+		} else if (COMMAND_ASSAULT.equals(params[0])) {
 			assault(player, params);
 		}
 	}
@@ -92,17 +84,14 @@ public class SiegeCommand extends AdminCommand {
 		if (COMMAND_START.equalsIgnoreCase(params[0])) {
 			if (SiegeService.getInstance().isSiegeInProgress(siegeLocId)) {
 				PacketSendUtility.sendMessage(player, "Siege Location " + siegeLocId + " is already under siege");
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(player, "Siege Location " + siegeLocId + " - starting siege!");
 				SiegeService.getInstance().startSiege(siegeLocId);
 			}
-		}
-		else if (COMMAND_STOP.equalsIgnoreCase(params[0])) {
+		} else if (COMMAND_STOP.equalsIgnoreCase(params[0])) {
 			if (!SiegeService.getInstance().isSiegeInProgress(siegeLocId)) {
 				PacketSendUtility.sendMessage(player, "Siege Location " + siegeLocId + " is not under siege");
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(player, "Siege Location " + siegeLocId + " - stopping siege!");
 				SiegeService.getInstance().stopSiege(siegeLocId);
 			}
@@ -127,11 +116,9 @@ public class SiegeCommand extends AdminCommand {
 
 		if (COMMAND_LIST_LOCATIONS.equalsIgnoreCase(params[1])) {
 			listLocations(player);
-		}
-		else if (COMMAND_LIST_SIEGES.equalsIgnoreCase(params[1])) {
+		} else if (COMMAND_LIST_SIEGES.equalsIgnoreCase(params[1])) {
 			listSieges(player);
-		}
-		else {
+		} else {
 			showHelp(player);
 		}
 	}
@@ -139,6 +126,12 @@ public class SiegeCommand extends AdminCommand {
 	protected void listLocations(Player player) {
 		for (FortressLocation f : SiegeService.getInstance().getFortresses().values()) {
 			PacketSendUtility.sendMessage(player, "Fortress: " + f.getLocationId() + " belongs to " + f.getRace());
+		}
+		for (OutpostLocation o : SiegeService.getInstance().getOutposts().values()) {
+			PacketSendUtility.sendMessage(player, "Outpost: " + o.getLocationId() + " belongs to " + o.getRace());
+		}
+		for (SourceLocation s : SiegeService.getInstance().getSources().values()) {
+			PacketSendUtility.sendMessage(player, "Source: " + s.getLocationId() + " belongs to " + s.getRace());
 		}
 		for (ArtifactLocation a : SiegeService.getInstance().getStandaloneArtifacts().values()) {
 			PacketSendUtility.sendMessage(player, "Artifact: " + a.getLocationId() + " belongs to " + a.getRace());
@@ -173,8 +166,7 @@ public class SiegeCommand extends AdminCommand {
 		SiegeRace sr = null;
 		try {
 			sr = SiegeRace.valueOf(params[2].toUpperCase());
-		}
-		catch (IllegalArgumentException e) {
+		} catch (IllegalArgumentException e) {
 			// ignore
 		}
 
@@ -185,8 +177,7 @@ public class SiegeCommand extends AdminCommand {
 			try {
 				int legionId = Integer.valueOf(params[2]);
 				legion = LegionService.getInstance().getLegion(legionId);
-			}
-			catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				String legionName = "";
 				for (int i = 2; i < params.length; i++) {
 					legionName += " " + params[i];
@@ -217,8 +208,7 @@ public class SiegeCommand extends AdminCommand {
 			s.setBossKilled(true);
 			SiegeService.getInstance().stopSiege(siegeLocationId);
 			loc.setLegionId(legion != null ? legion.getLegionId() : 0);
-		}
-		else {
+		} else {
 			SiegeService.getInstance().deSpawnNpcs(siegeLocationId);
 			loc.setVulnerable(false);
 			loc.setUnderShield(false);
@@ -226,6 +216,20 @@ public class SiegeCommand extends AdminCommand {
 			loc.setLegionId(legion != null ? legion.getLegionId() : 0);
 			SiegeService.getInstance().spawnNpcs(siegeLocationId, sr, SiegeModType.PEACE);
 			DAOManager.getDAO(SiegeDAO.class).updateSiegeLocation(loc);
+			switch (siegeLocationId) {
+				case 2011:
+				case 2021:
+				case 3011:
+				case 3021:
+					SiegeService.getInstance().updateOutpostStatusByFortress((FortressLocation) loc);
+					break;
+				case 4011:
+				case 4021:
+				case 4031:
+				case 4041:
+					SiegeService.getInstance().updateTiamarantaRiftsStatus(false, true);
+					break;
+			}
 		}
 		SiegeService.getInstance().broadcastUpdate(loc);
 	}
@@ -247,11 +251,16 @@ public class SiegeCommand extends AdminCommand {
 	}
 
 	protected void showHelp(Player player) {
-		PacketSendUtility.sendMessage(player, "AdminCommand //siege Help\n" + "//siege start|stop <LocationId>\n" + "//siege list locations|sieges\n" + "//siege capture <LocationId> <siegeRaceName(ELYOS,ASMODIANS,BALAUR)|legionName|legionId>\n" + "//siege assault <LocationId> <delaySec>");
+		PacketSendUtility.sendMessage(player, "AdminCommand //siege Help\n" + "//siege start|stop <LocationId>\n" + "//siege list locations|sieges\n"
+				+ "//siege capture <LocationId> <siegeRaceName(ELYOS,ASMODIANS,BALAUR)|legionName|legionId>\n" + "//siege assault <LocationId> <delaySec>");
 
 		java.util.Set<Integer> fortressIds = SiegeService.getInstance().getFortresses().keySet();
 		java.util.Set<Integer> artifactIds = SiegeService.getInstance().getStandaloneArtifacts().keySet();
+		java.util.Set<Integer> sourceIds = SiegeService.getInstance().getSources().keySet();
+		java.util.Set<Integer> outpostIds = SiegeService.getInstance().getOutposts().keySet();
 		PacketSendUtility.sendMessage(player, "Fortress: " + StringUtils.join(fortressIds, ", "));
 		PacketSendUtility.sendMessage(player, "Artifacts: " + StringUtils.join(artifactIds, ", "));
+		PacketSendUtility.sendMessage(player, "Sources: " + StringUtils.join(sourceIds, ", "));
+		PacketSendUtility.sendMessage(player, "Outposts: " + StringUtils.join(outpostIds, ", "));
 	}
 }

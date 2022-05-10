@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -45,15 +46,12 @@ public class MpShieldEffect extends EffectTemplate {
 	protected int minradius = 0;
 	@XmlAttribute
 	protected Race condrace = null;
-	@XmlAttribute(name = "mp_value")
-	protected int mp_value;
 
 	@Override
 	public void applyEffect(Effect effect) {
 		if (condrace != null && effect.getEffected().getRace() != condrace) {
 			return;
 		}
-
 		effect.addToEffectedController();
 	}
 
@@ -65,11 +63,15 @@ public class MpShieldEffect extends EffectTemplate {
 	@Override
 	public void startEffect(final Effect effect) {
 		int skillLvl = effect.getSkillLevel();
+		@SuppressWarnings("unused")
 		int valueWithDelta = value + delta * skillLvl;
-		int hitValueWithDelta = hitvalue + hitdelta * skillLvl;
-
-		AttackShieldObserver asObserver = new AttackShieldObserver(hitValueWithDelta, valueWithDelta, percent, effect, hitType, this.getType(), this.hitTypeProb, this.mp_value);
-
+		@SuppressWarnings("unused")
+		int hitValueWithDelta = hitvalue + hitdelta * skillLvl;// AttackShieldObserver(Effect
+																// effect,
+																// HitType type,
+																// int
+																// shieldType)
+		AttackShieldObserver asObserver = new AttackShieldObserver(effect, hitType, getType());
 		effect.getEffected().getObserveController().addAttackCalcObserver(asObserver);
 		effect.setAttackShieldObserver(asObserver, position);
 		effect.getEffected().getEffectController().setUnderShield(true);
@@ -85,6 +87,6 @@ public class MpShieldEffect extends EffectTemplate {
 	}
 
 	public int getType() {
-		return 16;
+		return 9;
 	}
 }

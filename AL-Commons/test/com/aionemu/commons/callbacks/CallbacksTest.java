@@ -15,18 +15,14 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.callbacks;
 
+import com.aionemu.commons.callbacks.files.*;
+import com.aionemu.commons.callbacks.util.GlobalCallbackHelper;
 import org.apache.commons.lang.mutable.MutableBoolean;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import com.aionemu.commons.callbacks.files.AbstractCallback;
-import com.aionemu.commons.callbacks.files.InheritanceTestCallback;
-import com.aionemu.commons.callbacks.files.InheritanceTestChild;
-import com.aionemu.commons.callbacks.files.TestCallbackIntObject;
-import com.aionemu.commons.callbacks.files.TestGlobalCallbacksCaller;
-import com.aionemu.commons.callbacks.util.GlobalCallbackHelper;
 
 @SuppressWarnings("rawtypes")
 public class CallbacksTest extends Assert {
@@ -106,6 +102,7 @@ public class CallbacksTest extends Assert {
 		GlobalCallbackHelper.addCallback(cb);
 		assertEquals(TestGlobalCallbacksCaller.sayStaticHello("Hello"), "Hello World");
 
+
 		GlobalCallbackHelper.removeCallback(cb);
 		assertEquals(TestGlobalCallbacksCaller.sayStaticHello("Hello"), "Hello");
 	}
@@ -127,6 +124,7 @@ public class CallbacksTest extends Assert {
 		};
 		GlobalCallbackHelper.addCallback(cb);
 		assertEquals(TestGlobalCallbacksCaller.getInstance().sayHello("Hello"), "Hello World");
+
 
 		GlobalCallbackHelper.removeCallback(cb);
 		assertEquals(TestGlobalCallbacksCaller.getInstance().sayHello("Hello"), "Hello");
@@ -159,7 +157,7 @@ public class CallbacksTest extends Assert {
 				return CallbackResult.newContinue();
 			}
 		};
-
+	
 		GlobalCallbackHelper.addCallback(cb1);
 		assertEquals(TestGlobalCallbacksCaller.getInstance().sayHello("Hello"), "Hello World 1");
 

@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.services.instance;
 
-import org.joda.time.DateTime;
+package com.aionemu.gameserver.services.instance;
 
 import com.aionemu.gameserver.configs.main.AutoGroupConfig;
 import com.aionemu.gameserver.model.autogroup.AutoGroupType;
@@ -24,8 +23,10 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.storage.Storage;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import org.joda.time.DateTime;
 
 /**
+ *
  * @author xTz
  */
 public class PvPArenaService {
@@ -50,11 +51,9 @@ public class PvPArenaService {
 		Storage inventory = player.getInventory();
 		if (agt.isPvPFFAArena() || agt.isPvPSoloArena()) {
 			return inventory.getItemCountByItemId(186000135) > 0;
-		}
-		else if (agt.isHarmonyArena()) {
+		} else if (agt.isHarmonyArena()) {
 			return inventory.getItemCountByItemId(186000184) > 0;
-		}
-		else if (agt.isGloryArena()) {
+		} else if (agt.isGloryArena()) {
 			return inventory.getItemCountByItemId(186000185) >= 3;
 		}
 		return true;
@@ -63,11 +62,9 @@ public class PvPArenaService {
 	private static boolean checkTime(AutoGroupType agt) {
 		if (agt.isPvPFFAArena() || agt.isPvPSoloArena()) {
 			return isPvPArenaAvailable();
-		}
-		else if (agt.isHarmonyArena()) {
+		} else if (agt.isHarmonyArena()) {
 			return isHarmonyArenaAvailable();
-		}
-		else if (agt.isGloryArena()) {
+		} else if (agt.isGloryArena()) {
 			return isGloryArenaAvailable();
 		}
 		return true;
@@ -89,11 +86,9 @@ public class PvPArenaService {
 		int day = now.getDayOfWeek();
 		if (day == 6) {
 			return hour >= 10 || hour == 1 || hour == 2;
-		}
-		else if (day == 7) {
+		} else if (day == 7) {
 			return hour == 0 || hour == 1 || hour >= 10;
-		}
-		else {
+		} else {
 			return (hour >= 10 && hour < 14) || (hour >= 18 && hour <= 23);
 		}
 	}

@@ -14,12 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.item;
-
-import static com.aionemu.gameserver.services.item.ItemPacketService.sendStorageUpdatePacket;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -31,6 +27,10 @@ import com.aionemu.gameserver.services.ExchangeService;
 import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.item.ItemPacketService.ItemUpdateType;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import static com.aionemu.gameserver.services.item.ItemPacketService.sendStorageUpdatePacket;
 
 /**
  * @author ATracer
@@ -42,7 +42,8 @@ public class ItemSplitService {
 	/**
 	 * Move part of stack into different slot
 	 */
-	public static final void splitItem(Player player, int itemObjId, int destinationObjId, long splitAmount, short slotNum, byte sourceStorageType, byte destinationStorageType) {
+	public static final void splitItem(Player player, int itemObjId, int destinationObjId, long splitAmount, short slotNum, byte sourceStorageType,
+			byte destinationStorageType) {
 		if (splitAmount <= 0) {
 			return;
 		}
@@ -69,12 +70,14 @@ public class ItemSplitService {
 			}
 		}
 
-		if (sourceStorageType != destinationStorageType && (ItemRestrictionService.isItemRestrictedTo(player, sourceItem, destinationStorageType) || ItemRestrictionService.isItemRestrictedFrom(player, sourceItem, sourceStorageType))) {
+		if (sourceStorageType != destinationStorageType
+				&& (ItemRestrictionService.isItemRestrictedTo(player, sourceItem, destinationStorageType) || ItemRestrictionService.isItemRestrictedFrom(
+						player, sourceItem, sourceStorageType))) {
 			sendStorageUpdatePacket(player, StorageType.getStorageTypeById(sourceStorageType), sourceItem);
 			return;
 		}
 
-		// To move kinah from inventory to warehouse and vice versa client using split item packet
+        // To move kinah from inventory to warehouse and vice versa client using split item packet
 		if (sourceItem.getItemTemplate().isKinah()) {
 			moveKinah(player, sourceStorage, splitAmount);
 			return;
@@ -92,14 +95,14 @@ public class ItemSplitService {
 			if (sourceStorageType == destinationStorageType) {
 				newItem.setEquipmentSlot(slotNum);
 			}
-			sourceStorage.decreaseItemCount(sourceItem, splitAmount, sourceStorageType == destinationStorageType ? ItemUpdateType.DEC_ITEM_SPLIT : ItemUpdateType.DEC_ITEM_SPLIT_MOVE);
+			sourceStorage.decreaseItemCount(sourceItem, splitAmount, sourceStorageType == destinationStorageType ? ItemUpdateType.DEC_ITEM_SPLIT
+					: ItemUpdateType.DEC_ITEM_SPLIT_MOVE);
 			PacketSendUtility.sendPacket(player, SM_CUBE_UPDATE.cubeSize(sourceStorage.getStorageType(), player));
 			if (destStorage.add(newItem) == null) {
 				// if item was not added - we can release its id
 				ItemService.releaseItemId(newItem);
 			}
-		}
-		else if (targetItem.getItemId() == sourceItem.getItemId()) {
+		} else if (targetItem.getItemId() == sourceItem.getItemId()) {
 			if (sourceStorageType != destinationStorageType) {
 				LegionService.getInstance().addWHItemHistory(player, sourceItem.getItemId(), splitAmount, sourceStorage, destStorage);
 			}
@@ -114,8 +117,10 @@ public class ItemSplitService {
 		if (sourceItem.getItemCount() >= count) {
 			long freeCount = targetItem.getFreeCount();
 			count = count > freeCount ? freeCount : count;
-			long leftCount = destStorage.increaseItemCount(targetItem, count, sourceStorage.getStorageType() == destStorage.getStorageType() ? ItemUpdateType.INC_ITEM_MERGE : ItemUpdateType.INC_ITEM_COLLECT);
-			sourceStorage.decreaseItemCount(sourceItem, count - leftCount, sourceStorage.getStorageType() == destStorage.getStorageType() ? ItemUpdateType.DEC_ITEM_SPLIT : ItemUpdateType.DEC_ITEM_SPLIT_MOVE);
+			long leftCount = destStorage.increaseItemCount(targetItem, count,
+					sourceStorage.getStorageType() == destStorage.getStorageType() ? ItemUpdateType.INC_ITEM_MERGE : ItemUpdateType.INC_ITEM_COLLECT);
+			sourceStorage.decreaseItemCount(sourceItem, count - leftCount,
+					sourceStorage.getStorageType() == destStorage.getStorageType() ? ItemUpdateType.DEC_ITEM_SPLIT : ItemUpdateType.DEC_ITEM_SPLIT_MOVE);
 		}
 
 	}

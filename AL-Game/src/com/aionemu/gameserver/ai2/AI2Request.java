@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.ai2;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -27,5 +28,5 @@ public abstract class AI2Request {
 	public abstract void acceptRequest(Creature requester, Player responder);
 
 	public void denyRequest(Creature requester, Player responder) {
-	};
+	}
 }

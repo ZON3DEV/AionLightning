@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.taskmanager.tasks;
 
 import java.util.ArrayList;
@@ -94,7 +95,7 @@ public class MovementNotifyTask extends AbstractFIFOPeriodicTaskManager<Creature
 			lines.add("WorldId=" + entry.getKey() + ": " + entry.getValue()[0] + " (NpcId " + entry.getValue()[1] + ")");
 		}
 		lines.add("-----------------------------------------");
-		return lines.toArray(new String[0]);
+		return lines.toArray(new String[lines.size()]);
 	}
 
 	@Override

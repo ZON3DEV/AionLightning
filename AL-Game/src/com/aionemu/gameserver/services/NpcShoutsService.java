@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import java.util.Iterator;
@@ -38,7 +39,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
-import com.aionemu.gameserver.world.WorldMap;
 import com.aionemu.gameserver.world.WorldMapInstance;
 import com.aionemu.gameserver.world.knownlist.Visitor;
 
@@ -75,7 +75,6 @@ public class NpcShoutsService {
 			}
 
 			ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 				@Override
 				public void run() {
 					AionObject npcObj = World.getInstance().findVisibleObject(objectId);
@@ -115,19 +114,16 @@ public class NpcShoutsService {
 					if (delaySeconds == -1) {
 						shout(owner, target, shout, nextDelay);
 						nextDelay += 5;
-					}
-					else {
+					} else {
 						shout(owner, target, shout, delaySeconds);
 						delaySeconds = -1;
 					}
 				}
-			}
-			else {
+			} else {
 				int randomShout = Rnd.get(shouts.size());
 				shout(owner, target, shouts.get(randomShout), delaySeconds);
 			}
-		}
-		else if (shouts.size() == 1) {
+		} else if (shouts.size() == 1) {
 			shout(owner, target, shouts.get(0), delaySeconds);
 		}
 	}
@@ -143,25 +139,20 @@ public class NpcShoutsService {
 			Player player = (Player) target;
 			if ("username".equals(param)) {
 				param = player.getName();
-			}
-			else if ("userclass".equals(param)) {
+			} else if ("userclass".equals(param)) {
 				param = (240000 + player.getCommonData().getPlayerClass().getClassId()) * 2 + 1;
-			}
-			else if ("usernation".equals(param)) {
+			} else if ("usernation".equals(param)) {
 				log.warn("Shout with param 'usernation' is not supported");
 				return;
-			}
-			else if ("usergender".equals(param)) {
+			} else if ("usergender".equals(param)) {
 				param = (902012 + player.getCommonData().getGender().getGenderId()) * 2 + 1;
-			}
-			else if ("mainslotitem".equals(param)) {
+			} else if ("mainslotitem".equals(param)) {
 				Item weapon = player.getEquipment().getMainHandWeapon();
 				if (weapon == null) {
 					return;
 				}
 				param = weapon.getItemTemplate().getNameId();
-			}
-			else if ("quest".equals(shout.getPattern())) {
+			} else if ("quest".equals(shout.getPattern())) {
 				delaySeconds = 0;
 			}
 		}
@@ -199,61 +190,21 @@ public class NpcShoutsService {
 
 	public void sendMsg(final Npc npc, final WorldMapInstance instance, final int msg, final int Obj, final boolean isShout, final int color, int delay) {
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				if (npc != null && npc.isSpawned()) {
 					npc.getKnownList().doOnAllPlayers(new Visitor<Player>() {
-
 						@Override
 						public void visit(Player player) {
 							PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(isShout, msg, Obj, color));
 						}
 					});
-                } else if (instance != null) {
-                    instance.doOnAllPlayers(new Visitor<Player>(){
-
-                        @Override
-                        public void visit(Player player) {
-                            PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(isShout, msg, Obj, color, new Object[0]));
-                        }
-                    });
-                }
-            }
-
-        }, delay);
-    }
-
-    public void sendMsg(WorldMap map, int msg, int Obj, boolean isShout, int color, int delay, int unk) {
-        sendMsg(null, map, msg, Obj, isShout, color, delay, unk);
-    }
-
-    public void sendMsg(WorldMap map, int msg, int delay, int unk) {
-        sendMsg(null, map, msg, 0, false, 25, delay, unk);
-    }
-
-    public void sendMsg(final Npc npc, final WorldMap map, final int msg, final int Obj, final boolean isShout, final int color, int delay, int unk) {
-        ThreadPoolManager.getInstance().schedule(new Runnable(){
-
-            @Override
-            public void run() {
-                if (npc != null && npc.isSpawned()) {
-                    npc.getKnownList().doOnAllPlayers(new Visitor<Player>(){
-
-                        @Override
-                        public void visit(Player player) {
-                            PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(isShout, msg, Obj, color, new Object[0]));
-                        }
-                    });
-                } else if (map != null) {
-                    World.getInstance().doOnAllPlayers(new Visitor<Player>(){
-
-                        @Override
-                        public void visit(Player player) {
-                            if (player.getWorldId() == map.getMapId().intValue()) {
-                                PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(isShout, msg, Obj, color, new Object[0]));
-                            }
-                        }
+				} else if (instance != null) {
+					instance.doOnAllPlayers(new Visitor<Player>() {
+						@Override
+						public void visit(Player player) {
+							PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(isShout, msg, Obj, color));
+						}
 					});
 				}
 			}

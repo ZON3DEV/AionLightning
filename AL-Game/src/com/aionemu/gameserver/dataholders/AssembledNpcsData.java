@@ -14,22 +14,21 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
 
+import com.aionemu.gameserver.model.templates.assemblednpc.AssembledNpcTemplate;
 import java.util.List;
 import java.util.Map;
-
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
-import com.aionemu.gameserver.model.templates.assemblednpc.AssembledNpcTemplate;
-
 import javolution.util.FastMap;
 
 /**
+ *
  * @author xTz
  */
 @XmlRootElement(name = "assembled_npcs")
@@ -40,10 +39,6 @@ public class AssembledNpcsData {
 	private List<AssembledNpcTemplate> templates;
 	private final Map<Integer, AssembledNpcTemplate> assembledNpcsTemplates = new FastMap<Integer, AssembledNpcTemplate>().shared();
 
-	/**
-	 * @param u
-	 * @param parent
-	 */
 	void afterUnmarshal(Unmarshaller u, Object parent) {
 		for (AssembledNpcTemplate template : templates) {
 			assembledNpcsTemplates.put(template.getNr(), template);

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai;
 
 import com.aionemu.gameserver.ai2.AI2Actions;
@@ -37,7 +38,6 @@ public class BombAi2 extends AggressiveNpcAI2 {
 	protected void handleSpawned() {
 		template = DataManager.AI_DATA.getAiTemplate().get(getNpcId()).getBombs().getBombTemplate();
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				doUseSkill();
@@ -47,7 +47,6 @@ public class BombAi2 extends AggressiveNpcAI2 {
 
 	private void doUseSkill() {
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				useSkill(template.getSkillId());
@@ -74,7 +73,6 @@ public class BombAi2 extends AggressiveNpcAI2 {
 		AI2Actions.useSkill(this, skill);
 		int duration = DataManager.SKILL_DATA.getSkillTemplate(skill).getDuration();
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				AI2Actions.deleteOwner(BombAi2.this);

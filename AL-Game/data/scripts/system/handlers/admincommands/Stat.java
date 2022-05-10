@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import java.util.TreeSet;
@@ -63,8 +64,7 @@ public class Stat extends AdminCommand {
 					for (IStatFunction stat : stats) {
 						PacketSendUtility.sendMessage(admin, stat.toString());
 					}
-				}
-				else if ("details".equals(params[1])) {
+				} else if ("details".equals(params[1])) {
 					for (IStatFunction stat : stats) {
 						String details = collectDetails(stat);
 						PacketSendUtility.sendMessage(admin, details);

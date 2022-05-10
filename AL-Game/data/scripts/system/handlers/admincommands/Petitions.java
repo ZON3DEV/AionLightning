@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package admincommands;
 
-import java.util.Collection;
+package admincommands;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.PetitionDAO;
@@ -30,6 +29,8 @@ import com.aionemu.gameserver.services.mail.MailService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.aionemu.gameserver.world.World;
+
+import java.util.Collection;
 
 /**
  * @author zdead
@@ -45,15 +46,14 @@ public class Petitions extends AdminCommand {
 		// Send ticket general info
 		if (params == null || params.length == 0) {
 			Collection<Petition> petitions = PetitionService.getInstance().getRegisteredPetitions();
-			Petition[] petitionsArray = petitions.toArray(new Petition[0]);
+			Petition[] petitionsArray = petitions.toArray(new Petition[petitions.size()]);
 			PacketSendUtility.sendMessage(admin, petitionsArray.length + " unprocessed petitions.");
 			if (petitionsArray.length < 5) {
 				PacketSendUtility.sendMessage(admin, "== " + petitionsArray.length + " first petitions to reply ==");
 				for (int i = 0; i < petitionsArray.length; i++) {
 					PacketSendUtility.sendMessage(admin, petitionsArray[i].getPetitionId() + " | " + petitionsArray[i].getTitle());
 				}
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(admin, "== 5 first petitions to reply ==");
 				for (int i = 0; i < 5; i++) {
 					PacketSendUtility.sendMessage(admin, petitionsArray[i].getPetitionId() + " | " + petitionsArray[i].getTitle());
@@ -66,8 +66,7 @@ public class Petitions extends AdminCommand {
 
 		try {
 			petitionId = Integer.parseInt(params[0]);
-		}
-		catch (NumberFormatException nfe) {
+		} catch (NumberFormatException nfe) {
 			PacketSendUtility.sendMessage(admin, "Invalid petition id.");
 			return;
 		}
@@ -85,8 +84,7 @@ public class Petitions extends AdminCommand {
 		if (World.getInstance().findPlayer(petition.getPlayerObjId()) != null) {
 			petitionPlayer = World.getInstance().findPlayer(petition.getPlayerObjId()).getName();
 			isOnline = true;
-		}
-		else {
+		} else {
 			petitionPlayer = DAOManager.getDAO(PlayerDAO.class).getPlayerNameByObjId(petition.getPlayerObjId());
 			isOnline = false;
 		}
@@ -98,8 +96,7 @@ public class Petitions extends AdminCommand {
 			message.append("Player: " + petitionPlayer + " (");
 			if (isOnline) {
 				message.append("Online");
-			}
-			else {
+			} else {
 				message.append("Offline");
 			}
 			message.append(")\n");

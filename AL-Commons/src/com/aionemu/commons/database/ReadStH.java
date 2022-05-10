@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.database;
 
 import java.sql.ResultSet;
@@ -29,8 +30,7 @@ import java.sql.SQLException;
 public interface ReadStH {
 
 	/**
-	 * Allows coder to read data after query execution. Automatically recycles
-	 * connection and closes ResultSet.
+	 * Allows coder to read data after query execution. Automatically recycles connection and closes ResultSet.
 	 * 
 	 * @param rset
 	 * @throws SQLException

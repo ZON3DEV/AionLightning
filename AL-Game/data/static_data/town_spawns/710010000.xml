@@ -2281,7 +2281,7 @@
                 </spawn>
                 <!-- village construction worker -->
                 <spawn npc_id="831245" respawn_time="295">
-                    <spot x="332.22083" y="1062.0305" z="166.87364" h="14"/>
+                    <spot x="332.22083" y="1062.0305" z="168.91728" h="14"/>
                 </spawn>
                 <!-- village construction worker -->
                 <spawn npc_id="831244" respawn_time="295">
@@ -2311,7 +2311,7 @@
                 </spawn>
                 <!-- village construction worker -->
                 <spawn npc_id="831245" respawn_time="295">
-                    <spot x="332.22083" y="1062.0305" z="166.87364" h="14"/>
+                    <spot x="332.22083" y="1062.0305" z="168.91728" h="14"/>
                 </spawn>
                 <!-- village construction worker -->
                 <spawn npc_id="831244" respawn_time="295">
@@ -2353,7 +2353,7 @@
                 </spawn>
                 <!-- village construction worker -->
                 <spawn npc_id="831245" respawn_time="295">
-                    <spot x="332.22083" y="1062.0305" z="166.87364" h="14"/>
+                    <spot x="332.22083" y="1062.0305" z="168.91728" h="14"/>
                 </spawn>
                 <!-- village construction worker -->
                 <spawn npc_id="831244" respawn_time="295">
@@ -2391,7 +2391,7 @@
                 </spawn>
                 <!-- village construction worker -->
                 <spawn npc_id="831245" respawn_time="295">
-                    <spot x="332.22083" y="1062.0305" z="166.87364" h="13"/>
+                    <spot x="332.22083" y="1062.0305" z="168.91728" h="13"/>
                 </spawn>
                 <!-- village construction worker -->
                 <spawn npc_id="831244" respawn_time="295">

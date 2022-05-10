@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.model;
 
 import java.sql.Timestamp;
@@ -132,8 +133,7 @@ public class QuestState {
 	public Integer getReward() {
 		if (reward == null) {
 			log.warn("No reward for the quest " + String.valueOf(questId));
-		}
-		else {
+		} else {
 			return reward;
 		}
 		return 0;
@@ -141,7 +141,8 @@ public class QuestState {
 
 	public boolean canRepeat() {
 		QuestTemplate template = DataManager.QUEST_DATA.getQuestById(questId);
-		if (status != QuestStatus.NONE && (status != QuestStatus.COMPLETE || (completeCount >= template.getMaxRepeatCount() && template.getMaxRepeatCount() != 255))) {
+		if (status != QuestStatus.NONE
+				&& (status != QuestStatus.COMPLETE || (completeCount >= template.getMaxRepeatCount() && template.getMaxRepeatCount() != 255))) {
 			return false;
 		}
 		if (questVars.getQuestVars() != 0) {
@@ -169,9 +170,6 @@ public class QuestState {
 	 */
 	public void setPersistentState(PersistentState persistentState) {
 		switch (persistentState) {
-			case DELETED:
-				if(this.persistentState == PersistentState.NEW)
-					throw new IllegalArgumentException("Cannot change state to DELETED from NEW");
 			case UPDATE_REQUIRED:
 				if (this.persistentState == PersistentState.NEW) {
 					break;

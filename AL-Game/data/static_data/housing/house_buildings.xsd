@@ -21,14 +21,14 @@
     </xs:element>
     <xs:complexType name="Parts">
         <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="1" name="roof" type="xs:int"/>
-            <xs:element minOccurs="0" maxOccurs="1" name="outwall" type="xs:int"/>
-            <xs:element minOccurs="0" maxOccurs="1" name="frame" type="xs:int"/>
-            <xs:element minOccurs="1" maxOccurs="1" name="door" type="xs:int"/>
-            <xs:element minOccurs="0" maxOccurs="1" name="garden" type="xs:int"/>
-            <xs:element minOccurs="0" maxOccurs="1" name="fence" type="xs:int"/>
-            <xs:element minOccurs="1" maxOccurs="1" name="inwall" type="xs:int"/>
-            <xs:element minOccurs="1" maxOccurs="1" name="infloor" type="xs:int"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="roof" type="xs:int" />
+            <xs:element minOccurs="0" maxOccurs="1" name="outwall" type="xs:int" />
+            <xs:element minOccurs="0" maxOccurs="1" name="frame" type="xs:int" />
+            <xs:element minOccurs="1" maxOccurs="1" name="door" type="xs:int" />
+            <xs:element minOccurs="0" maxOccurs="1" name="garden" type="xs:int" />
+            <xs:element minOccurs="0" maxOccurs="1" name="fence" type="xs:int" />
+            <xs:element minOccurs="1" maxOccurs="1" name="inwall" type="xs:int" />
+            <xs:element minOccurs="1" maxOccurs="1" name="infloor" type="xs:int" />
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="BuildingType">

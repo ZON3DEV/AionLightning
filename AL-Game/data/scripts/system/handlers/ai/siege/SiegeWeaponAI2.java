@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.siege;
 
 import com.aionemu.gameserver.ai2.AIName;
@@ -30,6 +31,7 @@ import com.aionemu.gameserver.model.templates.npcskill.NpcSkillTemplates;
 import com.aionemu.gameserver.services.summons.SummonsService;
 
 /**
+ *
  * @author xTz
  */
 @AIName("siege_weapon")
@@ -104,8 +106,7 @@ public class SiegeWeaponAI2 extends AISummon {
 		Race masterRace = master.getRace();
 		if (masterRace.equals(Race.ASMODIANS) && !race.equals(Race.PC_LIGHT_CASTLE_DOOR) && !race.equals(Race.DRAGON_CASTLE_DOOR)) {
 			return;
-		}
-		else if (masterRace.equals(Race.ELYOS) && !race.equals(Race.PC_DARK_CASTLE_DOOR) && !race.equals(Race.DRAGON_CASTLE_DOOR)) {
+		} else if (masterRace.equals(Race.ELYOS) && !race.equals(Race.PC_DARK_CASTLE_DOOR) && !race.equals(Race.DRAGON_CASTLE_DOOR)) {
 			return;
 		}
 		if (!getOwner().getMode().equals(SummonMode.ATTACK)) {

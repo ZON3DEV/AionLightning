@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai;
 
 import com.aionemu.gameserver.ai2.AIName;
@@ -21,7 +22,6 @@ import com.aionemu.gameserver.skillengine.SkillEngine;
 
 /**
  * @author Ritsu
- * @Reworked Majka Ajural
  */
 @AIName("aggressive_first_skill")
 public class AggressiveFirstSkillAI2 extends AggressiveNpcAI2 {
@@ -29,26 +29,30 @@ public class AggressiveFirstSkillAI2 extends AggressiveNpcAI2 {
 	@Override
 	protected void handleBackHome() {
 		super.handleBackHome();
-		setUseInSpawnedSkill();
+		if (getSkillList().getUseInSpawnedSkill() != null) {
+			int skillId = getSkillList().getUseInSpawnedSkill().getSkillId();
+			int skillLevel = getSkillList().getSkillLevel(skillId);
+			SkillEngine.getInstance().getSkill(getOwner(), skillId, skillLevel, getOwner()).useSkill();
+		}
 	}
 
 	@Override
 	protected void handleRespawned() {
 		super.handleRespawned();
-		setUseInSpawnedSkill();
+		if (getSkillList().getUseInSpawnedSkill() != null) {
+			int skillId = getSkillList().getUseInSpawnedSkill().getSkillId();
+			int skillLevel = getSkillList().getSkillLevel(skillId);
+			SkillEngine.getInstance().getSkill(getOwner(), skillId, skillLevel, getOwner()).useSkill();
+		}
 	}
 
 	@Override
 	protected void handleSpawned() {
 		super.handleSpawned();
-		setUseInSpawnedSkill();
-	}
-
-	private void setUseInSpawnedSkill() {
 		if (getSkillList().getUseInSpawnedSkill() != null) {
-			int spawnedSkillId = getSkillList().getUseInSpawnedSkill().getSkillId();
-			int spawnedSkillLevel = getSkillList().getSkillLevel(spawnedSkillId);
-			SkillEngine.getInstance().getSkill(getOwner(), spawnedSkillId, spawnedSkillLevel, getOwner()).useSkill();
+			int skillId = getSkillList().getUseInSpawnedSkill().getSkillId();
+			int skillLevel = getSkillList().getSkillLevel(skillId);
+			SkillEngine.getInstance().getSkill(getOwner(), skillId, skillLevel, getOwner()).useSkill();
 		}
 	}
 }

@@ -14,10 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package admincommands;
 
-import java.util.ArrayList;
-import java.util.List;
+package admincommands;
 
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.model.Race;
@@ -31,7 +29,8 @@ import com.aionemu.gameserver.services.HousingService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.aionemu.gameserver.world.zone.ZoneName;
-
+import java.util.ArrayList;
+import java.util.List;
 import javolution.util.FastList;
 
 /**
@@ -65,8 +64,7 @@ public class Auction extends AdminCommand {
 					PacketSendUtility.sendMessage(admin, "No such house!");
 				}
 				housesToRemove.add(house);
-			}
-			else {
+			} else {
 				ZoneName zoneName = ZoneName.get(params[1]);
 				if (zoneName.name().equals(ZoneName.NONE)) {
 					PacketSendUtility.sendMessage(admin, "No such zone!");
@@ -102,13 +100,11 @@ public class Auction extends AdminCommand {
 			for (House house : housesToRemove) {
 				if (HousingBidService.getInstance().removeHouseFromAuction(house, noSale)) {
 					PacketSendUtility.sendMessage(admin, "Succesfully removed house " + house.getName());
-				}
-				else {
+				} else {
 					PacketSendUtility.sendMessage(admin, "Failed to remove house " + house.getName());
 				}
 			}
-		}
-		else if ("add".equals(params[0])) {
+		} else if ("add".equals(params[0])) {
 
 			if (params.length < 3 || params.length > 4) {
 				onFail(admin, null);
@@ -124,8 +120,7 @@ public class Auction extends AdminCommand {
 			HouseType houseType = null;
 			try {
 				houseType = HouseType.fromValue(params[2].toUpperCase());
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 			}
 
 			if (houseType == null) {
@@ -140,8 +135,7 @@ public class Auction extends AdminCommand {
 					if (bidPrice <= 0) {
 						throw new IllegalArgumentException();
 					}
-				}
-				catch (Exception e) {
+				} catch (Exception e) {
 					PacketSendUtility.sendMessage(admin, "Only positive numbers for the bid price!");
 					return;
 				}
@@ -163,8 +157,7 @@ public class Auction extends AdminCommand {
 					if (entry == null) {
 						// reset status
 						house.setStatus(HouseStatus.ACTIVE);
-					}
-					else {
+					} else {
 						continue;
 					}
 				}
@@ -183,12 +176,10 @@ public class Auction extends AdminCommand {
 
 			if (found) {
 				PacketSendUtility.sendMessage(admin, "Added " + counter + " houses of type " + houseType);
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(admin, "No houses, all are occupied or already in auction!");
 			}
-		}
-		else if ("addrandom".equals(params[0])) {
+		} else if ("addrandom".equals(params[0])) {
 			if (params.length < 4 || params.length > 5) {
 				onFail(admin, null);
 				return;
@@ -198,14 +189,11 @@ public class Auction extends AdminCommand {
 			Race race;
 			if ("ALL".equals(param) || "PC_ALL".equals(param)) {
 				race = Race.PC_ALL;
-			}
-			else if ("ELYOS".equals(param)) {
+			} else if ("ELYOS".equals(param)) {
 				race = Race.ELYOS;
-			}
-			else if ("ASMODIANS".equals(param)) {
+			} else if ("ASMODIANS".equals(param)) {
 				race = Race.ASMODIANS;
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(admin, "Race not found! Use ALL | ELYOS | ASMODIANS!");
 				return;
 			}
@@ -213,8 +201,7 @@ public class Auction extends AdminCommand {
 			HouseType houseType = null;
 			try {
 				houseType = HouseType.fromValue(params[2].toUpperCase());
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 			}
 
 			if (houseType == null) {
@@ -228,8 +215,7 @@ public class Auction extends AdminCommand {
 				if (count <= 0) {
 					throw new IllegalArgumentException();
 				}
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 				PacketSendUtility.sendMessage(admin, "Invalid count. Only positive numbers!");
 				return;
 			}
@@ -240,8 +226,7 @@ public class Auction extends AdminCommand {
 					if (bidPrice <= 0) {
 						throw new IllegalArgumentException();
 					}
-				}
-				catch (Exception e) {
+				} catch (Exception e) {
 					PacketSendUtility.sendMessage(admin, "Only positive numbers for the bid price!");
 					return;
 				}
@@ -261,8 +246,7 @@ public class Auction extends AdminCommand {
 						if (mapId != 210050000 && mapId != 700010000 && mapId != 210040000) {
 							continue;
 						}
-					}
-					else if (race.equals(Race.ASMODIANS)) {
+					} else if (race.equals(Race.ASMODIANS)) {
 						if (mapId != 710010000 && mapId != 220040000 && mapId != 220070000) {
 							continue;
 						}
@@ -277,8 +261,7 @@ public class Auction extends AdminCommand {
 					if (entry == null) {
 						// reset status
 						house.setStatus(HouseStatus.ACTIVE);
-					}
-					else {
+					} else {
 						continue;
 					}
 				}
@@ -292,13 +275,11 @@ public class Auction extends AdminCommand {
 
 			if (counter > 0) {
 				PacketSendUtility.sendMessage(admin, "Added " + counter + " houses of type " + houseType);
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(admin, "No houses, all are occupied or already in auction!");
 			}
 
-		}
-		else {
+		} else {
 			onFail(admin, null);
 		}
 
@@ -306,6 +287,9 @@ public class Auction extends AdminCommand {
 
 	@Override
 	public void onFail(Player player, String message) {
-		PacketSendUtility.sendMessage(player, "syntax:\n" + " //auction add <zone_name> <house_type> [initial_bid]\n" + " //auction remove <HOUSE_id|zone_name> [nosale]\n" + " //auction addrandom <race> <house_type> <count> [initial_bid]\n" + "   zone_name = from zones xml files\n" + "   house_type = house, mansion, estate, palace\n" + "   initial_bid = initial bid price (if omitted, default is used)");
+		PacketSendUtility.sendMessage(player, "syntax:\n" + " //auction add <zone_name> <house_type> [initial_bid]\n"
+				+ " //auction remove <HOUSE_id|zone_name> [nosale]\n" + " //auction addrandom <race> <house_type> <count> [initial_bid]\n"
+				+ "   zone_name = from zones xml files\n" + "   house_type = house, mansion, estate, palace\n"
+				+ "   initial_bid = initial bid price (if omitted, default is used)");
 	}
 }

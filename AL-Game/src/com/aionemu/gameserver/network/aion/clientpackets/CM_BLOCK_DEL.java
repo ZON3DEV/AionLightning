@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.slf4j.Logger;
@@ -59,8 +60,7 @@ public class CM_BLOCK_DEL extends AionClientPacket {
 		BlockedPlayer target = activePlayer.getBlockList().getBlockedPlayer(targetName);
 		if (target == null) {
 			sendPacket(SM_SYSTEM_MESSAGE.STR_BUDDYLIST_NOT_IN_LIST);
-		}
-		else {
+		} else {
 			if (!SocialService.deleteBlockedUser(activePlayer, target.getObjId())) {
 				log.debug("Could not unblock " + targetName + " from " + activePlayer.getName() + " blocklist. Check database setup.");
 			}

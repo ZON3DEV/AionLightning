@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.league.events;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -42,22 +43,16 @@ public class LeagueInvite extends RequestResponseHandler {
 	public void acceptRequest(Creature requester, Player responder) {
 		if (LeagueService.canInvite(inviter, invited)) {
 
-			PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE.STR_UNION_ENTER_HIM(invited.getName()));
 			League league = inviter.getPlayerAlliance2().getLeague();
 
 			if (league == null) {
 				league = LeagueService.createLeague(inviter, invited);
-			}
-			else if (league.size() == 48) {
+			} else if (league.size() == 8) {
 				PacketSendUtility.sendMessage(invited, "That league is already full.");
 				PacketSendUtility.sendMessage(inviter, "Your league is already full.");
 				return;
 			}
-			else if (invited.isInAlliance2() && invited.getPlayerAlliance2().size() + league.size() > 48) {
-                PacketSendUtility.sendMessage(invited, "That league is now too full for your group to join.");
-                PacketSendUtility.sendMessage(inviter, "Your league is now too full for that group to join.");
-                return;
-            } 
+
 			if (!invited.isInLeague()) {
 				LeagueService.addAlliance(league, invited.getPlayerAlliance2());
 			}
@@ -66,6 +61,7 @@ public class LeagueInvite extends RequestResponseHandler {
 
 	@Override
 	public void denyRequest(Creature requester, Player responder) {
-		PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE.STR_UNION_REJECT_HIM(responder.getName()));
+		// TODO correct message
+		PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE.STR_PARTY_ALLIANCE_HE_REJECT_INVITATION(responder.getName()));
 	}
 }

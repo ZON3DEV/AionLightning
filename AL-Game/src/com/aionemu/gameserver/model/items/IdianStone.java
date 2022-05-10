@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.items;
 
 import com.aionemu.commons.database.dao.DAOManager;
@@ -33,6 +34,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
+ *
  * @author xTz
  */
 public class IdianStone extends ItemStone {
@@ -55,14 +57,13 @@ public class IdianStone extends ItemStone {
 		this.polishCharge = polishCharge;
 		this.template = DataManager.ITEM_DATA.getItemTemplate(itemId);
 		this.polishNumber = polishNumber;
-		polishSetId = template.getActions().getPolishAction().getPolishSetId();
+		polishSetId = template.getActions().getPolishAction().getPolishId();
 		rndBonusEffect = new RandomBonusEffect(StatBonusType.POLISH, polishSetId, polishNumber);
 	}
 
 	public void onEquip(final Player player) {
 		if (polishCharge > 0) {
 			actionListener = new ActionObserver(ObserverType.ALL) {
-
 				@Override
 				public void attacked(Creature creature) {
 					decreasePolishCharge(player, true);
@@ -93,14 +94,12 @@ public class IdianStone extends ItemStone {
 		}
 		if (skillValue == 0) {
 			result = isAttacked ? burnDefend : burnAttack;
-		}
-		else {
+		} else {
 			result = skillValue;
 		}
 		if (polishCharge - result < 0) {
 			polishCharge = 0;
-		}
-		else {
+		} else {
 			polishCharge -= result;
 		}
 		if (polishCharge == 0) {

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -48,20 +49,14 @@ public class MoveTo extends AdminCommand {
 			x = Float.parseFloat(params[1]);
 			y = Float.parseFloat(params[2]);
 			z = Float.parseFloat(params[3]);
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			PacketSendUtility.sendMessage(admin, "All the parameters should be numbers");
 			return;
-		}
-		// if worldId = 0, then move in current zone
-		if (worldId == 0) {
-			worldId = admin.getWorldId();
 		}
 
 		if (WorldMapType.getWorld(worldId) == null) {
 			PacketSendUtility.sendMessage(admin, "Illegal WorldId %d " + worldId);
-		}
-		else {
+		} else {
 			TeleportService2.teleportTo(admin, worldId, x, y, z);
 			PacketSendUtility.sendMessage(admin, "Teleported to " + x + " " + y + " " + z + " [" + worldId + "]");
 		}

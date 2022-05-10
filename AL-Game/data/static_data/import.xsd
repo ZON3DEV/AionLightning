@@ -3,7 +3,7 @@
     <xs:element name="import">
         <xs:annotation>
             <xs:documentation>
-                <![CDATA[
+				<![CDATA[
 				Attributes:
 				'file' :
 					Required attribute.

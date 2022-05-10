@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -23,20 +24,13 @@ import com.aionemu.gameserver.services.TradeService;
 
 /**
  * @author MrPoke
- * @author GiGatR00n, Raziel
+ *
  */
 public class CM_BUY_TRADE_IN_TRADE extends AionClientPacket {
 
-	private int sellerObjId; // NPC Object Id
-	@SuppressWarnings("unused")
-	private int BuyMask; // v4.7.5.7 Maybe implemented at future
+	private int sellerObjId;
 	private int itemId;
-	private int BuyCount;
-
-	private int TradeinListCount; // They can be used for implementing Anti-Cheat System
-	private int TradeinItemObjectId1;
-	private int TradeinItemObjectId2;
-	private int TradeinItemObjectId3;
+	private int count;
 
 	/**
 	 * @param opcode
@@ -48,32 +42,17 @@ public class CM_BUY_TRADE_IN_TRADE extends AionClientPacket {
 	@Override
 	protected void readImpl() {
 		sellerObjId = readD();
-		BuyMask = readC();
 		itemId = readD();
-		BuyCount = readD();
-		TradeinListCount = readH();
-
-		switch (TradeinListCount) {
-			case 1:
-				TradeinItemObjectId1 = readD();
-				break;
-			case 2:
-				TradeinItemObjectId1 = readD();
-				TradeinItemObjectId2 = readD();
-				break;
-			case 3:
-				TradeinItemObjectId1 = readD();
-				TradeinItemObjectId2 = readD();
-				TradeinItemObjectId3 = readD();
-				break;
-		}
+		count = readD();
+		// Have more data, need ?:)
 	}
 
 	@Override
 	protected void runImpl() {
 		Player player = this.getConnection().getActivePlayer();
-		if (BuyCount < 1)
+		if (count < 1) {
 			return;
-		TradeService.performBuyFromTradeInTrade(player, sellerObjId, itemId, BuyCount, TradeinListCount, TradeinItemObjectId1, TradeinItemObjectId2, TradeinItemObjectId3);
+		}
+		TradeService.performBuyFromTradeInTrade(player, sellerObjId, itemId, count);
 	}
 }

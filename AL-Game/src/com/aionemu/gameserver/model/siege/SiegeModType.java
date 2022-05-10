@@ -14,14 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.siege;
 
 /**
+ *
  * @author xTz
  */
 public enum SiegeModType {
 
-	PEACE,
-	SIEGE,
-	ASSAULT;
+	PEACE, SIEGE, LANDING, ASSAULT
 }

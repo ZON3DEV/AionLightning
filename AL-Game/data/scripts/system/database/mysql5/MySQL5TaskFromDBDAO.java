@@ -14,16 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.database.DatabaseFactory;
 import com.aionemu.gameserver.dao.MySQL5DAOUtils;
@@ -32,6 +24,11 @@ import com.aionemu.gameserver.taskmanager.fromdb.handler.TaskFromDBHandler;
 import com.aionemu.gameserver.taskmanager.fromdb.handler.TaskFromDBHandlerHolder;
 import com.aionemu.gameserver.taskmanager.fromdb.trigger.TaskFromDBTrigger;
 import com.aionemu.gameserver.taskmanager.fromdb.trigger.TaskFromDBTriggerHolder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * @author nrg
@@ -78,22 +75,18 @@ public class MySQL5TaskFromDBDAO extends TaskFromDBDAO {
 
 					result.add(trigger);
 
-				}
-				catch (InstantiationException ex) {
+				} catch (InstantiationException ex) {
 					log.error(ex.getMessage(), ex);
-				}
-				catch (IllegalAccessException ex) {
+				} catch (IllegalAccessException ex) {
 					log.error(ex.getMessage(), ex);
 				}
 			}
 
 			rset.close();
 			stmt.close();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Loading tasks failed: ", e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(stmt, con);
 		}
 

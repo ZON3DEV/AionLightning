@@ -14,22 +14,17 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
 
+import com.aionemu.gameserver.model.templates.item.AssemblyItem;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
-
-import com.aionemu.gameserver.model.templates.item.AssemblyItem;
+import javax.xml.bind.annotation.*;
 
 /**
+ *
  * @author xTz
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -42,10 +37,6 @@ public class AssemblyItemsData {
 	@XmlTransient
 	private List<AssemblyItem> items = new ArrayList<AssemblyItem>();
 
-	/**
-	 * @param unmarshaller
-	 * @param parent
-	 */
 	void afterUnmarshal(Unmarshaller unmarshaller, Object parent) {
 		for (AssemblyItem template : item) {
 			items.add(template);

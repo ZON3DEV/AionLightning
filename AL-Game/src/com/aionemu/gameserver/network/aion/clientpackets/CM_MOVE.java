@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.configs.main.SecurityConfig;
@@ -40,22 +41,22 @@ public class CM_MOVE extends AionClientPacket {
 
 	private byte type;
 	private byte heading;
-	private float x;
-	private float y;
-	private float z;
-	private float x2;
-	private float y2;
-	private float z2;
-	private float vehicleX;
-	private float vehicleY;
-	private float vehicleZ;
-	private float vectorX;
-	private float vectorY;
-	private float vectorZ;
-	private byte glideFlag;
-	private int unk1;
-	private int unk2;
-	
+  	private float x;
+  	private float y;
+  	private float z;
+  	private float x2;
+  	private float y2;
+  	private float z2;
+  	private float vehicleX;
+  	private float vehicleY;
+  	private float vehicleZ;
+  	private float vectorX;
+  	private float vectorY;
+  	private float vectorZ;
+  	private byte glideFlag;
+  	private int unk1;
+  	private int unk2;
+
 	public CM_MOVE(int opcode, State state, State... restStates) {
 		super(opcode, state, restStates);
 	}
@@ -83,8 +84,7 @@ public class CM_MOVE extends AionClientPacket {
 				x2 = vectorX + x;
 				y2 = vectorY + y;
 				z2 = vectorZ + z;
-			}
-			else {
+			} else {
 				x2 = readF();
 				y2 = readF();
 				z2 = readF();
@@ -118,7 +118,8 @@ public class CM_MOVE extends AionClientPacket {
 		m.movementMask = type;
 
 		// Admin Teleportation
-		if (player.getAdminTeleportation() && ((type & MovementMask.STARTMOVE) == MovementMask.STARTMOVE) && ((type & MovementMask.MOUSE) == MovementMask.MOUSE)) {
+		if (player.getAdminTeleportation() && ((type & MovementMask.STARTMOVE) == MovementMask.STARTMOVE)
+				&& ((type & MovementMask.MOUSE) == MovementMask.MOUSE)) {
 			m.setNewDirection(x2, y2, z2);
 			World.getInstance().updatePosition(player, x2, y2, z2, heading);
 			PacketSendUtility.broadcastPacketAndReceive(player, new SM_MOVE(player));
@@ -128,16 +129,14 @@ public class CM_MOVE extends AionClientPacket {
 		if ((type & MovementMask.GLIDE) == MovementMask.GLIDE) {
 			m.glideFlag = glideFlag;
 			player.getFlyController().switchToGliding();
-		}
-		else {
+		} else {
 			player.getFlyController().onStopGliding(false);
 		}
 
 		if (type == 0) {
 			player.getController().onStopMove();
 			player.getFlyController().onStopGliding(false);
-		}
-		else if ((type & MovementMask.STARTMOVE) == MovementMask.STARTMOVE) {
+		} else if ((type & MovementMask.STARTMOVE) == MovementMask.STARTMOVE) {
 			if ((type & MovementMask.MOUSE) == 0) {
 				speed = player.getGameStats().getMovementSpeedFloat();
 				m.vectorX = vectorX;
@@ -146,8 +145,7 @@ public class CM_MOVE extends AionClientPacket {
 			}
 			player.getMoveController().setNewDirection(x2, y2, z2, heading);
 			player.getController().onStartMove();
-		}
-		else {
+		} else {
 			player.getController().onMove();
 			if ((type & MovementMask.MOUSE) == 0) {
 				speed = player.getGameStats().getMovementSpeedFloat();
@@ -176,7 +174,6 @@ public class CM_MOVE extends AionClientPacket {
 
 		if ((type & MovementMask.STARTMOVE) == MovementMask.STARTMOVE || type == 0) {
 			player.getKnownList().doOnAllPlayers(new Visitor<Player>() {
-
 				@Override
 				public void visit(Player observer) {
 					if (observer.isOnline()) {
@@ -192,9 +189,8 @@ public class CM_MOVE extends AionClientPacket {
 
 		if ((type & MovementMask.FALL) == MovementMask.FALL) {
 			m.updateFalling(z);
-		}
-		else {
-			m.stopFalling();
+		} else {
+			m.stopFalling(z);
 		}
 
 		if (type != 0 && player.isProtectionActive()) {
@@ -204,6 +200,8 @@ public class CM_MOVE extends AionClientPacket {
 
 	@Override
 	public String toString() {
-		return "CM_MOVE [type=" + type + ", heading=" + heading + ", x=" + x + ", y=" + y + ", z=" + z + ", x2=" + x2 + ", y2=" + y2 + ", z2=" + z2 + ", vehicleX=" + vehicleX + ", vehicleY=" + vehicleY + ", vehicleZ=" + vehicleZ + ", vectorX=" + vectorX + ", vectorY=" + vectorY + ", vectorZ=" + vectorZ + ", glideFlag=" + glideFlag + ", unk1=" + unk1 + ", unk2=" + unk2 + "]";
+		return "CM_MOVE [type=" + type + ", heading=" + heading + ", x=" + x + ", y=" + y + ", z=" + z + ", x2=" + x2 + ", y2=" + y2 + ", z2=" + z2
+				+ ", vehicleX=" + vehicleX + ", vehicleY=" + vehicleY + ", vehicleZ=" + vehicleZ + ", vectorX=" + vectorX + ", vectorY=" + vectorY
+				+ ", vectorZ=" + vectorZ + ", glideFlag=" + glideFlag + ", unk1=" + unk1 + ", unk2=" + unk2 + "]";
 	}
 }

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import java.util.ArrayList;
@@ -88,38 +89,25 @@ public class CM_PLAYER_SEARCH extends AionClientPacket {
 			Player player = it.next();
 			if (!player.isSpawned()) {
 				continue;
-			}
-			else if (player.getFriendList().getStatus() == Status.OFFLINE) {
+			} else if (player.getFriendList().getStatus() == Status.OFFLINE) {
 				continue;
-			}
-			else if (player.isGM() && !CustomConfig.SEARCH_GM_LIST) {
+			} else if (player.isGM() && !CustomConfig.SEARCH_GM_LIST) {
 				continue;
-			}
-			else if (lfgOnly == 1 && !player.isLookingForGroup()) {
+			} else if (lfgOnly == 1 && !player.isLookingForGroup()) {
 				continue;
-			}
-			else if (!name.isEmpty() && !player.getName().toLowerCase().contains(name.toLowerCase())) {
+			} else if (!name.isEmpty() && !player.getName().toLowerCase().contains(name.toLowerCase())) {
 				continue;
-			}
-			else if (minLevel != 0xFF && player.getLevel() < minLevel) {
+			} else if (minLevel != 0xFF && player.getLevel() < minLevel) {
 				continue;
-			}
-			else if (maxLevel != 0xFF && player.getLevel() > maxLevel) {
+			} else if (maxLevel != 0xFF && player.getLevel() > maxLevel) {
 				continue;
-			}
-			else if (classMask > 0 && (player.getPlayerClass().getMask() & classMask) == 0) {
+			} else if (classMask > 0 && (player.getPlayerClass().getMask() & classMask) == 0) {
 				continue;
-			}
-			else if (region > 0 && player.getActiveRegion().getMapId() != region) {
+			} else if (region > 0 && player.getActiveRegion().getMapId() != region) {
 				continue;
-			}
-			else if ((player.getRace() != activePlayer.getRace()) && (CustomConfig.FACTIONS_SEARCH_MODE == false)) {
+			} else if ((player.getRace() != activePlayer.getRace()) && (!CustomConfig.FACTIONS_SEARCH_MODE)) {
 				continue;
-			}
-			else if (player.getName() == activePlayer.getName()) {
-				continue;
-			}
-			else // This player matches criteria
+			} else // This player matches criteria
 			{
 				matches.add(player);
 			}

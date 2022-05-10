@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="AE_Manager" default="dist" basedir=".">
+	<description>
+        Description
+    </description>
+	<property name="src" location="src"/>
+	<property name="lib" location="lib"/>
+	<property name="build" location="build"/>
+	<property name="build.classes" location="${build}/classes"/>
+	<property name="build.dist" location="${build}/dist"/>
+	<target name="init" description="Create the output directories.">
+		<mkdir dir="${build}"/>
+		<mkdir dir="${build.classes}"/>
+		<mkdir dir="${build.dist}"/>
+	</target>
+	<target name="compile" depends="init" description="Compile the source.">
+		<javac destdir="${build.classes}" optimize="on" debug="on" source="1.7" target="1.7" nowarn="off" includeantruntime="false">
+			<src path="${src}"/>
+		</javac>
+	</target>
+	<target name="jar" depends="compile" description="Create the jar file">
+ 	    <manifest file="MANIFEST.MF">
+			<attribute name="Main-Class" value="com.aionemu.manager.Manager"/>
+		</manifest>
+
+		<jar destfile="${build.dist}/manager.jar" manifest="MANIFEST.MF">
+			<fileset dir="${build.classes}"/>
+		</jar>
+	</target>
+	<target name="dist" depends="jar">
+		<mkdir dir="${build.dist}/AL-Chat"/>
+		<mkdir dir="${build.dist}/AL-Game"/>
+		<mkdir dir="${build.dist}/AL-Login"/>
+		<copy todir="${build.dist}">
+			<fileset dir="${src}/../dist">
+				<include name="*.*"/>
+			</fileset>
+		</copy>
+		<zip destfile="${build}/ae_manager-dist.zip" basedir="${build.dist}"/>
+	</target>
+	<target name="clean" description="Remove the output directories">
+		<delete dir="${build}"/>
+	</target>
+</project>

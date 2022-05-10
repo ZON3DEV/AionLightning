@@ -20,11 +20,7 @@ import com.aionemu.gameserver.model.stats.calc.Stat2;
 import com.aionemu.gameserver.model.stats.calc.StatOwner;
 import com.aionemu.gameserver.model.stats.container.StatEnum;
 
-/**
- * @author ATracer
- */
 public class StatFunctionProxy implements IStatFunction, Comparable<IStatFunction> {
-
 	private final StatOwner owner;
 	private final IStatFunction proxiedFunction;
 	private final StatEnum stat;
@@ -42,14 +38,13 @@ public class StatFunctionProxy implements IStatFunction, Comparable<IStatFunctio
 	}
 
 	public IStatFunction getProxiedFunction() {
-		return proxiedFunction;
+		return this.proxiedFunction;
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((owner == null) ? 0 : owner.hashCode());
+		result = 31 * result + (this.owner == null ? 0 : this.owner.hashCode());
 		return result;
 	}
 
@@ -65,73 +60,64 @@ public class StatFunctionProxy implements IStatFunction, Comparable<IStatFunctio
 			return false;
 		}
 		StatFunctionProxy other = (StatFunctionProxy) obj;
-		if (owner == null) {
+		if (this.owner == null) {
 			if (other.owner != null) {
 				return false;
 			}
-		}
-		else if (!owner.equals(other.owner)) {
+		} else if (!this.owner.equals(other.owner)) {
 			return false;
 		}
-
-		// if (other.isBonus() != this.isBonus())
-		// return false;
-		// return other.getRandomNumber() == this.getRandomNumber();
 		return true;
 	}
 
 	@Override
 	public int compareTo(IStatFunction o) {
-		return proxiedFunction.compareTo(o);
+		return this.proxiedFunction.compareTo(o);
 	}
 
 	@Override
 	public StatOwner getOwner() {
-		return owner;
+		return this.owner;
 	}
 
 	@Override
 	public StatEnum getName() {
-		return stat;
+		return this.stat;
 	}
 
 	@Override
 	public boolean isBonus() {
-		return proxiedFunction.isBonus();
-	}
-
-	@Override
-	public int getRandomNumber() {
-		return proxiedFunction.getRandomNumber();
+		return this.proxiedFunction.isBonus();
 	}
 
 	@Override
 	public int getPriority() {
-		return proxiedFunction.getPriority();
+		return this.proxiedFunction.getPriority();
 	}
 
 	@Override
 	public int getValue() {
-		return proxiedFunction.getValue();
+		return this.proxiedFunction.getValue();
 	}
 
 	@Override
 	public boolean validate(Stat2 stat, IStatFunction statFunction) {
-		return proxiedFunction.validate(stat, statFunction);
+		return this.proxiedFunction.validate(stat, statFunction);
 	}
 
 	@Override
 	public void apply(Stat2 stat) {
-		proxiedFunction.apply(stat);
+		this.proxiedFunction.apply(stat);
 	}
 
 	@Override
 	public boolean hasConditions() {
-		return proxiedFunction.hasConditions();
+		return this.proxiedFunction.hasConditions();
 	}
 
 	@Override
 	public String toString() {
-		return "Proxy [name=" + proxiedFunction.getName() + ", bonus=" + isBonus() + ", value=" + getValue() + ", priority=" + getPriority() + ", owner=" + owner + "]";
+		return "Proxy [name=" + proxiedFunction.getName() + ", bonus=" + isBonus() + ", value=" + getValue() + ", priority=" + getPriority() + ", owner="
+				+ owner + "]";
 	}
 }

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.walkers;
 
 import com.aionemu.gameserver.ai2.AIName;
@@ -23,6 +24,7 @@ import ai.GeneralNpcAI2;
 
 /**
  * @author Rolandas
+ *
  */
 @AIName("generalrunner")
 public class WalkGeneralRunnerAI2 extends GeneralNpcAI2 {

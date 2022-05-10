@@ -14,10 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
-import com.aionemu.gameserver.model.Support;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.Support;
 import com.aionemu.gameserver.services.SupportService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
@@ -39,11 +40,9 @@ public class Ticket extends AdminCommand {
 		}
 		if (params[0].equals("accept")) {
 			accept(admin);
-		}
-		else if (params[0].equals("peek")) {
+		} else if (params[0].equals("peek")) {
 			peek(admin);
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(admin, "Syntax: //ticket <accept | peek>");
 		}
 	}

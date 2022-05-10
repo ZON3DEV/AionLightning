@@ -14,9 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers;
 
 import java.util.List;
+
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.controllers.observer.ActionObserver;
 import com.aionemu.gameserver.controllers.observer.ObserverType;
@@ -40,8 +43,6 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
 
-import javolution.util.FastMap;
-
 /**
  * @author Rolandas
  */
@@ -58,8 +59,7 @@ public class HouseController extends VisibleObjectController<House> {
 		AionServerPacket packet;
 		if (getOwner().isInInstance()) {
 			packet = new SM_HOUSE_UPDATE(getOwner());
-		}
-		else {
+		} else {
 			packet = new SM_HOUSE_RENDER(getOwner());
 		}
 		PacketSendUtility.sendPacket(p, packet);
@@ -93,7 +93,6 @@ public class HouseController extends VisibleObjectController<House> {
 	 */
 	public void updateAppearance() {
 		ThreadPoolManager.getInstance().execute(new Runnable() {
-
 			@Override
 			public void run() {
 				for (int playerId : observed.keySet()) {
@@ -109,7 +108,6 @@ public class HouseController extends VisibleObjectController<House> {
 
 	public void broadcastAppearance() {
 		ThreadPoolManager.getInstance().execute(new Runnable() {
-
 			@Override
 			public void run() {
 				for (int playerId : observed.keySet()) {
@@ -147,8 +145,7 @@ public class HouseController extends VisibleObjectController<House> {
 		if (kicker != null) {
 			if (!kickFriends) {
 				PacketSendUtility.sendPacket(kicker, SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_ORDER_OUT_WITHOUT_FRIENDS);
-			}
-			else {
+			} else {
 				PacketSendUtility.sendPacket(kicker, SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_ORDER_OUT_ALL);
 			}
 		}
@@ -160,8 +157,7 @@ public class HouseController extends VisibleObjectController<House> {
 			float y = getOwner().getAddress().getExitY();
 			float z = getOwner().getAddress().getExitZ();
 			TeleportService2.teleportTo(player, getOwner().getAddress().getExitMapId(), 1, x, y, z, player.getHeading(), TeleportAnimation.BEAM_ANIMATION);
-		}
-		else {
+		} else {
 			Npc sign = getOwner().getCurrentSign();
 			double radian = Math.toRadians(MathUtil.convertHeadingToDegree(sign.getHeading()));
 			float x = (float) (sign.getX() + (8 * Math.cos(radian)));
@@ -170,8 +166,7 @@ public class HouseController extends VisibleObjectController<House> {
 		}
 		if (onSettingsChange) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_CHANGE_OWNER);
-		}
-		else {
+		} else {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_REQUEST_OUT);
 		}
 	}

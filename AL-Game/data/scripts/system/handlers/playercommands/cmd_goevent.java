@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -32,8 +33,7 @@ public class cmd_goevent extends PlayerCommand {
 		if (player.isLookingForEvent()) {
 			player.setLookingForEvent(false);
 			PacketSendUtility.sendMessage(player, "You have leave the event waiting list.");
-		}
-		else {
+		} else {
 			player.setLookingForEvent(true);
 			PacketSendUtility.sendMessage(player, "You are in event waiting list.");
 		}

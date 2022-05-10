@@ -14,12 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
+
+import com.aionemu.commons.services.CronService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aionemu.commons.services.CronService;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.GoodsListData;
 import com.aionemu.gameserver.dataholders.TradeListData;
@@ -33,8 +35,9 @@ import javolution.util.FastMap;
 
 /**
  * @author xTz
- *         <p/>
- *         TYPE_A: BuyLimit == 0 && SellLimit != 0 TYPE_B: BuyLimit != 0 && SellLimit == 0 TYPE_C: BuyLimit != 0 && SellLimit != 0
+ *
+ *         TYPE_A: BuyLimit == 0 && SellLimit != 0 TYPE_B: BuyLimit != 0 &&
+ *         SellLimit == 0 TYPE_C: BuyLimit != 0 && SellLimit != 0
  */
 public class LimitedItemTradeService {
 
@@ -48,7 +51,7 @@ public class LimitedItemTradeService {
 			for (TradeTab list : tradeListData.getTradeListTemplate(npcId).getTradeTablist()) {
 				GoodsList goodsList = goodsListData.getGoodsListById(list.getId());
 				if (goodsList == null) {
-					log.warn("[LimitedItemTradService] No goodslist for tradelist of npc " + npcId);
+					log.warn("No goodslist for tradelist of npc " + npcId);
 					continue;
 				}
 				FastList<LimitedItem> limitedItems = goodsList.getLimitedItems();
@@ -57,8 +60,7 @@ public class LimitedItemTradeService {
 				}
 				if (!limitedTradeNpcs.containsKey(npcId)) {
 					limitedTradeNpcs.putIfAbsent(npcId, new LimitedTradeNpc(limitedItems));
-				}
-				else {
+				} else {
 					limitedTradeNpcs.get(npcId).putLimitedItems(limitedItems);
 				}
 			}
@@ -67,7 +69,6 @@ public class LimitedItemTradeService {
 		for (LimitedTradeNpc limitedTradeNpc : limitedTradeNpcs.values()) {
 			for (final LimitedItem limitedItem : limitedTradeNpc.getLimitedItems()) {
 				CronService.getInstance().schedule(new Runnable() {
-
 					@Override
 					public void run() {
 						limitedItem.setToDefault();
@@ -75,7 +76,7 @@ public class LimitedItemTradeService {
 				}, limitedItem.getSalesTime());
 			}
 		}
-		log.info("[LimitedItemTradService] Scheduled Limited Items based on cron expression size: " + limitedTradeNpcs.size());
+		log.info("Scheduled Limited Items based on cron expression size: " + limitedTradeNpcs.size());
 	}
 
 	public LimitedItem getLimitedItem(int itemId, int npcId) {

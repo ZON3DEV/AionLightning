@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -49,17 +50,14 @@ public class Kill extends AdminCommand {
 				Creature creature = (Creature) target;
 				creature.getController().onAttack(admin, creature.getLifeStats().getMaxHp() + 1, true);
 			}
-		}
-		else {
+		} else {
 			int range = 0;
 			if (params[0].equals("all")) {
 				range = -1;
-			}
-			else {
+			} else {
 				try {
 					range = Integer.parseInt(params[0]);
-				}
-				catch (NumberFormatException ex) {
+				} catch (NumberFormatException ex) {
 					PacketSendUtility.sendMessage(admin, "<range> must be a number.");
 					return;
 				}

@@ -14,11 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.factories;
 
-import com.aionemu.gameserver.network.chatserver.ChatServerConnection.State;
 import com.aionemu.gameserver.network.chatserver.CsClientPacket;
 import com.aionemu.gameserver.network.chatserver.CsPacketHandler;
+import com.aionemu.gameserver.network.chatserver.ChatServerConnection.State;
 import com.aionemu.gameserver.network.chatserver.clientpackets.CM_CS_AUTH_RESPONSE;
 import com.aionemu.gameserver.network.chatserver.clientpackets.CM_CS_PLAYER_AUTH_RESPONSE;
 

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.util.Collection;
@@ -40,18 +41,15 @@ public class SM_ABNORMAL_STATE extends AionServerPacket {
 		writeD(abnormals);
 		writeD(0);
 		writeD(0); // unk 4.5
-		writeC(127); // Should be 127 or we have problems with debuffs
-
+		writeC(0x7F); // unk 4.5 slots ??? can be 0x7F:127, 0x08:8, 0x40:64
 		writeH(effects.size());
 
 		for (Effect effect : effects) {
 			writeD(effect.getEffectorId());
-			writeD(0); // TODO 6.x
 			writeH(effect.getSkillId());
 			writeC(effect.getSkillLevel());
 			writeC(effect.getTargetSlot());
 			writeD(effect.getRemainingTime());
-			writeH(0);// unk 5.3
 		}
 	}
 }

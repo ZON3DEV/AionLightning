@@ -14,8 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.drop;
 
+import com.aionemu.commons.utils.Rnd;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -23,7 +25,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.aionemu.commons.utils.Rnd;
+import javolution.util.FastMap;
+
 import com.aionemu.gameserver.ai2.event.AIEventType;
 import com.aionemu.gameserver.configs.main.DropConfig;
 import com.aionemu.gameserver.configs.main.EventsConfig;
@@ -32,7 +35,6 @@ import com.aionemu.gameserver.model.drop.DropItem;
 import com.aionemu.gameserver.model.drop.NpcDrop;
 import com.aionemu.gameserver.model.gameobjects.DropNpc;
 import com.aionemu.gameserver.model.gameobjects.Npc;
-//import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.stats.container.StatEnum;
 import com.aionemu.gameserver.model.team2.common.legacy.LootGroupRules;
@@ -41,17 +43,12 @@ import com.aionemu.gameserver.model.templates.event.EventTemplate;
 import com.aionemu.gameserver.model.templates.housing.HouseType;
 import com.aionemu.gameserver.model.templates.pet.PetFunctionType;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_LOOT_STATUS;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_MINIONS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PET;
+import com.aionemu.gameserver.services.EventService;
 import com.aionemu.gameserver.services.QuestService;
-import com.aionemu.gameserver.services.events.EventService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.stats.DropRewardEnum;
-//import com.aionemu.gameserver.world.World;
-
 import javolution.util.FastList;
-import javolution.util.FastMap;
 
 /**
  * @author xTz
@@ -80,7 +77,7 @@ public class DropRegistrationService {
 	/**
 	 * After NPC dies, it can register arbitrary drop
 	 */
-	public void registerDrop(final Npc npc, Player player, int heighestLevel, Collection<Player> groupMembers) {
+	public void registerDrop(Npc npc, Player player, int heighestLevel, Collection<Player> groupMembers) {
 
 		if (player == null) {
 			return;
@@ -95,7 +92,7 @@ public class DropRegistrationService {
 		int npcLevel = npc.getLevel();
 		boolean isChest = npc.getAi2().getName().equals("chest");
 		if (!DropConfig.DISABLE_DROP_REDUCTION && ((isChest && npcLevel != 1 || !isChest)) && !noReductionMaps.contains(npc.getWorldId())) {
-			dropChance = DropRewardEnum.dropRewardFrom(npcLevel - heighestLevel); // reduce chance depending on level
+            dropChance = DropRewardEnum.dropRewardFrom(npcLevel - heighestLevel); // reduce chance depending on level
 		}
 
 		// Generete drop by this player
@@ -114,8 +111,7 @@ public class DropRegistrationService {
 					int size = groupMembers.size();
 					if (size > lootGrouRules.getNrRoundRobin()) {
 						lootGrouRules.setNrRoundRobin(lootGrouRules.getNrRoundRobin() + 1);
-					}
-					else {
+					} else {
 						lootGrouRules.setNrRoundRobin(1);
 					}
 
@@ -153,8 +149,7 @@ public class DropRegistrationService {
 			dropNpc.setPlayersObjectId(dropMembers);
 			dropNpc.setInRangePlayers(groupMembers);
 			dropNpc.setGroupSize(groupMembers.size());
-		}
-		else {
+		} else {
 			List<Integer> singlePlayer = new ArrayList<Integer>();
 			singlePlayer.add(player.getObjectId());
 			dropPlayers.add(player);
@@ -176,9 +171,6 @@ public class DropRegistrationService {
 		// Deed to Palace 5% Boost drop rate
 		boostDropRate += genesis.getActiveHouse() != null ? genesis.getActiveHouse().getHouseType().equals(HouseType.PALACE) ? 0.05f : 0 : 0;
 		// Hmm.. 169625013 have boost drop rate 5% info but no such desc on buff
-
-		// Online Time 10% Boost drop rate
-		boostDropRate += genesis.getBonusTime().isBonus() ? 0.1f : 0;
 
 		// can be exploited on duel with Spiritmaster Erosion skill
 		boostDropRate += genesis.getGameStats().getStat(StatEnum.BOOST_DROP_RATE, 100).getCurrent() / 100f - 1;
@@ -227,23 +219,20 @@ public class DropRegistrationService {
 
 		if (npc.getPosition().isInstanceMap()) {
 			npc.getPosition().getWorldMapInstance().getInstanceHandler().onDropRegistered(npc);
-        } 
-        else {
-            npc.getPosition().getWorld().getWorldMap(npc.getWorldId()).getWorldHandler().onDropRegistered(npc);
-        }
+		}
 		npc.getAi2().onGeneralEvent(AIEventType.DROP_REGISTERED);
 
 		for (Player p : dropPlayers) {
 			PacketSendUtility.sendPacket(p, new SM_LOOT_STATUS(npcObjId, 0));
 		}
 
-		if (player.getPet() != null && player.getPet().getPetTemplate().getPetFunction(PetFunctionType.LOOT) != null && player.getPet().getCommonData().isLooting()) {
+		if (player.getPet() != null && player.getPet().getPetTemplate().getPetFunction(PetFunctionType.LOOT) != null
+				&& player.getPet().getCommonData().isLooting()) {
 			PacketSendUtility.sendPacket(player, new SM_PET(true, npcObjId));
 			Set<DropItem> drops = getCurrentDropMap().get(npcObjId);
 			if (drops == null || drops.size() == 0) {
 				npc.getController().onDelete();
-			}
-			else {
+			} else {
 				DropItem[] dropItems = drops.toArray(new DropItem[drops.size()]);
 				for (int i = 0; i < dropItems.length; i++) {
 					DropService.getInstance().requestDropItem(player, npcObjId, dropItems[i].getIndex(), true);
@@ -255,40 +244,7 @@ public class DropRegistrationService {
 				return;
 			}
 		}
-		//Minion auto loot
-		if (player.getMinion() != null && player.getMinion().getCommonData().isLooting()) {
-			PacketSendUtility.sendPacket(player, new SM_MINIONS(true, npcObjId));
-			Set<DropItem> drops = getCurrentDropMap().get(npcObjId);
-			if (drops == null || drops.size() == 0) {
-				npc.getController().onDelete();
-			}
-			else {
-				DropItem[] dropItems = drops.toArray(new DropItem[drops.size()]);
-				for (int i = 0; i < dropItems.length; i++) {
-					DropService.getInstance().requestDropItem(player, npcObjId, dropItems[i].getIndex(), true);
-				}
-			}
-			PacketSendUtility.sendPacket(player, new SM_MINIONS(false, npcObjId));
-			// if everything was looted, npc is deleted
-			if (drops == null || drops.size() == 0) {
-				return;
-			}
-		}
-
-		Set<DropItem> drops = getCurrentDropMap().get(npcObjId);
-
-		if (drops == null || drops.size() == 0) {
-			ThreadPoolManager.getInstance().schedule(new Runnable() {
-
-				@Override
-				public void run() {
-					npc.getController().onDelete();
-				}
-			}, 300); // <--TEST--> // Old 1Sec Delay !! DO NOT REMOVE !! (Negative effect's on onBeforeDie and some other's)
-		}
-		else {
-			DropService.getInstance().scheduleFreeForAll(npcObjId);
-		}
+		DropService.getInstance().scheduleFreeForAll(npcObjId);
 	}
 
 	public void setItemsToWinner(Set<DropItem> droppedItems, Integer obj) {

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers.attack;
 
 /**
@@ -22,28 +23,27 @@ package com.aionemu.gameserver.controllers.attack;
 public enum AttackStatus {
 
 	DODGE(0, true, false),
-	OFFHAND_DODGE(1, true, false),
-	PARRY(2, true, false),
-	OFFHAND_PARRY(3, true, false),
-	BLOCK(4, true, false),
-	OFFHAND_BLOCK(5, true, false),
-	RESIST(6, true, false),
-	OFFHAND_RESIST(7),
-	BUF(8), // ??
+    OFFHAND_DODGE(1, true, false),
+    PARRY(2, true, false),
+    OFFHAND_PARRY(3, true, false),
+    BLOCK(4, true, false),
+    OFFHAND_BLOCK(5, true, false),
+    RESIST(6, true, false),
+    OFFHAND_RESIST(7),
+    BUF(8), // ??
 	OFFHAND_BUF(9),
-	NORMALHIT(10),
-	OFFHAND_NORMALHIT(11),
-	CRITICAL_DODGE(192, true, true),
-	CRITICAL_PARRY(194, true, true),
-	CRITICAL_BLOCK(196, true, true),
-	CRITICAL_RESIST(198, false, true),
-	CRITICAL(202, false, true),
-	OFFHAND_CRITICAL_DODGE(209, true, true),
-	OFFHAND_CRITICAL_PARRY(211, true, true),
-	OFFHAND_CRITICAL_BLOCK(213, true, true),
-	OFFHAND_CRITICAL_RESIST(215, false, true),
-	OFFHAND_CRITICAL(219, false, true);
-
+    NORMALHIT(10),
+    OFFHAND_NORMALHIT(11),
+    CRITICAL_DODGE(192, true, true),
+    CRITICAL_PARRY(194, true, true),
+    CRITICAL_BLOCK(196, true, true),
+    CRITICAL_RESIST(198, false, true),
+    CRITICAL(202, false, true),
+    OFFHAND_CRITICAL_DODGE(209, true, true),
+    OFFHAND_CRITICAL_PARRY(211, true, true),
+    OFFHAND_CRITICAL_BLOCK(213, true, true),
+    OFFHAND_CRITICAL_RESIST(215, false, true),
+    OFFHAND_CRITICAL(219, false, true);
 	private final int type;
 	private final boolean counterSkill;
 	private final boolean isCritical;
@@ -117,11 +117,6 @@ public enum AttackStatus {
 			case OFFHAND_BLOCK:
 			case OFFHAND_CRITICAL_BLOCK:
 				return AttackStatus.BLOCK;
-			case RESIST:
-			case CRITICAL_RESIST:
-			case OFFHAND_RESIST:
-			case OFFHAND_CRITICAL_RESIST:
-				return AttackStatus.RESIST;
 			default:
 				return status;
 		}
@@ -139,12 +134,10 @@ public enum AttackStatus {
 				return AttackStatus.OFFHAND_CRITICAL_PARRY;
 			case BLOCK:
 				return AttackStatus.CRITICAL_BLOCK;
+            case RESIST:
+                return AttackStatus.CRITICAL_RESIST;
 			case OFFHAND_BLOCK:
 				return AttackStatus.OFFHAND_CRITICAL_BLOCK;
-			case RESIST:
-				return AttackStatus.CRITICAL_RESIST;
-			case OFFHAND_RESIST:
-				return AttackStatus.OFFHAND_CRITICAL_RESIST;
 			case NORMALHIT:
 				return AttackStatus.CRITICAL;
 			case OFFHAND_NORMALHIT:

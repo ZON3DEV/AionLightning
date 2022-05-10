@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item.actions;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -41,12 +42,11 @@ public class ReadAction extends AbstractItemAction {
 		final int itemObjId = parentItem.getObjectId();
 		final int id = parentItem.getItemTemplate().getTemplateId();
 
-		PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, itemObjId, id, 50, 0), true);
+		PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, id, 50, 0, 0), true);
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
-				PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, itemObjId, id, 0, 1), true);
+				PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), itemObjId, id, 0, 1, 0), true);
 			}
 		}, 50);
 	}

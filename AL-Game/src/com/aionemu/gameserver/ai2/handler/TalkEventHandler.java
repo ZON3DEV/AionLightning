@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.ai2.handler;
 
 import com.aionemu.gameserver.ai2.AIState;
@@ -47,16 +48,13 @@ public class TalkEventHandler {
 			}
 			// only player villagers can use villager npcs in oriel/pernon
 			switch (npcAI.getOwner().getObjectTemplate().getTitleId()) {
-				case 462877: // Village Trade Broker
-				case 462878: // Village Guestbloom.
-				case 462881: // Village Quest Board
+				case 462877:
 					int playerTownId = TownService.getInstance().getTownResidence(player);
 					int currentTownId = TownService.getInstance().getTownIdByPosition(player);
 					if (playerTownId != currentTownId) {
 						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npcAI.getOwner().getObjectId(), 44));
 						return;
-					}
-					else {
+					} else {
 						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(npcAI.getOwner().getObjectId(), 10));
 						return;
 					}

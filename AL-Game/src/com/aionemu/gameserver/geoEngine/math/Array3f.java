@@ -14,10 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.geoEngine.math;
 
 import com.aionemu.gameserver.configs.main.GeoDataConfig;
-
 import javolution.context.ObjectFactory;
 import javolution.lang.Reusable;
 
@@ -28,7 +28,6 @@ public class Array3f implements Reusable {
 
 	@SuppressWarnings("rawtypes")
 	private static final ObjectFactory FACTORY = new ObjectFactory() {
-
 		@Override
 		public Object create() {
 			return new Array3f();
@@ -46,28 +45,30 @@ public class Array3f implements Reusable {
 	}
 
 	/**
-	 * Returns a new, preallocated or {@link #recycle recycled} text builder (on the stack when executing in a {@link javolution.context.StackContext StackContext}).
+	 * Returns a new, preallocated or {@link #recycle recycled} text builder (on
+	 * the stack when executing in a {@link javolution.context.StackContext
+	 * StackContext}).
 	 *
 	 * @return a new, preallocated or recycled text builder instance.
 	 */
 	public static Array3f newInstance() {
 		if (GeoDataConfig.GEO_OBJECT_FACTORY_ENABLE) {
 			return (Array3f) FACTORY.object();
-		}
-		else {
+		} else {
 			return new Array3f();
 		}
 	}
 
 	/**
-	 * Recycles a text builder {@link #newInstance() instance} immediately (on the stack when executing in a {@link javolution.context.StackContext StackContext}).
+	 * Recycles a text builder {@link #newInstance() instance} immediately (on
+	 * the stack when executing in a {@link javolution.context.StackContext
+	 * StackContext}).
 	 */
 	@SuppressWarnings("unchecked")
 	public static void recycle(Array3f instance) {
 		if (GeoDataConfig.GEO_OBJECT_FACTORY_ENABLE) {
 			FACTORY.recycle(instance);
-		}
-		else {
+		} else {
 			instance = null;
 		}
 	}

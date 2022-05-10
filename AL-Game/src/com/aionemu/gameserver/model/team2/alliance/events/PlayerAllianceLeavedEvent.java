@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.alliance.events;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -65,8 +66,7 @@ public class PlayerAllianceLeavedEvent extends PlayerLeavedEvent<PlayerAllianceM
 			case LEAVE_TIMEOUT:
 				if (team.onlineMembers() <= 1) {
 					PlayerAllianceService.disband(team);
-				}
-				else {
+				} else {
 					if (leavedPlayer.equals(team.getLeader().getObject())) {
 						team.onEvent(new ChangeAllianceLeaderEvent(team));
 					}
@@ -83,7 +83,6 @@ public class PlayerAllianceLeavedEvent extends PlayerLeavedEvent<PlayerAllianceM
 
 		if (leavedPlayer.isInInstance()) {
 			ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
 					if (!leavedPlayer.isInAlliance2()) {

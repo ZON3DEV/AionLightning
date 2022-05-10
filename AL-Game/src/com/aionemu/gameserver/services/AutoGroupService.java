@@ -14,22 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
-import static ch.lambdaj.Lambda.having;
-import static ch.lambdaj.Lambda.on;
-import static ch.lambdaj.Lambda.select;
-import static org.hamcrest.Matchers.equalTo;
-
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import static ch.lambdaj.Lambda.*;
 import com.aionemu.commons.network.util.ThreadPoolManager;
 import com.aionemu.gameserver.configs.main.LoggingConfig;
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -48,32 +36,32 @@ import com.aionemu.gameserver.model.team2.group.PlayerGroupService;
 import com.aionemu.gameserver.model.templates.InstanceCooltime;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_AUTO_GROUP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.services.instance.BalaurMarchingRouteService;
 import com.aionemu.gameserver.services.instance.DredgionService;
-import com.aionemu.gameserver.services.instance.GoldenCrucibleService;
+import com.aionemu.gameserver.services.instance.IronWallWarFrontService;
 import com.aionemu.gameserver.services.instance.InstanceService;
-import com.aionemu.gameserver.services.instance.JormungandService;
 import com.aionemu.gameserver.services.instance.KamarBattlefieldService;
-import com.aionemu.gameserver.services.instance.PandaemoniumBattlefieldService;
+import com.aionemu.gameserver.services.instance.OphidanBridgeService;
 import com.aionemu.gameserver.services.instance.PvPArenaService;
-import com.aionemu.gameserver.services.instance.RunatoriumRuinsService;
-import com.aionemu.gameserver.services.instance.RunatoriumService;
-import com.aionemu.gameserver.services.instance.SanctumBattlefieldService;
-import com.aionemu.gameserver.services.instance.SteelWallBastionBattlefieldService;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.WorldMap;
 import com.aionemu.gameserver.world.WorldMapInstance;
 import com.aionemu.gameserver.world.WorldMapInstanceFactory;
-
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 import javolution.util.FastList;
 import javolution.util.FastMap;
+import static org.hamcrest.Matchers.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author xTz
- * @Reworked Eloann v4.5
- * @author GiGatR00n v4.7.5.x
+ * @updated 4.5 Eloann
  */
 public class AutoGroupService {
 
@@ -102,12 +90,10 @@ public class AutoGroupService {
 		}
 		if (lfp == null) {
 			searchers.put(obj, new LookingForParty(player, instanceMaskId, ert));
-		}
-		else if (lfp.hasPenalty() || lfp.isRegistredInstance(instanceMaskId)) {
+		} else if (lfp.hasPenalty() || lfp.isRegistredInstance(instanceMaskId)) {
 			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1400181, agt.getInstanceMapId()));
 			return;
-		}
-		else {
+		} else {
 			lfp.addInstanceMaskId(instanceMaskId, ert);
 		}
 
@@ -115,67 +101,24 @@ public class AutoGroupService {
 			for (Player member : player.getPlayerGroup2().getOnlineMembers()) {
 				if (agt.isDredgion()) {
 					PacketSendUtility.sendPacket(member, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-				}
-				else if (agt.isKamar()) {
+				} else if (agt.isKamar()) {
 					PacketSendUtility.sendPacket(member, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-				}
-				else if (agt.isJormungand()) {
+				} else if (agt.isOphidan()) {
 					PacketSendUtility.sendPacket(member, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-				}
-				else if (agt.isSteelWall()) {
+				} else if (agt.isIronWall()) {
 					PacketSendUtility.sendPacket(member, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-				}
-				else if (agt.isRunatorium()) {
-					PacketSendUtility.sendPacket(member, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-				}
-				else if (agt.isBalaurMarching()) {
-					PacketSendUtility.sendPacket(member, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-				}
-				else if (agt.isRunatoriumRuins()) {
-					PacketSendUtility.sendPacket(member, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-				}
-				else if (agt.isGoldenCrucible()) {
-					PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-				}
-				else if (agt.isSanctumBattlefield()) {
-					PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-				}
-				else if (agt.isPandaemoniumBattlefield()) {
-					PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6, true));
 				}
 				PacketSendUtility.sendPacket(member, new SM_SYSTEM_MESSAGE(1400194, agt.getInstanceMapId()));
 				PacketSendUtility.sendPacket(member, new SM_AUTO_GROUP(instanceMaskId, 1, ert.getId(), player.getName()));
 			}
-		}
-		else {
+		} else {
 			if (agt.isDredgion()) {
 				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-			}
-			else if (agt.isKamar()) {
+			} else if (agt.isKamar()) {
 				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-			}
-			else if (agt.isJormungand()) {
+			} else if (agt.isOphidan()) {
 				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-			}
-			else if (agt.isSteelWall()) {
-				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-			}
-			else if (agt.isRunatorium()) {
-				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-			}
-			else if (agt.isBalaurMarching()) {
-				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-			}
-			else if (agt.isRunatoriumRuins()) {
-				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-			}
-			else if (agt.isGoldenCrucible()) {
-				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-			}
-			else if (agt.isSanctumBattlefield()) {
-				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6, true));
-			}
-			else if (agt.isPandaemoniumBattlefield()) {
+			} else if (agt.isIronWall()) {
 				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6, true));
 			}
 			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1400194, agt.getInstanceMapId()));
@@ -205,7 +148,6 @@ public class AutoGroupService {
 
 	public void onEnterInstance(Player player) {
 		if (player.isInInstance()) {
-			setAutoGroupEntryIcon(player, true);
 			Integer obj = player.getObjectId();
 			AutoInstance autoInstance = autoInstances.get(player.getInstanceId());
 			if (autoInstance != null && autoInstance.players.containsKey(obj)) {
@@ -255,7 +197,9 @@ public class AutoGroupService {
 					player.setUseAutoGroup(0);
 				}
 			}
-			if (autoInstance.agt.isDredgion() && DredgionService.getInstance().isDredgionAvailable() && KamarBattlefieldService.getInstance().isKamarAvailable() && JormungandService.getInstance().isJormungandAvailable() && SteelWallBastionBattlefieldService.getInstance().isSteelWallAvailable() && RunatoriumService.getInstance().isRunatoriumAvailable() && BalaurMarchingRouteService.getInstance().isBalaurMarchingAvailable() && RunatoriumRuinsService.getInstance().isRunatoriumRuinsAvailable() && GoldenCrucibleService.getInstance().isGoldenCrucibleAvailable() && SanctumBattlefieldService.getInstance().isSanctumBattlefieldAvailable() && PandaemoniumBattlefieldService.getInstance().isPandaemoniumBattlefieldAvailable()) {
+			if (autoInstance.agt.isDredgion() && DredgionService.getInstance().isDredgionAvailable()
+					&& KamarBattlefieldService.getInstance().isKamarAvailable() && OphidanBridgeService.getInstance().isOphidanAvailable()
+					&& IronWallWarFrontService.getInstance().isIronWallAvailable()) {
 				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
 			}
 			if (autoInstance.agt.isPvpArena() || autoInstance.agt.isPvPSoloArena()) {
@@ -269,35 +213,18 @@ public class AutoGroupService {
 	}
 
 	public void onPlayerLogin(Player player) {
-		if (DredgionService.getInstance().canPlayerJoin(player)) {
+		if (DredgionService.getInstance().isDredgionAvailable() && player.getLevel() > DredgionService.minLevel && player.getLevel() < DredgionService.capLevel
+				&& !DredgionService.getInstance().hasCoolDown(player)) {
 			PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(DredgionService.getInstance().getInstanceMaskId(player), 6));
-		}
-		else if (KamarBattlefieldService.getInstance().canPlayerJoin(player)) {
+		} else if (KamarBattlefieldService.getInstance().isKamarAvailable() && player.getLevel() > KamarBattlefieldService.minLevel
+				&& player.getLevel() < KamarBattlefieldService.capLevel && !KamarBattlefieldService.getInstance().hasCoolDown(player)) {
 			PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(KamarBattlefieldService.maskId, 6));
-		}
-		else if (JormungandService.getInstance().canPlayerJoin(player)) {
-			PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(JormungandService.maskId, 6));
-		}
-		else if (SteelWallBastionBattlefieldService.getInstance().canPlayerJoin(player)) {
-			PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(SteelWallBastionBattlefieldService.maskId, 6));
-		}
-		else if (RunatoriumService.getInstance().canPlayerJoin(player)) {
-			PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(RunatoriumService.maskId, 6));
-		}
-		else if (BalaurMarchingRouteService.getInstance().canPlayerJoin(player)) {
-			PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(BalaurMarchingRouteService.maskId, 6));
-		}
-		else if (RunatoriumRuinsService.getInstance().canPlayerJoin(player)) {
-			PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(RunatoriumRuinsService.maskId, 6));
-		}
-		else if (GoldenCrucibleService.getInstance().canPlayerJoin(player)) {
-			PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(GoldenCrucibleService.maskId, 6));
-		}
-		else if (SanctumBattlefieldService.getInstance().canPlayerJoin(player)) {
-			PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(SanctumBattlefieldService.maskId, 6));
-		}
-		else if (PandaemoniumBattlefieldService.getInstance().canPlayerJoin(player)) {
-			PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(PandaemoniumBattlefieldService.maskId, 6));
+		} else if (OphidanBridgeService.getInstance().isOphidanAvailable() && player.getLevel() > OphidanBridgeService.minLevel
+				&& player.getLevel() < OphidanBridgeService.capLevel && !OphidanBridgeService.getInstance().hasCoolDown(player)) {
+			PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(OphidanBridgeService.maskId, 6));
+		} else if (IronWallWarFrontService.getInstance().isIronWallAvailable() && player.getLevel() > IronWallWarFrontService.minLevel
+				&& player.getLevel() < IronWallWarFrontService.capLevel && !IronWallWarFrontService.getInstance().hasCoolDown(player)) {
+			PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(IronWallWarFrontService.maskId, 6));
 		}
 		Integer obj = player.getObjectId();
 		LookingForParty lfp = searchers.get(obj);
@@ -308,66 +235,25 @@ public class AutoGroupService {
 					lfp.unregisterInstance(instanceMaskId);
 					if (searchInstance.isDredgion() && DredgionService.getInstance().isDredgionAvailable()) {
 						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (searchInstance.isKamar() && KamarBattlefieldService.getInstance().isKamarAvailable()) {
+					} else if (searchInstance.isKamar() && KamarBattlefieldService.getInstance().isKamarAvailable()) {
 						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (searchInstance.isJormungand() && JormungandService.getInstance().isJormungandAvailable()) {
+					} else if (searchInstance.isOphidan() && OphidanBridgeService.getInstance().isOphidanAvailable()) {
 						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (searchInstance.isBastion() && SteelWallBastionBattlefieldService.getInstance().isSteelWallAvailable()) {
-						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (searchInstance.isRunatorium() && RunatoriumService.getInstance().isRunatoriumAvailable()) {
-						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (searchInstance.isBalaurMarching() && BalaurMarchingRouteService.getInstance().isBalaurMarchingAvailable()) {
-						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (searchInstance.isRunatoriumRuins() && RunatoriumRuinsService.getInstance().isRunatoriumRuinsAvailable()) {
-						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (searchInstance.isGoldenCrusible() && GoldenCrucibleService.getInstance().isGoldenCrucibleAvailable()) {
-						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (searchInstance.isSanctumBattlefield() && SanctumBattlefieldService.getInstance().isSanctumBattlefieldAvailable()) {
-						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (searchInstance.isPandaemoniumBattlefield() && PandaemoniumBattlefieldService.getInstance().isPandaemoniumBattlefieldAvailable()) {
+					} else if (searchInstance.isBastion() && IronWallWarFrontService.getInstance().isIronWallAvailable()) {
 						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
 					}
 					PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 2));
 					continue;
 				}
-				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(searchInstance.getInstanceMaskId(), 8, searchInstance.getRemainingTime() + searchInstance.getEntryRequestType().getId(), player.getName()));
+				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(searchInstance.getInstanceMaskId(), 8, searchInstance.getRemainingTime()
+						+ searchInstance.getEntryRequestType().getId(), player.getName()));
 				if (searchInstance.isDredgion()) {
 					PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(searchInstance.getInstanceMaskId(), 6, true));
-				}
-				else if (searchInstance.isKamar()) {
+				} else if (searchInstance.isKamar()) {
 					PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(searchInstance.getInstanceMaskId(), 6, true));
-				}
-				else if (searchInstance.isJormungand()) {
+				} else if (searchInstance.isOphidan()) {
 					PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(searchInstance.getInstanceMaskId(), 6, true));
-				}
-				else if (searchInstance.isBastion()) {
-					PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(searchInstance.getInstanceMaskId(), 6, true));
-				}
-				else if (searchInstance.isRunatorium()) {
-					PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(searchInstance.getInstanceMaskId(), 6, true));
-				}
-				else if (searchInstance.isBalaurMarching()) {
-					PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(searchInstance.getInstanceMaskId(), 6, true));
-				}
-				else if (searchInstance.isRunatoriumRuins()) {
-					PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(searchInstance.getInstanceMaskId(), 6, true));
-				}
-				else if (searchInstance.isGoldenCrusible()) {
-					PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(searchInstance.getInstanceMaskId(), 6, true));
-				}
-				else if (searchInstance.isSanctumBattlefield()) {
-					PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(searchInstance.getInstanceMaskId(), 6, true));
-				}
-				else if (searchInstance.isPandaemoniumBattlefield()) {
+				} else if (searchInstance.isBastion()) {
 					PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(searchInstance.getInstanceMaskId(), 6, true));
 				}
 			}
@@ -428,8 +314,7 @@ public class AutoGroupService {
 						InstanceService.destroyInstance(instance);
 						player.setUseAutoGroup(0);
 					}
-				}
-				else if (autoInstance.agt.hasRegisterQuick()) {
+				} else if (autoInstance.agt.hasRegisterQuick()) {
 					startSort(EntryRequestType.QUICK_GROUP_ENTRY, autoInstance.agt.getInstanceMaskId(), false);
 				}
 			}
@@ -495,8 +380,7 @@ public class AutoGroupService {
 										players.add(member);
 									}
 								}
-							}
-							else {
+							} else {
 								players.add(lfp.getPlayer());
 							}
 						}
@@ -521,14 +405,12 @@ public class AutoGroupService {
 						}
 						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 4));
 					}
-				}
-				else {
+				} else {
 					autoInstance.clear();
 				}
 				players.clear();
 			}
-		}
-		finally {
+		} finally {
 			lock.unlock();
 		}
 	}
@@ -543,38 +425,16 @@ public class AutoGroupService {
 
 		if (agt.isDredgion() && !DredgionService.getInstance().isDredgionAvailable()) {
 			return false;
-		}
-		else if ((agt.isPvPFFAArena() || agt.isPvPSoloArena() || agt.isHarmonyArena() || agt.isGloryArena()) && !PvPArenaService.isPvPArenaAvailable(player, agt)) {
+		} else if ((agt.isPvPFFAArena() || agt.isPvPSoloArena() || agt.isHarmonyArena() || agt.isGloryArena())
+				&& !PvPArenaService.isPvPArenaAvailable(player, agt)) {
 			return false;
-		}
-		else if (agt.isKamar() && !KamarBattlefieldService.getInstance().isKamarAvailable()) {
+		} else if (agt.isKamar() && !KamarBattlefieldService.getInstance().isKamarAvailable()) {
 			return false;
-		}
-		else if (agt.isJormungand() && !JormungandService.getInstance().isJormungandAvailable()) {
+		} else if (agt.isOphidan() && !OphidanBridgeService.getInstance().isOphidanAvailable()) {
 			return false;
-		}
-		else if (agt.isSteelWall() && !SteelWallBastionBattlefieldService.getInstance().isSteelWallAvailable()) {
+		} else if (agt.isIronWall() && !IronWallWarFrontService.getInstance().isIronWallAvailable()) {
 			return false;
-		}
-		else if (agt.isRunatorium() && !RunatoriumService.getInstance().isRunatoriumAvailable()) {
-			return false;
-		}
-		else if (agt.isBalaurMarching() && !BalaurMarchingRouteService.getInstance().isBalaurMarchingAvailable()) {
-			return false;
-		}
-		else if (agt.isRunatoriumRuins() && !RunatoriumRuinsService.getInstance().isRunatoriumRuinsAvailable()) {
-			return false;
-		}
-		else if (agt.isGoldenCrucible() && !GoldenCrucibleService.getInstance().isGoldenCrucibleAvailable()) {
-			return false;
-		}
-		else if (agt.isSanctumBattlefield() && !SanctumBattlefieldService.getInstance().isSanctumBattlefieldAvailable()) {
-			return false;
-		}
-		else if (agt.isPandaemoniumBattlefield() && !PandaemoniumBattlefieldService.getInstance().isPandaemoniumBattlefieldAvailable()) {
-			return false;
-		}
-		else if (hasCoolDown(player, mapId)) {
+		} else if (hasCoolDown(player, mapId)) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_CANNOT_MAKE_INSTANCE_COOL_TIME);
 			return false;
 		}
@@ -598,7 +458,7 @@ public class AutoGroupService {
 					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_CANT_INSTANCE_NOT_LEADER);
 					return false;
 				}
-				if (agt.isHarmonyArena() || agt.isTrainingHarmonyArena()) {
+				if (agt.isHarmonyArena() || agt.isTrainigHarmonyArena()) {
 					if (group.getOnlineMembers().size() > 3) {
 						PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_CANT_INSTANCE_TOO_MANY_MEMBERS(3, Integer.toString(mapId)));
 						return false;
@@ -621,44 +481,16 @@ public class AutoGroupService {
 					if (agt.isDredgion() && DredgionService.getInstance().hasCoolDown(member)) {
 						PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_CANT_INSTANCE_ENTER_MEMBER(member.getName()));
 						return false;
-					}
-					else if (agt.isKamar() && KamarBattlefieldService.getInstance().hasCoolDown(member)) {
+					} else if (agt.isKamar() && KamarBattlefieldService.getInstance().hasCoolDown(member)) {
 						PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_CANT_INSTANCE_ENTER_MEMBER(member.getName()));
 						return false;
-					}
-					else if (agt.isJormungand() && JormungandService.getInstance().hasCoolDown(member)) {
+					} else if (agt.isOphidan() && OphidanBridgeService.getInstance().hasCoolDown(member)) {
 						PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_CANT_INSTANCE_ENTER_MEMBER(member.getName()));
 						return false;
-					}
-					else if (agt.isSteelWall() && SteelWallBastionBattlefieldService.getInstance().hasCoolDown(member)) {
+					} else if (agt.isIronWall() && IronWallWarFrontService.getInstance().hasCoolDown(member)) {
 						PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_CANT_INSTANCE_ENTER_MEMBER(member.getName()));
 						return false;
-					}
-					else if (agt.isRunatorium() && RunatoriumService.getInstance().hasCoolDown(member)) {
-						PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_CANT_INSTANCE_ENTER_MEMBER(member.getName()));
-						return false;
-					}
-					else if (agt.isBalaurMarching() && BalaurMarchingRouteService.getInstance().hasCoolDown(member)) {
-						PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_CANT_INSTANCE_ENTER_MEMBER(member.getName()));
-						return false;
-					}
-					else if (agt.isRunatoriumRuins() && RunatoriumRuinsService.getInstance().hasCoolDown(member)) {
-						PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_CANT_INSTANCE_ENTER_MEMBER(member.getName()));
-						return false;
-					}
-					else if (agt.isGoldenCrucible() && GoldenCrucibleService.getInstance().hasCoolDown(member)) {
-						PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_CANT_INSTANCE_ENTER_MEMBER(member.getName()));
-						return false;
-					}
-					else if (agt.isSanctumBattlefield() && SanctumBattlefieldService.getInstance().hasCoolDown(member)) {
-						PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_CANT_INSTANCE_ENTER_MEMBER(member.getName()));
-						return false;
-					}
-					else if (agt.isPandaemoniumBattlefield() && PandaemoniumBattlefieldService.getInstance().hasCoolDown(member)) {
-						PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_CANT_INSTANCE_ENTER_MEMBER(member.getName()));
-						return false;
-					}
-					else if (hasCoolDown(member, mapId)) {
+					} else if (hasCoolDown(member, mapId)) {
 						PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_CANT_INSTANCE_ENTER_MEMBER(member.getName()));
 						return false;
 					}
@@ -712,7 +544,6 @@ public class AutoGroupService {
 		}
 		penaltys.add(obj);
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				if (penaltys.contains(obj)) {
@@ -727,8 +558,7 @@ public class AutoGroupService {
 			if (lfp.isRegistredInstance(instanceMaskId)) {
 				if (lfp.getPlayer() != null) {
 					getInstance().unregisterLooking(lfp.getPlayer(), instanceMaskId);
-				}
-				else {
+				} else {
 					getInstance().unRegisterSearchInstance(null, lfp.getSearchInstance(instanceMaskId));
 					if (lfp.unregisterInstance(instanceMaskId) == 0) {
 						searchers.values().remove(lfp);
@@ -745,34 +575,13 @@ public class AutoGroupService {
 				Player member = World.getInstance().findPlayer(obj);
 				if (member != null) {
 					if (si.isDredgion() && DredgionService.getInstance().isDredgionAvailable()) {
-						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (si.isKamar() && KamarBattlefieldService.getInstance().isKamarAvailable()) {
-						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (si.isJormungand() && JormungandService.getInstance().isJormungandAvailable()) {
-						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (si.isBastion() && SteelWallBastionBattlefieldService.getInstance().isSteelWallAvailable()) {
-						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (si.isRunatorium() && RunatoriumService.getInstance().isRunatoriumAvailable()) {
-						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (si.isBalaurMarching() && BalaurMarchingRouteService.getInstance().isBalaurMarchingAvailable()) {
-						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (si.isRunatoriumRuins() && RunatoriumRuinsService.getInstance().isRunatoriumRuinsAvailable()) {
-						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (si.isGoldenCrusible() && GoldenCrucibleService.getInstance().isGoldenCrucibleAvailable()) {
-						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (si.isSanctumBattlefield() && SanctumBattlefieldService.getInstance().isSanctumBattlefieldAvailable()) {
-						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-					}
-					else if (si.isPandaemoniumBattlefield() && PandaemoniumBattlefieldService.getInstance().isPandaemoniumBattlefieldAvailable()) {
-						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
+						PacketSendUtility.sendPacket(member, new SM_AUTO_GROUP(instanceMaskId, 6));
+					} else if (si.isKamar() && KamarBattlefieldService.getInstance().isKamarAvailable()) {
+						PacketSendUtility.sendPacket(member, new SM_AUTO_GROUP(instanceMaskId, 6));
+					} else if (si.isOphidan() && OphidanBridgeService.getInstance().isOphidanAvailable()) {
+						PacketSendUtility.sendPacket(member, new SM_AUTO_GROUP(instanceMaskId, 6));
+					} else if (si.isBastion() && IronWallWarFrontService.getInstance().isIronWallAvailable()) {
+						PacketSendUtility.sendPacket(member, new SM_AUTO_GROUP(instanceMaskId, 6));
 					}
 					PacketSendUtility.sendPacket(member, new SM_AUTO_GROUP(instanceMaskId, 2));
 				}
@@ -781,32 +590,11 @@ public class AutoGroupService {
 		if (player != null) {
 			if (si.isDredgion() && DredgionService.getInstance().isDredgionAvailable()) {
 				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-			}
-			else if (si.isKamar() && KamarBattlefieldService.getInstance().isKamarAvailable()) {
+			} else if (si.isKamar() && KamarBattlefieldService.getInstance().isKamarAvailable()) {
 				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-			}
-			else if (si.isJormungand() && JormungandService.getInstance().isJormungandAvailable()) {
+			} else if (si.isOphidan() && OphidanBridgeService.getInstance().isOphidanAvailable()) {
 				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-			}
-			else if (si.isBastion() && SteelWallBastionBattlefieldService.getInstance().isSteelWallAvailable()) {
-				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-			}
-			else if (si.isRunatorium() && RunatoriumService.getInstance().isRunatoriumAvailable()) {
-				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-			}
-			else if (si.isBalaurMarching() && BalaurMarchingRouteService.getInstance().isBalaurMarchingAvailable()) {
-				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-			}
-			else if (si.isRunatoriumRuins() && RunatoriumRuinsService.getInstance().isRunatoriumRuinsAvailable()) {
-				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-			}
-			else if (si.isGoldenCrusible() && GoldenCrucibleService.getInstance().isGoldenCrucibleAvailable()) {
-				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-			}
-			else if (si.isSanctumBattlefield() && SanctumBattlefieldService.getInstance().isSanctumBattlefieldAvailable()) {
-				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
-			}
-			else if (si.isPandaemoniumBattlefield() && PandaemoniumBattlefieldService.getInstance().isPandaemoniumBattlefieldAvailable()) {
+			} else if (si.isBastion() && IronWallWarFrontService.getInstance().isIronWallAvailable()) {
 				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 6));
 			}
 			PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId, 2));
@@ -822,36 +610,6 @@ public class AutoGroupService {
 			}
 			autoInstance.clear();
 		}
-	}
-
-	/**
-	 * When the player enters any instance, the system should automatically remove the AutoGroup Entry Icon
-	 */
-	private void setAutoGroupEntryIcon(Player player, Boolean removeit) {
-		// Dredgion, ChantraDredgion,TerathDredgion,
-		PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(1, 6, removeit));
-		PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(2, 6, removeit));
-		PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(3, 6, removeit));
-		// Kamar BattleField
-		PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(107, 6, removeit));
-		// Jormungand Marching Route
-		PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(108, 6, removeit));
-		// Steel Wall Bastion Battlefield
-		PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(109, 6, removeit));
-		// Runatorium
-		PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(111, 6, removeit));
-		// Ashunatal Dredgion
-		PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(121, 6, removeit));
-		// Balaur Marching Route
-		PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(122, 6, removeit));
-		// Runatorium Ruins
-		PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(123, 6, removeit));
-		// Golden Crusible
-		PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(125, 6, removeit));
-		// Sanctum Battlefield
-		PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(416, 6, removeit));
-		// Pandaemonium Battlefield
-		PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(417, 6, removeit));
 	}
 
 	public boolean isAutoInstance(int instanceId) {

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.siegelocation;
 
 import java.util.Collections;
@@ -43,22 +44,12 @@ public class SiegeLocationTemplate {
 	protected int world;
 	@XmlElement(name = "artifact_activation")
 	protected ArtifactActivation artifactActivation;
-	@XmlElement(name = "door_repair")
-	protected DoorRepair doorRepair;
 	@XmlElement(name = "siege_reward")
 	protected List<SiegeReward> siegeRewards;
 	@XmlElement(name = "legion_reward")
 	protected List<SiegeLegionReward> siegeLegionRewards;
 	@XmlAttribute(name = "name_id")
 	protected int nameId = 0;
-	@XmlAttribute(name = "buff_id")
-	protected int buffId = 0;
-	@XmlAttribute(name = "buff_idA")
-	protected int buffIdA = 0;
-	@XmlAttribute(name = "buff_idE")
-	protected int buffIdE = 0;
-	@XmlAttribute(name = "owner_gp")
-	protected int ownerGp = 0;
 	@XmlAttribute(name = "repeat_count")
 	protected int repeatCount = 1;
 	@XmlAttribute(name = "repeat_interval")
@@ -67,24 +58,9 @@ public class SiegeLocationTemplate {
 	protected int siegeDuration;
 	@XmlAttribute(name = "influence")
 	protected int influenceValue;
-	@XmlAttribute(name = "occupy_count")
-	protected int occupyCount = 0;
 	@XmlList
 	@XmlAttribute(name = "fortress_dependency")
 	protected List<Integer> fortressDependency;
-
-	// Luna System
-	@XmlElement(name = "luna_boost_price")
-	protected List<LunaBoostPrice> lunaBoostPrice;
-	@XmlElement(name = "luna_teleport_price")
-	protected List<LunaTeleportPrice> lunaTeleportPrice;
-	@XmlElement(name = "luna_reward")
-	protected List<LunaReward> lunaReward;
-	@XmlElement(name = "luna_teleport")
-	protected List<LunaTeleport> lunaTeleport;
-
-	@XmlAttribute(name = "base_id")
-	protected int baseId;
 
 	/**
 	 * @return the location id
@@ -133,13 +109,6 @@ public class SiegeLocationTemplate {
 	}
 
 	/**
-	 * @return the occupyCount
-	 */
-	public int getOccupyCount() {
-		return occupyCount;
-	}
-
-	/**
 	 * @return the repeatCount
 	 */
 	public int getRepeatCount() {
@@ -175,61 +144,5 @@ public class SiegeLocationTemplate {
 	 */
 	public int getInfluenceValue() {
 		return this.influenceValue;
-	}
-
-	/**
-	 * @return the Door Repair
-	 */
-	public DoorRepair getRepair() {
-		return doorRepair;
-	}
-
-	/**
-	 * @return the Buff ID
-	 */
-	public int getBuffId() {
-		return buffId;
-	}
-
-	/**
-	 * @return the Buff ID Asmodians
-	 */
-	public int getBuffIdA() {
-		return buffIdA;
-	}
-
-	/**
-	 * @return the Buff ID Elyos
-	 */
-	public int getBuffIdE() {
-		return buffIdE;
-	}
-
-	/**
-	 * @return the Owner GP
-	 */
-	public int getOwnerGp() {
-		return ownerGp;
-	}
-
-	// Luna System
-	public List<LunaBoostPrice> getLunaBoostPrice() {
-		return this.lunaBoostPrice;
-	}
-
-	public List<LunaTeleportPrice> getLunaTeleportPrice() {
-		return this.lunaTeleportPrice;
-	}
-
-	public List<LunaReward> getLunaReward() {
-		return this.lunaReward;
-	}
-
-	public List<LunaTeleport> getLunaTeleport() {
-		return this.lunaTeleport;
-	}
-
-	public int getBaseId() {
-		return baseId;
 	}
 }

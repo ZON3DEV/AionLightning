@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.ai2.event.AIEventType;
@@ -26,6 +27,7 @@ import com.aionemu.gameserver.world.WorldMapInstance;
 
 /**
  * @author Rolandas
+ *
  */
 public class Map extends AdminCommand {
 
@@ -41,14 +43,12 @@ public class Map extends AdminCommand {
 				npc.getAi2().onGeneralEvent(AIEventType.FREEZE);
 			}
 			PacketSendUtility.sendMessage(admin, "World map is frozen!");
-		}
-		else if ("unfreeze".equalsIgnoreCase(params[0])) {
+		} else if ("unfreeze".equalsIgnoreCase(params[0])) {
 			for (Npc npc : instance.getNpcs()) {
 				npc.getAi2().onGeneralEvent(AIEventType.UNFREEZE);
 			}
 			PacketSendUtility.sendMessage(admin, "World map is unfrozen!");
-		}
-		else if ("stats".equalsIgnoreCase(params[0])) {
+		} else if ("stats".equalsIgnoreCase(params[0])) {
 			for (String line : MovementNotifyTask.getInstance().dumpBroadcastStats()) {
 				PacketSendUtility.sendMessage(admin, line);
 			}

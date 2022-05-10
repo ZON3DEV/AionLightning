@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers.movement;
 
 import com.aionemu.gameserver.ai2.AISubState;
@@ -25,6 +26,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 
 /**
+ *
  * @author xTz
  */
 public class SiegeWeaponMoveController extends SummonMoveController {
@@ -50,8 +52,7 @@ public class SiegeWeaponMoveController extends SummonMoveController {
 			}
 			updateLastMove();
 			return;
-		}
-		else if (started.compareAndSet(false, true)) {
+		} else if (started.compareAndSet(false, true)) {
 			movementMask = -32;
 			PacketSendUtility.broadcastPacket(owner, new SM_MOVE(owner));
 		}

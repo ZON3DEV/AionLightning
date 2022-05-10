@@ -14,7 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.worlds.inggison;
+
+import ai.SummonerAI2;
 
 import com.aionemu.gameserver.ai2.AI2Actions;
 import com.aionemu.gameserver.ai2.AIName;
@@ -22,13 +25,11 @@ import com.aionemu.gameserver.model.ai.Percentage;
 import com.aionemu.gameserver.model.ai.SummonGroup;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 
-import ai.SummonerAI2;
-
 /**
  * @author Luzien, xTz
+ *
  */
 @AIName("omega")
-// 216516
 public class OmegaAI2 extends SummonerAI2 {
 
 	@Override

@@ -14,38 +14,34 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
+
+import gnu.trove.map.hash.TIntObjectHashMap;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
+
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.model.templates.npcshout.NpcShout;
 import com.aionemu.gameserver.model.templates.npcshout.ShoutEventType;
 import com.aionemu.gameserver.model.templates.npcshout.ShoutGroup;
 import com.aionemu.gameserver.model.templates.npcshout.ShoutList;
 
-import gnu.trove.map.hash.TIntObjectHashMap;
-import javolution.util.FastMap;
-
 /**
  * @author Rolandas
  */
-
 /**
- * <p/>
+ * <p>
  * Java class for anonymous complex type.
- * <p/>
- * The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * 
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -88,8 +84,7 @@ public class NpcShoutData {
 					List<NpcShout> shouts = new ArrayList<NpcShout>(shoutList.getNpcShouts());
 					if (worldShouts.get(npcId) == null) {
 						worldShouts.put(npcId, shouts);
-					}
-					else {
+					} else {
 						worldShouts.get(npcId).addAll(shouts);
 					}
 					shoutList.getNpcIds().remove(j);
@@ -109,7 +104,8 @@ public class NpcShoutData {
 	}
 
 	/**
-	 * Get global npc shouts plus world specific shouts. Make sure to clean it after the use.
+	 * Get global npc shouts plus world specific shouts. Make sure to clean it
+	 * after the use.
 	 *
 	 * @return null if not found
 	 */
@@ -135,7 +131,8 @@ public class NpcShoutData {
 	}
 
 	/**
-	 * Lightweight check for shouts, doesn't use memory as {@link #getNpcShouts(int worldId, int npcId)})
+	 * Lightweight check for shouts, doesn't use memory as
+	 * {@link #getNpcShouts(int worldId, int npcId)})
 	 */
 	public boolean hasAnyShout(int worldId, int npcId) {
 		FastMap<Integer, List<NpcShout>> worldShouts = shoutsByWorldNpcs.get(0);
@@ -150,7 +147,9 @@ public class NpcShoutData {
 	}
 
 	/**
-	 * Lightweight check for shouts, doesn't use memory as {@link #getNpcShouts(int worldId, int npcId, ShoutEventType type, String pattern, int skillNo)})
+	 * Lightweight check for shouts, doesn't use memory as
+	 * {@link #getNpcShouts(int worldId, int npcId, ShoutEventType type, String pattern, int skillNo)}
+	 * )
 	 */
 	public boolean hasAnyShout(int worldId, int npcId, ShoutEventType type) {
 		List<NpcShout> shouts = getNpcShouts(worldId, npcId);

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import java.util.Iterator;
@@ -67,8 +68,7 @@ public class cmd_reskin extends PlayerCommand {
 
 				if (result.find()) {
 					oldItemId = Integer.parseInt(result.group(1));
-				}
-				else {
+				} else {
 					oldItemId = Integer.parseInt(params[0]);
 				}
 				item = params[1];
@@ -78,22 +78,18 @@ public class cmd_reskin extends PlayerCommand {
 
 					if (result.find()) {
 						newItemId = Integer.parseInt(result.group(1));
-					}
-					else {
+					} else {
 						newItemId = Integer.parseInt(params[0]);
 					}
-				}
-				else {
+				} else {
 					PacketSendUtility.sendMessage(player, "syntax .reskin <Old Item> <New Item>");
 					return;
 				}
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(player, "syntax .reskin <Old Item> <New Item>");
 				return;
 			}
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			PacketSendUtility.sendMessage(player, "syntax .reskin <Old Item> <New Item>");
 			return;
 		}
@@ -112,21 +108,19 @@ public class cmd_reskin extends PlayerCommand {
 			PacketSendUtility.sendMessage(player, "You do not have this item in your inventory.");
 			return;
 		}
-		// verification que les items sont du même type.
+		// verification que les items sont du mÃªme type.
 		if (newItem.getItemTemplate().isWeapon() && oldItem.getItemTemplate().isWeapon()) {
 			if (newItem.getItemTemplate().getWeaponType() != oldItem.getItemTemplate().getWeaponType()) {
 				PacketSendUtility.sendMessage(player, "You can not remodel different types of item.");
 				return;
 			}
-		}
-		else if (newItem.getItemTemplate().isArmor() && oldItem.getItemTemplate().isArmor()) {
+		} else if (newItem.getItemTemplate().isArmor() && oldItem.getItemTemplate().isArmor()) {
 			if (newItem.getItemTemplate().getItemSlot() == oldItem.getItemTemplate().getItemSlot()) {
 				if (newItem.getItemTemplate().getArmorType() != oldItem.getItemTemplate().getArmorType()) {
 					PacketSendUtility.sendMessage(player, "You can not remodel different types of item.");
 					return;
 				}
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(player, "You can not remodel different types of item.");
 				return;
 			}
@@ -135,7 +129,6 @@ public class cmd_reskin extends PlayerCommand {
 		final int tollPrice = 750;
 		final long tolls = player.getClientConnection().getAccount().getToll();
 		RequestResponseHandler responseHandler = new RequestResponseHandler(player) {
-
 			@Override
 			public void acceptRequest(Creature p2, Player p) {
 				if (tolls < tollPrice) {

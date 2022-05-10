@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
@@ -23,6 +24,8 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
+
+import javolution.util.FastMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,8 +39,6 @@ import com.aionemu.gameserver.model.challenge.ChallengeTask;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.templates.challenge.ChallengeQuestTemplate;
 import com.aionemu.gameserver.model.templates.challenge.ChallengeType;
-
-import javolution.util.FastMap;
 
 /**
  * @author ViAl
@@ -72,18 +73,15 @@ public class MySQL5ChallengeTasksDAO extends ChallengeTasksDAO {
 					quests.put(quest.getQuestId(), quest);
 					ChallengeTask task = new ChallengeTask(taskId, ownerId, quests, date);
 					tasks.put(taskId, task);
-				}
-				else {
+				} else {
 					tasks.get(taskId).getQuests().put(questId, quest);
 				}
 			}
 			rset.close();
 			stmt.close();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Error while loading challenge task. " + e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(conn);
 		}
 		return tasks;
@@ -119,11 +117,9 @@ public class MySQL5ChallengeTasksDAO extends ChallengeTasksDAO {
 			stmt.executeUpdate();
 			stmt.close();
 			quest.setPersistentState(PersistentState.UPDATED);
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Error while inserting challenge task. " + e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(conn);
 		}
 	}
@@ -141,11 +137,9 @@ public class MySQL5ChallengeTasksDAO extends ChallengeTasksDAO {
 			stmt.executeUpdate();
 			stmt.close();
 			quest.setPersistentState(PersistentState.UPDATED);
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Error while updating challenge task. " + e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(conn);
 		}
 	}

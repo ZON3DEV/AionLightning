@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
@@ -21,8 +22,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import org.slf4j.Logger;
 
 import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.DatabaseFactory;
@@ -30,8 +32,8 @@ import com.aionemu.commons.database.ParamReadStH;
 import com.aionemu.gameserver.dao.MySQL5DAOUtils;
 import com.aionemu.gameserver.dao.PlayerTitleListDAO;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.title.Title;
 import com.aionemu.gameserver.model.gameobjects.player.title.TitleList;
+import com.aionemu.gameserver.model.gameobjects.player.title.Title;
 
 /**
  * @author xavier
@@ -48,7 +50,6 @@ public class MySQL5PlayerTitleListDAO extends PlayerTitleListDAO {
 		final TitleList tl = new TitleList();
 
 		DB.select(LOAD_QUERY, new ParamReadStH() {
-
 			@Override
 			public void setParams(PreparedStatement stmt) throws SQLException {
 				stmt.setInt(1, playerId);
@@ -77,12 +78,10 @@ public class MySQL5PlayerTitleListDAO extends PlayerTitleListDAO {
 			stmt.setInt(3, entry.getExpireTime());
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not store emotionId for player " + player.getObjectId() + " from DB: " + e.getMessage(), e);
 			return false;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return true;
@@ -95,6 +94,7 @@ public class MySQL5PlayerTitleListDAO extends PlayerTitleListDAO {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see com.aionemu.gameserver.dao.PlayerTitleListDAO#removeTitle(int, int)
 	 */
 	@Override
@@ -107,12 +107,10 @@ public class MySQL5PlayerTitleListDAO extends PlayerTitleListDAO {
 			stmt.setInt(2, titleId);
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not delete title for player " + playerId + " from DB: " + e.getMessage(), e);
 			return false;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return true;

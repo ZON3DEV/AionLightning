@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -33,11 +34,7 @@ public enum ItemQuality {
 	LEGEND(3), // Heroic - Blue
 	UNIQUE(4), // Fabled - Yellow
 	EPIC(5), // Eternal - Orange
-	MYTHIC(6), // Test - Purple
-	ANCIENT(7), // Test - Light Yellow
-	RELIC(8), // Test - Pink
-	FINALITY(9); // Test - ??
-
+	MYTHIC(6); // Test - Purple
 	private int qualityId;
 
 	/**

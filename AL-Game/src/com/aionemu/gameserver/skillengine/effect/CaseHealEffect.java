@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAttribute;
@@ -29,6 +30,7 @@ import com.aionemu.gameserver.skillengine.model.HealType;
 
 /**
  * @author kecimis
+ *
  */
 public class CaseHealEffect extends AbstractHealEffect {
 
@@ -41,8 +43,7 @@ public class CaseHealEffect extends AbstractHealEffect {
 	protected int getCurrentStatValue(Effect effect) {
 		if (type == HealType.HP) {
 			return effect.getEffected().getLifeStats().getCurrentHp();
-		}
-		else if (type == HealType.MP) {
+		} else if (type == HealType.MP) {
 			return effect.getEffected().getLifeStats().getCurrentMp();
 		}
 
@@ -53,8 +54,7 @@ public class CaseHealEffect extends AbstractHealEffect {
 	protected int getMaxStatValue(Effect effect) {
 		if (type == HealType.HP) {
 			return effect.getEffected().getGameStats().getMaxHp().getCurrent();
-		}
-		else if (type == HealType.MP) {
+		} else if (type == HealType.MP) {
 			return effect.getEffected().getGameStats().getMaxMp().getCurrent();
 		}
 
@@ -77,7 +77,6 @@ public class CaseHealEffect extends AbstractHealEffect {
 	@Override
 	public void startEffect(final Effect effect) {
 		ActionObserver observer = new ActionObserver(ObserverType.ATTACKED) {
-
 			@Override
 			public void attacked(Creature creature) {
 				calculateHeal(effect);
@@ -96,8 +95,7 @@ public class CaseHealEffect extends AbstractHealEffect {
 			int possibleHealValue = 0;
 			if (percent) {
 				possibleHealValue = maxValue * valueWithDelta / 100;
-			}
-			else {
+			} else {
 				possibleHealValue = valueWithDelta;
 			}
 
@@ -112,8 +110,7 @@ public class CaseHealEffect extends AbstractHealEffect {
 			// apply heal
 			if (type == HealType.HP) {
 				effect.getEffected().getLifeStats().increaseHp(TYPE.HP, finalHeal, effect.getSkillId(), LOG.REGULAR);
-			}
-			else if (type == HealType.MP) {
+			} else if (type == HealType.MP) {
 				effect.getEffected().getLifeStats().increaseMp(TYPE.MP, finalHeal, effect.getSkillId(), LOG.REGULAR);
 			}
 			effect.endEffect();

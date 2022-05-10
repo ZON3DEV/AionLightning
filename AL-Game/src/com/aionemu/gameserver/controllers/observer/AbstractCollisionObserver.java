@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers.observer;
 
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -49,7 +50,6 @@ public abstract class AbstractCollisionObserver extends ActionObserver {
 	public void moved() {
 		if (!isRunning.getAndSet(true)) {
 			ThreadPoolManager.getInstance().execute(new Runnable() {
-
 				@Override
 				public void run() {
 					try {
@@ -63,8 +63,7 @@ public abstract class AbstractCollisionObserver extends ActionObserver {
 						geometry.collideWith(r, results);
 						onMoved(results);
 						oldPos = pos;
-					}
-					finally {
+					} finally {
 						isRunning.set(false);
 					}
 				}

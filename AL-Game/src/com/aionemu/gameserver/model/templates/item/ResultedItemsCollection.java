@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item;
 
 import java.util.ArrayList;
@@ -42,8 +43,7 @@ public class ResultedItemsCollection {
 	public List<RandomItem> getRandomItems() {
 		if (randomItems != null) {
 			return randomItems;
-		}
-		else {
+		} else {
 			return new ArrayList<RandomItem>();
 		}
 	}

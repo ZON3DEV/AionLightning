@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
 
 import java.io.File;
@@ -38,10 +39,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
-import com.aionemu.gameserver.model.templates.walker.WalkerTemplate;
-import com.aionemu.gameserver.world.World;
-
 import javolution.util.FastMap;
+
+import com.aionemu.gameserver.model.templates.walker.WalkerTemplate;
 
 /**
  * @author KKnD, Rolandas
@@ -72,13 +72,6 @@ public class WalkerData {
 		return walkerlistData.size();
 	}
 
-	@Override
-	public WalkerData clone() {
-		WalkerData wd = new WalkerData();
-		wd.setWalkerlistData(getWalkerlistData());
-		return wd;
-	}
-
 	public WalkerTemplate getWalkerTemplate(String routeId) {
 		if (routeId == null) {
 			return null;
@@ -99,8 +92,7 @@ public class WalkerData {
 
 		try {
 			schema = sf.newSchema(new File("./data/static_data/npc_walker/npc_walker.xsd"));
-		}
-		catch (SAXException e1) {
+		} catch (SAXException e1) {
 			log.error("Error while saving data: " + e1.getMessage(), e1.getCause());
 			return;
 		}
@@ -114,12 +106,10 @@ public class WalkerData {
 			marshaller.setSchema(schema);
 			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			marshaller.marshal(this, xml);
-		}
-		catch (JAXBException e) {
+		} catch (JAXBException e) {
 			log.error("Error while saving data: " + e.getMessage(), e.getCause());
 			return;
-		}
-		finally {
+		} finally {
 			if (walkerlist != null) {
 				walkerlist.clear();
 				walkerlist = null;
@@ -129,48 +119,5 @@ public class WalkerData {
 
 	public Collection<WalkerTemplate> getTemplates() {
 		return walkerlistData.values();
-	}
-
-	private FastMap<String, WalkerTemplate> getWalkerlistData() {
-		return walkerlistData;
-	}
-
-	private void setWalkerlistData(FastMap<String, WalkerTemplate> walkerlistData) {
-		this.walkerlistData = walkerlistData;
-	}
-
-	public void replaceTemplate(WalkerTemplate template) {
-		if (walkerlistData.containsKey(template.getRouteId()))
-			walkerlistData.remove(template.getRouteId());
-
-		walkerlistData.put(template.getRouteId(), template);
-	}
-
-	public void writeXml(int worldId) {
-		Schema schema = null;
-		SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-
-		try {
-			schema = sf.newSchema(new File("./data/static_data/npc_walker/npc_walker.xsd"));
-		}
-		catch (SAXException e1) {
-			log.error("Error while saving data: " + e1.getMessage(), e1.getCause());
-			return;
-		}
-
-		File xml = new File("./data/static_data/npc_walker/walker_" + worldId + "_" + World.getInstance().getWorldMap(worldId).getName() + ".xml");
-		JAXBContext jc;
-		Marshaller marshaller;
-		try {
-			jc = JAXBContext.newInstance(WalkerData.class);
-			marshaller = jc.createMarshaller();
-			marshaller.setSchema(schema);
-			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			marshaller.marshal(this, xml);
-		}
-		catch (JAXBException e) {
-			log.error("Error while saving data: " + e.getMessage(), e.getCause());
-			return;
-		}
 	}
 }

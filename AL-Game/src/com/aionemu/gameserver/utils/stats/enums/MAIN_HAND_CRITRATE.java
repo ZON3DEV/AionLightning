@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.stats.enums;
 
 /**
@@ -33,12 +34,11 @@ public enum MAIN_HAND_CRITRATE {
 	PRIEST(2),
 	CLERIC(2),
 	CHANTER(1),
-	ENGINEER(3),
-	RIDER(2),
-	GUNNER(3),
+	ENGINEER(1),
+	RIDER(1),
+	GUNNER(1),
 	ARTIST(1),
-	PAINTER(2),
-	BARD(2);
+	BARD(1);
 
 	private int value;
 

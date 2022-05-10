@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player;
 
 import com.aionemu.gameserver.configs.main.LegionConfig;
@@ -25,7 +26,6 @@ import com.aionemu.gameserver.model.stats.container.StatEnum;
 public enum RewardType {
 
 	AP_PLAYER {
-
 		@Override
 		public long calcReward(Player player, long reward) {
 			float statRate = player.getGameStats().getStat(StatEnum.AP_BOOST, 100).getCurrent() / 100f;
@@ -33,23 +33,13 @@ public enum RewardType {
 		}
 	},
 	AP_NPC {
-
 		@Override
 		public long calcReward(Player player, long reward) {
 			float statRate = player.getGameStats().getStat(StatEnum.AP_BOOST, 100).getCurrent() / 100f;
 			return (long) (reward * player.getRates().getApNpcRate() * statRate);
 		}
 	},
-	GP_PLAYER {
-
-		@Override
-		public long calcReward(Player player, long reward) {
-			return (long) (reward * player.getRates().getGpPlayerGainRate());
-		}
-	},
-
 	HUNTING {
-
 		@Override
 		public long calcReward(Player player, long reward) {
 			float statRate = player.getGameStats().getStat(StatEnum.BOOST_HUNTING_XP_RATE, 100).getCurrent() / 100f;
@@ -61,7 +51,6 @@ public enum RewardType {
 		}
 	},
 	GROUP_HUNTING {
-
 		@Override
 		public long calcReward(Player player, long reward) {
 			float statRate = player.getGameStats().getStat(StatEnum.BOOST_GROUP_HUNTING_XP_RATE, 100).getCurrent() / 100f;
@@ -72,26 +61,13 @@ public enum RewardType {
 			return (long) (reward * player.getRates().getGroupXpRate() * statRate + legionOnlineBonus);
 		}
 	},
-    MONSTER_BOOK {
-
-        @Override
-        public long calcReward(final Player player, long reward) {
-            float statRate = player.getGameStats().getStat(StatEnum.BOOST_BOOK_XP_RATE, 100).getCurrent() / 100f;
-            //if (CustomConfig.ENABLE_EXP_PROGRESSIVE_BOOK && player.getLevel() >= 66 && player.getLevel() <= 75) {
-            //    return (long) (reward * 7L * player.getRates().getBookXpRate() * statRate);
-            //}
-            return (long) (reward * player.getRates().getBookXpRate() * statRate);
-        }
-    },
 	PVP_KILL {
-
 		@Override
 		public long calcReward(Player player, long reward) {
 			return (reward);
 		}
 	},
 	QUEST {
-
 		@Override
 		public long calcReward(Player player, long reward) {
 			float statRate = player.getGameStats().getStat(StatEnum.BOOST_QUEST_XP_RATE, 100).getCurrent() / 100f;
@@ -99,7 +75,6 @@ public enum RewardType {
 		}
 	},
 	CRAFTING {
-
 		@Override
 		public long calcReward(Player player, long reward) {
 			float statRate = player.getGameStats().getStat(StatEnum.BOOST_CRAFTING_XP_RATE, 100).getCurrent() / 100f;
@@ -111,7 +86,6 @@ public enum RewardType {
 		}
 	},
 	GATHERING {
-
 		@Override
 		public long calcReward(Player player, long reward) {
 			float statRate = player.getGameStats().getStat(StatEnum.BOOST_GATHERING_XP_RATE, 100).getCurrent() / 100f;
@@ -120,26 +94,6 @@ public enum RewardType {
 				legionOnlineBonus = (long) (reward * player.getRates().getXpRate() * statRate) / 100 * 10;
 			}
 			return (long) (reward * player.getRates().getGatheringXPRate() * statRate + legionOnlineBonus);
-		}
-	},
-	USEITEM {
-
-		@Override
-		public long calcReward(Player player, long reward) {
-			float statRate = player.getGameStats().getStat(StatEnum.BOOST_QUEST_XP_RATE, 100).getCurrent() / 100f;
-			long legionOnlineBonus = 0;
-			if (player.isLegionMember() && player.getLegion().getOnlineMembersCount() >= LegionConfig.LEGION_BUFF_REQUIRED_MEMBERS) {
-				legionOnlineBonus = (long) (reward * player.getRates().getXpRate() * statRate) / 100 * 10;
-			}
-			return (long) (reward * player.getRates().getQuestXpRate() * statRate + legionOnlineBonus);
-		}
-	},
-	
-	TOWER_OF_CHALLENGE_REWARD {
-
-		@Override
-		public long calcReward(Player player, long reward) {
-			return (reward);
 		}
 	};
 

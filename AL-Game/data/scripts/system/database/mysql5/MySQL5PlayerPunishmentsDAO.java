@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.PreparedStatement;
@@ -42,7 +43,6 @@ public class MySQL5PlayerPunishmentsDAO extends PlayerPunishmentsDAO {
 	@Override
 	public void loadPlayerPunishments(final Player player, final PunishmentType punishmentType) {
 		DB.select(SELECT_QUERY, new ParamReadStH() {
-
 			@Override
 			public void setParams(PreparedStatement ps) throws SQLException {
 				ps.setInt(1, player.getObjectId());
@@ -54,8 +54,7 @@ public class MySQL5PlayerPunishmentsDAO extends PlayerPunishmentsDAO {
 				while (rs.next()) {
 					if (punishmentType == PunishmentType.PRISON) {
 						player.setPrisonTimer(rs.getLong("duration") * 1000);
-					}
-					else if (punishmentType == PunishmentType.GATHER) {
+					} else if (punishmentType == PunishmentType.GATHER) {
 						player.setGatherableTimer(rs.getLong("duration") * 1000);
 					}
 				}
@@ -66,13 +65,11 @@ public class MySQL5PlayerPunishmentsDAO extends PlayerPunishmentsDAO {
 	@Override
 	public void storePlayerPunishments(final Player player, final PunishmentType punishmentType) {
 		DB.insertUpdate(UPDATE_QUERY, new IUStH() {
-
 			@Override
 			public void handleInsertUpdate(PreparedStatement ps) throws SQLException {
 				if (punishmentType == PunishmentType.PRISON) {
 					ps.setLong(1, player.getPrisonTimer() / 1000);
-				}
-				else if (punishmentType == PunishmentType.GATHER) {
+				} else if (punishmentType == PunishmentType.GATHER) {
 					ps.setLong(1, (player.getGatherableTimer() - (System.currentTimeMillis() - player.getStopGatherable())) / 1000);
 				}
 				ps.setInt(2, player.getObjectId());
@@ -85,7 +82,6 @@ public class MySQL5PlayerPunishmentsDAO extends PlayerPunishmentsDAO {
 	@Override
 	public void punishPlayer(final int playerId, final PunishmentType punishmentType, final long duration, final String reason) {
 		DB.insertUpdate(REPLACE_QUERY, new IUStH() {
-
 			@Override
 			public void handleInsertUpdate(PreparedStatement ps) throws SQLException {
 				ps.setInt(1, playerId);
@@ -102,8 +98,7 @@ public class MySQL5PlayerPunishmentsDAO extends PlayerPunishmentsDAO {
 	public void punishPlayer(final Player player, final PunishmentType punishmentType, final String reason) {
 		if (punishmentType == PunishmentType.PRISON) {
 			punishPlayer(player.getObjectId(), punishmentType, player.getPrisonTimer() / 1000, reason);
-		}
-		else if (punishmentType == PunishmentType.GATHER) {
+		} else if (punishmentType == PunishmentType.GATHER) {
 			punishPlayer(player.getObjectId(), punishmentType, player.getGatherableTimer() / 1000, reason);
 		}
 	}
@@ -111,7 +106,6 @@ public class MySQL5PlayerPunishmentsDAO extends PlayerPunishmentsDAO {
 	@Override
 	public void unpunishPlayer(final int playerId, final PunishmentType punishmentType) {
 		DB.insertUpdate(DELETE_QUERY, new IUStH() {
-
 			@Override
 			public void handleInsertUpdate(PreparedStatement ps) throws SQLException {
 				ps.setInt(1, playerId);
@@ -125,7 +119,6 @@ public class MySQL5PlayerPunishmentsDAO extends PlayerPunishmentsDAO {
 	public CharacterBanInfo getCharBanInfo(final int playerId) {
 		final CharacterBanInfo[] charBan = new CharacterBanInfo[1];
 		DB.select(SELECT_QUERY, new ParamReadStH() {
-
 			@Override
 			public void setParams(PreparedStatement ps) throws SQLException {
 				ps.setInt(1, playerId);

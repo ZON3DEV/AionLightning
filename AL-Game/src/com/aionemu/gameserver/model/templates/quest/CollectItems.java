@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.quest;
 
 import java.util.ArrayList;
@@ -36,18 +37,21 @@ public class CollectItems {
 
 	/**
 	 * Gets the value of the collectItem property.
-	 * <p/>
-	 * This accessor method returns a reference to the live list, not a snapshot. Therefore any modification you make to the returned list will be present inside the JAXB object. This is why there is
-	 * not a <CODE>set</CODE> method for the collectItem property.
-	 * <p/>
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a
+	 * snapshot. Therefore any modification you make to the returned list will
+	 * be present inside the JAXB object. This is why there is not a
+	 * <CODE>set</CODE> method for the collectItem property.
+	 * <p>
 	 * For example, to add a new item, do as follows:
-	 * <p/>
-	 * 
+	 *
 	 * <pre>
 	 * getCollectItem().add(newItem);
 	 * </pre>
-	 * <p/>
-	 * Objects of the following type(s) are allowed in the list {@link CollectItem }
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list
+	 * {@link CollectItem
+     * }
 	 */
 	public List<CollectItem> getCollectItem() {
 		if (collectItem == null) {

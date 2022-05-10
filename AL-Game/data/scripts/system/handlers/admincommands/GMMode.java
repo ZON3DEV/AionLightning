@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -25,6 +26,7 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
 /**
  * @author Eloann
+ *
  */
 public class GMMode extends AdminCommand {
 
@@ -50,10 +52,10 @@ public class GMMode extends AdminCommand {
 				admin.setWispable();
 
 				GMService.getInstance().onPlayerLogin(admin); // put gm into
-				// gmlist
+																// gmlist
 				GMService.getInstance().onPlayerAvailable(admin); // send
-				// available
-				// message
+																	// available
+																	// message
 				admin.clearKnownlist();
 				PacketSendUtility.sendPacket(admin, new SM_PLAYER_INFO(admin, false));
 				PacketSendUtility.sendPacket(admin, new SM_MOTION(admin.getObjectId(), admin.getMotions().getActiveMotions()));
@@ -62,17 +64,17 @@ public class GMMode extends AdminCommand {
 
 			}
 		}
-		if (params[0].toLowerCase().equals("off")) {
+		if (params[0].equals("off")) {
 			if (admin.isGmMode()) {
 				admin.setGmMode(false);
 				admin.setUnWispable();
 
 				GMService.getInstance().onPlayerLogedOut(admin); // remove gm
-				// into
-				// gmlist
+																	// into
+																	// gmlist
 				GMService.getInstance().onPlayerUnavailable(admin); // send
-				// unavailable
-				// message
+																	// unavailable
+																	// message
 				admin.clearKnownlist();
 				PacketSendUtility.sendPacket(admin, new SM_PLAYER_INFO(admin, false));
 				PacketSendUtility.sendPacket(admin, new SM_MOTION(admin.getObjectId(), admin.getMotions().getActiveMotions()));

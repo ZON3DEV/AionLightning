@@ -21,9 +21,6 @@ import com.aionemu.gameserver.model.stats.calc.Stat2;
 import com.aionemu.gameserver.model.stats.container.StatEnum;
 import com.aionemu.gameserver.model.templates.item.ArmorType;
 
-/**
- * @author ATracer (based on Mr.Poke ArmorMasteryModifier)
- */
 public class StatArmorMasteryFunction extends StatRateFunction {
 
 	private final ArmorType armorType;

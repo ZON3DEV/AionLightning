@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.scripting.url;
 
 import java.io.IOException;
@@ -25,8 +26,7 @@ import java.net.URLStreamHandler;
 import com.aionemu.commons.scripting.ScriptClassLoader;
 
 /**
- * This class represents URL Stream handler that accepts
- * {@value #HANDLER_PROTOCOL} protocol
+ * This class represents URL Stream handler that accepts {@value #HANDLER_PROTOCOL} protocol
  * 
  * @author SoulKeeper
  */
@@ -46,7 +46,7 @@ public class VirtualClassURLStreamHandler extends URLStreamHandler {
 	 * Creates new instance of url stream handler with given classloader
 	 * 
 	 * @param cl
-	 *            ScriptClassLoaderImpl that was used to load compiled class
+	 *          ScriptClassLoaderImpl that was used to load compiled class
 	 */
 	public VirtualClassURLStreamHandler(ScriptClassLoader cl) {
 		this.cl = cl;
@@ -56,10 +56,10 @@ public class VirtualClassURLStreamHandler extends URLStreamHandler {
 	 * Opens new URL connection for URL
 	 * 
 	 * @param u
-	 *            url
+	 *          url
 	 * @return Opened connection
 	 * @throws IOException
-	 *             never thrown
+	 *           never thrown
 	 */
 	@Override
 	protected URLConnection openConnection(URL u) throws IOException {

@@ -20,13 +20,16 @@ package com.aionemu.gameserver.model.base;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.templates.base.BaseTemplate;
 
+import java.sql.Timestamp;
+
 /**
- * @author Source
+ * @author Himiko
  */
 public class BaseLocation {
 
 	protected BaseTemplate template;
 	protected Race race = Race.NPC;
+	protected Timestamp lastTime;
 
 	public BaseLocation() {
 	}
@@ -43,10 +46,6 @@ public class BaseLocation {
 		return template.getWorldId();
 	}
 
-	public String getName() {
-		return template.getName();
-	}
-
 	public Race getRace() {
 		return race;
 	}
@@ -55,4 +54,19 @@ public class BaseLocation {
 		this.race = race;
 	}
 
+	public int getNameId() {
+		return template.getNameId();
+	}
+
+	public String getName() {
+		return template.getName();
+	}
+
+	public Timestamp getLastTime() {
+		return this.lastTime;
+	}
+
+	public void setLastTime(Timestamp newTime) {
+		this.lastTime = newTime;
+	}
 }

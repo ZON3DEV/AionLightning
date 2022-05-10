@@ -48,6 +48,10 @@ public class SM_AUTH_GG extends AionServerPacket {
     @Override
     protected void writeImpl(LoginConnection con) {
         writeD(sessionId);
-        writeB(new byte[35]);
+        writeD(0x00);
+        writeD(0x00);
+        writeD(0x00);
+        writeD(0x00);
+        writeB(new byte[0x19]);
     }
 }

@@ -14,12 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.geoEngine.scene.mesh;
 
 import java.nio.Buffer;
 
 /**
- * <code>IndexBuffer</code> is an abstraction for integer index buffers, it is used to retrieve indices without knowing in which format they are stored (ushort or uint).
+ * <code>IndexBuffer</code> is an abstraction for integer index buffers, it is
+ * used to retrieve indices without knowing in which format they are stored
+ * (ushort or uint).
  *
  * @author lex
  */

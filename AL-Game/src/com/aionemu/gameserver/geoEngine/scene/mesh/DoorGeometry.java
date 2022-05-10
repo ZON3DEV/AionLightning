@@ -14,15 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.geoEngine.scene.mesh;
 
-import java.util.BitSet;
+package com.aionemu.gameserver.geoEngine.scene.mesh;
 
 import com.aionemu.gameserver.geoEngine.collision.Collidable;
 import com.aionemu.gameserver.geoEngine.collision.CollisionResults;
 import com.aionemu.gameserver.geoEngine.math.Ray;
 import com.aionemu.gameserver.geoEngine.scene.Geometry;
-import com.aionemu.gameserver.geoEngine.scene.Mesh;
+
+import java.util.BitSet;
 
 /**
  * @author MrPoke, Rolandas
@@ -32,8 +32,8 @@ public class DoorGeometry extends Geometry {
 	BitSet instances = new BitSet();
 	private boolean foundTemplate = false;
 
-	public DoorGeometry(String name, Mesh mesh) {
-		super(name, mesh);
+	public DoorGeometry(String name) {
+		super(name);
 	}
 
 	public void setDoorState(int instanceId, boolean isOpened) {

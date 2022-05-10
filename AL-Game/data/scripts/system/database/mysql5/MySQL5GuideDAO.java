@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
@@ -23,8 +24,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import org.slf4j.Logger;
 
 import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.DatabaseFactory;
@@ -57,12 +59,10 @@ public class MySQL5GuideDAO extends GuideDAO {
 			stmt.setInt(1, guide_id);
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Error delete guide_id: " + guide_id, e);
 			return false;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return true;
@@ -88,11 +88,9 @@ public class MySQL5GuideDAO extends GuideDAO {
 			}
 			rset.close();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not restore Guide data for player: " + playerId + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return guides;
@@ -116,11 +114,9 @@ public class MySQL5GuideDAO extends GuideDAO {
 			}
 			rset.close();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not restore Survey data for player: " + player_id + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return guide;
@@ -138,11 +134,9 @@ public class MySQL5GuideDAO extends GuideDAO {
 			stmt.setInt(3, player.getObjectId());
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Error saving playerName: " + player, e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}
@@ -162,11 +156,9 @@ public class MySQL5GuideDAO extends GuideDAO {
 				ids[i] = rs.getInt("guide_id");
 			}
 			return ids;
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Can't get list of id's from guides table", e);
-		}
-		finally {
+		} finally {
 			DB.close(statement);
 		}
 		return new int[0];

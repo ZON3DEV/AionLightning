@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.stats.enums;
 
 /**
@@ -37,7 +38,6 @@ public enum MAXMP {
 	RIDER(100),
 	GUNNER(100),
 	ARTIST(100),
-	PAINTER(100),
 	BARD(100);
 
 	private int value;

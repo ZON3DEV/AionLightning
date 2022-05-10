@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
@@ -27,6 +28,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Nullable;
+
+import javolution.util.FastList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,8 +55,6 @@ import com.aionemu.gameserver.world.World;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
 
-import javolution.util.FastList;
-
 /**
  * @author Rolandas
  */
@@ -62,47 +63,45 @@ public class MySQL5PlayerRegisteredItemsDAO extends PlayerRegisteredItemsDAO {
 	private static final Logger log = LoggerFactory.getLogger(MySQL5PlayerRegisteredItemsDAO.class);
 	public static final String CLEAN_PLAYER_QUERY = "DELETE FROM `player_registered_items` WHERE `player_id` = ?";
 	public static final String SELECT_QUERY = "SELECT * FROM `player_registered_items` WHERE `player_id`=?";
-	public static final String INSERT_QUERY = "INSERT INTO `player_registered_items` " + "(`expire_time`,`color`,`color_expires`,`owner_use_count`,`visitor_use_count`,`x`,`y`,`z`,`h`,`area`,`floor`,`player_id`,`item_unique_id`,`item_id`) VALUES " + "(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-	public static final String UPDATE_QUERY = "UPDATE `player_registered_items` SET " + "`expire_time`=?,`color`=?,`color_expires`=?,`owner_use_count`=?,`visitor_use_count`=?,`x`=?,`y`=?,`z`=?,`h`=?,`area`=?,`floor`=? " + "WHERE `player_id`=? AND `item_unique_id`=? AND `item_id`=?";
+	public static final String INSERT_QUERY = "INSERT INTO `player_registered_items` "
+			+ "(`expire_time`,`color`,`color_expires`,`owner_use_count`,`visitor_use_count`,`x`,`y`,`z`,`h`,`area`,`floor`,`player_id`,`item_unique_id`,`item_id`) VALUES "
+			+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	public static final String UPDATE_QUERY = "UPDATE `player_registered_items` SET "
+			+ "`expire_time`=?,`color`=?,`color_expires`=?,`owner_use_count`=?,`visitor_use_count`=?,`x`=?,`y`=?,`z`=?,`h`=?,`area`=?,`floor`=? "
+			+ "WHERE `player_id`=? AND `item_unique_id`=? AND `item_id`=?";
 	public static final String DELETE_QUERY = "DELETE FROM `player_registered_items` WHERE `item_unique_id` = ?";
 	public static final String RESET_QUERY = "UPDATE `player_registered_items` SET x=0,y=0,z=0,h=0,area='NONE' WHERE `player_id`=? AND `area` != 'DECOR'";
 	private static final Predicate<HouseObject<?>> objectsToAddPredicate = new Predicate<HouseObject<?>>() {
-
 		@Override
 		public boolean apply(@Nullable HouseObject<?> input) {
 			return input != null && (input.getPersistentState() == PersistentState.NEW);
 		}
 	};
 	private static final Predicate<HouseObject<?>> objectsToUpdatePredicate = new Predicate<HouseObject<?>>() {
-
 		@Override
 		public boolean apply(@Nullable HouseObject<?> input) {
 			return input != null && (input.getPersistentState() == PersistentState.UPDATE_REQUIRED);
 		}
 	};
 	private static final Predicate<HouseObject<?>> objectsToDeletePredicate = new Predicate<HouseObject<?>>() {
-
 		@Override
 		public boolean apply(@Nullable HouseObject<?> input) {
 			return input != null && PersistentState.DELETED == input.getPersistentState();
 		}
 	};
 	private static final Predicate<HouseDecoration> partsToAddPredicate = new Predicate<HouseDecoration>() {
-
 		@Override
 		public boolean apply(@Nullable HouseDecoration input) {
 			return input != null && (input.getPersistentState() == PersistentState.NEW);
 		}
 	};
 	private static final Predicate<HouseDecoration> partsToUpdatePredicate = new Predicate<HouseDecoration>() {
-
 		@Override
 		public boolean apply(@Nullable HouseDecoration input) {
 			return input != null && (input.getPersistentState() == PersistentState.UPDATE_REQUIRED);
 		}
 	};
 	private static final Predicate<HouseDecoration> partsToDeletePredicate = new Predicate<HouseDecoration>() {
-
 		@Override
 		public boolean apply(@Nullable HouseDecoration input) {
 			return input != null && PersistentState.DELETED == input.getPersistentState();
@@ -111,7 +110,8 @@ public class MySQL5PlayerRegisteredItemsDAO extends PlayerRegisteredItemsDAO {
 
 	@Override
 	public int[] getUsedIDs() {
-		PreparedStatement statement = DB.prepareStatement("SELECT item_unique_id FROM player_registered_items WHERE item_unique_id <> 0", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+		PreparedStatement statement = DB.prepareStatement("SELECT item_unique_id FROM player_registered_items WHERE item_unique_id <> 0",
+				ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 
 		try {
 			ResultSet rs = statement.executeQuery();
@@ -124,11 +124,9 @@ public class MySQL5PlayerRegisteredItemsDAO extends PlayerRegisteredItemsDAO {
 				ids[i] = rs.getInt(1);
 			}
 			return ids;
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Can't get list of id's from player_registered_items table", e);
-		}
-		finally {
+		} finally {
 			DB.close(statement);
 		}
 
@@ -168,8 +166,7 @@ public class MySQL5PlayerRegisteredItemsDAO extends PlayerRegisteredItemsDAO {
 						usedForType.add(dec);
 					}
 					dec.setPersistentState(PersistentState.UPDATED);
-				}
-				else {
+				} else {
 					HouseObject<?> obj = constructObject(registry, house, rset);
 					registry.putObject(obj);
 					obj.setPersistentState(PersistentState.UPDATED);
@@ -195,11 +192,9 @@ public class MySQL5PlayerRegisteredItemsDAO extends PlayerRegisteredItemsDAO {
 			}
 			registry.setPersistentState(PersistentState.UPDATED);
 			rset.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not restore house registry data for player: " + playerId + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(stmt, con);
 		}
 	}
@@ -211,12 +206,10 @@ public class MySQL5PlayerRegisteredItemsDAO extends PlayerRegisteredItemsDAO {
 		if (visObj != null) {
 			if (visObj instanceof HouseObject<?>) {
 				obj = (HouseObject<?>) visObj;
-			}
-			else {
+			} else {
 				throw new IllegalAccessException("Someone stole my house object id : " + itemUniqueId);
 			}
-		}
-		else {
+		} else {
 			obj = registry.getObjectByObjId(itemUniqueId);
 			if (obj == null) {
 				obj = HouseObjectFactory.createNew(house, itemUniqueId, rset.getInt("item_id"));
@@ -270,19 +263,16 @@ public class MySQL5PlayerRegisteredItemsDAO extends PlayerRegisteredItemsDAO {
 			storeObjects(con, objectsToAdd, playerId, true);
 			storeParts(con, partsToAdd, playerId, true);
 			registry.setPersistentState(PersistentState.UPDATED);
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Can't open connection to save player inventory: " + playerId);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 
 		for (HouseObject<?> obj : objects) {
 			if (obj.getPersistentState() == PersistentState.DELETED) {
 				registry.discardObject(obj.getObjectId());
-			}
-			else {
+			} else {
 				obj.setPersistentState(PersistentState.UPDATED);
 			}
 		}
@@ -290,8 +280,7 @@ public class MySQL5PlayerRegisteredItemsDAO extends PlayerRegisteredItemsDAO {
 		for (HouseDecoration decor : decors) {
 			if (decor.getPersistentState() == PersistentState.DELETED) {
 				registry.discardPart(decor);
-			}
-			else {
+			} else {
 				decor.setPersistentState(PersistentState.UPDATED);
 			}
 		}
@@ -325,15 +314,13 @@ public class MySQL5PlayerRegisteredItemsDAO extends PlayerRegisteredItemsDAO {
 			for (HouseObject<?> obj : objects) {
 				if (obj.getExpireTime() > 0) {
 					stmt.setInt(1, obj.getExpireTime());
-				}
-				else {
+				} else {
 					stmt.setNull(1, Types.INTEGER);
 				}
 
 				if (obj.getColor() == null) {
 					stmt.setNull(2, Types.INTEGER);
-				}
-				else {
+				} else {
 					stmt.setInt(2, obj.getColor());
 				}
 
@@ -346,8 +333,7 @@ public class MySQL5PlayerRegisteredItemsDAO extends PlayerRegisteredItemsDAO {
 				stmt.setInt(9, obj.getHeading());
 				if (obj.getX() > 0 || obj.getY() > 0 || obj.getZ() > 0) {
 					stmt.setString(10, obj.getPlaceArea().toString());
-				}
-				else {
+				} else {
 					stmt.setString(10, "NONE");
 				}
 				stmt.setByte(11, (byte) 0);
@@ -359,12 +345,10 @@ public class MySQL5PlayerRegisteredItemsDAO extends PlayerRegisteredItemsDAO {
 
 			stmt.executeBatch();
 			con.commit();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Failed to execute house object update batch", e);
 			return false;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(stmt);
 		}
 		return true;
@@ -399,12 +383,10 @@ public class MySQL5PlayerRegisteredItemsDAO extends PlayerRegisteredItemsDAO {
 
 			stmt.executeBatch();
 			con.commit();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Failed to execute house parts update batch", e);
 			return false;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(stmt);
 		}
 		return true;
@@ -425,12 +407,10 @@ public class MySQL5PlayerRegisteredItemsDAO extends PlayerRegisteredItemsDAO {
 
 			stmt.executeBatch();
 			con.commit();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Failed to execute delete batch", e);
 			return false;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(stmt);
 		}
 		return true;
@@ -451,12 +431,10 @@ public class MySQL5PlayerRegisteredItemsDAO extends PlayerRegisteredItemsDAO {
 
 			stmt.executeBatch();
 			con.commit();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Failed to execute delete batch", e);
 			return false;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(stmt);
 		}
 		return true;
@@ -472,12 +450,10 @@ public class MySQL5PlayerRegisteredItemsDAO extends PlayerRegisteredItemsDAO {
 			stmt.setInt(1, playerId);
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Error in deleting all player registered items. PlayerObjId: " + playerId, e);
 			return false;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return true;
@@ -493,11 +469,9 @@ public class MySQL5PlayerRegisteredItemsDAO extends PlayerRegisteredItemsDAO {
 			stmt.setInt(1, playerId);
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Error in resetting  player registered items. PlayerObjId: " + playerId, e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}

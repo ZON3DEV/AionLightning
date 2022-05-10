@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -53,12 +54,13 @@ public class MovePlayerToPlayer extends AdminCommand {
 			return;
 		}
 
-		if (playerToMove.getObjectId() == playerDestination.getObjectId()) {
+		if (playerToMove.getObjectId().equals(playerDestination.getObjectId())) {
 			PacketSendUtility.sendMessage(admin, "Cannot move the specified player to their own position.");
 			return;
 		}
 
-		TeleportService2.teleportTo(playerToMove, playerDestination.getWorldId(), playerDestination.getInstanceId(), playerDestination.getX(), playerDestination.getY(), playerDestination.getZ(), playerDestination.getHeading());
+		TeleportService2.teleportTo(playerToMove, playerDestination.getWorldId(), playerDestination.getInstanceId(), playerDestination.getX(),
+				playerDestination.getY(), playerDestination.getZ(), playerDestination.getHeading());
 
 		PacketSendUtility.sendMessage(admin, "Teleported player " + playerToMove.getName() + " to the location of player " + playerDestination.getName() + ".");
 		PacketSendUtility.sendMessage(playerToMove, "You have been teleported by an administrator.");

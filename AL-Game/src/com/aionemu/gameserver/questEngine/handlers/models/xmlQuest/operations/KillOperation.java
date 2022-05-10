@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.handlers.models.xmlQuest.operations;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,7 +33,9 @@ public class KillOperation extends QuestOperation {
 
 	/*
 	 * (non-Javadoc)
-	 * @seecom.aionemu.gameserver.questEngine.handlers.models.xmlQuest.operations.QuestOperation#doOperate(com.aionemu. gameserver.services.QuestService,
+	 *
+	 * @seecom.aionemu.gameserver.questEngine.handlers.models.xmlQuest.operations
+	 * .QuestOperation#doOperate(com.aionemu. gameserver.services.QuestService,
 	 * com.aionemu.gameserver.questEngine.model.QuestEnv)
 	 */
 	@Override

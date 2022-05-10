@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.gmhandler;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -21,9 +22,9 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_RESURRECT;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
- * @author Alcapwnd
+ * @author Antraxx
  */
-public class CmdResurrect extends AbstractGMHandler {
+public final class CmdResurrect extends AbstractGMHandler {
 
 	public CmdResurrect(Player admin, String params) {
 		super(admin, params);
@@ -38,5 +39,4 @@ public class CmdResurrect extends AbstractGMHandler {
 		t.setPlayerResActivate(true);
 		PacketSendUtility.sendPacket(t, new SM_RESURRECT(admin));
 	}
-
 }

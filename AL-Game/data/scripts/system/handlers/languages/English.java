@@ -34,11 +34,13 @@ public class English extends Language {
 		addTranslatedMessage(CustomMessageId.WELCOME_REGULAR, "Welcome To ");
 		addTranslatedMessage(CustomMessageId.WELCOME_BASIC, "Welcome To ");
 		/**
-		 * Disabled on English, as they comes already from CustomMessageId.java. addTranslatedMessage(CustomMessageId.INFO1, "WARNING: Using of third-party software (speed hack&Co.) will be punished
-		 * with permanent ban (Ban MAC)" ); addTranslatedMessage(CustomMessageId.INFO2, "Note: Likewise, hacking will result in an immediate ban regardless of reasons behind it." );
+		 * Disabled on English, as they comes already from CustomMessageId.java.
+		 * addTranslatedMessage(CustomMessageId.INFO1, "WARNING: Using of third-party software (speed hack&Co.) will be punished with permanent ban (Ban MAC)" );
+		 * addTranslatedMessage(CustomMessageId.INFO2, "Note: Likewise, hacking will result in an immediate ban regardless of reasons behind it." );
 		 * addTranslatedMessage(CustomMessageId.INFO3, "Note: The advertising for other servers is prohibited.Breaking this rule will result a permanent ban!" );
-		 * addTranslatedMessage(CustomMessageId.INFO4, "Note: Our team will never ask you for your account password!"); addTranslatedMessage(CustomMessageId.INFO5, "Chat: Use .faction, .ely, .asmo
-		 * <text>, to write in your faction World chat." ); addTranslatedMessage(CustomMessageId.INFO6, "Tip: Use /1, /2 and /3 to use the other Chat Channels.");
+		 * addTranslatedMessage(CustomMessageId.INFO4, "Note: Our team will never ask you for your account password!");
+		 * addTranslatedMessage(CustomMessageId.INFO5, "Chat: Use .faction, .ely, .asmo <text>, to write in your faction World chat." );
+		 * addTranslatedMessage(CustomMessageId.INFO6, "Tip: Use /1, /2 and /3 to use the other Chat Channels.");
 		 * addTranslatedMessage(CustomMessageId.INFO7, "Help: use the command: .help to see other available player commands." );
 		 */
 		addTranslatedMessage(CustomMessageId.SERVERVERSION, "Supported NCSoft Version ");
@@ -303,13 +305,6 @@ public class English extends Language {
 		addTranslatedMessage(CustomMessageId.INVASION_RIFT_MIN_LEVEL, "Your level is too low to enter.");
 		addTranslatedMessage(CustomMessageId.INVASION_RIFT_ELYOS, "A rift for Pandaemonium is open at Ingisson");
 		addTranslatedMessage(CustomMessageId.INVASION_RIFT_ASMOS, "A rift for Sanctum is open at Gelkmaros");
-
-		/**
-		 * Additional Chest Drops
-		 */
-		addTranslatedMessage(CustomMessageId.DECOMPOSE_SERVICE_MESSAGE1, "%s has obtained %s from %s.");
-		addTranslatedMessage(CustomMessageId.DECOMPOSE_SERVICE_MESSAGE2, "%s has obtained additional %s from %s (Premium).");
-		addTranslatedMessage(CustomMessageId.DECOMPOSE_SERVICE_MESSAGE3, "%s has obtained additional %s from %s (VIP).");
 
 		/**
 		 * PvP Spree Service

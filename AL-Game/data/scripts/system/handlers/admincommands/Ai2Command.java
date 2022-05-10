@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import java.util.Iterator;
@@ -24,9 +25,9 @@ import com.aionemu.gameserver.ai2.AI2Engine;
 import com.aionemu.gameserver.ai2.AIState;
 import com.aionemu.gameserver.ai2.AISubState;
 import com.aionemu.gameserver.ai2.AbstractAI;
-import com.aionemu.gameserver.ai2.NpcAI2;
 import com.aionemu.gameserver.ai2.event.AIEventLog;
 import com.aionemu.gameserver.ai2.event.AIEventType;
+import com.aionemu.gameserver.ai2.NpcAI2;
 import com.aionemu.gameserver.configs.main.AIConfig;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
@@ -113,23 +114,19 @@ public class Ai2Command extends AdminCommand {
 
 		String param1 = params[1];
 		if (param0.equals("set")) {
-			String aiName = param1;
-			AI2Engine.getInstance().setupAI(aiName, npc);
-		}
-		else if (param0.equals("event")) {
+			AI2Engine.getInstance().setupAI(param1, npc);
+		} else if (param0.equals("event")) {
 			AIEventType eventType = AIEventType.valueOf(param1.toUpperCase());
 			if (eventType != null) {
 				npc.getAi2().onGeneralEvent(eventType);
 			}
-		}
-		else if (param0.equals("event2")) {
+		} else if (param0.equals("event2")) {
 			AIEventType eventType = AIEventType.valueOf(param1.toUpperCase());
 			Creature creature = (Creature) World.getInstance().findVisibleObject(Integer.valueOf(params[2]));
 			if (eventType != null) {
 				npc.getAi2().onCreatureEvent(eventType, creature);
 			}
-		}
-		else if (param0.equals("state")) {
+		} else if (param0.equals("state")) {
 			AIState state = AIState.valueOf(param1.toUpperCase());
 			((NpcAI2) npc.getAi2()).setStateIfNot(state);
 			if (params.length > 2) {

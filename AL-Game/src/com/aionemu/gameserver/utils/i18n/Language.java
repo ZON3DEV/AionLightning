@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.i18n;
 
 import java.util.List;
@@ -54,7 +55,9 @@ public class Language {
 	}
 
 	/*
-	 * public String translateRU(CustomMessageIdRU id, Object... params) { if (translatedMessages.containsKey(id)) { return String.format(translatedMessages.get(id), params); } return
+	 * public String translateRU(CustomMessageIdRU id, Object... params) { if
+	 * (translatedMessages.containsKey(id)) { return
+	 * String.format(translatedMessages.get(id), params); } return
 	 * String.format(id.getFallbackMessage(), params); }
 	 */
 	protected void addTranslatedMessage(CustomMessageId id, String message) {

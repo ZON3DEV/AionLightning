@@ -14,10 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.clientpackets;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -33,16 +31,16 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class CM_CASTSPELL extends AionClientPacket {
 
-	private Logger log = LoggerFactory.getLogger(CM_CASTSPELL.class);
 	private int spellid;
 	// 0 - obj id, 1 - point location, 2 - unk, 3 - object not in sight(skill 1606)? 4 - unk
 	private int targetType;
-	private float x, y, z;
+	private float x;
+	private float y;
+	private float z;
 	@SuppressWarnings("unused")
 	private int targetObjectId;
 	private int hitTime;
 	private int level;
-	private int unk;
 
 	/**
 	 * Constructs new instance of <tt>CM_CM_REQUEST_DIALOG </tt> packet
@@ -57,12 +55,13 @@ public class CM_CASTSPELL extends AionClientPacket {
 	protected void readImpl() {
 		spellid = readH();
 		level = readC();
+
 		targetType = readC();
+
 		switch (targetType) {
 			case 0:
 			case 3:
 			case 4:
-			case 87:
 				targetObjectId = readD();
 				break;
 			case 1:
@@ -83,13 +82,9 @@ public class CM_CASTSPELL extends AionClientPacket {
 				readF();// unk7
 				readF();// unk8
 				break;
-			default:
-				break;
 		}
 
 		hitTime = readH();
-		unk = readD();// unk can be big values
-		log.debug("[CM_CASTSPELL] Unk value: " + unk);
 	}
 
 	@Override
@@ -112,6 +107,9 @@ public class CM_CASTSPELL extends AionClientPacket {
 		}
 
 		if (!player.getLifeStats().isAlreadyDead()) {
+			if (((!player.isTransformed()) || (player.getTransformModel().getPanelId() == 0)) && (!player.getSkillList().isSkillPresent(spellid))) {
+				return;
+			}
 			player.getController().useSkill(template, targetType, x, y, z, hitTime, level);
 		}
 	}

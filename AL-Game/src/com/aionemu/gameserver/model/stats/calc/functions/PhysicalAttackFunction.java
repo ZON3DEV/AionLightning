@@ -22,13 +22,13 @@ import com.aionemu.gameserver.model.stats.container.StatEnum;
 class PhysicalAttackFunction extends StatFunction {
 
 	PhysicalAttackFunction() {
-		stat = StatEnum.PHYSICAL_ATTACK;
+		this.stat = StatEnum.PHYSICAL_ATTACK;
 	}
 
 	@Override
 	public void apply(Stat2 stat) {
 		float power = stat.getOwner().getGameStats().getPower().getCurrent();
-		stat.setBase(Math.round(stat.getBase() * power / 100f));
+		stat.setBase(Math.round(stat.getBase() * power / 100.0F));
 	}
 
 	@Override

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.tasks;
 
 import java.sql.Timestamp;
@@ -59,8 +60,7 @@ public class TaskFromDB {
 
 		if (param != null) {
 			this.params = param.split(" ");
-		}
-		else {
+		} else {
 			this.params = new String[0];
 		}
 	}

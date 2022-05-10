@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import org.slf4j.Logger;
@@ -45,8 +46,7 @@ public class SM_FRIEND_UPDATE extends AionServerPacket {
 		Friend f = con.getActivePlayer().getFriendList().getFriend(friendObjId);
 		if (f == null) {
 			log.debug("Attempted to update friend list status of " + friendObjId + " for " + con.getActivePlayer().getName() + " - object ID not found on friend list");
-		}
-		else {
+		} else {
 			writeS(f.getName());
 			writeD(f.getLevel());
 			writeD(f.getPlayerClass().getClassId());

@@ -14,12 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.house;
 
 import com.aionemu.commons.taskmanager.AbstractLockManager;
 
 /**
- * @author Rolandas Use readLock + readUnlock to read both fields, because they may change !!!
+ * @author Rolandas Use readLock + readUnlock to read both fields, because they
+ *         may change !!!
  */
 public final class PlayerScript extends AbstractLockManager {
 

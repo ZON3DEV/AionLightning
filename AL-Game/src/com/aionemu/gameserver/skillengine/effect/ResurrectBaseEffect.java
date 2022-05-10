@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,21 +52,20 @@ public class ResurrectBaseEffect extends ResurrectEffect {
 
 		if (effected instanceof Player) {
 			ActionObserver observer = new ActionObserver(ObserverType.DEATH) {
-
 				@Override
 				public void died(Creature creature) {
-					Player effected = (Player) effect.getEffected();
-					if (effected.isInInstance()) {
-						PlayerReviveService.instanceRevive(effected, skillId);
+					if (effected instanceof Player) {
+						Player effected = (Player) effect.getEffected();
+						if (effected.isInInstance()) {
+							PlayerReviveService.instanceRevive(effected, skillId);
+						} else if (effected.getKisk() != null) {
+							PlayerReviveService.kiskRevive(effected, skillId);
+						} else {
+							PlayerReviveService.bindRevive(effected, skillId);
+						}
+						PacketSendUtility.broadcastPacket(effected, new SM_EMOTION(effected, EmotionType.RESURRECT), true);
+						PacketSendUtility.sendPacket(effected, new SM_PLAYER_SPAWN(effected));
 					}
-					else if (effected.getKisk() != null) {
-						PlayerReviveService.kiskRevive(effected, skillId);
-					}
-					else {
-						PlayerReviveService.bindRevive(effected, skillId);
-					}
-					PacketSendUtility.broadcastPacket(effected, new SM_EMOTION(effected, EmotionType.RESURRECT), true);
-					PacketSendUtility.sendPacket(effected, new SM_PLAYER_SPAWN(effected));
 				}
 			};
 			effect.getEffected().getObserveController().attach(observer);

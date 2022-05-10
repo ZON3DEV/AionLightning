@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -35,8 +36,7 @@ public class Status extends AdminCommand {
 	public void execute(Player admin, String... params) {
 		if (params[0].equalsIgnoreCase("alliance")) {
 			PacketSendUtility.sendMessage(admin, PlayerAllianceService.getServiceStatus());
-		}
-		else if (params[0].equalsIgnoreCase("group")) {
+		} else if (params[0].equalsIgnoreCase("group")) {
 			PacketSendUtility.sendMessage(admin, PlayerGroupService.getServiceStatus());
 		}
 	}

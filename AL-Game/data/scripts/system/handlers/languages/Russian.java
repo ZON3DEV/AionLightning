@@ -21,7 +21,6 @@ import com.aionemu.gameserver.utils.i18n.CustomMessageId;
 import com.aionemu.gameserver.utils.i18n.Language;
 
 public class Russian extends Language {
-
 	public Russian() {
 		super("ru");
 		addSupportedLanguage("ru_RU");
@@ -291,13 +290,6 @@ public class Russian extends Language {
 		addTranslatedMessage(CustomMessageId.INVASION_RIFT_MIN_LEVEL, "Ваш уровень слишком низкий, чтобы войти.");
 		addTranslatedMessage(CustomMessageId.INVASION_RIFT_ELYOS, "Пространственный разлом в Пандемониум открылся в локации: Ингисон");
 		addTranslatedMessage(CustomMessageId.INVASION_RIFT_ASMOS, "Пространственный разлом в Элизиум открылся в локации: Келькмарос");
-
-		/**
-		 * Additional Chest Drops
-		 */
-		addTranslatedMessage(CustomMessageId.DECOMPOSE_SERVICE_MESSAGE1, "%s has obtained %s from %s.");
-		addTranslatedMessage(CustomMessageId.DECOMPOSE_SERVICE_MESSAGE2, "%s has obtained additional %s from %s (Premium).");
-		addTranslatedMessage(CustomMessageId.DECOMPOSE_SERVICE_MESSAGE3, "%s has obtained additional %s from %s (VIP).");
 
 		/**
 		 * PvP Spree Service

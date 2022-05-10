@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.i18n;
 
 import com.aionemu.gameserver.configs.network.NetworkConfig;
@@ -67,6 +68,8 @@ public enum CustomMessageId {
 	COMMAND_ADDTITLE_CANNOT_ADD_TITLE_TO_PLAYER("You can't add title %d to %s"),
 	COMMAND_ADDTITLE_ADMIN_SUCCESS_ME("You added title %d to yourself with success"),
 	COMMAND_ADDTITLE_ADMIN_SUCCESS("You added title %d to %s with success"),
+	COMMAND_ATTRBONUS_MESSAGE1("Syntax //attrbonus <modifier> <value>"),
+	COMMAND_ATTRBONUS_MESSAGE2("Parameter should number"),
 	COMMAND_ADDTITLE_PLAYER_SUCCESS("Admin %s gave you title %d"),
 	COMMAND_SEND_SYNTAX("Syntax: //send <filename>"),
 	COMMAND_SEND_MAPPING_NOT_FOUND("Mapping %s not found"),
@@ -180,12 +183,6 @@ public enum CustomMessageId {
 	TOLOWTOLL("You don't have enough Toll!"),
 	WRONGTOLLNUM("Something went wrong!"),
 	/**
-	 * Luna System
-	 */
-	LUNATOBIG("You have to much Luna Coins!"),
-	TOLOWLUNA("You don't have enough Luna Coins!"),
-	WRONGLUNANUM("Something went wrong!"),
-	/**
 	 * Cube Command
 	 */
 	CUBE_ALLREADY_EXPANDED("You're cube is allready fully expanded!"),
@@ -290,7 +287,6 @@ public enum CustomMessageId {
 	BATTLEGROUNDAGENTCONTROLLER_1("You are already registered in a battleground."),
 	BATTLEGROUNDFLAGCONTROLLER_2("unhandled case."),
 	BATTLEGROUNDFLAGCONTROLLER_3("Do you want to register in a battleground ?"),
-
 	COMMAND_BATTLEGROUND_MESSAGE0("You cannot register for battlegrounds while you are in prison."),
 	COMMAND_BATTLEGROUND_MESSAGE1("You are already in a battleground."),
 	COMMAND_BATTLEGROUND_MESSAGE2("Use your spell Return to leave the battleground."),
@@ -363,6 +359,7 @@ public enum CustomMessageId {
 	DIM_VORTEX_SPAWNED_ASMO("The Dimensional Vortex was opened for Asmodians!"),
 	DIM_VORTEX_DESPAWNED("The Dimensional Assault finished!"),
 
+
 	/**
 	 * Legendary Raid Spawn Events
 	 */
@@ -416,15 +413,15 @@ public enum CustomMessageId {
 	 * GM Announce
 	 */
 	TAG_1(" [Supporter] "),
-	TAG_2(" [Junior-GM] "),
-	TAG_3(" [Senior-GM] "),
+	TAG_2(" [Jr-GM] "),
+	TAG_3(" [GM] "),
 	TAG_4(" [Head-GM] "),
 	TAG_5(" [Admin] "),
-	TAG_6(" [Developer] "),
-	TAG_7(" [Server-CoAdmin] "),
-	TAG_8(" [Server-Admin] "),
-	TAG_9(" (Server-CoOwner) "),
-	TAG_10(" [Server-Owner] "),
+	TAG_6(" [R-Admin1] "),
+	TAG_7(" [R-Admin2] "),
+	TAG_8(" [R-Admin3] "),
+	TAG_9(" (Co-Owner) "),
+	TAG_10(" [S-Owner] "),
 	/**
 	 * Shugo Imperial Tomb Event
 	 */
@@ -441,12 +438,6 @@ public enum CustomMessageId {
 	INVASION_RIFT_MIN_LEVEL("Your level is too low to enter."),
 	INVASION_RIFT_ELYOS("A rift for Pandaemonium is open at Ingisson"),
 	INVASION_RIFT_ASMOS("A rift for Sanctum is open at Gelkmaros"),
-	/**
-	 * Additional Chest Drops
-	 */
-	DECOMPOSE_SERVICE_MESSAGE1("%s has obtained %s from %s."),
-	DECOMPOSE_SERVICE_MESSAGE2("%s has obtained additional %s from %s (Premium)."),
-	DECOMPOSE_SERVICE_MESSAGE3("%s has obtained additional %s from %s (VIP)."),
 	/**
 	 * PvP Spree Service
 	 */
@@ -466,7 +457,6 @@ public enum CustomMessageId {
 	SPREE_END_MSG3(" after "),
 	SPREE_END_MSG4(" uninterrupted murders !"),
 	SPREE_MONSTER_MSG("a monster");
-
 	private String fallbackMessage;
 
 	private CustomMessageId(String fallbackMessage) {

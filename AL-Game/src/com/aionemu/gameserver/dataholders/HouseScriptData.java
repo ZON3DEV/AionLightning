@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
 
 import java.io.File;
@@ -31,11 +32,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -73,21 +70,15 @@ public class HouseScriptData {
 			marshaller = jc.createMarshaller();
 			marshaller.setSchema(schema);
 			marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-16");
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not instantiate HouseScriptData : \n" + e);
 		}
 	}
-
 	@XmlElement(name = "lbox", required = true)
 	protected List<LBox> scriptData;
 	@XmlTransient
 	private final Map<Integer, LBox> defaultTemplates = new HashMap<Integer, LBox>();
 
-	/**
-	 * @param u
-	 * @param parent
-	 */
 	void afterUnmarshal(Unmarshaller u, Object parent) {
 		for (LBox template : scriptData) {
 			defaultTemplates.put(template.getId(), template);
@@ -105,8 +96,7 @@ public class HouseScriptData {
 		static {
 			try {
 				db = dbf.newDocumentBuilder();
-			}
-			catch (ParserConfigurationException e) {
+			} catch (ParserConfigurationException e) {
 				log.error("Could not instantiate XmlFormatter : \n" + e);
 			}
 		}
@@ -123,8 +113,7 @@ public class HouseScriptData {
 				XMLSerializer serializer = new XMLSerializer(out, format);
 				serializer.serialize(document);
 				return out.toString();
-			}
-			catch (IOException e) {
+			} catch (IOException e) {
 			}
 			return null;
 		}
@@ -133,11 +122,9 @@ public class HouseScriptData {
 			try {
 				InputSource is = new InputSource(new StringReader(in));
 				return db.parse(is);
-			}
-			catch (SAXException e) {
+			} catch (SAXException e) {
 				throw new RuntimeException(e);
-			}
-			catch (IOException e) {
+			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}
 		}
@@ -156,8 +143,7 @@ public class HouseScriptData {
 		Writer writer = new StringWriter();
 		try {
 			marshaller.marshal(fragment, writer);
-		}
-		catch (JAXBException e) {
+		} catch (JAXBException e) {
 		}
 		return XmlFormatter.format(writer.toString());
 	}

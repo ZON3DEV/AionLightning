@@ -14,11 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.title.Title;
 import com.aionemu.gameserver.model.gameobjects.player.title.TitleList;
+import com.aionemu.gameserver.model.gameobjects.player.title.Title;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -91,7 +92,6 @@ public class SM_TITLE_INFO extends AionServerPacket {
 		switch (action) {
 			case 0:
 				writeC(0x00);
-				writeC(0x01); // 4.9
 				writeH(titleList.size());
 				for (Title title : titleList.getTitles()) {
 					writeD(title.getId());
@@ -100,9 +100,6 @@ public class SM_TITLE_INFO extends AionServerPacket {
 				break;
 			case 1: // self set
 				writeH(titleId);
-				break;
-			case 2: // unk 4.7
-				writeD(bonusTitleId);
 				break;
 			case 3: // broad set
 				writeD(playerObjId);
@@ -117,10 +114,6 @@ public class SM_TITLE_INFO extends AionServerPacket {
 				break;
 			case 6:// Title wich will take BonusStats from
 				writeH(bonusTitleId);
-				break;
-			case 7:// Unk 4.7
-				writeD(bonusTitleId);
-				break;
 		}
 	}
 }

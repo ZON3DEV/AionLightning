@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.services;
 
 import java.io.File;
@@ -23,13 +24,14 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import javolution.util.FastMap;
+
 import org.apache.commons.io.FileUtils;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aionemu.commons.scripting.scriptmanager.ScriptManager;
+import org.slf4j.Logger;
 
-import javolution.util.FastMap;
+import com.aionemu.commons.scripting.scriptmanager.ScriptManager;
 
 /**
  * Script Service class that is designed to manage all loaded contexts
@@ -52,9 +54,9 @@ public class ScriptService {
 	 * Loads script descriptor from given directory or file
 	 * 
 	 * @param file
-	 *            directory or file
+	 *          directory or file
 	 * @throws RuntimeException
-	 *             if failed to load script descriptor
+	 *           if failed to load script descriptor
 	 */
 	public void load(String file) throws RuntimeException {
 		load(new File(file));
@@ -64,14 +66,15 @@ public class ScriptService {
 	 * Loads script descriptor from given file or directory
 	 * 
 	 * @param file
-	 *            file that has to be loaded
+	 *          file that has to be loaded
 	 * @throws RuntimeException
-	 *             if something went wrong
+	 *           if something went wrong
 	 */
 	public void load(File file) throws RuntimeException {
 		if (file.isFile()) {
 			loadFile(file);
-		} else if (file.isDirectory()) {
+		}
+		else if (file.isDirectory()) {
 			loadDir(file);
 		}
 	}
@@ -80,7 +83,7 @@ public class ScriptService {
 	 * Load script descriptor from given file
 	 * 
 	 * @param file
-	 *            script descriptor
+	 *          script descriptor
 	 */
 	private void loadFile(File file) {
 		if (map.containsKey(file)) {
@@ -90,7 +93,8 @@ public class ScriptService {
 		ScriptManager sm = new ScriptManager();
 		try {
 			sm.load(file);
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.error("loadFile", e);
 			throw new RuntimeException(e);
 		}
@@ -102,7 +106,7 @@ public class ScriptService {
 	 * Loads all files from given directory
 	 * 
 	 * @param dir
-	 *            directory to scan for files
+	 *          directory to scan for files
 	 */
 	private void loadDir(File dir) {
 		for (Object file : FileUtils.listFiles(dir, new String[] { "xml" }, false)) {
@@ -114,9 +118,9 @@ public class ScriptService {
 	 * Unloads given script descriptor
 	 * 
 	 * @param file
-	 *            script descriptor
+	 *          script descriptor
 	 * @throws IllegalArgumentException
-	 *             if descriptor is not loaded
+	 *           if descriptor is not loaded
 	 */
 	public void unload(File file) throws IllegalArgumentException {
 		ScriptManager sm = map.remove(file);
@@ -131,9 +135,9 @@ public class ScriptService {
 	 * Reloads given script descriptor
 	 * 
 	 * @param file
-	 *            Script Descriptro
+	 *          Script Descriptro
 	 * @throws IllegalArgumentException
-	 *             if descriptor is not loaded
+	 *           if descriptor is not loaded
 	 */
 	public void reload(File file) throws IllegalArgumentException {
 		ScriptManager sm = map.get(file);
@@ -149,9 +153,9 @@ public class ScriptService {
 	 * Should be used if scriptManager uses custom loading logic for scripts.
 	 * 
 	 * @param scriptManager
-	 *            Script manager object
+	 *          Script manager object
 	 * @param file
-	 *            script descriptor file
+	 *          script descriptor file
 	 */
 	public void addScriptManager(ScriptManager scriptManager, File file) {
 		if (map.containsKey(file)) {
@@ -177,7 +181,8 @@ public class ScriptService {
 		for (Iterator<Entry<File, ScriptManager>> it = this.map.entrySet().iterator(); it.hasNext();) {
 			try {
 				it.next().getValue().shutdown();
-			} catch (Exception e) {
+			}
+			catch (Exception e) {
 				log.warn("An exception occured during shudown procedure.", e);
 			}
 

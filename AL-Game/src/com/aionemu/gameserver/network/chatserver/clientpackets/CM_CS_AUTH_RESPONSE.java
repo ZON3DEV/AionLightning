@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.chatserver.clientpackets;
 
 import org.slf4j.Logger;
@@ -62,7 +63,8 @@ public class CM_CS_AUTH_RESPONSE extends CsClientPacket {
 	protected void runImpl() {
 		switch (response) {
 			case 0: // Authed
-				log.info("GameServer authed successfully IP : " + (ip[0] & 0xFF) + "." + (ip[1] & 0xFF) + "." + (ip[2] & 0xFF) + "." + (ip[3] & 0xFF) + " Port: " + port);
+				log.info("GameServer authed successfully IP : " + (ip[0] & 0xFF) + "." + (ip[1] & 0xFF) + "." + (ip[2] & 0xFF) + "." + (ip[3] & 0xFF)
+						+ " Port: " + port);
 				getConnection().setState(State.AUTHED);
 				ChatService.setIp(ip);
 				ChatService.setPort(port);
@@ -74,7 +76,6 @@ public class CM_CS_AUTH_RESPONSE extends CsClientPacket {
 			case 2: // AlreadyRegistered
 				log.info("GameServer is already registered at ChatServer side! trying again...");
 				ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 					@Override
 					public void run() {
 						CM_CS_AUTH_RESPONSE.this.getConnection().sendPacket(new SM_CS_AUTH());

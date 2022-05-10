@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -31,7 +32,7 @@ import com.aionemu.gameserver.skillengine.model.Skill;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BoostSkillCostEffect")
-public class BoostSkillCostEffect extends BuffEffect {
+public class BoostSkillCostEffect extends BufEffect {
 
 	@XmlAttribute
 	protected boolean percent;
@@ -41,7 +42,6 @@ public class BoostSkillCostEffect extends BuffEffect {
 		super.startEffect(effect);
 
 		ActionObserver observer = new ActionObserver(ObserverType.SKILLUSE) {
-
 			@Override
 			public void skilluse(Skill skill) {
 				skill.setBoostSkillCost(value);

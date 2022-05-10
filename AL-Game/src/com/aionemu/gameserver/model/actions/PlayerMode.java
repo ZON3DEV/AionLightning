@@ -14,9 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.actions;
 
 /**
+ *
  * @author xTz
  */
 public enum PlayerMode {
@@ -24,5 +26,5 @@ public enum PlayerMode {
 	RIDE,
 	ROBOT,
 	IN_ROLL,
-	WINDSTREAM;
+    WINDSTREAM;
 }

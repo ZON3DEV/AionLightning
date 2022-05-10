@@ -27,7 +27,6 @@
             <xs:element name="hair_color" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="lip_color" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="eye_color" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element name="eye_color2" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="skin_color" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>

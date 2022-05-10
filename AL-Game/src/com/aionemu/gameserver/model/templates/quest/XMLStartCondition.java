@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.quest;
 
 import java.util.List;
@@ -73,7 +74,7 @@ public class XMLStartCondition {
 				}
 				QuestTemplate template = DataManager.QUEST_DATA.getQuestById(questId);
 				if (template != null && template.isRepeatable()) {
-					if (template.getMaxRepeatCount() != 255 && qs.getCompleteCount() != template.getMaxRepeatCount()) {
+					if (qs.getCompleteCount() != template.getMaxRepeatCount()) {
 						return false;
 					}
 				}
@@ -104,7 +105,7 @@ public class XMLStartCondition {
 		if (noacquired != null && noacquired.size() > 0) {
 			for (Integer questId : noacquired) {
 				QuestState qs = qsl.getQuestState(questId);
-				if (qs != null && (qs.getStatus() == QuestStatus.START || qs.getStatus() == QuestStatus.REWARD || qs.getStatus() == QuestStatus.COMPLETE)) {
+				if (qs != null && (qs.getStatus() == QuestStatus.START || qs.getStatus() == QuestStatus.REWARD)) {
 					return false;
 				}
 			}
@@ -148,15 +149,14 @@ public class XMLStartCondition {
 	 */
 	public boolean check(Player player, boolean warn) {
 		QuestStateList qsl = player.getQuestStateList();
-		return checkFinishedQuests(qsl) && checkUnfinishedQuests(qsl) && checkAcquiredQuests(qsl) && checkNoAcquiredQuests(qsl) && checkEquippedItems(player, warn);
+		return checkFinishedQuests(qsl) && checkUnfinishedQuests(qsl) && checkAcquiredQuests(qsl) && checkNoAcquiredQuests(qsl)
+				&& checkEquippedItems(player, warn);
 	}
 
 	private boolean checkReward(int questId, int neededReward, int currentReward) {
-		// Temporary exceptions-quests till abyss entry quests work with correct reward
-		if (neededReward != currentReward && questId != 2947 && questId != 1922) {
-			return false;
-		}
-		return true;
+		// Temporary exceptions-quests till abyss entry quests work with correct
+		// reward
+		return !(neededReward != currentReward && questId != 2947 && questId != 1922);
 	}
 
 	public List<FinishedQuestCond> getFinishedPreconditions() {

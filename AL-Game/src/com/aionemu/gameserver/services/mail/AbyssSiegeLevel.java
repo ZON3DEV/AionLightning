@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.mail;
 
 /**
@@ -21,16 +22,10 @@ package com.aionemu.gameserver.services.mail;
  */
 public enum AbyssSiegeLevel {
 
-	NONE(0),
-	HERO_DECORATION(1),
-	MEDAL(2),
-	ELITE_SOLDIER(3),
-	VETERAN_SOLDIER(4),
-	TITLE(5); // TODO
-
+	NONE(0), HERO_DECORATION(1), MEDAL(2), ELITE_SOLDIER(3), VETERAN_SOLDIER(4);
 	private int value;
 
-	AbyssSiegeLevel(int value) {
+	private AbyssSiegeLevel(int value) {
 		this.value = value;
 	}
 

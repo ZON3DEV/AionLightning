@@ -14,12 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.items;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.item.bonuses.StatBonusType;
 
 /**
+ *
  * @author xTz
  */
 public class RandomStats {

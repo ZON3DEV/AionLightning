@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.ChatType;
@@ -57,8 +58,7 @@ public class Say extends AdminCommand {
 
 		if (target instanceof Player) {
 			PacketSendUtility.broadcastPacket(((Player) target), new SM_MESSAGE(((Player) target), sMessage, ChatType.NORMAL), true);
-		}
-		else if (target instanceof Npc) {
+		} else if (target instanceof Npc) {
 			// admin is not right, but works
 			PacketSendUtility.broadcastPacket(admin, new SM_MESSAGE(((Npc) target).getObjectId(), ((Npc) target).getName(), sMessage, ChatType.NORMAL), true);
 		}

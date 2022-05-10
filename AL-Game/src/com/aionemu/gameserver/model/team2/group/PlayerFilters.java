@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.group;
 
 import com.aionemu.gameserver.model.gameobjects.Pet;
@@ -27,7 +28,6 @@ import com.google.common.base.Predicate;
 public class PlayerFilters {
 
 	public static final Predicate<Player> ONLINE = new Predicate<Player>() {
-
 		@Override
 		public boolean apply(Player member) {
 			return member.isOnline();
@@ -63,7 +63,6 @@ public class PlayerFilters {
 	}
 
 	public static final Predicate<Player> HAS_LOOT_PET = new Predicate<Player>() {
-
 		@Override
 		public boolean apply(Player member) {
 			Pet pet = member.getPet();

@@ -14,18 +14,20 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.drop;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import java.util.Collection;
 
 /**
  * @author MrPoke
+ *
  */
 public class NpcDrop implements DropCalculator {
 
@@ -51,6 +53,7 @@ public class NpcDrop implements DropCalculator {
 
 	/**
 	 * Gets the value of the npcId property.
+	 *
 	 */
 	public int getNpcId() {
 		return npcId;

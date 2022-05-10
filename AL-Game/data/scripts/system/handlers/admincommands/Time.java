@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -48,22 +49,17 @@ public class Time extends AdminCommand {
 		// If the given param is one of these four, get the correct hour...
 		if (params[0].equals("night")) {
 			hour = 22;
-		}
-		else if (params[0].equals("dusk")) {
+		} else if (params[0].equals("dusk")) {
 			hour = 18;
-		}
-		else if (params[0].equals("day")) {
+		} else if (params[0].equals("day")) {
 			hour = 9;
-		}
-		else if (params[0].equals("dawn")) {
+		} else if (params[0].equals("dawn")) {
 			hour = 4;
-		}
-		else {
+		} else {
 			// If not, check if the param is a number (hour)...
 			try {
 				hour = Integer.parseInt(params[0]);
-			}
-			catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				onFail(admin, null);
 				return;
 			}
@@ -90,7 +86,6 @@ public class Time extends AdminCommand {
 		GameTimeManager.getGameTime().checkDayTimeChange();
 
 		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player player) {
 				PacketSendUtility.sendPacket(player, new SM_GAME_TIME());

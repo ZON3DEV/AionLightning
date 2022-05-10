@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network;
 
 import java.io.IOException;
@@ -50,13 +51,11 @@ public class PacketFloodFilter {
 					packets[Integer.decode(str)] = Integer.valueOf(props.getProperty(str).trim());
 					cnt++;
 				}
-			}
-			catch (IOException e) {
+			} catch (IOException e) {
 				log.error("Can't read pff.properties", e);
 			}
 			log.info("PacketFloodFilter initialized with " + cnt + " packets.");
-		}
-		else {
+		} else {
 			log.info("PacketFloodFilter disabled.");
 		}
 	}

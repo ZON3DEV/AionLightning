@@ -21,9 +21,6 @@ import com.aionemu.gameserver.model.items.ItemSlot;
 import com.aionemu.gameserver.model.stats.calc.Stat2;
 import com.aionemu.gameserver.skillengine.model.Effect;
 
-/**
- * @author ATracer
- */
 public class StatDualWeaponMasteryFunction extends StatFunctionProxy {
 
 	public StatDualWeaponMasteryFunction(Effect effect, IStatFunction statFunction) {

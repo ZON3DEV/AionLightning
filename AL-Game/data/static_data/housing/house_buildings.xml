@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<!-- parsed by phpTools from Aion Germany Group (Mariella) at 2017-04-08 14:44 -->
 <buildings>
     <building id="350000" type="PERSONAL_FIELD" size="PALACE" parts_match="CP_S">
         <parts>
@@ -95,18 +94,6 @@
             <fence>3527003</fence>
             <inwall>3524010</inwall>
             <infloor>3525001</infloor>
-        </parts>
-    </building>
-    <building id="353002" type="PERSONAL_FIELD" size="HOUSE" parts_match="CP_C">
-        <parts>
-            <roof>3520006</roof>
-            <outwall>3521011</outwall>
-            <frame>3522006</frame>
-            <door>3523002</door>
-            <garden>3526002</garden>
-            <fence>3527004</fence>
-            <inwall>3524011</inwall>
-            <infloor>3525002</infloor>
         </parts>
     </building>
     <building id="355000" type="PERSONAL_INS" size="STUDIO" parts_match="CP_D">

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -26,26 +27,24 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum WeaponType {
 
-	DAGGER_1H(new int[] { 66, 45 }, 1),
-	MACE_1H(new int[] { 39, 46 }, 1),
-	SWORD_1H(new int[] { 37, 44 }, 1),
+	DAGGER_1H(new int[] { 30, 9 }, 1),
+	MACE_1H(new int[] { 3, 10 }, 1),
+	SWORD_1H(new int[] { 1, 8 }, 1),
 	TOOLHOE_1H(new int[] {}, 1),
-	GUN_1H(new int[] { 112, 117 }, 1),
-	BOOK_2H(new int[] { 100, 107 }, 2),
-	ORB_2H(new int[] { 111 }, 2), // 65 right skill, why 64 ? u_u
-	POLEARM_2H(new int[] { 52 }, 2),
-	STAFF_2H(new int[] { 89 }, 2),
-	SWORD_2H(new int[] { 51 }, 2),
+	GUN_1H(new int[] { 83, 76 }, 1),
+	BOOK_2H(new int[] { 64 }, 2),
+	ORB_2H(new int[] { 64 }, 2),
+	POLEARM_2H(new int[] { 16 }, 2),
+	STAFF_2H(new int[] { 53 }, 2),
+	SWORD_2H(new int[] { 15 }, 2),
 	TOOLPICK_2H(new int[] {}, 2),
 	TOOLROD_2H(new int[] {}, 2),
-	BOW(new int[] { 53 }, 2),
-	CANNON_2H(new int[] { 113 }, 2),
-	HARP_2H(new int[] { 114, 124 }, 2),
-	GUN_2H(new int[] { 113 }, 2),
-	SPRAY_2H(new int[] { 473 }, 2),
-	KEYBLADE_2H(new int[] { 115 }, 2),
-	KEYHAMMER_2H(new int[] {}, 2);
-
+	BOW(new int[] { 17 }, 2),
+	CANNON_2H(new int[] { 77 }, 2),
+	HARP_2H(new int[] { 92, 78 }, 2),
+	GUN_2H(new int[] {}, 2),
+	KEYBLADE_2H(new int[] { 79 }, 2),
+	KEYHAMMER_2H(new int[] { 80 }, 2);
 	private int[] requiredSkill;
 	private int slots;
 

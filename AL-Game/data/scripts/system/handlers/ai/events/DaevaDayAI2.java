@@ -14,8 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.events;
 
+import ai.GeneralNpcAI2;
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.ai2.AIName;
 import com.aionemu.gameserver.model.DialogAction;
@@ -26,14 +28,11 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
-import ai.GeneralNpcAI2;
-
 /**
  * @author Romanz
  * @rework Ever'
  */
 @AIName("daeva_day_new")
-// 831921, 831922
 public class DaevaDayAI2 extends GeneralNpcAI2 {
 
 	@Override
@@ -70,8 +69,7 @@ public class DaevaDayAI2 extends GeneralNpcAI2 {
 					}
 					break;
 			}
-		}
-		else if (dialogId == DialogAction.QUEST_SELECT.id() && questId != 0) {
+		} else if (dialogId == DialogAction.QUEST_SELECT.id() && questId != 0) {
 			PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(getObjectId(), dialogId, questId));
 		}
 		return true;

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects;
 
 /**
@@ -21,9 +22,7 @@ package com.aionemu.gameserver.model.gameobjects;
  */
 public enum LetterType {
 
-	NORMAL(0),
-	EXPRESS(1),
-	BLACKCLOUD(2);
+	NORMAL(0), EXPRESS(1), BLACKCLOUD(2);
 
 	private LetterType(int id) {
 		this.id = id;

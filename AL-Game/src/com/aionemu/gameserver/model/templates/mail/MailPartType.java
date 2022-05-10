@@ -14,10 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.mail;
 
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 /**
  * @author Rolandas
@@ -26,12 +26,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum MailPartType {
 
-	CUSTOM,
-	SENDER,
-	TITLE,
-	HEADER,
-	BODY,
-	TAIL;
+	CUSTOM, SENDER, TITLE, HEADER, BODY, TAIL;
 
 	public String value() {
 		return name();

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -24,7 +25,8 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.aionemu.gameserver.world.World;
 
 /**
- * @author lord_rex Command: //sprison <player> <delay>(minutes) This command is sending player to prison.
+ * @author lord_rex Command: //sprison <player> <delay>(minutes) This command is
+ *         sending player to prison.
  */
 public class SPrison extends AdminCommand {
 
@@ -50,10 +52,10 @@ public class SPrison extends AdminCommand {
 
 			if (playerToPrison != null) {
 				PunishmentService.setIsInPrison(playerToPrison, true, delay, reason);
-				PacketSendUtility.sendMessage(admin, "Player " + playerToPrison.getName() + " sent to prison for " + delay + " minute(s) because " + reason + ".");
+				PacketSendUtility.sendMessage(admin, "Player " + playerToPrison.getName() + " sent to prison for " + delay + " minute(s) because " + reason
+						+ ".");
 			}
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			sendInfo(admin);
 		}
 

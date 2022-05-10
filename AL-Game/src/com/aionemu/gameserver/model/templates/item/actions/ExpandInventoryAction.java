@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item.actions;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -45,7 +46,7 @@ public class ExpandInventoryAction extends AbstractItemAction {
 	public boolean canAct(Player player, Item parentItem, Item targetItem) {
 		switch (storage) {
 			case CUBE:
-				// return CubeExpandService.canExpandByTicket(player, level); //TODO: is a Key now
+				return CubeExpandService.canExpandByTicket(player, level);
 			case WAREHOUSE:
 				return WarehouseService.canExpand(player);
 		}
@@ -58,7 +59,8 @@ public class ExpandInventoryAction extends AbstractItemAction {
 			return;
 		}
 		ItemTemplate itemTemplate = parentItem.getItemTemplate();
-		PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), parentItem.getObjectId(), itemTemplate.getTemplateId()), true);
+		PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), parentItem.getObjectId(), itemTemplate.getTemplateId()),
+				true);
 
 		switch (storage) {
 			case CUBE:

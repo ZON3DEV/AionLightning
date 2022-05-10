@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.collections.cachemap;
 
 import java.lang.ref.Reference;
@@ -26,9 +27,9 @@ import org.slf4j.Logger;
 /**
  * Base class for {@link WeakCacheMap} and {@link SoftCacheMap}
  *
+ * @author Luno
  * @param <K>
  * @param <V>
- * @author Luno
  */
 abstract class AbstractCacheMap<K, V> implements CacheMap<K, V> {
 

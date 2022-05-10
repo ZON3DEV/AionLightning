@@ -14,10 +14,9 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.gameserver.dao.RealItemRndBonusDAO;
 import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -54,10 +53,8 @@ public class CM_DELETE_ITEM extends AionClientPacket {
 		if (item != null) {
 			if (!item.getItemTemplate().isBreakable()) {
 				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_UNBREAKABLE_ITEM(new DescriptionId(item.getNameId())));
-			}
-			else {
+			} else {
 				inventory.delete(item, ItemDeleteType.DISCARD);
-				DAOManager.getDAO(RealItemRndBonusDAO.class).deleteAllRandomBonuses(item);
 			}
 		}
 	}

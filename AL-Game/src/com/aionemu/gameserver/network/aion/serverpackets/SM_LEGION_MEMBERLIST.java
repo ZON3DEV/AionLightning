@@ -14,16 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
-import java.util.List;
-
-import com.aionemu.gameserver.configs.network.NetworkConfig;
 import com.aionemu.gameserver.model.house.House;
 import com.aionemu.gameserver.model.team.legion.LegionMemberEx;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 import com.aionemu.gameserver.services.HousingService;
+
+import java.util.List;
 
 /**
  * @author Simple
@@ -31,19 +31,20 @@ import com.aionemu.gameserver.services.HousingService;
 public class SM_LEGION_MEMBERLIST extends AionServerPacket {
 
 	private static final int OFFLINE = 0x00, ONLINE = 0x01;
-	private boolean isFirst;
-	private boolean result;
+    private boolean isFirst;
+    private boolean result;
 	private List<LegionMemberEx> legionMembers;
 
 	/**
-	 * This constructor will handle legion member info when a List of members is given
+	 * This constructor will handle legion member info when a List of members is
+	 * given
 	 *
 	 * @param ArrayList
 	 *            <LegionMemberEx> legionMembers
 	 */
 	public SM_LEGION_MEMBERLIST(List<LegionMemberEx> legionMembers, boolean result, boolean isFirst) {
 		this.legionMembers = legionMembers;
-		this.result = result;
+        this.result = result;
 		this.isFirst = isFirst;
 	}
 
@@ -72,12 +73,14 @@ public class SM_LEGION_MEMBERLIST extends AionServerPacket {
 				}
 				writeD(address);
 				writeD(house.getDoorState().getPacketValue());
-			}
-			else {
+			} else {
 				writeD(0);
 				writeD(0);
 			}
-			writeD(NetworkConfig.GAMESERVER_ID);
+			writeC(1); // unk, seen values 0, 1, 111
+			writeC(0);
+			writeC(0);
+			writeC(0);
 		}
 	}
 }

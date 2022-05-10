@@ -14,11 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.templates.item.ItemCategory;
 import com.aionemu.gameserver.services.item.ItemPacketService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.PlayerCommand;
@@ -39,8 +39,7 @@ public class cmd_enchant extends PlayerCommand {
 		int enchant = 0;
 		try {
 			enchant = params[0] == null ? enchant : Integer.parseInt(params[0]);
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			onFail(player, "Fail");
 			return;
 		}
@@ -55,7 +54,7 @@ public class cmd_enchant extends PlayerCommand {
 					enchantLevel = maxEnchant;
 				}
 
-				targetItem.setEnchantOrAuthorizeLevel(enchantLevel);
+				targetItem.setEnchantLevel(enchantLevel);
 
 				if (targetItem.isEquipped()) {
 					player.getGameStats().updateStatsVisually();
@@ -77,20 +76,21 @@ public class cmd_enchant extends PlayerCommand {
 		if (item.getItemTemplate().isWeapon()) {
 			return true;
 		}
-		if (item.getItemTemplate().getCategory() == ItemCategory.STIGMA) {
-			return false;
-		}
-		if (item.getEnchantOrAuthorizeLevel() == 15) {
+		if (item.getEnchantLevel() == 15) {
 			return false;
 		}
 		if (item.getItemTemplate().isArmor()) {
 			int at = item.getItemTemplate().getItemSlot();
-			if (at == 1 || /* Main Hand */at == 2 || /* Sub Hand */at == 8 || /* Jacket */at == 16 || /* Gloves */at == 32 || /* Boots */at == 2048 || /* Shoulder */at == 4096 || /* Pants */at == 131072
-				|| /*
-					 * Main Off Hand
-					 */at == 262144) /*
-									 * Sub Off Hand
-									 */ {
+			if (at == 1 || /* Main Hand */at == 2 || /* Sub Hand */at == 8 || /* Jacket */at == 16 || /* Gloves */at == 32 || /* Boots */at == 2048
+					|| /* Shoulder */at == 4096 || /* Pants */at == 131072 || /*
+																				 * Main
+																				 * Off
+																				 * Hand
+																				 */at == 262144) /*
+																								 * Sub
+																								 * Off
+																								 * Hand
+																								 */{
 				return true;
 			}
 		}
@@ -99,6 +99,7 @@ public class cmd_enchant extends PlayerCommand {
 
 	@Override
 	public void onFail(Player player, String message) {
-		PacketSendUtility.sendMessage(player, "Syntax .enchant : \n" + "  Syntax .enchant <value>.\n" + LanguageHandler.translate(CustomMessageId.ENCHANT_INFO) + "\n" + LanguageHandler.translate(CustomMessageId.ENCHANT_SAMPLE));
+		PacketSendUtility.sendMessage(player, "Syntax .enchant : \n" + "  Syntax .enchant <value>.\n" + LanguageHandler.translate(CustomMessageId.ENCHANT_INFO)
+				+ "\n" + LanguageHandler.translate(CustomMessageId.ENCHANT_SAMPLE));
 	}
 }

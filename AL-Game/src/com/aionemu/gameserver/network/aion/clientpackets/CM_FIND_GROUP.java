@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.slf4j.Logger;
@@ -28,7 +29,6 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author cura, MrPoke
- * @modified teenwolf
  */
 public class CM_FIND_GROUP extends AionClientPacket {
 
@@ -47,8 +47,6 @@ public class CM_FIND_GROUP extends AionClientPacket {
 	private int unk;
 	private int instanceId;
 	private int minMembers;
-	@SuppressWarnings("unused")
-	private int groupId;
 
 	public CM_FIND_GROUP(int opcode, State state, State... restStates) {
 		super(opcode, state, restStates);
@@ -63,9 +61,7 @@ public class CM_FIND_GROUP extends AionClientPacket {
 				break;
 			case 0x01: // offer delete
 				playerObjId = readD();
-				readH(); //serverId
-				readC(); // 0
-				readC(); // someCode (10) for Group owner ?
+				unk = readD(); // unk(65557)
 				break;
 			case 0x02: // send offer
 				playerObjId = readD();
@@ -74,9 +70,7 @@ public class CM_FIND_GROUP extends AionClientPacket {
 				break;
 			case 0x03: // recruit update
 				playerObjId = readD();
-				readH(); //serverId
-				readC(); // 0
-				readC(); // someCode (10) for Group owner ?
+				unk = readD(); // unk(65557)
 				message = readS();
 				groupType = readC();
 				break;
@@ -93,32 +87,15 @@ public class CM_FIND_GROUP extends AionClientPacket {
 				level = readC();
 				break;
 			case 0x07: // apply update
-				playerObjId = readD();
-				message = readS();
-				groupType = readC();
-				classId = readC();
-				level = readC();
+				// TODO need packet check
 				break;
-			case 0x08: // TODO - register InstanceGroup
-				instanceId = readD(); // correct = InstanceId
-				unk = readC(); // Todo = 0
-				message = readS(); // correct = Message
-				minMembers = readC(); // Todo = Groupsize?
-				unk = readD(); // Todo = 0
-				unk = readD(); // Todo = 0
-				break;
-			case 0x09: // TODO New
-				unk = readD(); // correct = ??
-				instanceId = readD(); // correct = InstanceId
-				break;
-			case 0x14: // TODO 5.6
-				groupId = readD();
+			case 0x08: // register InstanceGroup
 				instanceId = readD();
-				unk = readC();
+				groupType = readC();// need to be tested
+				message = readS();// text
+				minMembers = readC();// minMembers chosen by writer
 				break;
 			case 0x0A: // New 4.0 Group Recruitment
-				break;
-			case 0x0D: // New
 				break;
 			default:
 				log.error("Unknown find group packet? 0x" + Integer.toHexString(action).toUpperCase());
@@ -143,19 +120,12 @@ public class CM_FIND_GROUP extends AionClientPacket {
 				FindGroupService.getInstance().addFindGroupList(player, action, message, groupType);
 				break;
 			case 0x03:
-			case 0x07:
-				FindGroupService.getInstance().updateFindGroupList(player, message, action, groupType, playerObjId);
+				FindGroupService.getInstance().updateFindGroupList(player, message, playerObjId);
 				break;
-			case 0x08: // Todo
+			case 0x08:
 				FindGroupService.getInstance().registerInstanceGroup(player, 0x0E, instanceId, message, minMembers, groupType);
 				break;
-			case 0x14:
-				// TODO 5.6
-				break;
 			case 0x0A: // search
-				FindGroupService.getInstance().sendFindGroups(player, action);
-				break;
-			case 0x0D: // Todo
 				FindGroupService.getInstance().sendFindGroups(player, action);
 				break;
 			default:

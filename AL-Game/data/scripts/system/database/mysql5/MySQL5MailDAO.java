@@ -14,20 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.DatabaseFactory;
@@ -45,11 +33,18 @@ import com.aionemu.gameserver.model.gameobjects.player.Mailbox;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 import com.aionemu.gameserver.model.items.storage.StorageType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author kosyachok
  * @author Antraxx
- * @author FrozenKiller
  */
 public class MySQL5MailDAO extends MailDAO {
 
@@ -60,7 +55,6 @@ public class MySQL5MailDAO extends MailDAO {
 		final Mailbox mailbox = new Mailbox(player);
 		final int playerId = player.getObjectId();
 		DB.select("SELECT * FROM mail WHERE mail_recipient_id = ? ORDER BY recieved_time DESC LIMIT 100", new ParamReadStH() {
-
 			@Override
 			public void setParams(PreparedStatement stmt) throws SQLException {
 				stmt.setInt(1, playerId);
@@ -92,7 +86,8 @@ public class MySQL5MailDAO extends MailDAO {
 						}
 					}
 
-					Letter letter = new Letter(mailUniqueId, recipientId, attachedItem, attachedKinahCount, mailTitle, mailMessage, senderName, recievedTime, unread == 1, letterType);
+					Letter letter = new Letter(mailUniqueId, recipientId, attachedItem, attachedKinahCount, mailTitle, mailMessage, senderName, recievedTime,
+							unread == 1, letterType);
 					letter.setPersistState(PersistentState.UPDATED);
 					mailbox.putLetterToMailbox(letter);
 				}
@@ -103,8 +98,7 @@ public class MySQL5MailDAO extends MailDAO {
 	}
 
 	@Override
-	public int mailCount(int playerId) {
-		int allMailsCount = 0;
+	public boolean haveUnread(int playerId) {
 		Connection con = null;
 		try {
 			con = DatabaseFactory.getConnection();
@@ -112,53 +106,25 @@ public class MySQL5MailDAO extends MailDAO {
 			stmt.setInt(1, playerId);
 			ResultSet rset = stmt.executeQuery();
 			while (rset.next()) {
-				if (rset.getInt("unread") == 1 || rset.getInt("unread") == 0) {
-					allMailsCount ++;
+				int unread = rset.getInt("unread");
+				if (unread == 1) {
+					return true;
 				}
 			}
 			rset.close();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not read mail for player: " + playerId + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
-		return allMailsCount;
-	}
-	
-	@Override
-	public int unreadedMails(int playerId) {
-		int unreadedMails = 0;
-		Connection con = null;
-		try {
-			con = DatabaseFactory.getConnection();
-			PreparedStatement stmt = con.prepareStatement("SELECT * FROM mail WHERE mail_recipient_id = ? ORDER BY recieved_time DESC LIMIT 100");
-			stmt.setInt(1, playerId);
-			ResultSet rset = stmt.executeQuery();
-			while (rset.next()) {
-				if (rset.getInt("unread") == 1) {
-					unreadedMails ++;
-				}
-			}
-			rset.close();
-			stmt.close();
-		}
-		catch (Exception e) {
-			log.error("Could not read mail for player: " + playerId + " from DB: " + e.getMessage(), e);
-		}
-		finally {
-			DatabaseFactory.close(con);
-		}
-		return unreadedMails;
+		return false;
 	}
 
 	private List<Item> loadMailboxItems(final int playerId) {
 		final List<Item> mailboxItems = new ArrayList<Item>();
 
 		DB.select("SELECT * FROM inventory WHERE `item_owner` = ? AND `item_location` = 127", new ParamReadStH() {
-
 			@Override
 			public void setParams(PreparedStatement stmt) throws SQLException {
 				stmt.setInt(1, playerId);
@@ -187,21 +153,11 @@ public class MySQL5MailDAO extends MailDAO {
 					int randomBonus = rset.getInt("rnd_bonus");
 					int rndCount = rset.getInt("rnd_count");
 					int packCount = rset.getInt("pack_count");
-					int max_authorize = rset.getInt("authorize");
 					int isPacked = rset.getInt("is_packed");
-					int isAmplified = rset.getInt("is_amplified");
-					int buffSkill = rset.getInt("buff_skill");
-					int reductionLevel = rset.getInt("reduction_level");
-					int isLunaReskin = rset.getInt("luna_reskin");
-					boolean isEnhance = rset.getBoolean("isEnhance");
-					int enhanceSkillId = rset.getInt("enhanceSkillId");
-					int enhanceSkillEnchant = rset.getInt("enhanceSkillEnchant");
-					int unSeal = rset.getInt("is_seal");
-					int skinSkill = rset.getInt("skin_skill");
-					int grindSocket = rset.getInt("grind_socket");
-					int grindColor = rset.getInt("grind_color");
-					boolean contaminated = rset.getBoolean("contaminated");
-					Item item = new Item(itemUniqueId, itemId, itemCount, itemColor, colorExpireTime, itemCreator, expireTime, activationCount, isEquiped == 1, isSoulBound == 1, slot, StorageType.MAILBOX.getId(), enchant, itemSkin, fusionedItem, optionalSocket, optionalFusionSocket, charge, randomBonus, rndCount, packCount, max_authorize, isPacked == 1, isAmplified == 1, buffSkill, reductionLevel, isLunaReskin == 1, isEnhance, enhanceSkillId, enhanceSkillEnchant, unSeal, skinSkill, grindSocket, grindColor, 0, 0, contaminated);
+					int authorize = rset.getInt("authorize");
+					Item item = new Item(itemUniqueId, itemId, itemCount, itemColor, colorExpireTime, itemCreator, expireTime, activationCount, isEquiped == 1,
+							isSoulBound == 1, slot, StorageType.MAILBOX.getId(), enchant, itemSkin, fusionedItem, optionalSocket, optionalFusionSocket, charge,
+							randomBonus, rndCount, packCount, isPacked == 1, authorize);
 					item.setPersistentState(PersistentState.UPDATED);
 					mailboxItems.add(item);
 				}
@@ -251,23 +207,25 @@ public class MySQL5MailDAO extends MailDAO {
 
 		final int fAttachedItemId = attachedItemId;
 
-		return DB.insertUpdate("INSERT INTO `mail` (`mail_unique_id`, `mail_recipient_id`, `sender_name`, `mail_title`, `mail_message`, `unread`, `attached_item_id`, `attached_kinah_count`, `express`, `recieved_time`) VALUES(?,?,?,?,?,?,?,?,?,?)", new IUStH() {
-
-			@Override
-			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
-				stmt.setInt(1, letter.getObjectId());
-				stmt.setInt(2, letter.getRecipientId());
-				stmt.setString(3, letter.getSenderName());
-				stmt.setString(4, letter.getTitle());
-				stmt.setString(5, letter.getMessage());
-				stmt.setBoolean(6, letter.isUnread());
-				stmt.setInt(7, fAttachedItemId);
-				stmt.setLong(8, letter.getAttachedKinah());
-				stmt.setInt(9, letter.getLetterType().getId());
-				stmt.setTimestamp(10, time);
-				stmt.execute();
-			}
-		});
+		return DB
+				.insertUpdate(
+						"INSERT INTO `mail` (`mail_unique_id`, `mail_recipient_id`, `sender_name`, `mail_title`, `mail_message`, `unread`, `attached_item_id`, `attached_kinah_count`, `express`, `recieved_time`) VALUES(?,?,?,?,?,?,?,?,?,?)",
+						new IUStH() {
+							@Override
+							public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
+								stmt.setInt(1, letter.getObjectId());
+								stmt.setInt(2, letter.getRecipientId());
+								stmt.setString(3, letter.getSenderName());
+								stmt.setString(4, letter.getTitle());
+								stmt.setString(5, letter.getMessage());
+								stmt.setBoolean(6, letter.isUnread());
+								stmt.setInt(7, fAttachedItemId);
+								stmt.setLong(8, letter.getAttachedKinah());
+								stmt.setInt(9, letter.getLetterType().getId());
+								stmt.setTimestamp(10, time);
+								stmt.execute();
+							}
+						});
 	}
 
 	private boolean updateLetter(final Timestamp time, final Letter letter) {
@@ -278,25 +236,24 @@ public class MySQL5MailDAO extends MailDAO {
 
 		final int fAttachedItemId = attachedItemId;
 
-		return DB.insertUpdate("UPDATE mail SET  unread=?, attached_item_id=?, attached_kinah_count=?, `express`=?, recieved_time=? WHERE mail_unique_id=?", new IUStH() {
-
-			@Override
-			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
-				stmt.setBoolean(1, letter.isUnread());
-				stmt.setInt(2, fAttachedItemId);
-				stmt.setLong(3, letter.getAttachedKinah());
-				stmt.setInt(4, letter.getLetterType().getId());
-				stmt.setTimestamp(5, time);
-				stmt.setInt(6, letter.getObjectId());
-				stmt.execute();
-			}
-		});
+		return DB.insertUpdate("UPDATE mail SET  unread=?, attached_item_id=?, attached_kinah_count=?, `express`=?, recieved_time=? WHERE mail_unique_id=?",
+				new IUStH() {
+					@Override
+					public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
+						stmt.setBoolean(1, letter.isUnread());
+						stmt.setInt(2, fAttachedItemId);
+						stmt.setLong(3, letter.getAttachedKinah());
+						stmt.setInt(4, letter.getLetterType().getId());
+						stmt.setTimestamp(5, time);
+						stmt.setInt(6, letter.getObjectId());
+						stmt.execute();
+					}
+				});
 	}
 
 	@Override
 	public boolean deleteLetter(final int letterId) {
 		return DB.insertUpdate("DELETE FROM mail WHERE mail_unique_id=?", new IUStH() {
-
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
 				stmt.setInt(1, letterId);
@@ -308,7 +265,6 @@ public class MySQL5MailDAO extends MailDAO {
 	@Override
 	public void updateOfflineMailCounter(final PlayerCommonData recipientCommonData) {
 		DB.insertUpdate("UPDATE players SET mailbox_letters=? WHERE name=?", new IUStH() {
-
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
 				stmt.setInt(1, recipientCommonData.getMailboxLetters());
@@ -332,11 +288,9 @@ public class MySQL5MailDAO extends MailDAO {
 				ids[i] = rs.getInt("mail_unique_id");
 			}
 			return ids;
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Can't get list of id's from mail table", e);
-		}
-		finally {
+		} finally {
 			DB.close(statement);
 		}
 		return new int[0];

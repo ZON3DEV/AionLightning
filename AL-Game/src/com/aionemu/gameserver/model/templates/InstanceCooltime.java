@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -35,49 +36,60 @@ public class InstanceCooltime {
 
 	@XmlElement(name = "type")
 	protected InstanceCoolTimeType coolTimeType;
+
 	@XmlElement(name = "typevalue")
 	protected String typevalue;
+
 	@XmlElement(name = "ent_cool_time")
 	protected Integer entCoolTime;
+
 	@XmlElement(name = "indun_type")
 	protected InstanceType indun_type;
+
 	@XmlElement(name = "max_member_light")
 	protected Integer maxMemberLight;
+
 	@XmlElement(name = "max_member_dark")
 	protected Integer maxMemberDark;
+
 	@XmlElement(name = "enter_min_level_light")
 	protected Integer enterMinLevelLight;
+
 	@XmlElement(name = "enter_max_level_light")
 	protected Integer enterMaxLevelLight;
+
 	@XmlElement(name = "enter_min_level_dark")
 	protected Integer enterMinLevelDark;
+
 	@XmlElement(name = "enter_max_level_dark")
 	protected Integer enterMaxLevelDark;
+
 	@XmlElement(name = "alarm_unit_score")
 	protected Integer alarmUnitScore;
+
 	@XmlElement(name = "can_enter_mentor")
 	protected boolean can_enter_mentor;
+
 	@XmlElement(name = "enter_guild")
 	protected boolean enter_guild;
-	@XmlElement(name = "maxcount")
-	protected Integer max_count;
-    @XmlElement(name = "component")
-    protected int component;
-    @XmlElement(name = "component_count")
-    protected int componentCount;
-    @XmlElement(name = "price")
-    protected long price;
-    @XmlElement(name = "luna")
-    protected long luna;
-    @XmlElement(name = "sync_id")
-    protected int syncId;
+
+	@XmlElement(name = "count")
+	protected int count;
 
 	@XmlAttribute(required = true)
 	protected int id;
+
+	@XmlAttribute(name = "sync_id", required = true)
+	private int syncId;
+
 	@XmlAttribute(required = true)
 	protected int worldId;
+
 	@XmlAttribute(required = true)
 	protected Race race;
+
+	@XmlElement(name = "maxcount")
+	protected int max_count;
 
 	public InstanceCoolTimeType getCoolTimeType() {
 		return coolTimeType;
@@ -182,11 +194,20 @@ public class InstanceCooltime {
 	}
 
 	/**
+	 * Gets the value of the count property.
+	 *
+	 * @return possible object is {@link Integer }
+	 */
+	public int getCount() {
+		return count;
+	}
+
+	/**
 	 * Gets the value of the max_count property.
 	 *
 	 * @return possible object is {@link Integer }
 	 */
-	public Integer getMaxEntriesCount() {
+	public int getMaxEntriesCount() {
 		return max_count;
 	}
 
@@ -195,6 +216,13 @@ public class InstanceCooltime {
 	 */
 	public int getId() {
 		return id;
+	}
+
+	/**
+	 * @return the syncId.
+	 */
+	public int getSyncId() {
+		return syncId;
 	}
 
 	/**
@@ -212,24 +240,4 @@ public class InstanceCooltime {
 	public Race getRace() {
 		return race;
 	}
-
-    public int getComponent() {
-        return component;
-    }
-
-    public int getComponentCount() {
-        return componentCount;
-    }
-
-    public long getPrice() {
-        return price;
-    }
-
-    public long getLuna() {
-        return luna;
-    }
-
-    public int getSyncId() {
-        return syncId;
-    }
 }

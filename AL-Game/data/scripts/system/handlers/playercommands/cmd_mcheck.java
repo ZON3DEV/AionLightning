@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import java.util.Collection;
@@ -27,7 +28,8 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.PlayerCommand;
 
 /**
- * Checks all LOCKED missions for start conditions immediately And starts them, if conditions are fulfilled
+ * Checks all LOCKED missions for start conditions immediately And starts them,
+ * if conditions are fulfilled
  *
  * @author vlog
  */

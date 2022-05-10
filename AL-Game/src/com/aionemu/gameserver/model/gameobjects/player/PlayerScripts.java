@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player;
 
 import java.util.Arrays;
@@ -55,24 +56,26 @@ public class PlayerScripts {
 	public boolean addScript(int position, String scriptXML) {
 		PlayerScript script = scripts.get(position);
 
-		if (scriptXML == null) {
-			script.setData(null, -1);
-		}
-		else if (StringUtils.EMPTY.equals(scriptXML)) {
-			script.setData(new byte[0], 0);
-		}
-		try {
-			byte[] bytes = CompressUtil.Compress(scriptXML);
-			int oldLength = bytes.length;
-			bytes = Arrays.copyOf(bytes, bytes.length + 8);
-			for (int i = oldLength; i < bytes.length; i++) {
-				bytes[i] = -51; // Add NC shit bytes, without which fails to load :)
+		if (script != null) {
+			if (scriptXML == null) {
+				script.setData(null, -1);
+			} else if (StringUtils.EMPTY.equals(scriptXML)) {
+				script.setData(new byte[0], 0);
+			} else {
+				try {
+					byte[] bytes = CompressUtil.Compress(scriptXML);
+					int oldLength = bytes.length;
+					bytes = Arrays.copyOf(bytes, bytes.length + 8);
+					for (int i = oldLength; i < bytes.length; i++) {
+						bytes[i] = -51; // Add NC shit bytes, without which fails to
+										// load :)
+					}
+					script.setData(bytes, scriptXML.length() * 2);
+				} catch (Exception ex) {
+					logger.error("Script compression failed: " + ex);
+					return false;
+				}
 			}
-			script.setData(bytes, scriptXML.length() * 2);
-		}
-		catch (Exception ex) {
-			logger.error("Script compression failed: " + ex);
-			return false;
 		}
 		return script == null;
 	}
@@ -99,8 +102,7 @@ public class PlayerScripts {
 
 		try {
 			return CompressUtil.Decompress(bytes);
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			logger.error("Script decompression failed: " + ex);
 			return null;
 		}
@@ -112,12 +114,10 @@ public class PlayerScripts {
 
 		if (compressedXML == null) {
 			// Nothing to do
-		}
-		else if (compressedXML.length == 0) {
+		} else if (compressedXML.length == 0) {
 			content = StringUtils.EMPTY;
 			size = 0;
-		}
-		else {
+		} else {
 			try {
 				content = CompressUtil.Decompress(compressedXML);
 				byte[] bytes = content.getBytes("UTF-16LE");
@@ -125,8 +125,7 @@ public class PlayerScripts {
 					return false;
 				}
 				size = uncompressedSize;
-			}
-			catch (Exception ex) {
+			} catch (Exception ex) {
 				return false;
 			}
 		}
@@ -139,8 +138,7 @@ public class PlayerScripts {
 
 		if (bytes == null) {
 			DAOManager.getDAO(HouseScriptsDAO.class).addScript(houseObjId, position, content);
-		}
-		else {
+		} else {
 			DAOManager.getDAO(HouseScriptsDAO.class).updateScript(houseObjId, position, content);
 		}
 
@@ -160,8 +158,7 @@ public class PlayerScripts {
 
 		if (bytes == null) {
 			return false;
-		}
-		else {
+		} else {
 			script.setData(null, -1);
 			DAOManager.getDAO(HouseScriptsDAO.class).deleteScript(houseObjId, position);
 		}

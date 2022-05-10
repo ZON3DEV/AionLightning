@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.gmhandler;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -23,7 +24,7 @@ import com.aionemu.gameserver.skillengine.effect.AbnormalState;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
- * @author Alcapwnd
+ * @author Antraxx
  */
 public class CmdVisible extends AbstractGMHandler {
 
@@ -36,7 +37,6 @@ public class CmdVisible extends AbstractGMHandler {
 		admin.getEffectController().unsetAbnormal(AbnormalState.HIDE.getId());
 		admin.unsetVisualState(CreatureVisualState.HIDE20);
 		PacketSendUtility.broadcastPacket(admin, new SM_PLAYER_STATE(admin), true);
-		PacketSendUtility.sendMessage(admin, "You are invisible.");
+		PacketSendUtility.sendMessage(admin, "You are visible.");
 	}
-
 }

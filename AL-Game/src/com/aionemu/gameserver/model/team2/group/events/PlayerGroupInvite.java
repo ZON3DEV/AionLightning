@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.group.events;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -46,8 +47,7 @@ public class PlayerGroupInvite extends RequestResponseHandler {
 			PlayerGroup group = inviter.getPlayerGroup2();
 			if (group != null) {
 				PlayerGroupService.addPlayer(group, invited);
-			}
-			else {
+			} else {
 				PlayerGroupService.createGroup(inviter, invited, TeamType.GROUP);
 			}
 		}

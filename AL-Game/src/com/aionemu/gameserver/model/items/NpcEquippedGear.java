@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.items;
 
 import java.util.Iterator;
@@ -60,7 +61,8 @@ public class NpcEquippedGear implements Iterable<Entry<ItemSlot, ItemTemplate>> 
 	}
 
 	/**
-	 * Here NPC equipment mask is initialized. All NPC slot masks should be lower than 65536
+	 * Here NPC equipment mask is initialized. All NPC slot masks should be
+	 * lower than 65536
 	 */
 	public void init() {
 		synchronized (this) {

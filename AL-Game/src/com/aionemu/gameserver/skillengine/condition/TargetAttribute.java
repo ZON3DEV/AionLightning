@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.condition;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -26,11 +27,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum TargetAttribute {
 
-	NPC,
-	PC,
-	ALL,
-	SELF,
-	NONE;
+	NPC, PC, ALL, SELF, NONE;
 
 	public String value() {
 		return name();

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.handlers.template;
 
 import java.util.HashSet;
@@ -71,12 +72,14 @@ public class FountainRewards extends QuestHandler {
 					case USE_OBJECT: {
 						if (!QuestService.inventoryItemCheck(env, true)) {
 							return true;
-						}
-						else {
-							if (targetId == 730241 || targetId == 730242) { // hotfix for inggison and gelkmaros
+						} else {
+							if (targetId == 730241 || targetId == 730242) { // hotfix
+																			// for
+																			// inggison
+																			// and
+																			// gelkmaros
 								return sendQuestDialog(env, 1011);
-							}
-							else {
+							} else {
 								return sendQuestSelectionDialog(env);
 							}
 						}
@@ -88,13 +91,11 @@ public class FountainRewards extends QuestHandler {
 									changeQuestStep(env, 0, 0, true);
 									return sendQuestDialog(env, 5);
 								}
-							}
-							else {
+							} else {
 								PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_FULL_INVENTORY);
 								return sendQuestSelectionDialog(env);
 							}
-						}
-						else {
+						} else {
 							return sendQuestSelectionDialog(env);
 						}
 					}
@@ -102,16 +103,14 @@ public class FountainRewards extends QuestHandler {
 						break;
 				}
 			}
-		}
-		else if (qs != null && qs.getStatus() == QuestStatus.REWARD) {
+		} else if (qs.getStatus() == QuestStatus.REWARD) {
 			// Coin Fountain
 			if (startNpcs.contains(targetId)) { // Coin Fountain
 				if (dialog == DialogAction.SELECTED_QUEST_NOREWARD) {
 					if (QuestService.collectItemCheck(env, true)) {
 						return sendQuestEndDialog(env);
 					}
-				}
-				else {
+				} else {
 					return QuestService.abandonQuest(player, questId);
 				}
 			}
@@ -121,9 +120,6 @@ public class FountainRewards extends QuestHandler {
 
 	@Override
 	public boolean onCanAct(QuestEnv env, QuestActionType questEventType, Object... objects) {
-		if (startNpcs.contains(env.getTargetId())) { // Coin Fountain
-			return true;
-		}
-		return false;
+		return startNpcs.contains(env.getTargetId());
 	}
 }

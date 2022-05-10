@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import com.aionemu.gameserver.configs.main.CustomConfig;
@@ -41,8 +42,7 @@ public class cmd_dye extends PlayerCommand {
 		// Add a check to prevent players to dye other people
 		if (player.getAccessLevel() > 0 && player.getTarget() instanceof Player) {
 			target = (Player) player.getTarget();
-		}
-		else {
+		} else {
 			target = player;
 		}
 
@@ -66,12 +66,10 @@ public class cmd_dye extends PlayerCommand {
 		if (params.length == 2) {
 			if (params[1].equalsIgnoreCase("petal")) {
 				color = params[0];
-			}
-			else {
+			} else {
 				color = params[0] + " " + params[1];
 			}
-		}
-		else {
+		} else {
 			color = params[0];
 		}
 
@@ -169,8 +167,7 @@ public class cmd_dye extends PlayerCommand {
 		try {
 			rgb = Integer.parseInt(color, 16);
 			bgra = 0xFF | ((rgb & 0xFF) << 24) | ((rgb & 0xFF00) << 8) | ((rgb & 0xFF0000) >>> 8);
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			if (!color.equalsIgnoreCase("no")) {
 				PacketSendUtility.sendMessage(player, "[Dye] Can't understand: " + color);
 				return;
@@ -184,15 +181,14 @@ public class cmd_dye extends PlayerCommand {
 		for (Item targetItem : target.getEquipment().getEquippedItemsWithoutStigma()) {
 			if (color.equals("no")) {
 				targetItem.setItemColor(0);
-			}
-			else {
+			} else {
 				targetItem.setItemColor(bgra);
 			}
 			ItemPacketService.updateItemAfterInfoChange(target, targetItem);
 		}
 		PacketSendUtility.broadcastPacket(target, new SM_UPDATE_PLAYER_APPEARANCE(target.getObjectId(), target.getEquipment().getEquippedForApparence()), true);
 		target.getEquipment().setPersistentState(PersistentState.UPDATE_REQUIRED);
-		if (target.getObjectId() != player.getObjectId()) {
+		if (!target.getObjectId().equals(player.getObjectId())) {
 			PacketSendUtility.sendMessage(target, "You have been dyed by " + player.getName() + "!");
 		}
 		PacketSendUtility.sendMessage(player, "Dyed " + target.getName() + " successfully!");

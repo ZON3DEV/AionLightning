@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.housing;
 
 /**
@@ -21,11 +22,7 @@ package com.aionemu.gameserver.model.templates.housing;
  */
 public enum HouseType {
 
-	ESTATE(0, 3, "a"),
-	MANSION(1, 2, "b"),
-	HOUSE(2, 1, "c"),
-	STUDIO(3, 0, "d"),
-	PALACE(4, 4, "s");
+	ESTATE(0, 3, "a"), MANSION(1, 2, "b"), HOUSE(2, 1, "c"), STUDIO(3, 0, "d"), PALACE(4, 4, "s");
 
 	private HouseType(int index, int id, String abbrev) {
 		this.abbrev = abbrev;

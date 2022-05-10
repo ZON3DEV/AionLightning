@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -45,7 +46,9 @@ public class UseSkill extends AdminCommand {
 		}
 
 		if (params[0].equalsIgnoreCase("help")) {
-			PacketSendUtility.sendMessage(admin, syntax + " \n" + "TARGET - targetted creature will use skill on its target.\n" + "TRUE - effect of skill is applied without any checks.\n" + "If you want to add duration, you have to use TRUE!\n" + "Example: //useskill 1968 1 or //useskill 1968 1 true 1\n" + "Duration is in seconds, 0 means its taken from skill_template.");
+			PacketSendUtility.sendMessage(admin, syntax + " \n" + "TARGET - targetted creature will use skill on its target.\n"
+					+ "TRUE - effect of skill is applied without any checks.\n" + "If you want to add duration, you have to use TRUE!\n"
+					+ "Example: //useskill 1968 1 or //useskill 1968 1 true 1\n" + "Duration is in seconds, 0 means its taken from skill_template.");
 			return;
 		}
 
@@ -57,8 +60,7 @@ public class UseSkill extends AdminCommand {
 		try {
 			skillId = Integer.parseInt(params[0]);
 			skillLevel = Integer.parseInt(params[1]);
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			PacketSendUtility.sendMessage(admin, "SkillId and skillLevel need to be an integer.");
 			return;
 		}
@@ -81,8 +83,7 @@ public class UseSkill extends AdminCommand {
 				if (params.length == 4) {
 					try {
 						time = Integer.parseInt(params[3]);
-					}
-					catch (NumberFormatException e) {
+					} catch (NumberFormatException e) {
 						PacketSendUtility.sendMessage(admin, "Time has to be integer!");
 						return;
 					}
@@ -95,8 +96,7 @@ public class UseSkill extends AdminCommand {
 				SkillEngine.getInstance().applyEffectDirectly(skillId, admin, (Creature) target, (time * 1000));
 
 				PacketSendUtility.sendMessage(admin, "SkillId:" + skillId + " was applied on target " + target.getName());
-			}
-			else if (params[2].equalsIgnoreCase("target")) {
+			} else if (params[2].equalsIgnoreCase("target")) {
 				if (target.getTarget() == null || !(target.getTarget() instanceof Creature)) {
 					PacketSendUtility.sendMessage(admin, "Target must select some creature!");
 					return;
@@ -104,13 +104,11 @@ public class UseSkill extends AdminCommand {
 
 				this.useSkill(admin, (Creature) target, (Creature) target.getTarget(), skillId, skillLevel);
 				PacketSendUtility.sendMessage(admin, "Target: " + target.getName() + " used skillId:" + skillId + " on target " + target.getTarget().getName());
-			}
-			else {
+			} else {
 				onFail(admin, null);
 				return;
 			}
-		}
-		else {
+		} else {
 			this.useSkill(admin, admin, (Creature) target, skillId, skillLevel);
 			PacketSendUtility.sendMessage(admin, "SkillId:" + skillId + " was used on target " + target.getName());
 		}
@@ -120,8 +118,7 @@ public class UseSkill extends AdminCommand {
 		Skill skill = SkillEngine.getInstance().getSkill(effector, skillId, skillLevel, target);
 		if (skill != null) {
 			skill.useNoAnimationSkill();
-		}
-		else {
+		} else {
 			onFail(admin, null);
 		}
 	}

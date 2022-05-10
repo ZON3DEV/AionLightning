@@ -14,12 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.main;
 
 import java.util.regex.Pattern;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import org.slf4j.Logger;
 
 import com.aionemu.commons.configuration.Property;
 
@@ -58,7 +60,8 @@ public class LegionConfig {
 	@Property(key = "gameserver.legion.disbandtime", defaultValue = "86400")
 	public static int LEGION_DISBAND_TIME;
 	/**
-	 * Sets required difference between disband time and can can create legion again
+	 * Sets required difference between disband time and can can create legion
+	 * again
 	 */
 	@Property(key = "gameserver.legion.disbanddifference", defaultValue = "604800")
 	public static int LEGION_DISBAND_DIFFERENCE;

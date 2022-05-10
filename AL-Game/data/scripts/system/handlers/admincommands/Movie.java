@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -34,8 +35,7 @@ public class Movie extends AdminCommand {
 	public void execute(Player player, String... params) {
 		if (params.length < 1) {
 			onFail(player, null);
-		}
-		else {
+		} else {
 			PacketSendUtility.sendPacket(player, new SM_PLAY_MOVIE(Integer.parseInt(params[0]), Integer.parseInt(params[1])));
 		}
 	}

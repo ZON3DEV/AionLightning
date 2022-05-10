@@ -10,7 +10,7 @@
             <xs:element name="item_collecting" type="ItemCollectingData" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="report_to" type="ReportToData" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="monster_hunt" type="MonsterHuntData" minOccurs="0" maxOccurs="unbounded"/>
-            <!-- <xs:element name="mentor_monster_hunt" type="MentorMonsterHuntData" minOccurs="0" maxOccurs="unbounded"/> -->
+            <xs:element name="mentor_monster_hunt" type="MentorMonsterHuntData" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="work_order" type="WorkOrdersData" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="report_to_many" type="ReportToManyData" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="relic_rewards" type="RelicRewardsData" minOccurs="0" maxOccurs="unbounded"/>
@@ -241,7 +241,7 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="QuestStatus">
-        <xs:restriction base="xs:string">
+        <xs:restriction  base="xs:string">
             <xs:enumeration value="NONE"/>
             <xs:enumeration value="START"/>
             <xs:enumeration value="REWARD"/>
@@ -289,8 +289,6 @@
             <xs:extension base="QuestScriptData">
                 <xs:attribute name="start_npc_ids" type="IntListType" use="required"/>
                 <xs:attribute name="end_npc_ids" type="IntListType" use="required"/>
-                <xs:attribute name="start_dialog_id" type="xs:int" default="0"/>
-                <xs:attribute name="start_dialog_id2" type="xs:int" default="0"/>
                 <xs:attribute name="item_id" type="xs:int" default="0"/>
             </xs:extension>
         </xs:complexContent>
@@ -310,7 +308,6 @@
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-    <!--
     <xs:complexType name="MentorMonsterHuntData">
         <xs:complexContent>
             <xs:extension base="MonsterHuntData">
@@ -318,8 +315,7 @@
                 <xs:attribute name="max_mente_level" type="xs:int" default="0"/>
             </xs:extension>
         </xs:complexContent>
-    </xs:complexType>    
-    -->
+    </xs:complexType>
     <xs:complexType name="KillSpawnedData">
         <xs:complexContent>
             <xs:extension base="MonsterHuntData">
@@ -343,7 +339,7 @@
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-    <xs:complexType name="NpcInfos">
+    <xs:complexType name="NpcInfos" >
         <xs:attribute name="var" type="xs:int" use="required"/>
         <xs:attribute name="npc_id" type="xs:int" use="required"/>
         <xs:attribute name="quest_dialog" type="xs:int" use="required"/>
@@ -383,7 +379,6 @@
                 <xs:attribute name="worlds" type="IntListType" default="0"/>
                 <xs:attribute name="amount" type="xs:int" use="required"/>
                 <xs:attribute name="invasion_world" type="xs:int" default="0"/>
-				<xs:attribute name="end_dialog" type="xs:int" default="0"/>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>

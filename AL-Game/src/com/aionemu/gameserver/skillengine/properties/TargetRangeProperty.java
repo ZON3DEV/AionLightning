@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.properties;
 
 import java.util.List;
@@ -28,11 +29,11 @@ import com.aionemu.gameserver.model.gameobjects.Summon;
 import com.aionemu.gameserver.model.gameobjects.Trap;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.templates.zone.ZoneType;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.PositionUtil;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
+import com.aionemu.gameserver.model.templates.zone.ZoneType;
 
 /**
  * @author ATracer
@@ -80,9 +81,11 @@ public class TargetRangeProperty {
 						continue;
 					}
 
-					// if (nextCreature instanceof Kisk && isInsideDisablePvpZone((Creature) nextCreature))
+					// if (nextCreature instanceof Kisk &&
+					// isInsideDisablePvpZone((Creature) nextCreature))
 					// continue;
-					if (Math.abs(firstTarget.getZ() - nextCreature.getZ()) > altitude || ((nextCreature instanceof Player) && ((Player) nextCreature).isInPlayerMode(PlayerMode.WINDSTREAM))) {
+					if (Math.abs(firstTarget.getZ() - nextCreature.getZ()) > altitude
+							|| ((nextCreature instanceof Player) && ((Player) nextCreature).isInPlayerMode(PlayerMode.WINDSTREAM))) {
 						continue;
 					}
 
@@ -97,7 +100,8 @@ public class TargetRangeProperty {
 					}
 
 					if (skill.isPointSkill()) {
-						if (MathUtil.isIn3dRange(skill.getX(), skill.getY(), skill.getZ(), nextCreature.getX(), nextCreature.getY(), nextCreature.getZ(), distanceToTarget + 1)) {
+						if (MathUtil.isIn3dRange(skill.getX(), skill.getY(), skill.getZ(), nextCreature.getX(), nextCreature.getY(), nextCreature.getZ(),
+								distanceToTarget + 1)) {
 							skill.getEffectedList().add((Creature) nextCreature);
 						}
 					}
@@ -115,17 +119,28 @@ public class TargetRangeProperty {
 							continue;
 						}
 						skill.getEffectedList().add((Creature) nextCreature);
-					}
-					else if (properties.getEffectiveDist() > 0) {
+					} else if (properties.getEffectiveDist() > 0) {
 						// Lightning bolt
-						if (MathUtil.isInsideAttackCylinder(skill.getEffector(), nextCreature, distanceToTarget, properties.getEffectiveDist(), properties.getDirection()) || MathUtil.isIn3dRange(firstTarget, nextCreature, effectiveRange + firstTarget.getObjectTemplate().getBoundRadius().getCollision())) {
+						if (MathUtil.isInsideAttackCylinder(skill.getEffector(), nextCreature, distanceToTarget, properties.getEffectiveDist(),
+								properties.getDirection()) /*
+															 * ||
+															 * MathUtil.isIn3dRange
+															 * (firstTarget,
+															 * nextCreature,
+															 * effectiveRange +
+															 * firstTarget
+															 * .getObjectTemplate
+															 * (
+															 * ).getBoundRadius(
+															 * ).getCollision())
+															 */) {
 							if (!skill.shouldAffectTarget(nextCreature)) {
 								continue;
 							}
 							skill.getEffectedList().add((Creature) nextCreature);
 						}
-					}
-					else if (MathUtil.isIn3dRange(firstTarget, nextCreature, effectiveRange + firstTarget.getObjectTemplate().getBoundRadius().getCollision())) {
+					} else if (MathUtil
+							.isIn3dRange(firstTarget, nextCreature, effectiveRange + firstTarget.getObjectTemplate().getBoundRadius().getCollision())) {
 						if (!skill.shouldAffectTarget(nextCreature)) {
 							continue;
 						}
@@ -157,14 +172,14 @@ public class TargetRangeProperty {
 								partyCount++;
 							}
 						}
-					}
-					else if (effector.isInGroup2()) {
+					} else if (effector.isInGroup2()) {
 						effectedList.clear();
 						for (Player member : effector.getPlayerGroup2().getMembers()) {
 							if (partyCount >= maxcount) {
 								break;
 							}
-							// TODO: here value +4 till better move controller developed
+							// TODO: here value +4 till better move controller
+							// developed
 							if (member != null && MathUtil.isIn3dRange(effector, member, effectiveRange + 1)) {
 								effectedList.add(member);
 								partyCount++;
@@ -194,8 +209,7 @@ public class TargetRangeProperty {
 								}
 							}
 						}
-					}
-					else if (effector.isInGroup2()) {
+					} else if (effector.isInGroup2()) {
 						effectedList.clear();
 						for (Player member : effector.getPlayerGroup2().getMembers()) {
 							if (!member.isOnline()) {
@@ -224,7 +238,8 @@ public class TargetRangeProperty {
 						continue;
 					}
 
-					// if (nextCreature instanceof Kisk && isInsideDisablePvpZone((Creature) nextCreature))
+					// if (nextCreature instanceof Kisk &&
+					// isInsideDisablePvpZone((Creature) nextCreature))
 					// continue;
 					// Players in blinking state must not be counted
 					if ((nextCreature instanceof Player) && (((Player) nextCreature).isProtectionActive())) {
@@ -238,7 +253,7 @@ public class TargetRangeProperty {
 			case NONE:
 				break;
 
-			// TODO other enum values
+		// TODO other enum values
 		}
 		return true;
 	}

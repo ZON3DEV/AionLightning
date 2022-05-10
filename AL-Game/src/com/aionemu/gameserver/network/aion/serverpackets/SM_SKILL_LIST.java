@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -37,11 +38,13 @@ public class SM_SKILL_LIST extends AionServerPacket {
 	boolean isNew = false;
 
 	/**
-	 * This constructor is used on player entering the world Constructs new <tt>SM_SKILL_LIST </tt> packet
+	 * This constructor is used on player entering the world Constructs new
+	 * <tt>SM_SKILL_LIST </tt> packet
 	 */
 	public SM_SKILL_LIST(Player player, PlayerSkillEntry[] basicSkills) {
 		this.skillList = player.getSkillList().getBasicSkills();
 		this.messageId = 0;
+		this.isNew = true;
 	}
 
 	public SM_SKILL_LIST(Player player, PlayerSkillEntry stigmaSkill) {
@@ -53,60 +56,36 @@ public class SM_SKILL_LIST extends AionServerPacket {
 		this.skillList = new PlayerSkillEntry[] { skillListEntry };
 		this.messageId = messageId;
 		this.skillNameId = DataManager.SKILL_DATA.getSkillTemplate(skillListEntry.getSkillId()).getNameId();
-		if (messageId == 1330053 || messageId == 1330005 || messageId == 1300050) {
-			this.skillLvl = String.valueOf(skillListEntry.getSkillLevel());
-		}
-		else {
-			String str = skillListEntry.getSkillTemplate().getNamedesc();
-			String str1 = String.valueOf(str.charAt(str.length() - 2));
-			String str2 = String.valueOf(str.charAt(str.length() - 1));
-			this.skillLvl = String.valueOf(str1.replace("G", "") + str2);
-		}
+		this.skillLvl = String.valueOf(skillListEntry.getSkillLevel());
 		this.isNew = isNew;
 	}
 
 	@Override
 	protected void writeImpl(AionConnection con) {
-		final int size = skillList.length;
+		int size = skillList.length;
 		writeH(size); // skills list size
-		if (isNew) {
-			writeC(0);
-		}
-		else {
-			writeC(1);
-		}
 
+        writeC(isNew ? 1 : 0);
 		if (size > 0) {
 			for (PlayerSkillEntry entry : skillList) {
 				writeH(entry.getSkillId());// id
 				writeH(entry.getSkillLevel());// lvl
-				writeC(0x00);
-				int extraLevel = entry.getExtraLvl();
-				writeC(extraLevel);
-				if (isNew && extraLevel == 0 && !entry.isStigma()) {
+				writeC(0x00);//unk
+				writeC(entry.getExtraLvl());
+				if (isNew) {
 					writeD((int) (System.currentTimeMillis() / 1000)); // Learned date NCSoft......
-				}
-				else {
+				} else {
 					writeD(0);
 				}
-				if (entry.isStigma()) {
-					writeC(1);
-				}
-				else if (entry.isLinked()) {
-					writeC(3);
-				}
-				else {
-					writeC(0);
-				}
+				writeC(entry.isStigma() ? 1 : 0); // stigma
 			}
 		}
 		writeD(messageId);
 		if (messageId != 0) {
-			writeH(0x24);
+			writeH(0x24); // unk
 			writeD(skillNameId);
 			writeH(0x00);
 			writeS(skillLvl);
-			writeH(0x00);
 		}
 	}
 }

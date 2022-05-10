@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers.observer;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -24,6 +25,7 @@ import com.aionemu.gameserver.skillengine.model.Skill;
 
 /**
  * @author MrPoke
+ *
  */
 public abstract class ItemUseObserver extends ActionObserver {
 

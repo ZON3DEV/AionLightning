@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.siege;
 
-import java.util.List;
+package com.aionemu.gameserver.model.siege;
 
 import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -28,6 +27,7 @@ import com.aionemu.gameserver.model.templates.siegelocation.SiegeReward;
 import com.aionemu.gameserver.model.templates.zone.ZoneType;
 import com.aionemu.gameserver.services.teleport.TeleportService2;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
+import java.util.List;
 
 /**
  * @author Source

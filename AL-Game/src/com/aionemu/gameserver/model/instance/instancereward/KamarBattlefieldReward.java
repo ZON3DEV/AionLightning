@@ -14,14 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.instance.instancereward;
 
-import static ch.lambdaj.Lambda.maxFrom;
 import static ch.lambdaj.Lambda.on;
 import static ch.lambdaj.Lambda.sort;
 
 import java.util.Comparator;
 import java.util.List;
+
+import javolution.util.FastList;
 
 import org.apache.commons.lang.mutable.MutableInt;
 
@@ -29,8 +31,7 @@ import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.geometry.Point3D;
-import com.aionemu.gameserver.model.instance.playerreward.KamarBattlefieldPlayerReward;
-import com.aionemu.gameserver.model.instance.playerreward.PvPArenaPlayerReward;
+import com.aionemu.gameserver.model.instance.playerreward.*;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_INSTANCE_SCORE;
 import com.aionemu.gameserver.services.teleport.TeleportService2;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -38,20 +39,22 @@ import com.aionemu.gameserver.world.WorldMapInstance;
 import com.aionemu.gameserver.world.knownlist.Visitor;
 
 /**
- * @author Alcapwnd
+ * @author Eloann
  */
 public class KamarBattlefieldReward extends InstanceReward<KamarBattlefieldPlayerReward> {
 
 	private int winnerPoints;
 	private int looserPoints;
-	private int capPoints;
-	private MutableInt asmodiansPoints = new MutableInt(3800);
-	private MutableInt elyosPoins = new MutableInt(3800);
-	private MutableInt asmodiansPvpKills = new MutableInt(0);
-	private MutableInt elyosPvpKills = new MutableInt(0);
+	@SuppressWarnings("unused")
+	private int drawPoins;
+	private int pvpKills;
+	private MutableInt asmodiansPoints = new MutableInt(0);
+	private MutableInt elyosPoints = new MutableInt(0);
 	private Race race;
+	private FastList<KamarGroupReward> groups = new FastList<KamarGroupReward>();
 	private Point3D asmodiansStartPosition;
 	private Point3D elyosStartPosition;
+	private final byte buffId;
 	protected WorldMapInstance instance;
 	private long instanceTime;
 	private int bonusTime;
@@ -59,16 +62,52 @@ public class KamarBattlefieldReward extends InstanceReward<KamarBattlefieldPlaye
 	public KamarBattlefieldReward(Integer mapId, int instanceId, WorldMapInstance instance) {
 		super(mapId, instanceId);
 		this.instance = instance;
-		winnerPoints = 3000;
-		looserPoints = 2500;
-		capPoints = 30000;
+		winnerPoints = mapId == 301120000 ? 3000 : 4500;
+		looserPoints = mapId == 301120000 ? 1500 : 2500;
+		drawPoins = mapId == 301120000 ? 2250 : 3750;
 		bonusTime = 12000;
+		buffId = 10;
 		setStartPositions();
+	}
+
+	public void addPvpKill() {
+		pvpKills++;
+	}
+
+	public int getPvpKills() {
+		return pvpKills;
+	}
+
+	public KamarGroupReward getKamarGroupReward(Integer object) {
+		for (InstancePlayerReward reward : groups) {
+			KamarGroupReward kamarGroupReward = (KamarGroupReward) reward;
+			if (kamarGroupReward.containPlayer(object)) {
+				return kamarGroupReward;
+			}
+		}
+		return null;
+	}
+
+	public FastList<Player> getPlayersInside(KamarGroupReward group) {
+		FastList<Player> players = new FastList<Player>();
+		for (Player playerInside : instance.getPlayersInside()) {
+			if (group.containPlayer(playerInside.getObjectId())) {
+				players.add(playerInside);
+			}
+		}
+		return players;
+	}
+
+	public void addKamarGroup(KamarGroupReward reward) {
+		groups.add(reward);
+	}
+
+	public FastList<KamarGroupReward> getGroups() {
+		return groups;
 	}
 
 	public List<KamarBattlefieldPlayerReward> sortPoints() {
 		return sort(getInstanceRewards(), on(PvPArenaPlayerReward.class).getScorePoints(), new Comparator<Integer>() {
-
 			@Override
 			public int compare(Integer o1, Integer o2) {
 				return o2 != null ? o2.compareTo(o1) : -o1.compareTo(o2);
@@ -77,25 +116,21 @@ public class KamarBattlefieldReward extends InstanceReward<KamarBattlefieldPlaye
 	}
 
 	private void setStartPositions() {
-		Point3D a = new Point3D(1535.6626f, 1573.9294f, 612.42f);
-		Point3D b = new Point3D(1463.7689f, 1227.7777f, 581.62f);
-		Point3D c = new Point3D(1204.9827f, 1350.6719f, 612.91f);
-		Point3D d = new Point3D(1098.1141f, 1540.7119f, 585.10f);
+		Point3D a = new Point3D(570.468f, 166.897f, 432.28986f);
+		Point3D b = new Point3D(400.741f, 166.713f, 432.290f);
 		if (Rnd.get(2) == 0) {
 			asmodiansStartPosition = a;
-			elyosStartPosition = c;
-		}
-		else {
+			elyosStartPosition = b;
+		} else {
 			asmodiansStartPosition = b;
-			elyosStartPosition = d;
+			elyosStartPosition = a;
 		}
 	}
 
 	public void portToPosition(Player player) {
 		if (player.getRace() == Race.ASMODIANS) {
 			TeleportService2.teleportTo(player, mapId, instanceId, asmodiansStartPosition.getX(), asmodiansStartPosition.getY(), asmodiansStartPosition.getZ());
-		}
-		else {
+		} else {
 			TeleportService2.teleportTo(player, mapId, instanceId, elyosStartPosition.getX(), elyosStartPosition.getY(), elyosStartPosition.getZ());
 		}
 	}
@@ -103,7 +138,7 @@ public class KamarBattlefieldReward extends InstanceReward<KamarBattlefieldPlaye
 	public MutableInt getPointsByRace(Race race) {
 		switch (race) {
 			case ELYOS:
-				return elyosPoins;
+				return elyosPoints;
 			case ASMODIANS:
 				return asmodiansPoints;
 			default:
@@ -114,26 +149,6 @@ public class KamarBattlefieldReward extends InstanceReward<KamarBattlefieldPlaye
 
 	public void addPointsByRace(Race race, int points) {
 		MutableInt racePoints = getPointsByRace(race);
-		racePoints.add(points);
-		if (racePoints.intValue() < 0) {
-			racePoints.setValue(0);
-		}
-	}
-
-	public MutableInt getPvpKillsByRace(Race race) {
-		switch (race) {
-			case ELYOS:
-				return elyosPvpKills;
-			case ASMODIANS:
-				return asmodiansPvpKills;
-			default:
-				break;
-		}
-		return null;
-	}
-
-	public void addPvpKillsByRace(Race race, int points) {
-		MutableInt racePoints = getPvpKillsByRace(race);
 		racePoints.add(points);
 		if (racePoints.intValue() < 0) {
 			racePoints.setValue(0);
@@ -157,7 +172,17 @@ public class KamarBattlefieldReward extends InstanceReward<KamarBattlefieldPlaye
 	}
 
 	public Race getWinningRaceByScore() {
-		return asmodiansPoints.compareTo(elyosPoins) > 0 ? Race.ASMODIANS : Race.ELYOS;
+		return asmodiansPoints.compareTo(elyosPoints) > 0 ? Race.ASMODIANS : Race.ELYOS;
+	}
+
+	public int getNpcBonus(int npcId) {
+		switch (npcId) {
+			case 701906:
+			case 701907:
+			case 701908:
+				return 525;
+		}
+		return 0;
 	}
 
 	@Override
@@ -165,9 +190,9 @@ public class KamarBattlefieldReward extends InstanceReward<KamarBattlefieldPlaye
 		super.clear();
 	}
 
-	public void regPlayerReward(Player player) {
-		if (!containPlayer(player.getObjectId())) {
-			addPlayerReward(new KamarBattlefieldPlayerReward(player.getObjectId(), bonusTime, player.getRace()));
+	public void regPlayerReward(Integer object) {
+		if (!containPlayer(object)) {
+			addPlayerReward(new KamarBattlefieldPlayerReward(object, bonusTime, buffId));
 		}
 	}
 
@@ -183,7 +208,6 @@ public class KamarBattlefieldReward extends InstanceReward<KamarBattlefieldPlaye
 
 	public void sendPacket(final int type, final Integer object) {
 		instance.doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player player) {
 				PacketSendUtility.sendPacket(player, new SM_INSTANCE_SCORE(type, getTime(), getInstanceReward(), object));
@@ -193,10 +217,9 @@ public class KamarBattlefieldReward extends InstanceReward<KamarBattlefieldPlaye
 
 	public int getTime() {
 		long result = System.currentTimeMillis() - instanceTime;
-		if (result < 45000) {
-			return (int) (45000 - result);
-		}
-		else if (result < 1800000) { // 30 Minutes.
+		if (result < 20000) {
+			return (int) (20000 - result);
+		} else if (result < 1800000) { // 30 Minutes.
 			return (int) (1800000 - (result - 20000));
 		}
 		return 0;
@@ -204,13 +227,5 @@ public class KamarBattlefieldReward extends InstanceReward<KamarBattlefieldPlaye
 
 	public void setInstanceStartTime() {
 		this.instanceTime = System.currentTimeMillis();
-	}
-
-	public int getCapPoints() {
-		return capPoints;
-	}
-
-	public boolean hasCapPoints() {
-		return maxFrom(getInstanceRewards()).getPoints() >= capPoints;
 	}
 }

@@ -14,15 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.autogroup;
 
-import static ch.lambdaj.Lambda.having;
-import static ch.lambdaj.Lambda.on;
-import static ch.lambdaj.Lambda.select;
-import static org.hamcrest.Matchers.equalTo;
-
-import java.util.List;
-
+import static ch.lambdaj.Lambda.*;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -32,8 +27,11 @@ import com.aionemu.gameserver.model.team2.group.PlayerGroupService;
 import com.aionemu.gameserver.model.templates.portal.PortalLoc;
 import com.aionemu.gameserver.model.templates.portal.PortalPath;
 import com.aionemu.gameserver.services.teleport.TeleportService2;
+import java.util.List;
+import static org.hamcrest.Matchers.*;
 
 /**
+ *
  * @author xTz
  */
 public class AutoGeneralInstance extends AutoInstance {
@@ -52,13 +50,11 @@ public class AutoGeneralInstance extends AutoInstance {
 				if (clericSize > 0) {
 					return AGQuestion.FAILED;
 				}
-			}
-			else if (playerClass.equals(PlayerClass.TEMPLAR)) {
+			} else if (playerClass.equals(PlayerClass.TEMPLAR)) {
 				if (templarSize > 0) {
 					return AGQuestion.FAILED;
 				}
-			}
-			else {
+			} else {
 				int size = players.size();
 				size -= clericSize;
 				size -= templarSize;
@@ -68,8 +64,7 @@ public class AutoGeneralInstance extends AutoInstance {
 			}
 			players.put(player.getObjectId(), new AGPlayer(player));
 			return instance != null ? AGQuestion.ADDED : (players.size() == agt.getPlayerSize() ? AGQuestion.READY : AGQuestion.ADDED);
-		}
-		finally {
+		} finally {
 			super.writeUnlock();
 		}
 	}
@@ -84,8 +79,7 @@ public class AutoGeneralInstance extends AutoInstance {
 			if (!instance.isRegistered(groupId)) {
 				instance.register(groupId);
 			}
-		}
-		else if (!playersByRace.isEmpty() && playersByRace.get(0).isInGroup2()) {
+		} else if (!playersByRace.isEmpty() && playersByRace.get(0).isInGroup2()) {
 			PlayerGroupService.addPlayer(playersByRace.get(0).getPlayerGroup2(), player);
 		}
 		Integer object = player.getObjectId();
@@ -107,12 +101,9 @@ public class AutoGeneralInstance extends AutoInstance {
 			return;
 		}
 		TeleportService2.teleportTo(player, worldId, instance.getInstanceId(), loc.getX(), loc.getY(), loc.getZ(), loc.getH());
-
-		if (player.getPortalCooldownList().getPortalCooldownItem(loc.getWorldId()) != null) {
-			player.getPortalCooldownList().addPortalCooldown(loc.getWorldId(), 1, DataManager.INSTANCE_COOLTIME_DATA.getInstanceEntranceCooltime(player, worldId));
-		}
-		else {
-			player.getPortalCooldownList().addEntry(worldId);
+		long instanceCoolTime = DataManager.INSTANCE_COOLTIME_DATA.getInstanceEntranceCooltime(player, worldId);
+		if (instanceCoolTime > 0) {
+			player.getPortalCooldownList().addPortalCooldown(worldId, instanceCoolTime);
 		}
 	}
 

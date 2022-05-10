@@ -14,11 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import com.aionemu.gameserver.configs.main.NameConfig;
 
 /**
+ *
  * @author nrg
  */
 public class NameRestrictionService {
@@ -103,7 +105,7 @@ public class NameRestrictionService {
 	public static String filterMessage(String message) {
 		for (String word : message.split(" ")) {
 			if (isForbiddenWord(word)) {
-				message = message.replace(word, ENCODED_BAD_WORD);
+				message.replace(word, ENCODED_BAD_WORD);
 			}
 		}
 		return message;

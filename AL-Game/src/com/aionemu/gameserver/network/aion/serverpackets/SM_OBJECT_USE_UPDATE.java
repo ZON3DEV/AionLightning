@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.HouseObject;
@@ -52,8 +53,7 @@ public class SM_OBJECT_USE_UPDATE extends AionServerPacket {
 			writeD(usingPlayerId);
 			writeC(1); // unk
 			writeD(object.getObjectId());
-		}
-		else if (object instanceof UseableItemObject) {
+		} else if (object instanceof UseableItemObject) {
 			writeD(usingPlayerId);
 			writeD(ownerPlayerId);
 			writeD(object.getObjectId());

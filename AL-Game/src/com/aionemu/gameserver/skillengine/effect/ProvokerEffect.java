@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,12 +52,11 @@ public class ProvokerEffect extends ShieldEffect {
 	public void startEffect(Effect effect) {
 		ActionObserver observer = null;
 		final Creature effector = effect.getEffector();
-		final float prob2 = this.hitTypeProb / 10;
+		final int prob2 = this.hitTypeProb;
 		final int radius = this.radius;
 		switch (this.hitType) {
 			case NMLATK:// ATTACK
 				observer = new ActionObserver(ObserverType.ATTACK) {
-
 					@Override
 					public void attack(Creature creature) {
 						if (Rnd.get(0, 100) <= prob2) {
@@ -68,7 +68,6 @@ public class ProvokerEffect extends ShieldEffect {
 				break;
 			case EVERYHIT:// ATTACKED
 				observer = new ActionObserver(ObserverType.ATTACKED) {
-
 					@Override
 					public void attacked(Creature creature) {
 						if (radius > 0) {
@@ -83,54 +82,9 @@ public class ProvokerEffect extends ShieldEffect {
 					}
 				};
 				break;
-			case BACKATK: // for skill Scroundrel's Bond, Need to check retail, on how actually this works.
-				observer = new ActionObserver(ObserverType.ATTACKED) {
-
-					@Override
-					public void attacked(Creature creature) {
-						if (Rnd.get(0, 100) <= prob2) {
-							Creature target = getProvokeTarget(provokeTarget, effector, creature);
-							createProvokedEffect(effector, target);
-						}
-					}
-				};
-				break;
-			case PHHIT:// ATTACKED
-				observer = new ActionObserver(ObserverType.ATTACKED) {
-
-					@Override
-					public void attacked(Creature creature) {
-						int physical = creature.getGameStats().getMainHandPAttack().getBase();
-						int magical = creature.getGameStats().getMainHandMAttack().getBase();
-						if (Rnd.get(0, 100) <= prob2) {
-							if (physical > magical) {
-								Creature target = getProvokeTarget(provokeTarget, effector, creature);
-								createProvokedEffect(effector, target);
-							}
-						}
-					}
-				};
-				break;
-			case MAHIT:// ATTACKED
-				observer = new ActionObserver(ObserverType.ATTACKED) {
-
-					@Override
-					public void attacked(Creature creature) {
-						int physical = creature.getGameStats().getMainHandPAttack().getBase();
-						int magical = creature.getGameStats().getMainHandMAttack().getBase();
-						if (Rnd.get(0, 100) <= prob2) {
-							if (physical < magical) {
-								Creature target = getProvokeTarget(provokeTarget, effector, creature);
-								createProvokedEffect(effector, target);
-							}
-						}
-					}
-				};
-				break;
+			// TODO MAHIT and PHHIT
 			default:
 				break;
-
-			// TODO Better implementation on MAHIT and PHHIT
 		}
 
 		if (observer == null) {

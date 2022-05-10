@@ -14,15 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.autogroup;
 
-import static ch.lambdaj.Lambda.having;
-import static ch.lambdaj.Lambda.on;
-import static ch.lambdaj.Lambda.select;
-import static org.hamcrest.Matchers.equalTo;
-
-import java.util.List;
-
+import static ch.lambdaj.Lambda.*;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.instance.instancereward.DredgionReward;
@@ -30,8 +25,11 @@ import com.aionemu.gameserver.model.team2.TeamType;
 import com.aionemu.gameserver.model.team2.group.PlayerGroup;
 import com.aionemu.gameserver.model.team2.group.PlayerGroupService;
 import com.aionemu.gameserver.services.instance.DredgionService;
+import java.util.List;
+import static org.hamcrest.Matchers.*;
 
 /**
+ *
  * @author xTz
  */
 public class AutoDredgionInstance extends AutoInstance {
@@ -54,16 +52,14 @@ public class AutoDredgionInstance extends AutoInstance {
 						players.put(member.getObjectId(), new AGPlayer(player));
 					}
 				}
-			}
-			else {
+			} else {
 				if (playersByRace.size() >= 6) {
 					return AGQuestion.FAILED;
 				}
 				players.put(player.getObjectId(), new AGPlayer(player));
 			}
 			return instance != null ? AGQuestion.ADDED : (players.size() == agt.getPlayerSize() ? AGQuestion.READY : AGQuestion.ADDED);
-		}
-		finally {
+		} finally {
 			super.writeUnlock();
 		}
 	}
@@ -79,8 +75,7 @@ public class AutoDredgionInstance extends AutoInstance {
 			if (!instance.isRegistered(groupId)) {
 				instance.register(groupId);
 			}
-		}
-		else if (!playersByRace.isEmpty() && playersByRace.get(0).isInGroup2()) {
+		} else if (!playersByRace.isEmpty() && playersByRace.get(0).isInGroup2()) {
 			PlayerGroupService.addPlayer(playersByRace.get(0).getPlayerGroup2(), player);
 		}
 		Integer object = player.getObjectId();

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.group;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -55,8 +56,7 @@ public class PlayerGroupStats implements Predicate<Player> {
 		if (minLevelPlayer == null || maxLevelPlayer == null) {
 			minLevelPlayer = player;
 			maxLevelPlayer = player;
-		}
-		else {
+		} else {
 			if (player.getCommonData().getExp() < minLevelPlayer.getCommonData().getExp()) {
 				minLevelPlayer = player;
 			}

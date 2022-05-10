@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -32,8 +33,7 @@ public class Whisper extends AdminCommand {
 		if (params[0].equalsIgnoreCase("off")) {
 			admin.setUnWispable();
 			PacketSendUtility.sendMessage(admin, "Accepting Whisper : OFF");
-		}
-		else if (params[0].equalsIgnoreCase("on")) {
+		} else if (params[0].equalsIgnoreCase("on")) {
 			admin.setWispable();
 			PacketSendUtility.sendMessage(admin, "Accepting Whisper : ON");
 		}

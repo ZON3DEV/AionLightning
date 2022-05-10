@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.commons.database.dao.DAOManager;
@@ -65,8 +66,7 @@ public class BanChar extends AdminCommand {
 		int dayCount = -1;
 		try {
 			dayCount = Integer.parseInt(params[1]);
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			PacketSendUtility.sendMessage(admin, "Second parameter is not an int");
 			sendInfo(admin, true);
 			return;
@@ -74,7 +74,7 @@ public class BanChar extends AdminCommand {
 
 		if (dayCount < 0) {
 			PacketSendUtility.sendMessage(admin, "Second parameter has to be a positive daycount or 0 for infinity");
-			sendInfo(admin, true);;
+			sendInfo(admin, true);
 			return;
 		}
 

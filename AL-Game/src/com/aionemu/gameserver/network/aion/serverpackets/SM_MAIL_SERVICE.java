@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.serverpackets;
 
-import java.util.Collection;
+package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.Letter;
 import com.aionemu.gameserver.model.gameobjects.LetterType;
@@ -26,6 +25,7 @@ import com.aionemu.gameserver.model.templates.mail.MailMessage;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.MailServicePacket;
 import com.aionemu.gameserver.utils.collections.ListSplitter;
+import java.util.Collection;
 
 /**
  * @author kosyachok, Source
@@ -147,8 +147,7 @@ public class SM_MAIL_SERVICE extends MailServicePacket {
 				if (!letters.isEmpty()) {
 					ListSplitter<Letter> splittedLetters = new ListSplitter<Letter>(letters, 100);
 					_letters = splittedLetters.getNext();
-				}
-				else {
+				} else {
 					_letters = letters;
 				}
 				writeLettersList(_letters, player, isExpress, unreadExpressCount + unreadBlackCloudCount);

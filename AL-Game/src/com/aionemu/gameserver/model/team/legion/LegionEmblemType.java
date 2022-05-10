@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team.legion;
 
 /**
@@ -21,9 +22,7 @@ package com.aionemu.gameserver.model.team.legion;
  */
 public enum LegionEmblemType {
 
-	DEFAULT(0x00),
-	CUSTOM(0x80);
-
+	DEFAULT(0x00), CUSTOM(0x80);
 	private byte value;
 
 	private LegionEmblemType(int value) {

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.main;
 
 import com.aionemu.commons.configuration.Property;
@@ -37,6 +38,12 @@ public class LoggingConfig {
 	public static boolean LOG_FACTION;
 	@Property(key = "gameserver.log.gmaudit", defaultValue = "true")
 	public static boolean LOG_GMAUDIT;
+	@Property(key = "gameserver.log.ingameshop", defaultValue = "false")
+	public static boolean LOG_INGAMESHOP;
+
+	@Property(key = "gameserver.log.ingameshop.sql", defaultValue = "false")
+	public static boolean LOG_INGAMESHOP_SQL;
+
 	@Property(key = "gameserver.log.item", defaultValue = "true")
 	public static boolean LOG_ITEM;
 	@Property(key = "gameserver.log.kill", defaultValue = "false")

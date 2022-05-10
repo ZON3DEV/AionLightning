@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -34,8 +35,7 @@ public class Ranking extends AdminCommand {
 	public void execute(Player admin, String... params) {
 		if (params.length == 0) {
 			onFail(admin, null);
-		}
-		else if ("update".equalsIgnoreCase(params[0])) {
+		} else if ("update".equalsIgnoreCase(params[0])) {
 			AbyssRankUpdateService.getInstance().performUpdate();
 		}
 	}

@@ -14,16 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.craft;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.main.CraftConfig;
@@ -38,11 +30,11 @@ import com.aionemu.gameserver.model.gameobjects.player.RecipeList;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.skill.PlayerSkillList;
 import com.aionemu.gameserver.model.templates.CraftLearnTemplate;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEARN_RECIPE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.*;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import java.util.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author MrPoke, sphinx
@@ -142,8 +134,7 @@ public class CraftSkillUpdateService {
 					DAOManager.getDAO(PlayerRecipesDAO.class).addRecipe(object, 155000001);
 					PacketSendUtility.sendPacket(player, new SM_LEARN_RECIPE(155000001));
 				}
-			}
-			else if (race == Race.ASMODIANS) {
+			} else if (race == Race.ASMODIANS) {
 				if (!recipelist.isRecipePresent(155005005)) {
 					DAOManager.getDAO(PlayerRecipesDAO.class).addRecipe(object, 155005005);
 					PacketSendUtility.sendPacket(player, new SM_LEARN_RECIPE(155005005));
@@ -203,14 +194,21 @@ public class CraftSkillUpdateService {
 			return;
 		}
 
-		// There is no upgrade payment for Essence and Aether tapping at 449, skip.
+        // There is no upgrade payment for Essence and Aether tapping at 449, skip.
 		if (skillLvl == 449 && (skillId == 30002 || skillId == 30003)) {
 			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1390233));
 			return;
 		}
 
 		// You must do quest before being able to buy master update (499 to 500)
-		if (skillLvl == 499 && ((skillId == 40001 && (!player.isCompleteQuest(29039) || !player.isCompleteQuest(19039))) || (skillId == 40002 && (!player.isCompleteQuest(29009) || !player.isCompleteQuest(19009))) || (skillId == 40003 && (!player.isCompleteQuest(29015) || !player.isCompleteQuest(19015))) || (skillId == 40004 && (!player.isCompleteQuest(29021) || !player.isCompleteQuest(19021))) || (skillId == 40007 && (!player.isCompleteQuest(29033) || !player.isCompleteQuest(19033))) || (skillId == 40008 && (!player.isCompleteQuest(29027) || !player.isCompleteQuest(19027))) || (skillId == 40010 && (!player.isCompleteQuest(29058) || !player.isCompleteQuest(19058))))) {
+		if (skillLvl == 499
+				&& ((skillId == 40001 && (!player.isCompleteQuest(29039) || !player.isCompleteQuest(19039)))
+						|| (skillId == 40002 && (!player.isCompleteQuest(29009) || !player.isCompleteQuest(19009)))
+						|| (skillId == 40003 && (!player.isCompleteQuest(29015) || !player.isCompleteQuest(19015)))
+						|| (skillId == 40004 && (!player.isCompleteQuest(29021) || !player.isCompleteQuest(19021)))
+						|| (skillId == 40007 && (!player.isCompleteQuest(29033) || !player.isCompleteQuest(19033)))
+						|| (skillId == 40008 && (!player.isCompleteQuest(29027) || !player.isCompleteQuest(19027))) || (skillId == 40010 && (!player
+						.isCompleteQuest(29058) || !player.isCompleteQuest(19058))))) {
 			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1400286));
 			return;
 		}
@@ -225,7 +223,6 @@ public class CraftSkillUpdateService {
 		final long kinah = player.getInventory().getKinah();
 		final int skillLevel = skillLvl;
 		RequestResponseHandler responseHandler = new RequestResponseHandler(npc) {
-
 			@Override
 			public void acceptRequest(Creature requester, Player responder) {
 				if (price < kinah && responder.getInventory().tryDecreaseKinah(price)) {
@@ -233,8 +230,7 @@ public class CraftSkillUpdateService {
 					skillList.addSkill(responder, skillId, skillLevel + 1);
 					responder.getRecipeList().autoLearnRecipe(responder, skillId, skillLevel + 1);
 					PacketSendUtility.sendPacket(responder, new SM_SKILL_LIST(skillList.getSkillEntry(skillId), 1330004, false));
-				}
-				else {
+				} else {
 					PacketSendUtility.sendPacket(responder, new SM_SYSTEM_MESSAGE(1300388));
 				}
 			}
@@ -247,7 +243,8 @@ public class CraftSkillUpdateService {
 
 		boolean result = player.getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_CRAFT_ADDSKILL_CONFIRM, responseHandler);
 		if (result) {
-			PacketSendUtility.sendPacket(player, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_CRAFT_ADDSKILL_CONFIRM, 0, 0, new DescriptionId(DataManager.SKILL_DATA.getSkillTemplate(skillId).getNameId()), String.valueOf(price)));
+			PacketSendUtility.sendPacket(player, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_CRAFT_ADDSKILL_CONFIRM, 0, 0, new DescriptionId(
+					DataManager.SKILL_DATA.getSkillTemplate(skillId).getNameId()), String.valueOf(price)));
 		}
 	}
 
@@ -318,7 +315,10 @@ public class CraftSkillUpdateService {
 	 * @return true or false
 	 */
 	public static boolean canLearnMoreExpertCraftingSkill(Player player) {
-		return getTotalExpertCraftingSkills(player) + getTotalMasterCraftingSkills(player) < CraftConfig.MAX_EXPERT_CRAFTING_SKILLS;
+        if (getTotalExpertCraftingSkills(player) + getTotalMasterCraftingSkills(player) < CraftConfig.MAX_EXPERT_CRAFTING_SKILLS)
+            return true;
+        else
+            return false;
 	}
 
 	/**
@@ -327,7 +327,10 @@ public class CraftSkillUpdateService {
 	 * @return true or false
 	 */
 	public static boolean canLearnMoreMasterCraftingSkill(Player player) {
-		return getTotalMasterCraftingSkills(player) < CraftConfig.MAX_MASTER_CRAFTING_SKILLS;
+        if (getTotalMasterCraftingSkills(player) < CraftConfig.MAX_MASTER_CRAFTING_SKILLS)
+            return true;
+        else
+            return false;
 	}
 
 	@SuppressWarnings("synthetic-access")

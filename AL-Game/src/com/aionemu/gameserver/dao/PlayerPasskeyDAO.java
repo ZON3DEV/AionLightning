@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dao;
 
 import com.aionemu.commons.database.dao.DAO;
@@ -59,6 +60,7 @@ public abstract class PlayerPasskeyDAO implements DAO {
 
 	/*
 	 * (non-Javadoc)
+	 *
 	 * @see com.aionemu.commons.database.dao.DAO#getClassName()
 	 */
 	@Override

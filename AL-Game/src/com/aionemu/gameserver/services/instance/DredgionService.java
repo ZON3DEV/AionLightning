@@ -14,14 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.instance;
 
-import java.util.Iterator;
-
+import com.aionemu.commons.network.util.ThreadPoolManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aionemu.commons.network.util.ThreadPoolManager;
 import com.aionemu.commons.services.CronService;
 import com.aionemu.gameserver.configs.main.AutoGroupConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -30,12 +29,11 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.AutoGroupService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
-
+import java.util.Iterator;
 import javolution.util.FastList;
 
 /**
  * @author xTz
- * @author GiGatR00n v4.7.5.x
  */
 public class DredgionService {
 
@@ -44,19 +42,7 @@ public class DredgionService {
 	private FastList<Integer> playersWithCooldown = new FastList<Integer>();
 	private SM_AUTO_GROUP[] autoGroupUnreg, autoGroupReg;
 	private final byte maskLvlGradeC = 1, maskLvlGradeB = 2, maskLvlGradeA = 3;
-	public static final byte minlevel = 45, maxlevel = 61;
-
-	/*
-	 * instantiate class
-	 */
-	private static class SingletonHolder {
-
-		protected static final DredgionService instance = new DredgionService();
-	}
-
-	public static DredgionService getInstance() {
-		return SingletonHolder.instance;
-	}
+	public static final byte minLevel = 45, capLevel = 61;
 
 	public DredgionService() {
 		this.autoGroupUnreg = new SM_AUTO_GROUP[this.maskLvlGradeA + 1];
@@ -71,7 +57,6 @@ public class DredgionService {
 		String[] times = AutoGroupConfig.DREDGION_TIMES.split("\\|");
 		for (String cron : times) {
 			CronService.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
 					startDredgionRegistration();
@@ -83,7 +68,6 @@ public class DredgionService {
 
 	private void startUregisterDredgionTask() {
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				registerAvailable = false;
@@ -94,7 +78,7 @@ public class DredgionService {
 				Iterator<Player> iter = World.getInstance().getPlayersIterator();
 				while (iter.hasNext()) {
 					Player player = iter.next();
-					if (player.getLevel() > minlevel) {
+					if (player.getLevel() > minLevel) {
 						int instanceMaskId = getInstanceMaskId(player);
 						if (instanceMaskId > 0) {
 							PacketSendUtility.sendPacket(player, DredgionService.this.autoGroupUnreg[instanceMaskId]);
@@ -106,12 +90,12 @@ public class DredgionService {
 	}
 
 	private void startDredgionRegistration() {
-		registerAvailable = true;
+		this.registerAvailable = true;
 		startUregisterDredgionTask();
 		Iterator<Player> iter = World.getInstance().getPlayersIterator();
 		while (iter.hasNext()) {
 			Player player = iter.next();
-			if (player.getLevel() > minlevel && player.getLevel() < maxlevel) {
+			if (player.getLevel() > minLevel && player.getLevel() < capLevel) {
 				int instanceMaskId = getInstanceMaskId(player);
 				if (instanceMaskId > 0) {
 					PacketSendUtility.sendPacket(player, this.autoGroupReg[instanceMaskId]);
@@ -132,32 +116,30 @@ public class DredgionService {
 	}
 
 	public boolean isDredgionAvailable() {
-		return registerAvailable;
+		return this.registerAvailable;
 	}
 
 	public byte getInstanceMaskId(Player player) {
 		int level = player.getLevel();
-		if (level < minlevel || level >= maxlevel) {
+		if (level < minLevel || level >= capLevel) {
 			return 0;
 		}
 
 		if (level < 51) {
 			return this.maskLvlGradeC;
-		}
-		else if (level < 56) {
+		} else if (level < 56) {
 			return this.maskLvlGradeB;
-		}
-		else {
+		} else {
 			return this.maskLvlGradeA;
 		}
 	}
 
 	public void addCoolDown(Player player) {
-		playersWithCooldown.add(player.getObjectId());
+		this.playersWithCooldown.add(player.getObjectId());
 	}
 
 	public boolean hasCoolDown(Player player) {
-		return playersWithCooldown.contains(player.getObjectId());
+		return this.playersWithCooldown.contains(player.getObjectId());
 	}
 
 	public void showWindow(Player player, int instanceMaskId) {
@@ -170,12 +152,12 @@ public class DredgionService {
 		}
 	}
 
-	private boolean isInInstance(Player player) {
-		return player.isInInstance();
+	private static class SingletonHolder {
+
+		protected static final DredgionService instance = new DredgionService();
 	}
 
-	public boolean canPlayerJoin(Player player) {
-		return registerAvailable && player.getLevel() > minlevel && player.getLevel() < maxlevel && !hasCoolDown(player) && !isInInstance(player);
+	public static DredgionService getInstance() {
+		return SingletonHolder.instance;
 	}
-
 }

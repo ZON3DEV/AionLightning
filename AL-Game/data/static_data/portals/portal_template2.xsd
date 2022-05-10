@@ -17,7 +17,7 @@
         </xs:sequence>
         <xs:attribute name="npc_id" type="xs:int"/>
     </xs:complexType>
-
+	
     <xs:complexType name="PortalDialog">
         <xs:sequence>
             <xs:element name="portal_path" type="PortalPath" minOccurs="0" maxOccurs="unbounded"/>
@@ -25,7 +25,7 @@
         <xs:attribute name="npc_id" type="xs:int"/>
         <xs:attribute name="teleport_dialog_id" type="xs:int"/>
     </xs:complexType>
-
+	
     <xs:complexType name="PortalScroll">
         <xs:sequence>
             <xs:element name="portal_path" type="PortalPath" minOccurs="0" maxOccurs="unbounded"/>

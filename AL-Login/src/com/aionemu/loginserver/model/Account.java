@@ -18,8 +18,6 @@
 
 package com.aionemu.loginserver.model;
 
-import java.sql.Timestamp;
-
 /**
  * This class represents Account model
  *
@@ -71,10 +69,6 @@ public class Account {
      * AccountTime data
      */
     private AccountTime accountTime;
-
-    private byte isReturn;
-
-    private Timestamp returnEnd;
 
     /**
      * Returns account id, null if not stored in DB
@@ -264,22 +258,6 @@ public class Account {
      */
     public void setAccountTime(AccountTime accountTime) {
         this.accountTime = accountTime;
-    }
-
-    public byte getReturn() {
-        return isReturn;
-    }
-
-    public void setReturn(byte isReturn) {
-        this.isReturn = isReturn;
-    }
-
-    public Timestamp getReturnEnd() {
-        return returnEnd;
-    }
-
-    public void setReturnEnd(Timestamp end) {
-        this.returnEnd = end;
     }
 
     /**

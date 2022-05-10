@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.actions.PlayerMode;
@@ -30,7 +31,9 @@ import com.aionemu.gameserver.world.World;
  */
 public class CM_MOVE_IN_AIR extends AionClientPacket {
 
-	float x, y, z;
+  	float x;
+  	float y;
+  	float z;
 	int distance;
 	@SuppressWarnings("unused")
 	private byte locationId;
@@ -68,8 +71,7 @@ public class CM_MOVE_IN_AIR extends AionClientPacket {
 		if (player.isInState(CreatureState.FLIGHT_TELEPORT)) {
 			if (player.isUsingFlyTeleport()) {
 				player.setFlightDistance(distance);
-			}
-			else if (player.isInPlayerMode(PlayerMode.WINDSTREAM)) {
+			} else if (player.isInPlayerMode(PlayerMode.WINDSTREAM)) {
 				player.windstreamPath.distance = distance;
 			}
 			World.getInstance().updatePosition(player, x, y, z, (byte) 0);

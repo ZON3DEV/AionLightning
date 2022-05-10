@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.slf4j.Logger;
@@ -36,8 +37,6 @@ import com.aionemu.gameserver.utils.audit.AuditLogger;
 
 /**
  * @author orz, ATracer, Simple, xTz
- * @modify pralinka
- * @modify Phantom_KNA
  */
 public class CM_BUY_ITEM extends AionClientPacket {
 
@@ -69,11 +68,7 @@ public class CM_BUY_ITEM extends AionClientPacket {
 		}
 		if (tradeActionId == 2) {
 			repurchaseList = new RepurchaseList(sellerObjId);
-		}
-		else if (tradeActionId == 18) {
-			tradeList = new TradeList(0);
-		}
-		else {
+		} else {
 			tradeList = new TradeList(sellerObjId);
 		}
 
@@ -88,8 +83,6 @@ public class CM_BUY_ITEM extends AionClientPacket {
 				break;
 			}
 
-			System.out.println("TradeAction: " + tradeActionId);
-			
 			switch (tradeActionId) {
 				case 0:// private store
 				case 1:// sell to shop
@@ -102,16 +95,6 @@ public class CM_BUY_ITEM extends AionClientPacket {
 				case 14:// buy from abyss shop
 				case 15:// buy from reward shop
 					tradeList.addBuyItem(itemId, count);
-					break;
-				case 17:// sell from Miol
-					tradeList.addSellItem(itemId, count);
-					break;
-				case 19:// sell from Inventory
-					tradeList.addSellItem(itemId, count);
-					break;
-				default:
-					System.out.println("Unknown TradeAction: " + tradeActionId);
-					AuditLogger.info(player, "Unknow TradeAction: " + tradeActionId);
 					break;
 			}
 		}
@@ -130,59 +113,22 @@ public class CM_BUY_ITEM extends AionClientPacket {
 
 		VisibleObject target = player.getKnownList().getKnownObjects().get(sellerObjId);
 
-		if (tradeActionId == 19 && target == null) {
-			TradeService.performSellToShop(player, tradeList); // Sell from Inventory
-		}
-		else if (target == null) {
+		if (target == null) {
 			return;
 		}
 
 		if (target instanceof Player && tradeActionId == 0) {
 			Player targetPlayer = (Player) target;
 			PrivateStoreService.sellStoreItem(targetPlayer, player, tradeList);
-		}
-		else if (target instanceof Npc) {
+		} else if (target instanceof Npc) {
 			Npc npc = (Npc) target;
 			TradeListTemplate tlist = DataManager.TRADE_LIST_DATA.getTradeListTemplate(npc.getNpcId());
-			TradeListTemplate purchaseTemplate = DataManager.TRADE_LIST_DATA.getPurchaseTemplate(npc.getNpcId());
 			switch (tradeActionId) {
 				case 1:// sell to shop
-					if (npc.getObjectTemplate().getTitleId() == 463495 || // <Ancient Relics Supervisor>
-						npc.getObjectTemplate().getTitleId() == 463628 || // <Legion Relics Supervisor>
-						npc.getObjectTemplate().getTitleId() == 463230 || // <Battlefield Equipment Vendor>
-						npc.getObjectTemplate().getTitleId() == 463224 || // <Abyss Equipment Merchant>
-						npc.getObjectTemplate().getTitleId() == 463209 || // <Legion Abyss Equipment Merchant>
-						npc.getObjectTemplate().getTitleId() == 463493 || // <Battlefield Equipment Vendor>
-						npc.getObjectTemplate().getTitleId() == 463491 || // <Abyss Equipment Merchant>
-						npc.getObjectTemplate().getTitleId() == 463222 || // <Ceramium Medal Steward>
-						npc.getObjectTemplate().getTitleId() == 463648 || // <Stigma Vendor>
-						npc.getObjectTemplate().getTitleId() == 463492 || // <Ancient Coin Reward Officer>
-						npc.getObjectTemplate().getTitleId() == 358113 || // <Stigma Vendor 4.8>
-						npc.getObjectTemplate().getTitleId() == 358114 || // <Stigma Purchasing Officer>
-						npc.getObjectTemplate().getTitleId() == 358081 || // <Abyss Equipment Merchant>
-						npc.getObjectTemplate().getTitleId() == 358082 || // <Blood Mark Equipment Officer>
-						npc.getObjectTemplate().getTitleId() == 358083 || // <Ancient Relic Collector>
-						npc.getObjectTemplate().getTitleId() == 357852 || // <Abyss Equipment Officer>
-						npc.getObjectTemplate().getTitleId() == 358096 || // <Abyss Equipment Purchasing Officer>
-						npc.getObjectTemplate().getTitleId() == 358100 || // <Ancient Relics Supervisor>
-						npc.getObjectTemplate().getTitleId() == 370408 || // <Ancient Icon Custodian>
-						npc.getObjectTemplate().getTitleId() == 370409 || // <Ancient Seal Custodian>
-						npc.getObjectTemplate().getTitleId() == 370410 || // <Ancient Goblet Custodian>
-						npc.getObjectTemplate().getTitleId() == 370411 || // <Ancient Crown Custodian>
-						// Reshanta By Phantom_KNA
-						npc.getObjectTemplate().getTitleId() == 314357 || // <Ancient Icon Administration Officer>
-						npc.getObjectTemplate().getTitleId() == 314358 || // <Ancient Seal Administration Officer>
-						npc.getObjectTemplate().getTitleId() == 314359 || // <Ancient Goblet Administration Officer>
-						npc.getObjectTemplate().getTitleId() == 314360) { // <Ancient Crown Administration Officer>
+                    if (npc.getObjectTemplate().getTitleId() == 463495 || npc.getObjectTemplate().getTitleId() == 463628) {
+                        TradeListTemplate purchaseTemplate = DataManager.TRADE_LIST_DATA.getPurchaseTemplate(npc.getNpcId());
 						TradeService.performSellForAPToShop(player, tradeList, purchaseTemplate);
-					}
-					// Sell To Shop [Purchase List Kinah]
-					if (npc.getObjectTemplate().getTitleId() == 463203 || // <Special Vendor>
-						npc.getObjectTemplate().getTitleId() == 463490 || // <Ancient Coin Equipment Vendor>
-						npc.getObjectTemplate().getTitleId() == 463206) { // <Legion Special Vendor>
-						TradeService.performSellForKinahToShop(player, tradeList, purchaseTemplate);
-					}
-					else {
+					} else {
 						TradeService.performSellToShop(player, tradeList);
 					}
 					break;
@@ -203,9 +149,6 @@ public class CM_BUY_ITEM extends AionClientPacket {
 					if (tlist != null && tlist.getTradeNpcType() == TradeNpcType.REWARD) {
 						TradeService.performBuyFromRewardShop(npc, player, tradeList);
 					}
-					break;
-				case 17:// sell from Miol
-					TradeService.performSellForKinahToShop(player, tradeList, purchaseTemplate);
 					break;
 				default:
 					log.info(String.format("Unhandle shop action unk1: %d", tradeActionId));

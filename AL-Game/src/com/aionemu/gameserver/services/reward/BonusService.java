@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.reward;
 
 import java.util.ArrayList;
@@ -100,17 +101,14 @@ public class BonusService {
 		}
 
 		BonusItemGroup chosenGroup = null;
-		if (groups != null) {
-			int percent = 100;
-			for (BonusItemGroup gr : groups) {
-				float chance = getNormalizedChance(gr.getChance(), total);
-				if (Rnd.get(0, percent) <= chance) {
-					chosenGroup = gr;
-					break;
-				}
-				else {
-					percent -= chance;
-				}
+		int percent = 100;
+		for (BonusItemGroup gr : groups) {
+			float chance = getNormalizedChance(gr.getChance(), total);
+			if (Rnd.get(0, percent) <= chance) {
+				chosenGroup = gr;
+				break;
+			} else {
+				percent -= chance;
 			}
 		}
 		return chosenGroup;
@@ -166,7 +164,7 @@ public class BonusService {
 				Collections.addAll(temp, groups);
 				temp.remove(group);
 				group = null;
-				groups = temp.toArray(new BonusItemGroup[0]);
+				groups = temp.toArray(new BonusItemGroup[temp.size()]);
 			}
 		}
 
@@ -176,12 +174,14 @@ public class BonusService {
 		}
 		List<ItemRaceEntry> finalList = new ArrayList<ItemRaceEntry>();
 
-		for (int i = 0; i < allRewards.length; i++) {
-			ItemRaceEntry r = allRewards[i];
-			if (!r.checkRace(player.getCommonData().getRace())) {
-				continue;
+		if (allRewards != null) {
+			for (int i = 0; i < allRewards.length; i++) {
+				ItemRaceEntry r = allRewards[i];
+				if (!r.checkRace(player.getCommonData().getRace())) {
+					continue;
+				}
+				finalList.add(r);
 			}
-			finalList.add(r);
 		}
 
 		if (finalList.isEmpty()) {

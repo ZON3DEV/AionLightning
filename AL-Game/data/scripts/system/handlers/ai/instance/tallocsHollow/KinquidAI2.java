@@ -14,21 +14,21 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.instance.tallocsHollow;
 
-import java.util.concurrent.Future;
-import java.util.concurrent.atomic.AtomicBoolean;
-
-import com.aionemu.gameserver.utils.ThreadPoolManager;
+import ai.AggressiveNpcAI2;
+import com.aionemu.commons.network.util.ThreadPoolManager;
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.ai2.AIName;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.skillengine.SkillEngine;
-
-import ai.AggressiveNpcAI2;
+import java.util.concurrent.Future;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
+ *
  * @author xTz
  */
 @AIName("kinquid")
@@ -77,16 +77,13 @@ public class KinquidAI2 extends AggressiveNpcAI2 {
 
 	private void startSkillTask() {
 		skillTask = ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 			@Override
 			public void run() {
 				if (isAlreadyDead()) {
 					cancelSkillTask();
-				}
-				else {
+				} else {
 					SkillEngine.getInstance().getSkill(getOwner(), 19233, 60, getOwner()).useNoAnimationSkill();
 					ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 						@Override
 						public void run() {
 							if (!isAlreadyDead() && getPosition().isSpawned()) {
@@ -101,7 +98,6 @@ public class KinquidAI2 extends AggressiveNpcAI2 {
 
 	private void doSchedule() {
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				check();

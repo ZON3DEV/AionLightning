@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package quest;
 
 import com.aionemu.gameserver.model.DialogAction;
@@ -30,7 +31,8 @@ import com.aionemu.gameserver.world.zone.ZoneName;
  * This is a template for everyone, who will write a new quest handler<br>
  * It's only example. All IDs should be changed to the from your quest<br>
  * And use only needed events<br>
- * The main things are the structure and using default methods from the QuestHandler class<br>
+ * The main things are the structure and using default methods from the
+ * QuestHandler class<br>
  * - First the quest status<br>
  * - Then the target ID<br>
  * - Then DialogAction
@@ -57,18 +59,17 @@ public class _9999QuestHandlerTemplate extends QuestHandler {
 		DialogAction dialog = env.getDialog();
 		int targetId = env.getTargetId();
 
-		// If this is a mission, the qs should be != null and you will not need this
+		// If this is a mission, the qs should be != null and you will not need
+		// this
 		if (qs == null || qs.canRepeat()) {
 			if (targetId == 000000) { // Viktor Logwin
 				if (dialog == DialogAction.QUEST_SELECT) {
 					return sendQuestDialog(env, 1011); // can be different
-				}
-				else {
+				} else {
 					return sendQuestStartDialog(env);
 				}
 			}
-		}
-		else if (qs.getStatus() == QuestStatus.START) {
+		} else if (qs.getStatus() == QuestStatus.START) {
 			int var = qs.getQuestVarById(0);
 			switch (targetId) {
 				case 111111: { // Oliver
@@ -76,11 +77,9 @@ public class _9999QuestHandlerTemplate extends QuestHandler {
 						case QUEST_SELECT: {
 							if (var == 0) {
 								return sendQuestDialog(env, 1352);
-							}
-							else if (var == 4) {
+							} else if (var == 4) {
 								return sendQuestDialog(env, 1693);
-							}
-							else if (var == 5) {
+							} else if (var == 5) {
 								return sendQuestDialog(env, 2034);
 							}
 						}
@@ -105,13 +104,11 @@ public class _9999QuestHandlerTemplate extends QuestHandler {
 					}
 				}
 			}
-		}
-		else if (qs.getStatus() == QuestStatus.REWARD) {
+		} else if (qs.getStatus() == QuestStatus.REWARD) {
 			if (targetId == 000000) { // Viktor Logwin
 				if (dialog == DialogAction.USE_OBJECT) {
 					return sendQuestDialog(env, 20001);
-				}
-				else {
+				} else {
 					return sendQuestEndDialog(env);
 				}
 			}
@@ -129,7 +126,8 @@ public class _9999QuestHandlerTemplate extends QuestHandler {
 		Player player = env.getPlayer();
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if (qs != null && qs.getStatus() == QuestStatus.START) {
-			if (player.isInsideZone(ZoneName.get("DF1A_ITEMUSEAREA_Q2016"))) { // example zone
+			if (player.isInsideZone(ZoneName.get("DF1A_ITEMUSEAREA_Q2016"))) { // example
+																				// zone
 				return HandlerResult.fromBoolean(useQuestItem(env, item, 3, 4, false));
 			}
 		}

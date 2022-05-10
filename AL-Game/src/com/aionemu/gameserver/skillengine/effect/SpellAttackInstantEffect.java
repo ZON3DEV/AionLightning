@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -36,10 +37,13 @@ public class SpellAttackInstantEffect extends DamageEffect {
 	public void calculate(Effect effect) {
 		final Creature effected = effect.getEffected();
 
-		// hotfix for http://www.aionarmory.com/spell.aspx?id=2713 (Balaur Seeker)
+		// hotfix for http://www.aionarmory.com/spell.aspx?id=2713 (Balaur
+		// Seeker)
 		/*
-		 * if (effect.getSkillId() == 2713) { if (effected instanceof Npc) { effect.getEffected().getEffectController().setAbnormal(AbnormalState.STUN.getId()); } else if (effected instanceof Player)
-		 * { return; } }
+		 * if (effect.getSkillId() == 2713) { if (effected instanceof Npc) {
+		 * effect
+		 * .getEffected().getEffectController().setAbnormal(AbnormalState.STUN
+		 * .getId()); } else if (effected instanceof Player) { return; } }
 		 */
 		if (effected instanceof Player) {
 			// hotfix for http://www.aiondatabase.com/skill/19332
@@ -48,7 +52,8 @@ public class SpellAttackInstantEffect extends DamageEffect {
 					return;
 				}
 			}
-			// hotfix for http://www.aiondatabase.com/skill/18916 and http://www.aiondatabase.com/skill/18915
+			// hotfix for http://www.aiondatabase.com/skill/18916 and
+			// http://www.aiondatabase.com/skill/18915
 			for (Effect ef : effect.getEffected().getEffectController().getAbnormalEffects()) {
 				if (ef.getSkillId() == 18916) {
 					if (effect.getSkillId() == 18913) {

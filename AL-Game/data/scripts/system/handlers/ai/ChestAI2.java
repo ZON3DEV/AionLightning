@@ -14,12 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai;
 
-import static ch.lambdaj.Lambda.maxFrom;
+import static ch.lambdaj.Lambda.*;
 
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 
 import com.aionemu.gameserver.ai2.AI2Actions;
@@ -37,6 +37,7 @@ import com.aionemu.gameserver.services.drop.DropService;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.audit.AuditLogger;
+import java.util.HashSet;
 
 /**
  * @author ATracer, xTz
@@ -72,22 +73,19 @@ public class ChestAI2 extends ActionItemNpcAI2 {
 						players.add(member);
 					}
 				}
-			}
-			else if (player.isInAlliance2()) {
+			} else if (player.isInAlliance2()) {
 				for (Player member : player.getPlayerAlliance2().getOnlineMembers()) {
 					if (MathUtil.isIn3dRange(member, getOwner(), GroupConfig.GROUP_MAX_DISTANCE)) {
 						players.add(member);
 					}
 				}
-			}
-			else {
+			} else {
 				players.add(player);
 			}
 			DropRegistrationService.getInstance().registerDrop(getOwner(), player, maxFrom(players).getLevel(), players);
 			DropService.getInstance().requestDropList(player, getObjectId());
 			super.handleUseItemFinish(player);
-		}
-		else {
+		} else {
 			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1111301));
 		}
 	}
@@ -112,8 +110,7 @@ public class ChestAI2 extends ActionItemNpcAI2 {
 				}
 				i++;
 				continue;
-			}
-			else {
+			} else {
 				return false;
 			}
 		}

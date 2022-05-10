@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import java.util.List;
@@ -28,6 +29,8 @@ import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javolution.util.FastList;
 
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.ai2.poll.AIQuestion;
@@ -53,8 +56,6 @@ import com.aionemu.gameserver.skillengine.model.SpellStatus;
 import com.aionemu.gameserver.skillengine.model.TransformType;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
 
-import javolution.util.FastList;
-
 /**
  * @author ATracer
  */
@@ -79,7 +80,7 @@ public abstract class EffectTemplate {
 	@XmlAttribute(name = "hittype", required = false)
 	protected HitType hitType = HitType.EVERYHIT;
 	@XmlAttribute(name = "hittypeprob2", required = false)
-	protected float hitTypeProb = 100f;
+	protected int hitTypeProb = 100;
 	@XmlAttribute(name = "element")
 	protected SkillElement element = SkillElement.NONE;
 	@XmlElement(name = "subeffect")
@@ -294,10 +295,28 @@ public abstract class EffectTemplate {
 	}
 
 	/**
-	 * 1) check conditions 2) check preeffect 3) check effectresistrate 4) check noresist 5) decide if its magical or physical effect 6) physical - check cannotmiss 7) check magic resist / dodge 8)
-	 * addsuccess
-	 * <p/>
-	 * exceptions: buffbind buffsilence buffsleep buffstun randommoveloc recallinstant returneffect returnpoint shieldeffect signeteffect summoneffect xpboosteffect
+	 * 1) check conditions
+	 * 2) check preeffect
+	 * 3) check effectresistrate
+	 * 4) check noresist
+	 * 5) decide if its magical or physical effect
+	 * 6) physical - check cannotmiss
+	 * 7) check magic resist / dodge
+	 * 8) addsuccess
+	 *
+	 * exceptions:
+	 * buffbind
+	 * buffsilence
+	 * buffsleep
+	 * buffstun
+	 * randommoveloc
+	 * recallinstant
+	 * returneffect
+	 * returnpoint
+	 * shieldeffect
+	 * signeteffect
+	 * summoneffect
+	 * xpboosteffect
 	 *
 	 * @param effect
 	 * @param statEnum
@@ -379,14 +398,12 @@ public abstract class EffectTemplate {
 							if (Rnd.get(0, 1000) < StatFunctions.calculateMagicalResistRate(effect.getEffector(), effect.getEffected(), accMod)) {
 								return false;
 							}
-						}
-						else {
+						} else {
 							if (StatFunctions.calculatePhysicalDodgeRate(effect.getEffector(), effect.getEffected(), accMod)) {
 								return false;
 							}
 						}
-					}
-					else {
+					} else {
 						if (StatFunctions.calculatePhysicalDodgeRate(effect.getEffector(), effect.getEffected(), accMod)) {
 							return false;
 						}
@@ -396,30 +413,6 @@ public abstract class EffectTemplate {
 					if (Rnd.get(0, 1000) < StatFunctions.calculateMagicalResistRate(effect.getEffector(), effect.getEffected(), accMod)) {
 						return false;
 					}
-					break;
-				case ALL:
-					if (effect.getEffector() instanceof Player) {
-						Player player = (Player) effect.getEffector();
-						if (player.getPlayerClass() == PlayerClass.GUNNER || player.getPlayerClass() == PlayerClass.RIDER) {
-							if (Rnd.get(0, 1000) < StatFunctions.calculateMagicalResistRate(effect.getEffector(), effect.getEffected(), accMod)) {
-								return false;
-							}
-						}
-						else {
-							if (StatFunctions.calculatePhysicalDodgeRate(effect.getEffector(), effect.getEffected(), accMod)) {
-								return false;
-							}
-						}
-					}
-					else {
-						if (StatFunctions.calculatePhysicalDodgeRate(effect.getEffector(), effect.getEffected(), accMod)) {
-							return false;
-						}
-					}
-					if (Rnd.get(0, 1000) < StatFunctions.calculateMagicalResistRate(effect.getEffector(), effect.getEffected(), accMod)) {
-						return false;
-					}
-					break;
 				default:
 					break;
 			}
@@ -441,7 +434,7 @@ public abstract class EffectTemplate {
 	 */
 	private boolean effectConditionsCheck(Effect effect) {
 		Conditions effectConditions = getEffectConditions();
-		return effectConditions != null ? effectConditions.validate(effect) : true;
+		return effectConditions == null || effectConditions.validate(effect);
 	}
 
 	private FastList<Integer> getPreEffects() {
@@ -472,7 +465,6 @@ public abstract class EffectTemplate {
 	 * @param effect
 	 */
 	public void startEffect(Effect effect) {
-		
 	}
 
 	/**
@@ -513,11 +505,12 @@ public abstract class EffectTemplate {
 	 * Check all sub effect condition statuses for effect
 	 */
 	private boolean effectSubConditionsCheck(Effect effect) {
-		return effectSubConditions != null ? effectSubConditions.validate(effect) : true;
+		return effectSubConditions == null || effectSubConditions.validate(effect);
 	}
 
 	/**
-	 * Hate will be added to result value only if particular effect template has success result
+	 * Hate will be added to result value only if particular effect template has
+	 * success result
 	 *
 	 * @param effect
 	 */
@@ -588,7 +581,8 @@ public abstract class EffectTemplate {
 	 * @return true = no resist, false = resisted
 	 */
 	public boolean calculateEffectResistRate(Effect effect, StatEnum statEnum) {
-		if (effect.getEffected() == null || effect.getEffected().getGameStats() == null || effect.getEffector() == null || effect.getEffector().getGameStats() == null) {
+		if (effect.getEffected() == null || effect.getEffected().getGameStats() == null || effect.getEffector() == null
+				|| effect.getEffector().getGameStats() == null) {
 			return false;
 		}
 
@@ -619,8 +613,7 @@ public abstract class EffectTemplate {
 			int differ = (effected.getLevel() - effector.getLevel());
 			if (differ > 2 && differ < 8) {
 				effectPower -= Math.round((effectPower * (differ - 2) / 15f));
-			}
-			else if (differ >= 8) {
+			} else if (differ >= 8) {
 				effectPower *= 0.1f;
 			}
 		}
@@ -698,14 +691,14 @@ public abstract class EffectTemplate {
 				return StatEnum.BLEED_RESISTANCE_PENETRATION;
 			case BLIND_RESISTANCE:
 				return StatEnum.BLIND_RESISTANCE_PENETRATION;
-			// case BIND_RESISTANCE:
+				// case BIND_RESISTANCE:
 			case CHARM_RESISTANCE:
 				return StatEnum.CHARM_RESISTANCE_PENETRATION;
 			case CONFUSE_RESISTANCE:
 				return StatEnum.CONFUSE_RESISTANCE_PENETRATION;
 			case CURSE_RESISTANCE:
 				return StatEnum.CURSE_RESISTANCE_PENETRATION;
-			// case DEFORM_RESISTANCE:
+				// case DEFORM_RESISTANCE:
 			case DISEASE_RESISTANCE:
 				return StatEnum.DISEASE_RESISTANCE_PENETRATION;
 			case FEAR_RESISTANCE:
@@ -742,29 +735,29 @@ public abstract class EffectTemplate {
 	}
 
 	/**
-	 * certain effects are magical even when used in physical skills it includes stuns from chanter/sin/ranger etc these effects(effecttemplates) are dependent on magical accuracy and magical resist
-	 *
+	 * certain effects are magical even when used in physical skills
+	 * it includes stuns from chanter/sin/ranger etc
+	 * these effects(effecttemplates) are dependent on magical accuracy and magical resist
 	 * @return
 	 */
 	private boolean isMagicalEffectTemp() {
-		if (this instanceof SilenceEffect || this instanceof SleepEffect || this instanceof RootEffect || this instanceof SnareEffect || this instanceof StunEffect || this instanceof PoisonEffect || this instanceof BindEffect || this instanceof BleedEffect || this instanceof BlindEffect || this instanceof DeboostHealEffect || this instanceof ParalyzeEffect || this instanceof SlowEffect) {
+		if (this instanceof SilenceEffect || this instanceof SleepEffect || this instanceof RootEffect || this instanceof SnareEffect
+				|| this instanceof StunEffect || this instanceof PoisonEffect || this instanceof BindEffect || this instanceof BleedEffect
+				|| this instanceof BlindEffect || this instanceof DeboostHealEffect || this instanceof ParalyzeEffect || this instanceof SlowEffect) {
 			return true;
 		}
 
 		return false;
 	}
 
-	/**
-	 * @param u
-	 * @param parent
-	 */
 	void afterUnmarshal(Unmarshaller u, Object parent) {
 		EffectType temp = null;
 		try {
-			temp = EffectType.valueOf(this.getClass().getName().replaceAll("com.aionemu.gameserver.skillengine.effect.", "").replaceAll("Effect", "").toUpperCase());
-		}
-		catch (Exception e) {
-			log.info("missing effectype for " + this.getClass().getName().replaceAll("com.aionemu.gameserver.skillengine.effect.", "").replaceAll("Effect", "").toUpperCase());
+			temp = EffectType.valueOf(this.getClass().getName().replaceAll("com.aionemu.gameserver.skillengine.effect.", "").replaceAll("Effect", "")
+					.toUpperCase());
+		} catch (Exception e) {
+			log.info("missing effectype for "
+					+ this.getClass().getName().replaceAll("com.aionemu.gameserver.skillengine.effect.", "").replaceAll("Effect", "").toUpperCase());
 		}
 
 		this.effectType = temp;

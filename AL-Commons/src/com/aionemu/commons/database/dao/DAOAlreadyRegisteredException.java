@@ -15,11 +15,11 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.database.dao;
 
 /**
- * This exception is thrown if DAO is already registered in
- * {@link com.aionemu.commons.database.dao.DAOManager}
+ * This exception is thrown if DAO is already registered in {@link com.aionemu.commons.database.dao.DAOManager}
  * 
  * @author SoulKeeper
  */

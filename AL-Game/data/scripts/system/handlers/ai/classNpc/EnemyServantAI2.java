@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.classNpc;
 
 import java.util.concurrent.Future;
@@ -30,6 +31,7 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author Cheatkiller
+ *
  */
 @AIName("enemyservant")
 public class EnemyServantAI2 extends NpcAI2 {
@@ -38,7 +40,6 @@ public class EnemyServantAI2 extends NpcAI2 {
 	protected void handleSpawned() {
 		super.handleSpawned();
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				if (getCreator() == null || getCreator().getTarget() == null) {
@@ -52,7 +53,6 @@ public class EnemyServantAI2 extends NpcAI2 {
 
 	private void attack() {
 		Future<?> task = ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 			@Override
 			public void run() {
 				getOwner().getController().useSkill(16907, 55);

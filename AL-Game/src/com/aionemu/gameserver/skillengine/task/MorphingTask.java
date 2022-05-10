@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.task;
 
 import com.aionemu.gameserver.configs.main.CraftConfig;
@@ -50,7 +51,6 @@ public class MorphingTask extends CraftingTask {
 	public void start() {
 		onInteractionStart();
 		task = ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 			@Override
 			public void run() {
 				if (!validateParticipants()) {

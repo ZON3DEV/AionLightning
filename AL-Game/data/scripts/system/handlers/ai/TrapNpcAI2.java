@@ -14,7 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai;
+
+import java.util.concurrent.Future;
 
 import com.aionemu.gameserver.ai2.AI2Actions;
 import com.aionemu.gameserver.ai2.AIName;
@@ -30,16 +33,14 @@ import com.aionemu.gameserver.world.knownlist.Visitor;
 
 /**
  * @author ATracer
- * @modified Kashim
- * @Reworked Kill3r
- * @Reworked Phantom_KNA
  */
 @AIName("trap")
 public class TrapNpcAI2 extends NpcAI2 {
 
-	public static int EVENT_SET_TRAP_RANGE = 1;
+	// public static int EVENT_SET_TRAP_RANGE = 1;
 	@SuppressWarnings("unused")
 	private int trapRange = 0;
+	private Future<?> despawnTask;
 
 	@Override
 	protected void handleCreatureMoved(Creature creature) {
@@ -50,7 +51,6 @@ public class TrapNpcAI2 extends NpcAI2 {
 	protected void handleSpawned() {
 		getKnownList().doUpdate();
 		getKnownList().doOnAllObjects(new Visitor<VisibleObject>() {
-
 			@Override
 			public void visit(VisibleObject object) {
 				if (!(object instanceof Creature)) {
@@ -64,9 +64,11 @@ public class TrapNpcAI2 extends NpcAI2 {
 	}
 
 	private void tryActivateTrap(Creature creature) {
-		int npcId = this.getNpcId();
+		if (despawnTask != null) {
+			return;
+		}
 		int time = 1000;
-		if (this.getNpcId() == 833190 || this.getNpcId() == 833189 || this.getNpcId() == 855429) { // Fix for Skill 1058 - 1059
+		if (this.getNpcId() == 749248 || this.getNpcId() == 749249) {
 			if (setStateIfNot(AIState.FIGHT)) {
 				AI2Actions.targetCreature(this, creature);
 				AI2Actions.useSkill(this, getSkillList().getRandomSkill().getSkillId());
@@ -80,20 +82,22 @@ public class TrapNpcAI2 extends NpcAI2 {
 				return;
 			}
 
-			if (npcId == 833190 || npcId == 833189 || npcId == 749250 || npcId == 749251 || npcId == 855429) { // Fix for Skill 1058 - 1059
+			this.getNpcId();
+
+			if (this.getNpcId() == 749248 || this.getNpcId() == 749249 || this.getNpcId() == 749250 || this.getNpcId() == 749251)
 				time = 5000;
-			}
 
 			if (setStateIfNot(AIState.FIGHT)) {
 				AI2Actions.targetCreature(this, creature);
 				AI2Actions.useSkill(this, getSkillList().getRandomSkill().getSkillId());
-				ThreadPoolManager.getInstance().schedule(new TrapDelete(this), time);
+				despawnTask = ThreadPoolManager.getInstance().schedule(new TrapDelete(this), time);
 			}
 		}
 	}
 
-	/**
-	 * @Override protected void handleCustomEvent(int eventId, Object... args) { if (eventId == EVENT_SET_TRAP_RANGE) { trapRange = (Integer) args[0]; } }
+	/*
+	 * @Override protected void handleCustomEvent(int eventId, Object... args) {
+	 * if (eventId == EVENT_SET_TRAP_RANGE) { trapRange = (Integer) args[0]; } }
 	 */
 
 	@Override

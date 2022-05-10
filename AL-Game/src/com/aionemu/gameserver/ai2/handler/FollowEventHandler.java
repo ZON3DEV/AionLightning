@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.ai2.handler;
 
 import com.aionemu.gameserver.ai2.AIState;
@@ -66,15 +67,7 @@ public class FollowEventHandler {
 		if (object == null) {
 			return false;
 		}
-		if (object.isInInstance()) {
-			return MathUtil.isIn3dRange(ai.getOwner(), object, 9999);
-		}
-		else if (ai.getOwner().getLifeStats().getHpPercentage() < 100) {
-			return MathUtil.isIn3dRange(ai.getOwner(), object, 30);
-		}
-		else {
-			return MathUtil.isIn3dRange(ai.getOwner(), object, 15);
-		}
+		return MathUtil.isIn3dRange(ai.getOwner(), object, 2);
 	}
 
 	/**

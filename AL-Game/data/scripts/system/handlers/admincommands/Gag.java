@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import java.util.concurrent.Future;
@@ -56,8 +57,7 @@ public class Gag extends AdminCommand {
 		if (params.length > 1) {
 			try {
 				time = Integer.parseInt(params[1]);
-			}
-			catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				PacketSendUtility.sendMessage(admin, "Syntax: //gag <player> [time in minutes]");
 				return;
 			}
@@ -70,7 +70,6 @@ public class Gag extends AdminCommand {
 				player.getController().cancelTask(TaskId.GAG);
 			}
 			player.getController().addTask(TaskId.GAG, ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
 					player.setGagged(false);

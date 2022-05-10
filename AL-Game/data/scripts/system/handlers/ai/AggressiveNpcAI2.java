@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ import com.aionemu.gameserver.ai2.AIName;
 import com.aionemu.gameserver.ai2.event.AIEventType;
 import com.aionemu.gameserver.ai2.handler.AggroEventHandler;
 import com.aionemu.gameserver.ai2.handler.CreatureEventHandler;
-import com.aionemu.gameserver.model.actions.CreatureActions;
+import com.aionemu.gameserver.model.actions.PlayerActions;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -63,15 +64,14 @@ public class AggressiveNpcAI2 extends GeneralNpcAI2 {
 	/**
 	 * NPC calls for help. NPCs in range of distance are going aggressive to first target of caller
 	 *
-	 * @param distance
-	 *            (meters)
+	 * @param distance (meters)
 	 */
 	protected void callForHelp(int distance) {
 		Creature firstTarget = getAggroList().getMostHated();
 		for (VisibleObject object : getKnownList().getKnownObjects().values()) {
 			if (object instanceof Npc && isInRange(object, distance)) {
 				Npc npc = (Npc) object;
-				if ((npc != null) && !npc.getLifeStats().isAlreadyDead()) {
+				if (!npc.getLifeStats().isAlreadyDead()) {
 					npc.getAi2().onCreatureEvent(AIEventType.CREATURE_AGGRO, firstTarget);
 				}
 			}
@@ -86,7 +86,7 @@ public class AggressiveNpcAI2 extends GeneralNpcAI2 {
 	protected Player getRandomTarget() {
 		List<Player> players = new ArrayList<Player>();
 		for (Player player : getKnownList().getKnownPlayers().values()) {
-			if (!CreatureActions.isAlreadyDead(player) && MathUtil.isIn3dRange(player, getOwner(), 50)) {
+			if (!PlayerActions.isAlreadyDead(player) && MathUtil.isIn3dRange(player, getOwner(), 50)) {
 				players.add(player);
 			}
 		}

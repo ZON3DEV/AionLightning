@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.worlds.inggison;
 
 import com.aionemu.commons.utils.Rnd;
@@ -24,9 +25,9 @@ import ai.GeneralNpcAI2;
 
 /**
  * @author Cheatkiller
+ *
  */
 @AIName("hugeegg")
-// 217095, 217096
 public class HugeEggAI2 extends GeneralNpcAI2 {
 
 	@Override

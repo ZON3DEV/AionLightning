@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.cache.HTMLCache;
@@ -25,6 +26,7 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
 /**
  * @author ginho1, Damon
+ *
  */
 public class AddEmotion extends AdminCommand {
 
@@ -50,15 +52,14 @@ public class AddEmotion extends AdminCommand {
 			if (params.length == 2) {
 				expireMinutes = Long.parseLong(params[1]);
 			}
-		}
-		catch (NumberFormatException ex) {
+		} catch (NumberFormatException ex) {
 			if (params[0].equalsIgnoreCase("html")) {
 				HTMLService.showHTML(admin, HTMLCache.getInstance().getHTML("emote.xhtml"));
 			}
 			return;
 		}
 
-		if (emotionId < 1 || (emotionId > 35 && emotionId < 64) || emotionId > 153) {
+		if (emotionId < 1 || (emotionId > 35 && emotionId < 64) || emotionId > 129) {
 			PacketSendUtility.sendMessage(admin, "Invalid <emotion id>, must be in intervals : [1-35]U[64-129]");
 			return;
 		}
@@ -67,21 +68,21 @@ public class AddEmotion extends AdminCommand {
 
 		if (target == null) {
 			finalTarget = admin;
-		}
-		else if (target instanceof Player) {
+		} else if (target instanceof Player) {
 			finalTarget = (Player) target;
 		}
 
-		if (finalTarget.getEmotions().contains(emotionId)) {
-			PacketSendUtility.sendMessage(admin, "Target has aldready this emotion !");
-			return;
-		}
+		if (finalTarget != null) {
+			if (finalTarget.getEmotions().contains(emotionId)) {
+				PacketSendUtility.sendMessage(admin, "Target has aldready this emotion !");
+				return;
+			}
 
-		if (params.length == 2) {
-			finalTarget.getEmotions().add(emotionId, (int) ((System.currentTimeMillis() / 1000) + expireMinutes * 60), true);
-		}
-		else {
-			finalTarget.getEmotions().add(emotionId, 0, true);
+			if (params.length == 2) {
+				finalTarget.getEmotions().add(emotionId, (int) ((System.currentTimeMillis() / 1000) + expireMinutes * 60), true);
+			} else {
+				finalTarget.getEmotions().add(emotionId, 0, true);
+			}
 		}
 	}
 }

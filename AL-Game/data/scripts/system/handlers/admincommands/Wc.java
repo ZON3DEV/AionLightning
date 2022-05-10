@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.configs.administration.CommandsConfig;
@@ -49,20 +50,16 @@ public class Wc extends AdminCommand {
 		if (params[0].equals("ELY")) {
 			sbMessage = new StringBuilder("[World-Elyos]" + admin.getName() + ": ");
 			adminRace = Race.ELYOS;
-		}
-		else if (params[0].equals("ASM")) {
+		} else if (params[0].equals("ASM")) {
 			sbMessage = new StringBuilder("[World-Asmodian]" + admin.getName() + ": ");
 			adminRace = Race.ASMODIANS;
-		}
-		else if (params[0].equals("ALL")) {
+		} else if (params[0].equals("ALL")) {
 			sbMessage = new StringBuilder("[World-All]" + admin.getName() + ": ");
-		}
-		else {
+		} else {
 			check = false;
 			if (adminRace == Race.ELYOS) {
 				sbMessage = new StringBuilder("[World-Elyos]" + admin.getName() + ": ");
-			}
-			else {
+			} else {
 				sbMessage = new StringBuilder("[World-Asmodian]" + admin.getName() + ": ");
 			}
 		}
@@ -81,7 +78,6 @@ public class Wc extends AdminCommand {
 		final Race race = adminRace;
 
 		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player player) {
 				if (toAll || player.getRace() == race || player.getAccessLevel() >= CommandsConfig.WC) {

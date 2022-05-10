@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.restrictions;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
@@ -89,15 +90,7 @@ public class PrisonRestrictions extends AbstractRestrictions {
 			PacketSendUtility.sendMessage(player, "You cannot invite members to alliance in prison!");
 			return false;
 		}
-		return true;
-	}
-	
-	@Override
-	public boolean canInviteToLeague(Player player, Player target) {
-		if (isInPrison(player)) {
-			PacketSendUtility.sendMessage(player, "You cannot invite members to league in prison!");
-			return false;
-		}
+
 		return true;
 	}
 
@@ -121,6 +114,6 @@ public class PrisonRestrictions extends AbstractRestrictions {
 	}
 
 	private boolean isInPrison(Player player) {
-		return player.isInPrison() || player.getWorldId() == WorldMapType.DF_PRISON.getId() || player.getWorldId() == WorldMapType.LF_PRISON.getId();
+		return player.isInPrison() || player.getWorldId() == WorldMapType.DE_PRISON.getId() || player.getWorldId() == WorldMapType.DF_PRISON.getId();
 	}
 }

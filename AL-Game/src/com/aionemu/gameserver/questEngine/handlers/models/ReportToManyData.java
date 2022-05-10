@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.handlers.models;
 
 import java.util.List;
@@ -24,15 +25,14 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+import javolution.util.FastMap;
+
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.handlers.template.ReportToMany;
-
-import javolution.util.FastMap;
 
 /**
  * @author Hilgert
  * @modified Rolandas
- * @modified FrozenKiller
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ReportToManyData")
@@ -44,7 +44,7 @@ public class ReportToManyData extends XMLQuest {
 	protected List<Integer> startNpcIds;
 	@XmlAttribute(name = "end_npc_ids")
 	protected List<Integer> endNpcIds;
-	@XmlAttribute(name = "start_dialog_id")
+	@XmlAttribute(name = "HACTION_QUEST_SELECT_id")
 	protected int startDialog;
 	@XmlAttribute(name = "end_dialog_id")
 	protected int endDialog;

@@ -14,20 +14,22 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.taskmanager.fromdb.trigger;
 
+import com.aionemu.commons.network.util.ThreadPoolManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aionemu.commons.network.util.ThreadPoolManager;
-
 /**
+ *
  * @author nrg
  */
 public class AfterRestartTrigger extends TaskFromDBTrigger {
 
 	private static Logger log = LoggerFactory.getLogger(AfterRestartTrigger.class);
-	// Indicated wether this task should block or not block the starting progress
+	// Indicated wether this task should block or not block the starting
+	// progress
 	private boolean isBlocking = false;
 
 	@Override
@@ -36,8 +38,7 @@ public class AfterRestartTrigger extends TaskFromDBTrigger {
 			try {
 				isBlocking = Boolean.parseBoolean(this.params[0]);
 				return true;
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 				log.warn("A parameter for AfterRestartTrigger is missing or invalid", e);
 			}
 		}
@@ -49,8 +50,7 @@ public class AfterRestartTrigger extends TaskFromDBTrigger {
 	public void initTrigger() {
 		if (!isBlocking) {
 			ThreadPoolManager.getInstance().schedule(this, 5000);
-		}
-		else {
+		} else {
 			this.run();
 		}
 	}

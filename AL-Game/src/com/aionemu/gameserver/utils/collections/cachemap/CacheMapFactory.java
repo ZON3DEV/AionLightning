@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.collections.cachemap;
 
 import com.aionemu.gameserver.configs.main.CacheConfig;
@@ -24,7 +25,9 @@ import com.aionemu.gameserver.configs.main.CacheConfig;
 public class CacheMapFactory {
 
 	/**
-	 * Returns new instance of either {@link WeakCacheMap} or {@link SoftCacheMap} depending on {@link CacheConfig#SOFT_CACHE_MAP} setting.
+	 * Returns new instance of either {@link WeakCacheMap} or
+	 * {@link SoftCacheMap} depending on {@link CacheConfig#SOFT_CACHE_MAP}
+	 * setting.
 	 *
 	 * @param <K>
 	 *            - Type of keys
@@ -39,8 +42,7 @@ public class CacheMapFactory {
 	public static <K, V> CacheMap<K, V> createCacheMap(String cacheName, String valueName) {
 		if (CacheConfig.SOFT_CACHE_MAP) {
 			return createSoftCacheMap(cacheName, valueName);
-		}
-		else {
+		} else {
 			return createWeakCacheMap(cacheName, valueName);
 		}
 	}

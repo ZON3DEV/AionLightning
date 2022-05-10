@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -36,8 +37,7 @@ public class Teleportation extends AdminCommand {
 		if (isTeleportation) {
 			PacketSendUtility.sendMessage(player, "Teleported state is disabled.");
 			player.setAdminTeleportation(false);
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(player, "Teleported state.");
 			player.setAdminTeleportation(true);
 		}

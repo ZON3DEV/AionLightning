@@ -14,13 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.taskmanager;
 
 import java.util.Set;
 
-import com.aionemu.commons.utils.concurrent.RunnableStatsManager;
-
 import javolution.util.FastSet;
+
+import com.aionemu.commons.utils.concurrent.RunnableStatsManager;
 
 /**
  * @author NB4L1
@@ -43,8 +44,7 @@ public abstract class AbstractIterativePeriodicTaskManager<T> extends AbstractPe
 			}
 
 			return activeTasks.contains(task) || startList.contains(task);
-		}
-		finally {
+		} finally {
 			readUnlock();
 		}
 	}
@@ -55,8 +55,7 @@ public abstract class AbstractIterativePeriodicTaskManager<T> extends AbstractPe
 			startList.add(task);
 
 			stopList.remove(task);
-		}
-		finally {
+		} finally {
 			writeUnlock();
 		}
 	}
@@ -67,8 +66,7 @@ public abstract class AbstractIterativePeriodicTaskManager<T> extends AbstractPe
 			stopList.add(task);
 
 			startList.remove(task);
-		}
-		finally {
+		} finally {
 			writeUnlock();
 		}
 	}
@@ -82,8 +80,7 @@ public abstract class AbstractIterativePeriodicTaskManager<T> extends AbstractPe
 
 			startList.clear();
 			stopList.clear();
-		}
-		finally {
+		} finally {
 			writeUnlock();
 		}
 
@@ -93,11 +90,9 @@ public abstract class AbstractIterativePeriodicTaskManager<T> extends AbstractPe
 
 			try {
 				callTask(task);
-			}
-			catch (RuntimeException e) {
+			} catch (RuntimeException e) {
 				log.warn("", e);
-			}
-			finally {
+			} finally {
 				RunnableStatsManager.handleStats(task.getClass(), getCalledMethodName(), System.nanoTime() - begin);
 			}
 		}

@@ -14,16 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.world;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 /**
  * @author Rolandas
@@ -68,8 +65,7 @@ public class WeatherTable {
 			if (entry.getWeatherName().equals(we.getWeatherName())) {
 				if (entry.isBefore() && !we.isBefore() && !we.isAfter()) {
 					return we;
-				}
-				else if (!entry.isBefore() && !entry.isAfter() && we.isAfter()) {
+				} else if (!entry.isBefore() && !entry.isAfter() && we.isAfter()) {
 					return we;
 				}
 			}

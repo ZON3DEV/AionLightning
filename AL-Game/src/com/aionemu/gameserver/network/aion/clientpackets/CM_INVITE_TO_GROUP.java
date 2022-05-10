@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.configs.main.MembershipConfig;
@@ -78,7 +79,6 @@ public class CM_INVITE_TO_GROUP extends AionClientPacket {
 		name = name.replace("[AdminConfig.CUSTOMTAG_ACCESS10]", "");
 
 		final Player inviter = getConnection().getActivePlayer();
-
 		final String playerName = Util.convertName(name);
 
 		if (inviter.getLifeStats().isAlreadyDead()) {
@@ -107,8 +107,7 @@ public class CM_INVITE_TO_GROUP extends AionClientPacket {
 					PacketSendUtility.sendMessage(inviter, "You used an unknown invite type: " + inviteType);
 					break;
 			}
-		}
-		else {
+		} else {
 			inviter.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.STR_NO_SUCH_USER(name));
 		}
 	}

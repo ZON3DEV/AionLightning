@@ -14,13 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
- * Response for CM_RECONNECT_AUTH with key that will be use for authentication at LoginServer.
+ * Response for CM_RECONNECT_AUTH with key that will be use for authentication
+ * at LoginServer.
  *
  * @author -Nemesiss-
  */

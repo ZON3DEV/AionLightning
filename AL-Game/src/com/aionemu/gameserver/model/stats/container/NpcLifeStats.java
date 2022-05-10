@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.stats.container;
 
 import com.aionemu.gameserver.model.gameobjects.Npc;
@@ -60,8 +61,7 @@ public class NpcLifeStats extends CreatureLifeStats<Npc> {
 			if (lifeRestoreTask == null && !alreadyDead) {
 				this.lifeRestoreTask = LifeStatsRestoreService.getInstance().scheduleHpRestoreTask(this);
 			}
-		}
-		finally {
+		} finally {
 			restoreLock.unlock();
 		}
 	}

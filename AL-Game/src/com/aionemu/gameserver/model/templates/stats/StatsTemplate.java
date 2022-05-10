@@ -49,12 +49,6 @@ public abstract class StatsTemplate {
 	private int mainHandCritRate;
 	@XmlAttribute(name = "magic_accuracy")
 	private int magicAccuracy;
-	@XmlAttribute(name = "crit_spell")
-	private int critSpell;
-	@XmlAttribute(name = "strike_resist")
-	private int strikeResist;
-	@XmlAttribute(name = "spell_resist")
-	private int spellResist;
 	@XmlElement
 	protected CreatureSpeeds speeds;
 
@@ -133,22 +127,6 @@ public abstract class StatsTemplate {
 		this.parry = parry;
 	}
 
-	public int getStrikeResist() {
-		return strikeResist;
-	}
-
-	public void setStrikeResist(int resist) {
-		this.strikeResist = resist;
-	}
-
-	public int getSpellResist() {
-		return spellResist;
-	}
-
-	public void setSpellResist(int resist) {
-		this.spellResist = resist;
-	}
-
 	/* ======================================= */
 	public int getMainHandAttack() {
 		return mainHandAttack;
@@ -165,9 +143,5 @@ public abstract class StatsTemplate {
 	/* ======================================= */
 	public int getMagicAccuracy() {
 		return magicAccuracy;
-	}
-
-	public int getMCritical() {
-		return critSpell;
 	}
 }

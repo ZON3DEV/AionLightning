@@ -14,14 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_SPAWN;
 import com.aionemu.gameserver.services.teleport.TeleportService2;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
 public class StartEvent extends AdminCommand {
 
@@ -40,7 +41,7 @@ public class StartEvent extends AdminCommand {
 		int playerscount = 0;
 
 		switch (Integer.parseInt(params[1])) {
-			// All Players
+		// All Players
 			case 3:
 				for (final Player p : World.getInstance().getAllPlayers()) {
 					if (Integer.parseInt(params[2]) == 0) {
@@ -48,16 +49,15 @@ public class StartEvent extends AdminCommand {
 							TeleportService2.teleportTo(p, admin.getWorldId(), admin.getX(), admin.getY(), admin.getZ(), admin.getHeading());
 							playerscount++;
 							PacketSendUtility.sendPacket(p, new SM_PLAYER_SPAWN(p));
-							PacketSendUtility.sendMessage(p, "Vous venez d'être téléporté pour l'event de " + admin.getName() + ".");
+							PacketSendUtility.sendMessage(p, "You have bin portet to the event " + admin.getName() + ".");
 						}
-					}
-					else {
+					} else {
 						if (p.isLookingForEvent()) {
 							if (!p.equals(admin)) {
 								if (p.getCommonData().getRace().getRaceId() == Integer.parseInt(params[1])) {
 									TeleportService2.moveToBindLocation(p, true);
 									playerscount++;
-									PacketSendUtility.sendMessage(p, "Vous venez d'être téléporté pour l'event de " + admin.getName() + ".");
+									PacketSendUtility.sendMessage(p, "Vous venez d'Ãªtre tÃ©lÃ©portÃ© pour l'event de " + admin.getName() + ".");
 									p.setLookingForEvent(false);
 									PacketSendUtility.sendMessage(p, "Vous n'attendez plus pour un event.");
 								}
@@ -68,26 +68,26 @@ public class StartEvent extends AdminCommand {
 				// Specified Faction
 			default:
 				switch (Integer.parseInt(params[0])) {
-					// Not check boolean
+				// Not check boolean
 					case 0:
 						for (final Player p : World.getInstance().getAllPlayers()) {
 							if (Integer.parseInt(params[2]) == 0) {
 								if (!p.equals(admin)) {
 									if (p.getCommonData().getRace().getRaceId() == Integer.parseInt(params[1])) {
-										TeleportService2.teleportTo(p, admin.getWorldId(), admin.getInstanceId(), admin.getX(), admin.getY(), admin.getZ(), admin.getHeading());
+										TeleportService2.teleportTo(p, admin.getWorldId(), admin.getInstanceId(), admin.getX(), admin.getY(), admin.getZ(),
+												admin.getHeading());
 										playerscount++;
 										PacketSendUtility.sendPacket(p, new SM_PLAYER_SPAWN(p));
-										PacketSendUtility.sendMessage(p, "Vous venez d'être téléporté pour l'event de " + admin.getName() + ".");
+										PacketSendUtility.sendMessage(p, "Vous venez d'Ãªtre tÃ©lÃ©portÃ© pour l'event de " + admin.getName() + ".");
 									}
 								}
-							}
-							else {
+							} else {
 								if (p.isLookingForEvent()) {
 									if (!p.equals(admin)) {
 										if (p.getCommonData().getRace().getRaceId() == Integer.parseInt(params[1])) {
 											TeleportService2.moveToBindLocation(p, true);
 											playerscount++;
-											PacketSendUtility.sendMessage(p, "Vous venez d'être téléporté pour l'event de " + admin.getName() + ".");
+											PacketSendUtility.sendMessage(p, "Vous venez d'Ãªtre tÃ©lÃ©portÃ© pour l'event de " + admin.getName() + ".");
 											p.setLookingForEvent(false);
 											PacketSendUtility.sendMessage(p, "Vous n'attendez plus pour un event.");
 										}
@@ -103,21 +103,21 @@ public class StartEvent extends AdminCommand {
 								if (p.isLookingForEvent()) {
 									if (!p.equals(admin)) {
 										if (p.getCommonData().getRace().getRaceId() == Integer.parseInt(params[1])) {
-											TeleportService2.teleportTo(p, admin.getWorldId(), admin.getInstanceId(), admin.getX(), admin.getY(), admin.getZ(), admin.getHeading());
+											TeleportService2.teleportTo(p, admin.getWorldId(), admin.getInstanceId(), admin.getX(), admin.getY(), admin.getZ(),
+													admin.getHeading());
 											playerscount++;
 											PacketSendUtility.sendPacket(p, new SM_PLAYER_SPAWN(p));
-											PacketSendUtility.sendMessage(p, "Vous venez d'être téléporté pour l'event de " + admin.getName() + ".");
+											PacketSendUtility.sendMessage(p, "Vous venez d'Ãªtre tÃ©lÃ©portÃ© pour l'event de " + admin.getName() + ".");
 										}
 									}
 								}
-							}
-							else {
+							} else {
 								if (p.isLookingForEvent()) {
 									if (!p.equals(admin)) {
 										if (p.getCommonData().getRace().getRaceId() == Integer.parseInt(params[0])) {
 											TeleportService2.moveToBindLocation(p, true);
 											playerscount++;
-											PacketSendUtility.sendMessage(p, "Vous venez d'être téléporté pour l'event de " + admin.getName() + ".");
+											PacketSendUtility.sendMessage(p, "Vous venez d'Ãªtre tÃ©lÃ©portÃ© pour l'event de " + admin.getName() + ".");
 											p.setLookingForEvent(false);
 											PacketSendUtility.sendMessage(p, "Vous n'attendez plus pour un event.");
 										}
@@ -127,6 +127,6 @@ public class StartEvent extends AdminCommand {
 						}
 				}
 		}
-		PacketSendUtility.sendMessage(admin, playerscount + " joueurs ont été téléportés");
+		PacketSendUtility.sendMessage(admin, playerscount + " joueurs ont Ã©tÃ© tÃ©lÃ©portÃ©s");
 	}
 }

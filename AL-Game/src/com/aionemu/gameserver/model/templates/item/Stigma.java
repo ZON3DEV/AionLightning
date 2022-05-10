@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item;
 
 import java.util.ArrayList;
@@ -27,7 +28,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author ATracer
- * @reworked Kill3r
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlRootElement(name = "Stigma")
@@ -38,9 +38,10 @@ public class Stigma {
 	@XmlAttribute
 	protected List<String> skill;
 	@XmlAttribute
-	protected int kinah;
+	protected int shard;
 
 	/**
+	 *
 	 * @return list
 	 */
 	public List<StigmaSkill> getSkills() {
@@ -53,31 +54,11 @@ public class Stigma {
 		return list;
 	}
 
-	public List<Integer> getSkillIdOnly() {
-		List<Integer> ids = new ArrayList<Integer>();
-		List<String> skill = this.skill;
-		if (skill.size() != 1) { // Dual Skills like Exhausting Wave
-			String[] tempArray = new String[0];
-			for (String parts : skill) { // loops each of the 1:534 and 1:4342
-				tempArray = parts.split(":");
-				ids.add(Integer.parseInt(tempArray[1]));
-			}
-			return ids;
-		}
-
-		// Single 1 Skill
-		for (String st : this.skill) {
-			String[] array = st.split(":");
-			ids.add(Integer.parseInt(array[1]));
-		}
-		return ids;
-	}
-
 	/**
-	 * @return the kinah //4.8
+	 * @return the shard
 	 */
-	public int getKinah() {
-		return kinah;
+	public int getShard() {
+		return shard;
 	}
 
 	public List<RequireSkill> getRequireSkill() {
@@ -87,7 +68,7 @@ public class Stigma {
 		return this.requireSkill;
 	}
 
-	public static class StigmaSkill {
+	public class StigmaSkill {
 
 		private int skillId;
 		private int skillLvl;

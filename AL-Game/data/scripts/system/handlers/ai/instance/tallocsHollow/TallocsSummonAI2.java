@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package ai.instance.tallocsHollow;
 
-import java.util.concurrent.atomic.AtomicBoolean;
+package ai.instance.tallocsHollow;
 
 import com.aionemu.gameserver.ai2.AIName;
 import com.aionemu.gameserver.ai2.NpcAI2;
@@ -30,6 +29,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TRANSFORM_IN_SUMMON;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @author xTz

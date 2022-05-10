@@ -1,12 +1,10 @@
 @ECHO off
-mode con:cols=150 
-color 1B
-TITLE Aion German - Game Server Panel
+TITLE Aion Lightning - Game Server Panel
 :MENU
 CLS
 ECHO.
 ECHO   ^*--------------------------------------------------------------------------^*
-ECHO   ^|                Aion German - Game Server Panel                    	   ^|
+ECHO   ^|                Aion Lightning - Game Server Panel                    	   ^|
 ECHO   ^*--------------------------------------------------------------------------^*
 ECHO   ^|                                                                          ^|
 ECHO   ^|    1 - Development                                       4 - Quit        ^|

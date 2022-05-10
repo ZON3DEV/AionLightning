@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -49,13 +50,11 @@ public class SToken extends AdminCommand {
 
 			if (!"".equals(receiver.getPlayerAccount().getSecurityToken())) {
 				PacketSendUtility.sendMessage(player, "The Security Token of this player is: " + receiver.getPlayerAccount().getSecurityToken());
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(player, "This player haven't an Security Token!");
 			}
 
-		}
-		else {
+		} else {
 			receiver = World.getInstance().findPlayer(Util.convertName(params[0]));
 
 			if (receiver == null) {

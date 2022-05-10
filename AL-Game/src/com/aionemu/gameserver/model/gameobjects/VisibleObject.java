@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.controllers.VisibleObjectController;
@@ -27,12 +28,17 @@ import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.WorldPosition;
 import com.aionemu.gameserver.world.WorldType;
 import com.aionemu.gameserver.world.knownlist.KnownList;
+import com.aionemu.gameserver.world.WorldDropType;
 
 /**
- * This class is representing visible objects. It's a base class for all in-game objects that can be spawned in the world at some particular position (such as players, npcs).<br>
+ * This class is representing visible objects. It's a base class for all in-game
+ * objects that can be spawned in the world at some particular position (such as
+ * players, npcs).<br>
  * <br>
- * Objects of this class, as can be spawned in game, can be seen by other visible objects. To keep track of which objects are already "known" by this visible object and which are not, VisibleObject is
- * containing {@link KnownList} which is responsible for holding this information.
+ * Objects of this class, as can be spawned in game, can be seen by other
+ * visible objects. To keep track of which objects are already "known" by this
+ * visible object and which are not, VisibleObject is containing
+ * {@link KnownList} which is responsible for holding this information.
  *
  * @author -Nemesiss-
  */
@@ -50,7 +56,8 @@ public abstract class VisibleObject extends AionObject {
 	 * @param objId
 	 * @param objectTemplate
 	 */
-	public VisibleObject(int objId, VisibleObjectController<? extends VisibleObject> controller, SpawnTemplate spawnTemplate, VisibleObjectTemplate objectTemplate, WorldPosition position) {
+	public VisibleObject(int objId, VisibleObjectController<? extends VisibleObject> controller, SpawnTemplate spawnTemplate,
+			VisibleObjectTemplate objectTemplate, WorldPosition position) {
 		super(objId);
 		this.controller = controller;
 		this.position = position;
@@ -102,6 +109,13 @@ public abstract class VisibleObject extends AionObject {
 	 */
 	public WorldType getWorldType() {
 		return World.getInstance().getWorldMap(getWorldId()).getWorldType();
+	}
+
+	/**
+	 * Return the WorldType of the current location
+	 */
+	public WorldDropType getWorldDropType() {
+		return World.getInstance().getWorldMap(getWorldId()).getWorldDropType();
 	}
 
 	/**
@@ -224,7 +238,8 @@ public abstract class VisibleObject extends AionObject {
 		if (currTarget == null) {
 			return 0;
 		}
-		return (float) MathUtil.getDistance(getX(), getY(), getZ(), currTarget.getX(), currTarget.getY(), currTarget.getZ()) - this.getObjectTemplate().getBoundRadius().getCollision() - currTarget.getObjectTemplate().getBoundRadius().getCollision();
+		return (float) MathUtil.getDistance(getX(), getY(), getZ(), currTarget.getX(), currTarget.getY(), currTarget.getZ())
+				- this.getObjectTemplate().getBoundRadius().getCollision() - currTarget.getObjectTemplate().getBoundRadius().getCollision();
 	}
 
 	/**
@@ -280,7 +295,7 @@ public abstract class VisibleObject extends AionObject {
 	public float getVisibilityDistance() {
 		if (this instanceof Npc) {
 			NpcTemplate npcTemplate = (NpcTemplate) this.getObjectTemplate();
-			if (npcTemplate.getNpcTemplateType().equals(NpcTemplateType.FLAG) || npcTemplate.getNpcTemplateType().equals(NpcTemplateType.GUARD) || npcTemplate.getNpcTemplateType().equals(NpcTemplateType.MONSTER) || npcTemplate.getNpcTemplateType().equals(NpcTemplateType.HOUSING) || npcTemplate.getNpcTemplateType().equals(NpcTemplateType.ABYSS_GUARD) || npcTemplate.getNpcTemplateType().equals(NpcTemplateType.RAID_MONSTER)) {
+			if (npcTemplate.getNpcTemplateType().equals(NpcTemplateType.FLAG)) {
 				return Integer.MAX_VALUE;
 			}
 		}
@@ -290,7 +305,7 @@ public abstract class VisibleObject extends AionObject {
 	public float getMaxZVisibleDistance() {
 		if (this instanceof Npc) {
 			NpcTemplate npcTemplate = (NpcTemplate) this.getObjectTemplate();
-			if (npcTemplate.getNpcTemplateType().equals(NpcTemplateType.FLAG) || npcTemplate.getNpcTemplateType().equals(NpcTemplateType.GUARD) || npcTemplate.getNpcTemplateType().equals(NpcTemplateType.MONSTER) || npcTemplate.getNpcTemplateType().equals(NpcTemplateType.HOUSING) || npcTemplate.getNpcTemplateType().equals(NpcTemplateType.ABYSS_GUARD) || npcTemplate.getNpcTemplateType().equals(NpcTemplateType.RAID_MONSTER)) {
+			if (npcTemplate.getNpcTemplateType().equals(NpcTemplateType.FLAG)) {
 				return Integer.MAX_VALUE;
 			}
 		}

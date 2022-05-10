@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world;
 
 /**
@@ -26,6 +27,5 @@ public enum WorldType {
 	ABYSS,
 	BALAUREA,
 	PRISON,
-	NONE,
-	PANESTERRA
+	NONE
 }

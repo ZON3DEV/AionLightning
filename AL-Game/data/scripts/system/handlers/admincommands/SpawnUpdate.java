@@ -14,14 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
-import static ch.lambdaj.Lambda.extractIterator;
-import static ch.lambdaj.Lambda.filter;
-import static ch.lambdaj.Lambda.flatten;
-import static ch.lambdaj.Lambda.having;
-import static ch.lambdaj.Lambda.on;
-import static org.hamcrest.Matchers.equalTo;
+import static ch.lambdaj.Lambda.*;
+import static org.hamcrest.Matchers.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -66,8 +63,7 @@ public class SpawnUpdate extends AdminCommand {
 				float x;
 				if (params.length < 3) {
 					x = admin.getX();
-				}
-				else {
+				} else {
 					x = Float.parseFloat(params[2]);
 				}
 				npc.getPosition().setXYZH(x, null, null, null);
@@ -76,8 +72,7 @@ public class SpawnUpdate extends AdminCommand {
 				PacketSendUtility.sendMessage(admin, "updated npcs x to " + x + ".");
 				try {
 					DataManager.SPAWNS_DATA2.saveSpawn(admin, npc, false);
-				}
-				catch (IOException e) {
+				} catch (IOException e) {
 					e.printStackTrace();
 					PacketSendUtility.sendMessage(admin, "Could not save spawn");
 				}
@@ -88,8 +83,7 @@ public class SpawnUpdate extends AdminCommand {
 				float y;
 				if (params.length < 3) {
 					y = admin.getY();
-				}
-				else {
+				} else {
 					y = Float.parseFloat(params[2]);
 				}
 				npc.getPosition().setXYZH(null, y, null, null);
@@ -98,8 +92,7 @@ public class SpawnUpdate extends AdminCommand {
 				PacketSendUtility.sendMessage(admin, "updated npcs y to " + y + ".");
 				try {
 					DataManager.SPAWNS_DATA2.saveSpawn(admin, npc, false);
-				}
-				catch (IOException e) {
+				} catch (IOException e) {
 					e.printStackTrace();
 					PacketSendUtility.sendMessage(admin, "Could not save spawn");
 				}
@@ -110,8 +103,7 @@ public class SpawnUpdate extends AdminCommand {
 				float z;
 				if (params.length < 3) {
 					z = admin.getZ();
-				}
-				else {
+				} else {
 					z = Float.parseFloat(params[2]);
 				}
 				npc.getPosition().setZ(z);
@@ -120,8 +112,7 @@ public class SpawnUpdate extends AdminCommand {
 				PacketSendUtility.sendMessage(admin, "updated npcs z to " + z + ".");
 				try {
 					DataManager.SPAWNS_DATA2.saveSpawn(admin, npc, false);
-				}
-				catch (IOException e) {
+				} catch (IOException e) {
 					e.printStackTrace();
 					PacketSendUtility.sendMessage(admin, "Could not save spawn");
 				}
@@ -134,13 +125,11 @@ public class SpawnUpdate extends AdminCommand {
 					byte heading = admin.getHeading();
 					if (heading > 60) {
 						heading -= 60;
-					}
-					else {
+					} else {
 						heading += 60;
 					}
 					h = heading;
-				}
-				else {
+				} else {
 					h = Byte.parseByte(params[2]);
 				}
 				npc.getPosition().setH(h);
@@ -149,8 +138,7 @@ public class SpawnUpdate extends AdminCommand {
 				PacketSendUtility.sendMessage(admin, "updated npcs heading to " + h + ".");
 				try {
 					DataManager.SPAWNS_DATA2.saveSpawn(admin, npc, false);
-				}
-				catch (IOException e) {
+				} catch (IOException e) {
 					e.printStackTrace();
 					PacketSendUtility.sendMessage(admin, "Could not save spawn");
 				}
@@ -170,32 +158,7 @@ public class SpawnUpdate extends AdminCommand {
 					DataManager.SPAWNS_DATA2.saveSpawn(admin, npc, false);
 					PacketSendUtility.sendPacket(admin, new SM_NPC_INFO(npc, admin));
 					PacketSendUtility.sendMessage(admin, "updated npcs coordinates to " + admin.getX() + ", " + admin.getY() + ", " + admin.getZ() + ".");
-				}
-				catch (IOException e) {
-					e.printStackTrace();
-					PacketSendUtility.sendMessage(admin, "Could not save spawn");
-				}
-				return;
-			}
-
-			if (params[1].equalsIgnoreCase("xyzh")) {
-				PacketSendUtility.sendPacket(admin, new SM_DELETE(npc, 0));
-				npc.getPosition().setXYZH(admin.getX(), null, null, null);
-				try {
-					DataManager.SPAWNS_DATA2.saveSpawn(admin, npc, false);
-					PacketSendUtility.sendPacket(admin, new SM_NPC_INFO(npc, admin));
-					npc.getPosition().setXYZH(null, admin.getY(), null, null);
-					DataManager.SPAWNS_DATA2.saveSpawn(admin, npc, false);
-					PacketSendUtility.sendPacket(admin, new SM_NPC_INFO(npc, admin));
-					npc.getPosition().setXYZH(null, null, admin.getZ(), null);
-					DataManager.SPAWNS_DATA2.saveSpawn(admin, npc, false);
-					PacketSendUtility.sendPacket(admin, new SM_NPC_INFO(npc, admin));
-					npc.getPosition().setXYZH(null, null, null, admin.getHeading());
-					DataManager.SPAWNS_DATA2.saveSpawn(admin, npc, false);
-					PacketSendUtility.sendPacket(admin, new SM_NPC_INFO(npc, admin));
-					PacketSendUtility.sendMessage(admin, "updated npcs coordinates to " + admin.getX() + ", " + admin.getY() + ", " + admin.getZ() + "," + admin.getHeading() + ".");
-				}
-				catch (IOException e) {
+				} catch (IOException e) {
 					e.printStackTrace();
 					PacketSendUtility.sendMessage(admin, "Could not save spawn");
 				}
@@ -226,14 +189,12 @@ public class SpawnUpdate extends AdminCommand {
 				PacketSendUtility.sendPacket(admin, new SM_NPC_INFO(npc, admin));
 				if (walkerId == null) {
 					PacketSendUtility.sendMessage(admin, "removed npcs walker_id for " + npc.getNpcId() + ".");
-				}
-				else {
+				} else {
 					PacketSendUtility.sendMessage(admin, "updated npcs walker_id to " + walkerId + ".");
 				}
 				try {
 					DataManager.SPAWNS_DATA2.saveSpawn(admin, npc, false);
-				}
-				catch (IOException e) {
+				} catch (IOException e) {
 					e.printStackTrace();
 					PacketSendUtility.sendMessage(admin, "Could not save spawn");
 				}

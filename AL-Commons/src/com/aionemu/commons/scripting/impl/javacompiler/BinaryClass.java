@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.scripting.impl.javacompiler;
 
 import java.io.ByteArrayInputStream;
@@ -29,8 +30,8 @@ import java.net.URI;
 import com.sun.tools.javac.file.BaseFileObject;
 
 /**
- * This class is just a hack to make javac compiler work with classes loaded by
- * prevoius classloader. Also it's used as container for loaded class
+ * This class is just a hack to make javac compiler work with classes loaded by prevoius classloader. Also it's used as
+ * container for loaded class
  * 
  * @author SoulKeeper
  */
@@ -55,7 +56,7 @@ public class BinaryClass extends BaseFileObject {
 	 * Constructor that accepts class name as parameter
 	 * 
 	 * @param name
-	 *            class name
+	 *          class name
 	 */
 	protected BinaryClass(String name) {
 		super(null);
@@ -89,7 +90,7 @@ public class BinaryClass extends BaseFileObject {
 	 * 
 	 * @return input stream for class data
 	 * @throws IOException
-	 *             never thrown
+	 *           never thrown
 	 */
 	@Override
 	public InputStream openInputStream() throws IOException {
@@ -101,7 +102,7 @@ public class BinaryClass extends BaseFileObject {
 	 * 
 	 * @return output stream
 	 * @throws IOException
-	 *             never thrown
+	 *           never thrown
 	 */
 	@Override
 	public OutputStream openOutputStream() throws IOException {
@@ -152,7 +153,7 @@ public class BinaryClass extends BaseFileObject {
 	 * Returns class name
 	 * 
 	 * @param path
-	 *            doesn't matter
+	 *          doesn't matter
 	 * @return class name
 	 */
 	@Override
@@ -164,9 +165,9 @@ public class BinaryClass extends BaseFileObject {
 	 * Returns true if {@link javax.tools.JavaFileObject.Kind#CLASS}
 	 * 
 	 * @param simpleName
-	 *            doesn't matter
+	 *          doesn't matter
 	 * @param kind
-	 *            kind to compare
+	 *          kind to compare
 	 * @return true if Kind is {@link javax.tools.JavaFileObject.Kind#CLASS}
 	 */
 	@Override
@@ -196,15 +197,13 @@ public class BinaryClass extends BaseFileObject {
 	 * Sets class that was loaded by this object
 	 * 
 	 * @param definedClass
-	 *            class that was loaded
+	 *          class that was loaded
 	 */
 	public void setDefinedClass(Class<?> definedClass) {
 		this.definedClass = definedClass;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see javax.tools.JavaFileObject#getKind()
 	 */
 	@Override
@@ -215,7 +214,7 @@ public class BinaryClass extends BaseFileObject {
 	@Override
 	public boolean equals(Object arg0) {
 		if (arg0 instanceof BinaryClass) {
-			return ((BinaryClass) arg0).name.equals(this.name);
+			return ((BinaryClass)arg0).name.equals(this.name);
 		}
 		return false;
 	}
@@ -224,7 +223,7 @@ public class BinaryClass extends BaseFileObject {
 	public String getShortName() {
 		return this.name;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		return this.name.hashCode();

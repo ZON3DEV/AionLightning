@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.main;
 
 import com.aionemu.commons.configuration.Property;
@@ -38,8 +39,6 @@ public class EnchantsConfig {
 	public static int ENCHANT_MAX_LEVEL_TYPE1;
 	@Property(key = "gameserver.enchant.type2", defaultValue = "15")
 	public static int ENCHANT_MAX_LEVEL_TYPE2;
-	@Property(key = "gameserver.enchant.skill", defaultValue = "true")
-	public static boolean ENCHANT_SKILL_ENABLE;
 	/**
 	 * ManaStone Rates
 	 */
@@ -49,17 +48,4 @@ public class EnchantsConfig {
 	public static float ENCHANT_STONE;
 	@Property(key = "gameserver.manastone.clean", defaultValue = "false")
 	public static boolean CLEAN_STONE;
-	@Property(key = "gameserver.manastone.enchant_cast_delay", defaultValue = "5000")
-	public static int ENCHANT_CAST_DELAY;
-	/**
-	 * Godstone Rates
-	 */
-	@Property(key = "gameserver.godstone.base", defaultValue = "1000")
-	public static int BASE_GODSTONE;
-
-	/**
-	 * Enchant Speed
-	 */
-    @Property(key="gameserver.enchant.cast.speed", defaultValue="4000")
-    public static int ENCHANT_SPEED;
 }

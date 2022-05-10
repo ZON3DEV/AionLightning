@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.geometry;
 
 import java.io.Serializable;
@@ -166,8 +167,7 @@ public class Point3D implements Cloneable, Serializable {
 
 	/**
 	 * Returns point's hashcode.<br>
-	 * <p/>
-	 * 
+	 *
 	 * <pre>
 	 * int result = x;
 	 * result = 31 * result + y;

@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionl.slf4j.conversion;
 
 import java.io.BufferedReader;
@@ -27,9 +28,9 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 import org.apache.commons.io.FileUtils;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import org.slf4j.Logger;
 import ch.qos.logback.core.FileAppender;
 
 /**
@@ -40,22 +41,23 @@ import ch.qos.logback.core.FileAppender;
  * <br>
  * 
  * @author SoulKeeper
- * @author KID 05-may-2011 log start time is written into file.
+ * @author KID 05-may-2011
+ * log start time is written into file.
  */
 public class TruncateToZipFileAppender extends FileAppender<Object> {
-
+	
 	private static final Logger log = LoggerFactory.getLogger(TruncateToZipFileAppender.class);
 	private String backupDir = "log/backup";
-
-	@Override
-	public void openFile(String fname) throws IOException {
+  
+	public void openFile(String fname)
+		throws IOException {
 		File file = new File(fname);
 		if (file.exists()) {
 			truncate(file);
 		}
 		super.openFile(fname);
 	}
-
+	
 	/**
 	 * This method creates archive with file instead of deleting it.
 	 * 
@@ -68,7 +70,7 @@ public class TruncateToZipFileAppender extends FileAppender<Object> {
 			log.warn("Can't create backup dir for backup storage");
 			return;
 		}
-
+    
 		String date = "";
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -77,7 +79,7 @@ public class TruncateToZipFileAppender extends FileAppender<Object> {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+    
 		File zipFile = new File(backupRoot, file.getName() + "." + date + ".zip");
 		ZipOutputStream zos = null;
 		FileInputStream fis = null;
@@ -88,7 +90,7 @@ public class TruncateToZipFileAppender extends FileAppender<Object> {
 			entry.setCrc(FileUtils.checksumCRC32(file));
 			zos.putNextEntry(entry);
 			fis = FileUtils.openInputStream(file);
-
+      
 			byte[] buffer = new byte[1024];
 			int readed;
 			while ((readed = fis.read(buffer)) != -1) {

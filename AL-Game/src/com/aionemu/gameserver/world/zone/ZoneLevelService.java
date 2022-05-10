@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world.zone;
 
 import com.aionemu.gameserver.model.TaskId;
@@ -48,8 +49,7 @@ public class ZoneLevelService {
 		float playerheight = player.getPlayerAppearance().getHeight() * 1.6f;
 		if (z < world.getWorldMap(player.getWorldId()).getWaterLevel() - playerheight) {
 			startDrowning(player);
-		}
-		else {
+		} else {
 			stopDrowning(player);
 		}
 	}
@@ -78,7 +78,7 @@ public class ZoneLevelService {
 	 * @return
 	 */
 	private static boolean isDrowning(Player player) {
-		return player.getController().getTask(TaskId.DROWN) == null ? false : true;
+		return player.getController().getTask(TaskId.DROWN) != null;
 	}
 
 	/**
@@ -86,7 +86,6 @@ public class ZoneLevelService {
 	 */
 	private static void scheduleDrowningTask(final Player player) {
 		player.getController().addTask(TaskId.DROWN, ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 			@Override
 			public void run() {
 				int value = Math.round(player.getLifeStats().getMaxHp() / 10);
@@ -96,8 +95,7 @@ public class ZoneLevelService {
 						player.getLifeStats().reduceHp(value, player);
 						player.getLifeStats().sendHpPacketUpdate();
 					}
-				}
-				else {
+				} else {
 					stopDrowning(player);
 				}
 			}

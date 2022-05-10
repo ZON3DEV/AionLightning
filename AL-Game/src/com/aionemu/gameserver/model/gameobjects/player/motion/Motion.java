@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player.motion;
 
 import java.util.HashMap;
@@ -24,92 +25,28 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
  * @author MrPoke
+ *
  */
 public class Motion implements IExpirable {
 
 	static final Map<Integer, Integer> motionType = new HashMap<Integer, Integer>();
 
 	static {
-		// Ninja Set
 		motionType.put(1, 1);
 		motionType.put(2, 2);
 		motionType.put(3, 3);
 		motionType.put(4, 4);
-
-		// Hovering Set
 		motionType.put(5, 1);
 		motionType.put(6, 2);
 		motionType.put(7, 3);
 		motionType.put(8, 4);
-
-		//Hovering Set 3-Day Pass (test_add_customize_motion_shop_01)
-		motionType.put(9, 1);
-		
-		// Signboard
-		motionType.put(10, 1);
-
-		// Martial Arts Set
+		motionType.put(9, 5);
+		motionType.put(10, 5);
 		motionType.put(11, 1);
 		motionType.put(12, 2);
 		motionType.put(13, 3);
 		motionType.put(14, 4);
-
-		// Martial Arts Master and Teachings of the Master
-		motionType.put(15, 1);
-		motionType.put(16, 2);
-		motionType.put(17, 3);
-		motionType.put(18, 4);
-
-		// Private Store Sign
-		motionType.put(19, 1);
-
-		// Hello?
-		motionType.put(20, 1);
-
-		// Boxing legend
-		motionType.put(21, 1);
-
-		// Boxing champion
-		motionType.put(22, 1);
-
-		// Monkey King
-		motionType.put(23, 1);
-		motionType.put(24, 2);
-		motionType.put(26, 3);
-		motionType.put(25, 4);
-		
-		// Test (cash_add_customize_motion_lyn_01)
-		motionType.put(27, 1);
-		motionType.put(28, 2);
-		motionType.put(29, 3);
-		motionType.put(30, 4);
-		
-		// Illuminated Signboard
-		motionType.put(31, 1);
-		
-		// Energy Concentration
-		motionType.put(32, 1);
-		
-		// Fun Outing
-		motionType.put(33, 1);
-		
-		//Ice Skate
-		motionType.put(34, 1);
-		motionType.put(35, 2);
-		motionType.put(36, 3);
-		motionType.put(37, 4);
-		
-		// Spellbinding Rhythm
-		motionType.put(38, 1);
-		
-		//Leisurely Strol
-		motionType.put(39, 1);
-		
-		//Dream Wedding
-		motionType.put(40, 1);
-		
 	}
-
 	private int id;
 	private int deletionTime = 0;
 	private boolean active = false;

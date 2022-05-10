@@ -14,25 +14,25 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.instance;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Future;
+package com.aionemu.gameserver.model.instance;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.stats.calc.StatOwner;
 import com.aionemu.gameserver.model.stats.calc.functions.IStatFunction;
 import com.aionemu.gameserver.model.stats.calc.functions.StatAddFunction;
-import com.aionemu.gameserver.model.stats.calc.functions.StatRateFunction;
 import com.aionemu.gameserver.model.stats.container.StatEnum;
 import com.aionemu.gameserver.model.templates.instance_bonusatrr.InstanceBonusAttr;
 import com.aionemu.gameserver.model.templates.instance_bonusatrr.InstancePenaltyAttr;
 import com.aionemu.gameserver.skillengine.change.Func;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Future;
 
 /**
+ *
  * @author xTz
  */
 public class InstanceBuff implements StatOwner {
@@ -73,81 +73,6 @@ public class InstanceBuff implements StatOwner {
 		player.getGameStats().endEffect(this);
 	}
 
-	/**
-	 * Victory's Pledge
-	 * 
-	 * @param player
-	 * @param buffId
-	 */
-	public void applyPledge(Player player, int buffId) {
-		if (instanceBonusAttr == null) {
-			return;
-		}
-		for (InstancePenaltyAttr instancePenaltyAttr : instanceBonusAttr.getPenaltyAttr()) {
-			if (instancePenaltyAttr.getFunc().equals(Func.PERCENT)) {
-				functions.add(new StatRateFunction(instancePenaltyAttr.getStat(), instancePenaltyAttr.getValue(), true));
-			}
-			else {
-				functions.add(new StatAddFunction(instancePenaltyAttr.getStat(), instancePenaltyAttr.getValue(), true));
-			}
-		}
-		player.setBonusId(buffId);
-		player.getGameStats().addEffect(this, functions);
-	}
-
-	/**
-	 * Victory's Pledge
-	 * 
-	 * @param player
-	 * @param buffId
-	 */
-	public void endPledge(Player player) {
-		functions.clear();
-		player.setBonusId(0);
-		player.getGameStats().endEffect(this);
-	}
-
-	/**
-	 * Victory's Pledge
-	 * 
-	 * @param player
-	 * @param buffId
-	 */
-	public void applyPledgeDuration(Player player, int buffId, int time) {
-		if (hasInstanceBuff() || instanceBonusAttr == null) {
-			return;
-		}
-		if (time != 0) {
-			task = ThreadPoolManager.getInstance().schedule(new InstanceBuffTask(player), time);
-		}
-		startTime = System.currentTimeMillis();
-		for (InstancePenaltyAttr instancePenaltyAttr : instanceBonusAttr.getPenaltyAttr()) {
-			if (instancePenaltyAttr.getFunc().equals(Func.PERCENT)) {
-				functions.add(new StatRateFunction(instancePenaltyAttr.getStat(), instancePenaltyAttr.getValue(), true));
-			}
-			else {
-				functions.add(new StatAddFunction(instancePenaltyAttr.getStat(), instancePenaltyAttr.getValue(), true));
-			}
-		}
-		player.setBonusId(buffId);
-		player.getGameStats().addEffect(this, functions);
-	}
-
-	/**
-	 * Victory's Pledge
-	 * 
-	 * @param player
-	 * @param buffId
-	 */
-	public void endPledgeDuration(Player player) {
-		functions.clear();
-		if (hasInstanceBuff()) {
-			task.cancel(true);
-			player.setBonusId(0);
-		}
-		player.getGameStats().endEffect(this);
-	}
-
 	public int getRemaningTime() {
 		return (int) ((System.currentTimeMillis() - startTime) / 1000);
 	}
@@ -163,9 +88,6 @@ public class InstanceBuff implements StatOwner {
 		@Override
 		public void run() {
 			endEffect(player);
-			if (player.getBonusId() > 0) {
-				endPledgeDuration(player);
-			}
 		}
 	}
 

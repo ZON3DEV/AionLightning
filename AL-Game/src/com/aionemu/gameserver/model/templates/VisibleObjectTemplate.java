@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates;
 
 /**
@@ -48,7 +49,6 @@ public abstract class VisibleObjectTemplate {
 	// * @return
 	// */
 	// public abstract Race getRace();
-
 	/**
 	 * @return
 	 */

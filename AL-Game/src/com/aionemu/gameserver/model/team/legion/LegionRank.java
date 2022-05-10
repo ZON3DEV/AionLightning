@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team.legion;
 
 /**
@@ -24,12 +25,7 @@ public enum LegionRank {
 	/**
 	 * All Legion Ranks *
 	 */
-	BRIGADE_GENERAL(0),
-	DEPUTY(1),
-	CENTURION(2),
-	LEGIONARY(3),
-	VOLUNTEER(4);
-
+	BRIGADE_GENERAL(0), DEPUTY(1), CENTURION(2), LEGIONARY(3), VOLUNTEER(4);
 	private byte rank;
 
 	private LegionRank(int rank) {

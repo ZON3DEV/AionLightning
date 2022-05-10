@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -34,11 +35,9 @@ public class Clear extends AdminCommand {
 	public void execute(Player admin, String... params) {
 		if (params[0].equalsIgnoreCase("groups")) {
 			PacketSendUtility.sendMessage(admin, "Not implemented, if need this - pm to AT");
-		}
-		else if (params[0].equalsIgnoreCase("allys")) {
+		} else if (params[0].equalsIgnoreCase("allys")) {
 			PacketSendUtility.sendMessage(admin, "Not implemented, if need this - pm to AT");
-		}
-		else if (params[0].equalsIgnoreCase("findgroup")) {
+		} else if (params[0].equalsIgnoreCase("findgroup")) {
 			FindGroupService.getInstance().clean();
 		}
 	}

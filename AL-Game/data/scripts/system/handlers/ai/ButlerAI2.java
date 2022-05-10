@@ -14,10 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai;
 
 import java.util.Map;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -96,8 +96,7 @@ public class ButlerAI2 extends GeneralNpcAI2 {
 						PacketSendUtility.sendPacket(player, new SM_HOUSE_SCRIPTS(house.getAddress().getId(), house.getPlayerScripts(), from, position));
 					}
 				}
-			}
-			finally {
+			} finally {
 				// remove write locks finally
 				for (int position = 0; position < 8; position++) {
 					scriptMap.get(position).writeUnlock();

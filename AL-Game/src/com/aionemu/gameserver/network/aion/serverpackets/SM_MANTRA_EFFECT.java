@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -41,6 +42,5 @@ public class SM_MANTRA_EFFECT extends AionServerPacket {
 		writeD(0x00);// unk
 		writeD(player.getObjectId());
 		writeH(subEffectId);
-		writeH(0x00); // 5.3 or 5.4
 	}
 }

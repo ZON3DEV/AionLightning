@@ -14,9 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects;
 
-import java.util.List;
+import javolution.util.FastMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,7 +42,6 @@ import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.item.ItemAttackType;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.model.templates.spawns.SpawnTemplate;
-import com.aionemu.gameserver.model.templates.zone.ZoneClassName;
 import com.aionemu.gameserver.model.templates.zone.ZoneType;
 import com.aionemu.gameserver.skillengine.effect.AbnormalState;
 import com.aionemu.gameserver.skillengine.model.Skill;
@@ -50,13 +50,11 @@ import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.world.MapRegion;
 import com.aionemu.gameserver.world.WorldPosition;
-import com.aionemu.gameserver.world.zone.ZoneInstance;
 import com.aionemu.gameserver.world.zone.ZoneName;
 
-import javolution.util.FastMap;
-
 /**
- * This class is representing movable objects, its base class for all in game objects that may move
+ * This class is representing movable objects, its base class for all in game
+ * objects that may move
  *
  * @author -Nemesiss-
  */
@@ -94,7 +92,8 @@ public abstract class Creature extends VisibleObject {
 	 * @param objectTemplate
 	 * @param position
 	 */
-	public Creature(int objId, CreatureController<? extends Creature> controller, SpawnTemplate spawnTemplate, VisibleObjectTemplate objectTemplate, WorldPosition position) {
+	public Creature(int objId, CreatureController<? extends Creature> controller, SpawnTemplate spawnTemplate, VisibleObjectTemplate objectTemplate,
+			WorldPosition position) {
 		super(objId, controller, spawnTemplate, objectTemplate, position);
 		this.observeController = new ObserveController();
 		this.setTransformModel(new TransformModel(this));
@@ -346,11 +345,8 @@ public abstract class Creature extends VisibleObject {
 	public boolean isInState(CreatureState state) {
 		int isState = this.state & state.getId();
 
-		if (isState == state.getId()) {
-			return true;
-		}
+		return isState == state.getId();
 
-		return false;
 	}
 
 	/**
@@ -375,11 +371,8 @@ public abstract class Creature extends VisibleObject {
 	public boolean isInVisualState(CreatureVisualState visualState) {
 		int isVisualState = this.visualState & visualState.getId();
 
-		if (isVisualState == visualState.getId()) {
-			return true;
-		}
+		return isVisualState == visualState.getId();
 
-		return false;
 	}
 
 	/**
@@ -404,11 +397,8 @@ public abstract class Creature extends VisibleObject {
 	public boolean isInSeeState(CreatureSeeState seeState) {
 		int isSeeState = this.seeState & seeState.getId();
 
-		if (isSeeState == seeState.getId()) {
-			return true;
-		}
+		return isSeeState == seeState.getId();
 
-		return false;
 	}
 
 	/**
@@ -529,7 +519,8 @@ public abstract class Creature extends VisibleObject {
 			return false;
 		}
 
-		if (creature.isInInstance() && creature.isInVisualState(CreatureVisualState.HIDE2) || creature.isInInstance() && creature.isInVisualState(CreatureVisualState.HIDE1)) {
+		if (creature.isInInstance() && creature.isInVisualState(CreatureVisualState.HIDE2) || creature.isInInstance()
+				&& creature.isInVisualState(CreatureVisualState.HIDE1)) {
 			return true;
 		}
 
@@ -596,7 +587,8 @@ public abstract class Creature extends VisibleObject {
 		}
 
 		/*
-		 * Some shared cooldown skills have indipendent and different cooldown they must not be blocked
+		 * Some shared cooldown skills have indipendent and different cooldown
+		 * they must not be blocked
 		 */
 		if (skillCoolDownsBase != null && skillCoolDownsBase.get(cooldownId) != null) {
 			if ((template.getDuration() + template.getCooldown() * 100 + skillCoolDownsBase.get(cooldownId)) < System.currentTimeMillis()) {
@@ -656,7 +648,8 @@ public abstract class Creature extends VisibleObject {
 	}
 
 	/**
-	 * This function saves the currentMillis of skill that generated the cooldown of an entire cooldownGroup
+	 * This function saves the currentMillis of skill that generated the
+	 * cooldown of an entire cooldownGroup
 	 *
 	 * @param cooldownId
 	 * @param baseTime
@@ -756,24 +749,6 @@ public abstract class Creature extends VisibleObject {
 		return getPosition().getMapRegion().isInsideItemUseZone(zoneName, this);
 	}
 
-	public boolean isInsideWeatherZone(int weatherZoneId) {
-		if (getActiveRegion() == null) {
-			return false;
-		}
-		List<ZoneInstance> zones = getActiveRegion().getZones(this);
-		for (ZoneInstance regionZone : zones) {
-			if (regionZone.getZoneTemplate().getZoneType() == ZoneClassName.WEATHER) {
-				if (!regionZone.getAreaTemplate().isInside3D(getPosition().getX(), getPosition().getY(), getPosition().getZ())) {
-					continue;
-				}
-				if (DataManager.ZONE_DATA.getWeatherZoneId(regionZone.getZoneTemplate()) == weatherZoneId) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
 	public void setInsideZoneType(ZoneType zoneType) {
 		byte current = zoneTypes[zoneType.getValue()];
 		zoneTypes[zoneType.getValue()] = (byte) (current + 1);
@@ -792,9 +767,6 @@ public abstract class Creature extends VisibleObject {
 		return Race.NONE;
 	}
 
-	/**
-	 * @param creature
-	 */
 	public int getType(Creature creature) {
 		return type;
 	}
@@ -820,15 +792,4 @@ public abstract class Creature extends VisibleObject {
 	}
 
 	private int CriticalEffectMulti = 1;
-
-	/**
-	 * @return
-	 */
-	public boolean isRaidMonster() {
-		return false;
-	}
-
-	public boolean isWorldRaidMonster() {
-		return getTribe() == TribeClass.WORLDRAID_MONSTER || getTribe() == TribeClass.WORLDRAID_MONSTER_SANDWORMSUM && isRaidMonster();
-	}
 }

@@ -14,7 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.siege;
+
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.controllers.observer.ActionObserver;
 import com.aionemu.gameserver.controllers.observer.IActor;
@@ -25,8 +28,6 @@ import com.aionemu.gameserver.services.ShieldService;
 import com.aionemu.gameserver.services.SiegeService;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 import com.aionemu.gameserver.world.zone.handler.ZoneHandler;
-
-import javolution.util.FastMap;
 
 /**
  * Shields have material ID 11 in geo.

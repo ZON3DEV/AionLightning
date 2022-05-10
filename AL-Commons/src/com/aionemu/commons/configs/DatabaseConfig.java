@@ -15,11 +15,12 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.configs;
 
-import java.io.File;
-
 import com.aionemu.commons.configuration.Property;
+
+import java.io.File;
 
 /**
  * This class holds all configuration of database
@@ -52,11 +53,11 @@ public class DatabaseConfig {
 	@Property(key = "database.password", defaultValue = "root")
 	public static String DATABASE_PASSWORD;
 
-	/**
-	 * Amount of partitions used by BoneCP
-	 */
-	@Property(key = "database.bonecp.partition.count", defaultValue = "2")
-	public static int DATABASE_BONECP_PARTITION_COUNT;
+    /**
+     * Amount of partitions used by BoneCP
+     */
+    @Property(key = "database.bonecp.partition.count", defaultValue = "2")
+    public static int DATABASE_BONECP_PARTITION_COUNT;
 
 	/**
 	 * Minimum amount of connections that are always active in bonecp partition
@@ -74,5 +75,5 @@ public class DatabaseConfig {
 	 * Location of database script context descriptor
 	 */
 	@Property(key = "database.scriptcontext.descriptor", defaultValue = "./data/scripts/system/database/database.xml")
-	public static File DATABASE_SCRIPTCONTEXT_DESCRIPTOR;
+	public static File DATABASE_SCRIPTCONTEXT_DESCRIPTOR;	
 }

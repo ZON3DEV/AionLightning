@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package zone.pvpZones;
 
 import com.aionemu.gameserver.model.EmotionType;
@@ -32,6 +33,7 @@ import com.aionemu.gameserver.world.zone.handler.AdvencedZoneHandler;
 
 /**
  * @author MrPoke
+ *
  */
 public abstract class PvPZone implements AdvencedZoneHandler {
 
@@ -51,10 +53,10 @@ public abstract class PvPZone implements AdvencedZoneHandler {
 
 		final Player player = (Player) target;
 
-		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, EmotionType.DIE, 0, player.equals(lastAttacker) ? 0 : lastAttacker.getObjectId()), true);
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, EmotionType.DIE, 0, player.equals(lastAttacker) ? 0 : lastAttacker.getObjectId()),
+				true);
 		if (zone instanceof SiegeZoneInstance) {
 			((SiegeZoneInstance) zone).doOnAllPlayers(new Visitor<Player>() {
-
 				@Override
 				public void visit(Player p) {
 					PacketSendUtility.sendPacket(p, SM_SYSTEM_MESSAGE.STR_PvPZONE_OUT_MESSAGE(player.getName()));
@@ -62,7 +64,6 @@ public abstract class PvPZone implements AdvencedZoneHandler {
 			});
 
 			ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
 					PlayerReviveService.duelRevive(player);

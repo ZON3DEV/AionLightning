@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.toypet;
 
 import org.slf4j.Logger;
@@ -83,7 +84,9 @@ public class PetMoodService {
 		if (pet.getCommonData() != null) {
 			if (pet.getCommonData().increaseShuggleCounter()) {
 				PacketSendUtility.sendPacket(pet.getMaster(), new SM_PET(pet, 2, shuggleEmotion));
-				PacketSendUtility.sendPacket(pet.getMaster(), new SM_PET(pet, 4, 0)); // Update progress immediately
+				PacketSendUtility.sendPacket(pet.getMaster(), new SM_PET(pet, 4, 0)); // Update
+																						// progress
+																						// immediately
 			}
 		}
 	}

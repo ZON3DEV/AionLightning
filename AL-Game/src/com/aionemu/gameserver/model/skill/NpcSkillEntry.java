@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.skill;
 
 import com.aionemu.commons.utils.Rnd;
@@ -26,8 +27,8 @@ public abstract class NpcSkillEntry extends SkillEntry {
 
 	protected long lastTimeUsed = 0;
 
-	public NpcSkillEntry(int skillId, int skillLevel, int skillAnimation, int skillAnimationEnabled) {
-		super(skillId, skillLevel, 0, 0);
+	public NpcSkillEntry(int skillId, int skillLevel) {
+		super(skillId, skillLevel);
 	}
 
 	public abstract boolean isReady(int hpPercentage, long fightingTimeInMSec);
@@ -59,7 +60,7 @@ class NpcSkillTemplateEntry extends NpcSkillEntry {
 	private final NpcSkillTemplate template;
 
 	public NpcSkillTemplateEntry(NpcSkillTemplate template) {
-		super(template.getSkillid(), template.getSkillLevel(), 0, 0);
+		super(template.getSkillid(), template.getSkillLevel());
 		this.template = template;
 	}
 
@@ -88,30 +89,34 @@ class NpcSkillTemplateEntry extends NpcSkillEntry {
 
 	@Override
 	public boolean hpReady(int hpPercentage) {
-		if (template.getMaxhp() == 0 && template.getMinhp() == 0) // it's not about hp
+		if (template.getMaxhp() == 0 && template.getMinhp() == 0) // it's not
+																	// about hp
 		{
 			return true;
-		}
-		else if (template.getMaxhp() >= hpPercentage && template.getMinhp() <= hpPercentage) // in hp range
+		} else if (template.getMaxhp() >= hpPercentage && template.getMinhp() <= hpPercentage) // in
+																								// hp
+																								// range
 		{
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
 
 	@Override
 	public boolean timeReady(long fightingTimeInMSec) {
-		if (template.getMaxTime() == 0 && template.getMinTime() == 0) // it's not about time
+		if (template.getMaxTime() == 0 && template.getMinTime() == 0) // it's
+																		// not
+																		// about
+																		// time
 		{
 			return true;
-		}
-		else if (template.getMaxTime() >= fightingTimeInMSec && template.getMinTime() <= fightingTimeInMSec) // in time range
+		} else if (template.getMaxTime() >= fightingTimeInMSec && template.getMinTime() <= fightingTimeInMSec) // in
+																												// time
+																												// range
 		{
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
@@ -133,7 +138,7 @@ class NpcSkillTemplateEntry extends NpcSkillEntry {
 class NpcSkillParameterEntry extends NpcSkillEntry {
 
 	public NpcSkillParameterEntry(int skillId, int skillLevel) {
-		super(skillId, skillLevel, 0, 0);
+		super(skillId, skillLevel);
 	}
 
 	@Override

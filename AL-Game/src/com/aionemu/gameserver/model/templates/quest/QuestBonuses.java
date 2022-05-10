@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.quest;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -27,14 +28,13 @@ import com.aionemu.gameserver.model.templates.rewards.BonusType;
  * @author Rolandas
  *
  */
-
 /**
- * <p/>
+ * <p>
  * Java class for QuestBonuses complex type.
- * <p/>
- * The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * 
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ *
  * <pre>
  * &lt;complexType name="QuestBonuses">
  *   &lt;complexContent>

@@ -16,11 +16,7 @@
  */
 package com.aionemu.gameserver.model.templates.itemgroups;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 import com.aionemu.gameserver.model.templates.rewards.BonusType;
 import com.aionemu.gameserver.model.templates.rewards.IdReward;
@@ -29,28 +25,10 @@ import com.aionemu.gameserver.model.templates.rewards.IdReward;
  * @author Rolandas
  *
  */
-
-/**
- * <p/>
- * Java class for ItemGroup complex type.
- * <p/>
- * The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * 
- * <pre>
- * &lt;complexType name="ItemGroup">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attribute name="bonusType" use="required" type="{}BonusType" />
- *       &lt;attribute name="chance" type="{http://www.w3.org/2001/XMLSchema}float" default="0" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ItemGroup")
-@XmlSeeAlso({ CraftItemGroup.class, CraftRecipeGroup.class, ManastoneGroup.class, FoodGroup.class, MedicineGroup.class, OreGroup.class, GatherGroup.class, EnchantGroup.class, BossGroup.class })
+@XmlSeeAlso({ CraftItemGroup.class, CraftRecipeGroup.class, ManastoneGroup.class, FoodGroup.class, MedicineGroup.class, OreGroup.class, GatherGroup.class,
+		EnchantGroup.class, BossGroup.class })
 public abstract class ItemGroup {
 
 	@XmlAttribute(name = "bonusType", required = true)
@@ -75,8 +53,7 @@ public abstract class ItemGroup {
 	public float getChance() {
 		if (chance == null) {
 			return 0.0F;
-		}
-		else {
+		} else {
 			return chance;
 		}
 	}

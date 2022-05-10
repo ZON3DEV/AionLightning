@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
@@ -29,8 +30,8 @@ import org.slf4j.LoggerFactory;
 import com.aionemu.commons.database.DatabaseFactory;
 import com.aionemu.gameserver.dao.MySQL5DAOUtils;
 import com.aionemu.gameserver.dao.PlayerPetsDAO;
-import com.aionemu.gameserver.model.gameobjects.player.PetCommonData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.gameobjects.player.PetCommonData;
 import com.aionemu.gameserver.model.templates.pet.PetDopingBag;
 import com.aionemu.gameserver.services.toypet.PetHungryLevel;
 
@@ -46,7 +47,8 @@ public class MySQL5PlayerPetsDAO extends PlayerPetsDAO {
 		Connection con = null;
 		try {
 			con = DatabaseFactory.getConnection();
-			PreparedStatement stmt = con.prepareStatement("UPDATE player_pets SET hungry_level = ?, feed_progress = ?, reuse_time = ? WHERE player_id = ? AND pet_id = ?");
+			PreparedStatement stmt = con
+					.prepareStatement("UPDATE player_pets SET hungry_level = ?, feed_progress = ?, reuse_time = ? WHERE player_id = ? AND pet_id = ?");
 			stmt.setInt(1, hungryLevel);
 			stmt.setInt(2, feedProgress);
 			stmt.setLong(3, reuseTime);
@@ -54,11 +56,9 @@ public class MySQL5PlayerPetsDAO extends PlayerPetsDAO {
 			stmt.setInt(5, petId);
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Error update pet #" + petId, e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}
@@ -78,11 +78,9 @@ public class MySQL5PlayerPetsDAO extends PlayerPetsDAO {
 			stmt.setInt(3, petId);
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Error update doping for pet #" + petId, e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}
@@ -98,11 +96,9 @@ public class MySQL5PlayerPetsDAO extends PlayerPetsDAO {
 			stmt.setInt(3, petId);
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Error update pet #" + petId, e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}
@@ -112,7 +108,8 @@ public class MySQL5PlayerPetsDAO extends PlayerPetsDAO {
 		Connection con = null;
 		try {
 			con = DatabaseFactory.getConnection();
-			PreparedStatement stmt = con.prepareStatement("INSERT INTO player_pets(player_id, pet_id, decoration, name, despawn_time, expire_time) VALUES(?, ?, ?, ?, ?, ?)");
+			PreparedStatement stmt = con
+					.prepareStatement("INSERT INTO player_pets(player_id, pet_id, decoration, name, despawn_time, expire_time) VALUES(?, ?, ?, ?, ?, ?)");
 			stmt.setInt(1, petCommonData.getMasterObjectId());
 			stmt.setInt(2, petCommonData.getPetId());
 			stmt.setInt(3, petCommonData.getDecoration());
@@ -121,11 +118,9 @@ public class MySQL5PlayerPetsDAO extends PlayerPetsDAO {
 			stmt.setInt(6, petCommonData.getExpireTime());
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Error inserting new pet #" + petCommonData.getPetId() + "[" + petCommonData.getName() + "]", e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}
@@ -140,11 +135,9 @@ public class MySQL5PlayerPetsDAO extends PlayerPetsDAO {
 			stmt.setInt(2, petId);
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Error removing pet #" + petId, e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}
@@ -180,8 +173,7 @@ public class MySQL5PlayerPetsDAO extends PlayerPetsDAO {
 				if (petCommonData.getRefeedDelay() > 0) {
 					petCommonData.setIsFeedingTime(false);
 					petCommonData.scheduleRefeed(petCommonData.getRefeedDelay());
-				}
-				else if (petCommonData.getFeedProgress() != null) {
+				} else if (petCommonData.getFeedProgress() != null) {
 					petCommonData.getFeedProgress().setHungryLevel(PetHungryLevel.HUNGRY);
 				}
 				petCommonData.setStartMoodTime(rs.getLong("mood_started"));
@@ -191,8 +183,7 @@ public class MySQL5PlayerPetsDAO extends PlayerPetsDAO {
 				Timestamp ts = null;
 				try {
 					ts = rs.getTimestamp("despawn_time");
-				}
-				catch (Exception e) {
+				} catch (Exception e) {
 				}
 				if (ts == null) {
 					ts = new Timestamp(System.currentTimeMillis());
@@ -201,11 +192,9 @@ public class MySQL5PlayerPetsDAO extends PlayerPetsDAO {
 				pets.add(petCommonData);
 			}
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Error getting pets for " + player.getObjectId(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return pets;
@@ -222,11 +211,9 @@ public class MySQL5PlayerPetsDAO extends PlayerPetsDAO {
 			stmt.setInt(3, petCommonData.getPetId());
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Error update pet #" + petCommonData.getPetId(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}
@@ -236,7 +223,8 @@ public class MySQL5PlayerPetsDAO extends PlayerPetsDAO {
 		Connection con = null;
 		try {
 			con = DatabaseFactory.getConnection();
-			PreparedStatement stmt = con.prepareStatement("UPDATE player_pets SET mood_started = ?, counter = ?, mood_cd_started = ?, gift_cd_started = ?, despawn_time = ? WHERE player_id = ? AND pet_id = ?");
+			PreparedStatement stmt = con
+					.prepareStatement("UPDATE player_pets SET mood_started = ?, counter = ?, mood_cd_started = ?, gift_cd_started = ?, despawn_time = ? WHERE player_id = ? AND pet_id = ?");
 			stmt.setLong(1, petCommonData.getMoodStartTime());
 			stmt.setInt(2, petCommonData.getShuggleCounter());
 			stmt.setLong(3, petCommonData.getMoodCdStarted());
@@ -246,12 +234,10 @@ public class MySQL5PlayerPetsDAO extends PlayerPetsDAO {
 			stmt.setInt(7, petCommonData.getPetId());
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Error updating mood for pet #" + petCommonData.getPetId(), e);
 			return false;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return true;

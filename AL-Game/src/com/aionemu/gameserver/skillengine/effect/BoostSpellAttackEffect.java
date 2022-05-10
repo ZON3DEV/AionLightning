@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -22,8 +23,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * @author kecimis
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BoostSpellAttackEffect")
-public class BoostSpellAttackEffect extends BuffEffect {
+public class BoostSpellAttackEffect extends BufEffect {
 }

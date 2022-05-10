@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.common.events;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -62,8 +63,7 @@ public class TeamKinahDistributionEvent<T extends TemporaryPlayerTeam<? extends 
 				member.getInventory().decreaseKinah(amount);
 				member.getInventory().increaseKinah(rewardPerPlayer);
 				PacketSendUtility.sendPacket(eventPlayer, new SM_SYSTEM_MESSAGE(1390247, amount, teamSize, rewardPerPlayer));
-			}
-			else {
+			} else {
 				member.getInventory().increaseKinah(rewardPerPlayer);
 				PacketSendUtility.sendPacket(member, new SM_SYSTEM_MESSAGE(1390248, eventPlayer.getName(), amount, teamSize, rewardPerPlayer));
 			}

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.chathandlers;
 
 import org.slf4j.Logger;
@@ -40,8 +41,7 @@ public abstract class ChatCommand {
 		try {
 			execute(player, params);
 			return true;
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("", e);
 			onFail(player, e.getMessage());
 			return false;

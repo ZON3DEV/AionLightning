@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world.zone;
 
 import java.util.List;
@@ -29,19 +30,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum(String.class)
 public enum ZoneAttributes {
 
-	BIND(1 << 0),
-	RECALL(1 << 1),
-	GLIDE(1 << 2),
-	FLY(1 << 3),
-	RIDE(1 << 4),
-	FLY_RIDE(1 << 5),
-	@XmlEnumValue("PVP")
+	BIND(1), RECALL(1 << 1), GLIDE(1 << 2), FLY(1 << 3), RIDE(1 << 4), FLY_RIDE(1 << 5), @XmlEnumValue("PVP")
 	PVP_ENABLED(1 << 6), // Only for PvP type zones
 	@XmlEnumValue("DUEL_SAME_RACE")
 	DUEL_SAME_RACE_ENABLED(1 << 7), // Only for Duel type zones
 	@XmlEnumValue("DUEL_OTHER_RACE")
 	DUEL_OTHER_RACE_ENABLED(1 << 8); // Only for Duel type zones
-
 	private int id;
 
 	private ZoneAttributes(int id) {

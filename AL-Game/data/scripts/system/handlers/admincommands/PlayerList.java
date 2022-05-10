@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import java.util.Collection;
@@ -46,7 +47,7 @@ public class PlayerList extends AdminCommand {
 		PacketSendUtility.sendMessage(player, "Currently connected players:");
 
 		for (Player p : players) {
-			if (params != null && params.length > 0) {
+			if (params.length > 0) {
 				String cmd = params[0].toLowerCase().trim();
 				if (("ely").startsWith(cmd)) {
 					if (p.getCommonData().getRace() == Race.ASMODIANS) {
@@ -70,7 +71,8 @@ public class PlayerList extends AdminCommand {
 				}
 			}
 
-			PacketSendUtility.sendMessage(player, "Char: " + p.getName() + " (" + p.getAcountName() + ") " + " - " + p.getCommonData().getRace().name() + "/" + p.getCommonData().getPlayerClass().name() + " - Location: " + WorldMapType.getWorld(p.getWorldId()).name());
+			PacketSendUtility.sendMessage(player, "Char: " + p.getName() + " (" + p.getAcountName() + ") " + " - " + p.getCommonData().getRace().name() + "/"
+					+ p.getCommonData().getPlayerClass().name() + " - Location: " + WorldMapType.getWorld(p.getWorldId()).name());
 		}
 	}
 

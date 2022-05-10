@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.configs.main.GSConfig;
@@ -24,6 +25,7 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
 /**
  * @author Shift
+ *
  */
 public class LevelUp extends AdminCommand {
 
@@ -56,8 +58,7 @@ public class LevelUp extends AdminCommand {
 		int level;
 		try {
 			level = Integer.parseInt(params[0]);
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			PacketSendUtility.sendMessage(player, "You should enter valid second params!");
 			return;
 		}
@@ -67,8 +68,7 @@ public class LevelUp extends AdminCommand {
 		if (playerT.getCommonData().getLevel() + level <= GSConfig.PLAYER_MAX_LEVEL) {
 			int newLevel = playerT.getCommonData().getLevel() + level;
 			playerT.getCommonData().setLevel(newLevel);
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(player, "The value of <level> will plus calculated to the current player level!");
 		}
 

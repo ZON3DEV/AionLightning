@@ -14,7 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
+
+import com.aionemu.commons.database.DatabaseFactory;
+import com.aionemu.gameserver.dao.MySQL5DAOUtils;
+import com.aionemu.gameserver.dao.PetitionDAO;
+import com.aionemu.gameserver.model.Petition;
+import com.aionemu.gameserver.model.PetitionStatus;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,15 +31,6 @@ import java.sql.ResultSet;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.aionemu.commons.database.DatabaseFactory;
-import com.aionemu.gameserver.dao.MySQL5DAOUtils;
-import com.aionemu.gameserver.dao.PetitionDAO;
-import com.aionemu.gameserver.model.Petition;
-import com.aionemu.gameserver.model.PetitionStatus;
 
 /**
  * @author zdead
@@ -50,12 +50,10 @@ public class MySQL5PetitionDAO extends PetitionDAO {
 			rset.next();
 			result = rset.getInt("nextid") + 1;
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Cannot get next available petition id", e);
 			return 0;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return result;
@@ -79,22 +77,19 @@ public class MySQL5PetitionDAO extends PetitionDAO {
 			PetitionStatus status;
 			if (statusValue.equals("PENDING")) {
 				status = PetitionStatus.PENDING;
-			}
-			else if (statusValue.equals("IN_PROGRESS")) {
+			} else if (statusValue.equals("IN_PROGRESS")) {
 				status = PetitionStatus.IN_PROGRESS;
-			}
-			else {
+			} else {
 				status = PetitionStatus.PENDING;
 			}
 
-			result = new Petition(rset.getInt("id"), rset.getInt("player_id"), rset.getInt("type"), rset.getString("title"), rset.getString("message"), rset.getString("add_data"), status.getElementId());
+			result = new Petition(rset.getInt("id"), rset.getInt("player_id"), rset.getInt("type"), rset.getString("title"), rset.getString("message"),
+					rset.getString("add_data"), status.getElementId());
 
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Cannot get petition #" + petitionId, e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return result;
@@ -114,24 +109,21 @@ public class MySQL5PetitionDAO extends PetitionDAO {
 				PetitionStatus status;
 				if (statusValue.equals("PENDING")) {
 					status = PetitionStatus.PENDING;
-				}
-				else if (statusValue.equals("IN_PROGRESS")) {
+				} else if (statusValue.equals("IN_PROGRESS")) {
 					status = PetitionStatus.IN_PROGRESS;
-				}
-				else {
+				} else {
 					status = PetitionStatus.PENDING;
 				}
 
-				Petition p = new Petition(rset.getInt("id"), rset.getInt("player_id"), rset.getInt("type"), rset.getString("title"), rset.getString("message"), rset.getString("add_data"), status.getElementId());
+				Petition p = new Petition(rset.getInt("id"), rset.getInt("player_id"), rset.getInt("type"), rset.getString("title"), rset.getString("message"),
+						rset.getString("add_data"), status.getElementId());
 				results.add(p);
 			}
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Cannot get next available petition id", e);
 			return null;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return results;
@@ -146,11 +138,9 @@ public class MySQL5PetitionDAO extends PetitionDAO {
 			stmt.setInt(1, playerObjId);
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Cannot delete petition", e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}
@@ -172,11 +162,9 @@ public class MySQL5PetitionDAO extends PetitionDAO {
 			stmt.setString(8, petition.getStatus().toString());
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Cannot insert petition", e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}
@@ -191,11 +179,9 @@ public class MySQL5PetitionDAO extends PetitionDAO {
 			stmt.setInt(1, petitionId);
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Cannot set petition replied", e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}

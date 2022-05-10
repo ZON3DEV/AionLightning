@@ -14,9 +14,9 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
-import com.aionemu.gameserver.configs.network.NetworkConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.team.legion.LegionMemberEx;
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -64,11 +64,10 @@ public class SM_LEGION_UPDATE_MEMBER extends AionServerPacket {
 			writeD(player.getPosition().getMapId());
 			writeC(isOnline);
 			writeD(player.isOnline() ? 0 : player.getLastOnline());
-			writeD(NetworkConfig.GAMESERVER_ID);
+			writeD(1); // 3.0
 			writeD(msgId);
 			writeS(text);
-		}
-		else if (LM != null) {
+		} else if (LM != null) {
 			writeD(LM.getObjectId());
 			writeC(LM.getRank().getRankId());
 			writeC(LM.getPlayerClass().getClassId());
@@ -76,7 +75,7 @@ public class SM_LEGION_UPDATE_MEMBER extends AionServerPacket {
 			writeD(LM.getWorldId());
 			writeC(isOnline);
 			writeD(LM.isOnline() ? 0 : LM.getLastOnline());
-			writeD(NetworkConfig.GAMESERVER_ID);
+			writeD(1);
 			writeD(msgId);
 			writeS(text);
 		}

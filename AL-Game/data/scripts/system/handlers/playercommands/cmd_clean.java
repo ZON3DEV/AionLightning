@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import java.util.regex.Matcher;
@@ -55,20 +56,17 @@ public class cmd_clean extends PlayerCommand {
 				if (result.find()) {
 					itemId = Integer.parseInt(result.group(1));
 				}
-			}
-			else {
+			} else {
 				Pattern id = Pattern.compile("\\[item:(\\d{9})");
 				Matcher result = id.matcher(item);
 
 				if (result.find()) {
 					itemId = Integer.parseInt(result.group(1));
-				}
-				else {
+				} else {
 					itemId = Integer.parseInt(params[0]);
 				}
 			}
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			try {
 				String item = params[1];
 				// Some item links have space before Id
@@ -79,24 +77,20 @@ public class cmd_clean extends PlayerCommand {
 					if (result.find()) {
 						itemId = Integer.parseInt(result.group(1));
 					}
-				}
-				else {
+				} else {
 					Pattern id = Pattern.compile("\\[item:(\\d{9})");
 					Matcher result = id.matcher(item);
 
 					if (result.find()) {
 						itemId = Integer.parseInt(result.group(1));
-					}
-					else {
+					} else {
 						itemId = Integer.parseInt(params[1]);
 					}
 				}
-			}
-			catch (NumberFormatException ex) {
+			} catch (NumberFormatException ex) {
 				PacketSendUtility.sendMessage(player, "You must give Id or @link to item.");
 				return;
-			}
-			catch (Exception ex2) {
+			} catch (Exception ex2) {
 				onFail(player, msg);
 				return;
 			}
@@ -104,11 +98,10 @@ public class cmd_clean extends PlayerCommand {
 
 		Storage bag = player.getInventory();
 		Item item = bag.getFirstItemByItemId(itemId);
-		if (item != null || itemId == 0) {
+		if (item != null) {
 			bag.decreaseByObjectId(item.getObjectId(), 1);
 			PacketSendUtility.sendMessage(player, "Item removed succesfully");
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(player, "You don't have that item");
 		}
 	}

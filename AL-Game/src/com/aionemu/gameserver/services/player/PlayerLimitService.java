@@ -14,15 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.player;
 
 import com.aionemu.commons.services.CronService;
 import com.aionemu.gameserver.configs.main.CustomConfig;
-import com.aionemu.gameserver.model.SellLimit;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.SellLimit;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-
 import javolution.util.FastMap;
 
 /**
@@ -47,8 +47,7 @@ public class PlayerLimitService {
 		if (limit < reward) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_DAY_CANNOT_SELL_NPC(limit));
 			return false;
-		}
-		else {
+		} else {
 			limit -= reward;
 			sellLimit.putEntry(accoutnId, limit);
 			return true;
@@ -57,7 +56,6 @@ public class PlayerLimitService {
 
 	public void scheduleUpdate() {
 		CronService.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				sellLimit.clear();

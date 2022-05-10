@@ -14,8 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
 
+import com.aionemu.gameserver.model.templates.robot.RobotInfo;
+
+import gnu.trove.map.hash.TIntObjectHashMap;
 import java.util.List;
 
 import javax.xml.bind.Unmarshaller;
@@ -25,10 +29,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
-
-import com.aionemu.gameserver.model.templates.robot.RobotInfo;
-
-import gnu.trove.map.hash.TIntObjectHashMap;
 
 /**
  * @author Ever'
@@ -53,7 +53,7 @@ public class RobotData {
 	}
 
 	public RobotInfo getRobotInfo(int npcId) {
-		return robotInfos.get(npcId);
+		return (RobotInfo) robotInfos.get(npcId);
 	}
 
 	public int size() {

@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionl.slf4j.filters;
 
 import ch.qos.logback.classic.spi.ILoggingEvent;
@@ -32,9 +33,8 @@ public class ChatLogFilter extends Filter<ILoggingEvent> {
 	 * This method accepts only log events that contain exceptions.
 	 * 
 	 * @param loggingEvent
-	 *            log event that is going to be filtred.
-	 * @return {@link org.apache.log4j.spi.Filter#ACCEPT} if chatlog,
-	 *         {@link org.apache.log4j.spi.Filter#DENY} otherwise
+	 *          log event that is going to be filtred.
+	 * @return {@link org.apache.log4j.spi.Filter#ACCEPT} if chatlog, {@link org.apache.log4j.spi.Filter#DENY} otherwise
 	 */
 	@Override
 	public FilterReply decide(ILoggingEvent loggingEvent) {

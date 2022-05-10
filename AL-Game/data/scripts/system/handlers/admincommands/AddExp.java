@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -40,11 +41,9 @@ public class AddExp extends AdminCommand {
 
 		if (player.getTarget() == null) {
 			onFail(player, null);
-		}
-		else if (!(player.getTarget() instanceof Player)) {
+		} else if (!(player.getTarget() instanceof Player)) {
 			onFail(player, null);
-		}
-		else {
+		} else {
 			target = (Player) player.getTarget();
 		}
 
@@ -52,15 +51,16 @@ public class AddExp extends AdminCommand {
 		long exp;
 		try {
 			exp = Long.parseLong(paramValue);
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			PacketSendUtility.sendMessage(player, "<exp> must be an Integer");
 			return;
 		}
 
-		exp += target.getCommonData().getExp();
-		target.getCommonData().setExp(exp);
-		PacketSendUtility.sendMessage(player, "You added " + params[0] + " exp points to the target.");
+		if (target != null) {
+			exp += target.getCommonData().getExp();
+			target.getCommonData().setExp(exp);
+			PacketSendUtility.sendMessage(player, "You added " + params[0] + " exp points to the target.");
+		}
 	}
 
 	@Override

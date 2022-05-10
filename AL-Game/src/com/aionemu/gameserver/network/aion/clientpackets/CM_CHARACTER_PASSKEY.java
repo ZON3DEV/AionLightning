@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.commons.database.dao.DAOManager;
@@ -37,7 +38,6 @@ import com.aionemu.gameserver.services.player.PlayerService;
 public class CM_CHARACTER_PASSKEY extends AionClientPacket {
 
 	private int type;
-	private int unk;
 	private String passkey;
 	private String newPasskey;
 
@@ -50,15 +50,13 @@ public class CM_CHARACTER_PASSKEY extends AionClientPacket {
 	 */
 	@Override
 	protected void readImpl() {
-		type = readC(); // 0:new, 2:update, 3:input
-		unk = readC();
+		type = readH(); // 0:new, 2:update, 3:input
 		try {
-			passkey = new String(readB(65), "UTF-8");
+			passkey = new String(readB(32), "UTF-16le");
 			if (type == 2) {
-				newPasskey = new String(readB(65), "UTF-8");
+				newPasskey = new String(readB(32), "UTF-16le");
 			}
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 		}
 	}
 
@@ -75,7 +73,7 @@ public class CM_CHARACTER_PASSKEY extends AionClientPacket {
 				chaPasskey.setIsPass(false);
 				chaPasskey.setWrongCount(0);
 				DAOManager.getDAO(PlayerPasskeyDAO.class).insertPlayerPasskey(client.getAccount().getId(), passkey);
-				client.sendPacket(new SM_CHARACTER_SELECT(2, type, unk, chaPasskey.getWrongCount()));
+				client.sendPacket(new SM_CHARACTER_SELECT(2, type, chaPasskey.getWrongCount()));
 				break;
 			case 2:
 				boolean isSuccess = DAOManager.getDAO(PlayerPasskeyDAO.class).updatePlayerPasskey(client.getAccount().getId(), passkey, newPasskey);
@@ -83,12 +81,11 @@ public class CM_CHARACTER_PASSKEY extends AionClientPacket {
 				chaPasskey.setIsPass(false);
 				if (isSuccess) {
 					chaPasskey.setWrongCount(0);
-					client.sendPacket(new SM_CHARACTER_SELECT(2, type, unk, chaPasskey.getWrongCount()));
-				}
-				else {
+					client.sendPacket(new SM_CHARACTER_SELECT(2, type, chaPasskey.getWrongCount()));
+				} else {
 					chaPasskey.setWrongCount(chaPasskey.getWrongCount() + 1);
 					checkBlock(client.getAccount().getId(), chaPasskey.getWrongCount());
-					client.sendPacket(new SM_CHARACTER_SELECT(2, type, unk, chaPasskey.getWrongCount()));
+					client.sendPacket(new SM_CHARACTER_SELECT(2, type, chaPasskey.getWrongCount()));
 				}
 				break;
 			case 3:
@@ -97,23 +94,21 @@ public class CM_CHARACTER_PASSKEY extends AionClientPacket {
 				if (isPass) {
 					chaPasskey.setIsPass(true);
 					chaPasskey.setWrongCount(0);
-					client.sendPacket(new SM_CHARACTER_SELECT(2, type, unk, chaPasskey.getWrongCount()));
+					client.sendPacket(new SM_CHARACTER_SELECT(2, type, chaPasskey.getWrongCount()));
 
 					if (chaPasskey.getConnectType() == ConnectType.ENTER) {
 						PlayerEnterWorldService.startEnterWorld(chaPasskey.getObjectId(), client);
-					}
-					else if (chaPasskey.getConnectType() == ConnectType.DELETE) {
+					} else if (chaPasskey.getConnectType() == ConnectType.DELETE) {
 						PlayerAccountData playerAccData = client.getAccount().getPlayerAccountData(chaPasskey.getObjectId());
 
 						PlayerService.deletePlayer(playerAccData);
 						client.sendPacket(new SM_DELETE_CHARACTER(chaPasskey.getObjectId(), playerAccData.getDeletionTimeInSeconds()));
 					}
-				}
-				else {
+				} else {
 					chaPasskey.setIsPass(false);
 					chaPasskey.setWrongCount(chaPasskey.getWrongCount() + 1);
 					checkBlock(client.getAccount().getId(), chaPasskey.getWrongCount());
-					client.sendPacket(new SM_CHARACTER_SELECT(2, type, unk, chaPasskey.getWrongCount()));
+					client.sendPacket(new SM_CHARACTER_SELECT(2, type, chaPasskey.getWrongCount()));
 				}
 				break;
 		}

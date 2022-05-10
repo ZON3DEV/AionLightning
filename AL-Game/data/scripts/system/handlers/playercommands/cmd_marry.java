@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import com.aionemu.gameserver.cache.HTMLCache;
@@ -58,7 +59,8 @@ public class cmd_marry extends PlayerCommand {
 			PacketSendUtility.sendMessage(admin, "You can't marry player on himself.");
 			return;
 		}
-		if (partner1.getWorldId() == 510010000 || partner1.getWorldId() == 520010000 || partner2.getWorldId() == 510010000 || partner2.getWorldId() == 520010000) {
+		if (partner1.getWorldId() == 510010000 || partner1.getWorldId() == 520010000 || partner2.getWorldId() == 510010000
+				|| partner2.getWorldId() == 520010000) {
 			PacketSendUtility.sendMessage(admin, "One of the players is in prison.");
 			return;
 		}

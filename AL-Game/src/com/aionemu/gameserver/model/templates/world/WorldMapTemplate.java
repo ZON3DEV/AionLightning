@@ -14,21 +14,20 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.world;
 
 import java.util.List;
 
 import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.*;
 
 import com.aionemu.gameserver.configs.main.WorldConfig;
 import com.aionemu.gameserver.world.WorldType;
 import com.aionemu.gameserver.world.zone.ZoneAttributes;
+
+//Global Drops
+import com.aionemu.gameserver.world.WorldDropType;
 
 /**
  * @author Luno
@@ -58,6 +57,8 @@ public class WorldMapTemplate {
 	protected int waterlevel = 16;
 	@XmlAttribute(name = "world_type")
 	protected WorldType worldType = WorldType.NONE;
+	@XmlAttribute(name = "drop_type")
+	protected WorldDropType dropWorldType = WorldDropType.NONE;
 	@XmlAttribute(name = "world_size")
 	protected int worldSize;
 	@XmlElement(name = "ai_info")
@@ -80,8 +81,7 @@ public class WorldMapTemplate {
 	public int getTwinCount() {
 		if (WorldConfig.WORLD_MAX_TWINS_USUAL == 0) {
 			return twinCount;
-		}
-		else if (WorldConfig.WORLD_MAX_TWINS_USUAL == -1) { // disabled
+		} else if (WorldConfig.WORLD_MAX_TWINS_USUAL == -1) { // disabled
 			return 0;
 		}
 		return Math.min(WorldConfig.WORLD_MAX_TWINS_USUAL, twinCount);
@@ -90,8 +90,7 @@ public class WorldMapTemplate {
 	public int getBeginnerTwinCount() {
 		if (WorldConfig.WORLD_MAX_TWINS_BEGINNER == 0) {
 			return beginnerTwinCount;
-		}
-		else if (WorldConfig.WORLD_MAX_TWINS_BEGINNER == -1) { // disabled
+		} else if (WorldConfig.WORLD_MAX_TWINS_BEGINNER == -1) { // disabled
 			return 0;
 		}
 		return Math.min(WorldConfig.WORLD_MAX_TWINS_BEGINNER, beginnerTwinCount);
@@ -119,6 +118,10 @@ public class WorldMapTemplate {
 
 	public WorldType getWorldType() {
 		return worldType;
+	}
+
+	public WorldDropType getWorldDropType() {
+		return dropWorldType;
 	}
 
 	public int getWorldSize() {

@@ -14,10 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+
 
 /**
  * @author Alcapwnd
@@ -25,21 +27,21 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_FAST_TRACK_MOVE extends AionServerPacket {
 
-	private int currentServerId;
-	private int newServerId;
-	private int mapId;
+    private int currentServerId;
+    private int newServerId;
+    private int mapId;
 
-	public SM_FAST_TRACK_MOVE(int currentServer, int newServerId, int mapId) {
-		this.currentServerId = currentServer;
-		this.newServerId = newServerId;
-		this.mapId = mapId;
-	}
+    public SM_FAST_TRACK_MOVE(int currentServer, int newServerId, int mapId) {
+        this.currentServerId = currentServer;
+        this.newServerId = newServerId;
+        this.mapId = mapId;
+    }
 
-	@Override
-	protected void writeImpl(AionConnection con) {
-		writeD(newServerId);
-		writeD(currentServerId);
-		writeC(0);
-		writeD(mapId);
-	}
+    @Override
+    protected void writeImpl(AionConnection con) {
+        writeD(newServerId);
+        writeD(currentServerId);
+        writeC(0);
+        writeD(mapId);
+    }
 }

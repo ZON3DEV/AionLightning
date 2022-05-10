@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.iteminfo;
 
 import java.nio.ByteBuffer;
@@ -33,11 +34,9 @@ public class PackInfoBlobEntry extends ItemBlobEntry {
 	public void writeThisBlob(ByteBuffer buf) {
 		if (ownerItem.getItemTemplate().getPackCount() > 0 && ownerItem.isPacked()) {
 			writeC(buf, ownerItem.getPackCount());
-		}
-		else if (!ownerItem.isPacked()) {
-			writeC(buf, ownerItem.getPackCount() * -1);
-		}
-		else {
+		} else if (!ownerItem.isPacked()) {
+			writeC(buf, 0);
+		} else {
 			writeC(buf, 0);
 		}
 	}

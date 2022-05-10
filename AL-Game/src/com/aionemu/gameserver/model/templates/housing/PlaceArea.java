@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.housing;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -26,9 +27,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum PlaceArea {
 
-	ALL,
-	INTERIOR,
-	EXTERIOR;
+	ALL, INTERIOR, EXTERIOR;
 
 	public String value() {
 		return name();

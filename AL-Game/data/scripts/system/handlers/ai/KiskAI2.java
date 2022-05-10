@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai;
 
 import com.aionemu.gameserver.ai2.AI2Actions;
@@ -83,33 +84,32 @@ public class KiskAI2 extends NpcAI2 {
 		}
 
 		if (getOwner().canBind(player)) {
-			AI2Actions.addRequest(this, player, SM_QUESTION_WINDOW.STR_ASK_REGISTER_BINDSTONE, getOwner().getObjectId(), CANCEL_DIALOG_METERS, new AI2Request() {
+			AI2Actions.addRequest(this, player, SM_QUESTION_WINDOW.STR_ASK_REGISTER_BINDSTONE, getOwner().getObjectId(), CANCEL_DIALOG_METERS,
+					new AI2Request() {
+						private boolean decisionTaken = false;
 
-				private boolean decisionTaken = false;
-
-				@Override
-				public void acceptRequest(Creature requester, Player responder) {
-					if (!decisionTaken) {
-						// Check again if it's full (If they waited to press OK)
-						if (!getOwner().canBind(responder)) {
-							PacketSendUtility.sendPacket(responder, SM_SYSTEM_MESSAGE.STR_CANNOT_REGISTER_BINDSTONE_HAVE_NO_AUTHORITY);
-							return;
+						@Override
+						public void acceptRequest(Creature requester, Player responder) {
+							if (!decisionTaken) {
+								// Check again if it's full (If they waited to
+								// press OK)
+								if (!getOwner().canBind(responder)) {
+									PacketSendUtility.sendPacket(responder, SM_SYSTEM_MESSAGE.STR_CANNOT_REGISTER_BINDSTONE_HAVE_NO_AUTHORITY);
+									return;
+								}
+								KiskService.getInstance().onBind(getOwner(), responder);
+							}
 						}
-						KiskService.getInstance().onBind(getOwner(), responder);
-					}
-				}
 
-				@Override
-				public void denyRequest(Creature requester, Player responder) {
-					decisionTaken = true;
-				}
-			});
+						@Override
+						public void denyRequest(Creature requester, Player responder) {
+							decisionTaken = true;
+						}
+					});
 
-		}
-		else if (getOwner().getCurrentMemberCount() >= getOwner().getMaxMembers()) {
+		} else if (getOwner().getCurrentMemberCount() >= getOwner().getMaxMembers()) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_CANNOT_REGISTER_BINDSTONE_FULL);
-		}
-		else {
+		} else {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_CANNOT_REGISTER_BINDSTONE_HAVE_NO_AUTHORITY);
 		}
 	}

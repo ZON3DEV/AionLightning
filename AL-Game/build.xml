@@ -47,9 +47,6 @@
     </target>
 
     <target name="jar" depends="compile" description="Create the jar file">
-        <tstamp>
-            <format property="date" pattern="yyyy-MM-dd-HH:mm"/>
-        </tstamp>
 		<jar destfile="${build}/AL-Game.jar">
             <fileset dir="${build.classes}"/>
             <manifest>

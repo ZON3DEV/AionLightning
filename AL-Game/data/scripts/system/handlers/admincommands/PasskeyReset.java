@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.commons.database.dao.DAOManager;
@@ -51,8 +52,7 @@ public class PasskeyReset extends AdminCommand {
 
 		try {
 			Integer.parseInt(params[1]);
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			PacketSendUtility.sendMessage(player, "parameters should be number!");
 			return;
 		}

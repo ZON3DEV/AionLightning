@@ -14,12 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.zone;
 
 import com.aionemu.gameserver.model.geometry.Area;
 
 /**
  * @author MrPoke
+ *
  */
 public class ZoneInfo {
 

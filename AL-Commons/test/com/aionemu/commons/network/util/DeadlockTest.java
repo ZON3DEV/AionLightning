@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.network.util;
 
 import java.util.ArrayList;
@@ -27,8 +28,7 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
 
 /**
- * This test is for checking print of deadlock report. Should not be executed
- * during unit test phase
+ * This test is for checking print of deadlock report. Should not be executed during unit test phase
  * 
  * @author ATracer
  */
@@ -51,42 +51,42 @@ public class DeadlockTest {
 		final Collection<String> coll = new ArrayList<String>();
 		coll.add("1");
 		synchronized (lock1) {
-			Collection<Integer> filtered = Collections2
-					.filter(Collections2.transform(coll, new Function<String, Integer>() {
+			Collection<Integer> filtered = Collections2.filter(Collections2.transform(coll, new Function<String, Integer>() {
+
+				@Override
+				public Integer apply(String input) {
+
+					new Thread(new Runnable() {
 
 						@Override
-						public Integer apply(String input) {
-
-							new Thread(new Runnable() {
-
-								@Override
-								public void run() {
-									System.out.println("Locking lock 2 from thread 2");
-									synchronized (lock2) {
-										System.out.println("Deadlocking");
-										synchronized (lock1) {
-											System.out.println("This will not be printed");
-										}
-									}
-								}
-							}).start();
-							try {
-								Thread.sleep(100);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
+						public void run() {
+							System.out.println("Locking lock 2 from thread 2");
 							synchronized (lock2) {
-								System.out.println("This will not be printed");
+								System.out.println("Deadlocking");
+								synchronized (lock1) {
+									System.out.println("This will not be printed");
+								}
 							}
-							return Integer.valueOf(input);
 						}
-					}), new Predicate<Integer>() {
+					}).start();
+					try {
+						Thread.sleep(100);
+					}
+					catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					synchronized (lock2) {
+						System.out.println("This will not be printed");
+					}
+					return Integer.valueOf(input);
+				}
+			}), new Predicate<Integer>() {
 
-						@Override
-						public boolean apply(Integer input) {
-							return true;
-						}
-					});
+				@Override
+				public boolean apply(Integer input) {
+					return true;
+				}
+			});
 			System.out.println(filtered.size());
 		}
 	}

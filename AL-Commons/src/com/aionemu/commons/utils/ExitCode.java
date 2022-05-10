@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.utils;
 
 /**
@@ -27,8 +28,7 @@ public final class ExitCode {
 	/**
 	 * Private constructor to avoid instantiation
 	 */
-	private ExitCode() {
-	}
+	private ExitCode() {}
 
 	/**
 	 * Indicates that server successfully finished it's work
@@ -36,8 +36,7 @@ public final class ExitCode {
 	public static final int CODE_NORMAL = 0;
 
 	/**
-	 * Indicates that server successfully finished it's work and should be
-	 * restarted
+	 * Indicates that server successfully finished it's work and should be restarted
 	 */
 	public static final int CODE_RESTART = 2;
 

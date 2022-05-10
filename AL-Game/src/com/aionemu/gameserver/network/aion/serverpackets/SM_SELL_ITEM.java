@@ -14,10 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.templates.tradelist.TradeListTemplate;
-import com.aionemu.gameserver.model.templates.tradelist.TradeNpcType;
+import com.aionemu.gameserver.model.templates.tradelist.TradeListTemplate.TradeTab;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -27,23 +28,15 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
 public class SM_SELL_ITEM extends AionServerPacket {
 
 	private int targetObjectId;
-    private int sellPercentage;
-	private TradeListTemplate tradeListTemplate;
-	@SuppressWarnings("unused")
-	private byte action = 0x01; // ?! WTF
+	private TradeListTemplate plist;
+	private int sellPercentage;
 
-	public SM_SELL_ITEM(int targetObjectId, int sellPercentage) {
+	public SM_SELL_ITEM(int targetObjectId, TradeListTemplate plist, int sellPercentage) {
+
+		this.targetObjectId = targetObjectId;
+		this.plist = plist;
 		this.sellPercentage = sellPercentage;
-		this.targetObjectId = targetObjectId;
-	}
 
-	public SM_SELL_ITEM(int targetObjectId, TradeListTemplate tradeListTemplate) {
-		this.targetObjectId = targetObjectId;
-		this.tradeListTemplate = tradeListTemplate;
-		this.sellPercentage = tradeListTemplate.getBuyPriceRate();
-		if (tradeListTemplate.getTradeNpcType() == TradeNpcType.ABYSS) {
-			this.action = 0x02;
-		}
 	}
 
 	/**
@@ -51,18 +44,18 @@ public class SM_SELL_ITEM extends AionServerPacket {
 	 */
 	@Override
 	protected void writeImpl(AionConnection con) {
-		if ((this.tradeListTemplate != null) && (this.tradeListTemplate.getNpcId() != 0) && (this.tradeListTemplate.getCount() != 0)) {
-			writeD(this.targetObjectId);
-			writeC(this.tradeListTemplate.getTradeNpcType().index());
-			writeD(this.sellPercentage);
+		if ((plist != null) && (plist.getNpcId() != 0) && (plist.getCount() != 0)) {
+			writeD(targetObjectId);
+			writeC(plist.getTradeNpcType().index());
+			writeD(sellPercentage);// Buy Price * (sellPercentage / 100) = Display price.
 			writeH(256);
-			writeH(this.tradeListTemplate.getCount());
-			for (TradeListTemplate.TradeTab tradeTabl : this.tradeListTemplate.getTradeTablist())
+			writeH(plist.getCount());
+			for (TradeTab tradeTabl : plist.getTradeTablist()) {
 				writeD(tradeTabl.getId());
-		}
-		else {
-			writeD(this.targetObjectId);
-			writeD(5121);
+			}
+		} else {
+			writeD(targetObjectId);
+			writeD(5121); // Buy Price * (sellPercentage / 100) = Display price.
 			writeD(65792);
 			writeC(0);
 		}

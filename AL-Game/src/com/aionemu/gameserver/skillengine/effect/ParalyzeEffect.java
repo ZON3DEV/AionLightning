@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,7 +52,8 @@ public class ParalyzeEffect extends EffectTemplate {
 		effected.getMoveController().abortMove();
 		effect.setAbnormal(AbnormalState.PARALYZE.getId());
 		effect.getEffected().getEffectController().setAbnormal(AbnormalState.PARALYZE.getId());
-		// PacketSendUtility.broadcastPacketAndReceive(effect.getEffected(), new SM_TARGET_IMMOBILIZE(effect.getEffected()));
+		// PacketSendUtility.broadcastPacketAndReceive(effect.getEffected(), new
+		// SM_TARGET_IMMOBILIZE(effect.getEffected()));
 
 	}
 

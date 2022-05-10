@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.handlers.template;
 
 import java.util.HashSet;
@@ -88,15 +89,15 @@ public class RelicRewards extends QuestHandler {
 				switch (env.getDialog()) {
 					case EXCHANGE_COIN: {
 						if (player.getCommonData().getLevel() >= 30) {
-							if ((player.getInventory().getItemCountByItemId(relicVar1) > 0) || (player.getInventory().getItemCountByItemId(relicVar2) > 0) || (player.getInventory().getItemCountByItemId(relicVar3) > 0) || (player.getInventory().getItemCountByItemId(relicVar4) > 0)) {
+							if ((player.getInventory().getItemCountByItemId(relicVar1) > 0) || (player.getInventory().getItemCountByItemId(relicVar2) > 0)
+									|| (player.getInventory().getItemCountByItemId(relicVar3) > 0)
+									|| (player.getInventory().getItemCountByItemId(relicVar4) > 0)) {
 								QuestService.startQuest(env);
 								return sendQuestDialog(env, 1011);
-							}
-							else {
+							} else {
 								return sendQuestDialog(env, 3398);
 							}
-						}
-						else {
+						} else {
 							return sendQuestDialog(env, 3398);
 						}
 					}
@@ -104,8 +105,7 @@ public class RelicRewards extends QuestHandler {
 						break;
 				}
 			}
-		}
-		else if (qs != null && qs.getStatus() == QuestStatus.START && qs.getQuestVarById(0) == 0) {
+		} else if (qs.getStatus() == QuestStatus.START && qs.getQuestVarById(0) == 0) {
 			if (startNpcs.contains(targetId)) {
 				if (relicCount == 0) {
 					relicCount = 1;
@@ -121,8 +121,7 @@ public class RelicRewards extends QuestHandler {
 							qs.setCompleteCount(0);
 							updateQuestStatus(env);
 							return sendQuestDialog(env, 5);
-						}
-						else {
+						} else {
 							return sendQuestDialog(env, 1009);
 						}
 					case SELECT_ACTION_1352:
@@ -133,8 +132,7 @@ public class RelicRewards extends QuestHandler {
 							qs.setCompleteCount(0);
 							updateQuestStatus(env);
 							return sendQuestDialog(env, 6);
-						}
-						else {
+						} else {
 							return sendQuestDialog(env, 1009);
 						}
 					case SELECT_ACTION_1693:
@@ -145,8 +143,7 @@ public class RelicRewards extends QuestHandler {
 							qs.setCompleteCount(0);
 							updateQuestStatus(env);
 							return sendQuestDialog(env, 7);
-						}
-						else {
+						} else {
 							return sendQuestDialog(env, 1009);
 						}
 					case SELECT_ACTION_2034:
@@ -157,30 +154,25 @@ public class RelicRewards extends QuestHandler {
 							qs.setCompleteCount(0);
 							updateQuestStatus(env);
 							return sendQuestDialog(env, 8);
-						}
-						else {
+						} else {
 							return sendQuestDialog(env, 1009);
 						}
 					default:
 						break;
 				}
 			}
-		}
-		else if (qs != null && qs.getStatus() == QuestStatus.REWARD) {
+		} else if (qs.getStatus() == QuestStatus.REWARD) {
 			if (startNpcs.contains(targetId)) {
 				int var = qs.getQuestVarById(0);
 				switch (env.getDialog()) {
 					case USE_OBJECT:
 						if (var == 1) {
 							return sendQuestDialog(env, 5);
-						}
-						else if (var == 2) {
+						} else if (var == 2) {
 							return sendQuestDialog(env, 6);
-						}
-						else if (var == 3) {
+						} else if (var == 3) {
 							return sendQuestDialog(env, 7);
-						}
-						else if (var == 4) {
+						} else if (var == 4) {
 							return sendQuestDialog(env, 8);
 						}
 					case SELECTED_QUEST_NOREWARD:

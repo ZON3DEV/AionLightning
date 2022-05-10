@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects;
 
 /**
@@ -21,18 +22,8 @@ package com.aionemu.gameserver.model.gameobjects;
  */
 public enum HousingAction {
 
-	UNK(-1),
-	ENTER_DECORATION(1),
-	EXIT_DECORATION(2),
-	ADD_ITEM(3),
-	DELETE_ITEM(4),
-	SPAWN_OBJECT(5),
-	MOVE_OBJECT(6),
-	DESPAWN_OBJECT(7),
-	ENTER_RENOVATION(14),
-	EXIT_RENOVATION(15),
-	CHANGE_APPEARANCE(16);
-
+	UNK(-1), ENTER_DECORATION(1), EXIT_DECORATION(2), ADD_ITEM(3), DELETE_ITEM(4), SPAWN_OBJECT(5), MOVE_OBJECT(6), DESPAWN_OBJECT(7), ENTER_RENOVATION(14), EXIT_RENOVATION(
+			15), CHANGE_APPEARANCE(16);
 	private int id;
 
 	private HousingAction(int id) {

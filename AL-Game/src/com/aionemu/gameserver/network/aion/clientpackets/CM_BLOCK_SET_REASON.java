@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.BlockedPlayer;
@@ -55,8 +56,7 @@ public class CM_BLOCK_SET_REASON extends AionClientPacket {
 
 		if (target == null) {
 			sendPacket(SM_SYSTEM_MESSAGE.STR_BLOCKLIST_NOT_IN_LIST);
-		}
-		else {
+		} else {
 			SocialService.setBlockedReason(activePlayer, target, reason);
 		}
 	}

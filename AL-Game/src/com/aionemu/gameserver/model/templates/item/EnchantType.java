@@ -14,21 +14,17 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item;
 
-import javax.xml.bind.annotation.XmlEnum;
-import javax.xml.bind.annotation.XmlType;
-
 /**
- * @author FrozenKiller
+ * @author Himiko
  */
-@XmlType(name = "enchant_type")
-@XmlEnum
 public enum EnchantType {
 
-	PVP,
-	PVE,
-	GRIND,
-	DESTRUCTION,
-	NONE
+	AUTHORIZE,
+	ENCHANT;
+
+	private EnchantType() {
+	}
 }

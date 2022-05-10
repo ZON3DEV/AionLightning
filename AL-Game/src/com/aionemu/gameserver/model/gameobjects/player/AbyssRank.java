@@ -14,23 +14,24 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.gameobjects.player;
 
-import java.util.Calendar;
+package com.aionemu.gameserver.model.gameobjects.player;
 
 import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.utils.stats.AbyssRankEnum;
+
+import java.util.Calendar;
 
 /**
  * @author ATracer, Divinity
  */
 public final class AbyssRank {
 
-	private int dailyAP;
-	private int dailyGP;
-	private int weeklyAP;
-	private int weeklyGP;
+    private int dailyAP;
+    private int dailyGP;
+    private int weeklyAP;
+    private int weeklyGP;
 	private int currentAp;
 	private int currentGp;
 	private AbyssRankEnum rank;
@@ -58,11 +59,12 @@ public final class AbyssRank {
 	 * @param lastAP
 	 * @param lastUpdate
 	 */
-	public AbyssRank(int dailyAP, int dailyGP, int weeklyAP, int weeklyGP, int ap, int gp, int rank, int topRanking, int dailyKill, int weeklyKill, int allKill, int maxRank, int lastKill, int lastAP, int lastGP, long lastUpdate) {
+	public AbyssRank(int dailyAP, int dailyGP, int weeklyAP, int weeklyGP, int ap, int gp, int rank, int topRanking, int dailyKill, int weeklyKill,
+			int allKill, int maxRank, int lastKill, int lastAP, int lastGP, long lastUpdate) {
 		this.dailyAP = dailyAP;
-		this.dailyGP = dailyGP;
+        this.dailyGP = dailyGP;
 		this.weeklyAP = weeklyAP;
-		this.weeklyGP = weeklyGP;
+        this.weeklyGP = weeklyGP;
 		this.currentAp = ap;
 		this.currentGp = gp;
 		this.rank = AbyssRankEnum.getRankById(rank);
@@ -79,14 +81,13 @@ public final class AbyssRank {
 		doUpdate();
 	}
 
-	public enum AbyssRankUpdateType {
+    public enum AbyssRankUpdateType {
 
-		PLAYER_ELYOS(1),
-		PLAYER_ASMODIANS(2),
-		LEGION_ELYOS(4),
-		LEGION_ASMODIANS(8);
-
-		private int id;
+        PLAYER_ELYOS(1),
+        PLAYER_ASMODIANS(2),
+        LEGION_ELYOS(4),
+        LEGION_ASMODIANS(8);
+        private int id;
 
 		AbyssRankUpdateType(int id) {
 			this.id = id;
@@ -113,15 +114,14 @@ public final class AbyssRank {
 			weeklyAP = 0;
 		}
 
-		int cappedCount = 0;
-		if (CustomConfig.ENABLE_AP_CAP) {
-			cappedCount = currentAp + additionalAp > CustomConfig.AP_CAP_VALUE ? (int) (CustomConfig.AP_CAP_VALUE - currentAp) : additionalAp;
-		}
-		else {
-			cappedCount = additionalAp;
-		}
+        int cappedCount = 0;
+        if (CustomConfig.ENABLE_AP_CAP) {
+            cappedCount = (long) (currentAp + additionalAp) > CustomConfig.AP_CAP_VALUE ? (int) (CustomConfig.AP_CAP_VALUE - currentAp) : additionalAp;
+        } else {
+            cappedCount = additionalAp;
+        }
 
-		currentAp += cappedCount;
+        currentAp += cappedCount;
 		if (currentAp < 0) {
 			currentAp = 0;
 		}
@@ -143,74 +143,66 @@ public final class AbyssRank {
 		if (dailyGP < 0) {
 			dailyGP = 0;
 		}
-
 		weeklyGP += additionalGp;
 		if (weeklyGP < 0) {
 			weeklyGP = 0;
 		}
 
-		int GpcappedCount = 0;
-		if (CustomConfig.ENABLE_GP_CAP) {
-			GpcappedCount = currentGp + additionalGp > CustomConfig.GP_CAP_VALUE ? (int) (CustomConfig.GP_CAP_VALUE - currentGp) : additionalGp;
-		}
-		else {
-			GpcappedCount = additionalGp;
-		}
+        int GpcappedCount = 0;
+        if (CustomConfig.ENABLE_GP_CAP) {
+            GpcappedCount = (long) (currentGp + additionalGp) > CustomConfig.GP_CAP_VALUE ? (int) (CustomConfig.GP_CAP_VALUE - currentGp) : additionalGp;
+        } else {
+            GpcappedCount = additionalGp;
+        }
 
-		currentGp += GpcappedCount;
+        currentGp += GpcappedCount;
 		if (currentGp < 0) {
 			currentGp = 0;
 		}
-
 		AbyssRankEnum newRank = AbyssRankEnum.getRankForGp(currentGp);
-
-		// Please don't set rank for SUPREME_COMMANDER, it will become auto Governor
-		// Let Abyss Rank do this
-		// by Petruknisme
-
-		if (newRank.getId() < 18 && newRank.getId() > 9) {
+        if (newRank.getId() <= 18 && newRank.getId() > 9) {
 			setRank(newRank);
 		}
 		setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
 
 	/**
-	 * @return The daily Abyss Point count
+	 * @return The daily <Abyss Point> count
 	 */
 	public int getDailyAP() {
-		return dailyAP;
-	}
+        return dailyAP;
+    }
 
-	/**
-	 * @return The daily Glory Point count
-	 */
-	public int getDailyGP() {
-		return dailyGP;
-	}
+    /**
+     * @return The daily Glory Point count
+     */
+    public int getDailyGP() {
+        return dailyGP;
+    }
 
-	/**
-	 * @return The weekly Abyss Point count
+    /**
+     * @return The weekly Abyss Point count
 	 */
 	public int getWeeklyAP() {
 		return weeklyAP;
-	}
+    }
 
-	/**
-	 * @return The weekly Glory Point count
-	 */
-	public int getWeeklyGP() {
-		return weeklyGP;
-	}
+    /**
+     * @return The weekly Glory Point count
+     */
+    public int getWeeklyGP() {
+        return weeklyGP;
+    }
 
-	/**
-	 * @return The all time Abyss Point count
+    /**
+	 * @return The all time <Abyss Point> count
 	 */
 	public int getAp() {
 		return currentAp;
-	}
+    }
 
-	/**
-	 * @return The all time Glory Point count
+    /**
+	 * @return The all time <Glory Point> count
 	 */
 	public int getGp() {
 		return currentGp;
@@ -261,7 +253,7 @@ public final class AbyssRank {
 	/**
 	 * Add one kill to a player
 	 */
-	public void setAllKill() {
+    public void setAllKill() {
 		this.dailyKill += 1;
 		this.weeklyKill += 1;
 		this.allKill += 1;
@@ -282,31 +274,30 @@ public final class AbyssRank {
 	}
 
 	/**
-	 * @return The last week Abyss Point count
+	 * @return The last week <Abyss Point> count
 	 */
 	public int getLastAP() {
 		return lastAP;
 	}
 
 	/**
-	 * @return The last week Glory Point count
+	 * @return The last week <Glory Point> count
 	 */
 	public int getLastGP() {
 		return lastGP;
 	}
 
 	/**
-	 * @param rank
-	 *            the rank to set
+     * @param rank the rank to set
 	 */
 	public void setRank(AbyssRankEnum rank) {
-		if (rank.getId() > this.maxRank) {
-			this.maxRank = rank.getId();
-		}
+        if (rank.getId() > this.maxRank) {
+            this.maxRank = rank.getId();
+        }
 
-		this.rank = rank;
+        this.rank = rank;
 
-		// TODO top ranking for the rest is 0?
+        // TODO top ranking for the rest is 0?
 		this.topRanking = rank.getQuota();
 		setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
@@ -319,14 +310,13 @@ public final class AbyssRank {
 	}
 
 	/**
-	 * @param persistentState
-	 *            the persistentState to set
-	 */
-	public void setPersistentState(PersistentState persistentState) {
-		if (persistentState != PersistentState.UPDATE_REQUIRED || this.persistentState != PersistentState.NEW) {
-			this.persistentState = persistentState;
-		}
-	}
+     * @param persistentState the persistentState to set
+     */
+    public void setPersistentState(PersistentState persistentState) {
+        if (persistentState != PersistentState.UPDATE_REQUIRED || this.persistentState != PersistentState.NEW) {
+            this.persistentState = persistentState;
+        }
+    }
 
 	/**
 	 * @return The last update of the AbyssRank
@@ -335,47 +325,50 @@ public final class AbyssRank {
 		return lastUpdate;
 	}
 
-	/**
-	 * Make an update for the daily/weekly/last kill & ap counts & gp counts
-	 */
-	public void doUpdate() {
-		boolean needUpdate = false;
-		Calendar lastCal = Calendar.getInstance();
-		lastCal.setTimeInMillis(lastUpdate);
+    /**
+     * Make an update for the daily/weekly/last kill & ap counts & gp counts
+     */
+    public void doUpdate() {
+        boolean needUpdate = false;
+        Calendar lastCal = Calendar.getInstance();
+        lastCal.setTimeInMillis(lastUpdate);
 
-		Calendar curCal = Calendar.getInstance();
-		curCal.setTimeInMillis(System.currentTimeMillis());
+        Calendar curCal = Calendar.getInstance();
+        curCal.setTimeInMillis(System.currentTimeMillis());
 
-		// Checking the day - month & year are checked to prevent if a player come back after 1 month, the same day
-		if (lastCal.get(Calendar.DAY_OF_MONTH) != curCal.get(Calendar.DAY_OF_MONTH) || lastCal.get(Calendar.MONTH) != curCal.get(Calendar.MONTH) || lastCal.get(Calendar.YEAR) != curCal.get(Calendar.YEAR)) {
-			this.dailyAP = 0;
-			this.dailyGP = 0;
-			this.dailyKill = 0;
-			needUpdate = true;
-		}
+        // Checking the day - month & year are checked to prevent if a player come back after 1 month, the same day
+        if (lastCal.get(Calendar.DAY_OF_MONTH) != curCal.get(Calendar.DAY_OF_MONTH)
+                || lastCal.get(Calendar.MONTH) != curCal.get(Calendar.MONTH)
+                || lastCal.get(Calendar.YEAR) != curCal.get(Calendar.YEAR)) {
+            this.dailyAP = 0;
+            this.dailyGP = 0;
+            this.dailyKill = 0;
+            needUpdate = true;
+        }
 
-		// Checking the week - year is checked to prevent if a player come back after 1 year, the same week
-		if (lastCal.get(Calendar.WEEK_OF_YEAR) != curCal.get(Calendar.WEEK_OF_YEAR) || lastCal.get(Calendar.YEAR) != curCal.get(Calendar.YEAR)) {
-			this.lastKill = this.weeklyKill;
-			this.lastAP = this.weeklyAP;
-			this.lastGP = this.weeklyGP;
-			this.weeklyKill = 0;
-			this.weeklyAP = 0;
-			this.weeklyGP = 0;
-			needUpdate = true;
-		}
+        // Checking the week - year is checked to prevent if a player come back after 1 year, the same week
+        if (lastCal.get(Calendar.WEEK_OF_YEAR) != curCal.get(Calendar.WEEK_OF_YEAR)
+                || lastCal.get(Calendar.YEAR) != curCal.get(Calendar.YEAR)) {
+            this.lastKill = this.weeklyKill;
+            this.lastAP = this.weeklyAP;
+            this.lastGP = this.weeklyGP;
+            this.weeklyKill = 0;
+            this.weeklyAP = 0;
+            this.weeklyGP = 0;
+            needUpdate = true;
+        }
 
-		// For offline changed ranks
-		if (rank.getId() > maxRank) {
-			maxRank = rank.getId();
-			needUpdate = true;
-		}
+        //For offline changed ranks
+        if (rank.getId() > maxRank) {
+            maxRank = rank.getId();
+            needUpdate = true;
+        }
 
-		// Finally, update the the last update
-		this.lastUpdate = System.currentTimeMillis();
+        // Finally, update the the last update
+        this.lastUpdate = System.currentTimeMillis();
 
-		if (needUpdate) {
-			setPersistentState(PersistentState.UPDATE_REQUIRED);
-		}
-	}
+        if (needUpdate) {
+            setPersistentState(PersistentState.UPDATE_REQUIRED);
+        }
+    }
 }

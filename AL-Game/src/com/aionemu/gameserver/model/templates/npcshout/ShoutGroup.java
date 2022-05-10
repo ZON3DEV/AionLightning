@@ -14,28 +14,24 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.npcshout;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 /**
  * @author Rolandas
  */
-
 /**
- * <p/>
+ * <p>
  * Java class for ShoutGroup complex type.
- * <p/>
- * The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * 
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ *
  * <pre>
  * &lt;complexType name="ShoutGroup">
  *   &lt;complexContent>
@@ -58,20 +54,22 @@ public class ShoutGroup {
 	@XmlAttribute(name = "client_ai")
 	protected String clientAi;
 
-	/**
-	 * Gets the value of the shoutNpcs property.
-	 * <p/>
-	 * This accessor method returns a reference to the live list, not a snapshot. Therefore any modification you make to the returned list will be present inside the JAXB object. This is why there is
-	 * not a <CODE>set</CODE> method for the shoutNpcs property.
-	 * <p/>
-	 * For example, to add a new item, do as follows:
-	 * <p/>
-	 * 
-	 * <pre>
-	 * getShoutNpcs().add(newItem);
-	 * </pre>
-	 * <p/>
-	 * Objects of the following type(s) are allowed in the list {@link ShoutList }
+    /**
+     * Gets the value of the shoutNpcs property.
+     * <p/>
+     * This accessor method returns a reference to the live list, not a
+     * snapshot. Therefore any modification you make to the returned list will
+     * be present inside the JAXB object. This is why there is not a
+     * <CODE>set</CODE> method for the shoutNpcs property.
+     * <p/>
+     * For example, to add a new item, do as follows:
+     * <p/>
+     * <pre>
+     * getShoutNpcs().add(newItem);
+     * </pre>
+     * <p/>
+     * Objects of the following type(s) are allowed in the list {@link ShoutList
+     * }
 	 */
 	public List<ShoutList> getShoutNpcs() {
 		if (shoutNpcs == null) {

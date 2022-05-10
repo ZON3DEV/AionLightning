@@ -14,10 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world.exceptions;
 
 /**
- * This Exception will be thrown when some AionObject will be stored more then one time. This Exception indicating serious error.
+ * This Exception will be thrown when some AionObject will be stored more then
+ * one time. This Exception indicating serious error.
  *
  * @author -Nemesiss-
  */
@@ -25,14 +27,16 @@ package com.aionemu.gameserver.world.exceptions;
 public class DuplicateAionObjectException extends RuntimeException {
 
 	/**
-	 * Constructs an <code>DuplicateAionObjectException</code> with no detail message.
+	 * Constructs an <code>DuplicateAionObjectException</code> with no detail
+	 * message.
 	 */
 	public DuplicateAionObjectException() {
 		super();
 	}
 
 	/**
-	 * Constructs an <code>DuplicateAionObjectException</code> with the specified detail message.
+	 * Constructs an <code>DuplicateAionObjectException</code> with the
+	 * specified detail message.
 	 *
 	 * @param s
 	 *            the detail message.

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.PreparedStatement;
@@ -21,8 +22,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import org.slf4j.Logger;
 
 import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.IUStH;
@@ -69,12 +71,10 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO {
 			ResultSet rs = s.executeQuery();
 			rs.next();
 			return rs.getInt("cnt") > 0;
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Can't check if name " + playerObjId + ", is used, returning possitive result", e);
 			return true;
-		}
-		finally {
+		} finally {
 			DB.close(s);
 		}
 	}
@@ -85,7 +85,6 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO {
 	@Override
 	public boolean saveNewLegionMember(final LegionMember legionMember) {
 		boolean success = DB.insertUpdate(INSERT_LEGIONMEMBER_QUERY, new IUStH() {
-
 			@Override
 			public void handleInsertUpdate(PreparedStatement preparedStatement) throws SQLException {
 				preparedStatement.setInt(1, legionMember.getLegion().getLegionId());
@@ -103,7 +102,6 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO {
 	@Override
 	public void storeLegionMember(final int playerId, final LegionMember legionMember) {
 		DB.insertUpdate(UPDATE_LEGIONMEMBER_QUERY, new IUStH() {
-
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
 				stmt.setString(1, legionMember.getNickname());
@@ -128,7 +126,6 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO {
 		final LegionMember legionMember = new LegionMember(playerObjId);
 
 		boolean success = DB.select(SELECT_LEGIONMEMBER_QUERY, new ParamReadStH() {
-
 			@Override
 			public void setParams(PreparedStatement stmt) throws SQLException {
 				stmt.setInt(1, playerObjId);
@@ -144,8 +141,7 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO {
 					legionMember.setSelfIntro(resultSet.getString("selfintro"));
 					legionMember.setChallengeScore(resultSet.getInt("challenge_score"));
 					legionMember.setLegion(LegionService.getInstance().getLegion(legionId));
-				}
-				catch (SQLException sqlE) {
+				} catch (SQLException sqlE) {
 					log.debug("[DAO: MySQL5LegionMemberDAO] Player is not in a Legion");
 				}
 			}
@@ -165,7 +161,6 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO {
 		final LegionMemberEx legionMemberEx = new LegionMemberEx(playerObjId);
 
 		boolean success = DB.select(SELECT_LEGIONMEMBEREX_QUERY, new ParamReadStH() {
-
 			@Override
 			public void setParams(PreparedStatement stmt) throws SQLException {
 				stmt.setInt(1, playerObjId);
@@ -187,8 +182,7 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO {
 					legionMemberEx.setSelfIntro(resultSet.getString("legion_members.selfintro"));
 
 					legionMemberEx.setLegion(LegionService.getInstance().getLegion(legionId));
-				}
-				catch (SQLException sqlE) {
+				} catch (SQLException sqlE) {
 					log.debug("[DAO: MySQL5LegionMemberDAO] Player is not in a Legion");
 				}
 			}
@@ -208,7 +202,6 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO {
 		final LegionMemberEx legionMember = new LegionMemberEx(playerName);
 
 		boolean success = DB.select(SELECT_LEGIONMEMBEREX2_QUERY, new ParamReadStH() {
-
 			@Override
 			public void setParams(PreparedStatement stmt) throws SQLException {
 				stmt.setString(1, playerName);
@@ -230,8 +223,7 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO {
 					legionMember.setSelfIntro(resultSet.getString("selfintro"));
 
 					legionMember.setLegion(LegionService.getInstance().getLegion(legionId));
-				}
-				catch (SQLException sqlE) {
+				} catch (SQLException sqlE) {
 					log.debug("[DAO: MySQL5LegionMemberDAO] Player is not in a Legion");
 				}
 			}
@@ -251,7 +243,6 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO {
 		final ArrayList<Integer> legionMembers = new ArrayList<Integer>();
 
 		boolean success = DB.select(SELECT_LEGIONMEMBERS_QUERY, new ParamReadStH() {
-
 			@Override
 			public void setParams(PreparedStatement stmt) throws SQLException {
 				stmt.setInt(1, legionId);
@@ -264,8 +255,7 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO {
 						int playerObjId = resultSet.getInt("player_id");
 						legionMembers.add(playerObjId);
 					}
-				}
-				catch (SQLException sqlE) {
+				} catch (SQLException sqlE) {
 					log.error("[DAO: MySQL5LegionMemberDAO] No players in Legion. DELETE Legion Id: " + legionId);
 				}
 			}
@@ -293,8 +283,7 @@ public class MySQL5LegionMemberDAO extends LegionMemberDAO {
 		PreparedStatement statement = DB.prepareStatement(DELETE_LEGIONMEMBER_QUERY);
 		try {
 			statement.setInt(1, playerObjId);
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Some crap, can't set int parameter to PreparedStatement", e);
 		}
 		DB.executeUpdateAndClose(statement);

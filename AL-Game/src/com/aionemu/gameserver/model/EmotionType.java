@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model;
 
 /**
@@ -64,14 +65,7 @@ public enum EmotionType {
 	END_FEEDING(51),
 	WINDSTREAM_STRAFE(52),
 	START_SPRINT(53),
-	END_SPRINT(54),
-	START_FLYBOOST_SPEED(55),
-	END_FLYBOOST_SPEED(56),
-	PET_SNUGGLE(114),
-	PET_EMOTION_2(121),
-	PET_EMOTION_3(122),
-	PET_EMOTION_4(123);
-
+	END_SPRINT(54);
 	private int id;
 
 	private EmotionType(int id) {

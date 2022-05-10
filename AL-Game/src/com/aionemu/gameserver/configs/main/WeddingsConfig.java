@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.main;
 
 import com.aionemu.commons.configuration.Property;
@@ -45,6 +46,7 @@ public class WeddingsConfig {
 	public static int WEDDINGS_KINAH;
 	@Property(key = "gameserver.weddings.announce", defaultValue = "true")
 	public static boolean WEDDINGS_ANNOUNCE;
-	@Property(key = "gameserver.weddings.tag", defaultValue = "\uE020")
+
+	@Property(key = "gameserver.weddings.tag", defaultValue = "\uE020 %s")
 	public static String TAG_WEDDING;
 }

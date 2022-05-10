@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects;
 
 /**
@@ -39,9 +40,7 @@ public enum CreatureType {
 	/**
 	 * These are non attackable NPCs
 	 */
-	FRIEND(38),
-	SUPPORT(54);
-
+	FRIEND(38), SUPPORT(54);
 	private int someClientSideId;
 
 	private CreatureType(int id) {

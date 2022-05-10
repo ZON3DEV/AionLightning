@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import java.io.File;
@@ -50,7 +51,8 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
  * * 1 - packet mappings name.<br />
  * * - 'demo' for file './data/packets/demo.xml'<br />
  * * - 'test' for file './data/packets/test.xml'<br />
- * * Reciever is a targetted by admin player. If target is 'null' or not a Player - sends to admin.<br />
+ * * Reciever is a targetted by admin player. If target is 'null' or not a
+ * Player - sends to admin.<br />
  * <p/>
  * Created on: 14.07.2009 13:54:46
  *
@@ -63,8 +65,7 @@ public class Send extends AdminCommand {
 		// init unmrshaller once.
 		try {
 			unmarshaller = JAXBContext.newInstance(Packets.class, Packet.class, Part.class).createUnmarshaller();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			throw new GameServerError("Failed to initialize unmarshaller.", e);
 		}
 	}
@@ -96,8 +97,7 @@ public class Send extends AdminCommand {
 
 		try {
 			packetsTemplate = (Packets) unmarshaller.unmarshal(packetsData);
-		}
-		catch (JAXBException e) {
+		} catch (JAXBException e) {
 			logger.error("Unmarshalling error", e);
 			return;
 		}
@@ -125,21 +125,20 @@ public class Send extends AdminCommand {
 
 				String value = part.getValue();
 
-				if (value.indexOf("${objectId}") != -1) {
+				if (value.contains("${objectId}")) {
 					value = value.replace("${objectId}", targetObjectId);
 				}
-				if (value.indexOf("${senderObjectId}") != -1) {
+				if (value.contains("${senderObjectId}")) {
 					value = value.replace("${senderObjectId}", senderObjectId);
 				}
-				if (value.indexOf("${targetObjectId}") != -1) {
+				if (value.contains("${targetObjectId}")) {
 					value = value.replace("${targetObjectId}", targetObjectId);
 				}
 
 				if (part.getRepeatCount() == 1) // skip loop
 				{
 					packet.addElement(byCode, value);
-				}
-				else {
+				} else {
 					for (int i = 0; i < part.getRepeatCount(); i++) {
 						packet.addElement(byCode, value);
 					}
@@ -149,7 +148,6 @@ public class Send extends AdminCommand {
 			delay += packetTemplate.getDelay();
 
 			ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
 					// logger.debug("Sending: " + packetTemplate);

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.base;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -32,9 +33,10 @@ public class BaseTemplate {
 	protected int id;
 	@XmlAttribute(name = "world")
 	protected int world;
-
+	@XmlAttribute(name = "name_id")
+	protected int nameId;
 	@XmlAttribute(name = "name")
-	protected String nameId;
+	protected String name;
 
 	/**
 	 * @return the location id
@@ -50,7 +52,17 @@ public class BaseTemplate {
 		return this.world;
 	}
 
+	/**
+	 * @return the location name id
+	 */
+	public int getNameId() {
+		return this.nameId;
+	}
+
+	/**
+	 * @return the location name
+	 */
 	public String getName() {
-		return nameId;
+		return this.name;
 	}
 }

@@ -14,20 +14,22 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.loginserver.serverpackets;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Set;
+import java.util.Map.Entry;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javolution.util.FastList;
+
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.InventoryDAO;
-import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.MacroList;
 import com.aionemu.gameserver.model.gameobjects.player.PetCommonData;
@@ -47,15 +49,13 @@ import com.aionemu.gameserver.model.gameobjects.player.title.TitleList;
 import com.aionemu.gameserver.model.items.GodStone;
 import com.aionemu.gameserver.model.items.ManaStone;
 import com.aionemu.gameserver.model.items.storage.StorageType;
-import com.aionemu.gameserver.model.skill.PlayerSkillEntry;
 import com.aionemu.gameserver.model.skill.PlayerSkillList;
+import com.aionemu.gameserver.model.skill.PlayerSkillEntry;
 import com.aionemu.gameserver.network.loginserver.LoginServerConnection;
 import com.aionemu.gameserver.network.loginserver.LsServerPacket;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.services.item.ItemService;
 import com.aionemu.gameserver.services.transfers.TransferablePlayer;
-
-import javolution.util.FastList;
 
 /**
  * @author KID
@@ -122,14 +122,15 @@ public class SM_PTRANSFER_CONTROL extends LsServerPacket {
 				writeD(player.getCommonData().getGender().getGenderId());
 				writeD(player.getCommonData().getTitleId());
 				writeD(player.getCommonData().getDp());
-				writeD(player.getCommonData().getCubeExpands());
+				writeD(player.getCommonData().getQuestExpands());
+				writeD(player.getCommonData().getNpcExpands());
 				writeD(player.getCommonData().getAdvancedStigmaSlotSize());
 				writeD(player.getCommonData().getWarehouseSize());
 
 				PlayerAppearance playerAppearance = player.getPlayerAppearance();
 				writeD(playerAppearance.getSkinRGB());
 				writeD(playerAppearance.getHairRGB());
-				writeD(playerAppearance.getEyeRGB()); // TODO LEFT EYE
+				writeD(playerAppearance.getEyeRGB());
 				writeD(playerAppearance.getLipRGB());
 				writeC(playerAppearance.getFace());
 				writeC(playerAppearance.getHair());
@@ -137,16 +138,6 @@ public class SM_PTRANSFER_CONTROL extends LsServerPacket {
 				writeC(playerAppearance.getTattoo());
 				writeC(playerAppearance.getFaceContour());
 				writeC(playerAppearance.getExpression());
-				writeC(playerAppearance.getPupilShape());
-				writeC(playerAppearance.getRemoveMane());
-				writeD(playerAppearance.getRightEyeRGB());
-				writeC(playerAppearance.getEyeLashShape());
-				if (player.getGender() == Gender.FEMALE) {
-					writeC(6);
-				}
-				else {
-					writeC(5);
-				}
 				writeC(playerAppearance.getJawLine());
 				writeC(playerAppearance.getForehead());
 				writeC(playerAppearance.getEyeHeight());
@@ -172,30 +163,22 @@ public class SM_PTRANSFER_CONTROL extends LsServerPacket {
 				writeC(playerAppearance.getChinJut());
 				writeC(playerAppearance.getEarShape());
 				writeC(playerAppearance.getHeadSize());
-				// 1.5.x 0x00, shoulderSize, armLength, legLength (BYTE) after HeadSize
-
 				writeC(playerAppearance.getNeck());
 				writeC(playerAppearance.getNeckLength());
-				writeC(playerAppearance.getShoulderSize()); // shoulderSize
+				writeC(playerAppearance.getShoulderSize());
 				writeC(playerAppearance.getTorso());
-				writeC(playerAppearance.getChest());
+				writeC(playerAppearance.getChest()); // only woman
 				writeC(playerAppearance.getWaist());
 				writeC(playerAppearance.getHips());
 				writeC(playerAppearance.getArmThickness());
 				writeC(playerAppearance.getHandSize());
-				writeC(playerAppearance.getLegThickness());
+				writeC(playerAppearance.getLegThicnkess());
 				writeC(playerAppearance.getFootSize());
 				writeC(playerAppearance.getFacialRate());
-				writeC(0);// unk;
-				writeC(playerAppearance.getArmLength()); // armLength
-				writeC(playerAppearance.getLegLength()); // legLength
+				writeC(playerAppearance.getArmLength());
+				writeC(playerAppearance.getLegLength());
 				writeC(playerAppearance.getShoulders());
 				writeC(playerAppearance.getFaceShape());
-				writeC(playerAppearance.getPupilSize());
-				writeC(playerAppearance.getUpperTorso());
-				writeC(playerAppearance.getForeArmThickness());
-				writeC(playerAppearance.getHandSpan());
-				writeC(playerAppearance.getCalfThickness());
 				writeC(playerAppearance.getVoice());
 				writeF(playerAppearance.getHeight());
 
@@ -221,7 +204,7 @@ public class SM_PTRANSFER_CONTROL extends LsServerPacket {
 					writeD(item.isSoulBound() ? 1 : 0);
 					writeQ(item.getEquipmentSlot());
 					writeD(item.getItemLocation());
-					writeD(item.getEnchantOrAuthorizeLevel());
+					writeD(item.getEnchantLevel());
 					writeD(item.getItemSkinTemplate().getTemplateId());
 					writeD(item.getFusionedItemId());
 					writeD(item.getOptionalSocket());
@@ -263,7 +246,7 @@ public class SM_PTRANSFER_CONTROL extends LsServerPacket {
 					writeD(item.isSoulBound() ? 1 : 0);
 					writeQ(item.getEquipmentSlot());
 					writeD(item.getItemLocation());
-					writeD(item.getEnchantOrAuthorizeLevel());
+					writeD(item.getEnchantLevel());
 					writeD(item.getItemSkinTemplate().getTemplateId());
 					writeD(item.getFusionedItemId());
 					writeD(item.getOptionalSocket());

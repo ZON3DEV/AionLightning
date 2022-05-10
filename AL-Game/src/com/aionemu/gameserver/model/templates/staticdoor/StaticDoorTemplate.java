@@ -14,16 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.staticdoor;
 
 import java.util.EnumSet;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 import com.aionemu.gameserver.geoEngine.bounding.BoundingBox;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
@@ -102,16 +98,13 @@ public class StaticDoorTemplate extends VisibleObjectTemplate {
 			int radix = 16;
 			if (statesHex.startsWith("0x")) {
 				statesHex = statesHex.replace("0x", "");
-			}
-			else {
+			} else {
 				radix = 10;
 			}
 			try {
 				StaticDoorState.setStates(Integer.parseInt(statesHex, radix), states);
-			}
-			catch (NumberFormatException ex) {
-			}
-			finally {
+			} catch (NumberFormatException ex) {
+			} finally {
 				statesHex = null;
 			}
 		}

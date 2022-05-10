@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.io.ByteArrayInputStream;
@@ -51,7 +52,8 @@ public class MySQL5HousesDAO extends HousesDAO {
 	private static final Logger log = LoggerFactory.getLogger(MySQL5HousesDAO.class);
 	private static final String SELECT_HOUSES_QUERY = "SELECT * FROM houses WHERE address <> 2001 AND address <> 3001";
 	private static final String SELECT_STUDIOS_QUERY = "SELECT * FROM houses WHERE address = 2001 OR address = 3001";
-	private static final String ADD_HOUSE_QUERY = "INSERT INTO houses (id, address, building_id, player_id, acquire_time, settings, status, fee_paid, next_pay, sell_started, sign_notice) " + " VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+	private static final String ADD_HOUSE_QUERY = "INSERT INTO houses (id, address, building_id, player_id, acquire_time, settings, status, fee_paid, next_pay, sell_started, sign_notice) "
+			+ " VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 	private static final String UPDATE_HOUSE_QUERY = "UPDATE houses SET building_id=?, player_id=?, acquire_time=?, settings=?, status=?, fee_paid=?, next_pay=?, sell_started=?, sign_notice=? WHERE id=?";
 	private static final String DELETE_HOUSE_QUERY = "DELETE FROM houses WHERE player_id=?";
 
@@ -70,11 +72,9 @@ public class MySQL5HousesDAO extends HousesDAO {
 				ids[i] = rs.getInt(1);
 			}
 			return ids;
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Can't get list of id's from houses table", e);
-		}
-		finally {
+		} finally {
 			DB.close(statement);
 		}
 
@@ -94,12 +94,10 @@ public class MySQL5HousesDAO extends HousesDAO {
 			ResultSet rs = s.executeQuery();
 			rs.next();
 			return rs.getInt(1) > 0;
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Can't check if house " + houseObjectId + ", is used, returning possitive result", e);
 			return true;
-		}
-		finally {
+		} finally {
 			DB.close(s);
 		}
 	}
@@ -108,8 +106,7 @@ public class MySQL5HousesDAO extends HousesDAO {
 	public void storeHouse(House house) {
 		if (house.getPersistentState() == PersistentState.NEW) {
 			insertNewHouse(house);
-		}
-		else {
+		} else {
 			updateHouse(house);
 		}
 	}
@@ -126,8 +123,7 @@ public class MySQL5HousesDAO extends HousesDAO {
 			stmt.setInt(4, house.getOwnerId());
 			if (house.getAcquiredTime() == null) {
 				stmt.setNull(5, Types.TIMESTAMP);
-			}
-			else {
+			} else {
 				stmt.setTimestamp(5, house.getAcquiredTime());
 			}
 
@@ -137,35 +133,30 @@ public class MySQL5HousesDAO extends HousesDAO {
 
 			if (house.getNextPay() == null) {
 				stmt.setNull(9, Types.TIMESTAMP);
-			}
-			else {
+			} else {
 				stmt.setTimestamp(9, house.getNextPay());
 			}
 
 			if (house.getSellStarted() == null) {
 				stmt.setNull(10, Types.TIMESTAMP);
-			}
-			else {
+			} else {
 				stmt.setTimestamp(10, house.getSellStarted());
 			}
 
 			byte[] signNotice = house.getSignNotice();
 			if (signNotice.length == 0) {
 				stmt.setNull(11, Types.BINARY);
-			}
-			else {
+			} else {
 				stmt.setBinaryStream(11, new ByteArrayInputStream(signNotice));
 			}
 
 			stmt.execute();
 			stmt.close();
 			house.setPersistentState(PersistentState.UPDATED);
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not store studio data. " + e.getMessage(), e);
 			return;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return;
@@ -182,8 +173,7 @@ public class MySQL5HousesDAO extends HousesDAO {
 			stmt.setInt(2, house.getOwnerId());
 			if (house.getAcquiredTime() == null) {
 				stmt.setNull(3, Types.TIMESTAMP);
-			}
-			else {
+			} else {
 				stmt.setTimestamp(3, house.getAcquiredTime());
 			}
 
@@ -193,35 +183,30 @@ public class MySQL5HousesDAO extends HousesDAO {
 
 			if (house.getNextPay() == null) {
 				stmt.setNull(7, Types.TIMESTAMP);
-			}
-			else {
+			} else {
 				stmt.setTimestamp(7, house.getNextPay());
 			}
 
 			if (house.getSellStarted() == null) {
 				stmt.setNull(8, Types.TIMESTAMP);
-			}
-			else {
+			} else {
 				stmt.setTimestamp(8, house.getSellStarted());
 			}
 
 			byte[] signNotice = house.getSignNotice();
 			if (signNotice.length == 0) {
 				stmt.setNull(9, Types.BINARY);
-			}
-			else {
+			} else {
 				stmt.setBinaryStream(9, new ByteArrayInputStream(signNotice));
 			}
 
 			stmt.setInt(10, house.getObjectId());
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not store house data. " + e.getMessage(), e);
 			return;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return;
@@ -264,10 +249,9 @@ public class MySQL5HousesDAO extends HousesDAO {
 				if (addressHouseIds.containsKey(address.getId())) {
 					log.warn("Duplicate house address " + address.getId() + "!");
 					continue;
-				}
-				else {
+				} else {
 					house = new House(houseId, building, address, 0);
-					if (building.getType() == BuildingType.PERSONAL_FIELD) {
+					if (building != null && building.getType() == BuildingType.PERSONAL_FIELD) {
 						addressHouseIds.put(address.getId(), houseId);
 					}
 				}
@@ -293,11 +277,9 @@ public class MySQL5HousesDAO extends HousesDAO {
 				houses.put(id, house);
 			}
 			rset.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not restore House data from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(stmt, con);
 		}
 		return houses;
@@ -313,11 +295,9 @@ public class MySQL5HousesDAO extends HousesDAO {
 
 			stmt.setInt(1, playerId);
 			stmt.execute();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Delete House failed", e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}

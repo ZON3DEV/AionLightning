@@ -14,38 +14,23 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.properties;
 
-import java.util.Iterator;
-import java.util.List;
+package com.aionemu.gameserver.skillengine.properties;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.CreatureType;
-import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.Servant;
 import com.aionemu.gameserver.model.gameobjects.Summon;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.siege.SiegeNpc;
 import com.aionemu.gameserver.skillengine.model.Skill;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author ATracer
- * @Reworked GiGatR00n (Aion-Core)
  */
 public class TargetRelationProperty {
-
-	public static boolean isNpcInvul(Creature player, Creature npc) {
-		if (player instanceof Player && npc instanceof Npc) {
-			switch (CreatureType.getCreatureType(npc.getType(player))) {
-				case INVULNERABLE:
-					return true;
-				default:
-					break;
-			}
-		}
-		return false;
-	}
 
 	/**
 	 * @param skill
@@ -67,10 +52,8 @@ public class TargetRelationProperty {
 				for (Iterator<Creature> iter = effectedList.iterator(); iter.hasNext();) {
 					Creature nextEffected = iter.next();
 
-					if (!isNpcInvul(effector, nextEffected)) {
-						if (effector.isEnemy(nextEffected) || isMaterialSkill) {
-							continue;
-						}
+					if (effector.isEnemy(nextEffected) || isMaterialSkill) {
+						continue;
 					}
 
 					iter.remove();
@@ -90,8 +73,7 @@ public class TargetRelationProperty {
 				if (effectedList.isEmpty()) {
 					skill.setFirstTarget(skill.getEffector());
 					effectedList.add(skill.getEffector());
-				}
-				else {
+				} else {
 					skill.setFirstTarget(effectedList.get(0));
 				}
 				break;
@@ -102,8 +84,7 @@ public class TargetRelationProperty {
 					Player player = null;
 					if (nextEffected instanceof Player) {
 						player = (Player) nextEffected;
-					}
-					else if (nextEffected instanceof Summon) {
+					} else if (nextEffected instanceof Summon) {
 						Summon playerSummon = (Summon) nextEffected;
 						if (playerSummon.getMaster() != null) {
 							player = playerSummon.getMaster();
@@ -119,8 +100,7 @@ public class TargetRelationProperty {
 							if (playerEffector.getPlayerAlliance2().getObjectId().equals(player.getPlayerAlliance2().getObjectId())) {
 								continue;
 							}
-						}
-						else if (playerEffector.isInGroup2() && player.isInGroup2()) {
+						} else if (playerEffector.isInGroup2() && player.isInGroup2()) {
 							if (playerEffector.getPlayerGroup2().getTeamId().equals(player.getPlayerGroup2().getTeamId())) {
 								continue;
 							}
@@ -132,8 +112,7 @@ public class TargetRelationProperty {
 				if (effectedList.isEmpty()) {
 					skill.setFirstTarget(effector);
 					effectedList.add(effector);
-				}
-				else {
+				} else {
 					skill.setFirstTarget(effectedList.get(0));
 				}
 				break;

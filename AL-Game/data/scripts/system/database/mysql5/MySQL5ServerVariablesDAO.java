@@ -14,14 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import org.slf4j.Logger;
 
 import com.aionemu.commons.database.DB;
 import com.aionemu.gameserver.dao.MySQL5DAOUtils;
@@ -46,11 +48,9 @@ public class MySQL5ServerVariablesDAO extends ServerVariablesDAO {
 			if (rs.next()) {
 				return Integer.parseInt(rs.getString("value"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Error loading last saved server time", e);
-		}
-		finally {
+		} finally {
 			DB.close(ps);
 		}
 
@@ -68,11 +68,9 @@ public class MySQL5ServerVariablesDAO extends ServerVariablesDAO {
 			ps.setString(1, var);
 			ps.setString(2, String.valueOf(time));
 			success = ps.executeUpdate() > 0;
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Error storing server time", e);
-		}
-		finally {
+		} finally {
 			DB.close(ps);
 		}
 

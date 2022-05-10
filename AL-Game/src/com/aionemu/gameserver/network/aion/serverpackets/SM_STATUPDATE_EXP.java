@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -27,44 +28,37 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_STATUPDATE_EXP extends AionServerPacket {
 
-	private long currentExp;
-	private long recoverableExp;
-	private long maxExp;
-	private long curBoostExp = 0;
-	private long maxBoostExp = 0;
-	private long goldenStarEnergy = 0;
-	private long growthEnergy = 0;
+    private long currentExp;
+    private long recoverableExp;
+    private long maxExp;
+    private long curBoostExp = 0;
+    private long maxBoostExp = 0;
+    private long eventExp = 0;
 
-	/**
-	 * @param currentExp
-	 * @param recoverableExp
-	 * @param maxExp
-	 * @param curBoostExp
-	 * @param maxBoostExp
-	 * @param goldenStarEnergy
-	 * @param growthEnergy
-	 */
-	public SM_STATUPDATE_EXP(long currentExp, long recoverableExp, long maxExp, long curBoostExp, long maxBoostExp, long goldenStarEnergy, long growthEnergy) {
-		this.currentExp = currentExp; // checked
-		this.recoverableExp = recoverableExp; // checked
-		this.maxExp = maxExp; // checked
-		this.curBoostExp = curBoostExp; // checked
-		this.maxBoostExp = maxBoostExp; // checked
-		this.goldenStarEnergy = goldenStarEnergy; // checked = Golden Star Energy
-		this.growthEnergy = growthEnergy; // checked = Energy of Growth
-	}
+    /**
+     * @param currentExp
+     * @param recoverableExp
+     * @param maxExp
+     */
+    public SM_STATUPDATE_EXP(long currentExp, long recoverableExp, long maxExp, long rep1, long rep2, long rep3) {
+        this.currentExp = currentExp;
+        this.recoverableExp = recoverableExp;
+        this.maxExp = maxExp;
+        curBoostExp = rep1;
+        maxBoostExp = rep2;
+        eventExp = rep3;
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void writeImpl(AionConnection con) {
-		writeQ(currentExp);
-		writeQ(recoverableExp);
-		writeQ(maxExp);
-		writeQ(curBoostExp);
-		writeQ(maxBoostExp);
-		writeQ(goldenStarEnergy);
-		writeQ(growthEnergy);
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void writeImpl(AionConnection con) {
+        writeQ(currentExp);
+        writeQ(recoverableExp);
+        writeQ(maxExp);
+        writeQ(curBoostExp);
+        writeQ(maxBoostExp);
+        writeQ(eventExp);
+    }
 }

@@ -14,17 +14,17 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.autogroup;
 
-import java.util.ArrayList;
-import java.util.List;
+package com.aionemu.gameserver.model.autogroup;
 
 import com.aionemu.commons.taskmanager.AbstractLockManager;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-
+import java.util.ArrayList;
+import java.util.List;
 import javolution.util.FastList;
 
 /**
+ *
  * @author xTz
  */
 public class LookingForParty extends AbstractLockManager {
@@ -49,8 +49,7 @@ public class LookingForParty extends AbstractLockManager {
 				}
 			}
 			return searchInstances.size();
-		}
-		finally {
+		} finally {
 			super.writeUnlock();
 		}
 	}
@@ -67,8 +66,7 @@ public class LookingForParty extends AbstractLockManager {
 		super.writeLock();
 		try {
 			searchInstances.add(new SearchInstance(instanceMaskId, ert, ert.isGroupEntry() ? player.getPlayerGroup2().getOnlineMembers() : null));
-		}
-		finally {
+		} finally {
 			super.writeUnlock();
 		}
 	}
@@ -82,8 +80,7 @@ public class LookingForParty extends AbstractLockManager {
 				}
 			}
 			return null;
-		}
-		finally {
+		} finally {
 			super.readUnlock();
 		}
 	}

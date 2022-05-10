@@ -14,14 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.stats.calc;
 
-import java.util.HashMap;
-
+import com.aionemu.gameserver.model.stats.container.StatEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aionemu.gameserver.model.stats.container.StatEnum;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * @author ATracer
@@ -69,12 +71,10 @@ public class StatCapUtil {
 			int base = stat.getBase() / 2;
 			if (stat.getBonus() > 0 && base < stat.getBonus()) {
 				stat.setBonus(base);
-			}
-			else if (stat.getBonus() < 0 && base < -stat.getBonus()) {
+			} else if (stat.getBonus() < 0 && base < -stat.getBonus()) {
 				stat.setBonus(-base);
 			}
-		}
-		else if (stat.getStat() == StatEnum.SPEED || stat.getStat() == StatEnum.FLY_SPEED || stat.getStat() == StatEnum.FLYBOOST_SPEED) {
+		} else if (stat.getStat() == StatEnum.SPEED || stat.getStat() == StatEnum.FLY_SPEED) {
 			if (isPlayer == 2) {
 				upperCap = Integer.MAX_VALUE;
 			}
@@ -116,12 +116,10 @@ public class StatCapUtil {
 			case PHYSICAL_CRITICAL_RESIST:
 			case EVASION:
 			case PHYSICAL_DEFENSE:
-			case MAGICAL_DEFEND:
 			case PHYSICAL_ACCURACY:
 			case MAGICAL_ACCURACY:
 			case SPEED:
 			case FLY_SPEED:
-			case FLYBOOST_SPEED:
 			case MAXHP:
 			case MAXMP:
 				value = 0;
@@ -142,26 +140,15 @@ public class StatCapUtil {
 				value = 12000;
 				break;
 			case FLY_SPEED:
-			case FLYBOOST_SPEED:
 				value = 16000;
 				break;
-			case PVP_ATTACK_RATIO:
-			case PVP_ATTACK_RATIO_PHYSICAL:
-			case PVP_ATTACK_RATIO_MAGICAL:
 			case PVP_DEFEND_RATIO:
-			case PVP_DEFEND_RATIO_PHYSICAL:
-			case PVP_DEFEND_RATIO_MAGICAL:
 				value = 900;
-				break;
 			case MAXHP:
 			case MAXMP:
 			case HEAL_BOOST:
 			case HEAL_SKILL_BOOST:
-			case PHYSICAL_ACCURACY:
-			case PHYSICAL_CRITICAL:
-			case BOOST_MAGICAL_SKILL:
 			case BOOST_DURATION_BUFF:
-			case BOOST_SPELL_ATTACK:
 				value = Integer.MAX_VALUE;
 				break;
 			default:
@@ -173,9 +160,43 @@ public class StatCapUtil {
 	private static void calculate(Stat2 stat2, int lowerCap, int upperCap) {
 		if (stat2.getCurrent() > upperCap) {
 			stat2.setBonus(upperCap - stat2.getBase());
-		}
-		else if (stat2.getCurrent() < lowerCap) {
+		} else if (stat2.getCurrent() < lowerCap) {
 			stat2.setBonus(lowerCap - stat2.getBase());
 		}
+	}
+
+	public static void dumpWrongStats(String ownerInfo, Stat2... stats) {
+		List<Stat2> wrongStats = null;
+		for (Stat2 stat : stats) {
+			Stat2 wrongStat = null;
+			if (stat.getCurrent() < getLowerCap(stat.getStat())) {
+				wrongStat = stat;
+			}
+			if (stat.getCurrent() > getUpperCap(stat.getStat())) {
+				wrongStat = stat;
+			}
+			if (wrongStat != null) {
+				if (wrongStats == null) {
+					wrongStats = new ArrayList<Stat2>();
+				}
+				wrongStats.add(wrongStat);
+			}
+		}
+		if (wrongStats == null) {
+			return;
+		}
+		StringBuilder msg = new StringBuilder();
+		msg.append(ownerInfo);
+		msg.append('\n');
+		for (Stat2 stat : wrongStats) {
+			msg.append(stat.getStat());
+			msg.append(": [");
+			msg.append(" Min: ").append(Integer.toString(getMinValue(stat.getStat())));
+			msg.append(" Max: ").append(Integer.toString(getMaxValue(stat.getStat())));
+			msg.append(" Base: ").append(Integer.toString(stat.getBase()));
+			msg.append(" Bonus: ").append(Integer.toString(stat.getBase()));
+			msg.append("]\n");
+		}
+		log.error(msg.toString());
 	}
 }

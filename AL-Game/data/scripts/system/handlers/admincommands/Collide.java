@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import java.util.Iterator;
@@ -60,8 +61,7 @@ public class Collide extends AdminCommand {
 			targetX = x;
 			targetY = y;
 			targetZ = z - 10;
-		}
-		else {
+		} else {
 			targetX = admin.getX();
 			targetY = admin.getY();
 			targetZ = admin.getZ() + admin.getObjectTemplate().getBoundRadius().getUpper() / 2;
@@ -79,12 +79,10 @@ public class Collide extends AdminCommand {
 			PacketSendUtility.sendMessage(admin, "Hm... Nothing collidable?");
 			if (params.length == 0) {
 				return;
-			}
-			else {
+			} else {
 				closest = null;
 			}
-		}
-		else {
+		} else {
 			Iterator<CollisionResult> iter = results.iterator();
 			int count = 0;
 			int closestId = 0;
@@ -97,12 +95,10 @@ public class Collide extends AdminCommand {
 				}
 				if (result.getGeometry() == null) {
 					description += count + ". " + result.getContactPoint().toString() + "\n";
-				}
-				else {
+				} else {
 					if (result.getGeometry().getName() == null) {
 						description += count + ". " + result.getContactPoint().toString() + "; parent=" + result.getGeometry().getParent().getName() + "\n";
-					}
-					else {
+					} else {
 						description += count + ". " + result.getContactPoint().toString() + "; name=" + result.getGeometry().getName() + "\n";
 					}
 				}
@@ -117,14 +113,14 @@ public class Collide extends AdminCommand {
 			PacketSendUtility.sendMessage(admin, "From opposite direction:");
 			PacketSendUtility.sendMessage(admin, "Admin: X=" + admin.getX() + "; Y=" + admin.getY() + "; Z=" + admin.getZ());
 
-			results = GeoService.getInstance().getCollisions(admin, target.getX(), target.getY(), target.getZ() + target.getObjectTemplate().getBoundRadius().getUpper() / 2, false, intentions);
+			results = GeoService.getInstance().getCollisions(admin, target.getX(), target.getY(),
+					target.getZ() + target.getObjectTemplate().getBoundRadius().getUpper() / 2, false, intentions);
 			closestOpposite = results.getClosestCollision();
 
 			if (results.size() == 0) {
 				PacketSendUtility.sendMessage(admin, "Hm... Nothing collidable?");
 				closestOpposite = null;
-			}
-			else {
+			} else {
 				Iterator<CollisionResult> iter2 = results.iterator();
 				int count = 0;
 				int closestId = 0;
@@ -138,12 +134,10 @@ public class Collide extends AdminCommand {
 					}
 					if (result.getGeometry() == null) {
 						description += count + ". " + result.getContactPoint().toString() + "\n";
-					}
-					else {
+					} else {
 						if (result.getGeometry().getName() == null) {
 							description += count + ". " + result.getContactPoint().toString() + "; parent=" + result.getGeometry().getParent().getName() + "\n";
-						}
-						else {
+						} else {
 							description += count + ". " + result.getContactPoint().toString() + "; name=" + result.getGeometry().getName() + "\n";
 						}
 					}
@@ -153,16 +147,17 @@ public class Collide extends AdminCommand {
 			}
 		}
 
-		if (params.length == 0 && closest.getContactPoint().z + 0.5f < target.getZ()) {
+		if (params.length == 0 && closest != null && closest.getContactPoint().z + 0.5f < target.getZ()) {
 			PacketSendUtility.sendMessage(admin, "Below actual Z!");
-		}
-		else {
+		} else {
 			if (closest != null) {
-				SpawnTemplate spawn = SpawnEngine.addNewSpawn(admin.getWorldId(), 200000, closest.getContactPoint().x, closest.getContactPoint().y, closest.getContactPoint().z, (byte) 0, 0);
+				SpawnTemplate spawn = SpawnEngine.addNewSpawn(admin.getWorldId(), 200000, closest.getContactPoint().x, closest.getContactPoint().y,
+						closest.getContactPoint().z, (byte) 0, 0);
 				SpawnEngine.spawnObject(spawn, admin.getInstanceId());
 			}
 			if (closestOpposite != null) {
-				SpawnTemplate spawn = SpawnEngine.addNewSpawn(admin.getWorldId(), 200000, closestOpposite.getContactPoint().x, closestOpposite.getContactPoint().y, closestOpposite.getContactPoint().z, (byte) 0, 0);
+				SpawnTemplate spawn = SpawnEngine.addNewSpawn(admin.getWorldId(), 200000, closestOpposite.getContactPoint().x,
+						closestOpposite.getContactPoint().y, closestOpposite.getContactPoint().z, (byte) 0, 0);
 				SpawnEngine.spawnObject(spawn, admin.getInstanceId());
 			}
 		}

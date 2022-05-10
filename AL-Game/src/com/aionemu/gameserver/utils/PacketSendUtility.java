@@ -14,11 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils;
 
 import com.aionemu.commons.objects.filter.ObjectFilter;
 import com.aionemu.gameserver.model.ChatType;
-import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.team.legion.Legion;
@@ -30,8 +30,10 @@ import com.aionemu.gameserver.world.knownlist.Visitor;
 import com.aionemu.gameserver.world.zone.SiegeZoneInstance;
 
 /**
- * This class contains static methods, which are utility methods, all of them are interacting only with objects passed as parameters.<br>
- * These methods could be placed directly into Player class, but we want to keep Player class as a pure data holder.<br>
+ * This class contains static methods, which are utility methods, all of them
+ * are interacting only with objects passed as parameters.<br>
+ * These methods could be placed directly into Player class, but we want to keep
+ * Player class as a pure data holder.<br>
  *
  * @author Luno
  */
@@ -41,7 +43,7 @@ public class PacketSendUtility {
 	 * Global message sending
 	 */
 	public static void sendMessage(Player player, String msg) {
-		sendPacket(player, new SM_MESSAGE(0, null, msg, ChatType.YELLOW));
+		sendPacket(player, new SM_MESSAGE(0, null, msg, ChatType.GOLDEN_YELLOW));
 	}
 
 	public static void sendWhiteMessage(Player player, String msg) {
@@ -68,20 +70,8 @@ public class PacketSendUtility {
 		sendPacket(player, new SM_MESSAGE(0, null, msg, ChatType.BRIGHT_YELLOW_CENTER));
 	}
 
-	public static void sendSys1Message(Player player, String sender, String msg) {
-		sendPacket(player, new SM_MESSAGE(0, sender, msg, ChatType.GROUP_LEADER));
-	}
-
 	public static void sendSys2Message(Player player, String sender, String msg) {
-		sendPacket(player, new SM_MESSAGE(0, null, msg, ChatType.WHITE));
-	}
-
-	public static void sendSys3Message(Player player, String sender, String msg) {
-		sendPacket(player, new SM_MESSAGE(0, sender, msg, ChatType.COMMAND));
-	}
-
-	public static void sendWarnMessageOnCenter(Player player, String msg) {
-		sendPacket(player, new SM_MESSAGE(0, null, msg, ChatType.LEAGUE_ALERT));
+		sendPacket(player, new SM_MESSAGE(0, sender, msg, ChatType.GROUP_LEADER));
 	}
 
 	/**
@@ -94,49 +84,11 @@ public class PacketSendUtility {
 	}
 
 	/**
-	 * Player Send Packet
-	 */
-	public static void playerSendPacketTime(final Player player, final AionServerPacket packet, int time) {
-		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
-			@Override
-			public void run() {
-				if (player.getClientConnection() != null) {
-					player.getClientConnection().sendPacket(packet);
-				}
-			}
-		}, time);
-	}
-
-	/**
-	 * Npc Send Packet
-	 */
-	public static void npcSendPacketTime(final Npc npc, final AionServerPacket packet, int time) {
-		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
-			@Override
-			public void run() {
-				npc.getKnownList().doOnAllPlayers(new Visitor<Player>() {
-
-					@Override
-					public void visit(Player player) {
-						if (player.isOnline()) {
-							sendPacket(player, packet);
-						}
-					}
-				});
-			}
-		}, time);
-	}
-
-	/**
 	 * Broadcast packet to all visible players.
 	 *
 	 * @param player
-	 * @param packet
-	 *            ServerPacket that will be broadcast
-	 * @param toSelf
-	 *            true if packet should also be sent to this player
+     * @param packet ServerPacket that will be broadcast
+     * @param toSelf true if packet should also be sent to this player
 	 */
 	public static void broadcastPacket(Player player, AionServerPacket packet, boolean toSelf) {
 		if (toSelf) {
@@ -161,14 +113,14 @@ public class PacketSendUtility {
 	}
 
 	/**
-	 * Broadcast packet to all Players from knownList of the given visible object.
+	 * Broadcast packet to all Players from knownList of the given visible
+	 * object.
 	 *
 	 * @param visibleObject
 	 * @param packet
 	 */
 	public static void broadcastPacket(VisibleObject visibleObject, final AionServerPacket packet) {
 		visibleObject.getKnownList().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player player) {
 				if (player.isOnline()) {
@@ -182,20 +134,16 @@ public class PacketSendUtility {
 	 * Broadcasts packet to all visible players matching a filter
 	 *
 	 * @param player
-	 * @param packet
-	 *            ServerPacket to be broadcast
-	 * @param toSelf
-	 *            true if packet should also be sent to this player
-	 * @param filter
-	 *            filter determining who should be messaged
-	 */
+     * @param packet ServerPacket to be broadcast
+     * @param toSelf true if packet should also be sent to this player
+     * @param filter filter determining who should be messaged
+     */
 	public static void broadcastPacket(Player player, final AionServerPacket packet, boolean toSelf, final ObjectFilter<Player> filter) {
 		if (toSelf) {
 			sendPacket(player, packet);
 		}
 
 		player.getKnownList().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player object) {
 				if (filter.acceptObject(object)) {
@@ -206,7 +154,8 @@ public class PacketSendUtility {
 	}
 
 	/**
-	 * Broadcasts packet to all Players from knownList of the given visible object within the specified distance in meters
+	 * Broadcasts packet to all Players from knownList of the given visible
+	 * object within the specified distance in meters
 	 *
 	 * @param visibleObject
 	 * @param packet
@@ -214,7 +163,6 @@ public class PacketSendUtility {
 	 */
 	public static void broadcastPacket(final VisibleObject visibleObject, final AionServerPacket packet, final int distance) {
 		visibleObject.getKnownList().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player p) {
 				if (MathUtil.isIn3dRange(visibleObject, p, distance)) {
@@ -227,15 +175,12 @@ public class PacketSendUtility {
 	/**
 	 * Broadcasts packet to ALL players matching a filter
 	 *
-	 * @param player
-	 * @param packet
-	 *            ServerPacket to be broadcast
-	 * @param filter
-	 *            filter determining who should be messaged
+     * @param player
+     * @param packet ServerPacket to be broadcast
+     * @param filter filter determining who should be messaged
 	 */
 	public static void broadcastFilteredPacket(final AionServerPacket packet, final ObjectFilter<Player> filter) {
 		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player object) {
 				if (filter.acceptObject(object)) {
@@ -247,11 +192,9 @@ public class PacketSendUtility {
 
 	/**
 	 * Broadcasts packet to all legion members of a legion
-	 *
-	 * @param legion
-	 *            Legion to broadcast packet to
-	 * @param packet
-	 *            ServerPacket to be broadcast
+     *
+     * @param legion Legion to broadcast packet to
+     * @param packet ServerPacket to be broadcast
 	 */
 	public static void broadcastPacketToLegion(Legion legion, AionServerPacket packet) {
 		for (Player onlineLegionMember : legion.getOnlineLegionMembers()) {
@@ -269,7 +212,6 @@ public class PacketSendUtility {
 
 	public static void broadcastPacketToZone(SiegeZoneInstance zone, final AionServerPacket packet) {
 		zone.doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player player) {
 				sendPacket(player, packet);
@@ -305,14 +247,15 @@ public class PacketSendUtility {
 	}
 
 	/**
+	 *
 	 * Special function for Aion Absolute Announce :)
+	 *
 	 */
 	/**
 	 * Crazy Daeva
 	 */
 	public static void event(final String msg) {
 		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player sender) {
 				sendBrightYellowMessageOnCenter(sender, "[EVENT ALL ON A DAEVA]: " + msg);
@@ -322,7 +265,6 @@ public class PacketSendUtility {
 
 	public static void event2(final String msg) {
 		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player sender) {
 				broadcastPacket(sender, new SM_MESSAGE(sender, "[EVENT]: " + msg, ChatType.GROUP_LEADER), true);

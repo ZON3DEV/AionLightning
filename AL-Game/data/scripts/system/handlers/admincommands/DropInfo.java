@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -47,8 +48,7 @@ public class DropInfo extends AdminCommand {
 				return;
 			}
 			npcDrop = npcTemplate.getNpcDrop();
-		}
-		else {
+		} else {
 			VisibleObject visibleObject = player.getTarget();
 
 			if (visibleObject == null) {

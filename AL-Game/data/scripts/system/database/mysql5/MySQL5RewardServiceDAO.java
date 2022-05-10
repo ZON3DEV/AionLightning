@@ -14,24 +14,28 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import org.slf4j.Logger;
+import javolution.util.FastList;
+
 import org.slf4j.LoggerFactory;
+
+import org.slf4j.Logger;
 
 import com.aionemu.commons.database.DatabaseFactory;
 import com.aionemu.gameserver.dao.MySQL5DAOUtils;
 import com.aionemu.gameserver.dao.RewardServiceDAO;
 import com.aionemu.gameserver.model.templates.rewards.RewardEntryItem;
 
-import javolution.util.FastList;
-
 /**
+ *
  * @author KID
+ *
  */
 public class MySQL5RewardServiceDAO extends RewardServiceDAO {
 
@@ -64,11 +68,9 @@ public class MySQL5RewardServiceDAO extends RewardServiceDAO {
 			}
 			rset.close();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.warn("getAvailable() for " + playerId + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 
@@ -88,11 +90,9 @@ public class MySQL5RewardServiceDAO extends RewardServiceDAO {
 				stmt.execute();
 				stmt.close();
 			}
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("uncheckAvailable", e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}

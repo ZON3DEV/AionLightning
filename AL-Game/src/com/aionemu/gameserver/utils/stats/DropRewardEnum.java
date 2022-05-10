@@ -14,16 +14,17 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.stats;
 
 import java.util.NoSuchElementException;
 
 public enum DropRewardEnum {
 
-	MINUS_20(-20, 0),
-	MINUS_19(-19, 39),
-	MINUS_18(-18, 79),
-	MINUS_17(-17, 100);
+	MINUS_10(-10, 0),
+	MINUS_9(-9, 39),
+	MINUS_8(-8, 79),
+	MINUS_7(-7, 100);
 
 	private int dropRewardPercent;
 	private int levelDifference;
@@ -43,11 +44,11 @@ public enum DropRewardEnum {
 	 * @return Drop reward percentage
 	 */
 	public static int dropRewardFrom(int levelDifference) {
-		if (levelDifference < MINUS_20.levelDifference) {
-			return MINUS_20.dropRewardPercent;
+		if (levelDifference < MINUS_10.levelDifference) {
+			return MINUS_10.dropRewardPercent;
 		}
-		if (levelDifference > MINUS_17.levelDifference) {
-			return MINUS_17.dropRewardPercent;
+		if (levelDifference > MINUS_7.levelDifference) {
+			return MINUS_7.dropRewardPercent;
 		}
 
 		for (DropRewardEnum dropReward : values()) {

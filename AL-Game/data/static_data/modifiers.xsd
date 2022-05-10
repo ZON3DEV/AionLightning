@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="items/item/item_templates.xsd"/>
+    <xs:include schemaLocation="items/item_templates.xsd"/>
     <xs:include schemaLocation="skills/skills.xsd"/>
     <xs:complexType name="Modifiers">
         <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -194,30 +194,14 @@
             <xs:enumeration value="SLOW_RESISTANCE_PENETRATION"/>
             <!-- Effects Boosts and Deboosts -->
             <xs:enumeration value="HEAL_SKILL_BOOST"/>
-            <xs:enumeration value="HEAL_SKILL_DEBOOST"/>
+            <xs:enumeration value="HEAL_SKILL_DEBOOST" />
             <!-- Boost duration of Buff skills -->
             <xs:enumeration value="BOOST_DURATION_BUFF"/>
             <!-- Boost resist of Debuff skills -->
             <xs:enumeration value="BOOST_RESIST_DEBUFF"/>
             <!-- 3.5 -->
             <xs:enumeration value="ELEMENTAL_FIRE"/>
-
-            <!-- AP & Drop Boost -->
-            <xs:enumeration value="AP_BOOST"/>
-            <xs:enumeration value="DR_BOOST"/>
-            <!-- 4.8/4.9 -->
-            <xs:enumeration value="AP_REDUCE_RATE"/>
-            <xs:enumeration value="ENCHANT_BOOST"/>
-            <xs:enumeration value="AUTHORIZE_BOOST"/>
-            <xs:enumeration value="INDUN_DROP_BOOST"/>
-            <xs:enumeration value="DEATH_PENALTY_REDUCE"/>
-            <xs:enumeration value="ENCHANT_OPTION_BOOST"/>
-
             <!-- PvP and PvE -->
-            <xs:enumeration value="PVP_PHYSICAL_ATTACK"/>
-            <xs:enumeration value="PVP_PHYSICAL_DEFEND"/>
-            <xs:enumeration value="PVP_MAGICAL_ATTACK"/>
-            <xs:enumeration value="PVP_MAGICAL_DEFEND"/>
             <xs:enumeration value="PVP_ATTACK_RATIO"/>
             <xs:enumeration value="PVP_ATTACK_RATIO_MAGICAL"/>
             <xs:enumeration value="PVP_ATTACK_RATIO_PHYSICAL"/>
@@ -242,81 +226,11 @@
             <xs:enumeration value="PVPATTACKRATIO_MAGICAL"/>
             <xs:enumeration value="MAGICAL_CRITICAL_REDUCE_RATE"/>
             <xs:enumeration value="PVPATTACKRATIO_PHYSICAL"/>
-            <xs:enumeration value="UNK_STAT"/>
-            <!-- 4.7 -->
-            <xs:enumeration value="PVP_DODGE"/>
-			<xs:enumeration value="PVP_EVASION"/>
-            <xs:enumeration value="PVP_BLOCK"/>
-            <xs:enumeration value="PVP_PARRY"/>
-            <xs:enumeration value="PVP_HIT_ACCURACY"/>
-			<xs:enumeration value="PVP_PHYSICAL_ACCURACY"/>
-            <xs:enumeration value="PVP_MAGICAL_RESIST"/>
-			<xs:enumeration value="PVP_MAGICAL_ACCURACY"/>
-            <xs:enumeration value="PVP_MAGICAL_HIT_ACCURACY"/>
-            <xs:enumeration value="BLOCK_PENETRATION"/>
-            <!-- 5.0 -->
-            <xs:enumeration value="FLYBOOST_SPEED"/>
-            <xs:enumeration value="PRECISION"/>
-			<!-- new for f2p and event boost -->
-			<xs:enumeration value="ORDALIE_REWARD"/>
-			<!-- 5.6 -->
-			<xs:enumeration value="HIDDEN_PVE_ATTACK_RATIO"/>
-			<xs:enumeration value="HIDDEN_PVE_DEFEND_RATIO"/>
-			<!-- 7.x -->
-            <xs:enumeration value="PVP_ATTACK"/>
-            <xs:enumeration value="PVP_DEFENSE"/>
-            <xs:enumeration value="PVE_ATTACK"/>
-            <xs:enumeration value="PVE_DEFENSE"/>
-
-            <xs:enumeration value="OPENAERIAL_ARP"/>
-            <xs:enumeration value="ROOT_ARP"/>
-            <xs:enumeration value="SNARE_ARP"/>
-            <xs:enumeration value="PULLED_ARP"/>
-            <xs:enumeration value="BLIND_ARP"/>
-            <xs:enumeration value="BIND_ARP"/>
-            <xs:enumeration value="SLEEP_ARP"/>
-            <xs:enumeration value="FEAR_ARP"/>
-            
-            <xs:enumeration value="EARTH"/>
-            <xs:enumeration value="WATER"/>
-            <xs:enumeration value="FIRE"/>
-            <xs:enumeration value="AIR"/>
-
-            <xs:enumeration value="MAGICAL_DEFEND"/>
-            
-            <xs:enumeration value="AROPENAERIAL"/>
-            <xs:enumeration value="ARBIND"/>
-            <xs:enumeration value="DEFORM_ARP"/>
-
-            <xs:enumeration value="EXTRA_ERESHKIGAL_DAMAGE"/>
-            <xs:enumeration value="REDUCE_ERESHKIGAL_DAMAGE"/>
-            <xs:enumeration value="idf7_weapon_hard_boss_1st_atk"/>
-            <xs:enumeration value="idf7_weapon_hard_boss_2nd_atk"/>
-            <xs:enumeration value="idf7_weapon_hard_boss_3rd_atk"/>
-            <xs:enumeration value="idf7_weapon_hard_boss_final_atk"/>
-            <xs:enumeration value="bidldf8_lab_boss_04_atk"/>
-            <xs:enumeration value="idf8_house_hugerider_atk"/>
-            <xs:enumeration value="IDF7_Weapon_Hard_Boss_1st"/>
-            <xs:enumeration value="IDF7_Weapon_Hard_Boss_2nd"/>
-            <xs:enumeration value="IDF7_Weapon_Hard_Boss_3rd"/>
-            <xs:enumeration value="IDF7_Weapon_Hard_Boss_Final"/>
-            <xs:enumeration value="IDLDF8_Lab_Boss"/>
-            <xs:enumeration value="IDF8_House_HugeRider"/>
-            <xs:enumeration value="idseal_hard_boss_1st_atk"/>
-            <xs:enumeration value="idf8_Dragon_Altar_atk"/>
-            <xs:enumeration value="idseal_hard_boss_1st"/>
-            <xs:enumeration value="idf8_Dragon_Altar"/>
-            <xs:enumeration value="idseal_hard_boss_2nd_atk"/>
-            <xs:enumeration value="idseal_hard_boss_2nd"/>
-            <xs:enumeration value="cubic_stat_catacombs_3rd_atk"/>
-            <xs:enumeration value="cubic_stat_catacombs_3rd"/>
-            <xs:enumeration value="idseal_hard_boss_3rd_atk"/>
-            <xs:enumeration value="idseal_hard_boss_3rd"/>
         </xs:restriction>
     </xs:simpleType>
-
+	
     <!-- conditions -->
-
+	
     <xs:complexType name="Conditions">
         <xs:sequence minOccurs="0" maxOccurs="unbounded">
             <xs:element name="mp" type="MpCondition" minOccurs="0" maxOccurs="1"/>
@@ -556,12 +470,13 @@
             <xs:enumeration value="DEFORM"/>
             <xs:enumeration value="CLOSEAERIAL"/>
             <xs:enumeration value="NOFLY"/>
+            <xs:enumeration value="RIDEROBOT"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="LeftHandSlot">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="SHIELD"/>
-            <xs:enumeration value="DUAL"/>
+            <xs:enumeration value="SHIELD" />
+            <xs:enumeration value="DUAL" />
         </xs:restriction>
     </xs:simpleType>
 </xs:schema>

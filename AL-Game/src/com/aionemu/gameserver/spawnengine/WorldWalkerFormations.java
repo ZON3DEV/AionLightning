@@ -14,11 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.spawnengine;
 
-import java.util.Map;
-
 import com.aionemu.commons.utils.internal.chmv8.PlatformDependent;
+
+import java.util.Map;
 
 /**
  * @author Rolandas

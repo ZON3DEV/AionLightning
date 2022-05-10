@@ -14,26 +14,23 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.npcshout;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 import com.aionemu.gameserver.model.gameobjects.Npc;
 
 /**
  * @author Rolandas
  */
-
 /**
- * <p/>
+ * <p>
  * Java class for NpcShout complex type.
- * <p/>
- * The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * 
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ *
  * <pre>
  * &lt;complexType name="NpcShout">
  *   &lt;complexContent>

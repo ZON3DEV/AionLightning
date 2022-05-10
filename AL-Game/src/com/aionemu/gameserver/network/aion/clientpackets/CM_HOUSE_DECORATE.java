@@ -14,8 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
+import com.aionemu.gameserver.controllers.HouseController;
 import com.aionemu.gameserver.model.gameobjects.HouseDecoration;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -66,8 +68,7 @@ public class CM_HOUSE_DECORATE extends AionClientPacket {
 				return;
 			}
 			house.getRegistry().setPartInUse(decor, floor);
-		}
-		else {
+		} else {
 			// remove from inventory
 			HouseDecoration decor = house.getRegistry().getCustomPartByObjId(objectId);
 			house.getRegistry().setPartInUse(decor, floor);
@@ -76,7 +77,7 @@ public class CM_HOUSE_DECORATE extends AionClientPacket {
 
 		sendPacket(new SM_HOUSE_EDIT(4, 2, objectId));
 		house.getRegistry().setPersistentState(PersistentState.UPDATE_REQUIRED);
-		house.getController().updateAppearance();
+		((HouseController) house.getController()).updateAppearance();
 		QuestEngine.getInstance().onHouseItemUseEvent(new QuestEnv(null, player, 0, 0));
 	}
 }

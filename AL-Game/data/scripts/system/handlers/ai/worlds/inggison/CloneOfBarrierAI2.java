@@ -14,19 +14,20 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.worlds.inggison;
+
+import ai.AggressiveNpcAI2;
 
 import com.aionemu.gameserver.ai2.AIName;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 
-import ai.AggressiveNpcAI2;
-
 /**
  * @author Luzien
+ *
  */
 @AIName("omegaclone")
-// 281948
 public class CloneOfBarrierAI2 extends AggressiveNpcAI2 {
 
 	@Override

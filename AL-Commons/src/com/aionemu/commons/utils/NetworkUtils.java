@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.utils;
 
 /**
@@ -26,10 +27,10 @@ public class NetworkUtils {
 	 * check if IP address match pattern
 	 * 
 	 * @param pattern
-	 *            *.*.*.* , 192.168.1.0-255 , *
+	 *          *.*.*.* , 192.168.1.0-255 , *
 	 * @param address
-	 *            - 192.168.1.1<BR>
-	 *            <code>address = 10.2.88.12  pattern = *.*.*.*   result: true<BR>
+	 *          - 192.168.1.1<BR>
+	 *          <code>address = 10.2.88.12  pattern = *.*.*.*   result: true<BR>
 	 *                address = 10.2.88.12  pattern = *   result: true<BR>
 	 *                address = 10.2.88.12  pattern = 10.2.88.12-13   result: true<BR>
 	 *                address = 10.2.88.12  pattern = 10.2.88.13-125   result: false<BR></code>
@@ -50,7 +51,8 @@ public class NetworkUtils {
 				byte ip = Byte.parseByte(ip_address[i]);
 				if (ip < min || ip > max)
 					return false;
-			} else
+			}
+			else
 				return false;
 		}
 		return true;

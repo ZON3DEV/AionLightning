@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -38,11 +39,11 @@ public class UnBanMac extends AdminCommand {
 		}
 
 		String address = params[0];
-		boolean result = BannedMacManager.getInstance().unbanAddress(address, "uban;mac=" + address + ", " + player.getObjectId() + "; admin=" + player.getName());
+		boolean result = BannedMacManager.getInstance().unbanAddress(address,
+				"uban;mac=" + address + ", " + player.getObjectId() + "; admin=" + player.getName());
 		if (result) {
 			PacketSendUtility.sendMessage(player, "mac " + address + " has unbanned");
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(player, "mac " + address + " is not banned");
 		}
 	}

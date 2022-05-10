@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers.movement;
 
 /**
@@ -32,8 +33,6 @@ public interface MoveController {
 	void setNewDirection(float x, float y, float z, byte heading);
 
 	void startMovingToDestination();
-
-	void skillMovement();
 
 	void abortMove();
 

@@ -14,7 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
+
+import gnu.trove.map.hash.TIntObjectHashMap;
 
 import java.util.List;
 
@@ -24,10 +27,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.aionemu.gameserver.model.templates.item.DecomposableItemInfo;
+import com.aionemu.gameserver.model.templates.decomposable.DecomposableItemInfo;
 import com.aionemu.gameserver.model.templates.item.ExtractedItemsCollection;
-
-import gnu.trove.map.hash.TIntObjectHashMap;
 
 /**
  * @author antness
@@ -40,13 +41,10 @@ public class DecomposableItemsData {
 	private List<DecomposableItemInfo> decomposableItemsTemplates;
 	private TIntObjectHashMap<List<ExtractedItemsCollection>> decomposableItemsInfo = new TIntObjectHashMap<List<ExtractedItemsCollection>>();
 
-	/**
-	 * @param u
-	 * @param parent
-	 */
 	void afterUnmarshal(Unmarshaller u, Object parent) {
 		decomposableItemsInfo.clear();
 		for (DecomposableItemInfo template : decomposableItemsTemplates) {
+			// Util.printProgressBarHeader(size());
 			decomposableItemsInfo.put(template.getItemId(), template.getItemsCollections());
 		}
 	}

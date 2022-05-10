@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package zone;
 
 import com.aionemu.gameserver.model.Race;
@@ -39,8 +40,7 @@ public class AbyssBaseShield implements ZoneHandler {
 				if (((Player) actingCreature).getRace() == Race.ELYOS) {
 					creature.getController().die();
 				}
-			}
-			else if (currZone == ZoneName.get("ELYOS_BASE_400010000")) {
+			} else if (currZone == ZoneName.get("ELYOS_BASE_400010000")) {
 				if (((Player) actingCreature).getRace() == Race.ASMODIANS) {
 					creature.getController().die();
 				}

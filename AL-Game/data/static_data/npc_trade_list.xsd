@@ -5,7 +5,7 @@
             <xs:sequence>
                 <xs:element name="tradelist_template" type="TradelistTemplate" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:element name="trade_in_list_template" type="TradelistTemplate" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element name="purchase_template" type="TradelistTemplate" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="purchase_template" type="TradelistTemplate" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

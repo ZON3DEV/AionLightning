@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
@@ -21,9 +22,9 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.storage.Storage;
 import com.aionemu.gameserver.services.item.ItemService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.chathandlers.PlayerCommand;
 import com.aionemu.gameserver.utils.i18n.CustomMessageId;
 import com.aionemu.gameserver.utils.i18n.LanguageHandler;
+import com.aionemu.gameserver.utils.chathandlers.PlayerCommand;
 
 /**
  * @author Maestross
@@ -37,7 +38,11 @@ public class cmd_medal extends PlayerCommand {
 	@Override
 	public void execute(Player player, String... params) {
 		if (params.length < 1) {
-			PacketSendUtility.sendMessage(player, "Syntax: .medal <silver | gold | platinum | mithril>" + LanguageHandler.translate(CustomMessageId.EX_SILVER_INFO) + LanguageHandler.translate(CustomMessageId.EX_GOLD_INFO) + LanguageHandler.translate(CustomMessageId.EX_PLATIN_INFO) + LanguageHandler.translate(CustomMessageId.EX_MITHRIL_INFO));
+			PacketSendUtility.sendMessage(
+					player,
+					"Syntax: .medal <silver | gold | platinum | mithril>" + LanguageHandler.translate(CustomMessageId.EX_SILVER_INFO)
+							+ LanguageHandler.translate(CustomMessageId.EX_GOLD_INFO) + LanguageHandler.translate(CustomMessageId.EX_PLATIN_INFO)
+							+ LanguageHandler.translate(CustomMessageId.EX_MITHRIL_INFO));
 			return;
 		}
 

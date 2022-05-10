@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.util.LinkedHashMap;
@@ -57,7 +58,7 @@ public class SM_PRIVATE_STORE extends AionServerPacket {
 				writeD(itemObjId);
 				writeD(item.getItemTemplate().getTemplateId());
 				writeH((int) tradeItem.getCount());
-				writeQ((int) price);
+				writeD((int) price);
 
 				ItemInfoBlob itemInfoBlob = ItemInfoBlob.getFullBlob(player, item);
 				itemInfoBlob.writeMe(getBuf());

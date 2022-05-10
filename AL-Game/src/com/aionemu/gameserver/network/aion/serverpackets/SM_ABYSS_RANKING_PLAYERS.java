@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.util.Collections;
@@ -53,25 +54,27 @@ public class SM_ABYSS_RANKING_PLAYERS extends AionServerPacket {
 
 	@Override
 	protected void writeImpl(AionConnection con) {
-		writeD(race); // 0:Elyos 1:Asmo
-		writeD(lastUpdate); // Date
-		writeD(page); // Current page
-		writeD(isEndPacket ? 0x7F : 0); // 0:Nothing 1:Update Table
-		writeH(data.size()); // list size
+		writeD(race);// 0:Elyos 1:Asmo
+		writeD(lastUpdate);// Date
+		writeD(page);
+		writeD(isEndPacket ? 0x7F : 0);// 0:Nothing 1:Update Table
+		writeH(data.size());// list size
 
 		for (AbyssRankingResult rs : data) {
-			writeD(rs.getRankPos()); // Current Rank
-			writeD(rs.getPlayerAbyssRank()); // Abyss rank
-			writeD((rs.getOldRankPos() == 0) ? 501 : rs.getOldRankPos()); // Old Rank
+			writeD(rs.getRankPos());// Current Rank
+			writeD(rs.getPlayerAbyssRank());// Abyss rank
+			writeD((rs.getOldRankPos() == 0) ? 501 : rs.getOldRankPos());// Old Rank
 			writeD(rs.getPlayerId()); // PlayerID
 			writeD(race);
-			writeD(rs.getPlayerClass().getClassId()); // Class Id
-			writeD(rs.getGender().getGenderId()); // Sex ? 0=male / 1=female
-			writeQ(rs.getPlayerAP()); // Abyss Points
-			writeD(rs.getPlayerGP()); // Glory Points
+			writeD(rs.getPlayerClass().getClassId());// Class Id
+			writeD(0); // Sex ? 0=male / 1=female
+			writeQ(rs.getPlayerAP());// Abyss Points
+			writeD(rs.getPlayerGP());// Glory Points
 			writeH(rs.getPlayerLevel());
-			writeS(rs.getPlayerName(), 52); // Player Name
-			writeS(rs.getLegionName(), 86); // Legion Name
+
+			writeS(rs.getPlayerName(), 52);// Player Name
+			writeS(rs.getLegionName(), 82);// Legion Name
+			writeD(0);
 		}
 	}
 }

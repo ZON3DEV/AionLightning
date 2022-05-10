@@ -14,11 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai;
 
 import com.aionemu.gameserver.ai2.AIName;
 
 /**
+ *
  * @author xTz
  */
 @AIName("one_dmg")

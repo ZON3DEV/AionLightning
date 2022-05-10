@@ -14,9 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.siege;
 
-import com.aionemu.gameserver.utils.ThreadPoolManager;
+import com.aionemu.commons.network.util.ThreadPoolManager;
 import com.aionemu.gameserver.ai2.AIName;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 
@@ -42,7 +43,6 @@ public class SiegeProtectorNpcAI2 extends SiegeNpcAI2 {
 	private void despawnClaw() {
 		final Npc claw = getPosition().getWorldMapInstance().getNpc(701237);
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				claw.getController().onDelete();

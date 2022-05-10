@@ -14,15 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.spawns;
+
+import javolution.util.FastList;
 
 import org.apache.commons.lang.StringUtils;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.templates.event.EventTemplate;
 import com.aionemu.gameserver.spawnengine.SpawnHandlerType;
-
-import javolution.util.FastList;
 
 /**
  * @author xTz
@@ -84,7 +85,7 @@ public class SpawnTemplate {
 		this.x = x;
 		this.y = y;
 		this.z = z;
-		this.h = heading;
+        this.h = heading;
 		this.randomWalk = randWalk;
 		this.walkerId = walkerId;
 		this.staticId = staticId;
@@ -175,7 +176,7 @@ public class SpawnTemplate {
 	}
 
 	public TemporarySpawn getTemporarySpawn() {
-		return temporarySpawn != null ? temporarySpawn : spawnGroup.geTemporarySpawn();
+        return temporarySpawn != null ? temporarySpawn : spawnGroup.geTemporarySpawn();
 	}
 
 	public SpawnHandlerType getHandlerType() {
@@ -242,8 +243,7 @@ public class SpawnTemplate {
 	}
 
 	/**
-	 * @param creatorId
-	 *            the creatorId to set
+     * @param creatorId the creatorId to set
 	 */
 	public void setCreatorId(int creatorId) {
 		this.creatorId = creatorId;
@@ -257,8 +257,7 @@ public class SpawnTemplate {
 	}
 
 	/**
-	 * @param masterName
-	 *            the masterName to set
+     * @param masterName the masterName to set
 	 */
 	public void setMasterName(String masterName) {
 		this.masterName = masterName;

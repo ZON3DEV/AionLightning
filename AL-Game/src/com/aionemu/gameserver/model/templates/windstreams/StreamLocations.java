@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.windstreams;
 
 import java.util.List;
@@ -27,6 +28,7 @@ import javolution.util.FastList;
 
 /**
  * @author LokiReborn
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "StreamLocations")

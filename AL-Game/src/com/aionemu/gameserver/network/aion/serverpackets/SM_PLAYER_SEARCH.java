@@ -14,17 +14,17 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.network.aion.AionConnection;
+import com.aionemu.gameserver.network.aion.AionServerPacket;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.AionConnection;
-import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
  * Sent to fill the search panel of a players social window<br />
@@ -44,7 +44,8 @@ public class SM_PLAYER_SEARCH extends AionServerPacket {
 	 * @param players
 	 *            List of players to show
 	 * @param region
-	 *            of search - should be passed as parameter to prevent null in player.getActiveRegion()
+	 *            of search - should be passed as parameter to prevent null in
+	 *            player.getActiveRegion()
 	 */
 	public SM_PLAYER_SEARCH(List<Player> players, int region) {
 		this.players = new ArrayList<Player>(players);
@@ -70,11 +71,9 @@ public class SM_PLAYER_SEARCH extends AionServerPacket {
 			writeC(player.getLevel());
 			if (player.isInGroup2()) {
 				writeC(3);
-			}
-			else if (player.isLookingForGroup()) {
+			} else if (player.isLookingForGroup()) {
 				writeC(2);
-			}
-			else {
+			} else {
 				writeC(0);
 			}
 			writeS(player.getName(), 56);

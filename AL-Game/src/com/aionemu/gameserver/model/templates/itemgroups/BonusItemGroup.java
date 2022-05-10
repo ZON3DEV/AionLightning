@@ -14,13 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.itemgroups;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 import com.aionemu.gameserver.model.templates.rewards.BonusType;
 
@@ -28,14 +25,13 @@ import com.aionemu.gameserver.model.templates.rewards.BonusType;
  * @author Rolandas
  *
  */
-
 /**
- * <p/>
+ * <p>
  * Java class for ItemGroup complex type.
- * <p/>
- * The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * 
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ *
  * <pre>
  * &lt;complexType name="BonusItemGroup">
  *   &lt;complexContent>
@@ -49,7 +45,8 @@ import com.aionemu.gameserver.model.templates.rewards.BonusType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BonusItemGroup")
-@XmlSeeAlso({ CraftItemGroup.class, CraftRecipeGroup.class, ManastoneGroup.class, FoodGroup.class, MedicineGroup.class, OreGroup.class, GatherGroup.class, EnchantGroup.class, BossGroup.class })
+@XmlSeeAlso({ CraftItemGroup.class, CraftRecipeGroup.class, ManastoneGroup.class, FoodGroup.class, MedicineGroup.class, OreGroup.class, GatherGroup.class,
+		EnchantGroup.class, BossGroup.class })
 public abstract class BonusItemGroup {
 
 	@XmlAttribute(name = "bonusType", required = true)
@@ -74,8 +71,7 @@ public abstract class BonusItemGroup {
 	public float getChance() {
 		if (chance == null) {
 			return 0.0F;
-		}
-		else {
+		} else {
 			return chance;
 		}
 	}

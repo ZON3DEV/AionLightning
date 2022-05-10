@@ -14,10 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package admincommands;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+package admincommands;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -25,10 +23,13 @@ import com.aionemu.gameserver.model.templates.npc.NpcTemplate;
 import com.aionemu.gameserver.services.teleport.TeleportService2;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author MrPoke, lord_rex and ginho1
  * @modified Alex
+ * @modified Kill3r
  */
 public class MoveToNpc extends AdminCommand {
 
@@ -49,26 +50,22 @@ public class MoveToNpc extends AdminCommand {
 					npcName = fm.group(1);
 					npcId = Integer.parseInt(fm.group(2));
 				}
-			}
-			else {
+			} else {
 				npcId = Integer.valueOf(npc);
 			}
-		}
-		catch (ArrayIndexOutOfBoundsException e) {
+		} catch (ArrayIndexOutOfBoundsException e) {
 			onFail(player, e.getMessage());
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			for (String param : params) {
 				npcName += param + " ";
 			}
 			npcName = npcName.substring(0, npcName.length() - 1);
 
 			for (NpcTemplate template : DataManager.NPC_DATA.getNpcData().valueCollection()) {
-				if (template.getName().equalsIgnoreCase(npcName)) {
+				if (npcName.equalsIgnoreCase(template.getName())) {
 					if (npcId == 0) {
 						npcId = template.getTemplateId();
-					}
-					else {
+					} else {
 						if (message.isEmpty()) {
 							message += "Found others (" + npcName + "): \n";
 						}
@@ -85,8 +82,7 @@ public class MoveToNpc extends AdminCommand {
 		if (npcId > 0) {
 			if (!message.isEmpty()) {
 				message = "Teleporting to Npc: " + npcName + " " + npcId + "\n" + message;
-			}
-			else {
+			} else {
 				message = "Teleporting to Npc: " + npcName + " " + npcId;
 			}
 			PacketSendUtility.sendMessage(player, message);

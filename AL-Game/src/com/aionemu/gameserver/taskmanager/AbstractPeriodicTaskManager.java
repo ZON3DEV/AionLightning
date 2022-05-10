@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.taskmanager;
 
 import org.slf4j.Logger;
@@ -26,7 +27,8 @@ import com.aionemu.gameserver.GameServer.StartupHook;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
- * @author lord_rex and MrPoke based on l2j-free engines. This can be used for periodic calls.
+ * @author lord_rex and MrPoke based on l2j-free engines. This can be used for
+ *         periodic calls.
  */
 public abstract class AbstractPeriodicTaskManager extends AbstractLockManager implements Runnable, StartupHook {
 
@@ -38,7 +40,7 @@ public abstract class AbstractPeriodicTaskManager extends AbstractLockManager im
 
 		GameServer.addStartupHook(this);
 
-		log.debug("[PeriodicTaskManager] " + getClass().getSimpleName() + ": Initialized.");
+		log.info(getClass().getSimpleName() + ": Initialized.");
 	}
 
 	@Override

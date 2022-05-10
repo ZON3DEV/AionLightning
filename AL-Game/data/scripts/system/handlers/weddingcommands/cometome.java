@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package weddingcommands;
 
 import com.aionemu.gameserver.model.TeleportAnimation;
@@ -43,10 +44,10 @@ public class cometome extends WeddingCommand {
 			return;
 		}
 
-		if (player.isInPrison() || player.isInPvPArena() || partner.isInPrison() || partner.isInPvPArena()) {
-			PacketSendUtility.sendMessage(player, "You cannot use this command in your location.");
-			return;
-		}
+        if (player.isInPrison() || player.isInPvPArena() || partner.isInPrison() || partner.isInPvPArena()) {
+            PacketSendUtility.sendMessage(player, "You cannot use this command in your location.");
+            return;
+        }
 
 		if (player.isInInstance() || partner.isInInstance()) {
 			PacketSendUtility.sendMessage(player, "You can't teleported to " + partner.getName() + ", your partner is in Instance.");
@@ -59,20 +60,20 @@ public class cometome extends WeddingCommand {
 		}
 
 		if (!player.isCommandInUse()) {
-			TeleportService2.teleportTo(partner, player.getWorldId(), player.getInstanceId(), player.getX(), player.getY(), player.getZ(), player.getHeading(), TeleportAnimation.BEAM_ANIMATION);
+			TeleportService2.teleportTo(partner, player.getWorldId(), player.getInstanceId(), player.getX(), player.getY(), player.getZ(), player.getHeading(),
+					TeleportAnimation.BEAM_ANIMATION);
 			PacketSendUtility.sendMessage(player, partner.getName() + " teleported to you.");
 			player.setCommandUsed(true);
 
 			ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
 					player.setCommandUsed(false);
 				}
 			}, 60 * 60 * 1000);
-		}
-		else
+		} else {
 			PacketSendUtility.sendMessage(player, "Only 1 TP per hour.");
+		}
 	}
 
 	@Override

@@ -14,15 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion;
 
-import java.util.Collection;
+package com.aionemu.gameserver.network.aion;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.Letter;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.iteminfo.ItemInfoBlob;
+import java.util.Collection;
 
 /**
  * @author kosyachok, Source
@@ -47,8 +47,7 @@ public abstract class MailServicePacket extends AionServerPacket {
 			if (isPostman) {
 				if (!letter.isExpress()) {
 					continue;
-				}
-				else if (!letter.isUnread()) {
+				} else if (!letter.isUnread()) {
 					continue;
 				}
 			}
@@ -58,15 +57,13 @@ public abstract class MailServicePacket extends AionServerPacket {
 			writeS(letter.getTitle());
 			writeC(letter.isUnread() ? 0 : 1);
 			if (letter.getAttachedItem() != null) {
-				writeD((int) (letter.getTimeStamp().getTime() / 1000));
 				writeD(letter.getAttachedItem().getObjectId());
-			}
-			else {
+				writeD(letter.getAttachedItem().getItemTemplate().getTemplateId());
+			} else {
 				writeD(0);
 				writeD(0);
 			}
 			writeQ(letter.getAttachedKinah());
-			writeQ(0);
 			writeC(letter.getLetterType().getId());
 		}
 	}
@@ -98,25 +95,21 @@ public abstract class MailServicePacket extends AionServerPacket {
 
 			writeD(item.getObjectId());
 			writeD(itemTemplate.getTemplateId());
-			writeQ((int) letter.getAttachedItem().getItemCount());
-			writeH(0x24); // unk
+			writeD(1); // unk
+			writeD(0); // unk
 			writeNameId(itemTemplate.getNameId());
 
 			ItemInfoBlob itemInfoBlob = ItemInfoBlob.getFullBlob(player, item);
 			itemInfoBlob.writeMe(getBuf());
-
-		}
-		else {
-			writeD(0);
-			writeD(0);
+		} else {
+			writeQ(0);
 			writeQ(0);
 			writeD(0);
 		}
 
 		writeD((int) letter.getAttachedKinah());
 		writeD(0); // AP reward for castle assault/defense (in future)
-		writeH(0);
-		writeB(new byte[7]);
+		writeC(0);
 		writeD((int) (time / 1000));
 		writeC(letter.getLetterType().getId()); // mail type
 	}

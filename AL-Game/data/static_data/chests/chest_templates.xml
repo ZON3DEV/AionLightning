@@ -370,7 +370,7 @@
     <chest npcid="730878">
         <keyitem id="1" itemid="0" quantity="1"/>
     </chest>
-    <!-- Reian Guardian Statue-->
+    <!-- Reian Guardian Statue-->    
     <chest npcid="730879">
         <keyitem id="1" itemid="0" quantity="1"/>
     </chest>
@@ -581,7 +581,7 @@
     <chest npcid="700731">
         <keyitem id="1" itemid="0" quantity="1"/>
     </chest>
-    <chest npcid="700732">
+          <chest npcid="700732">
         <keyitem id="1" itemid="0" quantity="1"/>
     </chest>
     <chest npcid="700733">
@@ -633,9 +633,6 @@
     <chest npcid="702023">
         <keyitem id="1" itemid="0" quantity="1"/>
     </chest>
-    <chest npcid="832259">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
     <!-- Krotan Battle Fortress -->
     <chest npcid="702028">
         <keyitem id="1" itemid="0" quantity="1"/>
@@ -648,7 +645,7 @@
     </chest>
     <chest npcid="702031">
         <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
+    </chest>  
     <chest npcid="702032">
         <keyitem id="1" itemid="0" quantity="1"/>
     </chest>
@@ -659,7 +656,7 @@
         <keyitem id="1" itemid="0" quantity="1"/>
     </chest>
     <chest npcid="702035">
-        <keyitem id="1" itemid="0" quantity="1"/>
+         <keyitem id="1" itemid="0" quantity="1"/>
     </chest>
     <chest npcid="702036">
         <keyitem id="1" itemid="0" quantity="1"/>
@@ -962,17 +959,14 @@
         <keyitem id="1" itemid="0" quantity="1"/>
     </chest>
     <!-- Tiamaranta Eye -->
-    <!-- Protectorate's Treasure Box --> 
-    <chest npcid="832855">
-        <keyitem id="1" itemid="185000324" quantity="1"/>
+    <chest npcid="701388">
+        <keyitem id="1" itemid="185000114" quantity="1"/>
     </chest>
-    <!-- Protectorate's Treasure Crate -->
-    <chest npcid="832856">
-        <keyitem id="1" itemid="185000325" quantity="1"/>
+    <chest npcid="701389">
+        <keyitem id="1" itemid="185000115" quantity="1"/>
     </chest>
-    <!-- Protectorate's Treasure Chest -->
-    <chest npcid="832857">
-        <keyitem id="1" itemid="185000326" quantity="1"/>
+    <chest npcid="701390">
+        <keyitem id="1" itemid="185000116" quantity="1"/>
     </chest>
     <!-- Raksang -->
     <chest npcid="701369">
@@ -1014,8 +1008,7 @@
         <keyitem id="1" itemid="185000118" quantity="1"/>
     </chest>
     <chest npcid="701463">
-        <keyitem id="1" itemid="185000118" quantity="1"/>
-        <!-- 185000119 -->
+        <keyitem id="1" itemid="185000118" quantity="1"/> <!-- 185000119 -->
     </chest>
     <chest npcid="701470">
         <keyitem id="1" itemid="0" quantity="1"/>
@@ -1073,7 +1066,7 @@
     </chest>
     <chest npcid="701554">
         <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
+          </chest>
     <chest npcid="701555">
         <keyitem id="1" itemid="0" quantity="1"/>
     </chest>
@@ -1226,14 +1219,6 @@
         <keyitem id="1" itemid="0" quantity="1"/>
     </chest>
     <!-- Shugo Imperial Tomb -->
-    <!-- Abbey Box-->
-	<chest npcid="702658">
-        <keyitem id="1" itemid="185000217" quantity="1"/>
-    </chest>
-	<!-- Noble Abbey Box-->
-	<chest npcid="702659">
-        <keyitem id="1" itemid="185000218" quantity="1"/>
-    </chest>
     <!-- Crown Prince's Relics -->
     <chest npcid="831124">
         <keyitem id="1" itemid="185000128" quantity="1"/>
@@ -1434,7 +1419,7 @@
         <keyitem id="1" itemid="0" quantity="1"/>
     </chest>
     <chest npcid="700144">
-        <keyitem id="1" itemid="0" quantity="1"/>
+      <keyitem id="1" itemid="0" quantity="1"/>
     </chest>
     <chest npcid="700145">
         <keyitem id="1" itemid="0" quantity="1"/>
@@ -1479,7 +1464,7 @@
         <keyitem id="1" itemid="0" quantity="1"/>
     </chest>
     <chest npcid="700191">
-        <keyitem id="1" itemid="0" quantity="1"/>
+      <keyitem id="1" itemid="0" quantity="1"/>
     </chest>
     <chest npcid="700193">
         <keyitem id="1" itemid="0" quantity="1"/>
@@ -1979,123 +1964,6 @@
         <keyitem id="1" itemid="0" quantity="1"/>
     </chest>
     <chest npcid="700526">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-	<!-- Steel Rose Loot Box -->
-    <chest npcid="701828">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-	<!-- Steel Rose Loot Box -->
-    <chest npcid="701829">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-	<!-- Steel Rose Loot Box -->
-    <chest npcid="701830">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-	<!-- Steel Rose Loot Box -->
-    <chest npcid="701831">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-    <!-- Linkgate Foundry Supply Chest -->
-    <chest npcid="234992">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-    <!-- Linkgate Foundry Supply Chest -->
-    <chest npcid="234993">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-    <!-- Linkgate Foundry Supply Chest -->
-    <chest npcid="234194">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-    <!-- Linkgate Foundry Supply Chest -->
-    <chest npcid="234195">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-    <!-- Idgel Dome v4.7 (Intelligence Supply Box) -->
-    <chest npcid="702581">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-    <chest npcid="702582">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-    <chest npcid="702583">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-    <!-- Drakensphire Beritra Chest -->
-    <chest npcid="833013">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-    <chest npcid="833014">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-    <chest npcid="833015">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-    <!-- Raksang Ruins Chest -->
-    <chest npcid="702694">
-    	<keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-	<!-- Wishing Fountain Event -->
-	<!-- Yellow Aether Blossom -->
-	<chest npcid="702786">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-	<!-- Ruby Aether Blossom -->
-	<chest npcid="702787">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-	<!-- Pure Aether Blossom -->
-	<chest npcid="702788">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-	<!-- Argent Manor Treasure Box -->
-	<chest npcid="702816">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-    <!-- Shining Capsule -->
-	<chest npcid="833660">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-    <!-- Fine Treasure Chest -->
-    <chest npcid="833058">
-        <keyitem id="1" itemid="185000270" quantity="1"/>
-    </chest>
-    <!-- Noble Treasure Chest -->
-    <chest npcid="833059">
-        <keyitem id="1" itemid="185000270" quantity="3"/>
-    </chest>
-	<!-- Joker's Secret Box -->
-	<chest npcid="832260">
-        <keyitem id="1" itemid="185000199" quantity="1"/>
-    </chest>
-    <!-- Kroban Base Supply Box -->
-	<chest npcid="833862">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-	<!-- Kumuki Key Chest -->
-	<chest npcid="246294">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-	<!-- Kumuki Key Chest -->
-	<chest npcid="246327">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-	<!-- Kumuki Suspicious Box -->
-	<chest npcid="246328">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-	<!-- Kumuki Crate -->
-	<chest npcid="246377">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-	<!-- Kumuki Golden Treasure Chest -->
-	<chest npcid="246379">
-        <keyitem id="1" itemid="0" quantity="1"/>
-    </chest>
-	<!-- Kumuki Supplies Box -->
-	<chest npcid="246381">
         <keyitem id="1" itemid="0" quantity="1"/>
     </chest>
 </chest_templates>

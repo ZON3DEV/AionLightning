@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import java.util.Iterator;
@@ -40,15 +41,13 @@ public class AnnounceFaction extends AdminCommand {
 	public void execute(Player player, String... params) {
 		if (params.length < 2) {
 			PacketSendUtility.sendMessage(player, "Syntax: //announcefaction <ely | asmo> <message>");
-		}
-		else {
+		} else {
 			Iterator<Player> iter = World.getInstance().getPlayersIterator();
 			String message = null;
 
 			if (params[0].equals("ely")) {
 				message = "Elyos : ";
-			}
-			else {
+			} else {
 				message = "Asmodians : ";
 			}
 
@@ -67,8 +66,8 @@ public class AnnounceFaction extends AdminCommand {
 
 				if (target.getAccessLevel() > CommandsConfig.ANNONCEFACTION || target.getRace() == Race.ELYOS && params[0].equals("ely")) {
 					PacketSendUtility.sendBrightYellowMessageOnCenter(target, message);
-				}
-				else if (target.getAccessLevel() > CommandsConfig.ANNONCEFACTION || target.getCommonData().getRace() == Race.ASMODIANS && params[0].equals("asmo")) {
+				} else if (target.getAccessLevel() > CommandsConfig.ANNONCEFACTION || target.getCommonData().getRace() == Race.ASMODIANS
+						&& params[0].equals("asmo")) {
 					PacketSendUtility.sendBrightYellowMessageOnCenter(target, message);
 				}
 			}

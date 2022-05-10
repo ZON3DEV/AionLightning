@@ -14,11 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.effect;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlType;
+package com.aionemu.gameserver.skillengine.effect;
 
 import com.aionemu.gameserver.geoEngine.collision.CollisionIntention;
 import com.aionemu.gameserver.geoEngine.math.Vector3f;
@@ -35,6 +32,10 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.geo.GeoService;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * @author ATracer
  */
@@ -44,7 +45,8 @@ public class StumbleEffect extends EffectTemplate {
 
 	@Override
 	public void applyEffect(Effect effect) {
-		if (!effect.getEffected().getEffectController().isAbnormalSet(AbnormalState.OPENAERIAL) && !effect.getEffected().getEffectController().isAbnormalSet(AbnormalState.CANNOT_MOVE)) {
+		if (!effect.getEffected().getEffectController().isAbnormalSet(AbnormalState.OPENAERIAL)
+				&& !effect.getEffected().getEffectController().isAbnormalSet(AbnormalState.CANNOT_MOVE)) {
 			effect.addToEffectedController();
 			effect.setIsPhysicalState(true);
 			final Creature effected = effect.getEffected();
@@ -55,7 +57,8 @@ public class StumbleEffect extends EffectTemplate {
 			effected.getEffectController().removeParalyzeEffects();
 			effected.getMoveController().abortMove();
 			World.getInstance().updatePosition(effected, effect.getTargetX(), effect.getTargetY(), effect.getTargetZ(), effected.getHeading());
-			PacketSendUtility.broadcastPacketAndReceive(effect.getEffected(), new SM_FORCED_MOVE(effect.getEffector(), effect.getEffected().getObjectId(), effect.getTargetX(), effect.getTargetY(), effect.getTargetZ()));
+			PacketSendUtility.broadcastPacketAndReceive(effect.getEffected(), new SM_FORCED_MOVE(effect.getEffector(), effect.getEffected().getObjectId(),
+					effect.getTargetX(), effect.getTargetY(), effect.getTargetZ()));
 		}
 	}
 
@@ -83,7 +86,8 @@ public class StumbleEffect extends EffectTemplate {
 		float y1 = (float) (Math.sin(radian) * direction);
 		float z = effected.getZ();
 		byte intentions = (byte) (CollisionIntention.PHYSICAL.getId() | CollisionIntention.DOOR.getId());
-		Vector3f closestCollision = GeoService.getInstance().getClosestCollision(effected, effected.getX() + x1, effected.getY() + y1, effected.getZ() - 0.4f, false, intentions);
+		Vector3f closestCollision = GeoService.getInstance().getClosestCollision(effected, effected.getX() + x1, effected.getY() + y1, effected.getZ() - 0.4f,
+				false, intentions);
 		x1 = closestCollision.x;
 		y1 = closestCollision.y;
 		z = closestCollision.z;

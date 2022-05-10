@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.clientpackets;
 
-import java.nio.charset.Charset;
+package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.controllers.HouseController;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -24,9 +23,12 @@ import com.aionemu.gameserver.model.house.House;
 import com.aionemu.gameserver.model.house.HousePermissions;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_HOUSE_ACQUIRE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.HousingService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+
+import java.nio.charset.Charset;
 
 /**
  * @author Rolandas
@@ -65,18 +67,18 @@ public class CM_HOUSE_SETTINGS extends AionClientPacket {
 		house.setDoorState(doorPermission);
 		house.setNoticeState(HousePermissions.getNoticeState(displayOwner));
 		house.setSignNotice(signNotice.getBytes(Charset.forName("UTF-16LE")));
-		HouseController controller = house.getController();
-		controller.updateAppearance();
-		controller.broadcastAppearance();
 
+		PacketSendUtility.sendPacket(player, new SM_HOUSE_ACQUIRE(player.getObjectId(), house.getAddress().getId(), true));
+		HouseController controller = (HouseController) house.getController();
+		controller.updateAppearance();
+
+		// TODO: save signNotice
 		if (doorPermission == HousePermissions.DOOR_OPENED_ALL) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_ORDER_OPEN_DOOR);
-		}
-		else if (doorPermission == HousePermissions.DOOR_OPENED_FRIENDS) {
+		} else if (doorPermission == HousePermissions.DOOR_OPENED_FRIENDS) {
 			house.getController().kickVisitors(player, false, true);
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_ORDER_CLOSE_DOOR_WITHOUT_FRIENDS);
-		}
-		else if (doorPermission == HousePermissions.DOOR_CLOSED) {
+		} else if (doorPermission == HousePermissions.DOOR_CLOSED) {
 			house.getController().kickVisitors(player, true, true);
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_ORDER_CLOSE_DOOR_ALL);
 		}

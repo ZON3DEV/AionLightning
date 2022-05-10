@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -28,7 +29,6 @@ import com.aionemu.gameserver.network.aion.AionConnection.State;
 
 /**
  * @author Lyahim, Simple, xTz
- * @Rework FrozenKiller
  */
 public class CM_DISTRIBUTION_SETTINGS extends AionClientPacket {
 
@@ -43,13 +43,9 @@ public class CM_DISTRIBUTION_SETTINGS extends AionClientPacket {
 	private int heroic_item_above;
 	private int fabled_item_above;
 	private int ethernal_item_above;
-	private int mythic_item_above;
-	private int ancient_item_above;
-	private int relic_item_above;
-	private int finality_item_above;
 	@SuppressWarnings("unused")
 	private int unk2;
-	// private int autodistr;
+	private int autodistr;
 
 	public CM_DISTRIBUTION_SETTINGS(int opcode, State state, State... restStates) {
 		super(opcode, state, restStates);
@@ -79,34 +75,23 @@ public class CM_DISTRIBUTION_SETTINGS extends AionClientPacket {
 		heroic_item_above = readD();
 		fabled_item_above = readD();
 		ethernal_item_above = readD();
-		mythic_item_above = readD();
-		ancient_item_above = readD();
-		relic_item_above = readD();
-		finality_item_above = readD();
-		// autodistr = readD(); // Removed in 4.7
+		autodistr = readD();
 		unk2 = readD();
 
-		if (mythic_item_above == 2) {
-			autodistribution = LootDistribution.ROLL_DICE; // TODO FIND WHERE OLD autodistr IS SET NOW IT'S REMOVED FROM THIS PACKET!!!
+		switch (autodistr) {
+			case 0:
+				autodistribution = LootDistribution.NORMAL;
+				break;
+			case 2:
+				autodistribution = LootDistribution.ROLL_DICE;
+				break;
+			case 3:
+				autodistribution = LootDistribution.BID;
+				break;
+			default:
+				autodistribution = LootDistribution.NORMAL;
+				break;
 		}
-		else {
-			autodistribution = LootDistribution.NORMAL; // TODO FIND HOW WE CAN SET BID
-		}
-
-		// switch (autodistr) {
-		// case 0:
-		// autodistribution = LootDistribution.NORMAL;
-		// break;
-		// case 2:
-		// autodistribution = LootDistribution.ROLL_DICE;
-		// break;
-		// case 3:
-		// autodistribution = LootDistribution.BID;
-		// break;
-		// default:
-		// autodistribution = LootDistribution.NORMAL;
-		// break;
-		// }
 	}
 
 	@Override
@@ -115,11 +100,13 @@ public class CM_DISTRIBUTION_SETTINGS extends AionClientPacket {
 
 		PlayerGroup group = leader.getPlayerGroup2();
 		if (group != null) {
-			PlayerGroupService.changeGroupRules(group, new LootGroupRules(lootrules, autodistribution, common_item_above, superior_item_above, heroic_item_above, fabled_item_above, ethernal_item_above, mythic_item_above, ancient_item_above, relic_item_above, finality_item_above, misc));
+			PlayerGroupService.changeGroupRules(group, new LootGroupRules(lootrules, autodistribution, common_item_above, superior_item_above,
+					heroic_item_above, fabled_item_above, ethernal_item_above, misc));
 		}
 		com.aionemu.gameserver.model.team2.alliance.PlayerAlliance alliance = leader.getPlayerAlliance2();
 		if (alliance != null) {
-			PlayerAllianceService.changeGroupRules(alliance, new LootGroupRules(lootrules, autodistribution, common_item_above, superior_item_above, heroic_item_above, fabled_item_above, ethernal_item_above, mythic_item_above, ancient_item_above, relic_item_above, finality_item_above, misc));
+			PlayerAllianceService.changeGroupRules(alliance, new LootGroupRules(lootrules, autodistribution, common_item_above, superior_item_above,
+					heroic_item_above, fabled_item_above, ethernal_item_above, misc));
 		}
 	}
 }

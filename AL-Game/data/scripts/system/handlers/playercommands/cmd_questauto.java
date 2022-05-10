@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -49,8 +50,7 @@ public class cmd_questauto extends PlayerCommand {
 		int questId = 0;
 		try {
 			questId = Integer.parseInt(params[0]);
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			PacketSendUtility.sendMessage(player, "wrong quest id");
 			return;
 		}

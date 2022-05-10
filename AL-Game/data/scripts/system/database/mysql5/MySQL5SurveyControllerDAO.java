@@ -14,11 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import javolution.util.FastList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,10 +31,10 @@ import com.aionemu.gameserver.dao.MySQL5DAOUtils;
 import com.aionemu.gameserver.dao.SurveyControllerDAO;
 import com.aionemu.gameserver.model.templates.survey.SurveyItem;
 
-import javolution.util.FastList;
-
 /**
+ *
  * @author KID
+ *
  */
 public class MySQL5SurveyControllerDAO extends SurveyControllerDAO {
 
@@ -67,11 +70,9 @@ public class MySQL5SurveyControllerDAO extends SurveyControllerDAO {
 			}
 			rset.close();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.warn("getAllNew() from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 
@@ -89,12 +90,10 @@ public class MySQL5SurveyControllerDAO extends SurveyControllerDAO {
 			stmt.setInt(2, id);
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("useItem", e);
 			return false;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 

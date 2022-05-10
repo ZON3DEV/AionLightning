@@ -14,10 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world.container;
 
 import java.util.Collection;
 import java.util.Iterator;
+
+import javolution.util.FastMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,8 +28,6 @@ import org.slf4j.LoggerFactory;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.world.exceptions.DuplicateAionObjectException;
 import com.aionemu.gameserver.world.knownlist.Visitor;
-
-import javolution.util.FastMap;
 
 /**
  * Container for storing Players by objectId and name.
@@ -74,7 +75,8 @@ public class PlayerContainer implements Iterable<Player> {
 	 *
 	 * @param objectId
 	 *            - ObjectId of player.
-	 * @return Player with given ojectId or null if Player with given objectId is not logged.
+	 * @return Player with given ojectId or null if Player with given objectId
+	 *         is not logged.
 	 */
 	public Player get(int objectId) {
 		return playersById.get(objectId);
@@ -85,7 +87,8 @@ public class PlayerContainer implements Iterable<Player> {
 	 *
 	 * @param name
 	 *            - name of player
-	 * @return Player with given name or null if Player with given name is not logged.
+	 * @return Player with given name or null if Player with given name is not
+	 *         logged.
 	 */
 	public Player get(String name) {
 		return playersByName.get(name);
@@ -102,22 +105,12 @@ public class PlayerContainer implements Iterable<Player> {
 	public void doOnAllPlayers(Visitor<Player> visitor) {
 		try {
 			for (FastMap.Entry<Integer, Player> e = playersById.head(), mapEnd = playersById.tail(); (e = e.getNext()) != mapEnd;) {
-				Player player = null;
-				try {
-					player = e.getValue();
-				}
-				catch (Exception ex) {
-					player = null;
-				}
+				Player player = e.getValue();
 				if (player != null) {
-					if (player.getRace().isPlayerRace())
-						visitor.visit(player);
-					else
-						continue;
+					visitor.visit(player);
 				}
 			}
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			log.error("Exception when running visitor on all players" + ex);
 		}
 	}

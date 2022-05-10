@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model;
 
 /**
@@ -47,8 +48,6 @@ public enum TaskId {
 	PET_UPDATE,
 	SUMMON_FOLLOW,
 	MATERIAL_ACTION,
-	HOTSPOT_TELEPORT,
-	BATTLEGROUND_CARRY_FLAG,
-	MAGIC_MORPH,
-	MINION_UPDATE;
+	PORTAL,
+	BATTLEGROUND_CARRY_FLAG
 }

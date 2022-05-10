@@ -14,12 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.chathandlers;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
+
+import javolution.util.FastMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,8 +37,6 @@ import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.model.GameEngine;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
-
-import javolution.util.FastMap;
 
 /**
  * @author KID
@@ -59,8 +60,7 @@ public class ChatProcessor implements GameEngine {
 		try {
 			log.info("Chat processor load started");
 			init(sm, this);
-		}
-		finally {
+		} finally {
 			if (progressLatch != null) {
 				progressLatch.countDown();
 			}
@@ -87,22 +87,20 @@ public class ChatProcessor implements GameEngine {
 		acl.addClassListener(new ChatCommandsLoader(processor));
 		scriptManager.setGlobalClassListener(acl);
 
-		final File[] files = new File[] { new File("./data/scripts/system/adminhandlers.xml"), new File("./data/scripts/system/playerhandlers.xml"), new File("./data/scripts/system/weddinghandlers.xml") };
+		final File[] files = new File[] { new File("./data/scripts/system/adminhandlers.xml"), new File("./data/scripts/system/playerhandlers.xml"),
+				new File("./data/scripts/system/weddinghandlers.xml") };
 		final CountDownLatch loadLatch = new CountDownLatch(files.length);
 
 		for (int i = 0; i < files.length; i++) {
 			final int index = i;
 			ThreadPoolManager.getInstance().execute(new Runnable() {
-
 				@Override
 				public void run() {
 					try {
 						scriptManager.load(files[index]);
-					}
-					catch (Exception e) {
+					} catch (Exception e) {
 						loadException = e;
-					}
-					finally {
+					} finally {
 						loadLatch.countDown();
 					}
 				}
@@ -111,8 +109,7 @@ public class ChatProcessor implements GameEngine {
 
 		try {
 			loadLatch.await();
-		}
-		catch (InterruptedException e1) {
+		} catch (InterruptedException e1) {
 		}
 		if (loadException != null) {
 			throw new GameServerError("Can't initialize chat handlers.", loadException);
@@ -144,19 +141,15 @@ public class ChatProcessor implements GameEngine {
 		try {
 			tmpSM = new ScriptManager();
 			adminCP = new ChatProcessor(tmpSM);
-		}
-		catch (Throwable e) {
+		} catch (Throwable e) {
 			commands = backupCommands;
 			throw new GameServerError("Can't reload chat handlers.", e);
 		}
 
-		if (tmpSM != null && adminCP != null) {
-			backupCommands.clear();
-			sm.shutdown();
-			sm = null;
-			sm = tmpSM;
-			instance = adminCP;
-		}
+		backupCommands.clear();
+		sm.shutdown();
+		sm = tmpSM;
+		instance = adminCP;
 	}
 
 	private void loadLevels() {
@@ -168,25 +161,22 @@ public class ChatProcessor implements GameEngine {
 				String str = (String) key;
 				accessLevel.put(str, Byte.valueOf(props.getProperty(str).trim()));
 			}
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			log.error("Can't read commands.properties", e);
 		}
 	}
 
 	public boolean handleChatCommand(Player player, String text) {
-		if (text.split(" ").length == 0) {
+		if (text.split(" ").length == 0)
 			return false;
-		}
-		if ((text.startsWith("//") && getCommand(text.substring(2)) instanceof AdminCommand) || (text.startsWith("..") && getCommand(text.substring(2)) instanceof WeddingCommand)) {
+		if ((text.startsWith("//") && getCommand(text.substring(2)) instanceof AdminCommand)
+				|| (text.startsWith("..") && getCommand(text.substring(2)) instanceof WeddingCommand)) {
 			return (getCommand(text.substring(2))).process(player, text.substring(2));
-		}
-		else if (text.startsWith(".") && (getCommand(text.substring(1)) instanceof PlayerCommand || (CustomConfig.ENABLE_ADMIN_DOT_COMMANDS && getCommand(text.substring(1)) instanceof AdminCommand))) {
+		} else if (text.startsWith(".")
+				&& (getCommand(text.substring(1)) instanceof PlayerCommand || (CustomConfig.ENABLE_ADMIN_DOT_COMMANDS && getCommand(text.substring(1)) instanceof AdminCommand))) {
 			return (getCommand(text.substring(1))).process(player, text.substring(1));
-		}
-		else {
+		} else
 			return false;
-		}
 	}
 
 	private ChatCommand getCommand(String text) {

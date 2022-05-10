@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.items;
 
 import com.aionemu.gameserver.controllers.observer.ActionObserver;
@@ -48,8 +49,7 @@ public class ChargeInfo extends ActionObserver {
 		if (item.getImprovement() != null) {
 			this.attackBurn = item.getImprovement().getBurnAttack();
 			this.defendBurn = item.getImprovement().getBurnDefend();
-		}
-		else {
+		} else {
 			this.attackBurn = 0;
 			this.defendBurn = 0;
 		}
@@ -67,8 +67,7 @@ public class ChargeInfo extends ActionObserver {
 		int newChargePoints = chargePoints + addPoints;
 		if (newChargePoints > LEVEL2) {
 			newChargePoints = LEVEL2;
-		}
-		else if (newChargePoints < 0) {
+		} else if (newChargePoints < 0) {
 			newChargePoints = 0;
 		}
 		if (item.isEquipped() && player != null) {

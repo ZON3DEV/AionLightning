@@ -14,21 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.main;
 
 import com.aionemu.commons.configuration.Property;
 
 /**
- * @author ATracer
- * @author GiGatR00n v4.7.5.x
+ * @author ATracer, Waii
  */
 public class RateConfig {
 
-	/**
-	 * Display server rates when player enter in world
-	 */
-	@Property(key = "gameserver.rate.display.rates", defaultValue = "false")
-	public static boolean DISPLAY_RATE;
 	/**
 	 * XP Rates - Regular (1), Premium (2), VIP (3)
 	 */
@@ -102,15 +97,6 @@ public class RateConfig {
 	@Property(key = "gameserver.rate.vip.quest.ap", defaultValue = "3.0")
 	public static float VIP_QUEST_AP_RATE;
 	/**
-	 * Quest GP Rates - Regular (1), Premium (1.5), VIP (2)
-	 */
-	@Property(key = "gameserver.rate.regular.quest.gp", defaultValue = "1.0")
-	public static float QUEST_GP_RATE;
-	@Property(key = "gameserver.rate.premium.quest.gp", defaultValue = "1.5")
-	public static float PREMIUM_QUEST_GP_RATE;
-	@Property(key = "gameserver.rate.vip.quest.gp", defaultValue = "2.0")
-	public static float VIP_QUEST_GP_RATE;
-	/**
 	 * Drop Rates - Regular (1), Premium (2), VIP (3)
 	 */
 	@Property(key = "gameserver.rate.regular.drop", defaultValue = "1.0")
@@ -128,15 +114,6 @@ public class RateConfig {
 	public static float PREMIUM_AP_PLAYER_GAIN_RATE;
 	@Property(key = "gameserver.rate.vip.ap.player.gain", defaultValue = "3.0")
 	public static float VIP_AP_PLAYER_GAIN_RATE;
-	/**
-	 * Player glory Points Rates (Gain) - Regular (1), Premium (2), VIP (3)
-	 */
-	@Property(key = "gameserver.rate.regular.gp.player.gain", defaultValue = "1.0")
-	public static float GP_PLAYER_GAIN_RATE;
-	@Property(key = "gameserver.rate.premium.gp.player.gain", defaultValue = "2.0")
-	public static float PREMIUM_GP_PLAYER_GAIN_RATE;
-	@Property(key = "gameserver.rate.vip.gp.player.gain", defaultValue = "3.0")
-	public static float VIP_GP_PLAYER_GAIN_RATE;
 	/**
 	 * Player Experience Points Rates (Gain) - Regular (1), Premium (2), VIP (3)
 	 */
@@ -156,15 +133,6 @@ public class RateConfig {
 	@Property(key = "gameserver.rate.vip.ap.player.loss", defaultValue = "3.0")
 	public static float VIP_AP_PLAYER_LOSS_RATE;
 	/**
-	 * Player glory Points Rates - Regular (1), Premium (2), VIP (3)
-	 */
-	@Property(key = "gameserver.rate.regular.gp.player.loss", defaultValue = "1.0")
-	public static float GP_PLAYER_LOSS_RATE;
-	@Property(key = "gameserver.rate.premium.gp.player.loss", defaultValue = "2.0")
-	public static float PREMIUM_GP_PLAYER_LOSS_RATE;
-	@Property(key = "gameserver.rate.vip.gp.player.loss", defaultValue = "3.0")
-	public static float VIP_GP_PLAYER_LOSS_RATE;
-	/**
 	 * NPC Abyss Points Rates - Regular (1), Premium (2), VIP (3)
 	 */
 	@Property(key = "gameserver.rate.regular.ap.npc", defaultValue = "1.0")
@@ -173,15 +141,6 @@ public class RateConfig {
 	public static float PREMIUM_AP_NPC_RATE;
 	@Property(key = "gameserver.rate.vip.ap.npc", defaultValue = "3.0")
 	public static float VIP_AP_NPC_RATE;
-	/**
-	 * NPC Glory Points Rates - Regular (1), Premium (2), VIP (3)
-	 */
-	@Property(key = "gameserver.rate.regular.gp.npc", defaultValue = "1.0")
-	public static float GP_NPC_RATE;
-	@Property(key = "gameserver.rate.premium.gp.npc", defaultValue = "2.0")
-	public static float PREMIUM_GP_NPC_RATE;
-	@Property(key = "gameserver.rate.vip.gp.npc", defaultValue = "3.0")
-	public static float VIP_GP_NPC_RATE;
 	/**
 	 * PVE DP Rates - Regular (1), Premium (2), VIP (3)
 	 */
@@ -203,12 +162,6 @@ public class RateConfig {
 	/**
 	 * PVP Arena and Dredgion reward rates
 	 */
-	@Property(key = "gameserver.rate.abyss.runatorium", defaultValue = "4")
-	public static float RUNATORIUM_ABYSS_REWARD_RATE;
-	@Property(key = "gameserver.rate.glory.runatorium", defaultValue = "1.4")
-	public static float RUNATORIUM_GLORY_REWARD_RATE;
-	@Property(key = "gameserver.rate.box.runatorium", defaultValue = "1")
-	public static float RUNATORIUM_BOX_REWARD_RATE;
 	@Property(key = "gameserver.rate.dredgion", defaultValue = "5")
 	public static float DREDGION_REWARD_RATE;
 	@Property(key = "gameserver.rate.kamar", defaultValue = "5")
@@ -239,20 +192,6 @@ public class RateConfig {
 	public static float PREMIUM_PVP_ARENA_GLORY_REWARD_RATE;
 	@Property(key = "gameserver.rate.vip.pvparena.glory", defaultValue = "3")
 	public static float VIP_PVP_ARENA_GLORY_REWARD_RATE;
-	@Property(key = "gameserver.rate.regular.jormungand", defaultValue = "1")
-	public static float REGULAR_JORMUNGAND_REWARD_RATE;
-	@Property(key = "gameserver.rate.premium.jormungand", defaultValue = "1")
-	public static float PREMIUM_JORMUNGAND_REWARD_RATE;
-	@Property(key = "gameserver.rate.vip.jormungand", defaultValue = "1")
-	public static float VIP_JORMUNGAND_REWARD_RATE;
-	@Property(key = "gameserver.rate.steelwall", defaultValue = "1")
-	public static float STEELWALL_REWARD_RATE;
-	@Property(key = "gameserver.rate.regular.steelwall", defaultValue = "1")
-	public static float REGULAR_STEELWALL_REWARD_RATE;
-	@Property(key = "gameserver.rate.premium.steelwall", defaultValue = "1")
-	public static float PREMIUM_STEELWALL_REWARD_RATE;
-	@Property(key = "gameserver.rate.vip.steelwall", defaultValue = "1")
-	public static float VIP_STEELWALL_REWARD_RATE;
 	/**
 	 * Rate which affects amount of required ap for Abyss rank
 	 */
@@ -272,38 +211,38 @@ public class RateConfig {
 	 */
 	@Property(key = "gameserver.rate.instance", defaultValue = "2")
 	public static float INSTANCE_REWARD_RATE;
-	/*
-	 * Holiday Rates
+	/**
+	 * PvP GP Reward
 	 */
-	@Property(key = "gameserver.rate.holiday.enable", defaultValue = "false")
-	public static boolean HOLIDAY_RATE_ENAMBLE;
-	@Property(key = "gameserver.rate.holiday.regular", defaultValue = "1")
-	public static int HOLIDAY_RATE_REGULAR;
-	@Property(key = "gameserver.rate.holiday.premium", defaultValue = "2")
-	public static int HOLIDAY_RATE_PREMIUM;
-	@Property(key = "gameserver.rate.holiday.vip", defaultValue = "4")
-	public static int HOLIDAY_RATE_VIP;
-	@Property(key = "gameserver.rate.holiday.days", defaultValue = "1,7")
-	public static String HOLIDAY_RATE_DAYS;
-	/*
-	 * Growth Energy (5.x)
-	 */
-	@Property(key = "gameserver.rate.growth.energy.chance", defaultValue = "50")
-	public static int GROWTH_ENERGY;
-	@Property(key = "gameserver.rate.regular.quest.exp_boost", defaultValue = "1")
-	public static float QUEST_EXP_BOOST_RATE;
-	@Property(key = "gameserver.rate.premium.quest.exp_boost", defaultValue = "2")
-	public static float PREMIUM_QUEST_EXP_BOOST_RATE;
-	@Property(key = "gameserver.rate.vip.quest.exp_boost", defaultValue = "3")
-	public static float VIP_QUEST_EXP_BOOST_RATE;
+	@Property(key = "gameserver.rate.party.gp", defaultValue = "10")
+	public static int PARTY_GP_REWARD;
+	@Property(key = "gameserver.rate.alliance.gp", defaultValue = "5")
+	public static int ALLIANCE_GP_REWARD;
+	@Property(key = "gameserver.rate.solo.gp", defaultValue = "20")
+	public static int SOLO_GP_REWARD;
 
 	/*
-	 * Monsterbook XP Rate (5.x)
+	 * RATES FOR MOBS (HP & Power)
 	 */
-    @Property(key = "gameserver.rate.regular.book", defaultValue = "1")
-    public static float BOOK_RATE;
-    @Property(key = "gameserver.rate.premium.book", defaultValue = "2")
-    public static float PREMIUM_BOOK_RATE;
-    @Property(key = "gameserver.rate.vip.book", defaultValue = "3")
-    public static float VIP_BOOK_RATE;
+	@Property(key = "gameserver.rate.junk.mobs.hp", defaultValue = "1.0")
+	public static double JUNK_MOBS_RATE_HP;
+	@Property(key = "gameserver.rate.junk.mobs.pw", defaultValue = "1.0")
+	public static double JUNK_MOBS_RATE_PW;
+	@Property(key = "gameserver.rate.normal.mobs.hp", defaultValue = "1.0")
+	public static double NORMAL_MOBS_RATE_HP;
+	@Property(key = "gameserver.rate.normal.mobs.pw", defaultValue = "1.0")
+	public static double NORMAL_MOBS_RATE_PW;
+	@Property(key = "gameserver.rate.elite.mobs.hp", defaultValue = "1.0")
+	public static double ELITE_MOBS_RATE_HP;
+	@Property(key = "gameserver.rate.elite.mobs.pw", defaultValue = "1.0")
+	public static double ELITE_MOBS_RATE_PW;
+	@Property(key = "gameserver.rate.hero.mobs.hp", defaultValue = "1.0")
+	public static double HERO_MOBS_RATE_HP;
+	@Property(key = "gameserver.rate.hero.mobs.pw", defaultValue = "1.0")
+	public static double HERO_MOBS_RATE_PW;
+	@Property(key = "gameserver.rate.legendary.mobs.hp", defaultValue = "1.0")
+	public static double LEGENDARY_MOBS_RATE_HP;
+	@Property(key = "gameserver.rate.legendary.mobs.pw", defaultValue = "1.0")
+	public static double LEGENDARY_MOBS_RATE_PW;
+
 }

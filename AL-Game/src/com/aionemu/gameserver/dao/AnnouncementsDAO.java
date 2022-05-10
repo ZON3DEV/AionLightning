@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dao;
 
 import java.util.Set;
@@ -35,7 +36,8 @@ public abstract class AnnouncementsDAO implements DAO {
 	public abstract boolean delAnnouncement(final int idAnnounce);
 
 	/**
-	 * Returns class name that will be uses as unique identifier for all DAO classes
+	 * Returns class name that will be uses as unique identifier for all DAO
+	 * classes
 	 *
 	 * @return class name
 	 */

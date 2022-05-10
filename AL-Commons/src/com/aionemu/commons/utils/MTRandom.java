@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.utils;
 
 import java.util.Random;
@@ -22,56 +23,42 @@ import java.util.Random;
 /**
  * @author David Beaumont, Copyright 2005
  *         <p/>
- *         A Java implementation of the MT19937 (Mersenne Twister) pseudo random
- *         number generator algorithm based upon the original C code by Makoto
- *         Matsumoto and Takuji Nishimura (see
- *         <a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html">
- *         http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html</a> for more
- *         information.
+ *         A Java implementation of the MT19937 (Mersenne Twister) pseudo random number generator algorithm based upon
+ *         the original C code by Makoto Matsumoto and Takuji Nishimura (see <a
+ *         href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html">
+ *         http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html</a> for more information.
  *         <p/>
- *         As a subclass of java.util.Random this class provides a single
- *         canonical method next() for generating bits in the pseudo random
- *         number sequence. Anyone using this class should invoke the public
- *         inherited methods (nextInt(), nextFloat etc.) to obtain values as
- *         normal. This class should provide a drop-in replacement for the
- *         standard implementation of java.util.Random with the additional
- *         advantage of having a far longer period and the ability to use a far
- *         larger seed value.
+ *         As a subclass of java.util.Random this class provides a single canonical method next() for generating bits in
+ *         the pseudo random number sequence. Anyone using this class should invoke the public inherited methods
+ *         (nextInt(), nextFloat etc.) to obtain values as normal. This class should provide a drop-in replacement for
+ *         the standard implementation of java.util.Random with the additional advantage of having a far longer period
+ *         and the ability to use a far larger seed value.
  *         <p/>
- *         This is <b>not</b> a cryptographically strong source of randomness
- *         and should <b>not</b> be used for cryptographic systems or in any
- *         other situation where true random numbers are required.
+ *         This is <b>not</b> a cryptographically strong source of randomness and should <b>not</b> be used for
+ *         cryptographic systems or in any other situation where true random numbers are required.
  *         <p/>
- *         <!-- Creative Commons License -->
- *         <a href="http://creativecommons.org/licenses/LGPL/2.1/"><img alt=
- *         "CC-GNU LGPL" border="0" src=
- *         "http://creativecommons.org/images/public/cc-LGPL-a.png" /></a><br />
- *         This software is licensed under the
- *         <a href="http://creativecommons.org/licenses/LGPL/2.1/">CC-GNU
- *         LGPL</a>. <!-- /Creative Commons License --> <!--
- *         <rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc=
- *         "http://purl.org/dc/elements/1.1/" xmlns:rdf=
- *         "http://www.w3.org/1999/02/22-rdf-syntax-ns#"> <Work rdf:about="">
- *         <license rdf:resource="http://creativecommons.org/licenses/LGPL/2.1/"
- *         /> <dc:type rdf:resource="http://purl.org/dc/dcmitype/Software" />
- *         </Work>
- *         <License rdf:about="http://creativecommons.org/licenses/LGPL/2.1/">
- *         <permits rdf:resource="http://web.resource.org/cc/Reproduction" />
- *         <permits rdf:resource="http://web.resource.org/cc/Distribution" />
- *         <requires rdf:resource="http://web.resource.org/cc/Notice" />
- *         <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
- *         <requires rdf:resource="http://web.resource.org/cc/ShareAlike" />
- *         <requires rdf:resource="http://web.resource.org/cc/SourceCode" />
- *         </License> </rdf:RDF> -->
+ *         <!-- Creative Commons License --> <a href="http://creativecommons.org/licenses/LGPL/2.1/"><img
+ *         alt="CC-GNU LGPL" border="0" src="http://creativecommons.org/images/public/cc-LGPL-a.png" /></a><br />
+ *         This software is licensed under the <a href="http://creativecommons.org/licenses/LGPL/2.1/">CC-GNU LGPL</a>.
+ *         <!-- /Creative Commons License --> <!-- <rdf:RDF xmlns="http://web.resource.org/cc/"
+ *         xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"> <Work
+ *         rdf:about=""> <license rdf:resource="http://creativecommons.org/licenses/LGPL/2.1/" /> <dc:type
+ *         rdf:resource="http://purl.org/dc/dcmitype/Software" /> </Work> <License
+ *         rdf:about="http://creativecommons.org/licenses/LGPL/2.1/"> <permits
+ *         rdf:resource="http://web.resource.org/cc/Reproduction" /> <permits
+ *         rdf:resource="http://web.resource.org/cc/Distribution" /> <requires
+ *         rdf:resource="http://web.resource.org/cc/Notice" /> <permits
+ *         rdf:resource="http://web.resource.org/cc/DerivativeWorks" /> <requires
+ *         rdf:resource="http://web.resource.org/cc/ShareAlike" /> <requires
+ *         rdf:resource="http://web.resource.org/cc/SourceCode" /> </License> </rdf:RDF> -->
  * @version 1.0
  */
 public class MTRandom extends Random {
 
 	/**
-	 * Auto-generated serial version UID. Note that MTRandom does NOT support
-	 * serialisation of its internal state and it may even be necessary to
-	 * implement read/write methods to re-seed it properly. This is only here to
-	 * make Eclipse shut up about it being missing.
+	 * Auto-generated serial version UID. Note that MTRandom does NOT support serialisation of its internal state and it
+	 * may even be necessary to implement read/write methods to re-seed it properly. This is only here to make Eclipse
+	 * shut up about it being missing.
 	 */
 	private static final long serialVersionUID = -515082678588212038L;
 
@@ -98,34 +85,28 @@ public class MTRandom extends Random {
 	private transient int[] ibuf;
 
 	/**
-	 * The default constructor for an instance of MTRandom. This invokes the
-	 * no-argument constructor for java.util.Random which will result in the
-	 * class being initialised with a seed value obtained by calling
-	 * System.currentTimeMillis().
+	 * The default constructor for an instance of MTRandom. This invokes the no-argument constructor for java.util.Random
+	 * which will result in the class being initialised with a seed value obtained by calling System.currentTimeMillis().
 	 */
 	public MTRandom() {
 		this(false);
 	}
 
 	/**
-	 * This version of the constructor can be used to implement identical
-	 * behaviour to the original C code version of this algorithm including
-	 * exactly replicating the case where the seed value had not been set prior
-	 * to calling genrand_int32.
+	 * This version of the constructor can be used to implement identical behaviour to the original C code version of this
+	 * algorithm including exactly replicating the case where the seed value had not been set prior to calling
+	 * genrand_int32.
 	 * <p/>
-	 * If the compatibility flag is set to true, then the algorithm will be
-	 * seeded with the same default value as was used in the original C code.
-	 * Furthermore the setSeed() method, which must take a 64 bit long value,
-	 * will be limited to using only the lower 32 bits of the seed to facilitate
-	 * seamless migration of existing C code into Java where identical behaviour
-	 * is required.
+	 * If the compatibility flag is set to true, then the algorithm will be seeded with the same default value as was used
+	 * in the original C code. Furthermore the setSeed() method, which must take a 64 bit long value, will be limited to
+	 * using only the lower 32 bits of the seed to facilitate seamless migration of existing C code into Java where
+	 * identical behaviour is required.
 	 * <p/>
-	 * Whilst useful for ensuring backwards compatibility, it is advised that
-	 * this feature not be used unless specifically required, due to the
-	 * reduction in strength of the seed value.
+	 * Whilst useful for ensuring backwards compatibility, it is advised that this feature not be used unless specifically
+	 * required, due to the reduction in strength of the seed value.
 	 * 
 	 * @param compatible
-	 *            Compatibility flag for replicating original behaviour.
+	 *          Compatibility flag for replicating original behaviour.
 	 */
 	public MTRandom(boolean compatible) {
 		super(0L);
@@ -134,27 +115,26 @@ public class MTRandom extends Random {
 	}
 
 	/**
-	 * This version of the constructor simply initialises the class with the
-	 * given 64 bit seed value. For a better random number sequence this seed
-	 * value should contain as much entropy as possible.
+	 * This version of the constructor simply initialises the class with the given 64 bit seed value. For a better random
+	 * number sequence this seed value should contain as much entropy as possible.
 	 * 
 	 * @param seed
-	 *            The seed value with which to initialise this class.
+	 *          The seed value with which to initialise this class.
 	 */
 	public MTRandom(long seed) {
 		super(seed);
 	}
 
 	/**
-	 * This version of the constructor initialises the class with the given byte
-	 * array. All the data will be used to initialise this instance.
+	 * This version of the constructor initialises the class with the given byte array. All the data will be used to
+	 * initialise this instance.
 	 * 
 	 * @param buf
-	 *            The non-empty byte array of seed information.
+	 *          The non-empty byte array of seed information.
 	 * @throws NullPointerException
-	 *             if the buffer is null.
+	 *           if the buffer is null.
 	 * @throws IllegalArgumentException
-	 *             if the buffer has zero length.
+	 *           if the buffer has zero length.
 	 */
 	public MTRandom(byte[] buf) {
 		super(0L);
@@ -162,15 +142,15 @@ public class MTRandom extends Random {
 	}
 
 	/**
-	 * This version of the constructor initialises the class with the given
-	 * integer array. All the data will be used to initialise this instance.
+	 * This version of the constructor initialises the class with the given integer array. All the data will be used to
+	 * initialise this instance.
 	 * 
 	 * @param buf
-	 *            The non-empty integer array of seed information.
+	 *          The non-empty integer array of seed information.
 	 * @throws NullPointerException
-	 *             if the buffer is null.
+	 *           if the buffer is null.
 	 * @throws IllegalArgumentException
-	 *             if the buffer has zero length.
+	 *           if the buffer has zero length.
 	 */
 	public MTRandom(int[] buf) {
 		super(0L);
@@ -202,26 +182,23 @@ public class MTRandom extends Random {
 	}
 
 	/**
-	 * This method resets the state of this instance using the 64 bits of seed
-	 * data provided. Note that if the same seed data is passed to two different
-	 * instances of MTRandom (both of which share the same compatibility state)
-	 * then the sequence of numbers generated by both instances will be
-	 * identical.
+	 * This method resets the state of this instance using the 64 bits of seed data provided. Note that if the same seed
+	 * data is passed to two different instances of MTRandom (both of which share the same compatibility state) then the
+	 * sequence of numbers generated by both instances will be identical.
 	 * <p/>
-	 * If this instance was initialised in 'compatibility' mode then this method
-	 * will only use the lower 32 bits of any seed value passed in and will
-	 * match the behaviour of the original C code exactly with respect to state
+	 * If this instance was initialised in 'compatibility' mode then this method will only use the lower 32 bits of any
+	 * seed value passed in and will match the behaviour of the original C code exactly with respect to state
 	 * initialisation.
 	 * 
 	 * @param seed
-	 *            The 64 bit value used to initialise the random number
-	 *            generator state.
+	 *          The 64 bit value used to initialise the random number generator state.
 	 */
 	@Override
 	public final synchronized void setSeed(long seed) {
 		if (compat) {
 			setSeed((int) seed);
-		} else {
+		}
+		else {
 
 			// Annoying runtime check for initialisation of internal data
 			// caused by java.util.Random invoking setSeed() during init.
@@ -238,38 +215,34 @@ public class MTRandom extends Random {
 	}
 
 	/**
-	 * This method resets the state of this instance using the byte array of
-	 * seed data provided. Note that calling this method is equivalent to
-	 * calling "setSeed(pack(buf))" and in particular will result in a new
-	 * integer array being generated during the call. If you wish to retain this
-	 * seed data to allow the pseudo random sequence to be restarted then it
-	 * would be more efficient to use the "pack()" method to convert it into an
-	 * integer array first and then use that to re-seed the instance. The
-	 * behaviour of the class will be the same in both cases but it will be more
+	 * This method resets the state of this instance using the byte array of seed data provided. Note that calling this
+	 * method is equivalent to calling "setSeed(pack(buf))" and in particular will result in a new integer array being
+	 * generated during the call. If you wish to retain this seed data to allow the pseudo random sequence to be restarted
+	 * then it would be more efficient to use the "pack()" method to convert it into an integer array first and then use
+	 * that to re-seed the instance. The behaviour of the class will be the same in both cases but it will be more
 	 * efficient.
 	 * 
 	 * @param buf
-	 *            The non-empty byte array of seed information.
+	 *          The non-empty byte array of seed information.
 	 * @throws NullPointerException
-	 *             if the buffer is null.
+	 *           if the buffer is null.
 	 * @throws IllegalArgumentException
-	 *             if the buffer has zero length.
+	 *           if the buffer has zero length.
 	 */
 	public final void setSeed(byte[] buf) {
 		setSeed(pack(buf));
 	}
 
 	/**
-	 * This method resets the state of this instance using the integer array of
-	 * seed data provided. This is the canonical way of resetting the pseudo
-	 * random number sequence.
+	 * This method resets the state of this instance using the integer array of seed data provided. This is the canonical
+	 * way of resetting the pseudo random number sequence.
 	 * 
 	 * @param buf
-	 *            The non-empty integer array of seed information.
+	 *          The non-empty integer array of seed information.
 	 * @throws NullPointerException
-	 *             if the buffer is null.
+	 *           if the buffer is null.
 	 * @throws IllegalArgumentException
-	 *             if the buffer has zero length.
+	 *           if the buffer has zero length.
 	 */
 	public final synchronized void setSeed(int[] buf) {
 		int length = buf.length;
@@ -302,15 +275,12 @@ public class MTRandom extends Random {
 	}
 
 	/**
-	 * This method forms the basis for generating a pseudo random number
-	 * sequence from this class. If given a value of 32, this method behaves
-	 * identically to the genrand_int32 function in the original C code and
-	 * ensures that using the standard nextInt() function (inherited from
-	 * Random) we are able to replicate behaviour exactly.
+	 * This method forms the basis for generating a pseudo random number sequence from this class. If given a value of 32,
+	 * this method behaves identically to the genrand_int32 function in the original C code and ensures that using the
+	 * standard nextInt() function (inherited from Random) we are able to replicate behaviour exactly.
 	 * <p/>
-	 * Note that where the number of bits requested is not equal to 32 then bits
-	 * will simply be masked out from the top of the returned integer value.
-	 * That is to say that:
+	 * Note that where the number of bits requested is not equal to 32 then bits will simply be masked out from the top of
+	 * the returned integer value. That is to say that:
 	 * <p/>
 	 * 
 	 * <pre>
@@ -327,9 +297,9 @@ public class MTRandom extends Random {
 	 * </pre>
 	 * 
 	 * @param bits
-	 *            The number of significant bits desired in the output.
-	 * @return The next value in the pseudo random sequence with the specified
-	 *         number of bits in the lower part of the integer.
+	 *          The number of significant bits desired in the output.
+	 * @return The next value in the pseudo random sequence with the specified number of bits in the lower part of the
+	 *         integer.
 	 */
 	@Override
 	protected final synchronized int next(int bits) {
@@ -374,14 +344,12 @@ public class MTRandom extends Random {
 	// byte[] into an int[] in little endian ordering.
 
 	/**
-	 * This simply utility method can be used in cases where a byte array of
-	 * seed data is to be used to repeatedly re-seed the random number sequence.
-	 * By packing the byte array into an integer array first, using this method,
-	 * and then invoking setSeed() with that; it removes the need to re-pack the
-	 * byte array each time setSeed() is called.
+	 * This simply utility method can be used in cases where a byte array of seed data is to be used to repeatedly re-seed
+	 * the random number sequence. By packing the byte array into an integer array first, using this method, and then
+	 * invoking setSeed() with that; it removes the need to re-pack the byte array each time setSeed() is called.
 	 * <p/>
-	 * If the length of the byte array is not a multiple of 4 then it is
-	 * implicitly padded with zeros as necessary. For example:
+	 * If the length of the byte array is not a multiple of 4 then it is implicitly padded with zeros as necessary. For
+	 * example:
 	 * <p/>
 	 * 
 	 * <pre>
@@ -396,15 +364,14 @@ public class MTRandom extends Random {
 	 * </pre>
 	 * <p/>
 	 * <p/>
-	 * Note that this method will not complain if the given byte array is empty
-	 * and will produce an empty integer array, but the setSeed() method will
-	 * throw an exception if the empty integer array is passed to it.
+	 * Note that this method will not complain if the given byte array is empty and will produce an empty integer array,
+	 * but the setSeed() method will throw an exception if the empty integer array is passed to it.
 	 * 
 	 * @param buf
-	 *            The non-null byte array to be packed.
+	 *          The non-null byte array to be packed.
 	 * @return A non-null integer array of the packed bytes.
 	 * @throws NullPointerException
-	 *             if the given byte array is null.
+	 *           if the given byte array is null.
 	 */
 	public static int[] pack(byte[] buf) {
 		int k, blen = buf.length, ilen = ((buf.length + 3) >>> 2);
@@ -413,8 +380,7 @@ public class MTRandom extends Random {
 			int m = (n + 1) << 2;
 			if (m > blen)
 				m = blen;
-			for (k = buf[--m] & 0xff; (m & 0x3) != 0; k = (k << 8) | buf[--m] & 0xff)
-				;
+			for (k = buf[--m] & 0xff; (m & 0x3) != 0; k = (k << 8) | buf[--m] & 0xff);
 			ibuf[n] = k;
 		}
 		return ibuf;

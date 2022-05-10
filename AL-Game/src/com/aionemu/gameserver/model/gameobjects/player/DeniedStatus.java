@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player;
 
 /**
@@ -21,13 +22,7 @@ package com.aionemu.gameserver.model.gameobjects.player;
  */
 public enum DeniedStatus {
 
-	VIEW_DETAILS(1),
-	TRADE(2),
-	GROUP(4),
-	GUILD(8),
-	FRIEND(16),
-	DUEL(32);
-
+	VIEW_DETAILS(1), TRADE(2), GROUP(4), GUILD(8), FRIEND(16), DUEL(32);
 	private int id;
 
 	private DeniedStatus(int id) {

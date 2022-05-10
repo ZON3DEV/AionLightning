@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.ai2.manager;
 
 import com.aionemu.gameserver.model.EmotionType;
@@ -108,62 +109,57 @@ public class EmoteManager {
 		PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, EmotionType.NEUTRALMODE, 0, 0));
 	}
 
-	/**
-	 * Npc starts dancing iu 1
-	 * 
-	 * @param owner
-	 * @value you and me
-	 */
-	public static final void emoteStartDancing1(Npc owner) {
-		owner.unsetState(CreatureState.NPC_IDLE);
-		owner.setState(CreatureState.ACTIVE);
-		PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, EmotionType.EMOTE, 134, 0));
-	}
+    /**
+     * Npc starts dancing iu 1
+     * @param owner
+     * @value you and me
+     */
+    public static final void emoteStartDancing1(Npc owner) {
+    	owner.unsetState(CreatureState.NPC_IDLE);
+    	owner.setState(CreatureState.ACTIVE);
+        PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, EmotionType.EMOTE, 134, 0));
+    }
 
-	/**
-	 * Npc starts dancing iu 2
-	 * 
-	 * @param owner
-	 * @vlaue good day
-	 */
-	public static final void emoteStartDancing2(Npc owner) {
-		owner.unsetState(CreatureState.NPC_IDLE);
-		owner.setState(CreatureState.ACTIVE);
-		PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, EmotionType.EMOTE, 133, 0));
-	}
+    /**
+     * Npc starts dancing iu 2
+     * @param owner
+     * @vlaue good day
+     */
+    public static final void emoteStartDancing2(Npc owner) {
+    	owner.unsetState(CreatureState.NPC_IDLE);
+    	owner.setState(CreatureState.ACTIVE);
+        PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, EmotionType.EMOTE, 133, 0));
+    }
 
-	/**
-	 * Npc starts dancing iu 3
-	 * 
-	 * @param owner
-	 * @value theme song
-	 */
-	public static final void emoteStartDancing3(Npc owner) {
-		owner.unsetState(CreatureState.NPC_IDLE);
-		owner.setState(CreatureState.ACTIVE);
-		PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, EmotionType.EMOTE, 142, 0));
-	}
+    /**
+     * Npc starts dancing iu 3
+     * @param owner
+     * @value theme song
+     */
+    public static final void emoteStartDancing3(Npc owner) {
+    	owner.unsetState(CreatureState.NPC_IDLE);
+    	owner.setState(CreatureState.ACTIVE);
+        PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, EmotionType.EMOTE, 142, 0));
+    }
 
-	/**
-	 * Npc starts dancing iu 4
-	 * 
-	 * @param owner
-	 * @value new song
-	 */
-	public static final void emoteStartDancing4(Npc owner) {
-		owner.unsetState(CreatureState.NPC_IDLE);
-		owner.setState(CreatureState.ACTIVE);
-		PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, EmotionType.EMOTE, 19, 0));
-	}
+    /**
+     * Npc starts dancing iu 4
+     * @param owner
+     * @value new song
+     */
+    public static final void emoteStartDancing4(Npc owner) {
+    	owner.unsetState(CreatureState.NPC_IDLE);
+    	owner.setState(CreatureState.ACTIVE);
+        PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, EmotionType.EMOTE, 19, 0));
+    }
 
-	/**
-	 * Npc starts singing iu
-	 * 
-	 * @param owner
-	 */
-	public static final void emoteStartSinging(Npc owner) {
-		owner.unsetState(CreatureState.NPC_IDLE);
-		owner.setState(CreatureState.ACTIVE);
-		PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, EmotionType.EMOTE, 113, 0));
-	}
+    /**
+     * Npc starts singing iu
+     * @param owner
+     */
+    public static final void emoteStartSinging(Npc owner) {
+    	owner.unsetState(CreatureState.NPC_IDLE);
+    	owner.setState(CreatureState.ACTIVE);
+        PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, EmotionType.EMOTE, 113, 0));
+    }
 }

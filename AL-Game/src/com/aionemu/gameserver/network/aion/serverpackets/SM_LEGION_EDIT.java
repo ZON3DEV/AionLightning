@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.team.legion.Legion;
@@ -54,9 +55,9 @@ public class SM_LEGION_EDIT extends AionServerPacket {
 	protected void writeImpl(AionConnection con) {
 		writeC(type);
 		switch (type) {
-			/**
-			 * Change Legion Level *
-			 */
+		/**
+		 * Change Legion Level *
+		 */
 			case 0x00:
 				writeC(legion.getLegionLevel());
 				break;
@@ -107,21 +108,6 @@ public class SM_LEGION_EDIT extends AionServerPacket {
 			 */
 			case 0x08:
 				break;
-
-			case 0x10:
-				break;
-			case 0x0C:
-				writeS(legion.getLegionDiscription());
-				break;
-
-			case 0x0D:
-				writeC(legion.getLegionJoinType());
-				break;
-
-			case 0x0E:
-				writeH(legion.getMinLevel());
-				break;
-
 		}
 	}
 }

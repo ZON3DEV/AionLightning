@@ -14,7 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+ 
 package ai.worlds.liveParty;
+
+import ai.GeneralNpcAI2;
 
 import com.aionemu.gameserver.ai2.AIName;
 import com.aionemu.gameserver.ai2.AIState;
@@ -24,17 +27,17 @@ import com.aionemu.gameserver.ai2.poll.AIAnswer;
 import com.aionemu.gameserver.ai2.poll.AIAnswers;
 import com.aionemu.gameserver.ai2.poll.AIQuestion;
 
-import ai.GeneralNpcAI2;
-
 /**
  * @author Alcapwnd
+ *
  */
+ 
 @AIName("dancer")
 public class DancerAI2 extends GeneralNpcAI2 {
-
+	
 	@Override
 	protected void handleSpawned() {
-		switch (getNpcId()) {
+		switch(getNpcId()) {
 			case 831633:
 			case 831634:
 			case 831635:
@@ -75,7 +78,7 @@ public class DancerAI2 extends GeneralNpcAI2 {
 				break;
 		}
 	}
-
+	
 	@Override
 	protected AIAnswer pollInstance(AIQuestion question) {
 		switch (question) {

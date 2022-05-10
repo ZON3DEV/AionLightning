@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.configs.main.GSConfig;
@@ -65,18 +66,14 @@ public class CM_CHECK_NICKNAME extends AionClientPacket {
 		if (!PlayerService.isFreeName(nick) || PlayerService.isOldName(nick)) {
 			if (GSConfig.CHARACTER_CREATION_MODE == 2) {
 				client.sendPacket(new SM_NICKNAME_CHECK_RESPONSE(SM_CREATE_CHARACTER.RESPONSE_NAME_RESERVED));
-			}
-			else {
+			} else {
 				client.sendPacket(new SM_NICKNAME_CHECK_RESPONSE(SM_CREATE_CHARACTER.RESPONSE_NAME_ALREADY_USED));
 			}
-		}
-		else if (!NameRestrictionService.isValidName(nick)) {
+		} else if (!NameRestrictionService.isValidName(nick)) {
 			client.sendPacket(new SM_NICKNAME_CHECK_RESPONSE(SM_CREATE_CHARACTER.RESPONSE_INVALID_NAME));
-		}
-		else if (NameRestrictionService.isForbiddenWord(nick)) {
+		} else if (NameRestrictionService.isForbiddenWord(nick)) {
 			client.sendPacket(new SM_CREATE_CHARACTER(null, SM_CREATE_CHARACTER.RESPONSE_FORBIDDEN_CHAR_NAME));
-		}
-		else {
+		} else {
 			client.sendPacket(new SM_NICKNAME_CHECK_RESPONSE(SM_CREATE_CHARACTER.RESPONSE_OK));
 		}
 	}

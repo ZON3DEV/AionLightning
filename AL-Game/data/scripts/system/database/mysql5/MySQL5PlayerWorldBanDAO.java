@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
@@ -51,14 +52,11 @@ public class MySQL5PlayerWorldBanDAO extends PlayerWorldBanDAO {
 			}
 			rs.close();
 			stmt.close();
-		}
-		catch (MySQLDataException mde) {
-		}
-		catch (Exception e) {
+		} catch (MySQLDataException mde) {
+		} catch (Exception e) {
 			log.error("cannot load world ban for player #" + player.getObjectId());
 			log.warn(e.getMessage());
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}
@@ -85,21 +83,17 @@ public class MySQL5PlayerWorldBanDAO extends PlayerWorldBanDAO {
 				stmt.execute();
 				stmt.close();
 				result = true;
-			}
-			else {
+			} else {
 				log.warn("player #" + playerObjId + " already banned");
 				result = false;
 			}
-		}
-		catch (MySQLDataException mde) {
+		} catch (MySQLDataException mde) {
 			result = false;
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("cannot insert world ban for player #" + playerObjId);
 			log.warn(e.getMessage());
 			result = false;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return result;
@@ -116,14 +110,11 @@ public class MySQL5PlayerWorldBanDAO extends PlayerWorldBanDAO {
 			stmt.setInt(1, playerObjId);
 			stmt.execute();
 			stmt.close();
-		}
-		catch (MySQLDataException mde) {
-		}
-		catch (Exception e) {
+		} catch (MySQLDataException mde) {
+		} catch (Exception e) {
 			log.error("cannot delete world ban for player #" + playerObjId);
 			log.warn(e.getMessage());
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}

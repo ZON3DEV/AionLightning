@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.classNpc;
 
 import java.util.concurrent.Future;
@@ -30,6 +31,7 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author Cheatkiller
+ *
  */
 @AIName("drakanhealingservant")
 public class DrakanHealingServantAI2 extends NpcAI2 {
@@ -38,7 +40,6 @@ public class DrakanHealingServantAI2 extends NpcAI2 {
 	protected void handleSpawned() {
 		super.handleSpawned();
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				if (getCreator() == null) {
@@ -52,7 +53,6 @@ public class DrakanHealingServantAI2 extends NpcAI2 {
 
 	private void heal() {
 		Future<?> task = ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 			@Override
 			public void run() {
 				getOwner().getController().useSkill(20520);

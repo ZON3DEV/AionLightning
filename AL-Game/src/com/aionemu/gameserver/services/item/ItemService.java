@@ -14,13 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.item;
-
-import java.util.Collection;
-import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.main.LoggingConfig;
@@ -34,26 +29,27 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.items.ManaStone;
 import com.aionemu.gameserver.model.items.storage.Storage;
-import com.aionemu.gameserver.model.templates.achievement.AchievementActionType;
+import com.aionemu.gameserver.model.templates.item.ArmorType;
 import com.aionemu.gameserver.model.templates.item.ItemCategory;
-import com.aionemu.gameserver.model.templates.item.ItemSkillEnhance;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.model.templates.quest.QuestItems;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.item.ItemPacketService.ItemAddType;
 import com.aionemu.gameserver.services.item.ItemPacketService.ItemUpdateType;
-import com.aionemu.gameserver.services.player.AchievementService;
 import com.aionemu.gameserver.taskmanager.tasks.ExpireTimerTask;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.RndArray;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.world.World;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Collections2;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Collection;
+import java.util.List;
 
 /**
  * @author KID
- * @rework Blackfire
  */
 public class ItemService {
 
@@ -101,10 +97,11 @@ public class ItemService {
 		Preconditions.checkNotNull(predicate, "Predicate is not supplied");
 
 		if (LoggingConfig.LOG_ITEM) {
-			log.info("[ITEM] ID/Count" + (LoggingConfig.ENABLE_ADVANCED_LOGGING ? "/Item Name - " + itemTemplate.getTemplateId() + "/" + count + "/" + itemTemplate.getName() : " - " + itemTemplate.getTemplateId() + "/" + count) + " to player " + player.getName());
+			log.info("[ITEM] ID/Count"
+					+ (LoggingConfig.ENABLE_ADVANCED_LOGGING ? "/Item Name - " + itemTemplate.getTemplateId() + "/" + count + "/" + itemTemplate.getName()
+							: " - " + itemTemplate.getTemplateId() + "/" + count) + " to player " + player.getName());
 		}
 
-		AchievementService.getInstance().onUpdateAchievementAction(player, itemId, (int)count, AchievementActionType.COLLECT_ITEM);
 		Storage inventory = player.getInventory();
 		if (itemTemplate.isKinah()) {
 			// quests do not add here
@@ -114,8 +111,7 @@ public class ItemService {
 
 		if (itemTemplate.isStackable()) {
 			count = addStackableItem(player, itemTemplate, count, predicate);
-		}
-		else {
+		} else {
 			count = addNonStackableItem(player, itemTemplate, count, sourceItem, predicate);
 		}
 
@@ -130,7 +126,6 @@ public class ItemService {
 	 */
 	private static long addNonStackableItem(Player player, ItemTemplate itemTemplate, long count, Item sourceItem, ItemUpdatePredicate predicate) {
 		Storage inventory = player.getInventory();
-		ItemSkillEnhance skillEnhance = DataManager.ITEM_SKILL_ENHANCE_DATA.getSkillEnhance(itemTemplate.getSkillEnhance());
 		while (!inventory.isFull(itemTemplate.getExtraInventoryId()) && count > 0) {
 			Item newItem = ItemFactory.newItem(itemTemplate.getTemplateId());
 
@@ -140,11 +135,6 @@ public class ItemService {
 			if (sourceItem != null) {
 				copyItemInfo(sourceItem, newItem);
 			}
-            if (itemTemplate.getSkillEnhance() != 0) {
-                newItem.setEnhanceSkillId(RndArray.get(skillEnhance.getSkillId()));
-                newItem.setEnhanceEnchantLevel(1);
-                newItem.setIsEnhance(true);
-            }
 			predicate.changeItem(newItem);
 			inventory.add(newItem, predicate.getAddType());
 			count--;
@@ -166,8 +156,8 @@ public class ItemService {
 		if (sourceItem.getGodStone() != null) {
 			newItem.addGodStone(sourceItem.getGodStone().getItemId());
 		}
-		if (sourceItem.getEnchantOrAuthorizeLevel() > 0) {
-			newItem.setEnchantOrAuthorizeLevel(sourceItem.getEnchantOrAuthorizeLevel());
+		if (sourceItem.getEnchantLevel() > 0) {
+			newItem.setEnchantLevel(sourceItem.getEnchantLevel());
 		}
 		if (sourceItem.isSoulBound()) {
 			newItem.setSoulBound(true);
@@ -178,7 +168,6 @@ public class ItemService {
 		newItem.setIdianStone(sourceItem.getIdianStone());
 		newItem.setItemColor(sourceItem.getItemColor());
 		newItem.setItemSkinTemplate(sourceItem.getItemSkinTemplate());
-		newItem.setIsEnhance(sourceItem.isEnhance());
 	}
 
 	/**
@@ -194,15 +183,15 @@ public class ItemService {
 			count = inventory.increaseItemCount(item, count, predicate.getUpdateType(item, true));
 		}
 
-		// If Power Shard's are Equiped and there are no Power Shard's in Inventory / or max Stack is reached (in Inventory) they get added to Equiped Power Shard's
-		if (itemTemplate.getCategory() == ItemCategory.SHARD) {
-			Equipment equipment = player.getEquipment();
-			items = equipment.getEquippedItemsByItemId(itemTemplate.getTemplateId());
+		// dirty & hacky check for arrows and shards...
+		if (itemTemplate.getCategory() != ItemCategory.SHARD || itemTemplate.getArmorType() == ArmorType.ARROW) {
+			Equipment equipement = player.getEquipment();
+			items = equipement.getEquippedItemsByItemId(itemTemplate.getTemplateId());
 			for (Item item : items) {
 				if (count == 0) {
 					break;
 				}
-				count = equipment.increaseEquippedItemCount(item, count);
+				count = equipement.increaseEquippedItemCount(item, count);
 			}
 		}
 
@@ -231,8 +220,7 @@ public class ItemService {
 				}
 				if (template.getExtraInventoryId() > 0) {
 					specialSlot += count;
-				}
-				else {
+				} else {
 					slotReq += count;
 				}
 			}
@@ -286,9 +274,6 @@ public class ItemService {
 			return itemAddType;
 		}
 
-		/**
-		 * @param item
-		 */
 		public boolean changeItem(Item item) {
 			return true;
 		}
@@ -325,68 +310,15 @@ public class ItemService {
 		ItemTemplate template = DataManager.ITEM_DATA.getItemTemplate(randomItemId);
 		return template != null;
 	}
+    public static Item newItem(int resultItemId, int count, Object object, int unk, int unk1, int unk2) {
+        ItemTemplate itemTemplate = DataManager.ITEM_DATA.getItemTemplate(resultItemId);
+        if (count <= 0 || itemTemplate == null) {
+            return null;
+        }
+        Preconditions.checkNotNull(itemTemplate, "No item with id " + resultItemId);
 
-	/**
-	 * @param object
-	 * @param unk
-	 * @param unk1
-	 * @param unk2
-	 */
-	public static Item newItem(int resultItemId, int count, Object object, int unk, int unk1, int unk2) {
-		ItemTemplate itemTemplate = DataManager.ITEM_DATA.getItemTemplate(resultItemId);
-		if (count <= 0 || itemTemplate == null) {
-			return null;
-		}
-		Preconditions.checkNotNull(itemTemplate, "No item with id " + resultItemId);
+        Item newItem = ItemFactory.newItem(itemTemplate.getTemplateId());
 
-		Item newItem = ItemFactory.newItem(itemTemplate.getTemplateId());
-
-		return newItem;
-	}
-
-	public static void makeUpgradeItem(Player player, Item sourceItem, Item newItem) {
-		Storage inventory = player.getInventory();
-		newItem.setOptionalSocket(sourceItem.getOptionalSocket());
-		int enchantLevel = sourceItem.getEnchantOrAuthorizeLevel();
-		
-		if (sourceItem.getFusionedItemId() != 0) {
-			newItem.setFusionedItem(sourceItem.getFusionedItemTemplate());
-		}
-
-		if (sourceItem.hasManaStones()) {
-			ItemSocketService.copyManaStones(sourceItem, newItem);
-		}
-
-		if (sourceItem.hasGodStone()) {
-			newItem.addGodStone(sourceItem.getGodStone().getItemId());
-		}
-		
-		if (sourceItem.getItemTemplate().isPlume()) {
-			newItem.setEnchantOrAuthorizeLevel(1);
-			newItem.setEnchantOrAuthorizeLevel(0);
-		} else {
-			if (enchantLevel >= 20) {
-				newItem.setEnchantOrAuthorizeLevel(enchantLevel - 5);
-				newItem.setAmplificationSkill(sourceItem.getAmplificationSkill());
-				newItem.setAmplified(true);
-			}
-			else {
-				newItem.setEnchantOrAuthorizeLevel(enchantLevel);
-			}
-		}
-
-		if (sourceItem.isSoulBound()) {
-			newItem.setSoulBound(true);
-		}
-
-		if (sourceItem.getBonusNumber() > 0) {
-			newItem.setBonusNumber(sourceItem.getBonusNumber());
-			newItem.setRandomStats(sourceItem.getRandomStats());
-			newItem.setRandomCount(sourceItem.getRandomCount());
-		}
-
-		ItemUpdatePredicate predicate = DEFAULT_UPDATE_PREDICATE;
-		predicate.changeItem(newItem);
-		inventory.add(newItem, predicate.getAddType());
-	}
+        return newItem;
+    }
 }

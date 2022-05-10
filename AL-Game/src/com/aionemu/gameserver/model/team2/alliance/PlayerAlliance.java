@@ -14,11 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.alliance;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -86,8 +87,7 @@ public class PlayerAlliance extends TemporaryPlayerTeam<PlayerAllianceMember> {
 					return playerAllianceGroup;
 				}
 			}
-		}
-		finally {
+		} finally {
 			unlock();
 		}
 		throw new IllegalStateException("All alliance groups are full.");

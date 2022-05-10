@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.slf4j.Logger;
@@ -25,16 +26,12 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
-import com.aionemu.gameserver.model.templates.quest.QuestCategory;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_COMPLETED_LIST;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.ClassChangeService;
 import com.aionemu.gameserver.services.QuestService;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author KKnD , orz, avol
@@ -50,8 +47,6 @@ public class CM_DIALOG_SELECT extends AionClientPacket {
 	@SuppressWarnings("unused")
 	private int lastPage;
 	private int questId;
-	private int unk;
-	
 	@SuppressWarnings("unused")
 	private static final Logger log = LoggerFactory.getLogger(CM_DIALOG_SELECT.class);
 
@@ -71,12 +66,9 @@ public class CM_DIALOG_SELECT extends AionClientPacket {
 	protected void readImpl() {
 		targetObjectId = readD();// empty
 		dialogId = readH(); // total no of choice
-		//System.out.println("DialogId: " + dialogId);
 		extendedRewardIndex = readH();
-		unk = readH();//new 5.6 (1)
 		lastPage = readH();
 		questId = readD();
-		readH();// unk 4.7.0.7
 	}
 
 	/**
@@ -92,21 +84,12 @@ public class CM_DIALOG_SELECT extends AionClientPacket {
 		}
 
 		if (targetObjectId == 0 || targetObjectId == player.getObjectId()) {
-			if (questTemplate != null && !questTemplate.isCannotShare() && (dialogId == DialogAction.QUEST_ACCEPT_1.id() || dialogId == DialogAction.QUEST_ACCEPT_SIMPLE.id())) {
+			if (questTemplate != null && !questTemplate.isCannotShare()
+					&& (dialogId == DialogAction.QUEST_ACCEPT_1.id() || dialogId == DialogAction.QUEST_ACCEPT_SIMPLE.id())) {
 				QuestService.startQuest(env);
 				return;
 			}
 			if (QuestEngine.getInstance().onDialog(new QuestEnv(null, player, questId, dialogId))) {
-				return;
-			}
-			if (questTemplate != null && dialogId == DialogAction.QUEST_AUTO_REWARD.id()) {
-				QuestEnv env1 = new QuestEnv(null, player, questId, dialogId);
-				QuestService.finishQuest(env1);
-				if (questTemplate.getCategory() == QuestCategory.TUTORIAL) {
-					QuestService.completeQuest(env1);
-				}
-				PacketSendUtility.sendPacket(player, new SM_QUEST_COMPLETED_LIST(player.getQuestStateList().getAllFinishedQuests()));
-				PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(0, 0));
 				return;
 			}
 			// FIXME client sends unk1=1, targetObjectId=0, dialogId=2 (trader) => we miss some packet to close window
@@ -118,7 +101,7 @@ public class CM_DIALOG_SELECT extends AionClientPacket {
 
 		if (obj != null && obj instanceof Creature) {
 			Creature creature = (Creature) obj;
-			creature.getController().onDialogSelect(dialogId, player, questId, extendedRewardIndex, unk);
+			creature.getController().onDialogSelect(dialogId, player, questId, extendedRewardIndex);
 		}
 		// log.info("id: "+targetObjectId+" dialogId: " + dialogId +" unk1: " + unk1 + " questId: "+questId);
 	}

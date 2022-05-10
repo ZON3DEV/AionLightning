@@ -14,12 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 import com.aionemu.gameserver.questEngine.model.QuestState;
-
 import javolution.util.FastList;
 
 /**
@@ -27,7 +27,7 @@ import javolution.util.FastList;
  */
 public class SM_QUEST_COMPLETED_LIST extends AionServerPacket {
 
-	private FastList<QuestState> questState;
+  private FastList<QuestState> questState;
 
 	public SM_QUEST_COMPLETED_LIST(FastList<QuestState> questState) {
 		this.questState = questState;
@@ -38,9 +38,9 @@ public class SM_QUEST_COMPLETED_LIST extends AionServerPacket {
 		writeH(0x01); // 2.1
 		writeH(-questState.size() & 0xFFFF);
 		for (QuestState qs : questState) {
-			writeD(qs.getQuestId());
-			writeD(qs.getCompleteCount());
-			writeD(1); // unk 5.6
+		    writeD(qs.getQuestId());
+		    writeC(qs.getCompleteCount());
+            writeC(0); // unk 4.5
 		}
 		FastList.recycle(questState);
 		questState = null;

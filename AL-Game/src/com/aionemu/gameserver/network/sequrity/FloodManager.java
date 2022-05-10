@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.sequrity;
 
 import java.util.Arrays;
@@ -33,11 +34,7 @@ public final class FloodManager {
 
 	public static enum ErrorMode {
 
-		INVALID_OPCODE,
-		BUFFER_UNDER_FLOW,
-		BUFFER_OVER_FLOW,
-		FAILED_READING,
-		FAILED_RUNNING;
+		INVALID_OPCODE, BUFFER_UNDER_FLOW, BUFFER_OVER_FLOW, FAILED_READING, FAILED_RUNNING
 	}
 
 	public static final class FloodFilter {
@@ -84,12 +81,10 @@ public final class FloodManager {
 			if (currentTick - _lastTick >= _ticks.length) {
 				_lastTick = currentTick;
 				Arrays.fill(_ticks, (short) 0);
-			}
-			else if (_lastTick > currentTick) {
+			} else if (_lastTick > currentTick) {
 				log.warn("The current tick (" + currentTick + ") is smaller than the last (" + _lastTick + ")!", new IllegalStateException());
 				_lastTick = currentTick;
-			}
-			else {
+			} else {
 				while (currentTick != _lastTick) {
 					_lastTick++;
 					_ticks[_lastTick % _ticks.length] = 0;
@@ -131,9 +126,7 @@ public final class FloodManager {
 
 	public static enum Result {
 
-		ACCEPTED,
-		WARNED,
-		REJECTED;
+		ACCEPTED, WARNED, REJECTED;
 
 		public static Result max(final Result r1, final Result r2) {
 			if (r1.ordinal() > r2.ordinal()) {
@@ -165,7 +158,6 @@ public final class FloodManager {
 		_tickAmount = max;
 
 		NetFlusher.add(new Runnable() {
-
 			@Override
 			public void run() {
 				flush();
@@ -183,8 +175,7 @@ public final class FloodManager {
 
 				it.remove();
 			}
-		}
-		finally {
+		} finally {
 			_lock.unlock();
 		}
 	}
@@ -205,8 +196,7 @@ public final class FloodManager {
 			}
 
 			return entry.isFlooding(increment);
-		}
-		finally {
+		} finally {
 			_lock.unlock();
 		}
 	}

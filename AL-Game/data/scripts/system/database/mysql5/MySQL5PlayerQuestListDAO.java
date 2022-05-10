@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
@@ -53,21 +54,18 @@ public class MySQL5PlayerQuestListDAO extends PlayerQuestListDAO {
 	public static final String DELETE_QUERY = "DELETE FROM `player_quests` WHERE `player_id`=? AND `quest_id`=?";
 	public static final String INSERT_QUERY = "INSERT INTO `player_quests` (`player_id`, `quest_id`, `status`, `quest_vars`, `complete_count`, `next_repeat_time`, `reward`, `complete_time`) VALUES (?,?,?,?,?,?,?,?)";
 	private static final Predicate<QuestState> questsToAddPredicate = new Predicate<QuestState>() {
-
 		@Override
 		public boolean apply(@Nullable QuestState input) {
 			return input != null && PersistentState.NEW == input.getPersistentState();
 		}
 	};
 	private static final Predicate<QuestState> questsToUpdatePredicate = new Predicate<QuestState>() {
-
 		@Override
 		public boolean apply(@Nullable QuestState input) {
 			return input != null && PersistentState.UPDATE_REQUIRED == input.getPersistentState();
 		}
 	};
 	private static final Predicate<QuestState> questsToDeletePredicate = new Predicate<QuestState>() {
-
 		@Override
 		public boolean apply(@Nullable QuestState input) {
 			return input != null && PersistentState.DELETED == input.getPersistentState();
@@ -101,11 +99,9 @@ public class MySQL5PlayerQuestListDAO extends PlayerQuestListDAO {
 				questStateList.addQuest(questId, questState);
 			}
 			rset.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not restore QuestStateList data for player: " + player.getObjectId() + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(stmt, con);
 		}
 		return questStateList;
@@ -128,11 +124,9 @@ public class MySQL5PlayerQuestListDAO extends PlayerQuestListDAO {
 
 			addQuests(con, player.getObjectId(), qsList);
 			updateQuests(con, player.getObjectId(), qsList);
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Can't save quests for player " + player.getObjectId(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 
@@ -161,20 +155,17 @@ public class MySQL5PlayerQuestListDAO extends PlayerQuestListDAO {
 				ps.setInt(5, qs.getCompleteCount());
 				if (qs.getNextRepeatTime() != null) {
 					ps.setTimestamp(6, qs.getNextRepeatTime());
-				}
-				else {
+				} else {
 					ps.setNull(6, Types.TIMESTAMP);
 				}
 				if (qs.getReward() == null) {
 					ps.setNull(7, Types.INTEGER);
-				}
-				else {
+				} else {
 					ps.setInt(7, qs.getReward());
 				}
 				if (qs.getCompleteTime() == null) {
 					ps.setNull(8, Types.TIMESTAMP);
-				}
-				else {
+				} else {
 					ps.setTimestamp(8, qs.getCompleteTime());
 				}
 				ps.addBatch();
@@ -182,11 +173,9 @@ public class MySQL5PlayerQuestListDAO extends PlayerQuestListDAO {
 
 			ps.executeBatch();
 			con.commit();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Failed to insert new quests for player " + playerId);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(ps);
 		}
 	}
@@ -209,20 +198,17 @@ public class MySQL5PlayerQuestListDAO extends PlayerQuestListDAO {
 				ps.setInt(3, qs.getCompleteCount());
 				if (qs.getNextRepeatTime() != null) {
 					ps.setTimestamp(4, qs.getNextRepeatTime());
-				}
-				else {
+				} else {
 					ps.setNull(4, Types.TIMESTAMP);
 				}
 				if (qs.getReward() == null) {
 					ps.setNull(5, Types.SMALLINT);
-				}
-				else {
+				} else {
 					ps.setInt(5, qs.getReward());
 				}
 				if (qs.getCompleteTime() == null) {
 					ps.setNull(6, Types.TIMESTAMP);
-				}
-				else {
+				} else {
 					ps.setTimestamp(6, qs.getCompleteTime());
 				}
 				ps.setInt(7, playerId);
@@ -232,11 +218,9 @@ public class MySQL5PlayerQuestListDAO extends PlayerQuestListDAO {
 
 			ps.executeBatch();
 			con.commit();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Failed to update existing quests for player " + playerId);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(ps);
 		}
 	}
@@ -261,11 +245,9 @@ public class MySQL5PlayerQuestListDAO extends PlayerQuestListDAO {
 
 			ps.executeBatch();
 			con.commit();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Failed to delete existing quests for player " + playerId);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(ps);
 		}
 	}

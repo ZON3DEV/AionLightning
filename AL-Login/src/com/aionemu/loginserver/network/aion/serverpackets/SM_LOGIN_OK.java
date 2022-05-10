@@ -42,7 +42,7 @@ public class SM_LOGIN_OK extends AionServerPacket {
      * @param key session key
      */
     public SM_LOGIN_OK(SessionKey key) {
-        super(3);
+        super(0x03);
         this.accountId = key.accountId;
         this.loginOk = key.loginOk;
     }
@@ -54,10 +54,17 @@ public class SM_LOGIN_OK extends AionServerPacket {
     protected void writeImpl(LoginConnection con) {
         writeD(accountId);
         writeD(loginOk);
-    	writeD(0);
-    	writeD(0);
-    	writeD(1002);
-    	writeD(126282165);
-    	writeB(new byte[47]);
+        writeD(0x00);
+        writeD(0x00);
+        writeD(0x00);
+        writeD(0x00);
+        writeD(0x00);
+        writeD(0x00);
+        writeD(0x00);
+        writeD(0x00);
+        writeD(0x00);
+        writeD(0x00);
+        writeD(0x00);
+        writeB(new byte[0x19]);
     }
 }

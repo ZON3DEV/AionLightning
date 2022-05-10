@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -138,32 +139,29 @@ public class SkillEngine {
 		return skillEngine;
 	}
 
-	public void applyEffectDirectly(int skillId, Creature effector, Creature effected, int duration) {
-		applyEffectDirectly(skillId, effector, effected, duration, false);
-	}
-
 	/**
-	 * This method is used to apply directly effect of given skill without checking properties, sending packets, etc Should be only used from quest scripts, or when you are sure about it
+	 * This method is used to apply directly effect of given skill without
+	 * checking properties, sending packets, etc Should be only used from quest
+	 * scripts, or when you are sure about it
 	 *
 	 * @param skillId
 	 * @param effector
 	 * @param effected
 	 * @param duration
 	 *            => 0 takes duration from skill_templates, >0 forced duration
-	 * @param noRemoveAtDie
 	 */
-	public void applyEffectDirectly(int skillId, Creature effector, Creature effected, int duration, boolean noRemoveAtDie) {
+	public void applyEffectDirectly(int skillId, Creature effector, Creature effected, int duration) {
 		SkillTemplate st = DataManager.SKILL_DATA.getSkillTemplate(skillId);
 		if (st == null) {
 			return;
 		}
+
 		final Effect ef = new Effect(effector, effected, st, st.getLvl(), duration);
 		ef.setIsForcedEffect(true);
 		ef.initialize();
 		if (duration > 0) {
 			ef.setForcedDuration(true);
 		}
-		ef.getSkillTemplate().setNoRemoveAtDie(noRemoveAtDie);
 		ef.applyEffect();
 	}
 }

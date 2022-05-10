@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -34,11 +35,11 @@ public class cmd_cube extends PlayerCommand {
 
 	@Override
 	public void execute(Player player, String... params) {
-		if (player.getCubeExpands() >= 9) {
+		if (player.getNpcExpands() >= 9) {
 			PacketSendUtility.sendMessage(player, LanguageHandler.translate(CustomMessageId.CUBE_ALLREADY_EXPANDED));
 			return;
 		}
-		while (player.getCubeExpands() < 9) {
+		while (player.getNpcExpands() < 9) {
 			CubeExpandService.expand(player, true);
 		}
 		PacketSendUtility.sendMessage(player, LanguageHandler.translate(CustomMessageId.CUBE_SUCCESS_EXPAND));

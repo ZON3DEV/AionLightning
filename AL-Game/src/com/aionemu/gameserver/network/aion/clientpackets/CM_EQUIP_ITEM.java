@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.TaskId;
@@ -25,9 +26,7 @@ import com.aionemu.gameserver.network.aion.AionConnection.State;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_UPDATE_PLAYER_APPEARANCE;
 import com.aionemu.gameserver.restrictions.RestrictionsManager;
-import com.aionemu.gameserver.skillengine.effect.AbnormalState;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-//I remove it later now its for testing because .info dont give infos in chat
 
 /**
  * @author Avol modified by ATracer
@@ -51,18 +50,14 @@ public class CM_EQUIP_ITEM extends AionClientPacket {
 
 	@Override
 	protected void runImpl() {
-
 		final Player activePlayer = getConnection().getActivePlayer();
+
 		activePlayer.getController().cancelUseItem();
 
 		Equipment equipment = activePlayer.getEquipment();
 		Item resultItem = null;
 
 		if (!RestrictionsManager.canChangeEquip(activePlayer)) {
-			return;
-		} 
-		if (activePlayer.getEffectController().isAbnormalState(AbnormalState.CANT_ATTACK_STATE)) {
-			PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.STR_SKILL_CAN_NOT_ACT_WHILE_IN_ABNORMAL_STATE);
 			return;
 		}
 
@@ -78,15 +73,19 @@ public class CM_EQUIP_ITEM extends AionClientPacket {
 					PacketSendUtility.sendPacket(activePlayer, SM_SYSTEM_MESSAGE.STR_CANT_EQUIP_ITEM_IN_ACTION);
 					return;
 				}
-				// checking for stance
+				// check for stance
 				if (activePlayer.getController().isUnderStance()) {
 					activePlayer.getController().stopStance();
 				}
+
 				equipment.switchHands();
 				break;
 		}
+
 		if (resultItem != null || action == 2) {
-			PacketSendUtility.broadcastPacket(activePlayer, new SM_UPDATE_PLAYER_APPEARANCE(activePlayer.getObjectId(), equipment.getEquippedForApparence()), true);
+			PacketSendUtility.broadcastPacket(activePlayer, new SM_UPDATE_PLAYER_APPEARANCE(activePlayer.getObjectId(), equipment.getEquippedForApparence()),
+					true);
 		}
+
 	}
 }

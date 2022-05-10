@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.network;
 
 import java.net.InetSocketAddress;
@@ -63,28 +64,34 @@ public class NetworkConfig {
 	@Property(key = "gameserver.network.login.password", defaultValue = "")
 	public static String LOGIN_PASSWORD;
 	/**
-	 * Number of Threads dedicated to be doing io read & write. There is always 1 acceptor thread. If value is < 1 - acceptor thread will also handle read & write. If value is > 0 - there will be
-	 * given amount of read & write threads + 1 acceptor thread.
+	 * Number of Threads dedicated to be doing io read & write. There is always
+	 * 1 acceptor thread. If value is < 1 - acceptor thread will also handle
+	 * read & write. If value is > 0 - there will be given amount of read &
+	 * write threads + 1 acceptor thread.
 	 */
 	@Property(key = "gameserver.network.nio.threads", defaultValue = "1")
 	public static int NIO_READ_WRITE_THREADS;
 	/**
-	 * Number of minimum threads that will be used to execute aion client packets.
+	 * Number of minimum threads that will be used to execute aion client
+	 * packets.
 	 */
 	@Property(key = "gameserver.network.packet.processor.threads.min", defaultValue = "4")
 	public static int PACKET_PROCESSOR_MIN_THREADS;
 	/**
-	 * Number of maximum threads that will be used to execute aion client packets.
+	 * Number of maximum threads that will be used to execute aion client
+	 * packets.
 	 */
 	@Property(key = "gameserver.network.packet.processor.threads.max", defaultValue = "4")
 	public static int PACKET_PROCESSOR_MAX_THREADS;
 	/**
-	 * Threshold that will be used to decide when extra threads are not needed. (it doesn't have any effect if min threads == max threads)
+	 * Threshold that will be used to decide when extra threads are not needed.
+	 * (it doesn't have any effect if min threads == max threads)
 	 */
 	@Property(key = "gameserver.network.packet.processor.threshold.kill", defaultValue = "3")
 	public static int PACKET_PROCESSOR_THREAD_KILL_THRESHOLD;
 	/**
-	 * Threshold that will be used to decide when extra threads should be spawned. (it doesn't have any effect if min threads == max threads)
+	 * Threshold that will be used to decide when extra threads should be
+	 * spawned. (it doesn't have any effect if min threads == max threads)
 	 */
 	@Property(key = "gameserver.network.packet.processor.threshold.spawn", defaultValue = "50")
 	public static int PACKET_PROCESSOR_THREAD_SPAWN_THRESHOLD;

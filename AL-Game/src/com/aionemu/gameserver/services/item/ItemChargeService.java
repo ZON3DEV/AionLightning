@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.item;
 
 import java.util.Collection;
@@ -49,16 +50,17 @@ public class ItemChargeService {
 			return Collections.singletonList(selectedItem);
 		}
 		return Collections2.filter(player.getEquipment().getEquippedItems(), new Predicate<Item>() {
-
 			@Override
 			public boolean apply(Item item) {
-				return item.getChargeLevelMax() != 0 && item.getImprovement() != null && item.getImprovement().getChargeWay() == chargeWay && item.getChargePoints() < ChargeInfo.LEVEL2;
+				return item.getChargeLevelMax() != 0 && item.getImprovement() != null && item.getImprovement().getChargeWay() == chargeWay
+						&& item.getChargePoints() < ChargeInfo.LEVEL2;
 			}
 		});
 	}
 
 	public static void startChargingEquippedItems(final Player player, int senderObj, final int chargeWay) {
-		// TODO: Check this : SM_QUESTION_WINDOW.STR_ITEM_CHARGE_CONFIRM_SOME_ALREADY_CHARGED !!!
+		// TODO: Check this :
+		// SM_QUESTION_WINDOW.STR_ITEM_CHARGE_CONFIRM_SOME_ALREADY_CHARGED !!!
 		final Collection<Item> filteredItems = filterItemsToCondition(player, null, chargeWay);
 		if (filteredItems.isEmpty()) {
 			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(chargeWay == 1 ? 1400895 : 1401343));
@@ -68,7 +70,6 @@ public class ItemChargeService {
 		final long payAmount = calculatePrice(filteredItems);
 
 		RequestResponseHandler request = new RequestResponseHandler(player) {
-
 			@Override
 			public void acceptRequest(Creature requester, Player responder) {
 				if (processPayment(player, chargeWay, payAmount)) {
@@ -123,8 +124,7 @@ public class ItemChargeService {
 		player.getInventory().setPersistentState(PersistentState.UPDATE_REQUIRED);
 		if (chargeWay == 1) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_ITEM_CHARGE_SUCCESS(new DescriptionId(item.getNameId()), level));
-		}
-		else {
+		} else {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_ITEM_CHARGE2_SUCCESS(new DescriptionId(item.getNameId()), level));
 		}
 		player.getGameStats().updateStatsVisually();

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.PreparedStatement;
@@ -49,7 +50,6 @@ public class MySQL5BrokerDAO extends BrokerDAO {
 		final List<Item> items = getBrokerItems();
 
 		DB.select("SELECT * FROM broker", new ReadStH() {
-
 			@Override
 			public void handleRead(ResultSet rset) throws SQLException {
 				while (rset.next()) {
@@ -65,11 +65,9 @@ public class MySQL5BrokerDAO extends BrokerDAO {
 					Timestamp settleTime = rset.getTimestamp("settle_time");
 					int sold = rset.getInt("is_sold");
 					int settled = rset.getInt("is_settled");
-					int partSale = rset.getInt("is_partsale");
 
 					boolean isSold = sold == 1;
 					boolean isSettled = settled == 1;
-					boolean isPartSale = partSale == 1;
 
 					Item item = null;
 					if (!isSold) {
@@ -81,7 +79,8 @@ public class MySQL5BrokerDAO extends BrokerDAO {
 						}
 					}
 
-					brokerItems.add(new BrokerItem(item, itemId, itemPointer, itemCount, itemCreator, price, seller, sellerId, itemBrokerRace, isSold, isSettled, expireTime, settleTime, isPartSale));
+					brokerItems.add(new BrokerItem(item, itemId, itemPointer, itemCount, itemCreator, price, seller, sellerId, itemBrokerRace, isSold,
+							isSettled, expireTime, settleTime));
 				}
 			}
 		});
@@ -93,7 +92,6 @@ public class MySQL5BrokerDAO extends BrokerDAO {
 		final List<Item> brokerItems = new ArrayList<Item>();
 
 		DB.select("SELECT * FROM inventory WHERE `item_location` = 126", new ReadStH() {
-
 			@Override
 			public void handleRead(ResultSet rset) throws SQLException {
 				while (rset.next()) {
@@ -116,20 +114,11 @@ public class MySQL5BrokerDAO extends BrokerDAO {
 					int randomBonus = rset.getInt("rnd_bonus");
 					int rndCount = rset.getInt("rnd_count");
 					int packCount = rset.getInt("pack_count");
-					int max_authorize = rset.getInt("authorize");
-					int isAmplified = rset.getInt("is_amplified");
-					int buffSkill = rset.getInt("buff_skill");
-					int reductionLevel = rset.getInt("reduction_level");
-					boolean isEnhance = rset.getBoolean("isEnhance");
-					int enhanceSkillId = rset.getInt("enhanceSkillId");
-					int enhanceSkillEnchant = rset.getInt("enhanceSkillEnchant");
-					int unSeal = rset.getInt("is_seal");
-					int skinSkill = rset.getInt("skin_skill");
-					int grindSocket = rset.getInt("grind_socket");
-					int grindColor = rset.getInt("grind_color");
-					boolean contaminated = rset.getBoolean("contaminated");
+					int authorize = rset.getInt("authorize");
 
-					brokerItems.add(new Item(itemUniqueId, itemId, itemCount, itemColor, colorExpireTime, itemCreator, expireTime, activationCount, false, false, slot, location, enchant, itemSkin, fusionedItem, optionalSocket, optionalFusionSocket, charge, randomBonus, rndCount, packCount, max_authorize, false, isAmplified == 1, buffSkill, reductionLevel, false, isEnhance, enhanceSkillId, enhanceSkillEnchant, unSeal, skinSkill, grindSocket, grindColor, 0, 0, contaminated));
+					brokerItems.add(new Item(itemUniqueId, itemId, itemCount, itemColor, colorExpireTime, itemCreator, expireTime, activationCount, false,
+							false, slot, location, enchant, itemSkin, fusionedItem, optionalSocket, optionalFusionSocket, charge, randomBonus, rndCount,
+							packCount, false, authorize));
 				}
 			}
 		});
@@ -158,9 +147,6 @@ public class MySQL5BrokerDAO extends BrokerDAO {
 				result = deleteBrokerItem(item);
 				break;
 
-			case UPDATE_ITEM_BROKER:
-				result = updateItem(item);
-
 			case UPDATE_REQUIRED:
 				result = updateBrokerItem(item);
 				break;
@@ -176,34 +162,33 @@ public class MySQL5BrokerDAO extends BrokerDAO {
 	}
 
 	private boolean insertBrokerItem(final BrokerItem item) {
-		boolean result = DB.insertUpdate("INSERT INTO `broker` (`item_pointer`, `item_id`, `item_count`, `item_creator`, `seller`, `price`, `broker_race`, `expire_time`, `settle_time`, `seller_id`, `is_sold`, `is_settled`, `is_partsale`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", new IUStH() {
+		boolean result = DB
+				.insertUpdate(
+						"INSERT INTO `broker` (`item_pointer`, `item_id`, `item_count`, `item_creator`, `seller`, `price`, `broker_race`, `expire_time`, `seller_id`, `is_sold`, `is_settled`) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+						new IUStH() {
+							@Override
+							public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
+								stmt.setInt(1, item.getItemUniqueId());
+								stmt.setInt(2, item.getItemId());
+								stmt.setLong(3, item.getItemCount());
+								stmt.setString(4, item.getItemCreator());
+								stmt.setString(5, item.getSeller());
+								stmt.setLong(6, item.getPrice());
+								stmt.setString(7, String.valueOf(item.getItemBrokerRace()));
+								stmt.setTimestamp(8, item.getExpireTime());
+								stmt.setInt(9, item.getSellerId());
+								stmt.setBoolean(10, item.isSold());
+								stmt.setBoolean(11, item.isSettled());
 
-			@Override
-			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
-				stmt.setInt(1, item.getItemUniqueId());
-				stmt.setInt(2, item.getItemId());
-				stmt.setLong(3, item.getItemCount());
-				stmt.setString(4, item.getItemCreator());
-				stmt.setString(5, item.getSeller());
-				stmt.setLong(6, item.getPrice());
-				stmt.setString(7, String.valueOf(item.getItemBrokerRace()));
-				stmt.setTimestamp(8, item.getExpireTime());
-				stmt.setTimestamp(9, item.getSettleTime());
-				stmt.setInt(10, item.getSellerId());
-				stmt.setBoolean(11, item.isSold());
-				stmt.setBoolean(12, item.isSettled());
-				stmt.setBoolean(13, item.isPartSale());
-
-				stmt.execute();
-			}
-		});
+								stmt.execute();
+							}
+						});
 
 		return result;
 	}
 
 	private boolean deleteBrokerItem(final BrokerItem item) {
 		boolean result = DB.insertUpdate("DELETE FROM `broker` WHERE `item_pointer` = ? AND `seller_id` = ? AND `expire_time` = ?", new IUStH() {
-
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
 				stmt.setInt(1, item.getItemUniqueId());
@@ -229,51 +214,30 @@ public class MySQL5BrokerDAO extends BrokerDAO {
 			if (rs.next()) {
 				return true;
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Can't to prebuy broker check: ", e);
-		}
-		finally {
+		} finally {
 			DB.close(st);
 		}
 		return false;
 	}
 
 	private boolean updateBrokerItem(final BrokerItem item) {
-		boolean result = DB.insertUpdate("UPDATE broker SET `is_sold` = ?, `is_settled` = 1, `settle_time` = ? WHERE `item_pointer` = ? AND `expire_time` = ? AND `seller_id` = ? AND `is_settled` = 0", new IUStH() {
+		boolean result = DB
+				.insertUpdate(
+						"UPDATE broker SET `is_sold` = ?, `is_settled` = 1, `settle_time` = ? WHERE `item_pointer` = ? AND `expire_time` = ? AND `seller_id` = ? AND `is_settled` = 0",
+						new IUStH() {
+							@Override
+							public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
+								stmt.setBoolean(1, item.isSold());
+								stmt.setTimestamp(2, item.getSettleTime());
+								stmt.setInt(3, item.getItemUniqueId());
+								stmt.setTimestamp(4, item.getExpireTime());
+								stmt.setInt(5, item.getSellerId());
 
-			@Override
-			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
-				stmt.setBoolean(1, item.isSold());
-				stmt.setTimestamp(2, item.getSettleTime());
-				stmt.setInt(3, item.getItemUniqueId());
-				stmt.setTimestamp(4, item.getExpireTime());
-				stmt.setInt(5, item.getSellerId());
-
-				stmt.execute();
-			}
-		});
-
-		return result;
-	}
-
-	private boolean updateItem(final BrokerItem item) {
-		boolean result = DB.insertUpdate("UPDATE broker SET `item_count` = ?, `price` = ?, `is_sold` = ?, `is_settled` = ?, `settle_time` = ?, `is_partsale` = ? WHERE `item_pointer` = ? AND `expire_time` = ? AND `seller_id` = ? AND `is_settled` = 0", new IUStH() {
-
-			@Override
-			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
-				stmt.setLong(1, item.getItemCount());
-				stmt.setLong(2, item.getPrice());
-				stmt.setBoolean(3, item.isSold());
-				stmt.setBoolean(4, item.isSettled());
-				stmt.setTimestamp(5, item.getSettleTime());
-				stmt.setBoolean(6, item.isPartSale());
-				stmt.setInt(7, item.getItemUniqueId());
-				stmt.setTimestamp(8, item.getExpireTime());
-				stmt.setInt(9, item.getSellerId());
-				stmt.execute();
-			}
-		});
+								stmt.execute();
+							}
+						});
 
 		return result;
 	}
@@ -293,11 +257,9 @@ public class MySQL5BrokerDAO extends BrokerDAO {
 				ids[i] = rs.getInt("id");
 			}
 			return ids;
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Can't get list of id's from players table", e);
-		}
-		finally {
+		} finally {
 			DB.close(statement);
 		}
 

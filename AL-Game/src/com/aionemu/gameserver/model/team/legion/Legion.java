@@ -14,12 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team.legion;
 
-import static ch.lambdaj.Lambda.having;
-import static ch.lambdaj.Lambda.on;
-import static ch.lambdaj.Lambda.select;
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.*;
+import static ch.lambdaj.Lambda.*;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -33,16 +32,13 @@ import java.util.TreeSet;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import com.aionemu.gameserver.configs.main.LegionConfig;
-import com.aionemu.gameserver.model.bonus_service.ServiceBuff;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ICON_INFO;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 
-import javolution.util.FastMap;
-
 /**
- * @author Simple, CoolyT
+ * @author Simple
  */
 public class Legion {
 
@@ -66,12 +62,6 @@ public class Legion {
 	private LegionWarehouse legionWarehouse;
 	private SortedSet<LegionHistory> legionHistory;
 	private AtomicBoolean hasBonus = new AtomicBoolean(false);
-	private FastMap<Integer, LegionJoinRequest> joinRequestMap = new FastMap<Integer, LegionJoinRequest>();
-	private String description = "";
-	private int minJoinLevel = 0;
-	private int joinType = 0;
-	private LegionTerritory territory;
-	private ServiceBuff serviceBuff;
 
 	/**
 	 * Only called when a legion is created!
@@ -91,7 +81,6 @@ public class Legion {
 	public Legion() {
 		this.legionWarehouse = new LegionWarehouse(this);
 		this.legionHistory = new TreeSet<LegionHistory>(new Comparator<LegionHistory>() {
-
 			@Override
 			public int compare(LegionHistory o1, LegionHistory o2) {
 				return o1.getTime().getTime() < o2.getTime().getTime() ? 1 : -1;
@@ -546,59 +535,25 @@ public class Legion {
 
 	public void addBonus() {
 		ArrayList<Player> members = getOnlineLegionMembers();
-          if (members.size() >= LegionConfig.LEGION_BUFF_REQUIRED_MEMBERS && members.size() <= 9) {
-            if (hasBonus.compareAndSet(false, true)) {
-                for (Player member : members) {
-                	serviceBuff = new ServiceBuff(1);
-				    serviceBuff.applyEffect(member, 1);
-			    }
-			}
-		} else if (members.size() >= LegionConfig.LEGION_BUFF_REQUIRED_MEMBERS && members.size() <= 240) {
+		if (members.size() >= LegionConfig.LEGION_BUFF_REQUIRED_MEMBERS) {
 			if (hasBonus.compareAndSet(false, true)) {
 				for (Player member : members) {
-				    serviceBuff = new ServiceBuff(5);
-				    serviceBuff.applyEffect(member, 5);
-				    serviceBuff.endEffect(member, 1);
 					PacketSendUtility.sendPacket(member, new SM_ICON_INFO(1, true));
 				}
 			}
 		}
-        for (Player member : members) {
-        	PacketSendUtility.sendMessage(member, "Legion: Bonus + 10 % XP , Craft , Gather"); 
-        }        	
 	}
 
 	public void removeBonus() {
 		ArrayList<Player> members = getOnlineLegionMembers();
-        if (members.size() < LegionConfig.LEGION_BUFF_REQUIRED_MEMBERS) {
-            	if (hasBonus.compareAndSet(true, false)) {
-            	for (Player member: members) {
-            		serviceBuff = new ServiceBuff(1);
-            		serviceBuff.endEffect(member, 1);
-            	}
-            }
-         } else if (members.size() < LegionConfig.LEGION_BUFF_REQUIRED_MEMBERS) {
+		if (members.size() < LegionConfig.LEGION_BUFF_REQUIRED_MEMBERS) {
 			if (hasBonus.compareAndSet(true, false)) {
 				for (Player member : members) {
-            		serviceBuff = new ServiceBuff(5);
-            		serviceBuff.endEffect(member, 5);
-            		serviceBuff.applyEffect(member, 1);
 					PacketSendUtility.sendPacket(member, new SM_ICON_INFO(1, false));
 				}
 			}
 		}
 	}
-                  
-    //Legion buff remove message
-    public void removeBonusMassage() {
-        ArrayList<Player> members = getOnlineLegionMembers();
-        if (members.size() < LegionConfig.LEGION_BUFF_REQUIRED_MEMBERS) {
-        	for (Player member : members) {
-        		PacketSendUtility.sendMessage(member, "Legion : Bonus + 0 % XP , Craft , Gather");             
-        	}
-        }
-        
-    } 
 
 	public boolean hasBonus() {
 		return hasBonus.get();
@@ -620,78 +575,5 @@ public class Legion {
 	@Override
 	public int hashCode() {
 		return legionId;
-	}
-
-	/**
-	 * @return Legion Description for Legion Search
-	 */
-	public String getLegionDiscription() {
-		return description;
-	}
-
-	/**
-	 * 0 : can join 1 : can join only with confirmation 2 : join is disabled @ return joinType
-	 */
-	public int getLegionJoinType() {
-		return joinType;
-	}
-
-	public int getMinLevel() {
-		return minJoinLevel;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public void setMinJoinLevel(int minJoinLevel) {
-		this.minJoinLevel = minJoinLevel;
-	}
-
-	public void setJoinType(int joinType) {
-		this.joinType = joinType;
-	}
-
-	/**
-	 * @return the joinRequestMap
-	 */
-	public FastMap<Integer, LegionJoinRequest> getJoinRequestMap() {
-		return joinRequestMap;
-	}
-
-	/**
-	 * @return the joinRequest for playerId
-	 */
-	public LegionJoinRequest getJoinRequestByPlayerId(int playerId) {
-		return joinRequestMap.get(playerId);
-	}
-
-	public void deleteJoinRequest(int playerId) {
-		joinRequestMap.remove(playerId);
-	}
-
-	/**
-	 * @param adds
-	 *            a joinRequest to the joinRequestMap
-	 */
-	public void addJoinRequest(LegionJoinRequest joinRequest) {
-		if (!joinRequestMap.containsKey(joinRequest.getPlayerId()))
-			this.joinRequestMap.put(joinRequest.getPlayerId(), joinRequest);
-	}
-
-	public void clearTerritory() {
-		setTerritory(new LegionTerritory(0));
-	}
-
-	public boolean ownsTerretory() {
-		return getTerritory().getId() > 0;
-	}
-
-	public LegionTerritory getTerritory() {
-		return territory;
-	}
-
-	public void setTerritory(LegionTerritory territory) {
-		this.territory = territory;
 	}
 }

@@ -14,20 +14,19 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dao;
 
 import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import com.aionemu.gameserver.model.Race;
-//import com.aionemu.gameserver.model.account.Account;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
-import com.aionemu.gameserver.model.team.legion.LegionJoinRequestState;
+import java.util.Set;
 
 /**
  * Class that is responsible for storing/loading player data
@@ -88,14 +87,16 @@ public abstract class PlayerDAO implements IDFactoryAwareDAO {
 	public abstract void storeCreationTime(int objectId, Timestamp creationDate);
 
 	/**
-	 * Loads creation and deletion time from database, for particular player and sets these values in given <tt>PlayerAccountData</tt> object.
+	 * Loads creation and deletion time from database, for particular player and
+	 * sets these values in given <tt>PlayerAccountData</tt> object.
 	 *
 	 * @param acData
 	 */
 	public abstract void setCreationDeletionTime(PlayerAccountData acData);
 
 	/**
-	 * Returns a list of objectId of players that are on the account with given accountId
+	 * Returns a list of objectId of players that are on the account with given
+	 * accountId
 	 *
 	 * @param accountId
 	 * @return List<Integer>
@@ -185,7 +186,8 @@ public abstract class PlayerDAO implements IDFactoryAwareDAO {
 	public abstract int getOnlinePlayerCount();
 
 	/**
-	 * Returns a Set of objectId of accounts that are inactive for more than dayOfInactivity days
+	 * Returns a Set of objectId of accounts that are inactive for more than
+	 * dayOfInactivity days
 	 *
 	 * @param daysOfInactivity
 	 *            Number of days a char needs to be inactive
@@ -197,18 +199,8 @@ public abstract class PlayerDAO implements IDFactoryAwareDAO {
 
 	public abstract void setPlayerLastTransferTime(final int playerId, final long time);
 
-	public abstract boolean updateBonusTime(final int playerObjId);
-
 	@Override
 	public final String getClassName() {
 		return PlayerDAO.class.getName();
 	}
-
-	public abstract Timestamp getCharacterCreationDateId(final int obj);
-
-	public abstract void updateLegionJoinRequestState(int playerId, LegionJoinRequestState state);
-
-	public abstract void clearJoinRequest(final int playerId);
-
-	public abstract void getJoinRequestState(Player player);
 }

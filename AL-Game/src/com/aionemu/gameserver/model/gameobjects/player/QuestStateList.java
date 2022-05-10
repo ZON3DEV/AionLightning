@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player;
 
 import java.util.ArrayList;
@@ -21,15 +22,15 @@ import java.util.Collection;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import org.slf4j.Logger;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.QuestsData;
 import com.aionemu.gameserver.model.templates.quest.QuestCategory;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
-
 import javolution.util.FastList;
 
 /**
@@ -84,7 +85,9 @@ public class QuestStateList {
 	}
 
 	/*
-	 * Issue #13 fix Used by the QuestService to check the amount of normal quests in the player's list
+	 * Issue #13 fix Used by the QuestService to check the amount of normal
+	 * quests in the player's list
+	 *
 	 * @author vlog
 	 */
 	public int getNormalQuestListSize() {
@@ -93,6 +96,7 @@ public class QuestStateList {
 
 	/*
 	 * Issue #13 fix Returns the list of normal quests
+	 *
 	 * @author vlog
 	 */
 	public Collection<QuestState> getNormalQuests() {
@@ -111,7 +115,9 @@ public class QuestStateList {
 	}
 
 	/*
-	 * Returns true if there is a quest in the list with this id Used by the QuestService
+	 * Returns true if there is a quest in the list with this id Used by the
+	 * QuestService
+	 *
 	 * @author vlog
 	 */
 	public boolean hasQuest(int questId) {
@@ -119,7 +125,9 @@ public class QuestStateList {
 	}
 
 	/*
-	 * Change the old value of the quest status to the new one Used by the QuestService
+	 * Change the old value of the quest status to the new one Used by the
+	 * QuestService
+	 *
 	 * @author vlog
 	 */
 	public void changeQuestStatus(Integer key, QuestStatus newStatus) {

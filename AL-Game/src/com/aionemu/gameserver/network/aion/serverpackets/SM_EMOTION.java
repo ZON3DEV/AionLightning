@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.EmotionType;
@@ -75,14 +76,10 @@ public class SM_EMOTION extends AionServerPacket {
 	/**
 	 * Constructs new server packet with specified opcode
 	 *
-	 * @param senderObjectId
-	 *            who sended emotion
-	 * @param unknown
-	 *            Dunno what it is, can be 0x10 or 0x11
-	 * @param emotionId
-	 *            emotion to play
-	 * @param emotionId
-	 *            who target emotion
+	 * @param senderObjectId who sended emotion
+	 * @param unknown Dunno what it is, can be 0x10 or 0x11
+	 * @param emotionId emotion to play
+	 * @param emotionId who target emotion
 	 */
 	public SM_EMOTION(Creature creature, EmotionType emotionType, int emotion, int targetObjectId) {
 		this.senderObjectId = creature.getObjectId();
@@ -144,7 +141,7 @@ public class SM_EMOTION extends AionServerPacket {
 			case JUMP:
 			case SIT: // sit
 			case STAND: // stand
-			case ATTACKMODE: // toggle attack mode TODO STATE and SPEED
+			case ATTACKMODE: // toggle attack mode
 			case NEUTRALMODE: // toggle normal mode
 			case WALK: // toggle walk
 			case RUN: // toggle run
@@ -161,9 +158,6 @@ public class SM_EMOTION extends AionServerPacket {
 			case WINDSTREAM_END:
 			case WINDSTREAM_EXIT:
 			case OPEN_DOOR:
-				writeH(9);
-				writeD(0);
-				break;
 			case CLOSE_DOOR:
 			case WINDSTREAM_STRAFE:
 				break;
@@ -217,15 +211,14 @@ public class SM_EMOTION extends AionServerPacket {
 				writeH(currentAttackSpeed);
 				writeC(0);// new 4.0
 				break;
-			case START_FLYBOOST_SPEED:
-				writeH(0);
-				writeD(0);
-			case END_FLYBOOST_SPEED:
-				break;
+    		case START_SPRINT:
+      			writeD(0);
+      			break;
 			default:
 				if (targetObjectId != 0) {
 					writeD(targetObjectId);
 				}
+			break;
 		}
 	}
 }

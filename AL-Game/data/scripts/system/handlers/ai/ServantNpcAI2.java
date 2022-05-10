@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai;
 
 import java.util.concurrent.Future;
@@ -44,7 +45,6 @@ public class ServantNpcAI2 extends GeneralNpcAI2 {
 		super.handleSpawned();
 		if (getCreator() != null) {
 			ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
 					if (getOwner().getNpcObjectType() != NpcObjectType.TOTEM) {
@@ -62,7 +62,6 @@ public class ServantNpcAI2 extends GeneralNpcAI2 {
 		}
 		int duration = getOwner().getNpcObjectType() == NpcObjectType.TOTEM ? 3000 : 5000;
 		Future<?> task = ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 			@Override
 			public void run() {
 				getOwner().getController().useSkill(skillId, 1);

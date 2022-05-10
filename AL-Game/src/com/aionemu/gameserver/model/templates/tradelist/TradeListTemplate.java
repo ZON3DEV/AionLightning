@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.tradelist;
 
 import java.util.ArrayList;
@@ -87,12 +88,12 @@ public class TradeListTemplate {
 	}
 
 	/**
-	 * <p/>
+	 * <p>
 	 * Java class for anonymous complex type.
-	 * <p/>
-	 * The following schema fragment specifies the expected content contained within this class.
-	 * <p/>
-	 * 
+	 * <p>
+	 * The following schema fragment specifies the expected content contained
+	 * within this class.
+	 *
 	 * <pre>
 	 * &lt;complexType>
 	 *   &lt;complexContent>

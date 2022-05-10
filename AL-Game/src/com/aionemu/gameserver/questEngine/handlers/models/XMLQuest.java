@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.handlers.models;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -29,10 +30,8 @@ import com.aionemu.gameserver.questEngine.QuestEngine;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "QuestScriptData")
-@XmlSeeAlso({ ReportToData.class, RelicRewardsData.class, CraftingRewardsData.class, ReportToManyData.class, MonsterHuntData.class, ItemCollectingData.class, WorkOrdersData.class, XmlQuestData.class,
-	// MentorMonsterHuntData.class,
-	ItemOrdersData.class, FountainRewardsData.class, SkillUseData.class })
-
+@XmlSeeAlso({ ReportToData.class, RelicRewardsData.class, CraftingRewardsData.class, ReportToManyData.class, MonsterHuntData.class, ItemCollectingData.class,
+		WorkOrdersData.class, XmlQuestData.class, MentorMonsterHuntData.class, ItemOrdersData.class, FountainRewardsData.class, SkillUseData.class })
 public abstract class XMLQuest {
 
 	@XmlAttribute(name = "id", required = true)

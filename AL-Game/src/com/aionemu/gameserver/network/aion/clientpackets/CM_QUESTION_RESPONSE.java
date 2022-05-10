@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -30,8 +31,6 @@ public class CM_QUESTION_RESPONSE extends AionClientPacket {
 
 	private int questionid;
 	private int response;
-	@SuppressWarnings("unused")
-	private int senderid;
 
 	public CM_QUESTION_RESPONSE(int opcode, State state, State... restStates) {
 		super(opcode, state, restStates);
@@ -47,7 +46,7 @@ public class CM_QUESTION_RESPONSE extends AionClientPacket {
 		response = readC(); // y/n
 		readC(); // unk 0x00 - 0x01 ?
 		readH();
-		senderid = readD();
+		/*senderid = */readD();
 		readD();
 		readH();
 	}

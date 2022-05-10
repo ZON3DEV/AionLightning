@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.house;
 
 import com.aionemu.gameserver.configs.main.HousingConfig;
@@ -112,7 +113,7 @@ public class HouseBidEntry implements Cloneable {
 	}
 
 	public long getRefundKinah() {
-		return (long) (bidPrice * HousingConfig.BID_REFUND_PERCENT);
+		return (long) (bidPrice * (float) HousingConfig.BID_REFUND_PERCENT);
 	}
 
 	public long getLastBidTime() {

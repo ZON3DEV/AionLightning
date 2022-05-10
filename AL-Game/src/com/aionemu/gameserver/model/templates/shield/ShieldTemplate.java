@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.shield;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -64,8 +65,6 @@ public class ShieldTemplate {
 
 	public ShieldTemplate() {
 	}
-
-	;
 
 	public ShieldTemplate(String name, int mapId, Point3D center) {
 		this.name = name;

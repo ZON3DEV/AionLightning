@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import com.aionemu.commons.database.dao.DAOManager;
@@ -50,13 +51,12 @@ public class cmd_remodel extends PlayerCommand {
 			if (admin.getInventory().decreaseByItemId(186000202, 1)) {
 				if (remodelItem(admin, itemId)) {
 					PacketSendUtility.sendMessage(admin, "Successfully remodelled an item of the player!");
-					PacketSendUtility.broadcastPacket(admin, new SM_UPDATE_PLAYER_APPEARANCE(admin.getObjectId(), admin.getEquipment().getEquippedItemsWithoutStigma()), true);
-				}
-				else {
+					PacketSendUtility.broadcastPacket(admin, new SM_UPDATE_PLAYER_APPEARANCE(admin.getObjectId(), admin.getEquipment()
+							.getEquippedItemsWithoutStigma()), true);
+				} else {
 					PacketSendUtility.sendMessage(admin, "Was not able to remodel an item of the player!");
 				}
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(admin, "You do not meet the requirements !");
 			}
 		}
@@ -81,8 +81,7 @@ public class cmd_remodel extends PlayerCommand {
 					DAOManager.getDAO(InventoryDAO.class).store(item, player);
 					return true;
 				}
-			}
-			else if (item.getItemTemplate().isArmor()) {
+			} else if (item.getItemTemplate().isArmor()) {
 				if (item.getItemTemplate().getItemSlot() == template.getItemSlot()) {
 					ItemRemodelService.systemRemodelItem(player, item, template);
 					PacketSendUtility.sendPacket(player, new SM_INVENTORY_UPDATE_ITEM(player, item));

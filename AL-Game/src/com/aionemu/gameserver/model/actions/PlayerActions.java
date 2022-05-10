@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.actions;
 
 import com.aionemu.gameserver.controllers.observer.ActionObserver;
@@ -27,6 +28,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
+ *
  * @author xTz
  */
 public class PlayerActions extends CreatureActions {

@@ -1,18 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <siege_schedule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="siege_schedule.xsd">
-    <!-- Reshanta Core -->
-    <!-- Divine Fortress -->
-    <fortress id="1011">
-        <siegeTime>0 0 21 ? * TUE,THU,SAT,SUN</siegeTime> <!-- 7.x -->
-    </fortress>
-
-    <!-- Lakrum -->
-    <fortress id="1521">
-        <siegeTime>0 0 21 ? * TUE,THU,SAT,SUN</siegeTime> <!-- 7.x -->
-    </fortress>
-
-    <!-- Dumaha -->
-    <fortress id="1921">
-        <siegeTime>0 0 21 ? * TUE,THU,SAT,SUN</siegeTime> <!-- 7.x -->
-    </fortress>
+	<fortress id="1011"> <!-- GÃ¶tterfestung -->
+		<siegeTime>0 0 21 ? * SAT</siegeTime>
+	</fortress>
+	<fortress id="1131"> <!-- Siels-Westfestung -->
+		<siegeTime>0 0 11 ? * SAT</siegeTime>
+	</fortress>
+	<fortress id="1132"> <!-- Siels Ostfestung -->
+		<siegeTime>0 0 11 ? * SAT</siegeTime>
+	</fortress>
+	<fortress id="1141"> <!-- Schwefelbaum-Festung --> 
+		<siegeTime>0 0 11 ? * SAT</siegeTime>
+	</fortress>
+	<fortress id="1211"> <!-- Festung von Roah -->
+		<siegeTime>0 0 11 ? * SAT</siegeTime>
+	</fortress>
+	<fortress id="1221"> <!-- Krotan-Festung -->
+		<siegeTime>0 0 11 ? * SUN</siegeTime>
+	</fortress>
+	<fortress id="1231"> <!-- Kysis-Festung -->
+		<siegeTime>0 0 11 ? * SUN</siegeTime>
+	</fortress>
+	<fortress id="1241"> <!-- Miren-Festung -->
+		<siegeTime>0 0 11 ? * SUN</siegeTime>
+	</fortress>
+	<fortress id="1251"> <!-- Asteria-Festung -->
+		<siegeTime>0 0 11 ? * SUN</siegeTime>
+	</fortress>
+	<fortress id="2011"> <!-- Inggison - Altdrackentempel -->
+		<siegeTime>0 0 21 ? * MON,WED,SUN</siegeTime>
+		<siegeTime>0 0 10 ? * THU,SAT</siegeTime>
+	</fortress>
+	<fortress id="2021"> <!-- Inggison - Altar der Gier -->
+		<siegeTime>0 0 21 ? * TUE,WED,SUN</siegeTime>
+		<siegeTime>0 0 10 ? * FRI,SAT</siegeTime>
+	</fortress>
+	<fortress id="3011"> <!-- Gelkmaros - Vorgaltem-Turm -->
+		<siegeTime>0 0 21 ? * MON,WED,SUN</siegeTime>
+		<siegeTime>0 0 10 ? * THU,SAT</siegeTime>
+	</fortress>
+	<fortress id="3021"> <!-- Gelkmaros - Karmintempel -->
+		<siegeTime>0 0 21 ? * TUE,WED,SUN</siegeTime>
+		<siegeTime>0 0 10 ? * FRI,SAT</siegeTime>
+	</fortress>
+	<source id="4011"> <!-- Tiamaranta - Quelle des Risses -->
+		<siegeTime>0 55 13 ? * *</siegeTime>
+		<siegeTime>0 55 17 ? * *</siegeTime>
+		<siegeTime>0 55 20 ? * *</siegeTime>
+	</source>
+	<source id="4021"> <!-- Tiamaranta - Quelle der Schwerkraft -->
+		<siegeTime>0 55 13 ? * *</siegeTime>
+		<siegeTime>0 55 17 ? * *</siegeTime>
+		<siegeTime>0 55 20 ? * *</siegeTime>
+	</source>
+	<source id="4031"> <!-- Tiamaranta - Quelle der Wut -->
+		<siegeTime>0 55 13 ? * *</siegeTime>
+		<siegeTime>0 55 17 ? * *</siegeTime>
+		<siegeTime>0 55 20 ? * *</siegeTime>
+	</source>
+	<source id="4041"> <!-- Tiamaranta - Quelle der Versteinerung -->
+		<siegeTime>0 55 13 ? * *</siegeTime>
+		<siegeTime>0 55 17 ? * *</siegeTime>
+		<siegeTime>0 55 20 ? * *</siegeTime>
+	</source>
+	<fortress id="5011"> <!-- Katalam - Sillus Festung-->
+		<siegeTime>0 0 21 ? * TUE,WED,SUN</siegeTime>
+	</fortress>
+	<fortress id="6011"> <!-- Danaria - Bassen Festung-->
+		<siegeTime>0 0 21 ? * TUE,WED,SUN</siegeTime>
+	</fortress>
+	<fortress id="6021"> <!-- Danaria - Prades Festung-->
+		<siegeTime>0 0 21 ? * TUE,WED,SUN</siegeTime>
+	</fortress>	
 </siege_schedule>

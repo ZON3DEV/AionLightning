@@ -14,11 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.services.rift;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+package com.aionemu.gameserver.services.rift;
 
 import com.aionemu.gameserver.controllers.RVController;
 import com.aionemu.gameserver.model.gameobjects.Npc;
@@ -28,7 +25,8 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_RIFT_ANNOUNCE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.knownlist.Visitor;
-
+import java.util.ArrayList;
+import java.util.List;
 import javolution.util.FastMap;
 
 /**
@@ -38,7 +36,7 @@ public class RiftInformer {
 
 	public static List<Npc> getSpawned(int worldId) {
 		List<Npc> rifts = RiftManager.getSpawned();
-		List<Npc> worldRifts = new CopyOnWriteArrayList<Npc>();
+		List<Npc> worldRifts = new ArrayList<Npc>();
 		for (Npc rift : rifts) {
 			if (rift.getWorldId() == worldId) {
 				worldRifts.add(rift);
@@ -89,11 +87,9 @@ public class RiftInformer {
 
 				packets.add(new SM_RIFT_ANNOUNCE(controller, false));
 			}
-		}
-		else if (objId > 0) {
+		} else if (objId > 0) {
 			packets.add(new SM_RIFT_ANNOUNCE(objId));
-		}
-		else {
+		} else {
 			packets.add(new SM_RIFT_ANNOUNCE(getAnnounceData(worldId)));
 			for (Npc rift : getSpawned(worldId)) {
 				RVController controller = (RVController) rift.getController();
@@ -123,12 +119,8 @@ public class RiftInformer {
 		syncRiftsState(worldId, packets, false);
 	}
 
-	/**
-	 * @param isDespawnInfo
-	 */
 	private static void syncRiftsState(int worldId, final List<AionServerPacket> packets, final boolean isDespawnInfo) {
 		World.getInstance().getWorldMap(worldId).getMainWorldMapInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player player) {
 				syncRiftsState(player, packets);
@@ -140,7 +132,7 @@ public class RiftInformer {
 		FastMap<Integer, Integer> localRifts = new FastMap<Integer, Integer>();
 
 		// init empty list
-		for (int i = 0; i < 14; i++) { //OLD 8 (TODO)
+        for (int i = 0; i < 8; i++) {
 			localRifts.put(i, 0);
 		}
 
@@ -158,15 +150,14 @@ public class RiftInformer {
 			if (rift.isVortex()) {
 				local.putEntry(1, local.get(1) + 1);
 			}
-			local.putEntry(2, local.get(2) + 1);// live party
-			local.putEntry(3, local.get(3) + 1);// shugo emperor vault
-			local.putEntry(4, local.get(4) + 1);// rift battle
-		}
-		else {
-			local.putEntry(5, local.get(5) + 1);// rift battle
-			local.putEntry(6, local.get(6) + 1);// rift battle
+			local.putEntry(2, local.get(2) + 1);//live party
+			local.putEntry(3, local.get(3) + 1);//shugo emperor vault
+			local.putEntry(4, local.get(4) + 1);
+        } else {
+            local.putEntry(5, local.get(5) + 1);
+            local.putEntry(6, local.get(6) + 1);
 			if (rift.isVortex()) {
-				local.putEntry(7, local.get(7) + 1);
+                local.putEntry(7, local.get(7) + 1);
 			}
 		}
 		return local;
@@ -184,10 +175,6 @@ public class RiftInformer {
 				return 220070000;
 			case 210060000: // Theobomos -> Marchutan Priory
 				return 120080000;
-			case 210070000: // Cygnea -> Enshar
-				return 220080000;
-			case 210100000: // Iluma -> Norsvold
-				return 220110000;
 			case 120080000: // Marchutan Priory -> Theobomos
 				return 210060000;
 			case 220020000: // Morheim -> Eltnen
@@ -198,10 +185,6 @@ public class RiftInformer {
 				return 110070000;
 			case 220070000: // Gelkmaros -> Inggison
 				return 210050000;
-			case 220080000: // Enshar -> Cygnea
-				return 210070000;
-			case 220110000: // Norsvold -> Iluma
-				return 210100000;
 			default:
 				return 0;
 		}

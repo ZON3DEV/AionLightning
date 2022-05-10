@@ -14,22 +14,19 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
-import org.apache.commons.lang.math.NumberUtils;
-
-import com.aionemu.gameserver.cache.HTMLCache;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.services.HTMLService;
 import com.aionemu.gameserver.services.RiftService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
+import org.apache.commons.lang.math.NumberUtils;
 
 public class Rift extends AdminCommand {
 
 	private static final String COMMAND_OPEN = "open";
 	private static final String COMMAND_CLOSE = "close";
-	private static final String COMMAND_LIST = "list";
 
 	public Rift() {
 		super("rift");
@@ -45,8 +42,6 @@ public class Rift extends AdminCommand {
 
 		if (COMMAND_CLOSE.equalsIgnoreCase(params[0]) || COMMAND_OPEN.equalsIgnoreCase(params[0])) {
 			handleRift(player, params);
-		}else if(COMMAND_LIST.equalsIgnoreCase(params[0])) {
-			HTMLService.showHTML(player, HTMLCache.getInstance().getHTML("rifts.xhtml"));
 		}
 	}
 
@@ -67,8 +62,7 @@ public class Rift extends AdminCommand {
 			boolean guards = Boolean.parseBoolean(params[2]);
 			result = RiftService.getInstance().openRifts(id, guards);
 			PacketSendUtility.sendMessage(player, result ? "Rifts is opened!" : "Rifts was already opened");
-		}
-		else if (COMMAND_CLOSE.equalsIgnoreCase(params[0])) {
+		} else if (COMMAND_CLOSE.equalsIgnoreCase(params[0])) {
 			result = RiftService.getInstance().closeRifts(id);
 			PacketSendUtility.sendMessage(player, result ? "Rifts is closed!" : "Rifts was already closed");
 		}
@@ -84,6 +78,6 @@ public class Rift extends AdminCommand {
 	}
 
 	protected void showHelp(Player player) {
-		PacketSendUtility.sendMessage(player, "AdminCommand //rift open|close <Id|worldId> (open with boolean for guards)\nAdminCommand //rift list (Shows an HTML with a rift list)");
+		PacketSendUtility.sendMessage(player, "AdminCommand //rift open|close <Id|worldId> (open with boolean for guards)");
 	}
 }

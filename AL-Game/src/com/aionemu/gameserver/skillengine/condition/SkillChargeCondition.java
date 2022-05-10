@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.condition;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -42,7 +43,7 @@ public class SkillChargeCondition extends ChargeCondition {
 			for (ChargedSkill skill : env.getChargeSkillList()) {
 				castTime += skill.getTime();
 			}
-			env.setDuration(castTime);
+			env.setDuration((int) castTime);
 		}
 		return true;
 	}

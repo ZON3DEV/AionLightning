@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.walkers;
 
 import org.apache.commons.lang.ArrayUtils;
@@ -27,6 +28,7 @@ import com.aionemu.gameserver.utils.MathUtil;
 
 /**
  * @author Rolandas
+ *
  */
 @AIName("polorserin")
 public class PolorSerinAI2 extends WalkGeneralRunnerAI2 {
@@ -51,8 +53,7 @@ public class PolorSerinAI2 extends WalkGeneralRunnerAI2 {
 		if (adultsNear) {
 			MoveEventHandler.onMoveArrived(this);
 			getOwner().unsetState(CreatureState.WEAPON_EQUIPPED);
-		}
-		else {
+		} else {
 			super.handleMoveArrived();
 			getOwner().setState(CreatureState.WEAPON_EQUIPPED);
 		}

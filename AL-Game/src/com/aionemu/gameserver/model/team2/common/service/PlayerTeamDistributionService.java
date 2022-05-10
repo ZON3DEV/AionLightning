@@ -14,35 +14,26 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.common.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.configs.main.GroupConfig;
-import com.aionemu.gameserver.configs.main.RateConfig;
 import com.aionemu.gameserver.model.gameobjects.AionObject;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RewardType;
 import com.aionemu.gameserver.model.gameobjects.player.XPCape;
 import com.aionemu.gameserver.model.team2.TemporaryPlayerTeam;
-import com.aionemu.gameserver.model.templates.achievement.AchievementActionType;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_STATS_INFO;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
-import com.aionemu.gameserver.services.MinionService;
 import com.aionemu.gameserver.services.abyss.AbyssPointsService;
 import com.aionemu.gameserver.services.drop.DropRegistrationService;
-import com.aionemu.gameserver.services.player.AchievementService;
-import com.aionemu.gameserver.services.player.PlayerFameService;
 import com.aionemu.gameserver.utils.MathUtil;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
-import com.aionemu.gameserver.world.WorldMapType;
 import com.google.common.base.Predicate;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author ATracer, nrg
@@ -69,10 +60,9 @@ public class PlayerTeamDistributionService {
 		// Reward mode
 		long expReward;
 		if (filteredStats.players.size() + filteredStats.mentorCount == 1) {
-			expReward = (StatFunctions.calculateSoloExperienceReward(filteredStats.players.get(0), owner));
-		}
-		else {
-			expReward = (StatFunctions.calculateGroupExperienceReward(filteredStats.highestLevel, owner));
+			expReward = (long) (StatFunctions.calculateSoloExperienceReward(filteredStats.players.get(0), owner));
+		} else {
+			expReward = (long) (StatFunctions.calculateGroupExperienceReward(filteredStats.highestLevel, owner));
 		}
 
 		// Party Bonus 2 members 10%, 3 members 20% ... 6 members 50%
@@ -83,36 +73,23 @@ public class PlayerTeamDistributionService {
 		}
 
 		for (Player member : filteredStats.players) {
+			Player partner = member.findPartner();
 			// mentor and dead players shouldn't receive AP/EP/DP
 			if (member.isMentor() || member.getLifeStats().isAlreadyDead()) {
 				continue;
 			}
 
 			// Reward init
-			// Aura Of Growth + Berdin's Star
-			if (member.getWorldId() == WorldMapType.ESTERRA.getId() || member.getWorldId() == WorldMapType.NOSRA.getId()) {
-				if (Rnd.chance(RateConfig.GROWTH_ENERGY)) {
-					member.getCommonData().addGrowthEnergy(1060000 * 8);
-					PacketSendUtility.sendPacket(member, new SM_STATS_INFO(member));
-				}
-			}
-			AchievementService.getInstance().onUpdateAchievementAction(member, owner.getNpcId(), 1, AchievementActionType.HUNT);
-			PlayerFameService.getInstance().addFameExp(member, 10 * owner.getLevel() / 2);
-			if (member.getMinion() != null) {
-				MinionService.getInstance().onUpdateEnergy(member, 50);
-			}
-
-			long rewardXp = expReward * bonus * member.getLevel() / (filteredStats.partyLvlSum * 100);
+			long rewardXp = (long) (expReward * bonus * member.getLevel()) / (filteredStats.partyLvlSum * 100);
 			int rewardDp = StatFunctions.calculateGroupDPReward(member, owner);
 			float rewardAp = 1;
 
-			// Players 10 levels below highest member get 0 reward
+			// Players 10 levels below highest member get 0 reward.
 			if (filteredStats.highestLevel - member.getLevel() >= 10) {
 				rewardXp = 0;
 				rewardDp = 0;
-			}
-			else if (filteredStats.mentorCount > 0) {
-				int cape = XPCape.values()[member.getLevel()].value();
+			} else if (filteredStats.mentorCount > 0) {
+				int cape = XPCape.values()[(int) member.getLevel()].value();
 				if (cape < rewardXp) {
 					rewardXp = cape;
 				}
@@ -122,16 +99,15 @@ public class PlayerTeamDistributionService {
 			rewardXp *= damagePercent;
 			rewardDp *= damagePercent;
 			rewardAp *= damagePercent;
-			// Reward XP Group (New system, Exp Retail NA)
-			switch (member.getWorldId()) {
-				case 210050000:
-                case 220070000:
-                case 600010000:
-					AbyssPointsService.addAp(member, owner, Rnd.get(60, 100));
-					break;
+
+			if (member.isMarried() && member.getPlayerGroup2().getMembers() == partner && member.getPlayerGroup2().getMembers().size() == 2) {
+				member.getCommonData().addExp(rewardXp + (rewardXp * 20 / 100), RewardType.GROUP_HUNTING, owner.getObjectTemplate().getNameId());
+                member.getCommonData().addEventExp(rewardXp + (rewardXp * 20 / 100));
+            } else {
+                member.getCommonData().addExp(rewardXp, RewardType.GROUP_HUNTING, owner.getObjectTemplate().getNameId());
+                member.getCommonData().addEventExp(rewardXp);
 			}
 
-			member.getCommonData().addExp(rewardXp, RewardType.GROUP_HUNTING, owner.getObjectTemplate().getNameId());
 			// DP reward
 			member.getCommonData().addDp(rewardDp);
 
@@ -140,7 +116,6 @@ public class PlayerTeamDistributionService {
 				rewardAp *= StatFunctions.calculatePvEApGained(member, owner);
 				int ap = (int) rewardAp / filteredStats.players.size();
 				if (ap >= 1) {
-					member.getCommonData().addSilverStarEnergy(1500); // 0.15%
 					AbyssPointsService.addAp(member, owner, ap);
 				}
 			}

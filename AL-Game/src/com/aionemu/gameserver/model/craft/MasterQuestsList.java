@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.craft;
 
 import com.aionemu.gameserver.model.Race;
@@ -31,7 +32,7 @@ public enum MasterQuestsList {
 	ARMORSMITHING_ASMODIANS(new int[] { 29015, 29014 }, Race.ASMODIANS, 40003),
 	TAILORING_ELYOS(new int[] { 19021, 19020 }, Race.ELYOS, 40004),
 	TAILORING_ASMODIANS(new int[] { 29021, 29020 }, Race.ASMODIANS, 40004),
-	ALCHEMY_ELYOS(new int[] { 19033, 19032 }, Race.ELYOS, 40007),
+	ALCHEMY_ELYOS(new int[] {19033, 19032 }, Race.ELYOS, 40007),
 	ALCHEMY_ASMODIANS(new int[] { 29033, 29032 }, Race.ASMODIANS, 40007),
 	HANDICRAFTING_ELYOS(new int[] { 19027, 19026 }, Race.ELYOS, 40008),
 	HANDICRAFTING_ASMODIANS(new int[] { 29027, 29026 }, Race.ASMODIANS, 40008),

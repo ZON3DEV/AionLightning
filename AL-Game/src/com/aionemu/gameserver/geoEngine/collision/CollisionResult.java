@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.geoEngine.collision;
 
 import com.aionemu.gameserver.geoEngine.math.Vector3f;
@@ -49,11 +50,9 @@ public class CollisionResult implements Comparable<CollisionResult> {
 	public int compareTo(CollisionResult other) {
 		if (distance < other.distance) {
 			return -1;
-		}
-		else if (distance > other.distance) {
+		} else if (distance > other.distance) {
 			return 1;
-		}
-		else {
+		} else {
 			return 0;
 		}
 	}

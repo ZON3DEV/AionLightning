@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.stats.enums;
 
 /**
@@ -34,11 +35,10 @@ public enum MAXHP {
 	CLERIC(0.9277f, 35.988f, 229),
 	CHANTER(0.9277f, 35.988f, 229),
 	ENGINEER(1.0303f, 40.824f, 201),
-	RIDER(0.9277f, 35.988f, 229),
+	RIDER(1.0303f, 40.824f, 201), // not
 	GUNNER(1.0303f, 40.824f, 201),
 	ARTIST(1.0303f, 40.824f, 201),
-	PAINTER(1, 20.6f, 157),
-	BARD(1, 20.6f, 157);
+	BARD(1.0303f, 40.824f, 201);// not retail like, needs some fixes.
 
 	private float a;
 	private float b;

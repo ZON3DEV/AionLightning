@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -55,7 +56,8 @@ public class SM_BLOCK_RESPONSE extends AionServerPacket {
 	 * @param code
 	 *            Message code to use - see class constants
 	 * @param playerName
-	 *            Parameters inserted into message. Usually the target player's name
+	 *            Parameters inserted into message. Usually the target player's
+	 *            name
 	 */
 	public SM_BLOCK_RESPONSE(int code, String playerName) {
 		this.code = code;

@@ -14,17 +14,17 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.serverpackets;
 
-import java.sql.Timestamp;
-import java.util.Map;
+package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.team.legion.Legion;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+import java.sql.Timestamp;
+import java.util.Map;
 
 /**
- * @author Simple, CoolyT
+ * @author Simple
  */
 public class SM_LEGION_INFO extends AionServerPacket {
 
@@ -52,15 +52,9 @@ public class SM_LEGION_INFO extends AionServerPacket {
 		writeH(legion.getLegionaryPermission());
 		writeH(legion.getVolunteerPermission());
 		writeQ(legion.getContributionPoints());
-		writeQ(0); // definatly some kind of points ... but what ?!
-		writeD(legion.getTerritory().getId()); // TerritoryId colors the terrritory on map
-		writeD(0);
-		writeD(0);
-		writeS(legion.getLegionDiscription());
-		writeH(legion.getLegionJoinType());
-		writeH(legion.getMinLevel());
-		writeB(new byte [7]);// Unk TODO
-
+		writeD(0x00); // unk
+		writeD(0x00); // unk
+		writeD(0x00); // unk 3.0
 		/**
 		 * Get Announcements List From DB By Legion *
 		 */
@@ -69,16 +63,15 @@ public class SM_LEGION_INFO extends AionServerPacket {
 		/**
 		 * Show max 7 announcements *
 		 */
-		if (!announcementList.isEmpty()) {
-			int i = 0;
-			for (Timestamp unixTime : announcementList.keySet()) {
-				writeS(announcementList.get(unixTime));
-				writeD((int) (unixTime.getTime() / 1000));
-				i++;
-				if (i >= 7)
-					break;
-
+		int i = 0;
+		for (Timestamp unixTime : announcementList.keySet()) {
+			writeS(announcementList.get(unixTime));
+			writeD((int) (unixTime.getTime() / 1000));
+			i++;
+			if (i >= 7) {
+				break;
 			}
 		}
+        writeB(new byte[26]);//something like a spacer
 	}
 }

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -46,8 +47,7 @@ public class Kick extends AdminCommand {
 					PacketSendUtility.sendMessage(admin, "Kicked player : " + player.getName());
 				}
 			}
-		}
-		else {
+		} else {
 			Player player = World.getInstance().findPlayer(Util.convertName(params[0]));
 			if (player == null) {
 				PacketSendUtility.sendMessage(admin, "The specified player is not online.");

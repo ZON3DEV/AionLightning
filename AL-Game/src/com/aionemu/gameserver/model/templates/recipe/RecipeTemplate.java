@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.recipe;
 
 import java.util.ArrayList;
@@ -64,18 +65,20 @@ public class RecipeTemplate {
 
 	/**
 	 * Gets the value of the component property.
-	 * <p/>
-	 * This accessor method returns a reference to the live list, not a snapshot. Therefore any modification you make to the returned list will be present inside the JAXB object. This is why there is
-	 * not a <CODE>set</CODE> method for the component property.
-	 * <p/>
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a
+	 * snapshot. Therefore any modification you make to the returned list will
+	 * be present inside the JAXB object. This is why there is not a
+	 * <CODE>set</CODE> method for the component property.
+	 * <p>
 	 * For example, to add a new item, do as follows:
-	 * <p/>
-	 * 
+     * <p/>
 	 * <pre>
 	 * getComponent().add(newItem);
 	 * </pre>
-	 * <p/>
-	 * Objects of the following type(s) are allowed in the list {@link Component }
+     * <p/>
+     * Objects of the following type(s) are allowed in the list {@link Component
+     * }
 	 */
 	public List<Component> getComponent() {
 		if (component == null) {

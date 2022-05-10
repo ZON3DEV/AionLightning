@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.siege.Influence;
@@ -39,20 +40,20 @@ public class SM_INFLUENCE_RATIO extends AionServerPacket {
 		writeF(inf.getGlobalBalaursInfluence());
 		writeH(4); // maps count
 		writeD(210050000);
-		writeF(0); //inf.getInggisonElyosInfluence());
-		writeF(0); //inf.getInggisonAsmodiansInfluence());
-		writeF(0); //inf.getInggisonBalaursInfluence());
+		writeF(inf.getInggisonElyosInfluence());
+		writeF(inf.getInggisonAsmodiansInfluence());
+		writeF(inf.getInggisonBalaursInfluence());
 		writeD(220070000);
-		writeF(0); //inf.getGelkmarosElyosInfluence());
-		writeF(0); //inf.getGelkmarosAsmodiansInfluence());
-		writeF(0); //inf.getGelkmarosBalaursInfluence());
+		writeF(inf.getGelkmarosElyosInfluence());
+		writeF(inf.getGelkmarosAsmodiansInfluence());
+		writeF(inf.getGelkmarosBalaursInfluence());
 		writeD(400010000);
 		writeF(inf.getAbyssElyosInfluence());
 		writeF(inf.getAbyssAsmodiansInfluence());
 		writeF(inf.getAbyssBalaursInfluence());
-		writeD(800050000);
-		writeF(0); //inf.getKaldorElyosInfluence());
-		writeF(1); //inf.getKaldorAsmodiansInfluence());
-		writeF(0); //inf.getKaldorBalaursInfluence());
+		writeD(600030000);
+		writeF(inf.getTiamarantaElyosInfluence());
+		writeF(inf.getTiamarantaAsmodiansInfluence());
+		writeF(inf.getTiamarantaBalaursInfluence());
 	}
 }

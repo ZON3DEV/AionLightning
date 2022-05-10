@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.siege;
 
 import java.util.concurrent.Future;
@@ -78,7 +79,6 @@ public class GuardTowerAI2 extends NpcAI2 {
 	private void attack() {
 		final Player p = (Player) getOwner().getTarget();
 		task = ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 			@Override
 			public void run() {
 				if (p == null || p.getLifeStats().isAlreadyDead()) {

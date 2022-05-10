@@ -14,7 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-
+ 
 package languages;
 
 import com.aionemu.gameserver.utils.i18n.CustomMessageId;
@@ -299,13 +299,6 @@ public class French extends Language {
 		addTranslatedMessage(CustomMessageId.INVASION_RIFT_MIN_LEVEL, "Votre level est trop bas pour entrer.");
 		addTranslatedMessage(CustomMessageId.INVASION_RIFT_ELYOS, "Une faille pour Pandaemonium est apparu a Ingisson");
 		addTranslatedMessage(CustomMessageId.INVASION_RIFT_ASMOS, "Une faille pour Sanctum est apparu a Gelkmaros");
-
-		/**
-		 * Additional Chest Drops
-		 */
-		addTranslatedMessage(CustomMessageId.DECOMPOSE_SERVICE_MESSAGE1, "%s has obtained %s from %s.");
-		addTranslatedMessage(CustomMessageId.DECOMPOSE_SERVICE_MESSAGE2, "%s has obtained additional %s from %s (Premium).");
-		addTranslatedMessage(CustomMessageId.DECOMPOSE_SERVICE_MESSAGE3, "%s has obtained additional %s from %s (VIP).");
 
 		/**
 		 * PvP Spree Service

@@ -14,11 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects;
-
-import java.util.Iterator;
-
-import org.apache.commons.lang.StringUtils;
 
 import com.aionemu.gameserver.ai2.AI2Engine;
 import com.aionemu.gameserver.ai2.AITemplate;
@@ -36,12 +33,9 @@ import com.aionemu.gameserver.model.skill.NpcSkillList;
 import com.aionemu.gameserver.model.stats.container.NpcGameStats;
 import com.aionemu.gameserver.model.stats.container.NpcLifeStats;
 import com.aionemu.gameserver.model.templates.item.ItemAttackType;
-import com.aionemu.gameserver.model.templates.npc.AbyssNpcType;
-import com.aionemu.gameserver.model.templates.npc.NpcRank;
 import com.aionemu.gameserver.model.templates.npc.NpcRating;
 import com.aionemu.gameserver.model.templates.npc.NpcTemplate;
 import com.aionemu.gameserver.model.templates.npc.NpcTemplateType;
-import com.aionemu.gameserver.model.templates.npc.NpcUiType;
 import com.aionemu.gameserver.model.templates.npcshout.NpcShout;
 import com.aionemu.gameserver.model.templates.npcshout.ShoutEventType;
 import com.aionemu.gameserver.model.templates.npcshout.ShoutType;
@@ -57,9 +51,17 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.WorldPosition;
 import com.aionemu.gameserver.world.WorldType;
 import com.google.common.base.Preconditions;
+import org.apache.commons.lang.StringUtils;
+
+//Global Drops
+import com.aionemu.gameserver.model.templates.npc.AbyssNpcType;
+import com.aionemu.gameserver.model.templates.npc.NpcRank;
+
+import java.util.Iterator;
 
 /**
- * This class is a base class for all in-game NPCs, what includes: monsters and npcs that player can talk to (aka Citizens)
+ * This class is a base class for all in-game NPCs, what includes: monsters and
+ * npcs that player can talk to (aka Citizens)
  *
  * @author Luno
  */
@@ -73,7 +75,6 @@ public class Npc extends Creature {
 	private String masterName = StringUtils.EMPTY;
 	private int creatorId = 0;
 	private int townId;
-	private byte oldHeading = 0;
 	private ItemAttackType attacktype = ItemAttackType.PHYSICAL;
 	private int aRange = getObjectTemplate().getAggroRange();
 
@@ -194,10 +195,6 @@ public class Npc extends Creature {
 		return getObjectTemplate().getAbyssNpcType();
 	}
 
-	public int getHpGauge() {
-		return getObjectTemplate().getHpGauge();
-	}
-
 	/**
 	 * Check whether npc located near initial spawn location
 	 *
@@ -230,22 +227,15 @@ public class Npc extends Creature {
 	@Override
 	public int getType(Creature creature) {
 		int typeForPlayer = -1;
-		if (TribeRelationService.isInvulnerable(this, creature)) {
-			typeForPlayer = CreatureType.INVULNERABLE.getId();
-		}
-		else if (TribeRelationService.isNone(this, creature)) {
+		if (TribeRelationService.isNone(this, creature)) {
 			typeForPlayer = CreatureType.PEACE.getId();
-		}
-		else if (TribeRelationService.isAggressive(this, creature)) {
+		} else if (TribeRelationService.isAggressive(this, creature)) {
 			typeForPlayer = CreatureType.AGGRESSIVE.getId();
-		}
-		else if (TribeRelationService.isHostile(this, creature)) {
+		} else if (TribeRelationService.isHostile(this, creature)) {
 			typeForPlayer = CreatureType.ATTACKABLE.getId();
-		}
-		else if (TribeRelationService.isFriend(this, creature) || TribeRelationService.isNeutral(this, creature)) {
+		} else if (TribeRelationService.isFriend(this, creature) || TribeRelationService.isNeutral(this, creature)) {
 			typeForPlayer = CreatureType.FRIEND.getId();
-		}
-		else if (TribeRelationService.isSupport(this, creature)) {
+		} else if (TribeRelationService.isSupport(this, creature)) {
 			typeForPlayer = CreatureType.SUPPORT.getId();
 		}
 		if (typeForPlayer == CreatureType.PEACE.getId() || typeForPlayer == CreatureType.SUPPORT.getId()) {
@@ -290,7 +280,8 @@ public class Npc extends Creature {
 	}
 
 	/**
-	 * @return UniqueId of the VisibleObject which created this Npc (could be player or house)
+	 * @return UniqueId of the VisibleObject which created this Npc (could be
+	 *         player or house)
 	 */
 	public int getCreatorId() {
 		return creatorId;
@@ -340,10 +331,10 @@ public class Npc extends Creature {
 		return walkerGroupShift;
 	}
 
-    @Override
-    public boolean isFlag() {
-        return getObjectTemplate().getNpcTemplateType() == NpcTemplateType.FLAG && getObjectTemplate().getNpcTemplateType() == NpcTemplateType.MONSTER && getObjectTemplate().getNpcTemplateType() == NpcTemplateType.RAID_MONSTER;
-    }
+	@Override
+	public boolean isFlag() {
+		return getObjectTemplate().getNpcTemplateType().equals(NpcTemplateType.FLAG);
+	}
 
 	public boolean isBoss() {
 		return getObjectTemplate().getRating() == NpcRating.HERO || getObjectTemplate().getRating() == NpcRating.LEGENDARY;
@@ -358,10 +349,6 @@ public class Npc extends Creature {
 		return this.getObjectTemplate().getRace();
 	}
 
-	public NpcUiType getUiType() {
-		return this.getObjectTemplate().getNpcUiType();
-	}
-
 	public NpcDrop getNpcDrop() {
 		return getObjectTemplate().getNpcDrop();
 	}
@@ -373,14 +360,11 @@ public class Npc extends Creature {
 	public boolean isRewardAP() {
 		if (this instanceof SiegeNpc) {
 			return true;
-		}
-		else if (this.getWorldType() == WorldType.ABYSS) {
+		} else if (this.getWorldType() == WorldType.ABYSS) {
 			return true;
-		}
-		else if (this.getAi2().ask(AIQuestion.SHOULD_REWARD_AP).isPositive()) {
+		} else if (this.getAi2().ask(AIQuestion.SHOULD_REWARD_AP).isPositive()) {
 			return true;
-		}
-		else if (this.getWorldType() == WorldType.BALAUREA) {
+		} else if (this.getWorldType() == WorldType.BALAUREA) {
 			return getRace() == Race.DRAKAN || getRace() == Race.LIZARDMAN;
 		}
 
@@ -395,7 +379,8 @@ public class Npc extends Creature {
 	}
 
 	public void shout(final NpcShout shout, final Creature target, final Object param, int delaySeconds) {
-		if (shout.getWhen() != ShoutEventType.DIED && shout.getWhen() != ShoutEventType.BEFORE_DESPAWN && getLifeStats().isAlreadyDead() || !mayShout(delaySeconds)) {
+		if (shout.getWhen() != ShoutEventType.DIED && shout.getWhen() != ShoutEventType.BEFORE_DESPAWN && getLifeStats().isAlreadyDead()
+				|| !mayShout(delaySeconds)) {
 			return;
 		}
 
@@ -413,19 +398,17 @@ public class Npc extends Creature {
 		lastShoutedSeconds = System.currentTimeMillis() / 1000;
 
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				if (thisNpc.getLifeStats().isAlreadyDead() && shout.getWhen() != ShoutEventType.DIED && shout.getWhen() != ShoutEventType.BEFORE_DESPAWN) {
 					return;
 				}
 
-				// message for the specific player (when IDLE we are already broadcasting!!!)
+                // message for the specific player (when IDLE we are already broadcasting!!!)
 				if (shout.getShoutType() == ShoutType.SAY || shout.getWhen() == ShoutEventType.IDLE) {
-					// [RR] Should we have lastShoutedSeconds separated from broadcasts (??)
+                    // [RR] Should we have lastShoutedSeconds separated from broadcasts (??)
 					PacketSendUtility.sendPacket((Player) target, message);
-				}
-				else {
+				} else {
 					Iterator<Player> iter = thisNpc.getKnownList().getKnownPlayers().values().iterator();
 					while (iter.hasNext()) {
 						Player kObj = iter.next();
@@ -439,13 +422,5 @@ public class Npc extends Creature {
 				}
 			}
 		}, delaySeconds * 1000);
-	}
-
-	public byte getOldHeading() {
-		return oldHeading;
-	}
-
-	public void setOldHeading(byte oldHeading) {
-		this.oldHeading = oldHeading;
 	}
 }

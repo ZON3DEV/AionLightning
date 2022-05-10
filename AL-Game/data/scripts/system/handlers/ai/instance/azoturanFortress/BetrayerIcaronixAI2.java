@@ -14,16 +14,17 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.instance.azoturanFortress;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import com.aionemu.gameserver.utils.ThreadPoolManager;
+import ai.AggressiveNpcAI2;
+
+import com.aionemu.commons.network.util.ThreadPoolManager;
 import com.aionemu.gameserver.ai2.AI2Actions;
 import com.aionemu.gameserver.ai2.AIName;
 import com.aionemu.gameserver.model.gameobjects.Creature;
-
-import ai.AggressiveNpcAI2;
 
 /**
  * @author Antraxx
@@ -42,21 +43,18 @@ public class BetrayerIcaronixAI2 extends AggressiveNpcAI2 {
 	private void checkPercentage(int hpPercentage) {
 		if (hpPercentage <= 50) {
 			if (isStartEvent.compareAndSet(false, true)) {
-				scheduleSpawnIcaronixTheBetrayer(this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), this.getPosition().getHeading());
+				sheduleSpawnIcaronixTheBetrayer(this.getPosition().getX(), this.getPosition().getY(), this.getPosition().getZ(), this.getPosition()
+						.getHeading());
 				AI2Actions.deleteOwner(this);
 			}
 		}
 	}
 
-	/**
-	 * @param h
-	 */
-	private void scheduleSpawnIcaronixTheBetrayer(final float x, final float y, final float z, final byte h) {
+	private void sheduleSpawnIcaronixTheBetrayer(final float x, final float y, final float z, final byte h) {
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
-				spawn(214599, x, y, z, h);
+				spawn(214599, x, y, z, (byte) 0);
 			}
 		}, 5000);
 	}

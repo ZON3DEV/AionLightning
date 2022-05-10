@@ -14,9 +14,9 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
-import com.aionemu.gameserver.configs.network.NetworkConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
@@ -47,9 +47,7 @@ public class SM_LEGION_ADD_MEMBER extends AionServerPacket {
 		writeC(player.getCommonData().getPlayerClass().getClassId());
 		writeC(player.getLevel());
 		writeD(player.getPosition().getMapId());
-		writeC(player.isOnline() ? 1 : 0);
-		writeD(0); // Unk
-		writeD(NetworkConfig.GAMESERVER_ID);
+		writeD(1);
 		writeD(msgId);
 		writeS(text);
 	}

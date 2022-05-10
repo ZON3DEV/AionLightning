@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -23,7 +24,6 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
 /**
  * @author Rolandas
- * @rework FrozenKiller
  */
 public class DoorState extends AdminCommand {
 
@@ -33,7 +33,7 @@ public class DoorState extends AdminCommand {
 
 	@Override
 	public void execute(Player admin, String... params) {
-		if (params.length != 2) {
+		if (params.length != 3) {
 			onFail(admin, null);
 			return;
 		}
@@ -41,8 +41,7 @@ public class DoorState extends AdminCommand {
 		int doorId = 0;
 		try {
 			doorId = Integer.parseInt(params[0]);
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			PacketSendUtility.sendMessage(admin, "<id> must be a number!");
 			return;
 		}
@@ -50,23 +49,27 @@ public class DoorState extends AdminCommand {
 		Boolean open = null;
 		if (params[1].equalsIgnoreCase("open")) {
 			open = true;
-		}
-		else if (params[1].equalsIgnoreCase("close")) {
+		} else if (params[1].equalsIgnoreCase("close")) {
 			open = false;
 		}
-		
 		if (open == null) {
 			onFail(admin, null);
 			return;
 		}
 
-		int state = open ? 1 : 0;
+		int state = 0;
+		try {
+			state = Integer.parseInt(params[2]);
+		} catch (NumberFormatException e) {
+			PacketSendUtility.sendMessage(admin, "<state> must be a number!");
+			return;
+		}
 
 		StaticDoorService.getInstance().changeStaticDoorState(admin, doorId, open, state);
 	}
 
 	@Override
 	public void onFail(Player player, String message) {
-		PacketSendUtility.sendMessage(player, "<usage //doorstate <id> <open|close>");
+		PacketSendUtility.sendMessage(player, "<usage //doorstate <id> <open|close> <state>");
 	}
 }

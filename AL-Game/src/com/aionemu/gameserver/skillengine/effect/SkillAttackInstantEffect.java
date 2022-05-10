@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -33,7 +34,8 @@ import com.aionemu.gameserver.skillengine.model.Effect;
 public class SkillAttackInstantEffect extends DamageEffect {
 
 	@XmlAttribute
-	protected int rnddmg;// TODO should be enum and different types of random damage behaviour
+	protected int rnddmg;// TODO should be enum and different types of random
+							// damage behaviour
 	@XmlAttribute
 	protected boolean cannotmiss;
 

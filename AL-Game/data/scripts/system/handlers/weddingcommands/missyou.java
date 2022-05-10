@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package weddingcommands;
 
 import com.aionemu.gameserver.model.TeleportAnimation;
@@ -43,7 +44,7 @@ public class missyou extends WeddingCommand {
 			return;
 		}
 
-		if (player.isInPrison() || player.isInPvPArena() || partner.isInPrison() || partner.isInPvPArena()) {
+        if (player.isInPrison() || player.isInPvPArena() || partner.isInPrison() || partner.isInPvPArena()) {
 			PacketSendUtility.sendMessage(player, "You cannot use this command in your location.");
 			return;
 		}
@@ -59,20 +60,19 @@ public class missyou extends WeddingCommand {
 		}
 
 		if (!player.isCommandInUse()) {
-			TeleportService2.teleportTo(player, partner.getWorldId(), partner.getInstanceId(), partner.getX(), partner.getY(), partner.getZ(), partner.getHeading(), TeleportAnimation.BEAM_ANIMATION);
+            TeleportService2.teleportTo(player, partner.getWorldId(), partner.getInstanceId(), partner.getX(), partner.getY(), partner.getZ(), partner.getHeading(), TeleportAnimation.BEAM_ANIMATION);
 			PacketSendUtility.sendMessage(player, "Teleported to player " + partner.getName() + ".");
 			player.setCommandUsed(true);
 
 			ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
 					player.setCommandUsed(false);
 				}
 			}, 60 * 60 * 1000);
-		}
-		else
+		} else {
 			PacketSendUtility.sendMessage(player, "Only 1 TP per hour.");
+		}
 	}
 
 	@Override

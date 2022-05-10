@@ -20,11 +20,7 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
-/**
- * @author Alcapwnd
- */
 public class SM_SELECT_ITEM_ADD extends AionServerPacket {
-
 	private int uniqueItemId;
 	private int index;
 

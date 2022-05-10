@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -52,7 +53,6 @@ public class CM_DELETE_QUEST extends AionClientPacket {
 		if (!QuestService.abandonQuest(player, questId)) {
 			return;
 		}
-		player.getController().updateZone();
 		player.getController().updateNearbyQuests();
 	}
 }

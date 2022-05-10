@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.league.events;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -37,9 +38,7 @@ public class LeagueLeftEvent extends AlwaysTrueTeamEvent implements Predicate<Le
 
 	public static enum LeaveReson {
 
-		LEAVE,
-		EXPEL,
-		DISBAND;
+		LEAVE, EXPEL, DISBAND;
 	}
 
 	public LeagueLeftEvent(League league, PlayerAlliance alliance) {
@@ -63,7 +62,8 @@ public class LeagueLeftEvent extends AlwaysTrueTeamEvent implements Predicate<Le
 				checkDisband();
 				break;
 			case EXPEL:
-                alliance.sendPacket(new SM_ALLIANCE_INFO(alliance, SM_ALLIANCE_INFO.UNION_BAN_ME, league.getLeaderObject().getLeader().getName()));
+				// TODO getLeaderName in team2
+				alliance.sendPacket(new SM_ALLIANCE_INFO(alliance, SM_ALLIANCE_INFO.LEAGUE_EXPELLED, league.getLeaderObject().getLeader().getName()));
 				checkDisband();
 				break;
 			case DISBAND:
@@ -83,15 +83,15 @@ public class LeagueLeftEvent extends AlwaysTrueTeamEvent implements Predicate<Le
 
 		PlayerAlliance leagueAlliance = member.getObject();
 		leagueAlliance.applyOnMembers(new Predicate<Player>() {
-
 			@Override
 			public boolean apply(Player member) {
 				switch (reason) {
 					case LEAVE:
-                        PacketSendUtility.sendPacket(member, new SM_ALLIANCE_INFO(alliance, SM_ALLIANCE_INFO.UNION_LEAVE, alliance.getLeader().getName()));
+						PacketSendUtility.sendPacket(member, new SM_ALLIANCE_INFO(alliance, SM_ALLIANCE_INFO.LEAGUE_LEFT, alliance.getLeader().getName()));
 						break;
 					case EXPEL:
-                        PacketSendUtility.sendPacket(member, new SM_ALLIANCE_INFO(alliance, SM_ALLIANCE_INFO.UNION_BAN_HIM, alliance.getLeader().getName()));
+						// TODO may be EXPEL message only to leader
+						PacketSendUtility.sendPacket(member, new SM_ALLIANCE_INFO(alliance, SM_ALLIANCE_INFO.LEAGUE_EXPEL, alliance.getLeader().getName()));
 						break;
 					default:
 						break;

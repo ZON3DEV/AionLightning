@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -23,6 +24,7 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
 /**
  * @author Waii
+ *
  */
 public class LevelDown extends AdminCommand {
 
@@ -55,8 +57,7 @@ public class LevelDown extends AdminCommand {
 		int level;
 		try {
 			level = Integer.parseInt(params[0]);
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			PacketSendUtility.sendMessage(player, "You should enter valid second params!");
 			return;
 		}
@@ -66,8 +67,7 @@ public class LevelDown extends AdminCommand {
 		if (playerT.getCommonData().getLevel() - level >= 1) {
 			int newLevel = playerT.getCommonData().getLevel() - level;
 			playerT.getCommonData().setLevel(newLevel);
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(player, "The value of <level> will minus calculated to the current player level!");
 		}
 

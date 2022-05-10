@@ -14,24 +14,21 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dao;
 
 import java.sql.Timestamp;
-import java.util.Collection;
 import java.util.TreeMap;
 
 import com.aionemu.gameserver.model.team.legion.Legion;
 import com.aionemu.gameserver.model.team.legion.LegionEmblem;
 import com.aionemu.gameserver.model.team.legion.LegionHistory;
-import com.aionemu.gameserver.model.team.legion.LegionJoinRequest;
 import com.aionemu.gameserver.model.team.legion.LegionWarehouse;
-
-import javolution.util.FastList;
 
 /**
  * Class that is responsible for storing/loading legion data
  *
- * @author Simple, CoolyT
+ * @author Simple
  */
 public abstract class LegionDAO implements IDFactoryAwareDAO {
 
@@ -155,19 +152,4 @@ public abstract class LegionDAO implements IDFactoryAwareDAO {
 	 * @return true if query successful
 	 */
 	public abstract boolean saveNewLegionHistory(int legionId, LegionHistory legionHistory);
-
-	/**
-	 * @param legion
-	 */
-	public abstract void updateLegionDescription(Legion legion);
-
-	public abstract void storeLegionJoinRequest(LegionJoinRequest legionJoinRequest);
-
-	public abstract FastList<LegionJoinRequest> loadLegionJoinRequests(int legionId);
-
-	public abstract void deleteLegionJoinRequest(int legionId, int playerId);
-
-	public abstract void deleteLegionJoinRequest(LegionJoinRequest legionJoinRequest);
-
-	public abstract Collection<Integer> getLegionIdswithTerritories();
 }

@@ -14,7 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
+
+import gnu.trove.map.hash.TIntObjectHashMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +31,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.templates.Guides.GuideTemplate;
-
-import gnu.trove.map.hash.TIntObjectHashMap;
 
 /**
  * @author xTz

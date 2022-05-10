@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.siege;
 
 import com.aionemu.gameserver.ai2.AIName;
@@ -47,7 +48,6 @@ public class ShieldNpcAI2 extends SiegeNpcAI2 {
 
 		final SM_SHIELD_EFFECT packet = new SM_SHIELD_EFFECT(id);
 		getPosition().getWorldMapInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player player) {
 				PacketSendUtility.sendPacket(player, packet);

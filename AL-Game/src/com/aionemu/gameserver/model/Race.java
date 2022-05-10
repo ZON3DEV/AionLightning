@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -22,7 +23,8 @@ import org.apache.commons.lang.NotImplementedException;
 
 /**
  * Basic enum with races.<br>
- * I believe that NPCs will have their own races, so it's quite comfortable to have it in the same place
+ * I believe that NPCs will have their own races, so it's quite comfortable to
+ * have it in the same place
  *
  * @author SoulKeeper
  */
@@ -88,15 +90,7 @@ public enum Race {
 	DRAGONET(41),
 	SIEGEDRAKAN(42),
 	GCHIEF_DRAGON(43),
-	WORLD_EVENT_BONFIRE(44),
-	BATTLEGROUND_LI(45),
-	BATTLEGROUND_DA(46),
-	TYPE_A(47),
-	TYPE_B(48),
-	TYPE_C(49),
-	TYPE_D(50),
-	GINSENGS(51),
-	EVENT_YEAR(52);
+	WORLD_EVENT_BONFIRE(44);
 
 	private int raceId;
 	private DescriptionId descriptionId;

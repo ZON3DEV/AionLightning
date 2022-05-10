@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.loginserver.serverpackets;
 
 import com.aionemu.gameserver.configs.network.NetworkConfig;
@@ -21,7 +22,9 @@ import com.aionemu.gameserver.network.loginserver.LoginServerConnection;
 import com.aionemu.gameserver.network.loginserver.LsServerPacket;
 
 /**
+ *
  * @author KID
+ *
  */
 public class SM_LS_PONG extends LsServerPacket {
 

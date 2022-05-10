@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils;
 
 import java.awt.Point;
@@ -32,8 +33,7 @@ import com.aionemu.gameserver.skillengine.properties.AreaDirections;
 
 /**
  * Class with basic math.<br>
- * Thanks to:
- * <li>
+ * Thanks to: <li>
  * <ul>
  * http://geom-java.sourceforge.net/
  * </ul>
@@ -43,19 +43,18 @@ import com.aionemu.gameserver.skillengine.properties.AreaDirections;
  * </li> <br>
  * <br>
  * Few words about speed:
- * <p/>
- * 
+ *
  * <pre>
  * Math.hypot(dx, dy); // Extremely slow
  * Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)); // 20 times faster than hypot
  * Math.sqrt(dx * dx + dy * dy); // 10 times faster then previous line
  * </pre>
- * <p/>
- * We don't need squared distances for calculations, {@linkplain Math#sqrt(double)} is very fast.<br>
+ *
+ * We don't need squared distances for calculations,
+ * {@linkplain Math#sqrt(double)} is very fast.<br>
  * In fact the difference is very small, so it can be ignored.<br>
  * Feel free to run the following test (or to find a mistake in it ^^).<br>
- * <p/>
- * 
+ *
  * <pre>
  * import java.util.Random;
  *
@@ -101,11 +100,19 @@ import com.aionemu.gameserver.skillengine.properties.AreaDirections;
  * 	}
  * }
  *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  * </pre>
  *
  * @author Disturbing
  * @author SoulKeeper modified by Wakizashi
- * @author GiGatR00n v4.7.5.x
  */
 public class MathUtil {
 
@@ -141,8 +148,10 @@ public class MathUtil {
 		float dy = y2 - y1;
 
 		// return Math.hypot(x2 - x1, y2 - y1); // Extremely slow
-		// return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)); // 20 times faster than hypot
-		return Math.sqrt(dx * dx + dy * dy); // 10 times faster then previous line
+		// return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)); // 20 times faster
+		// than hypot
+		return Math.sqrt(dx * dx + dy * dy); // 10 times faster then previous
+												// line
 	}
 
 	/**
@@ -253,11 +262,9 @@ public class MathUtil {
 		final Point2D closestPoint;
 		if (u < 0) {
 			closestPoint = new Point2D(sx1, sy1);
-		}
-		else if (u > 1) {
+		} else if (u > 1) {
 			closestPoint = new Point2D(sx2, sy2);
-		}
-		else {
+		} else {
 			closestPoint = new Point2D((float) (sx1 + u * xDelta), (float) (sy1 + u * yDelta));
 		}
 
@@ -320,7 +327,8 @@ public class MathUtil {
 	}
 
 	/**
-	 * Checks whether two given instances of AionObject are within given range. Includes Z-Axis check.
+	 * Checks whether two given instances of AionObject are within given range.
+	 * Includes Z-Axis check.
 	 *
 	 * @param object1
 	 * @param object2
@@ -359,7 +367,8 @@ public class MathUtil {
 	 * @param range
 	 * @return boolean
 	 */
-	public static boolean isIn3dRange(final float obj1X, final float obj1Y, final float obj1Z, final float obj2X, final float obj2Y, final float obj2Z, float range) {
+	public static boolean isIn3dRange(final float obj1X, final float obj1Y, final float obj1Z, final float obj2X, final float obj2Y, final float obj2Z,
+			float range) {
 		float dx = (obj2X - obj1X);
 		float dy = (obj2Y - obj1Y);
 		float dz = (obj2Z - obj1Z);
@@ -367,7 +376,8 @@ public class MathUtil {
 	}
 
 	/**
-	 * Check Coordinate with formula: " sqrt((x-x0)^2 + (y-y0)^2 + (z-z0)^2) < radius "
+	 * Check Coordinate with formula: " sqrt((x-x0)^2 + (y-y0)^2 + (z-z0)^2) <
+	 * radius "
 	 *
 	 * @param obj
 	 * @param centerX
@@ -384,7 +394,8 @@ public class MathUtil {
 	}
 
 	/**
-	 * Get an angle between the line defined by two points and the horizontal axis
+	 * Get an angle between the line defined by two points and the horizontal
+	 * axis
 	 */
 	public final static float calculateAngleFrom(float obj1X, float obj1Y, float obj2X, float obj2Y) {
 		float angleTarget = (float) Math.toDegrees(Math.atan2(obj2Y - obj1Y, obj2X - obj1X));
@@ -395,7 +406,8 @@ public class MathUtil {
 	}
 
 	/**
-	 * Get an angle between the line defined by two objects and the horizontal axis
+	 * Get an angle between the line defined by two objects and the horizontal
+	 * axis
 	 */
 	public static float calculateAngleFrom(VisibleObject obj1, VisibleObject obj2) {
 		return calculateAngleFrom(obj1.getX(), obj1.getY(), obj2.getX(), obj2.getY());
@@ -406,8 +418,7 @@ public class MathUtil {
 	 * @return float
 	 */
 	public final static float convertHeadingToDegree(byte clientHeading) {
-		float degree = clientHeading * 3;
-		return degree;
+		return (float) (clientHeading * 3);
 	}
 
 	/**
@@ -480,136 +491,11 @@ public class MathUtil {
 	}
 
 	/**
-	 * Generate a Random 2DPoint within a Circle of radius R (uniformly)
-	 */
-	public final static Point get2DPointInsideCircle(float CenterX, float CenterY, int Radius) {
-
-		// Choose a Random X between -1 and 1
-		double X = Math.random() * 2 - 1;
-
-		// Calculate the Maximum and Minimum values of Y with a radius of 1
-		double YMin = -Math.sqrt(1 - X * X);
-		double YMax = Math.sqrt(1 - X * X);
-
-		// Choose a Random Y Between Them
-		double Y = Math.random() * (YMax - YMin) + YMin;
-
-		// Incorporate your Location and Radius values in the final value
-		double finalX = X * Radius + CenterX;
-		double finalY = Y * Radius + CenterY;
-
-		return new Point((int) finalX, (int) finalY);
-	}
-
-	/**
-	 * Generate a Random 2DPoint on a <b>Circle Circumference</b> using the given <b>angle</b>
-	 */
-	public final static Point get2DPointOnCircleCircumference(float CenterX, float CenterY, int Radius, float angleInDegrees) {
-		// Convert from degrees to radians via multiplication by PI/180
-		float finalX = (float) (Radius * Math.cos(angleInDegrees * Math.PI / 180F)) + CenterX;
-		float finalY = (float) (Radius * Math.sin(angleInDegrees * Math.PI / 180F)) + CenterY;
-
-		return new Point((int) finalX, (int) finalY);
-	}
-
-	/**
-	 * Generate a Random 2DPoint on a Circle Circumference. <br>
-	 * <br>
-	 * <b>Note:</b> It calculated using the angle between two point <i><b>"CenterPoint"</b></i> and <i><b>"EndPoint"</b></i> with <i><b>x-axis</b></i>.
-	 */
-	public final static Point get2DPointOnCircleCircumference(Point CenterPoint, Point EndPoint, int Radius) {
-		// Calculates the Angle between the line through those two points "StarPoint" and "EndPoint" and the X-Axis
-		double AngleinXAxis = getAngle(CenterPoint, EndPoint);
-
-		// Convert from degrees to radians via multiplication by PI/180
-		float finalX = (float) (Radius * Math.cos(AngleinXAxis * Math.PI / 180F)) + CenterPoint.x;
-		float finalY = (float) (Radius * Math.sin(AngleinXAxis * Math.PI / 180F)) + CenterPoint.y;
-
-		return new Point((int) finalX, (int) finalY);
-	}
-
-	/**
-	 * Calculates the angle between the line through those two points <i><b>P1</b></i> and <i><b>P2</b></i> and the <i><b>x-axis</b></i>. <br>
-	 * <br>
-	 * (Degrees)
-	 */
-	public final static double getAngle(Point P1, Point P2) {
-		float dx = P2.x - P1.x;
-		float dy = P2.y - P1.y;
-
-		double angle = Math.atan2(dx, dy) * 180 / Math.PI;
-
-		return angle;
-	}
-
-	/**
-	 * Generate a 2DPoint inside a Circle of radius R which closest to a given point (pX, pY) <br>
-	 * <br>
-	 */
-	public final static Point get2DPointInsideCircleClosestTo(Point Center, int Radius, Point GivenPoint) {
-		/*
-		 * P is the Point, C is the Center, and R is the radius V = (P - C); Answer = C + V / |V| * R; where |V| is length of V
-		 */
-		double vX = GivenPoint.x - Center.x;
-		double vY = GivenPoint.y - Center.y;
-		double magV = Math.sqrt(vX * vX + vY * vY);
-
-		double aX = Center.x + vX / magV * Radius;
-		double aY = Center.y + vY / magV * Radius;
-
-		return new Point((int) aX, (int) aY);
-	}
-
-	/**
-	 * Generate a Random 2D Point within an <b>Annulus</b> (ring) <br>
-	 * <br>
-	 * <b>Note:</b><br>
-	 * both circles are centered at the same point
-	 */
-	public final static Point get2DPointInsideAnnulus(Point Center, int Radius1, int Radius2) {
-		/*
-		 * Circle 1 of Radius R1 Circle 2 of Radius R2 Where R1 > R2 Generate one Random Value for the Angular Value "theta", and one for the Distance from the Origin. As the Circles are both at the
-		 * same origin this would be easy
-		 */
-
-		// Radians
-		// double theta = 2 * Math.PI * Math.random();
-
-		// Degrees
-		double theta = 360 * Math.random();
-
-		// Distance from the Origin
-		double dist = Math.sqrt(Math.random() * (Radius1 * Radius1 - Radius2 * Radius2) + Radius2 * Radius2);
-
-		double X = dist * Math.cos(theta) + Center.x;
-		double Y = dist * Math.sin(theta) + Center.y;
-
-		return new Point((int) X, (int) Y);
-	}
-
-	/**
-	 * Determines whether the given object, is within an <b>Annulus (Ring)</b><br>
-	 * <br>
-	 * <b>Where:</b><br>
-	 * Radius1 > Radius2<br>
-	 * both Circles are centered at the same point (center)
-	 */
-	public static boolean isInAnnulus(final VisibleObject obj, Point3D Center, float Radius1, float Radius2) {
-
-		/**
-		 * if the given object was not within smaller circle and it was on bigger circle, it means that it is on Annulus (Ring)
-		 */
-		if (!isInSphere(obj, Center.getX(), Center.getY(), Center.getZ(), Radius2)) {
-			if (isInSphere(obj, Center.getX(), Center.getY(), Center.getZ(), Radius1)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * Returns the correctly rounded square root of a positive BigDecimal. The algorithm for taking the square root of a BigDecimal is most critical for the speed of your application. This method
-	 * performs the fast Square Root by Coupled Newton Iteration algorithm by Timm Ahrendt, from the book "Pi, unleashed" by Joerg Arndt in a neat loop.
+	 * Returns the correctly rounded square root of a positive BigDecimal. The
+	 * algorithm for taking the square root of a BigDecimal is most critical for
+	 * the speed of your application. This method performs the fast Square Root
+	 * by Coupled Newton Iteration algorithm by Timm Ahrendt, from the book "Pi,
+	 * unleashed" by JÃ¶rg Arndt in a neat loop.
 	 *
 	 * @param squarD
 	 *            number to get the root from (called "d" in the book)
@@ -629,8 +515,7 @@ public class MathUtil {
 		int sign = squarD.signum();
 		if (sign == -1) {
 			throw new ArithmeticException("\nSquare root of a negative number: " + squarD);
-		}
-		else if (sign == 0) {
+		} else if (sign == 0) {
 			return squarD.round(rootMC);
 		}
 
@@ -651,7 +536,8 @@ public class MathUtil {
 		// Estimate the square root with the foremost 62 bits of squarD
 		BigInteger bi = squarD.unscaledValue(); // bi and scale are a tandem
 		int biLen = bi.bitLength();
-		int shift = Math.max(0, biLen - BITS + (biLen % 2 == 0 ? 0 : 1)); // even shift..
+		int shift = Math.max(0, biLen - BITS + (biLen % 2 == 0 ? 0 : 1)); // even
+																			// shift..
 		bi = bi.shiftRight(shift); // ..floors to 62 or 63 bit BigInteger
 
 		double root = Math.sqrt(bi.doubleValue());
@@ -662,9 +548,11 @@ public class MathUtil {
 		{
 			root *= SQRT_10; // 5 -> 2, -5 -> -3 need half a scale more..
 		}
-		scale = (int) Math.floor(scale / 2.); // ..where 100 -> 10 shifts the scale
+		scale = (int) Math.floor(scale / 2.); // ..where 100 -> 10 shifts the
+												// scale
 
-		// Initial x - use double root - multiply by halfBack to unshift - set new scale
+		// Initial x - use double root - multiply by halfBack to unshift - set
+		// new scale
 		x = new BigDecimal(root, nMC);
 		x = x.multiply(halfBack, nMC); // x0 ~ sqrt()
 		if (scale != 0) {
@@ -673,7 +561,8 @@ public class MathUtil {
 
 		if (prec < nInit) // for prec 15 root x0 must surely be OK
 		{
-			return x.round(rootMC); // return small prec roots without iterations
+			return x.round(rootMC); // return small prec roots without
+									// iterations
 		}
 		// Initial v - the reciprocal
 		v = BigDecimal.ONE.divide(TWO.multiply(x), nMC); // v0 = 1/(2*x)
@@ -697,8 +586,7 @@ public class MathUtil {
 			e = squarD.subtract(x.multiply(x, nMC), nMC);
 			if (i != 0) {
 				x = x.add(e.multiply(v, nMC)); // x += e*v ~ sqrt()
-			}
-			else {
+			} else {
 				x = x.add(e.multiply(v, rootMC), rootMC); // root x is ready!
 				break;
 			}

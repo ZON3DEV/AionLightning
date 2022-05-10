@@ -14,7 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.worlds.heiron;
+
+import ai.GeneralNpcAI2;
 
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.ai2.AI2Actions;
@@ -22,10 +25,9 @@ import com.aionemu.gameserver.ai2.AIName;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 
-import ai.GeneralNpcAI2;
-
 /**
  * @author cheatkiller
+ *
  */
 @AIName("klawspawn")
 public class KlawspawnAI2 extends GeneralNpcAI2 {

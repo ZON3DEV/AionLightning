@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai;
 
 import com.aionemu.gameserver.ai2.AI2Actions;
@@ -67,7 +68,6 @@ public class HouseGateAI2 extends NpcAI2 {
 		}
 
 		AI2Actions.addRequest(this, player, SM_QUESTION_WINDOW.STR_ASK_GROUP_GATE_DO_YOU_ACCEPT_MOVE, 0, 9, new AI2Request() {
-
 			private boolean decided = false;
 
 			@Override
@@ -95,18 +95,17 @@ public class HouseGateAI2 extends NpcAI2 {
 					x = house.getAddress().getExitX();
 					y = house.getAddress().getExitY();
 					z = house.getAddress().getExitZ();
-				}
-				else { // entering house
+				} else { // entering house
 					exitMapId = house.getAddress().getMapId();
-					if (house.getBuilding().getType() == BuildingType.PERSONAL_INS) { // entering studio
+					if (house.getBuilding().getType() == BuildingType.PERSONAL_INS) { // entering
+																						// studio
 						WorldMapInstance instance = InstanceService.getPersonalInstance(exitMapId, creatorId);
 						if (instance == null) {
 							instance = InstanceService.getNextAvailableInstance(exitMapId, creatorId);
 							InstanceService.registerPlayerWithInstance(instance, responder);
 						}
 						instanceId = instance.getInstanceId();
-					}
-					else { // entering ordinary house
+					} else { // entering ordinary house
 						instanceId = house.getInstanceId();
 					}
 					x = house.getAddress().getX();
@@ -125,12 +124,11 @@ public class HouseGateAI2 extends NpcAI2 {
 				}
 				if (!canRecall) {
 					responder.setBattleReturnCoords(0, null);
-				}
-				else {
+				} else {
 					PacketSendUtility.sendPacket(responder, new SM_HOUSE_TELEPORT(house.getAddress().getId(), responder.getObjectId()));
 					responder.setBattleReturnCoords(responder.getWorldId(), new float[] { responder.getX(), responder.getY(), responder.getZ() });
 				}
-				TeleportService2.teleportTo(responder, exitMapId, instanceId, x, y, z, heading, TeleportAnimation.JUMP_ANIMATION_3);
+				TeleportService2.teleportTo(responder, exitMapId, instanceId, x, y, z, heading, TeleportAnimation.JUMP_AIMATION_3);
 				decided = true;
 			}
 

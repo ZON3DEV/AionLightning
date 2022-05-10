@@ -14,10 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package admincommands;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+package admincommands;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -27,6 +25,8 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.aionemu.gameserver.world.World;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author Phantom, ATracer, Source
@@ -50,7 +50,7 @@ public class Add extends AdminCommand {
 		try {
 			String item = params[0];
 			// Some item links have space before Id
-			if (item.contains("[item:")) {
+			if (item.equals("[item:")) {
 				item = params[1];
 				Pattern id = Pattern.compile("(\\d{9})");
 				Matcher result = id.matcher(item);
@@ -61,30 +61,13 @@ public class Add extends AdminCommand {
 				if (params.length == 3) {
 					itemCount = Long.parseLong(params[2]);
 				}
-			}
-			else if (item.contains("[@item:")) {
-				Pattern id = Pattern.compile("\\[@item:(\\d{9})");
-				Matcher result = id.matcher(item);
-
-				if (result.find()) {
-					itemId = Integer.parseInt(result.group(1));
-				}
-				else {
-					itemId = Integer.parseInt(params[0]);
-				}
-
-				if (params.length == 2) {
-					itemCount = Long.parseLong(params[1]);
-				}
-			}
-			else {
+			} else {
 				Pattern id = Pattern.compile("\\[item:(\\d{9})");
 				Matcher result = id.matcher(item);
 
 				if (result.find()) {
 					itemId = Integer.parseInt(result.group(1));
-				}
-				else {
+				} else {
 					itemId = Integer.parseInt(params[0]);
 				}
 
@@ -93,8 +76,7 @@ public class Add extends AdminCommand {
 				}
 			}
 			receiver = player;
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			receiver = World.getInstance().findPlayer(Util.convertName(params[0]));
 			if (receiver == null) {
 				PacketSendUtility.sendMessage(player, "Could not find a player by that name.");
@@ -104,7 +86,7 @@ public class Add extends AdminCommand {
 			try {
 				String item = params[1];
 				// Some item links have space before Id
-				if (item.contains("[item:")) {
+				if (item.equals("[item:")) {
 					item = params[2];
 					Pattern id = Pattern.compile("(\\d{9})");
 					Matcher result = id.matcher(item);
@@ -115,30 +97,13 @@ public class Add extends AdminCommand {
 					if (params.length == 4) {
 						itemCount = Long.parseLong(params[3]);
 					}
-				}
-				else if (item.contains("[@item:")) {
-					Pattern id = Pattern.compile("\\[@item:(\\d{9})");
-					Matcher result = id.matcher(item);
-					
-					if (result.find()) {
-						itemId = Integer.parseInt(result.group(1));
-					}
-					else {
-						itemId = Integer.parseInt(params[1]);
-					}
-					
-					if (params.length == 3) {
-						itemCount = Long.parseLong(params[2]);
-					}
-				}
-				else {
+				} else {
 					Pattern id = Pattern.compile("\\[item:(\\d{9})");
 					Matcher result = id.matcher(item);
 
 					if (result.find()) {
 						itemId = Integer.parseInt(result.group(1));
-					}
-					else {
+					} else {
 						itemId = Integer.parseInt(params[1]);
 					}
 
@@ -146,12 +111,10 @@ public class Add extends AdminCommand {
 						itemCount = Long.parseLong(params[2]);
 					}
 				}
-			}
-			catch (NumberFormatException ex) {
+			} catch (NumberFormatException ex) {
 				PacketSendUtility.sendMessage(player, "You must give number to itemid.");
 				return;
-			}
-			catch (Exception ex2) {
+			} catch (Exception ex2) {
 				PacketSendUtility.sendMessage(player, "Occurs an error.");
 				return;
 			}
@@ -172,12 +135,10 @@ public class Add extends AdminCommand {
 			if (player != receiver) {
 				PacketSendUtility.sendMessage(player, "You successfully gave " + itemCount + " x [item:" + itemId + "] to " + receiver.getName() + ".");
 				PacketSendUtility.sendMessage(receiver, "You successfully received " + itemCount + " x [item:" + itemId + "] from " + player.getName() + ".");
+			} else {
+				PacketSendUtility.sendMessage(player, "You successfully received " + itemCount + " x [item:" + itemId + "]");
 			}
-			else {
-				PacketSendUtility.sendMessage(player, "You successfully received " + itemCount + " x [item:" + itemId + "] ID: " + itemId);
-			}
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(player, "Item couldn't be added");
 		}
 	}

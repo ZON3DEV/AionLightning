@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -51,8 +52,7 @@ public class Dispute extends AdminCommand {
 
 		if (COMMAND_START.equalsIgnoreCase(params[0])) {
 			DisputeLandService.getInstance().setActive(true);
-		}
-		else if (COMMAND_STOP.equalsIgnoreCase(params[0])) {
+		} else if (COMMAND_STOP.equalsIgnoreCase(params[0])) {
 			DisputeLandService.getInstance().setActive(false);
 		}
 	}

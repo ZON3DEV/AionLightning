@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -33,12 +34,16 @@ public class CloseAerialEffect extends EffectTemplate {
 	@Override
 	public void applyEffect(Effect effect) {
 		effect.getEffected().getEffectController().removeEffect(8224);
-		effect.getEffected().getEffectController().removeEffect(8678);
 	}
 
 	@Override
 	public void calculate(Effect effect) {
-		if (!effect.getEffected().getEffectController().isAbnormalSet(AbnormalState.OPENAERIAL)) {
+		if (effect.getEffected().getEffectController().hasPhysicalStateEffect()
+				&& !effect.getEffected().getEffectController().isAbnormalSet(AbnormalState.OPENAERIAL)) {
+			return;
+		}
+
+		if (effect.getEffected().getEffectController().hasMagicalStateEffect()) {
 			return;
 		}
 		super.calculate(effect, null, SpellStatus.CLOSEAERIAL);

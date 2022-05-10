@@ -14,13 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world;
 
-import java.util.ArrayList;
+import gnu.trove.map.hash.TIntObjectHashMap;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Future;
@@ -28,14 +29,12 @@ import java.util.concurrent.Future;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javolution.util.FastList;
+import javolution.util.FastMap;
+
 import com.aionemu.gameserver.configs.main.WorldConfig;
 import com.aionemu.gameserver.instance.handlers.InstanceHandler;
-import com.aionemu.gameserver.model.gameobjects.AionObject;
-import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.Npc;
-import com.aionemu.gameserver.model.gameobjects.StaticDoor;
-import com.aionemu.gameserver.model.gameobjects.Trap;
-import com.aionemu.gameserver.model.gameobjects.VisibleObject;
+import com.aionemu.gameserver.model.gameobjects.*;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.team2.alliance.PlayerAlliance;
 import com.aionemu.gameserver.model.team2.group.PlayerGroup;
@@ -52,9 +51,8 @@ import com.aionemu.gameserver.world.zone.ZoneInstance;
 import com.aionemu.gameserver.world.zone.ZoneName;
 import com.aionemu.gameserver.world.zone.ZoneService;
 
-import gnu.trove.map.hash.TIntObjectHashMap;
-import javolution.util.FastList;
-import javolution.util.FastMap;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * World map instance object.
@@ -137,7 +135,8 @@ public abstract class WorldMapInstance {
 	}
 
 	/**
-	 * Returns MapRegion that contains coordinates of VisibleObject. If the region doesn't exist, it's created.
+	 * Returns MapRegion that contains coordinates of VisibleObject. If the
+	 * region doesn't exist, it's created.
 	 *
 	 * @param object
 	 * @return a MapRegion
@@ -147,7 +146,8 @@ public abstract class WorldMapInstance {
 	}
 
 	/**
-	 * Returns MapRegion that contains given x,y coordinates. If the region doesn't exist, it's created.
+	 * Returns MapRegion that contains given x,y coordinates. If the region
+	 * doesn't exist, it's created.
 	 *
 	 * @param x
 	 * @param y
@@ -183,7 +183,8 @@ public abstract class WorldMapInstance {
 	 */
 	public void addObject(VisibleObject object) {
 		if (worldMapObjects.put(object.getObjectId(), object) != null) {
-			throw new DuplicateAionObjectException("Object with templateId " + String.valueOf(object.getObjectTemplate().getTemplateId()) + " already spawned in the instance " + String.valueOf(this.getMapId()) + " " + String.valueOf(this.getInstanceId()));
+			throw new DuplicateAionObjectException("Object with templateId " + String.valueOf(object.getObjectTemplate().getTemplateId())
+					+ " already spawned in the instance " + String.valueOf(this.getMapId()) + " " + String.valueOf(this.getInstanceId()));
 		}
 		if (object instanceof Npc) {
 			QuestNpc data = QuestEngine.getInstance().getQuestNpc(((Npc) object).getNpcId());
@@ -218,6 +219,7 @@ public abstract class WorldMapInstance {
 
 	/**
 	 * @param npcId
+	 *
 	 * @return npc
 	 */
 	public Npc getNpc(int npcId) {
@@ -244,6 +246,7 @@ public abstract class WorldMapInstance {
 
 	/**
 	 * @param npcId
+	 *
 	 * @return List<npc>
 	 */
 	public List<Npc> getNpcs(int npcId) {
@@ -287,22 +290,6 @@ public abstract class WorldMapInstance {
 			}
 		}
 		return doors;
-	}
-
-	/**
-	 * @return List<traps>
-	 */
-	public List<Trap> getTraps(Creature p) {
-		List<Trap> traps = new ArrayList<Trap>();
-		for (Iterator<VisibleObject> iter = objectIterator(); iter.hasNext();) {
-			VisibleObject obj = iter.next();
-			if (obj instanceof Trap) {
-				Trap t = (Trap) obj;
-				if (t.getCreatorId() == p.getObjectId())
-					traps.add(t);
-			}
-		}
-		return traps;
 	}
 
 	/**
@@ -435,7 +422,7 @@ public abstract class WorldMapInstance {
 
 	public Player getPlayer(Integer object) {
 		for (Player player : worldMapPlayers.values()) {
-			if (object == player.getObjectId()) {
+			if (object.equals(player.getObjectId())) {
 				return player;
 			}
 		}
@@ -452,8 +439,7 @@ public abstract class WorldMapInstance {
 					visitor.visit(player);
 				}
 			}
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			log.error("Exception when running visitor on all players" + ex);
 		}
 	}
@@ -465,8 +451,7 @@ public abstract class WorldMapInstance {
 		for (ZoneInstance zoneInstance : zones.values()) {
 			if (zoneInstance.getAreaTemplate().intersectsRectangle(regionZone)) {
 				regionZones.add(zoneInstance);
-			}
-			else if (zoneInstance.getZoneTemplate().getZoneType() == ZoneClassName.DUMMY) {
+			} else if (zoneInstance.getZoneTemplate().getZoneType() == ZoneClassName.DUMMY) {
 				log.error("Region " + regionId + " should intersect with whole map zone!!! (map=" + mapId + ")");
 			}
 		}

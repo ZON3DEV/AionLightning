@@ -14,10 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.clientpackets;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.model.EmotionType;
@@ -31,6 +29,8 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.skillengine.effect.AbnormalState;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author SoulKeeper
@@ -85,8 +85,6 @@ public class CM_EMOTION extends AionClientPacket {
 			case LAND_FLYTELEPORT: // fly teleport land
 			case FLY: // fly up
 			case LAND: // land
-			case RIDE:
-			case RIDE_END:
 			case DIE: // die
 			case END_DUEL: // duel end
 			case WALK: // walk on
@@ -114,11 +112,6 @@ public class CM_EMOTION extends AionClientPacket {
 				z = readF();
 				heading = (byte) readC();
 				break;
-			case START_FLYBOOST_SPEED:
-				emotion = readD();
-				break;
-			case END_FLYBOOST_SPEED:
-				break;
 			default:
 				log.error("Unknown emotion type? 0x" + Integer.toHexString(et/* !!!!! */).toUpperCase());
 				break;
@@ -135,19 +128,12 @@ public class CM_EMOTION extends AionClientPacket {
 			return;
 		}
 
-		if (player.getEffectController().isAbnormalState(AbnormalState.CANT_MOVE_STATE2) || player.getEffectController().isUnderFear()) {
+		if (player.getEffectController().isAbnormalState(AbnormalState.CANT_MOVE_STATE) || player.getEffectController().isUnderFear()) {
 			return;
 		}
 
-		// check for stance
-		if (player.getController().isUnderStance()) {
-			if (emotionType == EmotionType.SIT || emotionType == EmotionType.JUMP || emotionType == EmotionType.NEUTRALMODE || emotionType == EmotionType.NEUTRALMODE2 || emotionType == EmotionType.ATTACKMODE || emotionType == EmotionType.ATTACKMODE2) {
-				player.getController().stopStance();
-				// return; // because you cannot jump or sit etc while under stance..
-			}
-		}
-
-		if (player.getState() == CreatureState.PRIVATE_SHOP.getId() || player.isAttackMode() && (emotionType == EmotionType.CHAIR_SIT || emotionType == EmotionType.JUMP)) {
+		if (player.getState() == CreatureState.PRIVATE_SHOP.getId() || player.isAttackMode()
+				&& (emotionType == EmotionType.CHAIR_SIT || emotionType == EmotionType.JUMP)) {
 			return;
 		}
 
@@ -158,6 +144,14 @@ public class CM_EMOTION extends AionClientPacket {
 		player.getController().cancelUseItem();
 		if (emotionType != EmotionType.SELECT_TARGET) {
 			player.getController().cancelCurrentSkill();
+		}
+
+		// check for stance
+		if (player.getController().isUnderStance()) {
+			if (emotionType == EmotionType.SIT || emotionType == EmotionType.JUMP || emotionType == EmotionType.NEUTRALMODE
+					|| emotionType == EmotionType.NEUTRALMODE2 || emotionType == EmotionType.ATTACKMODE || emotionType == EmotionType.ATTACKMODE2) {
+				player.getController().stopStance();
+			}
 		}
 
 		switch (emotionType) {
@@ -236,7 +230,8 @@ public class CM_EMOTION extends AionClientPacket {
 				player.unsetState(CreatureState.POWERSHARD);
 				break;
 			case START_SPRINT:
-				if (!player.isInPlayerMode(PlayerMode.RIDE) || player.getLifeStats().getCurrentFp() < player.ride.getStartFp() || player.isInState(CreatureState.FLYING) || !player.ride.canSprint()) {
+				if (!player.isInPlayerMode(PlayerMode.RIDE) || player.getLifeStats().getCurrentFp() < player.ride.getStartFp()
+						|| player.isInState(CreatureState.FLYING) || !player.ride.canSprint()) {
 					return;
 				}
 				player.setSprintMode(true);
@@ -248,10 +243,6 @@ public class CM_EMOTION extends AionClientPacket {
 				}
 				player.setSprintMode(false);
 				player.getLifeStats().triggerFpRestore();
-				break;
-			case START_FLYBOOST_SPEED:
-				break;
-			case END_FLYBOOST_SPEED:
 				break;
 			default:
 				break;

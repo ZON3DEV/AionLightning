@@ -14,23 +14,24 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import java.sql.Timestamp;
-
+import com.aionemu.gameserver.controllers.HouseController;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerHouseOwnerFlags;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.services.HousingService;
+import com.aionemu.gameserver.services.teleport.TeleportService2;
+import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.aionemu.gameserver.model.house.House;
 import com.aionemu.gameserver.model.house.HouseStatus;
 import com.aionemu.gameserver.model.templates.housing.BuildingType;
 import com.aionemu.gameserver.model.templates.housing.HouseAddress;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_HOUSE_ACQUIRE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_HOUSE_OWNER_INFO;
-import com.aionemu.gameserver.services.HousingService;
-import com.aionemu.gameserver.services.teleport.TeleportService2;
-import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
 /**
  * @author Rolandas
@@ -54,15 +55,13 @@ public class HouseCommand extends AdminCommand {
 				return;
 			}
 			ChangeHouseOwner(admin, params[1].toUpperCase(), true);
-		}
-		else if (params[0].equals("revoke")) {
+		} else if (params[0].equals("revoke")) {
 			if (params.length == 1) {
 				PacketSendUtility.sendMessage(admin, "Syntax: //house revoke <name>");
 				return;
 			}
 			ChangeHouseOwner(admin, params[1].toUpperCase(), false);
-		}
-		else if (params[0].equals("tp")) {
+		} else if (params[0].equals("tp")) {
 			if (params.length == 1) {
 				PacketSendUtility.sendMessage(admin, "Syntax: //house tp <name>");
 				return;
@@ -107,8 +106,7 @@ public class HouseCommand extends AdminCommand {
 				if (current.getBuilding().getType() == BuildingType.PERSONAL_INS) {
 					target.getHouses().remove(current);
 					PacketSendUtility.sendMessage(admin, "Deleted studio.");
-				}
-				else {
+				} else {
 					current.setStatus(HouseStatus.ACTIVE);
 					current.setFeePaid(true);
 					current.setNextPay(null);
@@ -129,8 +127,7 @@ public class HouseCommand extends AdminCommand {
 			PacketSendUtility.sendMessage(admin, "House " + house.getName() + " acquired");
 			PacketSendUtility.sendPacket(target, new SM_HOUSE_OWNER_INFO(target, house));
 			PacketSendUtility.sendPacket(target, new SM_HOUSE_ACQUIRE(target.getObjectId(), house.getAddress().getId(), true));
-		}
-		else {
+		} else {
 			if (target.getHouses().size() == 0) {
 				PacketSendUtility.sendMessage(admin, "Nothing to revoke!");
 				return;
@@ -140,8 +137,7 @@ public class HouseCommand extends AdminCommand {
 				if (house.getName().equals(houseName)) {
 					revokedHouse = house;
 					house.revokeOwner();
-				}
-				else if (house.getStatus() != HouseStatus.ACTIVE) {
+				} else if (house.getStatus() != HouseStatus.ACTIVE) {
 					house.setStatus(HouseStatus.ACTIVE);
 					house.setSellStarted(null);
 					house.save();
@@ -155,15 +151,14 @@ public class HouseCommand extends AdminCommand {
 			House oldHouse = null;
 			if (target.getHouses().size() != 0) {
 				oldHouse = target.getHouses().get(0);
-			}
-			else {
+			} else {
 				target.setBuildingOwnerState(PlayerHouseOwnerFlags.BUY_STUDIO_ALLOWED.getId());
 			}
 			target.setHouseRegistry(oldHouse == null ? null : oldHouse.getRegistry());
 			PacketSendUtility.sendMessage(admin, "House " + revokedHouse.getName() + " revoked");
 			PacketSendUtility.sendPacket(target, new SM_HOUSE_OWNER_INFO(target, oldHouse));
 			PacketSendUtility.sendPacket(target, new SM_HOUSE_ACQUIRE(target.getObjectId(), revokedHouse.getAddress().getId(), false));
-			revokedHouse.getController().updateAppearance();
+			((HouseController) revokedHouse.getController()).updateAppearance();
 		}
 	}
 

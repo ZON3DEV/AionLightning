@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai;
 
 import org.slf4j.Logger;
@@ -59,27 +60,26 @@ public class ResurrectAI2 extends NpcAI2 {
 			return;
 		}
 
-		if (player.getBindPoint() != null && player.getBindPoint().getMapId() == getPosition().getMapId() && MathUtil.getDistance(player.getBindPoint().getX(), player.getBindPoint().getY(), player.getBindPoint().getZ(), getPosition().getX(), getPosition().getY(), getPosition().getZ()) < 20) {
+		if (player.getBindPoint() != null
+				&& player.getBindPoint().getMapId() == getPosition().getMapId()
+				&& MathUtil.getDistance(player.getBindPoint().getX(), player.getBindPoint().getY(), player.getBindPoint().getZ(), getPosition().getX(),
+						getPosition().getY(), getPosition().getZ()) < 20) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_ALREADY_REGISTER_THIS_RESURRECT_POINT);
 			return;
 		}
 
 		WorldType worldType = player.getWorldType();
 		if (!CustomConfig.ENABLE_CROSS_FACTION_BINDING && !getTribe().equals(TribeClass.FIELD_OBJECT_ALL)) {
-			if ((!getRace().equals(Race.NONE) && !getRace().equals(race)) || (race.equals(Race.ASMODIANS) && getTribe().equals(TribeClass.FIELD_OBJECT_LIGHT)) || (race.equals(Race.ELYOS) && getTribe().equals(TribeClass.FIELD_OBJECT_DARK))) {
-				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_BINDSTONE_CANNOT_FOR_INVALID_RIGHT(player.getCommonData().getOppositeRace().toString()));
+			if ((!getRace().equals(Race.NONE) && !getRace().equals(race)) || (race.equals(Race.ASMODIANS) && getTribe().equals(TribeClass.FIELD_OBJECT_LIGHT))
+					|| (race.equals(Race.ELYOS) && getTribe().equals(TribeClass.FIELD_OBJECT_DARK))) {
+				PacketSendUtility.sendPacket(player,
+						SM_SYSTEM_MESSAGE.STR_MSG_BINDSTONE_CANNOT_FOR_INVALID_RIGHT(player.getCommonData().getOppositeRace().toString()));
 				return;
 			}
 		}
 		if (worldType == WorldType.PRISON) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_CANNOT_REGISTER_RESURRECT_POINT_FAR_FROM_NPC);
 			return;
-		}
-		switch (player.getWorldId()) {
-			case 600090000: // Kaldor.
-			case 600100000: // Levinshor.
-				newBind(player, bindPointTemplate);
-				break;
 		}
 		bindHere(player, bindPointTemplate);
 	}
@@ -88,7 +88,6 @@ public class ResurrectAI2 extends NpcAI2 {
 
 		String price = Integer.toString(bindPointTemplate.getPrice());
 		AI2Actions.addRequest(this, player, SM_QUESTION_WINDOW.STR_ASK_REGISTER_RESURRECT_POINT, 0, new AI2Request() {
-
 			@Override
 			public void acceptRequest(Creature requester, Player responder) {
 				// check if this both creatures are in same world
@@ -97,58 +96,26 @@ public class ResurrectAI2 extends NpcAI2 {
 					if (responder.getInventory().getKinah() < bindPointTemplate.getPrice()) {
 						PacketSendUtility.sendPacket(responder, SM_SYSTEM_MESSAGE.STR_CANNOT_REGISTER_RESURRECT_POINT_NOT_ENOUGH_FEE);
 						return;
-					}
-					else if (MathUtil.getDistance(requester, responder) > 10) {
+					} else if (MathUtil.getDistance(requester, responder) > 5) {
 						PacketSendUtility.sendPacket(responder, SM_SYSTEM_MESSAGE.STR_CANNOT_REGISTER_RESURRECT_POINT_FAR_FROM_NPC);
 						return;
 					}
 
 					BindPointPosition old = responder.getBindPoint();
-					BindPointPosition bpp = new BindPointPosition(requester.getWorldId(), responder.getX(), responder.getY(), responder.getZ(), responder.getHeading());
+					BindPointPosition bpp = new BindPointPosition(requester.getWorldId(), responder.getX(), responder.getY(), responder.getZ(), responder
+							.getHeading());
 					bpp.setPersistentState(old == null ? PersistentState.NEW : PersistentState.UPDATE_REQUIRED);
 					responder.setBindPoint(bpp);
 					if (DAOManager.getDAO(PlayerBindPointDAO.class).store(responder)) {
 						responder.getInventory().decreaseKinah(bindPointTemplate.getPrice());
 						TeleportService2.sendSetBindPoint(responder);
-						PacketSendUtility.broadcastPacket(responder, new SM_LEVEL_UPDATE(responder.getObjectId(), 2, responder.getCommonData().getLevel()), true);
+						PacketSendUtility.broadcastPacket(responder, new SM_LEVEL_UPDATE(responder.getObjectId(), 2, responder.getCommonData().getLevel()),
+								true);
 						PacketSendUtility.sendPacket(responder, SM_SYSTEM_MESSAGE.STR_DEATH_REGISTER_RESURRECT_POINT("")); // TODO
 						old = null;
-					}
-					else {
-						responder.setBindPoint(old);
-					}
-				}
-			}
-		}, price);
-	}
-
-	private void newBind(Player player, final BindPointTemplate bindPointTemplate) {
-		String price = Integer.toString(bindPointTemplate.getPrice());
-		AI2Actions.addRequest(this, player, SM_QUESTION_WINDOW.STR_ASK_REGISTER_RESURRECT_POINT, 0, new AI2Request() {
-
-			@Override
-			public void acceptRequest(Creature requester, Player responder) {
-				if (responder.getWorldId() == requester.getWorldId()) {
-					if (responder.getInventory().getKinah() < bindPointTemplate.getPrice()) {
-						PacketSendUtility.sendPacket(responder, SM_SYSTEM_MESSAGE.STR_CANNOT_REGISTER_RESURRECT_POINT_NOT_ENOUGH_FEE);
-						return;
-					}
-					else if (MathUtil.getDistance(requester, responder) > 15) {
-						PacketSendUtility.sendPacket(responder, SM_SYSTEM_MESSAGE.STR_CANNOT_REGISTER_RESURRECT_POINT_FAR_FROM_NPC);
-						return;
-					}
-					BindPointPosition old = responder.getBindPoint();
-					BindPointPosition bpp = new BindPointPosition(requester.getWorldId(), requester.getX(), requester.getY(), requester.getZ(), requester.getHeading());
-					bpp.setPersistentState(old == null ? PersistentState.NEW : PersistentState.UPDATE_REQUIRED);
-					responder.setBindPoint(bpp);
-					if (DAOManager.getDAO(PlayerBindPointDAO.class).store(responder)) {
-						responder.getInventory().decreaseKinah(bindPointTemplate.getPrice());
-						TeleportService2.sendSetBindPoint(responder);
-						PacketSendUtility.broadcastPacket(responder, new SM_LEVEL_UPDATE(responder.getObjectId(), 2, responder.getCommonData().getLevel()), true);
-						PacketSendUtility.sendPacket(responder, SM_SYSTEM_MESSAGE.STR_DEATH_REGISTER_RESURRECT_POINT(""));
-						old = null;
-					}
-					else {
+					} else // if any errors happen, left that player with old
+							// bind point
+					{
 						responder.setBindPoint(old);
 					}
 				}

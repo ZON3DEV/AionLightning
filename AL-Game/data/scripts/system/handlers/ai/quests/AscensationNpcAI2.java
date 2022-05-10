@@ -14,14 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package ai.quests;
 
-import com.aionemu.gameserver.ai2.AIName;
+package ai.quests;
 
 import ai.AggressiveNpcAI2;
 
+import com.aionemu.gameserver.ai2.AIName;
+
 /**
  * @author Cheatkiller
+ *
  */
 @AIName("ascensationquestnpc")
 public class AscensationNpcAI2 extends AggressiveNpcAI2 {

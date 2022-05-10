@@ -15,18 +15,19 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.callbacks.files;
 
 import com.aionemu.commons.callbacks.metadata.ObjectCallback;
 
 public class InheritanceTestSuperclass {
 
-	public String publicMethod() {
+	public String publicMethod(){
 		return privateMethod();
 	}
 
 	@ObjectCallback(value = InheritanceTestCallback.class)
-	private String privateMethod() {
+	private String privateMethod(){
 		return "gg";
 	}
 }

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -48,7 +49,8 @@ public class SimpleRootEffect extends EffectTemplate {
 
 	@Override
 	public void calculate(Effect effect) {
-		if (effect.getEffected().getEffectController().hasAbnormalEffect(1968) || effect.getEffected().getEffectController().hasAbnormalEffect(2376) || effect.getEffected().getEffectController().hasAbnormalEffect(8224)) {
+		if (effect.getEffected().getEffectController().hasAbnormalEffect(1968) || effect.getEffected().getEffectController().hasAbnormalEffect(2376)
+				|| effect.getEffected().getEffectController().hasAbnormalEffect(8224)) {
 			return;
 		}
 		super.calculate(effect, StatEnum.STAGGER_RESISTANCE, null);
@@ -60,7 +62,8 @@ public class SimpleRootEffect extends EffectTemplate {
 		byte heading = effect.getEffector().getHeading();
 		effect.setSpellStatus(SpellStatus.NONE);
 		effect.setSkillMoveType(SkillMoveType.KNOCKBACK);
-		// effect.getEffected().getController().cancelCurrentSkill(); //TODO: Not sure about this
+		// effect.getEffected().getController().cancelCurrentSkill(); //TODO:
+		// Not sure about this
 		effect.getEffected().getEffectController().setAbnormal(AbnormalState.KNOCKBACK.getId());
 		effect.setAbnormal(AbnormalState.KNOCKBACK.getId());
 		double radian = Math.toRadians(MathUtil.convertHeadingToDegree(heading));
@@ -68,7 +71,8 @@ public class SimpleRootEffect extends EffectTemplate {
 		float y1 = (float) (Math.sin(radian) * 0.7f);
 		float z = effected.getZ();
 		byte intentions = (byte) (CollisionIntention.PHYSICAL.getId() | CollisionIntention.DOOR.getId());
-		Vector3f closestCollision = GeoService.getInstance().getClosestCollision(effected, effected.getX() + x1, effected.getY() + y1, effected.getZ() - 0.4f, false, intentions);
+		Vector3f closestCollision = GeoService.getInstance().getClosestCollision(effected, effected.getX() + x1, effected.getY() + y1, effected.getZ() - 0.4f,
+				false, intentions);
 		x1 = closestCollision.x;
 		y1 = closestCollision.y;
 		z = closestCollision.z;

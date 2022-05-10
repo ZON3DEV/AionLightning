@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player;
 
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
@@ -139,10 +140,7 @@ public class PlayerSettings {
 	public boolean isInDeniedStatus(DeniedStatus deny) {
 		int isDeniedStatus = this.deny & deny.getId();
 
-		if (isDeniedStatus == deny.getId()) {
-			return true;
-		}
+		return isDeniedStatus == deny.getId();
 
-		return false;
 	}
 }

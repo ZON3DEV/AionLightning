@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.portals;
 
 import com.aionemu.gameserver.ai2.AIName;

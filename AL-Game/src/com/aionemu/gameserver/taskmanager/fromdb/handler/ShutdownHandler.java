@@ -14,10 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.taskmanager.fromdb.handler;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.aionemu.gameserver.taskmanager.fromdb.handler;
 
 import com.aionemu.gameserver.ShutdownHook;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -25,6 +23,8 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.knownlist.Visitor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Divinity, nrg
@@ -45,8 +45,7 @@ public class ShutdownHandler extends TaskFromDBHandler {
 				warnCountDown = Integer.parseInt(params[2]);
 
 				return true;
-			}
-			catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				log.warn("Invalid parameters for ShutdownHandler. Only valid integers allowed - not registered", e);
 			}
 		}
@@ -59,15 +58,14 @@ public class ShutdownHandler extends TaskFromDBHandler {
 		log.info("Task[" + taskId + "] launched : shuting down the server !");
 
 		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player player) {
-				PacketSendUtility.sendBrightYellowMessageOnCenter(player, "Automatic Task: The server will shutdown in " + warnCountDown + " seconds ! Please find a peace place and disconnect your character.");
+				PacketSendUtility.sendBrightYellowMessageOnCenter(player, "Automatic Task: The server will shutdown in " + warnCountDown
+						+ " seconds ! Please find a peace place and disconnect your character.");
 			}
 		});
 
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				ShutdownHook.getInstance().doShutdown(countDown, announceInterval, ShutdownHook.ShutdownMode.SHUTDOWN);

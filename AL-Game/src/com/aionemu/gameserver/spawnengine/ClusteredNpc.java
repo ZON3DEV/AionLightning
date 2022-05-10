@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.spawnengine;
 
 import com.aionemu.gameserver.model.TaskId;
@@ -21,7 +22,8 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.templates.walker.WalkerTemplate;
 
 /**
- * Stores for the spawn needed information, used for forming walker groups and spawning NPCs
+ * Stores for the spawn needed information, used for forming walker groups and
+ * spawning NPCs
  *
  * @author vlog
  * @modified Rolandas

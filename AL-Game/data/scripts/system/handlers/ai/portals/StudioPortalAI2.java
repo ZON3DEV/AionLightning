@@ -14,22 +14,22 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.portals;
 
-import static com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE.STR_HOUSING_ENTER_NEED_HOUSE;
+import ai.ActionItemNpcAI2;
 
 import com.aionemu.gameserver.ai2.AIName;
 import com.aionemu.gameserver.model.TeleportAnimation;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.house.House;
+import static com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE.*;
 import com.aionemu.gameserver.services.HousingService;
 import com.aionemu.gameserver.services.instance.InstanceService;
 import com.aionemu.gameserver.services.teleport.TeleportService2;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.WorldMapInstance;
-
-import ai.ActionItemNpcAI2;
 
 /**
  * @author Rolandas
@@ -64,11 +64,9 @@ public class StudioPortalAI2 extends ActionItemNpcAI2 {
 			x = studio.getAddress().getExitX();
 			y = studio.getAddress().getExitY();
 			z = studio.getAddress().getExitZ();
-		}
-		else if (studio == null) {
+		} else if (studio == null) {
 			return; // doesn't own studio
-		}
-		else { // entering own studio
+		} else { // entering own studio
 			exitMapId = studio.getAddress().getMapId();
 			WorldMapInstance instance = InstanceService.getPersonalInstance(exitMapId, player.getObjectId());
 			if (instance == null) {

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import com.aionemu.gameserver.model.PlayerClass;
@@ -51,8 +52,7 @@ public class cmd_start extends PlayerCommand {
 			ItemService.addItem(player, 100001080, 1); // Stormwing Scale Sword
 			ItemService.addItem(player, 100000618, 1); // Archon Tribunus's Sword
 			ItemService.addItem(player, 100200589, 2); // Archon Tribunus's Dagger
-		}
-		else if (player.getPlayerClass() == PlayerClass.CHANTER) {
+		} else if (player.getPlayerClass() == PlayerClass.CHANTER) {
 			ItemService.addItem(player, 114500759, 1); //
 			ItemService.addItem(player, 110500771, 1); //
 			ItemService.addItem(player, 111500740, 1); //
@@ -69,8 +69,7 @@ public class cmd_start extends PlayerCommand {
 			ItemService.addItem(player, 100100482, 1); // Archon Tribunus's Warhammer
 			ItemService.addItem(player, 115000765, 1); // Archon Tribunus's Shield
 			ItemService.addItem(player, 101500481, 1); // Archon Tribunus's Staff
-		}
-		else if (player.getPlayerClass() == PlayerClass.CLERIC) {
+		} else if (player.getPlayerClass() == PlayerClass.CLERIC) {
 			ItemService.addItem(player, 114500759, 1); //
 			ItemService.addItem(player, 110500771, 1); //
 			ItemService.addItem(player, 111500740, 1); //
@@ -87,8 +86,7 @@ public class cmd_start extends PlayerCommand {
 			ItemService.addItem(player, 100100482, 1); // Archon Tribunus's Warhammer
 			ItemService.addItem(player, 115000765, 1); // Archon Tribunus's Shield
 			ItemService.addItem(player, 101500481, 1); // Archon Tribunus's Staff
-		}
-		else if (player.getPlayerClass() == PlayerClass.GLADIATOR) {
+		} else if (player.getPlayerClass() == PlayerClass.GLADIATOR) {
 			ItemService.addItem(player, 114600719, 1); //
 			ItemService.addItem(player, 111600732, 1); //
 			ItemService.addItem(player, 113600725, 1); //
@@ -107,8 +105,7 @@ public class cmd_start extends PlayerCommand {
 			ItemService.addItem(player, 100000618, 2); // Archon Tribunus's Sword
 			ItemService.addItem(player, 100900475, 1); // Archon Tribunus's Greatsword
 			ItemService.addItem(player, 101300464, 1); // Archon Tribunus's Spear
-		}
-		else if (player.getPlayerClass() == PlayerClass.RANGER) {
+		} else if (player.getPlayerClass() == PlayerClass.RANGER) {
 			ItemService.addItem(player, 110300795, 1); //
 			ItemService.addItem(player, 113300778, 1); //
 			ItemService.addItem(player, 114300793, 1); //
@@ -123,8 +120,7 @@ public class cmd_start extends PlayerCommand {
 			ItemService.addItem(player, 101700722, 1); // Stormwing's Longbow
 			ItemService.addItem(player, 101700494, 1); // Archon Tribunus's Longbow
 			ItemService.addItem(player, 100200589, 2); // Archon Tribunus's Dagger
-		}
-		else if (player.getPlayerClass() == PlayerClass.SORCERER) {
+		} else if (player.getPlayerClass() == PlayerClass.SORCERER) {
 			ItemService.addItem(player, 114100780, 1); //
 			ItemService.addItem(player, 111100751, 1); //
 			ItemService.addItem(player, 113100761, 1); //
@@ -139,8 +135,7 @@ public class cmd_start extends PlayerCommand {
 			ItemService.addItem(player, 100600755, 1); // Stormwing's Tome
 			ItemService.addItem(player, 100600512, 1); // Archon Tribunus's Tome
 			ItemService.addItem(player, 100500479, 1); // Archon Tribunus's Jewel
-		}
-		else if (player.getPlayerClass() == PlayerClass.SPIRIT_MASTER) {
+		} else if (player.getPlayerClass() == PlayerClass.SPIRIT_MASTER) {
 			ItemService.addItem(player, 114100780, 1); //
 			ItemService.addItem(player, 111100751, 1); //
 			ItemService.addItem(player, 113100761, 1); //
@@ -155,8 +150,7 @@ public class cmd_start extends PlayerCommand {
 			ItemService.addItem(player, 100600755, 1); // Stormwing's Tome
 			ItemService.addItem(player, 100600512, 1); // Archon Tribunus's Tome
 			ItemService.addItem(player, 100500479, 1); // Archon Tribunus's Jewel
-		}
-		else if (player.getPlayerClass() == PlayerClass.TEMPLAR) {
+		} else if (player.getPlayerClass() == PlayerClass.TEMPLAR) {
 			ItemService.addItem(player, 114600719, 1); //
 			ItemService.addItem(player, 111600732, 1); //
 			ItemService.addItem(player, 113600725, 1); //
@@ -173,8 +167,7 @@ public class cmd_start extends PlayerCommand {
 			ItemService.addItem(player, 115000765, 1); // Archon Tribunus's Shield
 			ItemService.addItem(player, 100000618, 1); // Archon Tribunus's Sword
 			ItemService.addItem(player, 100900475, 1); // Archon Tribunus's Greatsword
-		}
-		else if (player.getPlayerClass() == PlayerClass.BARD) {
+		} else if (player.getPlayerClass() == PlayerClass.BARD) {
 			ItemService.addItem(player, 114100780, 1); //
 			ItemService.addItem(player, 111100751, 1); //
 			ItemService.addItem(player, 113100761, 1); //
@@ -187,8 +180,7 @@ public class cmd_start extends PlayerCommand {
 			ItemService.addItem(player, 123000845, 1); // Archon Tribunus's Belt
 			ItemService.addItem(player, 102000662, 1); // Stormwing's Harp
 			ItemService.addItem(player, 102000521, 1); // Archon Tribunus's Harp
-		}
-		else if (player.getPlayerClass() == PlayerClass.GUNNER) {
+		} else if (player.getPlayerClass() == PlayerClass.GUNNER) {
 			ItemService.addItem(player, 110300795, 1); //
 			ItemService.addItem(player, 113300778, 1); //
 			ItemService.addItem(player, 114300793, 1); //
@@ -203,8 +195,7 @@ public class cmd_start extends PlayerCommand {
 			ItemService.addItem(player, 101900627, 1); // Stormwing's Aethercannon
 			ItemService.addItem(player, 101900491, 1); // Archon Tribunus's Aethercannon
 			ItemService.addItem(player, 101800504, 2); // Archon Tribunus's Pistol
-		}
-		else if (player.getPlayerClass() == PlayerClass.RIDER) {
+		} else if (player.getPlayerClass() == PlayerClass.RIDER) {
 			ItemService.addItem(player, 114500759, 1); //
 			ItemService.addItem(player, 110500771, 1); //
 			ItemService.addItem(player, 111500740, 1); //
@@ -221,7 +212,6 @@ public class cmd_start extends PlayerCommand {
 		player.setCommandUsed(true);
 
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				player.setCommandUsed(false);

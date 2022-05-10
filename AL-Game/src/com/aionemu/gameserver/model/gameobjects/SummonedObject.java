@@ -14,11 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects;
 
 import org.apache.commons.lang.StringUtils;
 
 import com.aionemu.gameserver.controllers.NpcController;
+import com.aionemu.gameserver.model.gameobjects.CreatureType;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.TribeClass;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -106,17 +108,17 @@ public class SummonedObject<T extends VisibleObject> extends Npc {
 
 	@Override
 	public boolean isEnemy(Creature creature) {
-		return getMaster() != null ? getMaster().isEnemy(creature) : false;
+		return getMaster() != null && getMaster().isEnemy(creature);
 	}
 
 	@Override
 	public boolean isEnemyFrom(Npc npc) {
-		return getMaster() != null ? getMaster().isEnemyFrom(npc) : false;
+		return getMaster() != null && getMaster().isEnemyFrom(npc);
 	}
 
 	@Override
 	public boolean isEnemyFrom(Player player) {
-		return getMaster() != null ? getMaster().isEnemyFrom(player) : false;
+		return getMaster() != null && getMaster().isEnemyFrom(player);
 	}
 
 	@Override

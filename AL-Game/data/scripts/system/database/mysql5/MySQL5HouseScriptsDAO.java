@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
@@ -50,17 +51,14 @@ public class MySQL5HouseScriptsDAO extends HouseScriptsDAO {
 			stmt.setInt(2, position);
 			if (scriptXML == null) {
 				stmt.setNull(3, Types.LONGNVARCHAR);
-			}
-			else {
+			} else {
 				stmt.setString(3, scriptXML);
 			}
 			stmt.executeUpdate();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not save script data for houseId: " + houseId + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}
@@ -81,11 +79,9 @@ public class MySQL5HouseScriptsDAO extends HouseScriptsDAO {
 			}
 			rset.close();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not restore script data for houseId: " + houseId + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 
@@ -100,19 +96,16 @@ public class MySQL5HouseScriptsDAO extends HouseScriptsDAO {
 			PreparedStatement stmt = con.prepareStatement(UPDATE_QUERY);
 			if (scriptXML == null) {
 				stmt.setNull(1, Types.LONGNVARCHAR);
-			}
-			else {
+			} else {
 				stmt.setString(1, scriptXML);
 			}
 			stmt.setInt(2, houseId);
 			stmt.setInt(3, position);
 			stmt.executeUpdate();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not save script data for houseId: " + houseId + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}
@@ -127,11 +120,9 @@ public class MySQL5HouseScriptsDAO extends HouseScriptsDAO {
 			stmt.setInt(2, position);
 			stmt.executeUpdate();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not delete script for houseId: " + houseId + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}

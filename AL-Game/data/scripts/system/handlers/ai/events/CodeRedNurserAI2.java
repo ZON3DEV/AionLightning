@@ -14,9 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.events;
 
 import org.joda.time.DateTime;
+
+import ai.GeneralNpcAI2;
 
 import com.aionemu.gameserver.ai2.AIName;
 import com.aionemu.gameserver.model.DialogAction;
@@ -26,8 +29,6 @@ import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-
-import ai.GeneralNpcAI2;
 
 /**
  * @author xTz, modified bobobear
@@ -45,6 +46,8 @@ public class CodeRedNurserAI2 extends GeneralNpcAI2 {
 			case 831441: // Hylian (MON-THU)
 			case 831442: // Rordah (MON-THU)
 			case 831443: // Mazka (FRI-SAT)
+			case 831029: // Edanos(Quete de progression)
+			case 831031: // Nebris(Quete de progression)
 			case 831524: { // Desha (FRI-SAT)
 				super.handleDialogStart(player);
 				break;
@@ -95,8 +98,7 @@ public class CodeRedNurserAI2 extends GeneralNpcAI2 {
 			// only one buff at the same time
 			player.getEffectController().removeEffect(RemoveSkillId);
 			SkillEngine.getInstance().getSkill(getOwner(), skillId, 1, player).useWithoutPropSkill();
-		}
-		else if (dialogId == DialogAction.QUEST_SELECT.id() && questId != 0) {
+		} else if (dialogId == DialogAction.QUEST_SELECT.id() && questId != 0) {
 			PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(getObjectId(), dialogId, questId));
 		}
 		return true;
@@ -113,8 +115,7 @@ public class CodeRedNurserAI2 extends GeneralNpcAI2 {
 			case 831442: {// Rordah (MON-THU)
 				if (currentDay >= 1 && currentDay <= 4) {
 					super.handleSpawned();
-				}
-				else if (!isAlreadyDead()) {
+				} else if (!isAlreadyDead()) {
 					getOwner().getController().onDelete();
 				}
 				break;
@@ -125,8 +126,7 @@ public class CodeRedNurserAI2 extends GeneralNpcAI2 {
 			case 831524: { // Deshna (FRI-SAT)
 				if (currentDay >= 5 && currentDay <= 7) {
 					super.handleSpawned();
-				}
-				else if (!isAlreadyDead()) {
+				} else if (!isAlreadyDead()) {
 					getOwner().getController().onDelete();
 				}
 				break;

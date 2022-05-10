@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.commons.database.dao.DAOManager;
@@ -71,14 +72,11 @@ public class Ban extends AdminCommand {
 			String stype = params[1].toLowerCase();
 			if (("account").startsWith(stype)) {
 				type = 1;
-			}
-			else if (("ip").startsWith(stype)) {
+			} else if (("ip").startsWith(stype)) {
 				type = 2;
-			}
-			else if (("full").startsWith(stype)) {
+			} else if (("full").startsWith(stype)) {
 				type = 3;
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(admin, "Syntax: //ban <player> [account|ip|full] [time in minutes]");
 				return;
 			}
@@ -88,8 +86,7 @@ public class Ban extends AdminCommand {
 		if (params.length > 2) {
 			try {
 				time = Integer.parseInt(params[2]);
-			}
-			catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				PacketSendUtility.sendMessage(admin, "Syntax: //ban <player> [account|ip|full] [time in minutes]");
 				return;
 			}

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai;
 
 import com.aionemu.gameserver.ai2.AIName;
@@ -24,6 +25,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author xTz
+ *
  */
 @AIName("shifter")
 public class ShifterAI2 extends ActionItemNpcAI2 {

@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package playercommands;
 
-import java.util.concurrent.TimeUnit;
+package playercommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
@@ -25,6 +24,7 @@ import com.aionemu.gameserver.skillengine.effect.AbnormalState;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.chathandlers.PlayerCommand;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Nemiroff Date: 11.01.2010
@@ -51,16 +51,15 @@ public class cmd_unstuck extends PlayerCommand {
 		player.getEffectController().setAbnormal(AbnormalState.PARALYZE.getId());
 		player.getEffectController().updatePlayerEffectIcons();
 		player.getEffectController().broadCastEffects();
-		PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, 0, 0, (int) TimeUnit.SECONDS.toMillis(10), 0));
+		PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, 0, (int) TimeUnit.SECONDS.toMillis(10), 0, 0));
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				player.getEffectController().unsetAbnormal(AbnormalState.PARALYZE.getId());
 				player.getEffectController().updatePlayerEffectIcons();
 				player.getEffectController().broadCastEffects();
 				player.getController().cancelUseItem();
-				PacketSendUtility.broadcastPacketAndReceive(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, 0, 0, 0, 1));
+				PacketSendUtility.broadcastPacketAndReceive(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, 0, 0, 1, 0));
 				TeleportService2.moveToBindLocation(player, true);
 			}
 		}, (int) TimeUnit.SECONDS.toMillis(10));

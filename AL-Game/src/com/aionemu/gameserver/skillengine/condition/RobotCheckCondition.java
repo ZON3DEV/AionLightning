@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.condition;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -42,8 +43,7 @@ public class RobotCheckCondition extends Condition {
 
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_SKILL_NO_ROBOT);
 			return false;
-		}
-		else {
+		} else {
 			return true;
 		}
 	}

@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.gameobjects;
 
-import java.util.concurrent.Future;
+package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.ai2.AI2Engine;
 import com.aionemu.gameserver.controllers.CreatureController;
@@ -36,6 +35,7 @@ import com.aionemu.gameserver.model.templates.npc.NpcTemplate;
 import com.aionemu.gameserver.model.templates.spawns.SpawnTemplate;
 import com.aionemu.gameserver.model.templates.stats.SummonStatsTemplate;
 import com.aionemu.gameserver.world.WorldPosition;
+import java.util.concurrent.Future;
 
 /**
  * @author ATracer
@@ -148,17 +148,17 @@ public class Summon extends Creature {
 
 	@Override
 	public boolean isEnemy(Creature creature) {
-		return master != null ? master.isEnemy(creature) : false;
+		return master != null && master.isEnemy(creature);
 	}
 
 	@Override
 	public boolean isEnemyFrom(Npc npc) {
-		return master != null ? master.isEnemyFrom(npc) : false;
+		return master != null && master.isEnemyFrom(npc);
 	}
 
 	@Override
 	public boolean isEnemyFrom(Player player) {
-		return master != null ? master.isEnemyFrom(player) : false;
+		return master != null && master.isEnemyFrom(player);
 	}
 
 	@Override

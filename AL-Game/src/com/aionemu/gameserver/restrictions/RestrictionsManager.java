@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.restrictions;
 
 import java.lang.reflect.Method;
@@ -28,11 +29,16 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.model.Skill;
 
 /**
- * @author lord_rex This class is a Manager for restrictions. This is a very useful system, you can use that for: game restrictions, events restrictions, quests restrictions, instances restrictions,
- *         customs restrictions.
- * @Example: Open a new class like this: public class AppleRestrictions extends AbstractRestrictions {
- * @Override public boolean canEatApple(Player player) { if(player.getController().isInEvent()) { // only example, don't forget! return true; // player can eat apple in event. } return false; //
- *           player cannot eat apple in normal game. } }
+ * @author lord_rex This class is a Manager for restrictions. This is a very
+ *         useful system, you can use that for: game restrictions, events
+ *         restrictions, quests restrictions, instances restrictions, customs
+ *         restrictions.
+ * @Example: Open a new class like this: public class AppleRestrictions extends
+ *           AbstractRestrictions {
+ * @Override public boolean canEatApple(Player player) {
+ *           if(player.getController().isInEvent()) { // only example, don't
+ *           forget! return true; // player can eat apple in event. } return
+ *           false; // player cannot eat apple in normal game. } }
  */
 public final class RestrictionsManager {
 
@@ -48,12 +54,11 @@ public final class RestrictionsManager {
 		canChat,
 		canInviteToGroup,
 		canInviteToAlliance,
-		canInviteToLeague,
 		canChangeEquip,
 		canTrade,
 		canUseWarehouse,
-		canUseItem;
-
+		canUseItem, // TODO
+		;
 		private final Method METHOD;
 
 		private RestrictionMode() {
@@ -169,7 +174,9 @@ public final class RestrictionsManager {
 	}
 
 	/**
-	 * This function can be used for activate one restriction. Example: public static boolean startAppleEatingEvent(Player player) { if(RestrictionsManager.isRestricted(player,
+	 * This function can be used for activate one restriction. Example: public
+	 * static boolean startAppleEatingEvent(Player player) {
+	 * if(RestrictionsManager.isRestricted(player,
 	 * AppleEatingEventRestriction.class)) return false; return true; }
 	 */
 	public static boolean isRestricted(Player player, Class<? extends Restrictions> callingRestriction) {
@@ -278,24 +285,10 @@ public final class RestrictionsManager {
 				return false;
 			}
 		}
+
 		return true;
 	}
-	
-	/**
-	 * This function is created for enable/disable invite to league.
-	 * 
-	 * @param player
-	 * @param target
-	 */
-	public static boolean canInviteToLeague(Player player, Player target) {
-		for (Restrictions restrictions : RESTRICTIONS[RestrictionMode.canInviteToLeague.ordinal()]) {
-			if (!restrictions.canInviteToLeague(player, target)) {
-				return false;
-			}
-		}
-		return true;
-	}
-	
+
 	/**
 	 * This function is created for enable/disable equip change.
 	 *

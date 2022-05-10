@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.pet;
 
 import java.util.ArrayList;
@@ -70,7 +71,8 @@ public class PetFlavour {
 	}
 
 	/**
-	 * Returns reward details if earned, otherwise null. Updates progress automatically
+	 * Returns reward details if earned, otherwise null. Updates progress
+	 * automatically
 	 *
 	 * @param progress
 	 * @param itemId
@@ -91,8 +93,7 @@ public class PetFlavour {
 		int maxFeedCount = 1;
 		if (rewardGroup.isLoved()) {
 			progress.setIsLovedFeeded();
-		}
-		else {
+		} else {
 			maxFeedCount = fullCount;
 		}
 

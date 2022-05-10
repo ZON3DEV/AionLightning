@@ -14,15 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.collections;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * This class is representing an iterator, that is used to iterate through the collection that has format Iterable&lt;Iterable&lt;V&gt;&gt;.<br>
- * <p/>
- * 
+ * This class is representing an iterator, that is used to iterate through the
+ * collection that has format Iterable&lt;Iterable&lt;V&gt;&gt;.<br>
+ *
  * <pre>
  * &lt;code&gt;
  * Usage:&lt;br&gt;
@@ -35,11 +36,11 @@ import java.util.NoSuchElementException;
  * IteratorIterator&lt;SomeCLass&gt; iterator = new IteratorIterator&lt;SomeClass&gt;(mapsOfSets.values());
  * &lt;/code&gt;
  * </pre>
- * <p/>
+ *
  * This iterator is not thread-safe. <br>
- * This iterator omits null values for first level collection, which means that if we have:
- * <p/>
- * 
+ * This iterator omits null values for first level collection, which means that
+ * if we have:
+ *
  * <pre>
  * &lt;code&gt;
  * Set&lt;Set&lt;Integer&gt;&gt; setOfSets = ....
@@ -49,12 +50,12 @@ import java.util.NoSuchElementException;
  * IteratorIterator&lt;Integer&gt; it = new IteratorIterator&lt;Integer&gt;(setOfSets);
  * &lt;/code&gt;
  * </pre>
- * <p/>
+ *
  * This <code>it</code> iterator will return only 2 values ( 1 and 2 )
  *
+ * @author Luno
  * @param <V>
  *            Type of the values over which this iterator iterates
- * @author Luno
  */
 public class IteratorIterator<V> implements Iterator<V> {
 

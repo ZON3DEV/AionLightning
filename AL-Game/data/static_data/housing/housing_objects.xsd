@@ -59,7 +59,7 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:complexType name="AbstractHouseObject" abstract="true">
-        <xs:attribute name="can_dye" type="xs:boolean" default="false"/>
+        <xs:attribute name="can_dye" type="xs:boolean" default="false" />
         <xs:attribute name="talking_distance" type="xs:float" use="required"/>
         <xs:attribute name="quality" type="itemQuality" use="required"/>
         <xs:attribute name="category" type="HousingCategory" use="required"/>
@@ -142,7 +142,7 @@
     <xs:complexType name="HousingEmblem">
         <xs:complexContent>
             <xs:extension base="PlaceableHouseObject">
-                <xs:attribute name="level" type="xs:int" use="required"/>
+                <xs:attribute name="level" type="xs:int" use="required" />
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai;
 
 import com.aionemu.gameserver.ai2.AI2Actions;
@@ -29,7 +30,6 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author -Nemesiss-
- * @Reworked GiGatR00n (Aion-Core)
  */
 @AIName("deliveryman")
 public class DeliveryManAI2 extends FollowingNpcAI2 {
@@ -56,20 +56,16 @@ public class DeliveryManAI2 extends FollowingNpcAI2 {
 
 	@Override
 	protected void handleDialogStart(Player player) {
-		if (owner != null) {
-			if (player.equals(owner)) {
-				PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(getObjectId(), 18));
-				player.getMailbox().sendMailList(true);
-			}
+		if (player.equals(owner)) {
+			PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(getObjectId(), 18));
+			player.getMailbox().sendMailList(true);
 		}
 	}
 
 	@Override
 	protected void handleCreatureMoved(Creature creature) {
-		if (owner != null) {
-			if (creature == owner) {
-				FollowEventHandler.creatureMoved(this, creature);
-			}
+		if (creature == owner) {
+			FollowEventHandler.creatureMoved(this, creature);
 		}
 	}
 

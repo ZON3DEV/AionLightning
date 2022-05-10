@@ -2,45 +2,119 @@
 <spawns>
     <spawn_map map_id="210040000">
         <!-- Rift -->
-        <spawn npc_id="700137" handler="RIFT"> <!-- Entrys in Heiron -->
-            <spot x="2564.8743" y="509.5843" z="387.0" h="30" anchor="HEIRON_AM"/>
-            <spot x="1311.5281" y="1495.4662" z="115.0" h="86" anchor="HEIRON_BM"/>
-            <spot x="1174.9716" y="663.67017" z="135.0" h="53" anchor="HEIRON_CM"/>
-            <spot x="655.1439" y="1889.0497" z="115.1" h="93" anchor="HEIRON_DM"/>
-            <spot x="738.3385" y="2480.146" z="140.5" h="43" anchor="HEIRON_EM"/>
-            <spot x="533.527" y="560.1405" z="143.1" h="0" anchor="HEIRON_FM"/>
-            <spot x="2788.3176" y="2115.3208" z="141.07913" h="50" anchor="HEIRON_GM"/>
+        <spawn npc_id="700137" handler="RIFT">
+            <spot x="2662.01" y="434.266" z="398.717" anchor="HEIRON_AM"/>	<!-- id 2140 -->
+            <spot x="1300.27" y="1437.92" z="112.788" anchor="HEIRON_BM"/>	<!-- id 2141 -->
+            <spot x="1103.57" y="656.18" z="132.959" anchor="HEIRON_CM"/>	<!-- id 2142 -->
+            <spot x="649.655" y="1821.23" z="105.332" anchor="HEIRON_DM"/>	<!-- id 2143 -->
+            <spot x="722.995" y="2524.74" z="126.14" anchor="HEIRON_EM"/>	<!-- id 2144 -->
+            <spot x="503.393" y="555.31" z="128.5" anchor="HEIRON_FM"/>		<!-- id 2145 -->
+            <spot x="2742.7" y="2078.44" z="142.533" anchor="HEIRON_GM"/>	<!-- id 2146 -->
+            <spot x="2132.44" y="434.266" z="228" anchor="HEIRON_AS"/>		<!-- id 2240 -->
+            <spot x="1955.41" y="1833.32" z="124.302" anchor="HEIRON_BS"/>	<!-- id 2241 -->
+            <spot x="881.969" y="903.924" z="119.97" anchor="HEIRON_CS"/>	<!-- id 2242 -->
+            <spot x="861.482" y="2194.45" z="124.491" anchor="HEIRON_DS"/>	<!-- id 2243 -->
+            <spot x="291.566" y="2658.45" z="103.402" anchor="HEIRON_ES"/>	<!-- id 2244 -->
+            <spot x="362.175" y="514.962" z="133.875" anchor="HEIRON_FS"/>	<!-- id 2245 -->
+            <spot x="1905.49" y="2577.75" z="148.369" anchor="HEIRON_GS"/>	<!-- id 2246 -->
         </spawn>
-        <spawn npc_id="700138" handler="RIFT"> <!-- Exits in Heiron -->
-            <spot x="892.1585" y="958.55774" z="140.1" h="66" anchor="HEIRON_AS"/>
-            <spot x="424.20813" y="2666.1064" z="118.0" h="33" anchor="HEIRON_BS"/>
-            <spot x="1840.1969" y="2652.0205" z="148.0" h="96" anchor="HEIRON_CS"/>
-            <spot x="892.1585" y="958.55774" z="140.1" h="66" anchor="HEIRON_DS"/>
-            <spot x="2053.9697" y="417.1973" z="232.0" h="16" anchor="HEIRON_ES"/>
-            <spot x="356.69928" y="349.3129" z="133.1" h="3" anchor="HEIRON_FS"/>
-            <spot x="1923.3081" y="2663.7046" z="140.5" h="106" anchor="HEIRON_GS"/>
-        </spawn>
-
+        <!-- HEIRON_AM -->
+        <rift_spawn id="2140">
+            <!-- someone to spawn -->
+            <!-- <spawn npc_id="000" respawn_time="000">
+                    <spot x="000.000" y="000.000" z="000.000"/>
+            </spawn> -->
+        </rift_spawn>
+        <!-- HEIRON_BM -->
+        <rift_spawn id="2141">
+            <!-- someone to spawn -->
+            <!-- <spawn npc_id="000" respawn_time="000">
+                    <spot x="000.000" y="000.000" z="000.000"/>
+            </spawn> -->
+        </rift_spawn>
+        <!-- HEIRON_CM -->
+        <rift_spawn id="2142">
+            <!-- someone to spawn -->
+            <!-- <spawn npc_id="000" respawn_time="000">
+                    <spot x="000.000" y="000.000" z="000.000"/>
+            </spawn> -->
+        </rift_spawn>
+        <!-- HEIRON_DM -->
+        <rift_spawn id="2143">
+            <!-- someone to spawn -->
+            <!-- <spawn npc_id="000" respawn_time="000">
+                    <spot x="000.000" y="000.000" z="000.000"/>
+            </spawn> -->
+        </rift_spawn>
+        <!-- HEIRON_EM -->
+        <rift_spawn id="2144">
+            <!-- someone to spawn -->
+            <!-- <spawn npc_id="000" respawn_time="000">
+                    <spot x="000.000" y="000.000" z="000.000"/>
+            </spawn> -->
+        </rift_spawn>
+        <!-- HEIRON_FM -->
+        <rift_spawn id="2145">
+            <!-- someone to spawn -->
+            <!-- <spawn npc_id="000" respawn_time="000">
+                    <spot x="000.000" y="000.000" z="000.000"/>
+            </spawn> -->
+        </rift_spawn>
+        <!-- HEIRON_GM -->
+        <rift_spawn id="2146">
+            <!-- someone to spawn -->
+            <!-- <spawn npc_id="000" respawn_time="000">
+                    <spot x="000.000" y="000.000" z="000.000"/>
+            </spawn> -->
+        </rift_spawn>
         <!-- HEIRON_AS -->
         <rift_spawn id="2240">
+            <!-- someone to spawn -->
+            <!-- <spawn npc_id="000" respawn_time="000">
+                    <spot x="000.000" y="000.000" z="000.000"/>
+            </spawn> -->
         </rift_spawn>
         <!-- HEIRON_BS -->
         <rift_spawn id="2241">
+            <!-- someone to spawn -->
+            <!-- <spawn npc_id="000" respawn_time="000">
+                    <spot x="000.000" y="000.000" z="000.000"/>
+            </spawn> -->
         </rift_spawn>
         <!-- HEIRON_CS -->
         <rift_spawn id="2242">
+            <!-- someone to spawn -->
+            <!-- <spawn npc_id="000" respawn_time="000">
+                    <spot x="000.000" y="000.000" z="000.000"/>
+            </spawn> -->
         </rift_spawn>
         <!-- HEIRON_DS -->
         <rift_spawn id="2243">
+            <!-- someone to spawn -->
+            <!-- <spawn npc_id="000" respawn_time="000">
+                    <spot x="000.000" y="000.000" z="000.000"/>
+            </spawn> -->
         </rift_spawn>
         <!-- HEIRON_ES -->
         <rift_spawn id="2244">
+            <!-- someone to spawn -->
+            <!-- <spawn npc_id="000" respawn_time="000">
+                    <spot x="000.000" y="000.000" z="000.000"/>
+            </spawn> -->
         </rift_spawn>
         <!-- HEIRON_FS -->
         <rift_spawn id="2245">
+            <!-- someone to spawn -->
+            <!-- <spawn npc_id="000" respawn_time="000">
+                    <spot x="000.000" y="000.000" z="000.000"/>
+            </spawn> -->
         </rift_spawn>
         <!-- HEIRON_GS -->
         <rift_spawn id="2246">
+            <!-- someone to spawn -->
+            <!-- <spawn npc_id="000" respawn_time="000">
+                    <spot x="000.000" y="000.000" z="000.000"/>
+            </spawn> -->
         </rift_spawn>
     </spawn_map>
 </spawns>

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers.effect;
 
 import java.util.Collection;
@@ -82,7 +83,7 @@ public class PlayerEffectController extends EffectController {
 	@Override
 	public void updatePlayerEffectIconsImpl() {
 		Collection<Effect> effects = getAbnormalEffectsToShow();
-		PacketSendUtility.sendPacket(getOwner(), new SM_ABNORMAL_STATE(effects, abnormals));
+		PacketSendUtility.sendPacket((Player) getOwner(), new SM_ABNORMAL_STATE(effects, abnormals));
 	}
 
 	/**
@@ -118,8 +119,7 @@ public class PlayerEffectController extends EffectController {
 
 			if (System.currentTimeMillis() >= endTime) {
 				return;
-			}
-			else {
+			} else {
 				remainingTime = (int) (endTime - System.currentTimeMillis());
 			}
 		}

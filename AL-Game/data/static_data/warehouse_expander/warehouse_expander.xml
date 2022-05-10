@@ -1115,11 +1115,11 @@
         <expand level="11" price="31376000"/>
     </warehouse_npc>
     <warehouse_npc id="801160">
-        <expand level="1" price="1200"/>
-        <expand level="2" price="24000"/>
-        <expand level="3" price="72600"/>
-        <expand level="4" price="181500"/>
-        <expand level="5" price="363000"/>
+        <expand level="1" price="1200" />
+        <expand level="2" price="24000" />
+        <expand level="3" price="72600" />
+        <expand level="4" price="181500" />
+        <expand level="5" price="363000" />
     </warehouse_npc>
     <warehouse_npc id="801163">
         <expand level="1" price="1200"/>

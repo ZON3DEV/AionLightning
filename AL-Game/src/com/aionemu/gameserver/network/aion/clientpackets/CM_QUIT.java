@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -70,12 +71,10 @@ public class CM_QUIT extends AionClientPacket {
 			if (player != null && player.isInEditMode()) {
 				sendPacket(new SM_QUIT_RESPONSE(true));
 				player.setEditMode(false);
-			}
-			else {
+			} else {
 				sendPacket(new SM_QUIT_RESPONSE());
 			}
-		}
-		else {
+		} else {
 			client.close(new SM_QUIT_RESPONSE(), false);
 		}
 	}

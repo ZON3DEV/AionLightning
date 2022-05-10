@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.instance.kromedesTrial;
 
 import com.aionemu.gameserver.ai2.AI2Actions;
@@ -33,8 +34,7 @@ public class KromedesPrisonersAI2 extends NpcAI2 {
 	public boolean onDialogSelect(final Player player, int dialogId, int questId, int extendedRewardIndex) {
 		if (dialogId == 10000) {
 			AI2Actions.deleteOwner(this);
-		}
-		else if (dialogId == 1012) {
+		} else if (dialogId == 1012) {
 			PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(getObjectId(), 1012));
 		}
 		return true;

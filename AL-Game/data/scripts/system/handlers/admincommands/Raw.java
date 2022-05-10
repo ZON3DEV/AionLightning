@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import java.io.File;
@@ -75,8 +76,7 @@ public class Raw extends AdminCommand {
 							packet = new SM_CUSTOM_PACKET(Integer.decode("0x" + tokens[i] + tokens[i - 1]));
 							init = true;
 						}
-					}
-					else if (r > 0 || i > 4) {
+					} else if (packet != null && (r > 0 || i > 4)) {
 						packet.addElement(PacketElementType.C, "0x" + tokens[i]);
 					}
 				}
@@ -85,8 +85,7 @@ public class Raw extends AdminCommand {
 				PacketSendUtility.sendMessage(admin, "Packet send..");
 				PacketSendUtility.sendPacket(admin, packet);
 			}
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			PacketSendUtility.sendMessage(admin, "An error has occurred.");
 			logger.warn("IO Error.", e);
 		}

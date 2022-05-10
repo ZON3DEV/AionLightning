@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -31,7 +32,6 @@ public enum ItemAttackType {
 	MAGICAL_WATER(true, SkillElement.WATER),
 	MAGICAL_WIND(true, SkillElement.WIND),
 	MAGICAL_FIRE(true, SkillElement.FIRE);
-
 	private boolean magic;
 	private SkillElement elem;
 

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -23,8 +24,10 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.PlayerCommand;
 
 /**
- * @author Maestross
+ * @author Maestross Exchange AP > Mithril Medal Rate = 15.000 AP > 5 Mithril
+ *         Medals
  */
+
 public class cmd_exchange extends PlayerCommand {
 
 	public cmd_exchange() {

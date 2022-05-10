@@ -14,10 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai2;
 
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+package com.aionemu.gameserver.ai2;
 
 import com.aionemu.commons.callbacks.metadata.ObjectCallback;
 import com.aionemu.gameserver.ai2.event.AIEventLog;
@@ -45,6 +43,9 @@ import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.world.WorldPosition;
 import com.google.common.base.Preconditions;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author ATracer
@@ -491,7 +492,8 @@ public abstract class AbstractAI implements AI2 {
 		AIState state = currentState;
 		switch (state) {
 			case FEAR:
-				return MathUtil.isNearCoordinates(getOwner(), owner.getMoveController().getTargetX2(), owner.getMoveController().getTargetY2(), owner.getMoveController().getTargetZ2(), 1);
+				return MathUtil.isNearCoordinates(getOwner(), owner.getMoveController().getTargetX2(), owner.getMoveController().getTargetY2(), owner
+						.getMoveController().getTargetZ2(), 1);
 			case FIGHT:
 				return SimpleAttackManager.isTargetInAttackRange((Npc) owner);
 			case RETURNING:
@@ -553,10 +555,6 @@ public abstract class AbstractAI implements AI2 {
 	@Override
 	public int modifyOwnerDamage(int damage) {
 		return damage;
-	}
-
-	@Override
-	public void onIndividualNpcEvent(Creature npc) {
 	}
 
 	@Override

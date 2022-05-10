@@ -14,12 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package playercommands;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+package playercommands;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -29,6 +25,10 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import java.util.Iterator;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import com.aionemu.gameserver.utils.chathandlers.PlayerCommand;
 
 /**
@@ -70,15 +70,13 @@ public class cmd_reskin2 extends PlayerCommand {
 				if (result.find()) {
 					oldItemId = Integer.parseInt(result.group(1));
 				}
-			}
-			else {
+			} else {
 				Pattern id = Pattern.compile("\\[item:(\\d{9})");
 				Matcher result = id.matcher(item);
 
 				if (result.find()) {
 					oldItemId = Integer.parseInt(result.group(1));
-				}
-				else {
+				} else {
 					oldItemId = Integer.parseInt(params[0]);
 				}
 			}
@@ -91,33 +89,27 @@ public class cmd_reskin2 extends PlayerCommand {
 					if (result.find()) {
 						newItemId = Integer.parseInt(result.group(1));
 					}
-				}
-				else {
+				} else {
 					Pattern id = Pattern.compile("\\[item:(\\d{9})");
 					Matcher result = id.matcher(items);
 
 					if (result.find()) {
 						newItemId = Integer.parseInt(result.group(1));
-					}
-					else {
+					} else {
 						newItemId = Integer.parseInt(params[1]);
 					}
 				}
-			}
-			catch (NumberFormatException ex) {
+			} catch (NumberFormatException ex) {
 				PacketSendUtility.sendMessage(admin, "1 " + (admin.isGM() ? ex : ""));
 				return;
-			}
-			catch (Exception ex2) {
+			} catch (Exception ex2) {
 				PacketSendUtility.sendMessage(admin, "2 " + (admin.isGM() ? ex2 : ""));
 				return;
 			}
-		}
-		catch (NumberFormatException ex) {
+		} catch (NumberFormatException ex) {
 			PacketSendUtility.sendMessage(admin, "3 " + (admin.isGM() ? ex : ""));
 			return;
-		}
-		catch (Exception ex2) {
+		} catch (Exception ex2) {
 			PacketSendUtility.sendMessage(admin, "4 " + (admin.isGM() ? ex2 : ""));
 			return;
 		}
@@ -137,7 +129,8 @@ public class cmd_reskin2 extends PlayerCommand {
 			return;
 		}
 
-		// Change the appearance of any item. Gun on the mace, sword, shield and so on
+		// Change the appearance of any item. Gun on the mace, sword, shield and
+		// so on
 		if (DataManager.ITEM_DATA.getItemTemplate(oldItemId).getItemSlot() != DataManager.ITEM_DATA.getItemTemplate(newItemId).getItemSlot()) {
 			PacketSendUtility.sendMessage(admin, "You can't :D");
 			return;
@@ -151,8 +144,7 @@ public class cmd_reskin2 extends PlayerCommand {
 			if (admin.isGM()) {
 				PacketSendUtility.sendMessage(admin, "Old itemID character taken to the Target is not found in the inventory.");
 				return;
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(admin, "Old itemID Not Found in inventory.");
 				return;
 			}
@@ -163,8 +155,7 @@ public class cmd_reskin2 extends PlayerCommand {
 			item.setItemSkinTemplate(DataManager.ITEM_DATA.getItemTemplate(newItemId));
 			PacketSendUtility.sendMessage(admin, "Skin successfully modified!");
 			admin.getInventory().decreaseByItemId(newItemId, 1);
-		}
-		else {
+		} else {
 			item.setItemSkinTemplate(DataManager.ITEM_DATA.getItemTemplate(newItemId));
 			PacketSendUtility.sendMessage(admin, "Skin successfully modified!");
 		}
@@ -173,7 +164,6 @@ public class cmd_reskin2 extends PlayerCommand {
 	public void reskin(final Player admin, final int toll, final int itemId, final List<Item> items) {
 		final long tolls = admin.getClientConnection().getAccount().getToll();
 		RequestResponseHandler responseHandler = new RequestResponseHandler(admin) {
-
 			@Override
 			public void acceptRequest(Creature p2, Player p) {
 				if (tolls < toll) {
@@ -194,7 +184,9 @@ public class cmd_reskin2 extends PlayerCommand {
 		};
 		boolean requested = admin.getResponseRequester().putRequest(902247, responseHandler);
 		if (requested) {
-			PacketSendUtility.sendPacket(admin, new SM_QUESTION_WINDOW(902247, 0, 0, "In your inventory, there is no New ItemId. To change the look, for which you have not, you need to" + toll + " Vote Points. On your account, you have :" + tolls + ". Want to reskin the item ?"));
+			PacketSendUtility.sendPacket(admin, new SM_QUESTION_WINDOW(902247, 0, 0,
+					"In your inventory, there is no New ItemId. To change the look, for which you have not, you need to" + toll
+							+ " Vote Points. On your account, you have :" + tolls + ". Want to reskin the item ?"));
 		}
 	}
 

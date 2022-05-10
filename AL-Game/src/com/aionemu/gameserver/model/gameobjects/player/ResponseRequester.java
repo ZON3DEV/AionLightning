@@ -14,12 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player;
 
 import java.util.HashMap;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import org.slf4j.Logger;
 
 /**
  * Manages the asking of and responding to <tt>SM_QUESTION_WINDOW</tt>
@@ -37,7 +39,8 @@ public class ResponseRequester {
 	}
 
 	/**
-	 * Adds this handler to this messageID, returns false if there already exists one
+	 * Adds this handler to this messageID, returns false if there already
+	 * exists one
 	 *
 	 * @param messageId
 	 *            ID of the request message
@@ -71,7 +74,8 @@ public class ResponseRequester {
 	}
 
 	/**
-	 * Automatically responds 0 to all requests, passing the given player as the responder
+	 * Automatically responds 0 to all requests, passing the given player as the
+	 * responder
 	 */
 	public synchronized void denyAll() {
 		for (RequestResponseHandler handler : map.values()) {

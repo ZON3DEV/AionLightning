@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import java.util.ArrayList;
@@ -22,6 +23,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Future;
+
+import javolution.util.FastSet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,8 +38,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
-
-import javolution.util.FastSet;
 
 /**
  * Automatic Announcement System
@@ -56,7 +57,7 @@ public class AnnouncementService {
 		this.load();
 	}
 
-	public static AnnouncementService getInstance() {
+	public static final AnnouncementService getInstance() {
 		return SingletonHolder.instance;
 	}
 
@@ -86,7 +87,6 @@ public class AnnouncementService {
 
 		for (final Announcement announce : announcements) {
 			delays.add(ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 				@Override
 				public void run() {
 					final Iterator<Player> iter = World.getInstance().getPlayersIterator();
@@ -96,17 +96,18 @@ public class AnnouncementService {
 						if (announce.getFaction().equalsIgnoreCase("ALL")) {
 							if (announce.getChatType() == ChatType.SHOUT || announce.getChatType() == ChatType.GROUP_LEADER) {
 								PacketSendUtility.sendPacket(player, new SM_MESSAGE(1, "Announcement", announce.getAnnounce(), announce.getChatType()));
+							} else {
+								PacketSendUtility.sendPacket(player,
+										new SM_MESSAGE(1, "Announcement", "Announcement: " + announce.getAnnounce(), announce.getChatType()));
 							}
-							else {
-								PacketSendUtility.sendPacket(player, new SM_MESSAGE(1, "Announcement", "Announcement: " + announce.getAnnounce(), announce.getChatType()));
-							}
-						}
-						else if (announce.getFactionEnum() == player.getRace()) {
+						} else if (announce.getFactionEnum() == player.getRace()) {
 							if (announce.getChatType() == ChatType.SHOUT || announce.getChatType() == ChatType.GROUP_LEADER) {
-								PacketSendUtility.sendPacket(player, new SM_MESSAGE(1, (announce.getFaction().equalsIgnoreCase("ELYOS") ? "Elyos" : "Asmodian") + " Announcement", announce.getAnnounce(), announce.getChatType()));
-							}
-							else {
-								PacketSendUtility.sendPacket(player, new SM_MESSAGE(1, (announce.getFaction().equalsIgnoreCase("ELYOS") ? "Elyos" : "Asmodian") + " Announcement", (announce.getFaction().equalsIgnoreCase("ELYOS") ? "Elyos" : "Asmodian") + " Announcement: " + announce.getAnnounce(), announce.getChatType()));
+								PacketSendUtility.sendPacket(player, new SM_MESSAGE(1, (announce.getFaction().equalsIgnoreCase("ELYOS") ? "Elyos" : "Asmodian")
+										+ " Announcement", announce.getAnnounce(), announce.getChatType()));
+							} else {
+								PacketSendUtility.sendPacket(player, new SM_MESSAGE(1, (announce.getFaction().equalsIgnoreCase("ELYOS") ? "Elyos" : "Asmodian")
+										+ " Announcement", (announce.getFaction().equalsIgnoreCase("ELYOS") ? "Elyos" : "Asmodian") + " Announcement: "
+										+ announce.getAnnounce(), announce.getChatType()));
 							}
 						}
 					}
@@ -114,7 +115,7 @@ public class AnnouncementService {
 			}, announce.getDelay() * 1000, announce.getDelay() * 1000));
 		}
 
-		log.info("[AnnouncementService] Loaded " + announcements.size() + " announcements");
+		log.info("Loaded " + announcements.size() + " announcements");
 	}
 
 	public void addAnnouncement(Announcement announce) {
@@ -130,7 +131,8 @@ public class AnnouncementService {
 	}
 
 	/**
-	 * Retuns {@link com.aionemu.loginserver.dao.AnnouncementDAO} , just a shortcut
+	 * Retuns {@link com.aionemu.loginserver.dao.AnnouncementDAO} , just a
+	 * shortcut
 	 *
 	 * @return {@link com.aionemu.loginserver.dao.AnnouncementDAO}
 	 */

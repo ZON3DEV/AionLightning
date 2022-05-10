@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.chatserver;
 
 import java.io.IOException;
@@ -131,7 +132,8 @@ public class ChatServerConnection extends AConnection {
 	public final void sendPacket(CsServerPacket bp) {
 		synchronized (guard) {
 			/**
-			 * Connection is already closed or waiting for last (close packet) to be sent
+			 * Connection is already closed or waiting for last (close packet)
+			 * to be sent
 			 */
 			if (isWriteDisabled()) {
 				return;

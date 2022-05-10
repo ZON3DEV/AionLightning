@@ -14,16 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.geoEngine.scene;
 
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
-import java.nio.ShortBuffer;
+package com.aionemu.gameserver.geoEngine.scene;
 
 import com.aionemu.gameserver.geoEngine.math.FastMath;
 import com.aionemu.gameserver.geoEngine.utils.BufferUtils;
+
+import java.nio.*;
 
 public class VertexBuffer extends GLObject implements Cloneable {
 
@@ -61,7 +58,8 @@ public class VertexBuffer extends GLObject implements Cloneable {
 		 */
 		Binormal,
 		/**
-		 * Specifies the source data for various vertex buffers when interleaving is used.
+		 * Specifies the source data for various vertex buffers when
+		 * interleaving is used.
 		 */
 		InterleavedData,
 		/**
@@ -92,12 +90,13 @@ public class VertexBuffer extends GLObject implements Cloneable {
 		/**
 		 * Texture coordinate #2
 		 */
-		TexCoord2;
+		TexCoord2
 	}
 
 	/**
-	 * The usage of the VertexBuffer, specifies how often the buffer is used. This can determine if a vertex buffer is placed in VRAM or held in video memory, but no garantees are made- it's only a
-	 * hint.
+	 * The usage of the VertexBuffer, specifies how often the buffer is used.
+	 * This can determine if a vertex buffer is placed in VRAM or held in video
+	 * memory, but no garantees are made- it's only a hint.
 	 */
 	public static enum Usage {
 
@@ -116,23 +115,15 @@ public class VertexBuffer extends GLObject implements Cloneable {
 		/**
 		 * Mesh data is not sent to GPU at all. It is only used by the CPU.
 		 */
-		CpuOnly;
+		CpuOnly
 	}
 
 	public static enum Format {
+
 		// Floating point formats
-
-		Half(2),
-		Float(4),
-		Double(8),
+		Half(2), Float(4), Double(8),
 		// Integer formats
-		Byte(1),
-		UnsignedByte(1),
-		Short(2),
-		UnsignedShort(2),
-		Int(4),
-		UnsignedInt(4);
-
+		Byte(1), UnsignedByte(1), Short(2), UnsignedShort(2), Int(4), UnsignedInt(4);
 		private int componentSize = 0;
 
 		Format(int componentSize) {
@@ -163,7 +154,8 @@ public class VertexBuffer extends GLObject implements Cloneable {
 	protected transient boolean dataSizeChanged = false;
 
 	/**
-	 * Creates an empty, uninitialized buffer. Must call setupData() to initialize.
+	 * Creates an empty, uninitialized buffer. Must call setupData() to
+	 * initialize.
 	 */
 	public VertexBuffer(Type type) {
 		super(GLObject.Type.VertexBuffer);
@@ -215,7 +207,8 @@ public class VertexBuffer extends GLObject implements Cloneable {
 
 	public void setUsage(Usage usage) {
 		// if (id != -1)
-		// throw new UnsupportedOperationException("Data has already been sent. Cannot set usage.");
+		// throw new
+		// UnsupportedOperationException("Data has already been sent. Cannot set usage.");
 
 		this.usage = usage;
 	}

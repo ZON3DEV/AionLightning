@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.Race;
@@ -24,6 +25,7 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
 /**
  * @author ginho1
+ * 
  */
 public class ChangeRace extends AdminCommand {
 
@@ -36,8 +38,7 @@ public class ChangeRace extends AdminCommand {
 
 		if (admin.getCommonData().getRace() == Race.ELYOS) {
 			admin.getCommonData().setRace(Race.ASMODIANS);
-		}
-		else {
+		} else {
 			admin.getCommonData().setRace(Race.ELYOS);
 		}
 

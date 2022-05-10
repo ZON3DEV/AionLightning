@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package playercommands;
 
-import org.apache.commons.lang.StringUtils;
+package playercommands;
 
 import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.configs.main.LoggingConfig;
@@ -30,6 +29,7 @@ import com.aionemu.gameserver.services.player.PlayerChatService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.PlayerCommand;
 import com.aionemu.gameserver.world.World;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * @author Shepper, modified: bobobear
@@ -57,8 +57,7 @@ public class cmd_faction extends PlayerCommand {
 		if (player.getWorldId() == 510010000 || player.getWorldId() == 520010000) {
 			PacketSendUtility.sendMessage(player, "You can't talk in Prison.");
 			return;
-		}
-		else if (player.isGagged()) {
+		} else if (player.isGagged()) {
 			PacketSendUtility.sendMessage(player, "You are gaged, you can't talk.");
 			return;
 		}
@@ -66,8 +65,7 @@ public class cmd_faction extends PlayerCommand {
 		if (!CustomConfig.FACTION_FREE_USE) {
 			if (sender.getKinah() > CustomConfig.FACTION_USE_PRICE) {
 				sender.decreaseKinah(CustomConfig.FACTION_USE_PRICE);
-			}
-			else {
+			} else {
 				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_NOT_ENOUGH_MONEY);
 				return;
 			}
@@ -85,20 +83,18 @@ public class cmd_faction extends PlayerCommand {
 
 			for (Player listener : World.getInstance().getAllPlayers()) {
 				if (listener.getAccessLevel() > 1) {
-					PacketSendUtility.sendPacket(listener, new SM_MESSAGE(player.getObjectId(), (player.getRace() == Race.ASMODIANS ? "(A) " : "(E) ") + player.getName(), message, channel));
-				}
-				else if (listener.getRace() == player.getRace()) {
+					PacketSendUtility.sendPacket(listener,
+							new SM_MESSAGE(player.getObjectId(), (player.getRace() == Race.ASMODIANS ? "(A) " : "(E) ") + player.getName(), message, channel));
+				} else if (listener.getRace() == player.getRace()) {
 					PacketSendUtility.sendPacket(listener, new SM_MESSAGE(player.getObjectId(), player.getName(), message, channel));
 				}
 			}
-		}
-		else {
+		} else {
 			message = player.getName() + ": " + message;
 			for (Player a : World.getInstance().getAllPlayers()) {
 				if (a.getAccessLevel() > 1) {
 					PacketSendUtility.sendMessage(a, (player.getRace() == Race.ASMODIANS ? "[A] " : "[E] ") + message);
-				}
-				else if (a.getRace() == player.getRace()) {
+				} else if (a.getRace() == player.getRace()) {
 					PacketSendUtility.sendMessage(a, message);
 				}
 			}

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.siege;
 
 /**
@@ -22,16 +23,11 @@ package com.aionemu.gameserver.model.siege;
 public enum SiegeType {
 	// Standard
 
-	FORTRESS(0),
-	ARTIFACT(1),
+	FORTRESS(0), ARTIFACT(1),
 	// Balauria Commanders?
-	BOSSRAID_LIGHT(2),
-	BOSSRAID_DARK(3),
+	BOSSRAID_LIGHT(2), BOSSRAID_DARK(3),
 	// Unk
-	INDUN(4),
-	UNDERPASS(5),
-	SOURCE(6);
-
+	INDUN(4), UNDERPASS(5), SOURCE(6);
 	private int typeId;
 
 	private SiegeType(int id) {

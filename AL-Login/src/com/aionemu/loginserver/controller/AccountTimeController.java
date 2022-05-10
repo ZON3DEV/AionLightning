@@ -21,7 +21,6 @@ package com.aionemu.loginserver.controller;
 import java.sql.Timestamp;
 
 import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.loginserver.dao.AccountPlayTimeDAO;
 import com.aionemu.loginserver.dao.AccountTimeDAO;
 import com.aionemu.loginserver.model.Account;
 import com.aionemu.loginserver.model.AccountTime;
@@ -55,18 +54,18 @@ public class AccountTimeController {
 
         int lastLoginDay = getDays(accountTime.getLastLoginTime().getTime());
         int currentDay = getDays(System.currentTimeMillis());
-        int returnday = getDays(accountTime.getLastLoginTime().getTime() + + 30L * 24 * 60 * 60 * 1000);
 
         /**
          * The character from that account was online not today, so it's account
          * timings should be nulled.
          */
         if (lastLoginDay < currentDay) {
-      		DAOManager.getDAO(AccountPlayTimeDAO.class).update(account.getId(), accountTime);
             accountTime.setAccumulatedOnlineTime(0);
             accountTime.setAccumulatedRestTime(0);
         } else {
-            long restTime = System.currentTimeMillis() - accountTime.getLastLoginTime().getTime() - accountTime.getSessionDuration();
+            long restTime = System.currentTimeMillis() - accountTime.getLastLoginTime().getTime()
+                    - accountTime.getSessionDuration();
+
             accountTime.setAccumulatedRestTime(accountTime.getAccumulatedRestTime() + restTime);
 
         }
@@ -75,16 +74,6 @@ public class AccountTimeController {
 
         DAOManager.getDAO(AccountTimeDAO.class).updateAccountTime(account.getId(), accountTime);
         account.setAccountTime(accountTime);
-
-        if (currentDay >= returnday && account.getReturn() == 0){
-            account.setReturn((byte) 1);
-            account.setReturnEnd(new Timestamp(System.currentTimeMillis() + 30L * 24 * 60 * 60 * 1000));
-        }
-
-        if (currentDay >= account.getReturnEnd().getTime()) {
-            account.setReturn((byte) 0);
-        }
-
     }
 
     /**

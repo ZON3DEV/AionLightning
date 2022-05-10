@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion;
 
 import java.util.List;
@@ -38,9 +39,6 @@ public abstract class PlayerInfo extends AionServerPacket {
 
 	private static Logger log = LoggerFactory.getLogger(PlayerInfo.class);
 
-	protected PlayerInfo() {
-	}
-
 	protected void writePlayerInfo(PlayerAccountData accPlData) {
 		PlayerCommonData pbd = accPlData.getPlayerCommonData();
 		final int raceId = pbd.getRace().getRaceId();
@@ -54,7 +52,7 @@ public abstract class PlayerInfo extends AionServerPacket {
 		writeD(playerAppearance.getVoice());
 		writeD(playerAppearance.getSkinRGB());
 		writeD(playerAppearance.getHairRGB());
-		writeD(playerAppearance.getEyeRGB()); // TODO LEFT EYE
+		writeD(playerAppearance.getEyeRGB());
 		writeD(playerAppearance.getLipRGB());
 		writeC(playerAppearance.getFace());
 		writeC(playerAppearance.getHair());
@@ -62,11 +60,7 @@ public abstract class PlayerInfo extends AionServerPacket {
 		writeC(playerAppearance.getTattoo());
 		writeC(playerAppearance.getFaceContour());
 		writeC(playerAppearance.getExpression());
-		writeC(playerAppearance.getPupilShape());
-		writeC(playerAppearance.getRemoveMane());
-		writeD(playerAppearance.getRightEyeRGB());
-		writeC(playerAppearance.getEyeLashShape());
-		writeC(0x06);// UNK 6
+		writeC(4);// always 4 o0
 		writeC(playerAppearance.getJawLine());
 		writeC(playerAppearance.getForehead());
 		writeC(playerAppearance.getEyeHeight());
@@ -104,42 +98,38 @@ public abstract class PlayerInfo extends AionServerPacket {
 		writeC(playerAppearance.getHips());
 		writeC(playerAppearance.getArmThickness());
 		writeC(playerAppearance.getHandSize());
-		writeC(playerAppearance.getLegThickness());
+		writeC(playerAppearance.getLegThicnkess());
 		writeC(playerAppearance.getFootSize());
 		writeC(playerAppearance.getFacialRate());
-		writeC(0);// unk;
-		writeC(playerAppearance.getArmLength());
-		writeC(playerAppearance.getLegLength());
+		writeC(0x00); // 0x00
+		writeC(playerAppearance.getArmLength()); // armLength
+		writeC(playerAppearance.getLegLength()); // legLength
 		writeC(playerAppearance.getShoulders());
 		writeC(playerAppearance.getFaceShape());
-		writeC(playerAppearance.getPupilSize());
-		writeC(playerAppearance.getUpperTorso());
-		writeC(playerAppearance.getForeArmThickness());
-		writeC(playerAppearance.getHandSpan());
-		writeC(playerAppearance.getCalfThickness());
-		writeC(0x00);// always 0 may be acessLevel
-		writeC(0x00);// always 0
-		writeC(0x00);// always 0
+		writeC(0x00); // always 0 may be acessLevel
+		writeC(0x00); // always 0 - unk
+		writeC(0x00);
 		writeF(playerAppearance.getHeight());
-		writeD(genderId == 0 ? 100000 : 100001);// 100000 = Male 100001 = Female
+		int raceSex = 100000 + raceId * 2 + genderId;
+		writeD(raceSex);
 		writeD(pbd.getPosition().getMapId());// mapid for preloading map
 		writeF(pbd.getPosition().getX());
 		writeF(pbd.getPosition().getY());
 		writeF(pbd.getPosition().getZ());
 		writeD(pbd.getPosition().getHeading());
 		writeH(pbd.getLevel()); // lvl confirmed
-		writeH(0);
+		writeC(0);
+		writeC(64);
 		writeD(pbd.getTitleId());
 		if (accPlData.isLegionMember()) {
 			writeD(accPlData.getLegion().getLegionId());
 			writeS(accPlData.getLegion().getLegionName(), 82);
-		}
-		else {
+		} else {
 			writeB(new byte[86]);
 		}
 
 		writeH(accPlData.isLegionMember() ? 0x01 : 0x00);// is in legion?
-		writeD((int) (pbd.getLastOnline().getTime() / 1000));// last online
+		writeD((int) pbd.getLastOnline().getTime());// last online
 
 		int itemsDataSize = 0;
 		// TODO figure out this part when fully equipped
@@ -150,29 +140,27 @@ public abstract class PlayerInfo extends AionServerPacket {
 				break;
 			}
 
+			long slot = item.getEquipmentSlot();
+			if (slot == 393216 || slot == 131072 || slot == 262144) {
+			continue;
+		}			
+
 			ItemTemplate itemTemplate = item.getItemTemplate();
 			if (itemTemplate == null) {
 				log.warn("Missing item. PlayerId: " + pbd.getPlayerObjId() + " ItemId: " + item.getObjectId());
-				continue;
-			}
-
-			if (ItemSlot.isDisplaySlot(item.getEquipmentSlot())) {
-				if (item.getEquipmentSlot() == ItemSlot.SUB_HAND.getSlotIdMask()
-						|| item.getEquipmentSlot() == ItemSlot.EARRINGS_LEFT.getSlotIdMask()
-						|| item.getEquipmentSlot() == ItemSlot.RING_LEFT.getSlotIdMask()) {
-					writeC(0x02);
-				} else {
-					writeC(0x01);
-				}
+			} else if (((itemTemplate.isArmor()) || (itemTemplate.isWeapon())) && (itemTemplate.getItemSlot() <= ItemSlot.PANTS.getSlotIdMask())) {
+				writeC(slot == 2 || slot == 64 || slot == 256 ? 2 : 1);
 				writeD(item.getItemSkinTemplate().getTemplateId());
 				GodStone godStone = item.getGodStone();
-				writeD((godStone != null) ? godStone.getItemId() : 0);
+				writeD(godStone != null ? godStone.getItemId() : 0);
 				writeD(item.getItemColor());
+
 				itemsDataSize += 13;
 			}
 		}
 
 		byte[] stupidNc = new byte[208 - itemsDataSize];
 		writeB(stupidNc);
+		writeD(accPlData.getDeletionTimeInSeconds());
 	}
 }

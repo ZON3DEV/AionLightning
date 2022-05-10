@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.worlds.heiron;
 
 import java.util.ArrayList;
@@ -21,7 +22,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Future;
 
-import com.aionemu.gameserver.utils.ThreadPoolManager;
+import ai.AggressiveFirstSkillAI2;
+
+import com.aionemu.commons.network.util.ThreadPoolManager;
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.ai2.AIName;
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -29,13 +32,10 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.world.WorldMapInstance;
 
-import ai.AggressiveFirstSkillAI2;
-
 /**
  * @author Ritsu
  */
 @AIName("bollvig")
-// 212314
 public class BollvigAI2 extends AggressiveFirstSkillAI2 {
 
 	protected List<Integer> percents = new ArrayList<Integer>();
@@ -103,19 +103,16 @@ public class BollvigAI2 extends AggressiveFirstSkillAI2 {
 		int hpPercent = getLifeStats().getHpPercentage();
 		if (50 >= hpPercent && hpPercent > 25) {
 			firstTask = ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
 					useSkill(18034);// Nerve Absorption
 					rndSpawnInRange(280804);
 				}
 			}, 10000);
-		}
-		else if (hpPercent <= 25) {
+		} else if (hpPercent <= 25) {
 			useSkill(18037);// Blood Cell Destruction
 		}
 		secondTask = ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				skillThree();
@@ -126,22 +123,18 @@ public class BollvigAI2 extends AggressiveFirstSkillAI2 {
 	private void skillThree() {
 		useSkill(17899);// Charming Attraction
 		thirdTask = ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				int hpPercent = getLifeStats().getHpPercentage();
 				if (75 >= hpPercent && hpPercent > 50) {
 					useSkill(18025);// Curse of Soul
 					firstSkill();
-				}
-				else if (50 >= hpPercent) {
+				} else if (50 >= hpPercent) {
 					useSkill(18025);// Curse of Soul
 					firstSkill();
-				}
-				else if (25 >= hpPercent) {
+				} else if (25 >= hpPercent) {
 					useSkill(18027);// Mortal Cutting
 					lastTask = ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 						@Override
 						public void run() {
 							skillThree();
@@ -155,14 +148,11 @@ public class BollvigAI2 extends AggressiveFirstSkillAI2 {
 	private void cancelTask() {
 		if (firstTask != null && !firstTask.isDone()) {
 			firstTask.cancel(true);
-		}
-		else if (secondTask != null && !secondTask.isDone()) {
+		} else if (secondTask != null && !secondTask.isDone()) {
 			secondTask.cancel(true);
-		}
-		else if (thirdTask != null && !thirdTask.isDone()) {
+		} else if (thirdTask != null && !thirdTask.isDone()) {
 			thirdTask.cancel(true);
-		}
-		else if (lastTask != null && !lastTask.isDone()) {
+		} else if (lastTask != null && !lastTask.isDone()) {
 			lastTask.cancel(true);
 		}
 	}
@@ -227,10 +217,7 @@ public class BollvigAI2 extends AggressiveFirstSkillAI2 {
 
 	private boolean checkNpc() {
 		WorldMapInstance map = getPosition().getWorldMapInstance();
-		if (map.getNpc(204655) == null && (map.getNpc(212314) == null || map.getNpc(212314).getLifeStats().isAlreadyDead())) {
-			return true;
-		}
+		return map.getNpc(204655) == null && (map.getNpc(212314) == null || map.getNpc(212314).getLifeStats().isAlreadyDead());
 
-		return false;
 	}
 }

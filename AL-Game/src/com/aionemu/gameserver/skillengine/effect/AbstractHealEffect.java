@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,19 +52,17 @@ public abstract class AbstractHealEffect extends EffectTemplate {
 		int possibleHealValue = 0;
 		if (percent) {
 			possibleHealValue = maxCurValue * valueWithDelta / 100;
-		}
-		else {
+		} else {
 			possibleHealValue = valueWithDelta;
 		}
 
 		int finalHeal = possibleHealValue;
 
 		if (healType == HealType.HP) {
-			int baseHeal = possibleHealValue;
 			if (effect.getItemTemplate() == null) {
 				int boostHealAdd = effector.getGameStats().getStat(StatEnum.HEAL_BOOST, 0).getCurrent();
 				// Apply percent Heal Boost bonus (ex. Passive skills)
-				int boostHeal = (effector.getGameStats().getStat(StatEnum.HEAL_BOOST, baseHeal).getCurrent() - boostHealAdd);
+				int boostHeal = (effector.getGameStats().getStat(StatEnum.HEAL_BOOST, possibleHealValue).getCurrent() - boostHealAdd);
 				// Apply Add Heal Boost bonus (ex. Skills like Benevolence)
 				boostHeal += boostHeal * boostHealAdd / 1000;
 				finalHeal = effector.getGameStats().getStat(StatEnum.HEAL_SKILL_BOOST, boostHeal).getCurrent();
@@ -73,8 +72,7 @@ public abstract class AbstractHealEffect extends EffectTemplate {
 
 		if (finalHeal < 0) {
 			finalHeal = currentValue > -finalHeal ? finalHeal : -currentValue;
-		}
-		else {
+		} else {
 			finalHeal = maxCurValue - currentValue < finalHeal ? (maxCurValue - currentValue) : finalHeal;
 		}
 
@@ -96,24 +94,24 @@ public abstract class AbstractHealEffect extends EffectTemplate {
 
 		switch (healType) {
 			case HP:
-				if (this instanceof ProcHealInstantEffect)// item heal, eg potions
+				if (this instanceof ProcHealInstantEffect)// item heal, eg
+															// potions
 				{
 					effected.getLifeStats().increaseHp(TYPE.HP, healValue, 0, LOG.REGULAR);
-				}
-				else // TODO shouldnt send value, on retail sm_attack_status is send only to update hp bar
+				} else // TODO shouldnt send value, on retail sm_attack_status
+						// is send only to update hp bar
 				if (healValue > 0) {
 					effected.getLifeStats().increaseHp(TYPE.REGULAR, healValue, 0, LOG.REGULAR);
-				}
-				else {
+				} else {
 					effected.getLifeStats().reduceHp(-healValue, effected);
 				}
 				break;
 			case MP:
-				if (this instanceof ProcMPHealInstantEffect)// item heal, eg potions
+				if (this instanceof ProcMPHealInstantEffect)// item heal, eg
+															// potions
 				{
 					effected.getLifeStats().increaseMp(TYPE.MP, healValue, 0, LOG.REGULAR);
-				}
-				else {
+				} else {
 					effected.getLifeStats().increaseMp(TYPE.HEAL_MP, healValue, 0, LOG.REGULAR);
 				}
 				break;

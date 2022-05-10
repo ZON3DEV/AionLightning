@@ -14,16 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.autogroup;
 
 /**
+ *
  * @author xTz
  */
 public enum AGQuestion {
 
-	FAILED,
-	READY,
-	ADDED;
+	FAILED, READY, ADDED;
 
 	public boolean isFailed() {
 		return this.equals(AGQuestion.FAILED);

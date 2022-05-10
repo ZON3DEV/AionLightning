@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -34,8 +35,7 @@ public class Cooldown extends AdminCommand {
 		if (player.isCoolDownZero()) {
 			PacketSendUtility.sendMessage(player, "Cooldown time of all skills has been recovered.");
 			player.setCoolDownZero(false);
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(player, "Cooldown time of all skills is set to 0.");
 			player.setCoolDownZero(true);
 		}

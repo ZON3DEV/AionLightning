@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import java.util.ArrayList;
@@ -72,8 +73,7 @@ public class CM_HOUSE_TELEPORT extends AionClientPacket {
 		House house = null;
 		if (actionId == 1) {
 			playerId2 = playerId1;
-		}
-		else if (actionId == 3) {
+		} else if (actionId == 3) {
 			List<Integer> relationIds = new ArrayList<Integer>();
 			Iterator<Friend> friends = player1.getFriendList().iterator();
 			int address = 0;
@@ -86,7 +86,7 @@ public class CM_HOUSE_TELEPORT extends AionClientPacket {
 					if (house == null) {
 						house = HousingService.getInstance().getHouseByAddress(address);
 					}
-					if (house.getDoorState() == HousePermissions.DOOR_CLOSED || house.getLevelRestrict() > player1.getLevel()) {
+					if (house != null && (house.getDoorState() == HousePermissions.DOOR_CLOSED || house.getLevelRestrict() > player1.getLevel())) {
 						continue; // closed doors | level restrict
 					}
 					relationIds.add(friendId);
@@ -101,7 +101,7 @@ public class CM_HOUSE_TELEPORT extends AionClientPacket {
 						if (house == null) {
 							house = HousingService.getInstance().getHouseByAddress(address);
 						}
-						if (house.getDoorState() == HousePermissions.DOOR_CLOSED || house.getLevelRestrict() > player1.getLevel()) {
+						if (house != null && (house.getDoorState() == HousePermissions.DOOR_CLOSED || house.getLevelRestrict() > player1.getLevel())) {
 							continue; // closed doors | level restrict
 						}
 						relationIds.add(memberId);
@@ -130,8 +130,7 @@ public class CM_HOUSE_TELEPORT extends AionClientPacket {
 			}
 			instanceId = instance.getInstanceId();
 			InstanceService.registerPlayerWithInstance(instance, player1);
-		}
-		else {
+		} else {
 			int addressId = HousingService.getInstance().getPlayerAddress(playerId2);
 			house = HousingService.getInstance().getHouseByAddress(addressId);
 			if (house == null || house.getLevelRestrict() > player1.getLevel()) {
@@ -144,6 +143,7 @@ public class CM_HOUSE_TELEPORT extends AionClientPacket {
 		if (target != null) {
 			PacketSendUtility.sendPacket(player1, new SM_DIALOG_WINDOW(target.getObjectId(), 0));
 		}
-		TeleportService2.teleportTo(player1, address.getMapId(), instanceId, address.getX(), address.getY(), address.getZ(), (byte) 0, TeleportAnimation.BEAM_ANIMATION);
+		TeleportService2.teleportTo(player1, address.getMapId(), instanceId, address.getX(), address.getY(), address.getZ(), (byte) 0,
+				TeleportAnimation.BEAM_ANIMATION);
 	}
 }

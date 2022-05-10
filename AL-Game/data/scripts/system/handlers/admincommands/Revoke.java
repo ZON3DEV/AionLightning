@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -43,13 +44,11 @@ public class Revoke extends AdminCommand {
 		}
 
 		int type = 0;
-		if (params[1].toLowerCase().equals("accesslevel")) {
+		if (params[1].toLowerCase().equals("acceslevel")) {
 			type = 1;
-		}
-		else if (params[1].toLowerCase().equals("membership")) {
+		} else if (params[1].toLowerCase().equals("membership")) {
 			type = 2;
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(admin, "syntax //revoke <characterName> <acceslevel | membership>");
 			return;
 		}

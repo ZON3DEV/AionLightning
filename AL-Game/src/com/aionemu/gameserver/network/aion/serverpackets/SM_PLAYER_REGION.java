@@ -14,9 +14,9 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
-import com.aionemu.gameserver.network.PacketLoggerService;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 import com.aionemu.gameserver.world.zone.ZoneName;
@@ -34,7 +34,6 @@ public class SM_PLAYER_REGION extends AionServerPacket {
 
 	@Override
 	protected void writeImpl(AionConnection con) {
-		PacketLoggerService.getInstance().logPacketSM(this.getPacketName());
 		writeD(con.getActivePlayer().getObjectId());
 		writeC(0);
 		writeC(0);

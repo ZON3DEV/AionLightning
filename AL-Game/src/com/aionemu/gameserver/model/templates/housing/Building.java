@@ -14,18 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.housing;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.mysql.jdbc.StringUtils;
@@ -57,10 +53,6 @@ public class Building {
 	@XmlTransient
 	Map<PartType, Integer> partsByType = new HashMap<PartType, Integer>();
 
-	/**
-	 * @param u
-	 * @param parent
-	 */
 	void afterUnmarshal(Unmarshaller u, Object parent) {
 		if (parts == null) {
 			return;
@@ -92,8 +84,10 @@ public class Building {
 	}
 
 	// All methods for DataManager call are just to ensure integrity
-	// if called from housing land templates, because it only has id and isDefault
-	// for the buildings. Buildings template has full info though, except isDefault
+	// if called from housing land templates, because it only has id and
+	// isDefault
+	// for the buildings. Buildings template has full info though, except
+	// isDefault
 	// value for the land.
 	public String getPartsMatchTag() {
 		if (StringUtils.isNullOrEmpty(partsMatch)) {

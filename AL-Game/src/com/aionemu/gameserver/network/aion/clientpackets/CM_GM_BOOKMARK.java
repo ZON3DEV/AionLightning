@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.configs.administration.AdminConfig;
@@ -27,6 +28,7 @@ import com.aionemu.gameserver.utils.Util;
 import com.aionemu.gameserver.world.World;
 
 /**
+ *
  * @author xTz
  */
 public class CM_GM_BOOKMARK extends AionClientPacket {

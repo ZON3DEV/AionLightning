@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player.npcFaction;
 
 import java.util.Calendar;
@@ -21,7 +22,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.DescriptionId;
@@ -36,12 +36,12 @@ import com.aionemu.gameserver.model.templates.factions.FactionCategory;
 import com.aionemu.gameserver.model.templates.factions.NpcFactionTemplate;
 import com.aionemu.gameserver.model.templates.quest.QuestMentorType;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_ACTION;
+import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TITLE_INFO;
-import com.aionemu.gameserver.services.QuestService;
 import com.aionemu.gameserver.services.craft.CraftSkillUpdateService;
+import com.aionemu.gameserver.services.QuestService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -72,12 +72,7 @@ public class NpcFactions {
 		if (faction.isActive()) {
 			activeNpcFaction[type] = faction;
 		}
-		if (faction.getTime() == -1) {
-			// used to reset from quest daily command
-			faction.setTime((int) (System.currentTimeMillis() / 1000));
-			timeLimit[type] = faction.getTime();
-		}
-		else if (timeLimit[type] < faction.getTime() && faction.getState() == ENpcFactionQuestState.COMPLETE) {
+		if (timeLimit[type] < faction.getTime() && faction.getState() == ENpcFactionQuestState.COMPLETE) {
 			timeLimit[type] = faction.getTime();
 		}
 	}
@@ -93,8 +88,7 @@ public class NpcFactions {
 	public NpcFaction getActiveNpcFaction(boolean mentor) {
 		if (mentor) {
 			return activeNpcFaction[1];
-		}
-		else {
+		} else {
 			return activeNpcFaction[0];
 		}
 	}
@@ -108,8 +102,7 @@ public class NpcFactions {
 		npcFaction.setActive(true);
 		if (npcFaction.isMentor()) {
 			this.activeNpcFaction[1] = npcFaction;
-		}
-		else {
+		} else {
 			this.activeNpcFaction[0] = npcFaction;
 		}
 		return npcFaction;
@@ -198,7 +191,6 @@ public class NpcFactions {
 		final NpcFaction activeNpcFaction = getActiveNpcFaction(npcFactionTemplate.isMentor());
 		NpcFactionTemplate activeNpcFactionTemplate = DataManager.NPC_FACTIONS_DATA.getNpcFactionById(activeNpcFaction.getId());
 		RequestResponseHandler responseHandler = new RequestResponseHandler(owner) {
-
 			@Override
 			public void acceptRequest(Creature requester, Player responder) {
 				leaveNpcFaction(activeNpcFaction);
@@ -211,7 +203,8 @@ public class NpcFactions {
 		};
 		boolean requested = owner.getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_ASK_JOIN_NEW_FACTION, responseHandler);
 		if (requested) {
-			PacketSendUtility.sendPacket(owner, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_ASK_JOIN_NEW_FACTION, 0, 0, new DescriptionId(activeNpcFactionTemplate.getNameId()), new DescriptionId(npcFactionTemplate.getNameId())));
+			PacketSendUtility.sendPacket(owner, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_ASK_JOIN_NEW_FACTION, 0, 0, new DescriptionId(
+					activeNpcFactionTemplate.getNameId()), new DescriptionId(npcFactionTemplate.getNameId())));
 		}
 		return;
 	}
@@ -245,15 +238,17 @@ public class NpcFactions {
 		npcFaction.setState(ENpcFactionQuestState.COMPLETE);
 		this.timeLimit[npcFaction.isMentor() ? 1 : 0] = npcFaction.getTime();
 		if (questTemplate.getMentorType() == QuestMentorType.MENTOR) {
-			owner.getCommonData().setMentorFlagTime((int) (System.currentTimeMillis() / 1000) + 60 * 60 * 24); // TODO 1 day
+			owner.getCommonData().setMentorFlagTime((int) (System.currentTimeMillis() / 1000) + 60 * 60 * 24); // TODO
+																												// 1
+																												// day
 			PacketSendUtility.broadcastPacket(owner, new SM_TITLE_INFO(owner, true), false);
 			PacketSendUtility.sendPacket(owner, new SM_TITLE_INFO(true));
 		}
 	}
 
 	/**
-	 *
-	 */
+     *
+     */
 	public void sendDailyQuest() {
 		for (int i = 0; i < 2; i++) {
 			NpcFaction faction = activeNpcFaction[i];
@@ -326,9 +321,6 @@ public class NpcFactions {
 	public boolean canStartQuest(QuestTemplate template) {
 		int type = template.isMentor() ? 1 : 0;
 		NpcFaction faction = activeNpcFaction[type];
-		if (faction != null && this.timeLimit[type] < System.currentTimeMillis() / 1000) {
-			return true;
-		}
-		return false;
+		return faction != null && this.timeLimit[type] < System.currentTimeMillis() / 1000;
 	}
 }

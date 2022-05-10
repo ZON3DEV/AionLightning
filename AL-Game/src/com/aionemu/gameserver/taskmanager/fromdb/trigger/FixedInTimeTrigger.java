@@ -14,16 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.taskmanager.fromdb.trigger;
 
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 import java.util.Calendar;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aionemu.gameserver.utils.ThreadPoolManager;
-
 /**
+ *
  * @author nrg
  */
 public class FixedInTimeTrigger extends TaskFromDBTrigger {
@@ -41,11 +41,9 @@ public class FixedInTimeTrigger extends TaskFromDBTrigger {
 				minute = Integer.parseInt(time[1]);
 				second = Integer.parseInt(time[2]);
 				return true;
-			}
-			catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				log.warn("Could not parse the time for a FixedInTimeTrigger from DB", e);
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 				log.warn("A time for FixedInTimeTrigger is missing or invalid", e);
 			}
 		}

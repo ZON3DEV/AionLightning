@@ -14,10 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.geoEngine.collision.bih;
 
-import static java.lang.Math.max;
-import static java.lang.Math.min;
+package com.aionemu.gameserver.geoEngine.collision.bih;
 
 import com.aionemu.gameserver.geoEngine.bounding.BoundingBox;
 import com.aionemu.gameserver.geoEngine.collision.Collidable;
@@ -27,11 +25,14 @@ import com.aionemu.gameserver.geoEngine.math.Matrix4f;
 import com.aionemu.gameserver.geoEngine.math.Ray;
 import com.aionemu.gameserver.geoEngine.math.Triangle;
 import com.aionemu.gameserver.geoEngine.math.Vector3f;
-
 import javolution.util.FastList;
 
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+
 /**
- * Bounding Interval Hierarchy. Based on: Instant Ray Tracing: The Bounding Interval Hierarchy By Carsten Wächter and Alexander Keller
+ * Bounding Interval Hierarchy. Based on: Instant Ray Tracing: The Bounding
+ * Interval Hierarchy By Carsten WÃ¤chter and Alexander Keller
  */
 public final class BIHNode {
 
@@ -99,10 +100,6 @@ public final class BIHNode {
 		}
 	}
 
-	/**
-	 * @param col
-	 * @param results
-	 */
 	public final int intersectWhere(Collidable col, BoundingBox box, Matrix4f worldMatrix, BIHTree tree, CollisionResults results) {
 
 		FastList<BIHStackData> stack = FastList.newInstance();
@@ -135,11 +132,9 @@ public final class BIHNode {
 
 				if (maxExt < node.rightPlane) {
 					node = node.left;
-				}
-				else if (minExt > node.leftPlane) {
+				} else if (minExt > node.leftPlane) {
 					node = node.right;
-				}
-				else {
+				} else {
 					stack.add(new BIHStackData(node.right, 0, 0));
 					node = node.left;
 				}
@@ -154,7 +149,8 @@ public final class BIHNode {
 				}
 
 				/*
-				 * Original code had this int added = col.collideWith(t, results, 1); if (added > 0) { cols += added; }
+				 * Original code had this int added = col.collideWith(t,
+				 * results, 1); if (added > 0) { cols += added; }
 				 */
 			}
 		}
@@ -162,10 +158,6 @@ public final class BIHNode {
 		return cols;
 	}
 
-	/**
-	 * @param sceneMin
-	 * @param sceneMax
-	 */
 	public final int intersectBrute(Ray r, Matrix4f worldMatrix, BIHTree tree, float sceneMin, float sceneMax, CollisionResults results) {
 		float tHit = Float.POSITIVE_INFINITY;
 
@@ -282,12 +274,10 @@ public final class BIHNode {
 				if (tMin > tNearSplit) {
 					tMin = max(tMin, tFarSplit);
 					node = farNode;
-				}
-				else if (tMax < tFarSplit) {
+				} else if (tMax < tFarSplit) {
 					tMax = min(tMax, tNearSplit);
 					node = nearNode;
-				}
-				else {
+				} else {
 					stack.add(new BIHStackData(farNode, max(tMin, tFarSplit), tMax));
 					tMax = min(tMax, tNearSplit);
 					node = nearNode;
@@ -304,8 +294,7 @@ public final class BIHNode {
 						worldMatrix.mult(v1, v1);
 						worldMatrix.mult(v2, v2);
 						worldMatrix.mult(v3, v3);
-						float t_world = new Ray(o, d).intersects(v1, v2, v3);
-						t = t_world;
+						t = new Ray(o, d).intersects(v1, v2, v3);
 					}
 
 					Vector3f contactNormal = Triangle.computeTriangleNormal(v1, v2, v3, null);

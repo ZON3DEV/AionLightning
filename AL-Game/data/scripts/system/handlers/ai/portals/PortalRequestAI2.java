@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.portals;
 
 import com.aionemu.gameserver.ai2.AIName;
@@ -43,10 +44,9 @@ public class PortalRequestAI2 extends PortalAI2 {
 			if (loc != null) {
 				TelelocationTemplate locationTemplate = DataManager.TELELOCATION_DATA.getTelelocationTemplate(loc.getLocId());
 				RequestResponseHandler portal = new RequestResponseHandler(player) {
-
 					@Override
 					public void acceptRequest(Creature requester, Player responder) {
-						TeleportService2.teleport(teleportTemplate, loc.getLocId(), player, getOwner(), TeleportAnimation.JUMP_ANIMATION);
+						TeleportService2.teleport(teleportTemplate, loc.getLocId(), player, getOwner(), TeleportAnimation.JUMP_AIMATION);
 					}
 
 					@Override
@@ -57,7 +57,7 @@ public class PortalRequestAI2 extends PortalAI2 {
 				long transportationPrice = PricesService.getPriceForService(loc.getPrice(), player.getRace());
 				if (player.getResponseRequester().putRequest(160013, portal)) {
 					PacketSendUtility.sendPacket(player, new SM_QUESTION_WINDOW(160013, getObjectId(), 0, new DescriptionId(
-						locationTemplate.getNameId() * 2 + 1), transportationPrice));
+							locationTemplate.getNameId() * 2 + 1), transportationPrice));
 				}
 			}
 		}

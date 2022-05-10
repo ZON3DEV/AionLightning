@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.ai2.handler;
 
 import com.aionemu.gameserver.ai2.AI2Logger;
@@ -66,8 +67,7 @@ public class ThinkEventHandler {
 				default:
 					break;
 			}
-		}
-		finally {
+		} finally {
 			npcAI.unlockThink();
 		}
 	}
@@ -104,8 +104,7 @@ public class ThinkEventHandler {
 		Creature mostHated = npc.getAggroList().getMostHated();
 		if (mostHated != null && !mostHated.getLifeStats().isAlreadyDead()) {
 			npcAI.onCreatureEvent(AIEventType.TARGET_CHANGED, mostHated);
-		}
-		else {
+		} else {
 			npc.getMoveController().recallPreviousStep();
 			npcAI.onGeneralEvent(AIEventType.ATTACK_FINISH);
 			npcAI.onGeneralEvent(npc.isAtSpawnLocation() ? AIEventType.BACK_HOME : AIEventType.NOT_AT_HOME);

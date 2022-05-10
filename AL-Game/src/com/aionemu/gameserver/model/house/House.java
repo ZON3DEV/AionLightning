@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.house;
 
 import java.io.ByteArrayOutputStream;
@@ -46,13 +47,7 @@ import com.aionemu.gameserver.model.gameobjects.SummonedHouseNpc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerHouseOwnerFlags;
 import com.aionemu.gameserver.model.gameobjects.player.PlayerScripts;
-import com.aionemu.gameserver.model.templates.housing.Building;
-import com.aionemu.gameserver.model.templates.housing.BuildingType;
-import com.aionemu.gameserver.model.templates.housing.HouseAddress;
-import com.aionemu.gameserver.model.templates.housing.HouseType;
-import com.aionemu.gameserver.model.templates.housing.HousingLand;
-import com.aionemu.gameserver.model.templates.housing.PartType;
-import com.aionemu.gameserver.model.templates.housing.Sale;
+import com.aionemu.gameserver.model.templates.housing.*;
 import com.aionemu.gameserver.model.templates.spawns.HouseSpawn;
 import com.aionemu.gameserver.model.templates.spawns.SpawnTemplate;
 import com.aionemu.gameserver.model.templates.spawns.SpawnType;
@@ -100,12 +95,9 @@ public class House extends VisibleObject {
 		this(IDFactory.getInstance().nextId(), building, address, instanceId);
 	}
 
-	/**
-	 * @param instanceId
-	 */
 	public House(int objectId, Building building, HouseAddress address, int instanceId) {
 		super(objectId, new HouseController(), null, null, null);
-		getController().setOwner(this);
+		((HouseController) getController()).setOwner(this);
 		this.address = address;
 		this.building = building;
 		this.name = "HOUSE_" + address.getId();
@@ -178,7 +170,8 @@ public class House extends VisibleObject {
 
 		// Studios are brought into world already, skip them
 		if (getPosition() == null || !getPosition().isSpawned()) {
-			WorldPosition position = World.getInstance().createPosition(address.getMapId(), address.getX(), address.getY(), address.getZ(), (byte) 0, instanceId);
+			WorldPosition position = World.getInstance().createPosition(address.getMapId(), address.getX(), address.getY(), address.getZ(), (byte) 0,
+					instanceId);
 			this.setPosition(position);
 			SpawnEngine.bringIntoWorld(this);
 		}
@@ -212,8 +205,7 @@ public class House extends VisibleObject {
 			Map<Integer, String> playerNames = DAOManager.getDAO(PlayerDAO.class).getPlayerNames(players);
 			if (playerNames.containsKey(playerObjectId)) {
 				masterName = playerNames.get(playerObjectId);
-			}
-			else {
+			} else {
 				this.revokeOwner(); // Something bad happened :P
 			}
 		}
@@ -221,18 +213,19 @@ public class House extends VisibleObject {
 		for (HouseSpawn spawn : templates) {
 			SpawnTemplate t = null;
 			if (spawn.getType() == SpawnType.MANAGER && spawns.get(SpawnType.MANAGER) == null) {
-				t = SpawnEngine.addNewSingleTimeSpawn(getAddress().getMapId(), getLand().getManagerNpcId(), spawn.getX(), spawn.getY(), spawn.getZ(), spawn.getH());
+				t = SpawnEngine.addNewSingleTimeSpawn(getAddress().getMapId(), getLand().getManagerNpcId(), spawn.getX(), spawn.getY(), spawn.getZ(),
+						spawn.getH());
 				SummonedHouseNpc npc = VisibleObjectSpawner.spawnHouseNpc(t, getPosition().getInstanceId(), this, masterName);
 				spawns.put(SpawnType.MANAGER, npc);
-			}
-			else if (spawn.getType() == SpawnType.TELEPORT && spawns.get(SpawnType.TELEPORT) == null) {
-				t = SpawnEngine.addNewSingleTimeSpawn(getAddress().getMapId(), getLand().getTeleportNpcId(), spawn.getX(), spawn.getY(), spawn.getZ(), spawn.getH());
+			} else if (spawn.getType() == SpawnType.TELEPORT && spawns.get(SpawnType.TELEPORT) == null) {
+				t = SpawnEngine.addNewSingleTimeSpawn(getAddress().getMapId(), getLand().getTeleportNpcId(), spawn.getX(), spawn.getY(), spawn.getZ(),
+						spawn.getH());
 				SummonedHouseNpc npc = VisibleObjectSpawner.spawnHouseNpc(t, getPosition().getInstanceId(), this, masterName);
 				spawns.put(SpawnType.TELEPORT, npc);
-			}
-			else if (spawn.getType() == SpawnType.SIGN && spawns.get(SpawnType.SIGN) == null) {
+			} else if (spawn.getType() == SpawnType.SIGN && spawns.get(SpawnType.SIGN) == null) {
 				// Signs do not have master name displayed, but have creatorId
-				t = SpawnEngine.addNewSingleTimeSpawn(getAddress().getMapId(), getCurrentSignNpcId(), spawn.getX(), spawn.getY(), spawn.getZ(), spawn.getH(), creatorId, StringUtils.EMPTY);
+				t = SpawnEngine.addNewSingleTimeSpawn(getAddress().getMapId(), getCurrentSignNpcId(), spawn.getX(), spawn.getY(), spawn.getZ(), spawn.getH(),
+						creatorId, StringUtils.EMPTY);
 				spawns.put(SpawnType.SIGN, (Npc) SpawnEngine.spawnObject(t, getPosition().getInstanceId()));
 			}
 		}
@@ -258,8 +251,7 @@ public class House extends VisibleObject {
 			try {
 				if (playerObjectId == 0) {
 					signNoticeStream = null;
-				}
-				else {
+				} else {
 					if (signNoticeStream == null) {
 						signNoticeStream = new ByteArrayOutputStream(NOTICE_LENGTH);
 					}
@@ -267,8 +259,7 @@ public class House extends VisibleObject {
 					signNoticeStream.write(new byte[] { 0, 0 }, 0, 2);
 				}
 				this.playerObjectId = playerObjectId;
-			}
-			finally {
+			} finally {
 				writeLock.unlock();
 			}
 		}
@@ -287,8 +278,7 @@ public class House extends VisibleObject {
 		if (playerObjectId == 0) {
 			setDoorState(status == HouseStatus.SELL_WAIT ? HousePermissions.DOOR_OPENED_ALL : HousePermissions.DOOR_CLOSED);
 			setNoticeState(HousePermissions.NOT_SET);
-		}
-		else {
+		} else {
 			if (permissions == 0) {
 				setNoticeState(HousePermissions.SHOW_OWNER);
 				if (getBuilding().getType() == BuildingType.PERSONAL_FIELD) {
@@ -325,7 +315,8 @@ public class House extends VisibleObject {
 
 	public synchronized void setStatus(HouseStatus status) {
 		if (this.status != status) {
-			// fix invalid status from DB, or automatically remove sign from not auctioned houses
+			// fix invalid status from DB, or automatically remove sign from not
+			// auctioned houses
 			if (this.playerObjectId == 0 && status == HouseStatus.ACTIVE) {
 				status = HouseStatus.NOSALE;
 			}
@@ -374,7 +365,9 @@ public class House extends VisibleObject {
 	}
 
 	public boolean isInGracePeriod() {
-		return playerObjectId > 0 && HousingService.getInstance().searchPlayerHouses(playerObjectId).size() == 2 && (status == HouseStatus.ACTIVE || status == HouseStatus.SELL_WAIT) && sellStarted != null && sellStarted.getTime() <= HousingBidService.getInstance().getAuctionStartTime();
+		return playerObjectId > 0 && HousingService.getInstance().searchPlayerHouses(playerObjectId).size() == 2
+				&& (status == HouseStatus.ACTIVE || status == HouseStatus.SELL_WAIT) && sellStarted != null
+				&& sellStarted.getTime() <= HousingBidService.getInstance().getAuctionStartTime();
 	}
 
 	public synchronized Npc getButler() {
@@ -408,8 +401,7 @@ public class House extends VisibleObject {
 			if (npc != null) {
 				npc.getController().onDelete();
 			}
-		}
-		else {
+		} else {
 			spawns.put(type, npc);
 		}
 	}
@@ -418,13 +410,11 @@ public class House extends VisibleObject {
 		int npcId = getLand().getWaitingSignNpcId(); // bidding closed
 		if (status == HouseStatus.NOSALE) {
 			npcId = getLand().getNosaleSignNpcId(); // invisible npc
-		}
-		else if (status == HouseStatus.SELL_WAIT) {
+		} else if (status == HouseStatus.SELL_WAIT) {
 			if (HousingBidService.getInstance().isBiddingAllowed()) {
 				npcId = getLand().getSaleSignNpcId(); // bidding open
 			}
-		}
-		else if (playerObjectId != 0) {
+		} else if (playerObjectId != 0) {
 			if (status == HouseStatus.ACTIVE) {
 				npcId = getLand().getHomeSignNpcId(); // resident information
 			}
@@ -522,8 +512,7 @@ public class House extends VisibleObject {
 				houseOwnerInfoFlags |= PlayerHouseOwnerFlags.BIDDING_ALLOWED.getId();
 				houseOwnerInfoFlags &= ~PlayerHouseOwnerFlags.SINGLE_HOUSE.getId();
 			}
-		}
-		else if (status == HouseStatus.SELL_WAIT) {
+		} else if (status == HouseStatus.SELL_WAIT) {
 			houseOwnerInfoFlags = PlayerHouseOwnerFlags.SELLING_HOUSE.getId();
 		}
 	}
@@ -533,8 +522,7 @@ public class House extends VisibleObject {
 		readLock.lock();
 		if (signNoticeStream == null) {
 			notice = new byte[0];
-		}
-		else {
+		} else {
 			notice = signNoticeStream.toByteArray();
 		}
 		readLock.unlock();
@@ -549,8 +537,7 @@ public class House extends VisibleObject {
 		signNoticeStream.reset();
 		try {
 			signNoticeStream.write(noticeStream, 0, Math.min(noticeStream.length, NOTICE_LENGTH));
-		}
-		finally {
+		} finally {
 			writeLock.unlock();
 		}
 	}

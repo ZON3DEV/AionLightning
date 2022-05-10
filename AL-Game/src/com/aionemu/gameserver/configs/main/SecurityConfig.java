@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.main;
 
 import com.aionemu.commons.configuration.Property;
@@ -80,6 +81,4 @@ public class SecurityConfig {
 	public static int SURVEY_DELAY;
 	@Property(key = "gameserver.security.instance.keycheck", defaultValue = "false")
 	public static boolean INSTANCE_KEYCHECK;
-	@Property(key = "gameserver.security.integrity.check", defaultValue = "true")
-	public static boolean INTEGRITY_CHECK;
 }

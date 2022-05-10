@@ -14,11 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.effect;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlType;
+package com.aionemu.gameserver.skillengine.effect;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.stats.container.StatEnum;
@@ -28,6 +25,10 @@ import com.aionemu.gameserver.skillengine.model.SkillMoveType;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * @author Sarynth modified by Wakizashi, Sippolo
@@ -44,7 +45,8 @@ public class PulledEffect extends EffectTemplate {
 		effected.getController().cancelCurrentSkill();
 		// effected.getMoveController().abortMove();
 		World.getInstance().updatePosition(effected, effect.getTargetX(), effect.getTargetY(), effect.getTargetZ(), effected.getHeading());
-		PacketSendUtility.broadcastPacketAndReceive(effected, new SM_FORCED_MOVE(effect.getEffector(), effected.getObjectId(), effect.getTargetX(), effect.getTargetY(), effect.getTargetZ()));
+		PacketSendUtility.broadcastPacketAndReceive(effected,
+				new SM_FORCED_MOVE(effect.getEffector(), effected.getObjectId(), effect.getTargetX(), effect.getTargetY(), effect.getTargetZ()));
 	}
 
 	@Override
@@ -60,7 +62,8 @@ public class PulledEffect extends EffectTemplate {
 		effect.setSkillMoveType(SkillMoveType.PULL);
 		final Creature effector = effect.getEffector();
 
-		// Target must be pulled just one meter away from effector, not IN place of effector
+		// Target must be pulled just one meter away from effector, not IN place
+		// of effector
 		double radian = Math.toRadians(MathUtil.convertHeadingToDegree(effector.getHeading()));
 		final float x1 = (float) Math.cos(radian);
 		final float y1 = (float) Math.sin(radian);

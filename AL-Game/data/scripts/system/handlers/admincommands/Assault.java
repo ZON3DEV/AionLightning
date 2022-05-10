@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import java.util.ArrayList;
@@ -52,8 +53,7 @@ public class Assault extends AdminCommand {
 			if (params.length == 4) {
 				despawnTime = Math.abs(Integer.parseInt(params[3]));
 			}
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			PacketSendUtility.sendMessage(admin, "You should only input integers as radius, amount and despawn time.");
 			return;
 		}
@@ -81,24 +81,21 @@ public class Assault extends AdminCommand {
 			idList.add(253739);
 			idList.add(210566);
 			idList.add(210745);
-		}
-		else if (params[2].equals("tier30")) {
+		} else if (params[2].equals("tier30")) {
 			idList.add(210997);
 			idList.add(213831);
 			idList.add(213547);
 			idList.add(253739);
 			idList.add(210942);
 			idList.add(212631);
-		}
-		else if (params[2].equals("balaur4")) {
+		} else if (params[2].equals("balaur4")) {
 			idList.add(210997);
 			idList.add(255704);
 			idList.add(211962);
 			idList.add(213240);
 			idList.add(214387);
 			idList.add(213547);
-		}
-		else if (params[2].equals("balaur5")) {
+		} else if (params[2].equals("balaur5")) {
 			idList.add(250187);
 			idList.add(250187);
 			idList.add(250187);
@@ -106,8 +103,7 @@ public class Assault extends AdminCommand {
 			idList.add(250182);
 			idList.add(250182);
 			idList.add(250187);
-		}
-		else if (params[2].equals("dredgion")) {
+		} else if (params[2].equals("dredgion")) {
 			idList.add(258236);
 			idList.add(258238);
 			idList.add(258243);
@@ -118,13 +114,11 @@ public class Assault extends AdminCommand {
 			idList.add(258242);
 			idList.add(250187);
 			idList.add(250182);
-		}
-		else {
+		} else {
 			for (String npcId : params[2].split(",")) {
 				try {
 					idList.add(Integer.parseInt(npcId));
-				}
-				catch (NumberFormatException e) {
+				} catch (NumberFormatException e) {
 					PacketSendUtility.sendMessage(admin, "You should only input integers as NPC ids.");
 					return;
 				}
@@ -137,9 +131,8 @@ public class Assault extends AdminCommand {
 		Creature target;
 		if (admin.getTarget() != null) {
 			target = (Creature) admin.getTarget();
-		}
-		else {
-			target = admin;
+		} else {
+			target = (Creature) admin;
 		}
 
 		float x = target.getX();
@@ -157,7 +150,13 @@ public class Assault extends AdminCommand {
 		int spawnCount = 0;
 
 		VisibleObject visibleObject;
-		List<VisibleObject> despawnList = new ArrayList<VisibleObject>();// will hold the list of spawned mobs
+		List<VisibleObject> despawnList = new ArrayList<VisibleObject>();// will
+																			// hold
+																			// the
+																			// list
+																			// of
+																			// spawned
+																			// mobs
 
 		for (int i = 0; amount > i; i++) {
 			templateId = idList.get((int) (Math.random() * idList.size()));
@@ -168,8 +167,7 @@ public class Assault extends AdminCommand {
 			if (spawn == null) {
 				PacketSendUtility.sendMessage(admin, "There is no npc: " + templateId);
 				return;
-			}
-			else {
+			} else {
 				visibleObject = SpawnEngine.spawnObject(spawn, 1);
 
 				if (despawnTime > 0) {
@@ -190,7 +188,6 @@ public class Assault extends AdminCommand {
 
 	private void despawnThem(final Player admin, final List<VisibleObject> despawnList, final int despawnTime) {
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				int despawnCount = 0;

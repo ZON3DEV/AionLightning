@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import java.util.concurrent.Future;
@@ -29,6 +30,7 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author kecimis
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbstractOverTimeEffect")
@@ -69,15 +71,13 @@ public abstract class AbstractOverTimeEffect extends EffectTemplate {
 		}
 		try {
 			Future<?> task = ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 				@Override
 				public void run() {
 					onPeriodicAction(effect);
 				}
 			}, checktime, checktime);
 			effect.setPeriodicTask(task, position);
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.warn("Exception in skillId: " + effect.getSkillId());
 			e.printStackTrace();
 		}

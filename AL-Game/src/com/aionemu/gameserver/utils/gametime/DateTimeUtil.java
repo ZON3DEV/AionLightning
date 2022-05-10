@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.gametime;
 
 import java.util.GregorianCalendar;
@@ -27,6 +28,7 @@ import com.aionemu.gameserver.configs.main.GSConfig;
 
 /**
  * @author Rolandas
+ *
  */
 public final class DateTimeUtil {
 
@@ -36,14 +38,14 @@ public final class DateTimeUtil {
 	public static void init() {
 		try {
 			if (!GSConfig.TIME_ZONE_ID.isEmpty()) {
-				// just check the validity on start (if invalid zone specified in the switch, default id used)
+                // just check the validity on start (if invalid zone specified in the switch, default id used)
 				DateTimeZone.forID(System.getProperty("Duser.timezone"));
 				DateTimeZone.forID(GSConfig.TIME_ZONE_ID);
 				canApplyZoneChange = true;
 			}
-		}
-		catch (Throwable e) {
-			log.error("Invalid or not supported timezones specified!!!\n" + "Use both -Duser.timezone=\"timezone_id\" switch from command line\n" + "and add a valid value for GSConfig.TIME_ZONE_ID");
+		} catch (Throwable e) {
+			log.error("Invalid or not supported timezones specified!!!\n" + "Use both -Duser.timezone=\"timezone_id\" switch from command line\n"
+					+ "and add a valid value for GSConfig.TIME_ZONE_ID");
 		}
 	}
 

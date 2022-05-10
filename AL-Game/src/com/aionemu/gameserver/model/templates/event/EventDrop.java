@@ -14,25 +14,21 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.event;
 
+import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.model.templates.item.ItemTemplate;
-
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EventDrop")
 public class EventDrop {
 
-	@XmlAttribute(name = "loc_id")
-	protected int locId;
-	@XmlAttribute(name = "npc_id")
-	protected int npcId;
 	@XmlAttribute(name = "item_id", required = true)
 	protected int itemId;
 	@XmlAttribute(name = "count", required = true)
@@ -43,11 +39,6 @@ public class EventDrop {
 	protected int minDiff;
 	@XmlAttribute(name = "maxDiff")
 	protected int maxDiff;
-	@XmlAttribute(name = "minLvl")
-	protected int minLvl;
-	@XmlAttribute(name = "maxLvl")
-	protected int maxLvl;
-
 	@XmlTransient
 	private ItemTemplate template;
 
@@ -69,22 +60,6 @@ public class EventDrop {
 
 	public int getMaxDiff() {
 		return maxDiff;
-	}
-
-	public int getLocId() {
-		return locId;
-	}
-
-	public int getNpcId() {
-		return npcId;
-	}
-
-	public int getMinLvl() {
-		return minLvl;
-	}
-
-	public int getMaxLvl() {
-		return maxLvl;
 	}
 
 	public ItemTemplate getItemTemplate() {

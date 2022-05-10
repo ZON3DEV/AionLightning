@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -45,8 +46,7 @@ public class Promote extends AdminCommand {
 		int mask = 0;
 		try {
 			mask = Integer.parseInt(params[2]);
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			PacketSendUtility.sendMessage(admin, "Only number!");
 			return;
 		}
@@ -58,15 +58,13 @@ public class Promote extends AdminCommand {
 				PacketSendUtility.sendMessage(admin, "accesslevel can be 0 - 10");
 				return;
 			}
-		}
-		else if (params[1].toLowerCase().equals("membership")) {
+		} else if (params[1].toLowerCase().equals("membership")) {
 			type = 2;
 			if (mask > 3 || mask < 0) {
 				PacketSendUtility.sendMessage(admin, "membership can be 0 - 3");
 				return;
 			}
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(admin, "syntax //promote <characterName> <accesslevel | membership> <mask>");
 			return;
 		}

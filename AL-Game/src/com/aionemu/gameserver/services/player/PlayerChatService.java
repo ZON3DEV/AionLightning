@@ -14,10 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.services.player;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.aionemu.gameserver.services.player;
 
 import com.aionemu.commons.network.util.ThreadPoolManager;
 import com.aionemu.gameserver.configs.main.SecurityConfig;
@@ -27,6 +25,8 @@ import com.aionemu.gameserver.model.TaskId;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Source
@@ -51,7 +51,6 @@ public class PlayerChatService {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_FLOODING);
 			player.getController().cancelTask(TaskId.GAG);
 			player.getController().addTask(TaskId.GAG, ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
 					player.setGagged(false);
@@ -87,8 +86,7 @@ public class PlayerChatService {
 			case SHOUT:
 				if (player.getRace() == Race.ASMODIANS) {
 					log.info(String.format("[MESSAGE] - ALL (ASMO): [%s]> %s", player.getName(), message));
-				}
-				else {
+				} else {
 					log.info(String.format("[MESSAGE] - ALL (ELYOS): [%s]> %s", player.getName(), message));
 				}
 				break;

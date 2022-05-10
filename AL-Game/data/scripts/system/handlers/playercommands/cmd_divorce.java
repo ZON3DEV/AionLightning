@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -45,18 +46,20 @@ public class cmd_divorce extends PlayerCommand {
 		Player partner1 = World.getInstance().findPlayer(Util.convertName(params[0]));
 		Player partner2 = World.getInstance().findPlayer(Util.convertName(params[1]));
 
-		final int ap1 = partner1.getAbyssRank().getAp();
-		final int ap2 = partner2.getAbyssRank().getAp();
-
 		if (partner1 == null || partner2 == null) {
 			PacketSendUtility.sendMessage(admin, "The specified player is not online.");
 			return;
 		}
+
+		final int ap1 = partner1.getAbyssRank().getAp();
+		final int ap2 = partner2.getAbyssRank().getAp();
+
 		if (partner1.equals(partner2)) {
 			PacketSendUtility.sendMessage(admin, "You can't cancel marry player on himself.");
 			return;
 		}
-		if (partner1.getWorldId() == 510010000 || partner1.getWorldId() == 520010000 || partner2.getWorldId() == 510010000 || partner2.getWorldId() == 520010000) {
+		if (partner1.getWorldId() == 510010000 || partner1.getWorldId() == 520010000 || partner2.getWorldId() == 510010000
+				|| partner2.getWorldId() == 520010000) {
 			PacketSendUtility.sendMessage(admin, "One of the players is in prison.");
 			return;
 		}

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.main;
 
 import com.aionemu.commons.configuration.Property;
@@ -46,6 +47,21 @@ public class SiegeConfig {
 	@Property(key = "gameserver.siege.assault.rate", defaultValue = "1")
 	public static float BALAUR_ASSAULT_RATE;
 	/**
+	 * Siege Race Protector spawn shedule
+	 */
+	@Property(key = "gameserver.siege.protector.time", defaultValue = "0 0 21 ? * *")
+	public static String RACE_PROTECTOR_SPAWN_SCHEDULE;
+	/**
+	 * Berserker Sunayaka spawn time
+	 */
+	@Property(key = "gameserver.sunayaka.time", defaultValue = "0 0 23 ? * *")
+	public static String BERSERKER_SUNAYAKA_SPAWN_SCHEDULE;
+	/**
+	 * Berserker Sunayaka spawn time
+	 */
+	@Property(key = "gameserver.moltenus.time", defaultValue = "0 0 22 ? * SUN")
+	public static String MOLTENUS_SPAWN_SCHEDULE;
+	/**
 	 * Legendary npc's health mod
 	 */
 	@Property(key = "gameserver.siege.health.mod", defaultValue = "false")
@@ -60,10 +76,4 @@ public class SiegeConfig {
 	 */
 	@Property(key = "gameserver.siege.ida", defaultValue = "false")
 	public static boolean SIEGE_IDA_ENABLED;
-
-	@Property(key = "gameserver.auto.siege.race", defaultValue = "false")
-	public static boolean SIEGE_AUTO_RACE;
-
-	@Property(key = "gameserver.auto.siege.id", defaultValue = "1131,1132;1141,2011;2021,3011;3021")
-	public static String SIEGE_AUTO_LOCID;
 }

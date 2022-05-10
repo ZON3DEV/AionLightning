@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.util.Collection;
@@ -40,17 +41,14 @@ public class SM_EMOTION_LIST extends AionServerPacket {
 	protected void writeImpl(AionConnection con) {
 		writeC(action);
 		if (con.getActivePlayer().havePermission(MembershipConfig.EMOTIONS_ALL)) {
-			writeH(103); //Motions 5.8
-			for (int i = 0; i < 103; i++) 
-			{
+			writeH(86);
+			for (int i = 0; i < 86; i++) {
 				writeH(64 + i);
 				writeD(0x00);
 			}
-		}
-		else if (emotions == null || emotions.isEmpty()) {
+		} else if (emotions == null || emotions.isEmpty()) {
 			writeH(0);
-		}
-		else {
+		} else {
 			writeH(emotions.size());
 			for (Emotion emotion : emotions) {
 				writeH(emotion.getId());

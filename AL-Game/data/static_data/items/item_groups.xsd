@@ -327,7 +327,6 @@
             <xs:enumeration value="REDEEM"/>
             <xs:enumeration value="RIFT"/>
             <xs:enumeration value="TASK"/>
-			<xs:enumeration value="UNKNOWN"/>
             <xs:enumeration value="WINTER"/>
         </xs:restriction>
     </xs:simpleType>

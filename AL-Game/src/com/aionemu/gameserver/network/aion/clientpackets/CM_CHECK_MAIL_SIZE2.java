@@ -14,13 +14,17 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
 
+/**
+ * @author xXMashUpXx
+ *
+ */
 public class CM_CHECK_MAIL_SIZE2 extends AionClientPacket {
-
 	/**
 	 * @param opcode
 	 * @param state
@@ -32,7 +36,8 @@ public class CM_CHECK_MAIL_SIZE2 extends AionClientPacket {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.aionlightning.commons.network.packet.BaseClientPacket#readImpl()
+	 *
+	 * @see com.aionemu.commons.network.packet.BaseClientPacket#readImpl()
 	 */
 	@Override
 	protected void readImpl() {
@@ -40,7 +45,8 @@ public class CM_CHECK_MAIL_SIZE2 extends AionClientPacket {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.aionlightning.commons.network.packet.BaseClientPacket#runImpl()
+	 *
+	 * @see com.aionemu.commons.network.packet.BaseClientPacket#runImpl()
 	 */
 	@Override
 	protected void runImpl() {

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.PreparedStatement;
@@ -41,7 +42,6 @@ public class MySQL5PlayerRecipesDAO extends PlayerRecipesDAO {
 	public RecipeList load(final int playerId) {
 		final HashSet<Integer> recipeList = new HashSet<Integer>();
 		DB.select(SELECT_QUERY, new ParamReadStH() {
-
 			@Override
 			public void setParams(PreparedStatement ps) throws SQLException {
 				ps.setInt(1, playerId);
@@ -60,7 +60,6 @@ public class MySQL5PlayerRecipesDAO extends PlayerRecipesDAO {
 	@Override
 	public boolean addRecipe(final int playerId, final int recipeId) {
 		return DB.insertUpdate(ADD_QUERY, new IUStH() {
-
 			@Override
 			public void handleInsertUpdate(PreparedStatement ps) throws SQLException {
 				ps.setInt(1, playerId);
@@ -73,7 +72,6 @@ public class MySQL5PlayerRecipesDAO extends PlayerRecipesDAO {
 	@Override
 	public boolean delRecipe(final int playerId, final int recipeId) {
 		return DB.insertUpdate(DELETE_QUERY, new IUStH() {
-
 			@Override
 			public void handleInsertUpdate(PreparedStatement ps) throws SQLException {
 				ps.setInt(1, playerId);

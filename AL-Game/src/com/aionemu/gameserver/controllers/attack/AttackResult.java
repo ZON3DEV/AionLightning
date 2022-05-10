@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers.attack;
 
 import com.aionemu.gameserver.skillengine.model.HitType;
@@ -35,7 +36,6 @@ public class AttackResult {
 	private int protectedSkillId = 0;
 	private int protectedDamage = 0;
 	private int protectorId = 0;
-	private int shieldMp = 0;
 	private boolean launchSubEffect = true;
 
 	public AttackResult(int damage, AttackStatus attackStatus) {
@@ -87,6 +87,7 @@ public class AttackResult {
 
 	/**
 	 * shield effects related
+	 *
 	 */
 	/**
 	 * @return the shieldType
@@ -149,13 +150,5 @@ public class AttackResult {
 
 	public void setLaunchSubEffect(boolean launchSubEffect) {
 		this.launchSubEffect = launchSubEffect;
-	}
-
-	public int getShieldMp() {
-		return this.shieldMp;
-	}
-
-	public void setShieldMp(int shieldMp) {
-		this.shieldMp = shieldMp;
 	}
 }

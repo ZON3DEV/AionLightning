@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.properties;
 
 import java.util.List;
@@ -209,9 +210,7 @@ public class Properties {
 
 	public enum CastState {
 
-		CAST_START(true),
-		CAST_END(false);
-
+		CAST_START(true), CAST_END(false);
 		private final boolean isCastStart;
 
 		CastState(boolean isCastStart) {

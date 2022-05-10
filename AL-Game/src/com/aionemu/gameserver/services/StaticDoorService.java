@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import org.slf4j.Logger;
@@ -59,11 +60,9 @@ public class StaticDoorService {
 			PacketSendUtility.sendMessage(player, "key id : " + keyId);
 		}
 
-		if (checkStaticDoorKey(player, keyId)) {
+		if (checkStaticDoorKey(player, doorId, keyId)) {
 			door.setOpen(true);
-		}
-
-		else {
+		} else {
 			log.info("Opening door without key ...");
 		}
 	}
@@ -86,14 +85,13 @@ public class StaticDoorService {
 		}
 		if ("".equals(currentStates)) {
 			currentStates = "NONE";
-		}
-		else {
+		} else {
 			currentStates = currentStates.substring(0, currentStates.length() - 2);
 		}
 		PacketSendUtility.sendMessage(player, "Door states now are: " + currentStates);
 	}
 
-	public boolean checkStaticDoorKey(Player player, int keyId) {
+	public boolean checkStaticDoorKey(Player player, int doorId, int keyId) {
 		if (player.getAccessLevel() >= AdminConfig.DOORS_OPEN) {
 			return true;
 		}

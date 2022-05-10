@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -46,8 +47,7 @@ public class SM_DELETE_CHARACTER extends AionServerPacket {
 			writeD(0x00);// unk
 			writeD(playerObjId);
 			writeD(deletionTime);
-		}
-		else {
+		} else {
 			writeD(0x10);// unk
 			writeD(0x00);
 			writeD(0x00);

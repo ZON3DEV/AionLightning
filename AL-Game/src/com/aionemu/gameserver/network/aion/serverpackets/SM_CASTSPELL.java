@@ -14,10 +14,9 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.stats.container.StatEnum;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -26,7 +25,6 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  *
  * @author alexa026
  * @author rhys2002
- * @author Ghostfur (Aion-Unique)
  */
 public class SM_CASTSPELL extends AionServerPacket {
 
@@ -40,9 +38,8 @@ public class SM_CASTSPELL extends AionServerPacket {
 	private float x;
 	private float y;
 	private float z;
-	private int skinId;
 
-	public SM_CASTSPELL(int attackerObjectId, int spellId, int level, int targetType, int targetObjectId, int duration, boolean isCharge, int skinId) {
+	public SM_CASTSPELL(int attackerObjectId, int spellId, int level, int targetType, int targetObjectId, int duration, boolean isCharge) {
 		this.attackerObjectId = attackerObjectId;
 		this.spellId = spellId;
 		this.level = level;
@@ -50,11 +47,10 @@ public class SM_CASTSPELL extends AionServerPacket {
 		this.targetObjectId = targetObjectId;
 		this.duration = duration;
 		this.isCharge = isCharge;
-		this.skinId = skinId;
 	}
 
-	public SM_CASTSPELL(int attackerObjectId, int spellId, int level, int targetType, float x, float y, float z, int duration, int skinId) {
-		this(attackerObjectId, spellId, level, targetType, 0, duration, false, skinId);
+	public SM_CASTSPELL(int attackerObjectId, int spellId, int level, int targetType, float x, float y, float z, int duration) {
+		this(attackerObjectId, spellId, level, targetType, 0, duration, false);
 		this.x = x;
 		this.y = y;
 		this.z = z;
@@ -65,7 +61,6 @@ public class SM_CASTSPELL extends AionServerPacket {
 	 */
 	@Override
 	protected void writeImpl(AionConnection con) {
-		final Player player = con.getActivePlayer();
 		writeD(attackerObjectId);
 		writeH(spellId);
 		writeC(level);
@@ -98,8 +93,7 @@ public class SM_CASTSPELL extends AionServerPacket {
 
 		writeH(duration);
 		writeC(0x00);// unk
-		writeF(player.getGameStats().getReverseStat(StatEnum.BOOST_CASTING_TIME, 1000).getCurrent() / 1000f);// currentCastingSpeed
+		writeF(0x01);// unk
 		writeC(isCharge ? 0x01 : 0x00);// charge?
-		writeH(skinId);
 	}
 }

@@ -14,19 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Iterator;
-import java.util.Map;
-
-import javax.annotation.Nullable;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.DatabaseFactory;
@@ -38,6 +27,16 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.ItemCooldown;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Maps;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.annotation.Nullable;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * @author ATracer
@@ -49,7 +48,6 @@ public class MySQL5ItemCooldownsDAO extends ItemCooldownsDAO {
 	public static final String DELETE_QUERY = "DELETE FROM `item_cooldowns` WHERE `player_id`=?";
 	public static final String SELECT_QUERY = "SELECT `delay_id`, `use_delay`, `reuse_time` FROM `item_cooldowns` WHERE `player_id`=?";
 	private static final Predicate<ItemCooldown> itemCooldownPredicate = new Predicate<ItemCooldown>() {
-
 		@Override
 		public boolean apply(@Nullable ItemCooldown input) {
 			return input != null && input.getReuseTime() - System.currentTimeMillis() > 30000;
@@ -59,7 +57,6 @@ public class MySQL5ItemCooldownsDAO extends ItemCooldownsDAO {
 	@Override
 	public void loadItemCooldowns(final Player player) {
 		DB.select(SELECT_QUERY, new ParamReadStH() {
-
 			@Override
 			public void setParams(PreparedStatement stmt) throws SQLException {
 				stmt.setInt(1, player.getObjectId());
@@ -115,18 +112,15 @@ public class MySQL5ItemCooldownsDAO extends ItemCooldownsDAO {
 
 			st.executeBatch();
 			con.commit();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Error while storing item cooldows for player " + player.getObjectId(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(st, con);
 		}
 	}
 
 	private void deleteItemCooldowns(final Player player) {
 		DB.insertUpdate(DELETE_QUERY, new IUStH() {
-
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
 				stmt.setInt(1, player.getObjectId());

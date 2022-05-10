@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -55,17 +56,14 @@ public class SM_FRIEND_RESPONSE extends AionServerPacket {
 	 */
 	public static final int TARGET_REMOVED = 0x06;
 	/**
-	 * The target is in your blocked list, and cannot be added to your friends list.
+	 * The target is in your blocked list, and cannot be added to your friends
+	 * list.
 	 */
 	public static final int TARGET_BLOCKED = 0x08;
 	/**
 	 * The target is dead and cannot be befriended yet.
 	 */
 	public static final int TARGET_DEAD = 0x09;
-	/**
-	 * The target become a note.
-	 */
-	public static final int TARGET_NOTE = 0x21;
 	private final String player;
 	private final int code;
 

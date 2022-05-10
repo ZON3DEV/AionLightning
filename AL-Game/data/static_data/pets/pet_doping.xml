@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- parsed by phpTools from Aion Germany Group (Mariella) at 2017-04-08 15:12 -->
 <dopings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="pet_doping.xsd">
     <doping id="1" usedrink="true" usefood="true" usescroll="0"/>
     <doping id="2" usedrink="false" usefood="true" usescroll="6"/>

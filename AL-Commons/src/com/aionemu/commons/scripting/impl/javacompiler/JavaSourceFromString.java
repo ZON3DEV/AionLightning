@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.scripting.impl.javacompiler;
 
 import java.net.URI;
@@ -38,13 +39,13 @@ public class JavaSourceFromString extends SimpleJavaFileObject {
 	 * Creates new object that contains sources of java class
 	 * 
 	 * @param className
-	 *            class name of class
+	 *          class name of class
 	 * @param code
-	 *            source code of class
+	 *          source code of class
 	 */
 	public JavaSourceFromString(String className, String code) {
 		super(URI.create("string:///" + className.replace('.', '/') + JavaFileObject.Kind.SOURCE.extension),
-				JavaFileObject.Kind.SOURCE);
+			JavaFileObject.Kind.SOURCE);
 		this.code = code;
 	}
 
@@ -52,7 +53,7 @@ public class JavaSourceFromString extends SimpleJavaFileObject {
 	 * Returns class source code
 	 * 
 	 * @param ignoreEncodingErrors
-	 *            not used
+	 *          not used
 	 * @return class source code
 	 */
 	@Override

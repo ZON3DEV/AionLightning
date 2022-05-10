@@ -14,13 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers;
-
-import java.util.List;
-import java.util.concurrent.Future;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.ai2.AI2;
@@ -46,8 +41,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.LOG;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_CANCEL;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_SELECTED;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_UPDATE;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.model.ChargeSkill;
 import com.aionemu.gameserver.skillengine.model.HealType;
@@ -60,21 +53,23 @@ import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.knownlist.Visitor;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 import com.aionemu.gameserver.world.zone.ZoneUpdateService;
-
 import javolution.util.FastMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.List;
+import java.util.concurrent.Future;
 
 /**
  * This class is for controlling Creatures [npc's, players etc]
  *
  * @author -Nemesiss-, ATracer(2009-09-29), Sarynth
- * @author GiGatR00n v4.7.5.x
  * @modified by Wakizashi
  */
 public abstract class CreatureController<T extends Creature> extends VisibleObjectController<Creature> {
 
 	private static final Logger log = LoggerFactory.getLogger(CreatureController.class);
 	private FastMap<Integer, Future<?>> tasks = new FastMap<Integer, Future<?>>().shared();
-	private int SimpleAttackType; // 0=Ground Attacks | 1=Air Attacks (v4.7.5.17)
 
 	@Override
 	public void notSee(VisibleObject object, boolean isOutOfRange) {
@@ -166,12 +161,10 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 			if (((Player) getOwner()).getIsFlyingBeforeDeath()) {
 				getOwner().unsetState(CreatureState.ACTIVE);
 				getOwner().setState(CreatureState.FLOATING_CORPSE);
-			}
-			else {
+			} else {
 				this.getOwner().setState(CreatureState.DEAD);
 			}
-		}
-		else {
+		} else {
 			if (getOwner() instanceof Npc) {
 				if (((Npc) getOwner()).getObjectTemplate().isFloatCorpse()) {
 					getOwner().setState(CreatureState.FLOATING_CORPSE);
@@ -183,7 +176,9 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	}
 
 	/**
-	 * Perform tasks on Creature death with out emotion effect(need for some quests).
+	 * Perform tasks on Creature death with out emotion effect(need for some
+	 * quests).
+	 *
 	 */
 	public void onDieSilence() {
 		this.getOwner().getMoveController().abortMove();
@@ -194,12 +189,10 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 			if (((Player) getOwner()).getIsFlyingBeforeDeath()) {
 				getOwner().unsetState(CreatureState.ACTIVE);
 				getOwner().setState(CreatureState.FLOATING_CORPSE);
-			}
-			else {
+			} else {
 				this.getOwner().setState(CreatureState.DEAD);
 			}
-		}
-		else {
+		} else {
 			if (getOwner() instanceof Npc) {
 				if (((Npc) getOwner()).getObjectTemplate().isFloatCorpse()) {
 					getOwner().setState(CreatureState.FLOATING_CORPSE);
@@ -210,10 +203,8 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	}
 
 	/**
-	 * Perform tasks when Creature was attacked //TODO may be pass only Skill object - but need to add properties in it
-	 *
-	 * @param skillId
-	 * @param type
+	 * Perform tasks when Creature was attacked //TODO may be pass only Skill
+	 * object - but need to add properties in it
 	 */
 	public void onAttack(final Creature attacker, int skillId, TYPE type, int damage, boolean notifyAttack, LOG log) {
 		if (damage != 0 && !((getOwner() instanceof Npc) && ((Npc) getOwner()).isBoss())) {
@@ -221,13 +212,11 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 			if (skill != null && log != LOG.BLEED && log != LOG.SPELLATK && log != LOG.POISON) {
 				if (skill.getSkillMethod() == SkillMethod.ITEM) {
 					cancelCurrentSkill();
-				}
-				else {
+				} else {
 					int cancelRate = skill.getSkillTemplate().getCancelRate();
 					if (cancelRate == 100000) {
 						cancelCurrentSkill();
-					}
-					else if (cancelRate > 0) {
+					} else if (cancelRate > 0) {
 						int conc = getOwner().getGameStats().getStat(StatEnum.CONCENTRATION, 0).getCurrent();
 						float maxHp = getOwner().getGameStats().getMaxHp().getCurrent();
 
@@ -263,13 +252,11 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 			if (ai.poll(AIQuestion.CAN_SHOUT)) {
 				if (attacker instanceof Player) {
 					ShoutEventHandler.onHelp((NpcAI2) ai, attacker);
-				}
-				else {
+				} else {
 					ShoutEventHandler.onEnemyAttack((NpcAI2) ai, attacker);
 				}
 			}
-		}
-		else if (getOwner() instanceof Player && attacker instanceof Npc) {
+		} else if (getOwner() instanceof Player && attacker instanceof Npc) {
 			AI2 ai = attacker.getAi2();
 			if (ai.poll(AIQuestion.CAN_SHOUT)) {
 				ShoutEventHandler.onAttack((NpcAI2) ai, getOwner());
@@ -279,21 +266,11 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 
 		// notify all NPC's around that creature is attacking me
 		getOwner().getKnownList().doOnAllNpcs(new Visitor<Npc>() {
-
 			@Override
 			public void visit(Npc object) {
 				object.getAi2().onCreatureEvent(AIEventType.CREATURE_NEEDS_SUPPORT, getOwner());
 			}
 		});
-		// If the attacked player does not target the attacker, add it to the attacker.
-		if (getOwner() instanceof Player && attacker instanceof Player) {
-			if (getOwner().getTarget() == null || getOwner().getTarget() instanceof Player && !((Player) getOwner().getTarget()).isEnemy(getOwner())) {
-				Player player = (Player) getOwner();
-				player.setTarget(attacker);
-				PacketSendUtility.sendPacket(player, new SM_TARGET_SELECTED(player));
-				PacketSendUtility.broadcastPacket(player, new SM_TARGET_UPDATE(player));
-			}
-		}
 	}
 
 	/**
@@ -349,19 +326,11 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	public void onDialogRequest(Player player) {
 	}
 
-	public int getSimpleAttackType() {
-		return this.SimpleAttackType;
-	}
-
-	public void setSimpleAttackType(int attackType) {
-		this.SimpleAttackType = attackType;
-	}
-
 	/**
 	 * @param target
 	 * @param time
 	 */
-	public void attackTarget(final Creature target, int attackNo, int time, int type) {
+	public void attackTarget(final Creature target, int time) {
 		boolean addAttackObservers = true;
 		/**
 		 * Check all prerequisites
@@ -378,12 +347,10 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 		if (getOwner() instanceof Homing) {
 			attackResult = AttackUtil.calculateHomingAttackResult(getOwner(), target, getOwner().getAttackType().getMagicalElement());
 			attackType = 1;
-		}
-		else {
+		} else {
 			if (getOwner().getAttackType() == ItemAttackType.PHYSICAL) {
 				attackResult = AttackUtil.calculatePhysicalAttackResult(getOwner(), target);
-			}
-			else {
+			} else {
 				attackResult = AttackUtil.calculateMagicalAttackResult(getOwner(), target, getOwner().getAttackType().getMagicalElement());
 				attackType = 1;
 			}
@@ -397,9 +364,10 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 			damage += result.getDamage();
 		}
 
-//		getOwner().getGameStats().increaseAttackCounter();
-		PacketSendUtility.broadcastPacketAndReceive(getOwner(), new SM_ATTACK(getOwner(), target, attackNo, time, attackType, attackResult));
+		PacketSendUtility.broadcastPacketAndReceive(getOwner(), new SM_ATTACK(getOwner(), target, getOwner().getGameStats().getAttackCounter(), time,
+				attackType, attackResult));
 
+		getOwner().getGameStats().increaseAttackCounter();
 		if (addAttackObservers) {
 			getOwner().getObserveController().notifyAttackObservers(target);
 		}
@@ -407,8 +375,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 		final Creature creature = getOwner();
 		if (time == 0) {
 			target.getController().onAttack(getOwner(), damage, true);
-		}
-		else {
+		} else {
 			ThreadPoolManager.getInstance().schedule(new DelayedOnAttack(target, creature, damage), time);
 		}
 	}
@@ -428,9 +395,8 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 * @param dialogId
 	 * @param player
 	 * @param questId
-	 * @param extendedRewardIndex
 	 */
-	public void onDialogSelect(int dialogId, Player player, int questId, int extendedRewardIndex, int unk) {
+	public void onDialogSelect(int dialogId, Player player, int questId, int extendedRewardIndex) {
 		// TODO Auto-generated method stub
 	}
 
@@ -526,8 +492,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 			if (skill != null) {
 				return skill.useSkill();
 			}
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			log.error("Exception during skill use: " + skillId, ex);
 		}
 		return false;
@@ -540,8 +505,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 			if (skill != null) {
 				return skill.useSkill();
 			}
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			log.error("Exception during skill use: " + skillId, ex);
 		}
 		return false;

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.loginserver.clientpackets;
 
 import java.lang.management.ManagementFactory;
@@ -41,8 +42,7 @@ public class CM_LS_PING extends LsClientPacket {
 		int pid = -1;
 		try {
 			pid = Integer.parseInt(ManagementFactory.getRuntimeMXBean().getName().split("@")[0]);
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 		}
 
 		LoginServer.getInstance().sendPacket(new SM_LS_PONG(pid));

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.network;
 
 import java.io.File;
@@ -25,11 +26,12 @@ import java.util.List;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
+
+import org.slf4j.Logger;
 
 import com.aionemu.commons.network.IPRange;
 
@@ -62,19 +64,16 @@ public class IPConfig {
 		try {
 			SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
 			parser.parse(new File(CONFIG_FILE), new DefaultHandler() {
-
 				@Override
 				public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 
 					if (qName.equals("ipconfig")) {
 						try {
 							defaultAddress = InetAddress.getByName(attributes.getValue("default")).getAddress();
-						}
-						catch (UnknownHostException e) {
+						} catch (UnknownHostException e) {
 							throw new RuntimeException("Failed to resolve DSN for address: " + attributes.getValue("default"), e);
 						}
-					}
-					else if (qName.equals("iprange")) {
+					} else if (qName.equals("iprange")) {
 						String min = attributes.getValue("min");
 						String max = attributes.getValue("max");
 						String address = attributes.getValue("address");
@@ -83,8 +82,7 @@ public class IPConfig {
 					}
 				}
 			});
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Critical error while parsing ipConfig", e);
 			throw new Error("Can't load ipConfig", e);
 		}

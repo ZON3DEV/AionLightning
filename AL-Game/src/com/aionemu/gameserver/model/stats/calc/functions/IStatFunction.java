@@ -20,27 +20,21 @@ import com.aionemu.gameserver.model.stats.calc.Stat2;
 import com.aionemu.gameserver.model.stats.calc.StatOwner;
 import com.aionemu.gameserver.model.stats.container.StatEnum;
 
-/**
- * @author ATracer
- * @modified Rolandas
- */
-public interface IStatFunction extends Comparable<IStatFunction> {
+public abstract interface IStatFunction extends Comparable<IStatFunction> {
 
-	StatEnum getName();
+	public abstract StatEnum getName();
 
-	boolean isBonus();
+	public abstract boolean isBonus();
 
-	int getRandomNumber();
+	public abstract int getPriority();
 
-	int getPriority();
+	public abstract int getValue();
 
-	int getValue();
+	public abstract boolean validate(Stat2 paramStat2, IStatFunction paramIStatFunction);
 
-	boolean validate(Stat2 stat, IStatFunction statFunction);
+	public abstract void apply(Stat2 paramStat2);
 
-	void apply(Stat2 stat);
+	public abstract StatOwner getOwner();
 
-	StatOwner getOwner();
-
-	boolean hasConditions();
+	public abstract boolean hasConditions();
 }

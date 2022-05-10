@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
@@ -22,6 +23,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
 
+import javolution.util.FastMap;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,8 +32,6 @@ import com.aionemu.commons.database.DatabaseFactory;
 import com.aionemu.gameserver.dao.CraftCooldownsDAO;
 import com.aionemu.gameserver.dao.MySQL5DAOUtils;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-
-import javolution.util.FastMap;
 
 /**
  * @author synchro2
@@ -65,11 +66,9 @@ public class MySQL5CraftCooldownsDAO extends CraftCooldownsDAO {
 			player.getCraftCooldownList().setCraftCoolDowns(craftCoolDowns);
 			rset.close();
 			stmt.close();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("LoadcraftCoolDowns", e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}
@@ -101,11 +100,9 @@ public class MySQL5CraftCooldownsDAO extends CraftCooldownsDAO {
 				stmt.setInt(2, delayId);
 				stmt.setLong(3, reuseTime);
 				stmt.execute();
-			}
-			catch (SQLException e) {
+			} catch (SQLException e) {
 				log.error("storecraftCoolDowns", e);
-			}
-			finally {
+			} finally {
 				DatabaseFactory.close(con);
 			}
 		}
@@ -120,11 +117,9 @@ public class MySQL5CraftCooldownsDAO extends CraftCooldownsDAO {
 
 			stmt.setInt(1, player.getObjectId());
 			stmt.execute();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("deletecraftCoolDowns", e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}

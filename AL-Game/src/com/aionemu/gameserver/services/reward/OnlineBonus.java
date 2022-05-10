@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.reward;
 
 import org.slf4j.Logger;
@@ -21,16 +22,14 @@ import org.slf4j.LoggerFactory;
 
 import com.aionemu.gameserver.configs.main.MembershipConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.services.abyss.AbyssPointsService;
 import com.aionemu.gameserver.services.item.ItemService;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.knownlist.Visitor;
 
 /**
  * @author Eloann
- * @Reworked Kill3r
  */
 public class OnlineBonus {
 
@@ -38,31 +37,20 @@ public class OnlineBonus {
 
 	private OnlineBonus() {
 		ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 			@Override
 			public void run() {
 				World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 					@Override
 					public void visit(Player object) {
 						int time = MembershipConfig.ONLINE_BONUS_TIME;
 						try {
 							if (object.getInventory().isFull()) {
-								log.warn("[OnlineBonusService] Player " + object.getName() + " tried to receive item with full inventory.");
-							}
-							else {
+								log.warn("[OnlineBonus] Player " + object.getName() + " tried to receive item with full inventory.");
+							} else {
 								ItemService.addItem(object, MembershipConfig.ONLINE_BONUS_ITEM, MembershipConfig.ONLINE_BONUS_COUNT);
-								if (MembershipConfig.ONLINE_BONUS_ABYSS_ENABLE) {
-									AbyssPointsService.addAp(object, MembershipConfig.ONLINE_BONUS_AP);
-									AbyssPointsService.addGp(object, MembershipConfig.ONLINE_BONUS_GP);
-									PacketSendUtility.sendMessage(object, "[OnlineBonusService]: You've Played " + time + " Minutes. You earn a Bonus Item and Some AP! :)");
-								}
-								else {
-									PacketSendUtility.sendMessage(object, "[OnlineBonusService]: You've Played " + time + " Minutes. You earn a Bonus Item! :)");
-								}
+								PacketSendUtility.sendMessage(object, "[Online Bonus Sevice]: You have Play " + time + " Minutes. You earn a Bonus Item! :)");
 							}
-						}
-						catch (Exception ex) {
+						} catch (Exception ex) {
 							log.error("Exception during event rewarding of player " + object.getName(), ex);
 						}
 					}

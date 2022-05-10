@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.condition;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -30,6 +31,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author Cheatkiller
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "LeftHandCondition")
@@ -44,10 +46,11 @@ public class LeftHandCondition extends Condition {
 			Player player = (Player) env.getEffector();
 			switch (type) {
 				case DUAL: { // temporary fix with offhand >_<
-					if (player.getEquipment().isWeaponEquipped(WeaponType.CANNON_2H) || player.getEquipment().isWeaponEquipped(WeaponType.HARP_2H) || player.getEquipment().isWeaponEquipped(WeaponType.SWORD_1H) || player.getEquipment().isWeaponEquipped(WeaponType.GUN_1H) || player.getEquipment().isWeaponEquipped(WeaponType.KEYBLADE_2H)) {
+					if (player.getEquipment().isWeaponEquipped(WeaponType.CANNON_2H) || player.getEquipment().isWeaponEquipped(WeaponType.HARP_2H)
+							|| player.getEquipment().isWeaponEquipped(WeaponType.SWORD_1H) || player.getEquipment().isWeaponEquipped(WeaponType.GUN_1H)
+							|| player.getEquipment().isWeaponEquipped(WeaponType.KEYBLADE_2H)) {
 						return true;
-					}
-					else {
+					} else {
 						PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_SKILL_NEED_DUAL_WEAPON);
 						return false;
 					}
@@ -55,8 +58,7 @@ public class LeftHandCondition extends Condition {
 				case SHIELD: {
 					if (player.getEquipment().isShieldEquipped()) {
 						return true;
-					}
-					else {
+					} else {
 						PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_SKILL_NEED_SHIELD);
 						return false;
 					}

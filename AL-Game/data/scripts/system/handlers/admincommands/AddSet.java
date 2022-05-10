@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -48,8 +49,7 @@ public class AddSet extends AdminCommand {
 		try {
 			itemSetId = Integer.parseInt(params[0]);
 			receiver = player;
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			receiver = World.getInstance().findPlayer(Util.convertName(params[0]));
 
 			if (receiver == null) {
@@ -59,13 +59,11 @@ public class AddSet extends AdminCommand {
 
 			try {
 				itemSetId = Integer.parseInt(params[1]);
-			}
-			catch (NumberFormatException ex) {
+			} catch (NumberFormatException ex) {
 
 				PacketSendUtility.sendMessage(player, "You must give number to itemset ID.");
 				return;
-			}
-			catch (Exception ex2) {
+			} catch (Exception ex2) {
 				PacketSendUtility.sendMessage(player, "Occurs an error.");
 				return;
 			}

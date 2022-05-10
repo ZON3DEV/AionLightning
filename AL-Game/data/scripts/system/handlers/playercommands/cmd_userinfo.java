@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
@@ -26,9 +27,9 @@ import com.aionemu.gameserver.utils.chathandlers.PlayerCommand;
 /**
  * @author Maestros
  */
-public class cmd_userinfo extends PlayerCommand {
+public class cmd_userInfo extends PlayerCommand {
 
-	public cmd_userinfo() {
+	public cmd_userInfo() {
 		super("userinfo");
 	}
 
@@ -38,14 +39,14 @@ public class cmd_userinfo extends PlayerCommand {
 
 		if (target instanceof Player) {
 			PacketSendUtility.sendMessage(player, "Du darfst dir keine Infos von anderen Spielern holen");
-		}
-		else if (target instanceof Npc) {
+		} else if (target instanceof Npc) {
 			Npc npc = (Npc) player.getTarget();
-			PacketSendUtility.sendMessage(player, "[NPC Info]" + "\nName: " + npc.getName() + "\nId: " + npc.getNpcId() + "\nMap ID: " + player.getTarget().getWorldId());
-		}
-		else if (target instanceof Gatherable) {
+			PacketSendUtility.sendMessage(player, "[NPC Info]" + "\nName: " + npc.getName() + "\nId: " + npc.getNpcId() + "\nMap ID: "
+					+ player.getTarget().getWorldId());
+		} else if (target instanceof Gatherable) {
 			Gatherable gather = (Gatherable) target;
-			PacketSendUtility.sendMessage(player, "[Gather Info]\n" + "Name: " + gather.getName() + "\nId: " + gather.getObjectTemplate().getTemplateId() + "\nMap ID: " + player.getTarget().getWorldId());
+			PacketSendUtility.sendMessage(player, "[Gather Info]\n" + "Name: " + gather.getName() + "\nId: " + gather.getObjectTemplate().getTemplateId()
+					+ "\nMap ID: " + player.getTarget().getWorldId());
 		}
 	}
 

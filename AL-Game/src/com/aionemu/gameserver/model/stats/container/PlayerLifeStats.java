@@ -14,10 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.stats.container;
 
-import java.util.concurrent.Future;
-import java.util.concurrent.locks.ReentrantLock;
+package com.aionemu.gameserver.model.stats.container;
 
 import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -30,6 +28,9 @@ import com.aionemu.gameserver.services.LifeStatsRestoreService;
 import com.aionemu.gameserver.taskmanager.tasks.PacketBroadcaster.BroadcastMode;
 import com.aionemu.gameserver.taskmanager.tasks.TeamEffectUpdater;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+
+import java.util.concurrent.Future;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author ATracer, sphinx
@@ -176,8 +177,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player> {
 				onIncreaseFp(type, newFp - currentFp, skillId, log);
 				this.currentFp = newFp;
 			}
-		}
-		finally {
+		} finally {
 			fpLock.unlock();
 		}
 
@@ -201,8 +201,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player> {
 			}
 
 			this.currentFp = newFp;
-		}
-		finally {
+		} finally {
 			fpLock.unlock();
 		}
 
@@ -221,8 +220,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player> {
 			}
 
 			this.currentFp = newFp;
-		}
-		finally {
+		} finally {
 			fpLock.unlock();
 		}
 
@@ -254,7 +252,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player> {
 	 * this method should be used only on FlyTimeRestoreService
 	 */
 	public void restoreFp() {
-		// how much fly time restoring per 1 second.
+		// how much fly time restoring per 2 second.
 		increaseFp(TYPE.NATURAL_FP, 1);
 	}
 
@@ -272,8 +270,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player> {
 			if (flyRestoreTask == null && !alreadyDead && !isFlyTimeFullyRestored()) {
 				this.flyRestoreTask = LifeStatsRestoreService.getInstance().scheduleFpRestoreTask(this);
 			}
-		}
-		finally {
+		} finally {
 			restoreLock.unlock();
 		}
 	}
@@ -285,8 +282,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player> {
 				flyRestoreTask.cancel(false);
 				this.flyRestoreTask = null;
 			}
-		}
-		finally {
+		} finally {
 			restoreLock.unlock();
 		}
 	}
@@ -306,8 +302,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player> {
 			if (flyReduceTask == null && !alreadyDead && owner.getAccessLevel() < AdminConfig.GM_FLIGHT_UNLIMITED && !owner.isUnderNoFPConsum()) {
 				this.flyReduceTask = LifeStatsRestoreService.getInstance().scheduleFpReduceTask(this, costFp);
 			}
-		}
-		finally {
+		} finally {
 			restoreLock.unlock();
 		}
 	}
@@ -319,8 +314,7 @@ public class PlayerLifeStats extends CreatureLifeStats<Player> {
 				flyReduceTask.cancel(false);
 				this.flyReduceTask = null;
 			}
-		}
-		finally {
+		} finally {
 			restoreLock.unlock();
 		}
 	}

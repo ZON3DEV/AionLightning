@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.util.Collection;
@@ -38,12 +39,12 @@ public class SM_ALLIANCE_INFO extends AionServerPacket {
 	private int groupid;
 	private final int messageId;
 	private final String message;
-	public static final int FORCE_PROMOTE_MANAGER = 1300984;
-	public static final int FORCE_DEMOTE_MANAGER = 1300985;
-	public static final int UNION_ENTER = 1400560;
-	public static final int UNION_LEAVE = 1400572;
-	public static final int UNION_BAN_HIM = 1400574;
-	public static final int UNION_BAN_ME = 1400576;
+	public static final int VICECAPTAIN_PROMOTE = 1300984;
+	public static final int VICECAPTAIN_DEMOTE = 1300985;
+	public static final int LEAGUE_ENTERED = 1400560;
+	public static final int LEAGUE_LEFT = 1400572;
+	public static final int LEAGUE_EXPEL = 1400574;
+	public static final int LEAGUE_EXPELLED = 1400576;
 
 	public SM_ALLIANCE_INFO(PlayerAlliance alliance) {
 		this(alliance, 0, StringUtils.EMPTY);
@@ -64,7 +65,7 @@ public class SM_ALLIANCE_INFO extends AionServerPacket {
 		writeH(alliance.groupSize());
 		writeD(groupid);
 		writeD(leaderid);
-		writeD(player.getWorldId()); // 4.9 mapid
+		writeD(player.getWorldId()); // 4.3 mapid
 		Collection<Integer> ids = alliance.getViceCaptainIds();
 		for (Integer id : ids) {
 			writeD(id);
@@ -79,13 +80,10 @@ public class SM_ALLIANCE_INFO extends AionServerPacket {
 		writeD(lootRules.getHeroicItemAbove());
 		writeD(lootRules.getFabledItemAbove());
 		writeD(lootRules.getEthernalItemAbove());
-		writeD(lootRules.getMythicItemAbove());
-		writeD(lootRules.getAncientItemAbove());
-		writeD(lootRules.getRelicItemAbove());
-		writeD(lootRules.getFinalityItemAbove());
+		writeD(lootRules.getAutodistribution().getId());
 		writeD(0x02);
 		writeC(0x00);
-		writeD(alliance.getTeamType().getType());// Need to update 3F to FF ?
+		writeD(alliance.getTeamType().getType());
 		writeD(alliance.getTeamType().getSubType()); // 3.5
 		writeD(alliance.isInLeague() ? alliance.getLeague().getTeamId() : 0);
 		for (int a = 0; a < 4; a++) {
@@ -95,7 +93,6 @@ public class SM_ALLIANCE_INFO extends AionServerPacket {
 		writeD(messageId); // System message ID
 		writeS(messageId != 0 ? message : StringUtils.EMPTY); // System message
 		if (alliance.isInLeague()) {
-			//TODO LootRules !!
 			lootRules = alliance.getLeague().getLootGroupRules();
 			writeH(alliance.getLeague().size());
 			writeD(lootRules.getLootRule().getId()); // loot rule type - 0 freeforall, 1 roundrobin, 2 leader
@@ -105,18 +102,13 @@ public class SM_ALLIANCE_INFO extends AionServerPacket {
 			writeD(lootRules.getHeroicItemAbove()); // this.heroic_item_above); - 0 normal 2 roll 3 bid
 			writeD(lootRules.getFabledItemAbove()); // this.fabled_item_above); - 0 normal 2 roll 3 bid
 			writeD(lootRules.getEthernalItemAbove()); // this.ethernal_item_above); - 0 normal 2 roll 3 bid
-			writeD(2); // this.over_ethernal); - 0 normal 2 roll 3 bid
-			writeD(2); // this.over_over_ethernal); - 0 normal 2 roll 3 bid
-			writeD(226); // Todo check if it is always 226
-			writeD(4); 
-			writeC(0); 
+			writeD(0); // this.over_ethernal); - 0 normal 2 roll 3 bid
+			writeD(0); // this.over_over_ethernal); - 0 normal 2 roll 3 bid
 			for (LeagueMember leagueMember : alliance.getLeague().getSortedMembers()) {
 				writeD(leagueMember.getLeaguePosition());
 				writeD(leagueMember.getObjectId());
 				writeD(leagueMember.getObject().size());
 				writeS(leagueMember.getObject().getLeaderObject().getName());
-				writeD(leagueMember.getObject().getLeaderObject().getWorldId()); // TODO Looks like some ObjId and not mapId
-				writeD(leagueMember.getObject().getObjectId());
 			}
 		}
 	}

@@ -14,11 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.main;
 
-import java.util.regex.Pattern;
-
 import com.aionemu.commons.configuration.Property;
+import java.util.regex.Pattern;
 
 /**
  * @author nrg
@@ -46,7 +46,8 @@ public class NameConfig {
 	@Property(key = "gameserver.name.forbidden.enable.client", defaultValue = "true")
 	public static boolean NAME_FORBIDDEN_ENABLE;
 	/**
-	 * Forbidden Charnames NOTE: Parsed out of aion 3.0 client Filters charname, miol, legion, chat
+	 * Forbidden Charnames NOTE: Parsed out of aion 3.0 client Filters charname,
+	 * miol, legion, chat
 	 */
 	@Property(key = "gameserver.name.forbidden.client", defaultValue = "")
 	public static String NAME_FORBIDDEN_CLIENT;

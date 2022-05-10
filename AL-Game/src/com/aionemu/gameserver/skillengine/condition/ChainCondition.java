@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.condition;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -58,8 +59,7 @@ public class ChainCondition extends Condition {
 
 				if (pl.getChainSkills().chainSkillEnabled(category, time)) {
 					canUse = true;
-				}
-				else if (precategory == null) {
+				} else if (precategory == null) {
 					canUse = true;
 				}
 
@@ -69,17 +69,15 @@ public class ChainCondition extends Condition {
 
 				if (selfCount <= pl.getChainSkills().getChainCount(pl, env.getSkillTemplate(), category)) {
 					return false;
-				}
-				else {
+				} else {
 					env.setIsMultiCast(true);
 				}
-			}
-			else if (preCount > 0) {
-				if (!pl.getChainSkills().chainSkillEnabled(precategory, time) || preCount != pl.getChainSkills().getChainCount(pl, env.getSkillTemplate(), precategory)) {
+			} else if (preCount > 0) {
+				if (!pl.getChainSkills().chainSkillEnabled(precategory, time)
+						|| preCount != pl.getChainSkills().getChainCount(pl, env.getSkillTemplate(), precategory)) {
 					return false;
 				}
-			}
-			else {// basic chain skill
+			} else {// basic chain skill
 				if (!pl.getChainSkills().chainSkillEnabled(precategory, time)) {
 					return false;
 				}

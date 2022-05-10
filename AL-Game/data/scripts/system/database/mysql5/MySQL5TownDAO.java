@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
@@ -36,6 +37,7 @@ import com.aionemu.gameserver.model.town.Town;
 
 /**
  * @author ViAl
+ *
  */
 public class MySQL5TownDAO extends TownDAO {
 
@@ -63,11 +65,9 @@ public class MySQL5TownDAO extends TownDAO {
 			}
 			rset.close();
 			stmt.close();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Can't load towns info. " + e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(conn);
 		}
 		return towns;
@@ -99,11 +99,9 @@ public class MySQL5TownDAO extends TownDAO {
 			stmt.executeUpdate();
 			stmt.close();
 			town.setPersistentState(PersistentState.UPDATED);
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Can insert new town into database! Town id:" + town.getId() + ". " + e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(conn);
 		}
 	}
@@ -120,11 +118,9 @@ public class MySQL5TownDAO extends TownDAO {
 			stmt.executeUpdate();
 			stmt.close();
 			town.setPersistentState(PersistentState.UPDATED);
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("Can insert new town into database! Town id:" + town.getId() + ". " + e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(conn);
 		}
 	}

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -50,7 +51,5 @@ public class SM_DIE extends AionServerPacket {
 		writeD(remainingKiskTime);
 		writeC(type);
 		writeC(invasion ? 0x80 : 0x00);
-		writeC(4);
-		writeC(0); //TODO Trainings Arena Revive
 	}
 }

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.condition;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -39,10 +40,9 @@ public class PolishChargeCondition extends ChargeCondition {
 			for (Item item : effector.getEquipment().getEquippedItems()) {
 				if (item.getItemTemplate().isWeapon() && item.getIdianStone() != null) {
 					item.getIdianStone().decreasePolishCharge(effector, value);
-					return true;
 				}
 			}
 		}
-		return false;
+		return true;
 	}
 }

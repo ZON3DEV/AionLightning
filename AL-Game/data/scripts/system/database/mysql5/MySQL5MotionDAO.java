@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
@@ -33,6 +34,7 @@ import com.aionemu.gameserver.model.gameobjects.player.motion.MotionList;
 
 /**
  * @author MrPoke
+ *
  */
 public class MySQL5MotionDAO extends MotionDAO {
 
@@ -67,11 +69,9 @@ public class MySQL5MotionDAO extends MotionDAO {
 			}
 			rset.close();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not restore motions for playerObjId: " + player.getObjectId() + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		player.setMotions(motions);
@@ -89,12 +89,10 @@ public class MySQL5MotionDAO extends MotionDAO {
 			stmt.setInt(4, motion.getExpireTime());
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not store motion for player " + objectId + " from DB: " + e.getMessage(), e);
 			return false;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return true;
@@ -110,12 +108,10 @@ public class MySQL5MotionDAO extends MotionDAO {
 			stmt.setInt(2, motionId);
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not delete motion for player " + objectId + " from DB: " + e.getMessage(), e);
 			return false;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return true;
@@ -132,12 +128,10 @@ public class MySQL5MotionDAO extends MotionDAO {
 			stmt.setInt(3, motion.getId());
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not store motion for player " + objectId + " from DB: " + e.getMessage(), e);
 			return false;
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return true;

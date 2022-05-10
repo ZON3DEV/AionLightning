@@ -14,10 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import com.aionemu.gameserver.configs.main.CustomConfig;
-import com.aionemu.gameserver.configs.main.GSConfig;
 import com.aionemu.gameserver.configs.main.MembershipConfig;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
@@ -33,8 +33,10 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class ClassChangeService {
 
-	// TODO dialog enum
+	private static int[] elyosStigmaQuests = { 1929, 3930, 3931, 3932, 11049, 11276, 11550, 30217 };
+	private static int[] asmodianStigmaQuests = { 2900, 4934, 4935, 4936, 21049, 21278, 21550, 30317 };
 
+	// TODO dialog enum
 	/**
 	 * @param player
 	 */
@@ -66,8 +68,7 @@ public class ClassChangeService {
 						default:
 							break;
 					}
-				}
-				else if (playerRace == Race.ASMODIANS) {
+				} else if (playerRace == Race.ASMODIANS) {
 					switch (playerClass) {
 						case WARRIOR:
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(0, 3057, 2008));
@@ -82,7 +83,7 @@ public class ClassChangeService {
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(0, 4080, 2008));
 							break;
 						case ENGINEER:
-							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(0, 3612, 2008)); // 4.5
+							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(0, 3569, 2008)); // 4.5
 							break;
 						case ARTIST:
 							PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(0, 3910, 2008));
@@ -137,20 +138,18 @@ public class ClassChangeService {
 					case 4081:
 						setClass(player, PlayerClass.getPlayerClassById((byte) 16));
 						break;
-					case 4166:
-						setClass(player, PlayerClass.getPlayerClassById((byte) 17)); // 7.0
-						break;
 
 				}
-				completeQuest(player, 60100);
-				completeQuest(player, 60101);
+				completeQuest(player, 1006);
+				completeQuest(player, 1007);
 
-				// Stigma Quests Elyos
+				// All Stigma Quests Elyos will be set to Complete
 				if (player.havePermission(MembershipConfig.STIGMA_SLOT_QUEST)) {
-					completeQuest(player, 1929);
+					for (int quest_id : elyosStigmaQuests) {
+						completeQuest(player, quest_id);
+					}
 				}
-			}
-			else if (playerRace == Race.ASMODIANS) {
+			} else if (playerRace == Race.ASMODIANS) {
 				switch (dialogId) {
 					case 3058:
 						setClass(player, PlayerClass.getPlayerClassById((byte) 1));
@@ -185,17 +184,16 @@ public class ClassChangeService {
 					case 3911:
 						setClass(player, PlayerClass.getPlayerClassById((byte) 16));
 						break;
-					case 3932:
-						setClass(player, PlayerClass.getPlayerClassById((byte) 17)); // 7.0
-						break;
 				}
 				// Optimate @Enomine
-				completeQuest(player, 70100);
-				completeQuest(player, 70101);
+				completeQuest(player, 2008);
+				completeQuest(player, 2009);
 
-				// Stigma Quests Asmodians
+				// ALL Stigma Quests Asmodians will be set to Complete
 				if (player.havePermission(MembershipConfig.STIGMA_SLOT_QUEST)) {
-					completeQuest(player, 2900);
+					for (int quest_id : asmodianStigmaQuests) {
+						completeQuest(player, quest_id);
+					}
 				}
 			}
 		}
@@ -203,16 +201,18 @@ public class ClassChangeService {
 
 	private static void completeQuest(Player player, int questId) {
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
-//		Calendar calendar = Calendar.getInstance();
-//		Timestamp timeStamp = new Timestamp(calendar.getTime().getTime());
-		if (qs == null) {
-			player.getQuestStateList().addQuest(questId, new QuestState(questId, QuestStatus.COMPLETE, 0, 0, null, 0, null));
-			PacketSendUtility.sendPacket(player, new SM_QUEST_ACTION(questId, QuestStatus.COMPLETE.value(), 0));
-		}
-		else {
-			qs.setStatus(QuestStatus.COMPLETE);
-			qs.setCompleteCount(qs.getCompleteCount() + 1);
-			PacketSendUtility.sendPacket(player, new SM_QUEST_ACTION(questId, qs.getStatus(), qs.getQuestVars().getQuestVars()));
+		if (qs != null) {
+			QuestState qState = player.getQuestStateList().getQuestState(questId);
+			qState.setStatus(QuestStatus.COMPLETE);
+			qState.setQuestVar(1);
+			qState.setCompleteCount(qState.getCompleteCount() + 1);
+			PacketSendUtility.sendPacket(player, new SM_QUEST_ACTION(questId, qState.getStatus(), qState.getQuestVars().getQuestVars()));
+
+		} else {
+			player.getQuestStateList().addQuest(questId, new QuestState(questId, QuestStatus.START, 0, 0, null, 0, null));
+			PacketSendUtility.sendPacket(player, new SM_QUEST_ACTION(questId, 3, 0));
+			player.getController().updateNearbyQuests();
+			completeQuest(player, questId);
 		}
 	}
 
@@ -226,10 +226,9 @@ public class ClassChangeService {
 
 	private static boolean validateSwitch(Player player, PlayerClass playerClass) {
 		int level = player.getLevel();
-		int levelToChange = GSConfig.STARTCLASS_MAXLEVEL - 1;
 		PlayerClass oldClass = player.getPlayerClass();
-		if (level != levelToChange) {
-			PacketSendUtility.sendMessage(player, "You can only switch class at level " + levelToChange);
+		if (level != 9) {
+			PacketSendUtility.sendMessage(player, "You can only switch class at level 9");
 			return false;
 		}
 		if (!oldClass.isStartingClass()) {
@@ -258,7 +257,7 @@ public class ClassChangeService {
 					break;
 				}
 			case ARTIST:
-				if (playerClass == PlayerClass.BARD || playerClass == PlayerClass.PAINTER) {
+				if (playerClass == PlayerClass.BARD) {
 					break;
 				}
 			default:
@@ -267,26 +266,4 @@ public class ClassChangeService {
 		}
 		return true;
 	}
-
-    public static void onUpdateQuest15545(Player player) {
-        if (player.getQuestStateList().hasQuest(15545)) {
-            QuestState qs = player.getQuestStateList().getQuestState(15545);
-            if (qs.getStatus() == QuestStatus.START && qs.getQuestVarById(0) == 0) {
-                qs.setQuestVar(1);
-                qs.setStatus(QuestStatus.REWARD);
-                PacketSendUtility.sendPacket(player, new SM_QUEST_ACTION(15545, qs.getStatus(), qs.getQuestVars().getQuestVars()));
-            }
-        }
-    }
-
-    public static void onUpdateQuest25545(Player player) {
-        if (player.getQuestStateList().hasQuest(25545)) {
-            QuestState qs = player.getQuestStateList().getQuestState(25545);
-            if (qs.getStatus() == QuestStatus.START && qs.getQuestVarById(0) == 0) {
-                qs.setQuestVar(1);
-                qs.setStatus(QuestStatus.REWARD);
-                PacketSendUtility.sendPacket(player, new SM_QUEST_ACTION(25545, qs.getStatus(), qs.getQuestVars().getQuestVars()));
-            }
-        }
-    }
 }

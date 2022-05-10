@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import java.util.Collections;
@@ -34,7 +35,7 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
 
 /**
- * @author ThunderBolt
+ * @author paranaix
  */
 public class SupportService {
 
@@ -66,15 +67,15 @@ public class SupportService {
 
 	public Support getTicket() {
 		Support support = supports.poll();
-		if (support == null) {
-			return null;
-		}
-
-		players.remove(support.getOwner());
-
-		while (support != null && !support.getOwner().isOnline()) {
-			support = supports.poll();
+		if (support != null) {
 			players.remove(support.getOwner());
+
+			while (!support.getOwner().isOnline()) {
+				support = supports.poll();
+				if (support == null)
+					break;
+				players.remove(support.getOwner());
+			}
 		}
 
 		return support;
@@ -89,7 +90,8 @@ public class SupportService {
 	}
 
 	public void onPlayerLogout(Player player) {
-		// We just need to cleanup our own mess, so we can run this parallel to the logout thread
+		// We just need to cleanup our own mess, so we can run this parallel to
+		// the logout thread
 		ThreadPoolManager.getInstance().schedule(new LogoutWorker(player), 0);
 	}
 

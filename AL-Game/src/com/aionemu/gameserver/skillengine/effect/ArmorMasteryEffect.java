@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ import com.aionemu.gameserver.skillengine.model.Effect;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ArmorMasteryEffect")
-public class ArmorMasteryEffect extends BuffEffect {
+public class ArmorMasteryEffect extends BufEffect {
 
 	@XmlAttribute(name = "armor")
 	private ArmorType armorType;

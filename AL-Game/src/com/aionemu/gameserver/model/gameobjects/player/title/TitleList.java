@@ -14,9 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player.title;
 
 import java.util.Collection;
+
+import javolution.util.FastMap;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.PlayerTitleListDAO;
@@ -29,8 +32,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TITLE_INFO;
 import com.aionemu.gameserver.taskmanager.tasks.ExpireTimerTask;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-
-import javolution.util.FastMap;
 
 /**
  * @author xavier, cura, xTz
@@ -82,20 +83,17 @@ public class TitleList {
 					ExpireTimerTask.getInstance().addTask(entry, owner);
 				}
 				DAOManager.getDAO(PlayerTitleListDAO.class).storeTitles(owner, entry);
-			}
-			else {
+			} else {
 				PacketSendUtility.sendPacket(owner, SM_SYSTEM_MESSAGE.STR_TOOLTIP_LEARNED_TITLE);
 				return false;
 			}
 			if (questReward) {
 				PacketSendUtility.sendPacket(owner, SM_SYSTEM_MESSAGE.STR_QUEST_GET_REWARD_TITLE(tt.getNameId()));
-			}
-			else {
+			} else {
 				PacketSendUtility.sendPacket(owner, SM_SYSTEM_MESSAGE.STR_MSG_GET_CASH_TITLE(tt.getNameId()));
 			}
 
 			PacketSendUtility.sendPacket(owner, new SM_TITLE_INFO(owner));
-			owner.getController().updateNearbyQuests();
 			return true;
 		}
 		return false;
@@ -111,12 +109,12 @@ public class TitleList {
 		PacketSendUtility.sendPacket(owner, new SM_TITLE_INFO(6, bonusTitleId));
 		if (owner.getCommonData().getBonusTitleId() > 0) {
 			if (owner.getGameStats() != null) {
-				TitleChangeListener.onBonusTitleChange(owner.getGameStats(), owner.getCommonData().getBonusTitleId(), false);
+				TitleChangeListener.onTitleChange(owner.getGameStats(), owner.getCommonData().getBonusTitleId(), false);
 			}
 		}
 		owner.getCommonData().setBonusTitleId(bonusTitleId);
 		if (bonusTitleId > 0 && owner.getGameStats() != null) {
-			TitleChangeListener.onBonusTitleChange(owner.getGameStats(), bonusTitleId, true);
+			TitleChangeListener.onTitleChange(owner.getGameStats(), bonusTitleId, true);
 		}
 	}
 

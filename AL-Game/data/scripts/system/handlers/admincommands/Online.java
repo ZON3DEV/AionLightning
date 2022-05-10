@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.commons.database.dao.DAOManager;
@@ -38,8 +39,7 @@ public class Online extends AdminCommand {
 
 		if (playerCount == 1) {
 			PacketSendUtility.sendMessage(admin, "There is " + (playerCount) + " player online !");
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(admin, "There are " + (playerCount) + " players online !");
 		}
 	}

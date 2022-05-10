@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -35,7 +36,8 @@ public class ReflectorEffect extends ShieldEffect {
 	public void startEffect(final Effect effect) {
 		int hit = hitvalue + hitdelta * effect.getSkillLevel();
 
-		AttackShieldObserver asObserver = new AttackShieldObserver(hit, this.value, this.percent, false, effect, this.hitType, getType(), this.hitTypeProb, this.minradius, this.radius, null, 0, 0);
+		AttackShieldObserver asObserver = new AttackShieldObserver(hit, value, percent, false, effect, hitType, this.getType(), this.hitTypeProb, minradius,
+				radius, null, 0);
 
 		effect.getEffected().getObserveController().addAttackCalcObserver(asObserver);
 		effect.setAttackShieldObserver(asObserver, position);

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.configs.main.SecurityConfig;
@@ -42,8 +43,7 @@ public class See extends AdminCommand {
 			if (SecurityConfig.INVIS) {
 				PlayerVisualStateService.seeValidate(admin);
 			}
-		}
-		else {
+		} else {
 			admin.unsetSeeState(CreatureSeeState.SEARCH10);
 			PacketSendUtility.broadcastPacket(admin, new SM_PLAYER_STATE(admin), true);
 			PacketSendUtility.sendMessage(admin, "You lost vision.");

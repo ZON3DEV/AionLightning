@@ -256,63 +256,6 @@
             <percentage percent="5" skillId="18191" isIndividual="true"/>
         </summons>
     </ai>
-	<ai npcId="215782">
-		<summons>
-			<percentage percent="99">
-				<summonGroup npcId="281384" count="1" distance="3"/>
-			</percentage>
-			<percentage percent="75">
-				<summonGroup npcId="281524" count="2" distance="3"/>
-			</percentage>
-			<percentage percent="30">
-				<summonGroup npcId="281524" count="2" distance="3"/>
-			</percentage>
-			<percentage percent="10">
-				<summonGroup npcId="281524" count="2" distance="3"/>
-			</percentage>
-		</summons>
-	</ai>
-	<ai npcId="215793">
-		<summons>
-			<percentage percent="95">
-				<summonGroup npcId="281501" x="633.7391" y="553.618" z="131.28926" h="90" count="1"/>
-				<summonGroup npcId="281502" x="639.51807" y="554.0348" z="131.28926" h="90" count="1"/>
-			</percentage>
-			<percentage percent="80">
-				<summonGroup npcId="281501" x="633.7391" y="553.618" z="131.28926" h="90" count="1"/>
-				<summonGroup npcId="281501" x="639.51807" y="554.0348" z="131.28926" h="90" count="1"/>
-			</percentage>
-			<percentage percent="65">
-				<summonGroup npcId="281503" x="655.4943" y="489.93198" z="131.07106" h="75" count="1"/>
-				<summonGroup npcId="281501" x="615.8353" y="488.20294" z="131.07106" h="106" count="1"/>
-			</percentage>
-			<percentage percent="45">
-				<summonGroup npcId="281504" x="655.4943" y="489.93198" z="131.07106" h="75" count="1"/>
-				<summonGroup npcId="281502" x="615.8353" y="488.20294" z="131.07106" h="106" count="1"/>
-			</percentage>
-			<percentage percent="35">
-				<summonGroup npcId="281501" x="633.7391" y="553.618" z="131.28926" h="90" count="1"/>
-				<summonGroup npcId="281502" x="636.39575" y="553.9965" z="131.28926" h="90" count="1"/>
-				<summonGroup npcId="281502" x="639.51807" y="554.0348" z="131.28926" h="90" count="1"/>
-			</percentage>
-			<percentage percent="25">
-				<summonGroup npcId="281501" x="633.7391" y="553.618" z="131.28926" h="90" count="1"/>
-				<summonGroup npcId="281502" x="636.39575" y="553.9965" z="131.28926" h="90" count="1"/>
-				<summonGroup npcId="281503" x="639.51807" y="554.0348" z="131.28926" h="90" count="1"/>
-			</percentage>
-			<percentage percent="15">
-				<summonGroup npcId="281503" x="655.4943" y="489.93198" z="131.07106" h="75" count="1"/>
-				<summonGroup npcId="281501" x="615.8353" y="488.20294" z="131.07106" h="106" count="1"/>
-				<summonGroup npcId="281504" x="636.39575" y="553.9965" z="131.28926" h="90" count="1"/>
-			</percentage>
-			<percentage percent="5">
-				<summonGroup npcId="281504" x="633.7391" y="553.618" z="131.28926" h="90" count="1"/>
-				<summonGroup npcId="281503" x="639.51807" y="554.0348" z="131.28926" h="90" count="1"/>
-				<summonGroup npcId="281501" x="655.4943" y="489.93198" z="131.07106" h="75" count="1"/>
-				<summonGroup npcId="281502" x="615.8353" y="488.20294" z="131.07106" h="106" count="1"/>
-			</percentage>
-		</summons>
-	</ai>
     <ai npcId="216922">
         <summons>
             <percentage percent="50">
@@ -455,7 +398,7 @@
     <ai npcId="217233">
         <summons>
             <percentage percent="90">
-                <summonGroup npcId="282429" x="307.949" y="731.030" z="201.364" h="93" count="1"/>
+                <summonGroup npcId="282429" x="307.949" y="731.030" z="201.364" h="93" count="1"/> 
                 <summonGroup npcId="282429" x="304.200" y="729.456" z="201.411" h="91" count="1"/>
                 <summonGroup npcId="282299" x="304.200" y="729.456" z="201.411" h="91" count="1"/>
             </percentage>
@@ -468,7 +411,7 @@
             </percentage>
             <percentage percent="60">
                 <summonGroup npcId="282299" x="295.066" y="734.855" z="200.998" h="86" count="1"/>
-                <summonGroup npcId="282429" x="302.825" y="755.631" z="202.576" h="92" count="1"/>
+                <summonGroup npcId="282429" x="302.825" y="755.631" z="202.576" h="92" count="1"/> 
                 <summonGroup npcId="282429" x="301.983" y="754.085" z="202.106" h="90" count="1"/>
                 <summonGroup npcId="282429" x="298.856" y="737.841" z="200.240" h="88" count="1"/>
                 <summonGroup npcId="282299" x="309.734" y="731.239" z="201.446" h="94" count="1"/>

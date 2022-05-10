@@ -14,12 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.stats.container;
+
+import com.aionemu.gameserver.model.items.ItemSlot;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
-
-import com.aionemu.gameserver.model.items.ItemSlot;
 
 /**
  * @author xavier
@@ -34,19 +35,15 @@ public enum StatEnum {
 	MAXMP(20), // MP
 
 	AGILITY(9, true),
-	BLOCK(33),
-	EVASION(31),
-	CONCENTRATION(41),
-	WILL(11, true),
-	HEALTH(7, true),
-	ACCURACY(8, true),
-	KNOWLEDGE(10, true),
-	PARRY(32),
+	BLOCK(33), EVASION(31),
+	CONCENTRATION(41), WILL(11, true),
+	HEALTH(7, true), ACCURACY(8, true),
+	KNOWLEDGE(10, true), PARRY(32),
 	POWER(6, true),
 	SPEED(36, true),
-	ALLSPEED,
-	WEIGHT(39, true),
+	ALLSPEED, WEIGHT(39, true),
 	HIT_COUNT(35, true),
+
 	ATTACK_RANGE(38, true), // Atk Range
 	ATTACK_SPEED(29, -1, true), // Atk Speed
 	PHYSICAL_ATTACK(25), // Attack
@@ -63,27 +60,26 @@ public enum StatEnum {
 	OFF_HAND_CRITICAL,
 	OFF_HAND_POWER,
 	OFF_HAND_ATTACK_SPEED,
+
 	MAGICAL_ATTACK(27), // Magical Attack
 	MAIN_HAND_MAGICAL_ATTACK,
 	OFF_HAND_MAGICAL_ATTACK,
 	MAGICAL_ACCURACY(105),
 	MAIN_HAND_MAGICAL_ACCURACY,
 	OFF_HAND_MAGICAL_ACCURACY,
-	MAGICAL_CRITICAL(40), // Critical Spell
+	MAGICAL_CRITICAL(40), // Critical
+																																							// Spell
 	MAGICAL_RESIST(28), // Magic Resist
-	MAIN_HAND_MAGICAL_POWER,
-	MAIN_HAND_MAGICAL_CRITICAL,
-	OFF_HAND_MAGICAL_POWER,
-	OFF_HAND_MAGICAL_CRITICAL,
 	MAX_DAMAGES,
 	MIN_DAMAGES,
-	IS_MAGICAL_ATTACK(0, true),
+
 	EARTH_RESISTANCE(14),
 	FIRE_RESISTANCE(15),
 	WIND_RESISTANCE(13),
 	WATER_RESISTANCE(12),
 	DARK_RESISTANCE(17),
 	LIGHT_RESISTANCE(16),
+
 	BOOST_MAGICAL_SKILL(104),
 	BOOST_SPELL_ATTACK,
 	BOOST_CASTING_TIME(108), // Casting Speed
@@ -95,29 +91,25 @@ public enum StatEnum {
 	BOOST_CASTING_TIME_SUMMON,
 	BOOST_HATE(109), // Enmity Boost
 
-	FLY_TIME(23),
-	FLY_SPEED(37),
-	FLYBOOST_SPEED,
+	FLY_TIME(23), FLY_SPEED(37),
+
 	DAMAGE_REDUCE,
 	DAMAGE_REDUCE_MAX,
+
 	BLEED_RESISTANCE(44), // Bleed Resist
 	BLIND_RESISTANCE(48), // Blind Resist
-	BLOCK_PENETRATION,
-	BIND_RESISTANCE,
-	CHARM_RESISTANCE(49), // Charm Resist
+	BIND_RESISTANCE, CHARM_RESISTANCE(49), // Charm Resist
 	CONFUSE_RESISTANCE(54), // Confusion Resist
 	CURSE_RESISTANCE(53), // Curse Resist
 	DISEASE_RESISTANCE(50), // Disease Resist
-	DEFORM_RESISTANCE,
-	FEAR_RESISTANCE(52), // Fear Resist
+	DEFORM_RESISTANCE, FEAR_RESISTANCE(52), // Fear Resist
 	OPENAREIAL_RESISTANCE(59), // Aether's Hold Resist
 	PARALYZE_RESISTANCE(45), // Paralysis Resistance
 	PERIFICATION_RESISTANCE(56), // Petrification Resist
 	POISON_RESISTANCE(43), // Poison Resist
 	PULLED_RESISTANCE, // TODO: Find ID !!!
 	ROOT_RESISTANCE(47), // Immobilization Resist
-	SILENCE_RESISTANCE(51),
-	SLEEP_RESISTANCE(46), // Sleep Resist
+	SILENCE_RESISTANCE(51), SLEEP_RESISTANCE(46), // Sleep Resist
 	SLOW_RESISTANCE(60), // Reduce Speed Resist
 	SNARE_RESISTANCE(61), // Reduce Attack Speed Resist
 	SPIN_RESISTANCE(62), // Spin Resist
@@ -145,17 +137,18 @@ public enum StatEnum {
 	OPENAREIAL_RESISTANCE_PENETRATION(85), // Aether's Hold Penetration
 	SNARE_RESISTANCE_PENETRATION(87), // Reduce Attack Speed Penetration
 	SLOW_RESISTANCE_PENETRATION(86), // Reduce Movement Speed Penetration
+
 	REGEN_MP(21), // Natural Mana Treatment
 	REGEN_HP(19), // Natural Healing
 	REGEN_FP(24), // Natural Flight Serum
+
 	HEAL_BOOST(110), // Healing Boost, not BOOST_CASTING_TIME_HEAL ?
-	HEAL_SKILL_BOOST,
-	HEAL_SKILL_DEBOOST,
 	ALLRESIST(2), // All Stats ?
 	STUNLIKE_RESISTANCE,
 	ELEMENTAL_RESISTANCE_DARK,
 	ELEMENTAL_RESISTANCE_LIGHT,
-	MAGICAL_CRITICAL_RESIST(116), // Spell Resist
+	MAGICAL_CRITICAL_RESIST(116), // Spell
+																												// Resist
 	MAGICAL_CRITICAL_DAMAGE_REDUCE(118), // Spell Fortitude
 	PHYSICAL_CRITICAL_RESIST(115), // Strike Resist
 	PHYSICAL_CRITICAL_DAMAGE_REDUCE(117), // Strike Fortitude
@@ -164,6 +157,7 @@ public enum StatEnum {
 	EREARTH,
 	ERWATER,
 	ABNORMAL_RESISTANCE_ALL(1), // All Altered State Resist ?
+
 	ALLPARA,
 	KNOWIL(4), // Knowledge and Will
 	AGIDEX(5), // Accuracy and Agility
@@ -173,9 +167,12 @@ public enum StatEnum {
 	MAGIC_SKILL_BOOST_RESIST(126), // Magic Supression
 
 	// Effects stats (bossts, deboosts)
+	HEAL_SKILL_BOOST,
+	HEAL_SKILL_DEBOOST,
 	BOOST_HUNTING_XP_RATE,
 	BOOST_GROUP_HUNTING_XP_RATE,
 	BOOST_QUEST_XP_RATE,
+
 	BOOST_CRAFTING_XP_RATE, // for all craft skills
 	BOOST_COOKING_XP_RATE,
 	BOOST_WEAPONSMITHING_XP_RATE,
@@ -184,97 +181,62 @@ public enum StatEnum {
 	BOOST_ALCHEMY_XP_RATE,
 	BOOST_HANDICRAFTING_XP_RATE,
 	BOOST_MENUISIER_XP_RATE,
+
 	BOOST_GATHERING_XP_RATE, // for all gathering skills
 	BOOST_AETHERTAPPING_XP_RATE,
 	BOOST_ESSENCETAPPING_XP_RATE,
+
 	BOOST_DROP_RATE,
 	BOOST_MANTRA_RANGE,
 	BOOST_DURATION_BUFF, // extend_duration
 	BOOST_RESIST_DEBUFF,
+
 	// 3.5
 	ELEMENTAL_FIRE,
+
 	// PvP and PvE
-	PVP_PHYSICAL_ATTACK,
-	PVP_PHYSICAL_DEFEND,
-	PVP_MAGICAL_ATTACK,
-	PVP_MAGICAL_DEFEND,
+	PVP_PHYSICAL_ATTACK(111),
+	PVP_PHYSICAL_DEFEND(112),
+	PVP_MAGICAL_ATTACK(113),
+	PVP_MAGICAL_DEFEND(114),
+
 	PVP_ATTACK_RATIO(106),
-	PVP_ATTACK_RATIO_MAGICAL(111),
-	PVP_ATTACK_RATIO_PHYSICAL(113),
+	PVP_ATTACK_RATIO_MAGICAL,
+	PVP_ATTACK_RATIO_PHYSICAL,
 	PVP_DEFEND_RATIO(107),
-	PVP_DEFEND_RATIO_PHYSICAL(112),
-	PVP_DEFEND_RATIO_MAGICAL(114),
+	PVP_DEFEND_RATIO_PHYSICAL,
+	PVP_DEFEND_RATIO_MAGICAL,
+
 	PVE_ATTACK_RATIO,
 	PVE_ATTACK_RATIO_MAGICAL,
 	PVE_ATTACK_RATIO_PHYSICAL,
 	PVE_DEFEND_RATIO,
 	PVE_DEFEND_RATIO_PHYSICAL,
 	PVE_DEFEND_RATIO_MAGICAL,
-	AP_BOOST,
-	DR_BOOST,
-	BOOST_CHARGE_TIME,
 
-	// 4.7
+	AP_BOOST, DR_BOOST,
+
+	// 4.3
+	BOOST_CHARGE_TIME,
+	PROC_REDUCE_RATE,
 	PHYSICAL_DAMAGE,
 	MAGICAL_DAMAGE,
 	PHYSICAL_CRITICAL_REDUCE_RATE,
-	MAGICAL_CRITICAL_REDUCE_RATE,
-	PROC_REDUCE_RATE,
+	UNK_STAT,
 	PVP_DODGE,
 	PVP_BLOCK,
 	PVP_PARRY,
 	PVP_HIT_ACCURACY,
 	PVP_MAGICAL_RESIST,
 	PVP_MAGICAL_HIT_ACCURACY,
-
-	// 4.8
-	ENCHANT_BOOST,
-	AP_REDUCE_RATE,
-	AUTHORIZE_BOOST,
-	INDUN_DROP_BOOST,
-	DEATH_PENALTY_REDUCE,
-	ENCHANT_OPTION_BOOST,
-	ORDALIE_REWARD,
-
-	HIDDEN_PVE_ATTACK_RATIO,
-	HIDDEN_PVE_DEFEND_RATIO, 
-	BOOST_BOOK_XP_RATE,
-
-	// new 7.x
-	PVP_ATTACK,
-	PVP_DEFENSE,
-	PVE_ATTACK,
-	PVE_DEFENSE,
-
-	EXTRA_ERESHKIGAL_DAMAGE,
-	REDUCE_ERESHKIGAL_DAMAGE,
-	idf7_weapon_hard_boss_1st_atk,
-	idf7_weapon_hard_boss_2nd_atk,
-	idf7_weapon_hard_boss_3rd_atk,
-	idf7_weapon_hard_boss_final_atk,
-	bidldf8_lab_boss_04_atk,
-	idf8_house_hugerider_atk,
-	IDF7_Weapon_Hard_Boss_1st,
-	IDF7_Weapon_Hard_Boss_2nd,
-	IDF7_Weapon_Hard_Boss_3rd,
-	IDF7_Weapon_Hard_Boss_Final,
-	IDLDF8_Lab_Boss,
-	IDF8_House_HugeRider,
-	idseal_hard_boss_1st_atk,
-	idf8_Dragon_Altar_atk,
-	idseal_hard_boss_1st,
-	idf8_Dragon_Altar,
-	idseal_hard_boss_2nd_atk,
-	idseal_hard_boss_2nd,
-	cubic_stat_catacombs_3rd_atk,
-	cubic_stat_catacombs_3rd,
-	idseal_hard_boss_3rd_atk,
-	idseal_hard_boss_3rd;
+	BLOCK_PENETRATION;
 
 	// If STAT id = 135 - Shrewd Cloth Set oOo
 	// Checked up to 160 in 3.5
+
 	private boolean replace;
 	private int sign;
+
 	private int itemStoneMask;
 
 	private StatEnum() {
@@ -324,15 +286,6 @@ public enum StatEnum {
 		}
 		throw new IllegalArgumentException("Cannot find StatEnum for stone mask: " + mask);
 	}
-
-    public static StatEnum findByStringName(String name) {
-        for (StatEnum sEnum : values()) {
-            if (sEnum.name().equalsIgnoreCase(name)) {
-                return sEnum;
-            }
-        }
-        throw new IllegalArgumentException("Cannot find StatEnum by name: " + name);
-    }
 
 	public StatEnum getHandStat(long itemSlot) {
 		switch (this) {
@@ -391,8 +344,6 @@ public enum StatEnum {
 				return BOOST_HANDICRAFTING_XP_RATE;
 			case 40010:
 				return BOOST_MENUISIER_XP_RATE;
-			case 40011:
-				return null; // TODO ?
 			default:
 				return null;
 		}

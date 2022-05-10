@@ -41,20 +41,20 @@
         <xs:attribute name="y" type="xs:float"/>
         <xs:attribute name="r" type="xs:float"/>
     </xs:complexType>
-
+	
     <xs:complexType name="Sphere">
         <xs:attribute name="x" type="xs:float"/>
         <xs:attribute name="y" type="xs:float"/>
         <xs:attribute name="z" type="xs:float"/>
         <xs:attribute name="r" type="xs:float"/>
     </xs:complexType>
-
+	
     <xs:complexType name="Semisphere">
         <xs:complexContent>
-            <xs:extension base="Sphere"/>
+            <xs:extension base="Sphere" />
         </xs:complexContent>
     </xs:complexType>
-
+	
     <xs:complexType name="Point2D">
         <xs:attribute name="x" type="xs:float"/>
         <xs:attribute name="y" type="xs:float"/>

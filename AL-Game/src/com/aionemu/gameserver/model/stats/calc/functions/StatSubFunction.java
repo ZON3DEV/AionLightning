@@ -18,17 +18,13 @@ package com.aionemu.gameserver.model.stats.calc.functions;
 
 import com.aionemu.gameserver.model.stats.calc.Stat2;
 
-/**
- * @author ATracer
- */
 public class StatSubFunction extends StatFunction {
 
 	@Override
 	public void apply(Stat2 stat) {
 		if (isBonus()) {
 			stat.addToBonus(-getValue());
-		}
-		else {
+		} else {
 			stat.addToBase(-getValue());
 		}
 	}

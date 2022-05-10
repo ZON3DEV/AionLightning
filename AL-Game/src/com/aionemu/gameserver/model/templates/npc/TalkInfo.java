@@ -14,14 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.npc;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 /**
  * @author Rolandas
@@ -38,8 +36,6 @@ public class TalkInfo {
 	private boolean hasDialog;
 	@XmlAttribute(name = "func_dialogs")
 	private List<Integer> funcDialogIds;
-	@XmlAttribute(name = "subdialog_type")
-	private String subDialogType;
 
 	/**
 	 * @return the talkDistance
@@ -64,9 +60,5 @@ public class TalkInfo {
 
 	public List<Integer> getFuncDialogIds() {
 		return funcDialogIds;
-	}
-
-	public String getSubDialogType() {
-		return subDialogType;
 	}
 }

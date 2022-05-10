@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
@@ -59,11 +60,9 @@ public class MySQL5WeddingDAO extends WeddingDAO {
 			partnerId = playerId == partner1Id ? partner2Id : partner1Id;
 			rset.close();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not get partner for player: " + playerId + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		return partnerId;
@@ -80,11 +79,9 @@ public class MySQL5WeddingDAO extends WeddingDAO {
 			stmt.setInt(1, partner1.getObjectId());
 			stmt.setInt(2, partner2.getObjectId());
 			stmt.execute();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("storeWeddings", e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(stmt, con);
 		}
 	}
@@ -102,11 +99,9 @@ public class MySQL5WeddingDAO extends WeddingDAO {
 			stmt.setInt(3, partner1.getObjectId());
 			stmt.setInt(4, partner2.getObjectId());
 			stmt.execute();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("deleteWedding", e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(stmt, con);
 		}
 	}

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -35,8 +36,7 @@ public class Invul extends AdminCommand {
 		if (player.isInvul()) {
 			player.setInvul(false);
 			PacketSendUtility.sendMessage(player, "You are now mortal.");
-		}
-		else {
+		} else {
 			player.setInvul(true);
 			PacketSendUtility.sendMessage(player, "You are now immortal.");
 		}

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -43,8 +44,7 @@ public class BanIp extends AdminCommand {
 		if (params.length > 1) {
 			try {
 				time = Integer.parseInt(params[1]);
-			}
-			catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				onFail(player, e.getMessage());
 				return;
 			}

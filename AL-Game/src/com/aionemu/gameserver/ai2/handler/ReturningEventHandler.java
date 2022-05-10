@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.ai2.handler;
 
 import com.aionemu.gameserver.ai2.AI2Logger;
@@ -43,11 +44,10 @@ public class ReturningEventHandler {
 			EmoteManager.emoteStartReturning(npcAI.getOwner());
 		}
 		if (npcAI.isInState(AIState.RETURNING)) {
-			Npc npc = npcAI.getOwner();
+			Npc npc = (Npc) npcAI.getOwner();
 			if (npc.hasWalkRoutes()) {
 				WalkManager.startWalking(npcAI);
-			}
-			else {
+			} else {
 				Point3D prevStep = npcAI.getOwner().getMoveController().recallPreviousStep();
 				npcAI.getOwner().getMoveController().moveToPoint(prevStep.getX(), prevStep.getY(), prevStep.getZ());
 			}
@@ -66,7 +66,7 @@ public class ReturningEventHandler {
 			EmoteManager.emoteStartIdling(npcAI.getOwner());
 			ThinkEventHandler.thinkIdle(npcAI);
 		}
-		Npc npc = npcAI.getOwner();
+		Npc npc = (Npc) npcAI.getOwner();
 		npc.getController().onReturnHome();
 	}
 }

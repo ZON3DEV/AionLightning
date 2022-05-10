@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.main;
 
 import com.aionemu.commons.configuration.Property;
@@ -37,11 +38,6 @@ public class AIConfig {
 	 */
 	@Property(key = "gameserver.npcmovement.enable", defaultValue = "true")
 	public static boolean ACTIVE_NPC_MOVEMENT;
-	/**
-	 * Enable NPC looking
-	 */
-	@Property(key = "gameserver.npclooking.enable", defaultValue = "false")
-	public static boolean ACTIVE_NPC_LOOKING;
 	/**
 	 * Minimum movement delay
 	 */

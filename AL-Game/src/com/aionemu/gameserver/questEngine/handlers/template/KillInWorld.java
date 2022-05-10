@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.handlers.template;
 
 import java.util.HashSet;
@@ -46,9 +47,8 @@ public class KillInWorld extends QuestHandler {
 	private final Set<Integer> worldIds = new HashSet<Integer>();
 	private final int killAmount;
 	private final int invasionWorldId;
-	private final int endDialog;
 
-	public KillInWorld(int questId, List<Integer> endNpcIds, List<Integer> startNpcIds, List<Integer> worldIds, int killAmount, int invasionWorld, int endDialog) {
+	public KillInWorld(int questId, List<Integer> endNpcIds, List<Integer> startNpcIds, List<Integer> worldIds, int killAmount, int invasionWorld) {
 		super(questId);
 		if (startNpcIds != null) {
 			this.startNpcs.addAll(startNpcIds);
@@ -56,8 +56,7 @@ public class KillInWorld extends QuestHandler {
 		}
 		if (endNpcIds == null) {
 			this.endNpcs.addAll(startNpcs);
-		}
-		else {
+		} else {
 			this.endNpcs.addAll(endNpcIds);
 			this.endNpcs.remove(0);
 		}
@@ -66,7 +65,6 @@ public class KillInWorld extends QuestHandler {
 		this.worldIds.remove(0);
 		this.killAmount = killAmount;
 		this.invasionWorldId = invasionWorld;
-		this.endDialog = endDialog;
 	}
 
 	@Override
@@ -112,24 +110,8 @@ public class KillInWorld extends QuestHandler {
 					}
 				}
 			}
-		}
-		else if (qs != null && qs.getStatus() == QuestStatus.REWARD) {
-			if (endNpcs.contains(targetId) && endDialog != 0) {
-				switch (dialog) {
-					case USE_OBJECT: {
-						return sendQuestDialog(env, endDialog);
-					}
-					case SELECT_QUEST_REWARD: {
-						return sendQuestDialog(env, 5);
-					}
-					case SELECTED_QUEST_NOREWARD: {
-						return sendQuestEndDialog(env);
-					}
-					default:
-						break;
-				}
-			}
-			else {
+		} else if (qs.getStatus() == QuestStatus.REWARD) {
+			if (endNpcs.contains(targetId)) {
 				return sendQuestEndDialog(env);
 			}
 		}
@@ -144,9 +126,6 @@ public class KillInWorld extends QuestHandler {
 		if (player.getWorldId() == invasionWorldId) {
 			if ((qs == null || qs.getStatus() == QuestStatus.NONE || qs.canRepeat())) {
 				if ((vortexLoc != null && vortexLoc.isActive()) || (searchOpenRift())) {
-					return QuestService.startQuest(env);
-				}
-				else if (invasionWorldId == 400010000 && player.isSpawned() && player.isProtectionActive()) {
 					return QuestService.startQuest(env);
 				}
 			}

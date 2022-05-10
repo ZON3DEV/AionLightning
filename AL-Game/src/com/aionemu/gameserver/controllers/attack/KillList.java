@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers.attack;
 
 import java.util.ArrayList;
@@ -53,8 +54,7 @@ public class KillList {
 		for (Iterator<Long> i = killTimes.iterator(); i.hasNext();) {
 			if (now - i.next().longValue() > CustomConfig.PVP_DAY_DURATION) {
 				i.remove();
-			}
-			else {
+			} else {
 				killCount++;
 			}
 		}

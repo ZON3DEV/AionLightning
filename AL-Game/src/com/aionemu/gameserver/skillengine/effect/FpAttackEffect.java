@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -45,7 +46,7 @@ public class FpAttackEffect extends AbstractOverTimeEffect {
 		int newValue = value;
 		// Support for values in percentage
 		if (percent) {
-			newValue = (maxFP * value) / 100;
+			newValue = (int) ((maxFP * value) / 100);
 		}
 		effected.getLifeStats().reduceFp(newValue);
 	}

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.configs.main.SecurityConfig;
@@ -27,17 +28,15 @@ public class SM_CHARACTER_SELECT extends AionServerPacket {
 
 	private int type; // 0: new passkey input window, 1: passkey input window, 2: message window
 	private int messageType; // 0: newpasskey complete, 2: passkey edit complete, 3: passkey input
-	private int unk;
 	private int wrongCount;
 
 	public SM_CHARACTER_SELECT(int type) {
 		this.type = type;
 	}
 
-	public SM_CHARACTER_SELECT(int type, int messageType, int unk, int wrongCount) {
+	public SM_CHARACTER_SELECT(int type, int messageType, int wrongCount) {
 		this.type = type;
 		this.messageType = messageType;
-		this.unk = unk;
 		this.wrongCount = wrongCount;
 	}
 
@@ -54,12 +53,10 @@ public class SM_CHARACTER_SELECT extends AionServerPacket {
 			case 1:
 				break;
 			case 2:
-				writeC(messageType); // 0: newpasskey complete, 2: passkey edit complete, 3: passkey input
-				writeC(unk);
+				writeH(messageType); // 0: newpasskey complete, 2: passkey edit complete, 3: passkey input
 				writeC(wrongCount > 0 ? 1 : 0); // 0: right passkey, 1: wrong passkey
 				writeD(wrongCount); // wrong passkey input count
-				writeD(SecurityConfig.PASSKEY_WRONG_MAXCOUNT); // Enter the number of possible wrong numbers (retail
-				// server default value: 5)
+				writeD(SecurityConfig.PASSKEY_WRONG_MAXCOUNT); // Enter the number of possible wrong numbers (retail server default value: 5)
 				break;
 		}
 	}

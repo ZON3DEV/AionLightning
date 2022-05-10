@@ -14,11 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.util.Collection;
 
-import com.aionemu.gameserver.configs.network.NetworkConfig;
 import com.aionemu.gameserver.model.gameobjects.FindGroup;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
@@ -32,6 +32,7 @@ public class SM_FIND_GROUP extends AionServerPacket {
 	private int lastUpdate;
 	private Collection<FindGroup> findGroups;
 	private int groupSize;
+	private int unk;
 	private int instanceId;
 
 	public SM_FIND_GROUP(int action, int lastUpdate, Collection<FindGroup> findGroups) {
@@ -44,6 +45,7 @@ public class SM_FIND_GROUP extends AionServerPacket {
 	public SM_FIND_GROUP(int action, int lastUpdate, int unk) {
 		this.action = action;
 		this.lastUpdate = lastUpdate;
+		this.unk = unk;
 	}
 
 	public SM_FIND_GROUP(int action, int instanceId) {
@@ -56,14 +58,13 @@ public class SM_FIND_GROUP extends AionServerPacket {
 		writeC(action);
 		switch (action) {
 			case 0x00:
+			case 0x02:
 				writeH(groupSize); // groupSize
 				writeH(groupSize); // groupSize
-				writeD(lastUpdate); // Date and Time
+				writeD(lastUpdate); // objId?
 				for (FindGroup findGroup : findGroups) {
 					writeD(findGroup.getObjectId()); // player object id
-					writeH(NetworkConfig.GAMESERVER_ID); // ServerID
-					writeC(0);
-					writeC(16); // Register Group = 0x10 = DEC 16 ? Codes missing ?
+					writeD(findGroup.getUnk()); // unk (0 or 65557)
 					writeC(findGroup.getGroupType()); // 0:group, 1:alliance
 					writeS(findGroup.getMessage()); // text
 					writeS(findGroup.getName()); // writer name
@@ -74,12 +75,12 @@ public class SM_FIND_GROUP extends AionServerPacket {
 				}
 				break;
 			case 0x01:
+			case 0x03:
 				writeD(lastUpdate); // player object id
-				writeH(NetworkConfig.GAMESERVER_ID); // ServerID
-				writeC(0);
-				writeC(16); // 0x10 = DEC 16 code for Grp Owner ?
+				writeD(unk); // unk (0 or 65557)
 				break;
 			case 0x04:
+			case 0x06:
 				writeH(groupSize); // groupSize
 				writeH(groupSize); // groupSize
 				writeD(lastUpdate); // objId?
@@ -96,6 +97,7 @@ public class SM_FIND_GROUP extends AionServerPacket {
 			case 0x05:
 				writeD(lastUpdate); // player object id
 				break;
+			// //////////// 4.0 Instance GroupSystem //////////////
 			case 0x0A: // registered Groups
 				writeH(groupSize);// size
 				writeH(groupSize);// size
@@ -103,7 +105,7 @@ public class SM_FIND_GROUP extends AionServerPacket {
 				for (FindGroup findGroup : findGroups) {
 					writeD(0);// groupregisteredId
 					writeD(findGroup.getInstanceId());// instanceId
-					writeD(0);// unk
+					writeD(1);// unk
 					writeC(findGroup.getSize());// currentMembers
 					writeC(findGroup.getMinMembers());// minMembers
 					writeH(0);// unk maybe spacer
@@ -128,19 +130,18 @@ public class SM_FIND_GROUP extends AionServerPacket {
 					writeC(findGroup.getSize());// Maybe Members in Group?
 					writeC(findGroup.getMinMembers());// min members to enter Instance(writer choose it)
 					writeH(0);// unk maybe spacer
-					writeH(50); // unk
 					writeD(findGroup.getObjectId());// playerObjId leader ID?
 					writeC(1);// unk
+					writeC(0);// unkGroupType?
+					writeD(1);// unk
+					writeH(0);// unk
 					writeC(findGroup.getMinLevel());// player level
 					writeC(findGroup.getMaxLevel());// player level
-					writeC(0);//unk
-					writeD(0);// unk
+					writeH(0);// unk
 					writeD(findGroup.getLastUpdate());// timestamp
 					writeD(0);// unk
-					writeD(0);// unk
-					writeD(0);// unk
-					writeS(findGroup.getName());// writer name TODO RECHECK
-					writeS(findGroup.getMessage());// register message TODO RECHECK
+					writeS(findGroup.getName());// writer name
+					writeS(findGroup.getMessage());// register message
 				}
 				break;
 			case 0x10:
@@ -158,16 +159,9 @@ public class SM_FIND_GROUP extends AionServerPacket {
 					writeC(findGroup.getClassId());// classId?
 					writeS(findGroup.getName());// writerName
 				}
-				break;
-			case 0x12: // New 5.6 ?
 			case 0x16:
 				writeD(0);// GroupEntryId
 				writeD(0);// instanceId
-				break;
-			case 0x17:
-				writeD(0);// GroupEntryId
-				writeD(0);// instanceId
-				writeC(3);// TODO
 				break;
 			case 0x18:
 				writeD(0);// GroupObjId
@@ -178,15 +172,11 @@ public class SM_FIND_GROUP extends AionServerPacket {
 					writeD(findGroup.getInstanceId());// instanceId
 					writeD(findGroup.getObjectId());// playerObjId
 					writeD(findGroup.getMinLevel());// playerLevel
-					writeD(findGroup.getClassId());// classId
-					writeH(50);// unk
-					writeC(0);// unk
-					writeC(1);// unk
-					writeH(438);// unk
+					writeD(1);// unk
 					writeH(1);// unk
-					writeD(0);// unk
+					writeC(findGroup.getGroupType());// groupType?
+					writeC(findGroup.getClassId());// classId?
 					writeS(findGroup.getName());// writerName
-					writeC(0);// unk
 				}
 				break;
 			case 0x1A:

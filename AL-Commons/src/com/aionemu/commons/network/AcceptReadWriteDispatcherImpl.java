@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.network;
 
 import java.io.IOException;
@@ -25,8 +26,7 @@ import java.util.List;
 import java.util.concurrent.Executor;
 
 /**
- * This is implementation of <code>Dispatcher</code> that may accept
- * connections, read and write data.
+ * This is implementation of <code>Dispatcher</code> that may accept connections, read and write data.
  * 
  * @author -Nemesiss-
  * @see com.aionemu.commons.network.Dispatcher
@@ -35,14 +35,12 @@ import java.util.concurrent.Executor;
 public class AcceptReadWriteDispatcherImpl extends Dispatcher {
 
 	/**
-	 * List of connections that should be closed by this <code>Dispatcher</code>
-	 * as soon as possible.
+	 * List of connections that should be closed by this <code>Dispatcher</code> as soon as possible.
 	 */
 	private final List<AConnection> pendingClose = new ArrayList<AConnection>();
 
 	/**
-	 * Constructor that accept <code>String</code> name and
-	 * <code>DisconnectionThreadPool</code> dcPool as parameter.
+	 * Constructor that accept <code>String</code> name and <code>DisconnectionThreadPool</code> dcPool as parameter.
 	 * 
 	 * @param name
 	 * @param dcPool
@@ -54,8 +52,7 @@ public class AcceptReadWriteDispatcherImpl extends Dispatcher {
 	}
 
 	/**
-	 * Process Pending Close connections and then dispatch <code>Selector</code>
-	 * selected-key set.
+	 * Process Pending Close connections and then dispatch <code>Selector</code> selected-key set.
 	 * 
 	 * @see com.aionemu.commons.network.Dispatcher#dispatch()
 	 */
@@ -76,28 +73,28 @@ public class AcceptReadWriteDispatcherImpl extends Dispatcher {
 
 				/** Check what event is available and deal with it */
 				switch (key.readyOps()) {
-				case SelectionKey.OP_ACCEPT:
-					this.accept(key);
-					break;
-				case SelectionKey.OP_READ:
-					this.read(key);
-					break;
-				case SelectionKey.OP_WRITE:
-					this.write(key);
-					break;
-				case SelectionKey.OP_READ | SelectionKey.OP_WRITE:
-					this.read(key);
-					if (key.isValid())
+					case SelectionKey.OP_ACCEPT:
+						this.accept(key);
+						break;
+					case SelectionKey.OP_READ:
+						this.read(key);
+						break;
+					case SelectionKey.OP_WRITE:
 						this.write(key);
-					break;
+						break;
+					case SelectionKey.OP_READ | SelectionKey.OP_WRITE:
+						this.read(key);
+						if (key.isValid())
+							this.write(key);
+						break;
 				}
 			}
 		}
 	}
 
 	/**
-	 * Add connection to pendingClose list, so this connection will be closed by
-	 * this <code>Dispatcher</code> as soon as possible.
+	 * Add connection to pendingClose list, so this connection will be closed by this <code>Dispatcher</code> as soon as
+	 * possible.
 	 * 
 	 * @see com.aionemu.commons.network.Dispatcher#closeConnection(com.aionemu.commons.network.AConnection)
 	 */

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.Race;
@@ -33,10 +34,7 @@ public class Transfo extends AdminCommand {
 
 	enum RecipientType {
 
-		ELYOS,
-		ASMO,
-		ALL,
-		PLAYER;
+		ELYOS, ASMO, ALL, PLAYER;
 
 		public boolean isAllowed(Race race) {
 			switch (this) {
@@ -68,14 +66,11 @@ public class Transfo extends AdminCommand {
 
 		if ("all".startsWith(params[4])) {
 			recipientType = RecipientType.ALL;
-		}
-		else if ("ely".startsWith(params[4])) {
+		} else if ("ely".startsWith(params[4])) {
 			recipientType = RecipientType.ELYOS;
-		}
-		else if ("asmo".startsWith(params[4])) {
+		} else if ("asmo".startsWith(params[4])) {
 			recipientType = RecipientType.ASMO;
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(admin, "Syntax: //transfo <add | dispel> <idSkill> <level> <locID> <ely | asmo | all>");
 			return;
 		}
@@ -84,8 +79,7 @@ public class Transfo extends AdminCommand {
 			idSkill = Integer.parseInt(params[1]);
 			level = Integer.parseInt(params[2]);
 			id = Integer.parseInt(params[3]);
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			PacketSendUtility.sendMessage(admin, "Syntax: //transfo <add | dispel> <idSkill> <level> <locID> <ely | asmo | all>");
 		}
 
@@ -95,8 +89,7 @@ public class Transfo extends AdminCommand {
 					pp.getController().useSkill(idSkill, level);
 				}
 			}
-		}
-		else if (params[0].equals("dispel")) {
+		} else if (params[0].equals("dispel")) {
 			for (Player pp : World.getInstance().getAllPlayers()) {
 				if (recipientType.isAllowed(pp.getRace()) && pp.getWorldId() == id) {
 					pp.getEffectController().removeEffect(idSkill);

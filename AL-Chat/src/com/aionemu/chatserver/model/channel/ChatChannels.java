@@ -49,15 +49,12 @@ public class ChatChannels {
         addTradeChannel("trade_DC1");
         addTradeChannel("trade_DC2");
         addTradeChannel("trade_Arena_L_Lobby");
-		addTradeChannel("trade_Arena_L_CLobby");
         addTradeChannel("trade_Arena_D_Lobby");
         addTradeChannel("trade_LF1");
         addTradeChannel("trade_LF2");
         addTradeChannel("trade_LF1A");
         addTradeChannel("trade_LF3");
         addTradeChannel("trade_LF4");
-		addTradeChannel("trade_LF5");
-		addTradeChannel("trade_LF5_Ship");
         addTradeChannel("trade_LF2A");
         addTradeChannel("trade_DF1");
         addTradeChannel("trade_DF2");
@@ -65,10 +62,6 @@ public class ChatChannels {
         addTradeChannel("trade_DF3");
         addTradeChannel("trade_DF2A");
         addTradeChannel("trade_DF4");
-		addTradeChannel("trade_DF5");
-		addTradeChannel("trade_DF5_Ship");
-		addTradeChannel("trade_LDF5_Under_L");
-		addTradeChannel("trade_LDF5_Under_D");
         addTradeChannel("trade_IDAbPro");
         addTradeChannel("trade_IDTest_Dungeon");
         addTradeChannel("trade_IDAb1_MiniCastle");
@@ -107,7 +100,6 @@ public class ChatChannels {
         addTradeChannel("trade_IDLDF4A_Lehpar");
         addTradeChannel("trade_IDLDF4b_Tiamat");
         addTradeChannel("trade_IDLDF4a_Intro");
-		addTradeChannel("trade_IDLDF4Re_01");
         addTradeChannel("trade_IDArena_pvp01_T");
         addTradeChannel("trade_IDArena_pvp02_T");
         addTradeChannel("trade_IDDreadgion_03");
@@ -185,10 +177,6 @@ public class ChatChannels {
         addTradeChannel("trade_LDF5b");
         addTradeChannel("trade_LDF5_Under");
         addTradeChannel("trade_IDIU");
-		addTradeChannel("trade_LDF4_Advance");
-		addTradeChannel("trade_LDF5_Fortress");
-		addTradeChannel("trade_Gab1_01");
-		addTradeChannel("trade_GAb1_Sub");
         addTradeChannel("trade_Housing_LF_personal");
         addTradeChannel("trade_Housing_LC_legion");
         addTradeChannel("trade_Housing_DF_personal");
@@ -204,25 +192,18 @@ public class ChatChannels {
         addTradeChannel("trade_Test_Kgw");
         addTradeChannel("trade_Test_Basic_Mj");
         addTradeChannel("trade_test_intro");
-        addTradeChannel("trade_IDElemental_2_E");
-		addTradeChannel("trade_LF6");
-		addTradeChannel("trade_DF6");
         // REGION
         addRegionChannel(110010000, "public_LC1");
         addRegionChannel(110020000, "public_LC2");
         addRegionChannel(120010000, "public_DC1");
         addRegionChannel(120020000, "public_DC2");
         addRegionChannel(110070000, "public_Arena_L_Lobby");
-		addRegionChannel(130090000, "public_Arena_L_CLobby");
         addRegionChannel(120080000, "public_Arena_D_Lobby");
         addRegionChannel(210010000, "public_LF1");
         addRegionChannel(210020000, "public_LF2");
         addRegionChannel(210030000, "public_LF1A");
         addRegionChannel(210040000, "public_LF3");
         addRegionChannel(210050000, "public_LF4");
-		addRegionChannel(210070000, "public_LF5");
-		addRegionChannel(210080000, "public_LF5_Ship");
-		addRegionChannel(210090000, "public_LDF5_Under_L");
         addRegionChannel(210060000, "public_LF2A");
         addRegionChannel(220010000, "public_DF1");
         addRegionChannel(220020000, "public_DF2");
@@ -230,9 +211,6 @@ public class ChatChannels {
         addRegionChannel(220040000, "public_DF3");
         addRegionChannel(220050000, "public_DF2A");
         addRegionChannel(220070000, "public_DF4");
-		addRegionChannel(220080000, "public_DF5");
-		addRegionChannel(220090000, "public_DF5_Ship");
-		addRegionChannel(210090000, "public_LDF5_Under_D");
         addRegionChannel(300010000, "public_IDAbPro");
         addRegionChannel(300020000, "public_IDTest_Dungeon");
         addRegionChannel(300030000, "public_IDAb1_MiniCastle");
@@ -323,7 +301,6 @@ public class ChatChannels {
         addRegionChannel(301310000, "public_IDLDF5_Fortress_Re");
         addRegionChannel(301320000, "public_IDLDF5_Under_01_PC");
         addRegionChannel(301330000, "public_IDLDF5_Under_Rune_PC");
-        addRegionChannel(301510000, "public_IDElemental_2_E");
         addRegionChannel(310010000, "public_IDAbProL1");
         addRegionChannel(310020000, "public_IDAbProL2");
         addRegionChannel(310030000, "public_IDAbGateL1");
@@ -352,8 +329,6 @@ public class ChatChannels {
         addRegionChannel(320140000, "public_IDAbProD3");
         addRegionChannel(320150000, "public_IDDramata_01");
         addRegionChannel(400010000, "public_Ab1");
-        addRegionChannel(400020000, "public_Gab1_01");
-		addRegionChannel(400030000, "public_GAb1_Sub");
         addRegionChannel(510010000, "public_LF_Prison");
         addRegionChannel(520010000, "public_DF_Prison");
         addRegionChannel(600010000, "public_Underpass");
@@ -364,8 +339,6 @@ public class ChatChannels {
         addRegionChannel(600060000, "public_LDF5b");
         addRegionChannel(600070000, "public_LDF5_Under");
         addRegionChannel(600080000, "public_IDIU");
-		addRegionChannel(600100000, "public_LDF4_Advance");
-		addRegionChannel(600100000, "public_LDF5_Fortress");
         addRegionChannel(700010000, "public_Housing_LF_personal");
         addRegionChannel(700020000, "public_Housing_LC_legion");
         addRegionChannel(710010000, "public_Housing_DF_personal");
@@ -381,8 +354,6 @@ public class ChatChannels {
         addRegionChannel(900140000, "public_Test_Kgw");
         addRegionChannel(900150000, "public_Test_Basic_Mj");
         addRegionChannel(900170000, "public_test_intro");
-		addRegionChannel(210100000, "public_LF6");
-		addRegionChannel(220110000, "public_DF6");
         // LANG & JOB
         // TODO : All other lang
         if (Config.LANG_CHAT == 1) {
@@ -446,8 +417,8 @@ public class ChatChannels {
             addJobChannel(Gender.MALE, PlayerClass.TEMPLAR, "job_Templier");
             addJobChannel(Gender.MALE, PlayerClass.SORCERER, "job_Sorcier");
             addJobChannel(Gender.MALE, PlayerClass.SPIRIT_MASTER, "job_Spiritualiste");
-            addJobChannel(Gender.MALE, PlayerClass.CHANTER, "job_Chanteur");
-            addJobChannel(Gender.MALE, PlayerClass.RANGER, "job_Ranger");
+            addJobChannel(Gender.MALE, PlayerClass.CHANTER, "job_Aede");
+            addJobChannel(Gender.MALE, PlayerClass.RANGER, "job_RÃ´deur");
             addJobChannel(Gender.MALE, PlayerClass.ASSASSIN, "job_Assassin");
             addJobChannel(Gender.MALE, PlayerClass.CLERIC, "job_Clerc");
             addJobChannel(Gender.MALE, PlayerClass.ENGINEER, "job_engineer");
@@ -456,12 +427,12 @@ public class ChatChannels {
             addJobChannel(Gender.MALE, PlayerClass.BARD, "job_bard");
             addJobChannel(Gender.MALE, PlayerClass.RIDER, "job_rider");
             // Female
-            addJobChannel(Gender.FEMALE, PlayerClass.GLADIATOR, "job_Gladiateur[f:" + '"' + "Gladiateur" + '"' + "]");
-            addJobChannel(Gender.FEMALE, PlayerClass.TEMPLAR, "job_Templier[f:" + '"' + "Templier" + '"' + "]");
-            addJobChannel(Gender.FEMALE, PlayerClass.SORCERER, "job_Sorcier[f:" + '"' + "Sorcier" + '"' + "]");
-            addJobChannel(Gender.FEMALE, PlayerClass.SPIRIT_MASTER, "job_Spiritualiste[f:" + '"' + "Spiritualiste" + '"' + "]");
-            addJobChannel(Gender.FEMALE, PlayerClass.CHANTER, "job_Chanteur[f:" + '"' + "Chanteur" + '"' + "]");
-            addJobChannel(Gender.FEMALE, PlayerClass.RANGER, "job_Ranger[f:" + '"' + "Ranger" + '"' + "]");
+            addJobChannel(Gender.FEMALE, PlayerClass.GLADIATOR, "job_Gladiateur[f:" + '"' + "Gladiatrice" + '"' + "]");
+            addJobChannel(Gender.FEMALE, PlayerClass.TEMPLAR, "job_Templier[f:" + '"' + "TempliÃ¨re" + '"' + "]");
+            addJobChannel(Gender.FEMALE, PlayerClass.SORCERER, "job_Sorcier[f:" + '"' + "SorciÃ¨re" + '"' + "]");
+            addJobChannel(Gender.FEMALE, PlayerClass.SPIRIT_MASTER, "job_Spiritualiste");
+            addJobChannel(Gender.FEMALE, PlayerClass.CHANTER, "job_AÃ¨de");
+            addJobChannel(Gender.FEMALE, PlayerClass.RANGER, "job_RÃ´deur[f:" + '"' + "RÃ´deuse" + '"' + "]");
             addJobChannel(Gender.FEMALE, PlayerClass.ASSASSIN, "job_Assassin[f:" + '"' + "Assassine" + '"' + "]");
             addJobChannel(Gender.FEMALE, PlayerClass.CLERIC, "job_Clerc[f:" + '"' + "Clerc" + '"' + "]");
             addJobChannel(Gender.FEMALE, PlayerClass.ENGINEER, "job_engineer[f:" + '"' + "Ingenieur" + '"' + "]");
@@ -469,57 +440,6 @@ public class ChatChannels {
             addJobChannel(Gender.FEMALE, PlayerClass.GUNNER, "job_gunner[f:" + '"' + "Garde" + '"' + "]");
             addJobChannel(Gender.FEMALE, PlayerClass.BARD, "job_bard[f:" + '"' + "Barde" + '"' + "]");
             addJobChannel(Gender.FEMALE, PlayerClass.RIDER, "job_rider[f:" + '"' + "Mecha" + '"' + "]");
-        } else if (Config.LANG_CHAT == 3) {
-            // LANG
-            addLangChannel("User_Englisch");
-            addLangChannel("User_Französisch");
-            addLangChannel("User_Deutsch");
-            addLangChannel("User_Italienisch");
-            addLangChannel("User_Spanisch");
-            addLangChannel("User_Dänisch");
-            addLangChannel("User_Schwedisch");
-            addLangChannel("User_Finnisch");
-            addLangChannel("User_Norwegisch");
-            addLangChannel("User_Griechisch");
-
-            // JOB
-            // Male
-            addJobChannel(Gender.MALE, PlayerClass.WARRIOR, "job_Krieger");
-            addJobChannel(Gender.MALE, PlayerClass.GLADIATOR, "job_Gladiator");
-            addJobChannel(Gender.MALE, PlayerClass.TEMPLAR, "job_Templer");
-            addJobChannel(Gender.MALE, PlayerClass.MAGE, "job_Magier");
-            addJobChannel(Gender.MALE, PlayerClass.SORCERER, "job_Zauberer");
-            addJobChannel(Gender.MALE, PlayerClass.SPIRIT_MASTER, "job_Beschwoerer");
-			addJobChannel(Gender.MALE, PlayerClass.PRIEST, "job_Priester");
-            addJobChannel(Gender.MALE, PlayerClass.CHANTER, "job_Kantor");
-            addJobChannel(Gender.MALE, PlayerClass.CLERIC, "job_Kleriker");
-			addJobChannel(Gender.MALE, PlayerClass.SCOUT, "job_Spaeher");
-			addJobChannel(Gender.MALE, PlayerClass.RANGER, "job_Jaeger");
-            addJobChannel(Gender.MALE, PlayerClass.ASSASSIN, "job_Assassine");
-            addJobChannel(Gender.MALE, PlayerClass.ENGINEER, "job_Ingenieur");
-			addJobChannel(Gender.MALE, PlayerClass.GUNNER, "job_Schuetze");
-			addJobChannel(Gender.MALE, PlayerClass.RIDER, "job_Aethertech");
-            addJobChannel(Gender.MALE, PlayerClass.ARTIST, "job_Kuenstler");
-            addJobChannel(Gender.MALE, PlayerClass.BARD, "job_Barde");
-            
-            // Femaletest
-            addJobChannel(Gender.FEMALE, PlayerClass.WARRIOR, "job_Krieger[f:" + '"' + "Kriegerin" + '"' + "]");
-            addJobChannel(Gender.FEMALE, PlayerClass.GLADIATOR, "job_Gladiator[f:" + '"' + "Gladiatorin" + '"' + "]");
-            addJobChannel(Gender.FEMALE, PlayerClass.TEMPLAR, "job_Templer[f:" + '"' + "Templerin" + '"' + "]");
-			addJobChannel(Gender.FEMALE, PlayerClass.MAGE, "job_Magier[f:" + '"' + "Magierin" + '"' + "]");
-            addJobChannel(Gender.FEMALE, PlayerClass.SORCERER, "job_Zauberer[f:" + '"' + "Zauberin" + '"' + "]");
-            addJobChannel(Gender.FEMALE, PlayerClass.SPIRIT_MASTER, "job_Beschwoerer[f:" + '"' + "Beschwoererin" + '"' + "]");
-			addJobChannel(Gender.FEMALE, PlayerClass.PRIEST, "job_Priester[f:" + '"' + "Priesterin" + '"' + "]");
-			addJobChannel(Gender.FEMALE, PlayerClass.CLERIC, "job_Kleriker[f:" + '"' + "Klerikerin" + '"' + "]");
-            addJobChannel(Gender.FEMALE, PlayerClass.CHANTER, "job_Kantor[f:" + '"' + "Kantorin" + '"' + "]");
-			addJobChannel(Gender.FEMALE, PlayerClass.SCOUT, "job_Spaeher[f:" + '"' + "Spaeherin" + '"' + "]");
-            addJobChannel(Gender.FEMALE, PlayerClass.RANGER, "job_Jaeger[f:" + '"' + "Jaegerin" + '"' + "]");
-            addJobChannel(Gender.FEMALE, PlayerClass.ASSASSIN, "job_Assassine[f:" + '"' + "Assassine" + '"' + "]");
-            addJobChannel(Gender.FEMALE, PlayerClass.ENGINEER, "job_Ingenieur[f:" + '"' + "Ingenieur" + '"' + "]");
-            addJobChannel(Gender.FEMALE, PlayerClass.ARTIST, "job_Kuenstler[f:" + '"' + "Kuenstler" + '"' + "]");
-            addJobChannel(Gender.FEMALE, PlayerClass.GUNNER, "job_Schuetze[f:" + '"' + "Schuetze" + '"' + "]");
-            addJobChannel(Gender.FEMALE, PlayerClass.BARD, "job_Barde[f:" + '"' + "Barde" + '"' + "]");
-            addJobChannel(Gender.FEMALE, PlayerClass.RIDER, "job_Aethertech[f:" + '"' + "Aethertech" + '"' + "]");
         }
     }
 

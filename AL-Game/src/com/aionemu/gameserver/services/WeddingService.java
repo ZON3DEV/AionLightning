@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import java.util.HashMap;
@@ -62,8 +63,7 @@ public class WeddingService {
 		if (partnersWedding.isAccepted()) {
 			if (!checkConditions(player, partner)) {
 				cleanWedding(player, partner);
-			}
-			else {
+			} else {
 				doWedding(player, partner);
 				if (WeddingsConfig.WEDDINGS_GIFT_ENABLE) {
 					giveGifts(player, partner);
@@ -113,11 +113,9 @@ public class WeddingService {
 						success2 = true;
 					}
 				}
-			}
-			catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				e.printStackTrace();
-			}
-			finally {
+			} finally {
 				if (!success1 || !success2) {
 					PacketSendUtility.sendMessage(player, "One of players not have required suit.");
 					PacketSendUtility.sendMessage(partner, "One of players not equip required suit.");
@@ -156,7 +154,8 @@ public class WeddingService {
 		}
 
 		if (WeddingsConfig.WEDDINGS_KINAH != 0) {
-			if (!player.getInventory().tryDecreaseKinah(WeddingsConfig.WEDDINGS_KINAH) || !partner.getInventory().tryDecreaseKinah(WeddingsConfig.WEDDINGS_KINAH)) {
+			if (!player.getInventory().tryDecreaseKinah(WeddingsConfig.WEDDINGS_KINAH)
+					|| !partner.getInventory().tryDecreaseKinah(WeddingsConfig.WEDDINGS_KINAH)) {
 				PacketSendUtility.sendMessage(player, "One of players not have required kinah count.");
 				PacketSendUtility.sendMessage(partner, "One of players not have required kinah count.");
 				PacketSendUtility.sendMessage(getPriest(player), "One of players not have required kinah count.");

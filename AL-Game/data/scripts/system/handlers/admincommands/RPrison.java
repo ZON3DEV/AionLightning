@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import java.util.NoSuchElementException;
@@ -26,7 +27,8 @@ import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.aionemu.gameserver.world.World;
 
 /**
- * @author lord_rex Command: //rprison <player> This command is removing player from prison.
+ * @author lord_rex Command: //rprison <player> This command is removing player
+ *         from prison.
  */
 public class RPrison extends AdminCommand {
 
@@ -48,11 +50,9 @@ public class RPrison extends AdminCommand {
 				PunishmentService.setIsInPrison(playerFromPrison, false, 0, "");
 				PacketSendUtility.sendMessage(admin, "Player " + playerFromPrison.getName() + " removed from prison.");
 			}
-		}
-		catch (NoSuchElementException nsee) {
+		} catch (NoSuchElementException nsee) {
 			PacketSendUtility.sendMessage(admin, "Usage: //rprison <player>");
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			PacketSendUtility.sendMessage(admin, "Usage: //rprison <player>");
 		}
 	}

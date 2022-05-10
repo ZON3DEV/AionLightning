@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.network.aion.AionClientPacket;
@@ -56,8 +57,9 @@ public class CM_TIME_CHECK extends AionClientPacket {
 	@Override
 	protected void runImpl() {
 		AionConnection client = getConnection();
-//		int timeNow = (int) (System.nanoTime() / 1000000);
-//		int diff = timeNow - nanoTime;
+		int timeNow = (int) (System.nanoTime() / 1000000);
+		@SuppressWarnings("unused")
+		int diff = timeNow - nanoTime;
 		client.sendPacket(new SM_TIME_CHECK(nanoTime));
 
 		// log.info("CM_TIME_CHECK: " + nanoTime + " =?= " + timeNow + " dif: " + diff);

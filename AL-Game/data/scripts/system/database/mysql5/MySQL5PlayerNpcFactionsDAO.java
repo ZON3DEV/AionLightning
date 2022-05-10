@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
@@ -68,11 +69,9 @@ public class MySQL5PlayerNpcFactionsDAO extends PlayerNpcFactionsDAO {
 			}
 			rset.close();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not restore Npc faction data for playerObjId: " + player.getObjectId() + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}
@@ -106,11 +105,9 @@ public class MySQL5PlayerNpcFactionsDAO extends PlayerNpcFactionsDAO {
 			stmt.setInt(6, faction.getQuestId());
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not insert Npc faction data for playerObjId: " + playerObjectId + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}
@@ -128,11 +125,9 @@ public class MySQL5PlayerNpcFactionsDAO extends PlayerNpcFactionsDAO {
 			stmt.setInt(6, faction.getId());
 			stmt.execute();
 			stmt.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not update Npc faction data for playerObjId: " + playerObjectId + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 	}

@@ -14,8 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package instance;
 
+import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.instance.handlers.GeneralInstanceHandler;
 import com.aionemu.gameserver.instance.handlers.InstanceID;
 import com.aionemu.gameserver.model.EmotionType;
@@ -24,12 +26,11 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
-import com.aionemu.gameserver.services.teleport.TeleportService2;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.WorldMapInstance;
 
 /**
- * @author Falke_34
+ * @author Antraxx
  */
 @InstanceID(300160000)
 public class UdasTempleLowerInstance extends GeneralInstanceHandler {
@@ -37,32 +38,36 @@ public class UdasTempleLowerInstance extends GeneralInstanceHandler {
 	@Override
 	public void onInstanceCreate(WorldMapInstance instance) {
 		super.onInstanceCreate(instance);
+		int rnd = Rnd.get(1, 100);
+		if (rnd > 80) { // spawn named drop chests, 20% both, 30% epic, 50%
+						// fabled chest
+			spawn(216150, 455.984f, 1192.506f, 190.221f, (byte) 116);
+			spawn(216645, 435.664f, 1182.577f, 190.221f, (byte) 116);
+		} else if (rnd > 50) {
+			spawn(216150, 455.984f, 1192.506f, 190.221f, (byte) 116);
+		} else {
+			spawn(216645, 435.664f, 1182.577f, 190.221f, (byte) 116);
+		}
 	}
 
 	@Override
 	public void onDie(Npc npc) {
 		switch (npc.getNpcId()) {
-			case 653581: // Zhanim the Librarian - Quest Instance
-				spawn(730229, 744.0f, 885.0f, 153.0f, (byte) 0); // Traveller's Bag
+			case 281420:
+				// Aion Protection Cube -> no loot
+				npc.getController().delete();
 				break;
-			case 653459: // Chura Twinblade
-				spawn(837099, 1255.0344f, 994.6545f, 103.74671f, (byte) 0); // Tusnian
-				break;
-			case 653470: // Debilkarim the Maker
-				spawn(836792, 565.91876f, 1316.0468f, 187.98033f, (byte) 0); // Exit
+			case 215845:
+				npc.getController().delete();
 				break;
 		}
 	}
 
 	@Override
 	public boolean onDie(final Player player, Creature lastAttacker) {
-		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, EmotionType.DIE, 0, player.equals(lastAttacker) ? 0 : lastAttacker.getObjectId()), true);
+		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, EmotionType.DIE, 0, player.equals(lastAttacker) ? 0 : lastAttacker.getObjectId()),
+				true);
 		PacketSendUtility.sendPacket(player, new SM_DIE(player.haveSelfRezEffect(), player.haveSelfRezItem(), 0, 8));
 		return true;
-	}
-
-	@Override
-	public void onPlayerLogOut(Player player) {
-		TeleportService2.moveToInstanceExit(player, mapId, player.getRace());
 	}
 }

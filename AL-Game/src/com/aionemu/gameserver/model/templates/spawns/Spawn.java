@@ -14,21 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.spawns;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.templates.event.EventTemplate;
 import com.aionemu.gameserver.spawnengine.SpawnHandlerType;
+
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author xTz
@@ -51,7 +46,7 @@ public class Spawn {
 	@XmlAttribute(name = "handler")
 	private SpawnHandlerType handler;
 	@XmlElement(name = "temporary_spawn")
-	private TemporarySpawn temporaySpawn;
+    private TemporarySpawn temporaySpawn;
 	@XmlElement(name = "spot")
 	private List<SpawnSpotTemplate> spawnTemplates;
 	@XmlTransient
@@ -70,7 +65,7 @@ public class Spawn {
 		if (pool == 0) {
 			pool = null;
 		}
-		if (isCustom == false) {
+        if (isCustom == false) {
 			isCustom = null;
 		}
 	}
@@ -93,7 +88,7 @@ public class Spawn {
 	}
 
 	public TemporarySpawn getTemporarySpawn() {
-		return temporaySpawn;
+        return temporaySpawn;
 	}
 
 	public int getRespawnTime() {

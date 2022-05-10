@@ -14,9 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.configs.main.HousingConfig;
+import com.aionemu.gameserver.controllers.HouseController;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.house.House;
 import com.aionemu.gameserver.model.house.HouseStatus;
@@ -82,7 +84,7 @@ public class CM_REGISTER_HOUSE extends AionClientPacket {
 		HousingBidService.getInstance().addHouseToAuction(house, bidKinah);
 
 		PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_AUCTION_MY_HOUSE(house.getAddress().getId()));
-		house.getController().updateAppearance();
+		((HouseController) house.getController()).updateAppearance();
 
 		PacketSendUtility.sendPacket(player, new SM_HOUSE_OWNER_INFO(player, house));
 	}

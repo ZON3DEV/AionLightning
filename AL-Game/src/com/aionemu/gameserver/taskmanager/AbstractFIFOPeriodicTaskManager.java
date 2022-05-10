@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.taskmanager;
 
 import org.slf4j.Logger;
@@ -39,8 +40,7 @@ public abstract class AbstractFIFOPeriodicTaskManager<T> extends AbstractPeriodi
 		writeLock();
 		try {
 			queue.add(t);
-		}
-		finally {
+		} finally {
 			writeUnlock();
 		}
 	}
@@ -52,8 +52,7 @@ public abstract class AbstractFIFOPeriodicTaskManager<T> extends AbstractPeriodi
 			activeTasks.addAll(queue);
 
 			queue.clear();
-		}
-		finally {
+		} finally {
 			writeUnlock();
 		}
 
@@ -62,11 +61,9 @@ public abstract class AbstractFIFOPeriodicTaskManager<T> extends AbstractPeriodi
 
 			try {
 				callTask(task);
-			}
-			catch (RuntimeException e) {
+			} catch (RuntimeException e) {
 				log.warn("", e);
-			}
-			finally {
+			} finally {
 				RunnableStatsManager.handleStats(task.getClass(), getCalledMethodName(), System.nanoTime() - begin);
 			}
 		}

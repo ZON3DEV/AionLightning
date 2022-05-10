@@ -14,24 +14,24 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
+
+import com.aionemu.commons.database.DatabaseFactory;
+import com.aionemu.gameserver.dao.MySQL5DAOUtils;
+import com.aionemu.gameserver.dao.PortalCooldownsDAO;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+
+import javolution.util.FastMap;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.aionemu.commons.database.DatabaseFactory;
-import com.aionemu.gameserver.dao.MySQL5DAOUtils;
-import com.aionemu.gameserver.dao.PortalCooldownsDAO;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.gameobjects.player.PortalCooldownItem;
-
-import javolution.util.FastMap;
 
 public class MySQL5PortalCooldownsDAO extends PortalCooldownsDAO {
 
@@ -43,7 +43,7 @@ public class MySQL5PortalCooldownsDAO extends PortalCooldownsDAO {
 	@Override
 	public void loadPortalCooldowns(final Player player) {
 		Connection con = null;
-		FastMap<Integer, PortalCooldownItem> portalCoolDowns = new FastMap<Integer, PortalCooldownItem>();
+		FastMap<Integer, Long> portalCoolDowns = new FastMap<Integer, Long>();
 		PreparedStatement stmt = null;
 		try {
 			con = DatabaseFactory.getConnection();
@@ -55,18 +55,17 @@ public class MySQL5PortalCooldownsDAO extends PortalCooldownsDAO {
 			while (rset.next()) {
 				int worldId = rset.getInt("world_id");
 				long reuseTime = rset.getLong("reuse_time");
+				@SuppressWarnings("unused")
 				int entryCount = rset.getInt("entry_count");
 				if (reuseTime > System.currentTimeMillis()) {
-					portalCoolDowns.put(worldId, new PortalCooldownItem(worldId, entryCount, reuseTime));
+					portalCoolDowns.put(worldId, reuseTime);
 				}
 			}
 			player.getPortalCooldownList().setPortalCoolDowns(portalCoolDowns);
 			rset.close();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("LoadPortalCooldowns", e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(stmt, con);
 		}
 	}
@@ -74,16 +73,16 @@ public class MySQL5PortalCooldownsDAO extends PortalCooldownsDAO {
 	@Override
 	public void storePortalCooldowns(final Player player) {
 		deletePortalCooldowns(player);
-		Map<Integer, PortalCooldownItem> portalCoolDowns = player.getPortalCooldownList().getPortalCoolDowns();
+		Map<Integer, Long> portalCoolDowns = player.getPortalCooldownList().getPortalCoolDowns();
 
 		if (portalCoolDowns == null) {
 			return;
 		}
 
-		for (Map.Entry<Integer, PortalCooldownItem> entry : portalCoolDowns.entrySet()) {
+		for (Map.Entry<Integer, Long> entry : portalCoolDowns.entrySet()) {
 			final int worldId = entry.getKey();
-			final long reuseTime = entry.getValue().getCooldown();
-			final int entryCount = entry.getValue().getEntryCount();
+			final long reuseTime = entry.getValue();
+			final int entryCount = entry.getKey();
 
 			if (reuseTime < System.currentTimeMillis()) {
 				continue;
@@ -99,13 +98,11 @@ public class MySQL5PortalCooldownsDAO extends PortalCooldownsDAO {
 				stmt.setInt(1, player.getObjectId());
 				stmt.setInt(2, worldId);
 				stmt.setLong(3, reuseTime);
-				stmt.setInt(4, entryCount);
+				stmt.setLong(4, entryCount);
 				stmt.execute();
-			}
-			catch (SQLException e) {
+			} catch (SQLException e) {
 				log.error("storePortalCooldowns", e);
-			}
-			finally {
+			} finally {
 				DatabaseFactory.close(stmt, con);
 			}
 		}
@@ -121,11 +118,9 @@ public class MySQL5PortalCooldownsDAO extends PortalCooldownsDAO {
 
 			stmt.setInt(1, player.getObjectId());
 			stmt.execute();
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			log.error("deletePortalCooldowns", e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(stmt, con);
 		}
 	}

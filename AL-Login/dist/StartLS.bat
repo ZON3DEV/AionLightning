@@ -1,11 +1,11 @@
 @ECHO off
-TITLE Aion German - Login Server Console
+TITLE Aion Lightning - Login Server Console
 :START
 CLS
 IF "%MODE%" == "" (
 CALL PanelLS.bat
 )
-ECHO Starting Aion German Login Server in %MODE% mode.
+ECHO Starting Aion Lightning Login Server in %MODE% mode.
 JAVA %JAVA_OPTS% -cp ./libs/*;AL-Login.jar com.aionemu.loginserver.LoginServer
 SET CLASSPATH=%OLDCLASSPATH%
 IF ERRORLEVEL 2 GOTO START

@@ -19,19 +19,18 @@ package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-
+import com.aionemu.gameserver.questEngine.model.QuestState;
 import javolution.util.FastList;
 
 /**
  * @author Ever' new 4.5 packet
- * @author FrozenKiller
  */
 public class SM_QUEST_REPEAT extends AionServerPacket {
 
-	private FastList<Integer> questList;
+	private FastList<QuestState> questState;
 
-	public SM_QUEST_REPEAT(FastList<Integer> questList) {
-		this.questList = questList;
+	public SM_QUEST_REPEAT(FastList<QuestState> questState) {
+		this.questState = questState;
 	}
 
 	/**
@@ -39,10 +38,12 @@ public class SM_QUEST_REPEAT extends AionServerPacket {
 	 */
 	@Override
 	protected void writeImpl(AionConnection con) {
-		writeH(questList.size());
-		for (Integer questId : questList) {
-			writeD(questId);
+		writeH(0x00); // unk
+
+		for (QuestState qs : questState) {
+			writeD(qs.getQuestId());
 		}
-		questList.clear();
+		FastList.recycle(questState);
+		questState = null;
 	}
 }

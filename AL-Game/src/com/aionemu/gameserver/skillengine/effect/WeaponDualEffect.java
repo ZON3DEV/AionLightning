@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ import com.aionemu.gameserver.skillengine.model.Effect;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "WeaponDualEffect")
-public class WeaponDualEffect extends BuffEffect {
+public class WeaponDualEffect extends BufEffect {
 
 	@Override
 	public void startEffect(Effect effect) {

@@ -14,13 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.instance.tallocsHollow;
 
 import java.util.List;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import com.aionemu.gameserver.utils.ThreadPoolManager;
+import ai.AggressiveNpcAI2;
+
+import com.aionemu.commons.network.util.ThreadPoolManager;
 import com.aionemu.gameserver.ai2.AIName;
 import com.aionemu.gameserver.ai2.NpcAI2;
 import com.aionemu.gameserver.ai2.manager.WalkManager;
@@ -34,9 +37,8 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.WorldMapInstance;
 import com.aionemu.gameserver.world.WorldPosition;
 
-import ai.AggressiveNpcAI2;
-
 /**
+ *
  * @author xTz
  */
 @AIName("celestius")
@@ -62,14 +64,12 @@ public class CelestiusAI2 extends AggressiveNpcAI2 {
 
 	private void startHelpersCall() {
 		helpersTask = ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 			@Override
 			public void run() {
 				if (isAlreadyDead() && getLifeStats().getHpPercentage() < 90) {
 					deleteHelpers();
 					cancelHelpersTask();
-				}
-				else {
+				} else {
 					deleteHelpers();
 					SkillEngine.getInstance().getSkill(getOwner(), 18981, 44, getOwner()).useNoAnimationSkill();
 					startRun((Npc) spawn(281514, 518, 813, 1378, (byte) 0), "3001900001");
@@ -95,7 +95,7 @@ public class CelestiusAI2 extends AggressiveNpcAI2 {
 				List<Npc> npcs = instance.getNpcs(281514);
 				for (Npc npc : npcs) {
 					SpawnTemplate template = npc.getSpawn();
-					if (npc != null && (template.getX() == 518 || template.getX() == 551 || template.getX() == 574)) {
+					if ((template.getX() == 518 || template.getX() == 551 || template.getX() == 574)) {
 						npc.getController().onDelete();
 					}
 				}

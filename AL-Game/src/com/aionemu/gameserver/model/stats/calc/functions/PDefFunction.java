@@ -22,13 +22,13 @@ import com.aionemu.gameserver.model.stats.container.StatEnum;
 class PDefFunction extends StatFunction {
 
 	PDefFunction() {
-		stat = StatEnum.PHYSICAL_DEFENSE;
+		this.stat = StatEnum.PHYSICAL_DEFENSE;
 	}
 
 	@Override
 	public void apply(Stat2 stat) {
 		if (stat.getOwner().isInFlyingState()) {
-			stat.setBonus(stat.getBonus() - (stat.getBase() / 2));
+			stat.setBonus(stat.getBonus() - stat.getBase() / 2);
 		}
 	}
 

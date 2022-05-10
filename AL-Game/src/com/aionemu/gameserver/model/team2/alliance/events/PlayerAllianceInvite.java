@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.alliance.events;
 
 import java.util.ArrayList;
@@ -51,7 +52,6 @@ public class PlayerAllianceInvite extends RequestResponseHandler {
 	public void acceptRequest(Creature requester, Player responder) {
 		if (PlayerAllianceService.canInvite(inviter, invited)) {
 
-			PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE.STR_FORCE_ENTER_HIM(invited.getName()));
 			PlayerAlliance alliance = inviter.getPlayerAlliance2();
 
 			if (alliance != null) {
@@ -59,8 +59,7 @@ public class PlayerAllianceInvite extends RequestResponseHandler {
 					PacketSendUtility.sendMessage(invited, "That alliance is already full.");
 					PacketSendUtility.sendMessage(inviter, "Your alliance is already full.");
 					return;
-				}
-				else if (invited.isInGroup2() && invited.getPlayerGroup2().size() + alliance.size() > 24) {
+				} else if (invited.isInGroup2() && invited.getPlayerGroup2().size() + alliance.size() > 24) {
 					PacketSendUtility.sendMessage(invited, "That alliance is now too full for your group to join.");
 					PacketSendUtility.sendMessage(inviter, "Your alliance is now too full for that group to join.");
 					return;

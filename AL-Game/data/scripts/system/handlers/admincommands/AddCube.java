@@ -14,8 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
+import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.services.CubeExpandService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -25,6 +27,7 @@ import com.aionemu.gameserver.world.World;
 
 /**
  * @author Kamui
+ *
  */
 public class AddCube extends AdminCommand {
 
@@ -49,11 +52,13 @@ public class AddCube extends AdminCommand {
 			return;
 		}
 
-		if (receiver != null) {
+		if (receiver.getNpcExpands() < CustomConfig.BASIC_CUBE_SIZE_LIMIT) {
 			CubeExpandService.expand(receiver, true);
 			PacketSendUtility.sendMessage(admin, "9 cube slots successfully added to player " + receiver.getName() + "!");
 			PacketSendUtility.sendMessage(receiver, "Admin " + admin.getName() + " gave you a cube expansion!");
-			PacketSendUtility.sendMessage(admin, "Cube expansion cannot be added to " + receiver.getName() + "!\nReason: player cube already fully expanded.");
+		} else {
+			PacketSendUtility.sendMessage(admin, "Cube expansion cannot be added to " + receiver.getName()
+					+ "!\nReason: player cube already fully expanded.");
 			return;
 		}
 	}

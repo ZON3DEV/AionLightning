@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -42,9 +43,8 @@ public class SignetBurstEffect extends DamageEffect {
 
 		Effect signetEffect = effect.getEffected().getEffectController().getAnormalEffect(signet);
 		if (!super.calculate(effect, DamageType.MAGICAL)) {
-			if (signetEffect != null) {
+			if (signetEffect != null)
 				signetEffect.endEffect();
-			}
 			return;
 		}
 		int valueWithDelta = value + delta * effect.getSkillLevel();
@@ -52,16 +52,12 @@ public class SignetBurstEffect extends DamageEffect {
 
 		if (signetEffect == null) {
 			valueWithDelta *= 0.05f;
-			AttackUtil.calculateMagicalSkillResult(effect, valueWithDelta, null, getElement(), true, true, false, getMode(),
-				this.critProbMod2, critAddDmg, shared, false);
+			AttackUtil.calculateMagicalSkillResult(effect, valueWithDelta, null, getElement(), true, true, false, getMode(), this.critProbMod2, critAddDmg,
+					shared, false);
 			effect.setLaunchSubEffect(false);
-		}
-		else {
+		} else {
 
 			int level = signetEffect.getSkillLevel();
-			if (level < 3) { // why is 3 not 5? tmp fix
-				effect.setSubEffectAborted(true);
-			}
 			effect.setSignetBurstedCount(level);
 			switch (level) {
 				case 1:
@@ -82,36 +78,34 @@ public class SignetBurstEffect extends DamageEffect {
 			}
 
 			/**
-			 * custom bonuses for magical accurancy according to rune level and effector level follows same logic as
-			 * damage
+			 * custom bonuses for magical accurancy according to rune level and
+			 * effector level follows same logic as damage
 			 */
 			int accmod = 0;
-			int mAccurancy = effect.getEffector().getGameStats().getMAccuracy().getCurrent();
+			int mAccurancy = effect.getEffector().getGameStats().getMainHandMAccuracy().getCurrent();
 			switch (level) {
 				case 1:
-					accmod = (int) (-10.8f * mAccurancy);
+					accmod = (int) (-0.8f * mAccurancy);
 					break;
 				case 2:
-					accmod = (int) (-10.5f * mAccurancy);
+					accmod = (int) (-0.5f * mAccurancy);
 					break;
 				case 3:
 					accmod = 0;
 					break;
 				case 4:
-					accmod = (int) (13.5f * mAccurancy);
+					accmod = (int) (0.2f * mAccurancy);
 					break;
 				case 5:
-					accmod = (int) (18.5f * mAccurancy);
+					accmod = (int) (0.5f * mAccurancy);
 					break;
 			}
 			effect.setAccModBoost(accmod);
 
-			AttackUtil.calculateMagicalSkillResult(effect, valueWithDelta, null, getElement(), true, true, false, getMode(),
-				this.critProbMod2, critAddDmg, shared, false);
+			AttackUtil.calculateMagicalSkillResult(effect, valueWithDelta, null, getElement(), true, true, false, getMode(), this.critProbMod2, critAddDmg,
+					shared, false);
 
-			if (signetEffect != null) {
-				signetEffect.endEffect();
-			}
+			signetEffect.endEffect();
 		}
 	}
 }

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.stats.enums;
 
 /**
@@ -34,11 +35,10 @@ public enum POWER {
 	CLERIC(105),
 	CHANTER(110),
 	ENGINEER(100),
-	RIDER(115),
+	RIDER(100),
 	GUNNER(100),
-	ARTIST(95),
-	PAINTER(100),
-	BARD(95);
+	ARTIST(100),
+	BARD(100);
 
 	private int value;
 

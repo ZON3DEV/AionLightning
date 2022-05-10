@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.versionning;
 
 import java.io.File;
@@ -26,8 +27,7 @@ import java.text.StringCharacterIterator;
 import java.util.Locale;
 
 /**
- * The Locator is a utility class which is used to find certain items in the
- * environment.
+ * The Locator is a utility class which is used to find certain items in the environment.
  * 
  * @since Ant 1.6
  */
@@ -43,9 +43,8 @@ public final class Locator {
 	 * Find the directory or jar file the class has been loaded from.
 	 * 
 	 * @param c
-	 *            the class whose location is required.
-	 * @return the file or jar with the class or null if we cannot determine the
-	 *         location.
+	 *          the class whose location is required.
+	 * @return the file or jar with the class or null if we cannot determine the location.
 	 * @since Ant 1.6
 	 */
 	public static File getClassSource(Class<?> c) {
@@ -57,11 +56,10 @@ public final class Locator {
 	 * Find the directory or jar a given resource has been loaded from.
 	 * 
 	 * @param c
-	 *            the classloader to be consulted for the source.
+	 *          the classloader to be consulted for the source.
 	 * @param resource
-	 *            the resource whose location is required.
-	 * @return the file with the resource source or null if we cannot determine
-	 *         the location.
+	 *          the resource whose location is required.
+	 * @return the file with the resource source or null if we cannot determine the location.
 	 * @since Ant 1.6
 	 */
 	public static File getResourceSource(ClassLoader c, String resource) {
@@ -71,7 +69,8 @@ public final class Locator {
 		URL url = null;
 		if (c == null) {
 			url = ClassLoader.getSystemResource(resource);
-		} else {
+		}
+		else {
 			url = c.getResource(resource);
 		}
 		if (url != null) {
@@ -80,7 +79,8 @@ public final class Locator {
 				int pling = u.indexOf("!");
 				String jarName = u.substring(4, pling);
 				return new File(fromURI(jarName));
-			} else if (u.startsWith("file:")) {
+			}
+			else if (u.startsWith("file:")) {
 				int tail = u.indexOf(resource);
 				String dirName = u.substring(0, tail);
 				return new File(fromURI(dirName));
@@ -95,12 +95,11 @@ public final class Locator {
 	 * Will be an absolute path if the given URI is absolute.
 	 * </p>
 	 * <p>
-	 * Swallows '%' that are not followed by two characters, doesn't deal with
-	 * non-ASCII characters.
+	 * Swallows '%' that are not followed by two characters, doesn't deal with non-ASCII characters.
 	 * </p>
 	 * 
 	 * @param uri
-	 *            the URI designating a file in the local filesystem.
+	 *          the URI designating a file in the local filesystem.
 	 * @return the local file system path for the file.
 	 * @since Ant 1.6
 	 */
@@ -108,7 +107,8 @@ public final class Locator {
 		URL url = null;
 		try {
 			url = new URL(uri);
-		} catch (MalformedURLException emYouEarlEx) {
+		}
+		catch (MalformedURLException emYouEarlEx) {
 			// Ignore malformed exception
 		}
 		if (url == null || !("file".equals(url.getProtocol()))) {
@@ -124,8 +124,8 @@ public final class Locator {
 
 		uri = buf.toString().replace('/', File.separatorChar);
 
-		if (File.pathSeparatorChar == ';' && uri.startsWith("\\") && uri.length() > 2
-				&& Character.isLetter(uri.charAt(1)) && uri.lastIndexOf(':') > -1) {
+		if (File.pathSeparatorChar == ';' && uri.startsWith("\\") && uri.length() > 2 && Character.isLetter(uri.charAt(1))
+			&& uri.lastIndexOf(':') > -1) {
 			uri = uri.substring(1);
 		}
 		String path = decodeUri(uri);
@@ -136,7 +136,7 @@ public final class Locator {
 	 * Decodes an Uri with % characters.
 	 * 
 	 * @param uri
-	 *            String with the uri possibly containing % characters.
+	 *          String with the uri possibly containing % characters.
 	 * @return The decoded Uri
 	 */
 	private static String decodeUri(String uri) {
@@ -156,7 +156,8 @@ public final class Locator {
 						sb.append((char) ((i1 << 4) + i2));
 					}
 				}
-			} else {
+			}
+			else {
 				sb.append(c);
 			}
 		}
@@ -165,10 +166,9 @@ public final class Locator {
 	}
 
 	/**
-	 * Get the File necessary to load the Sun compiler tools. If the classes are
-	 * available to this class, then no additional URL is required and null is
-	 * returned. This may be because the classes are explicitly in the class
-	 * path or provided by the JVM directly.
+	 * Get the File necessary to load the Sun compiler tools. If the classes are available to this class, then no
+	 * additional URL is required and null is returned. This may be because the classes are explicitly in the class path
+	 * or provided by the JVM directly.
 	 * 
 	 * @return the tools jar as a File if required, null otherwise.
 	 */
@@ -179,11 +179,13 @@ public final class Locator {
 			// just check whether this throws an exception
 			Class.forName("com.sun.tools.javac.Main");
 			toolsJarAvailable = true;
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			try {
 				Class.forName("sun.tools.javac.Main");
 				toolsJarAvailable = true;
-			} catch (Exception e2) {
+			}
+			catch (Exception e2) {
 				// ignore
 			}
 		}
@@ -205,35 +207,31 @@ public final class Locator {
 	}
 
 	/**
-	 * Get an array of URLs representing all of the jar files in the given
-	 * location. If the location is a file, it is returned as the only element
-	 * of the array. If the location is a directory, it is scanned for jar
-	 * files.
+	 * Get an array of URLs representing all of the jar files in the given location. If the location is a file, it is
+	 * returned as the only element of the array. If the location is a directory, it is scanned for jar files.
 	 * 
 	 * @param location
-	 *            the location to scan for Jars.
+	 *          the location to scan for Jars.
 	 * @return an array of URLs for all jars in the given location.
 	 * @exception MalformedURLException
-	 *                if the URLs for the jars cannot be formed.
+	 *              if the URLs for the jars cannot be formed.
 	 */
 	public static URL[] getLocationURLs(File location) throws MalformedURLException {
 		return getLocationURLs(location, new String[] { ".jar" });
 	}
 
 	/**
-	 * Get an array of URLs representing all of the files of a given set of
-	 * extensions in the given location. If the location is a file, it is
-	 * returned as the only element of the array. If the location is a
-	 * directory, it is scanned for matching files.
+	 * Get an array of URLs representing all of the files of a given set of extensions in the given location. If the
+	 * location is a file, it is returned as the only element of the array. If the location is a directory, it is scanned
+	 * for matching files.
 	 * 
 	 * @param location
-	 *            the location to scan for files.
+	 *          the location to scan for files.
 	 * @param extensions
-	 *            an array of extension that are to match in the directory
-	 *            search.
+	 *          an array of extension that are to match in the directory search.
 	 * @return an array of URLs of matching files.
 	 * @exception MalformedURLException
-	 *                if the URLs for the files cannot be formed.
+	 *              if the URLs for the files cannot be formed.
 	 */
 	public static URL[] getLocationURLs(File location, final String[] extensions) throws MalformedURLException {
 

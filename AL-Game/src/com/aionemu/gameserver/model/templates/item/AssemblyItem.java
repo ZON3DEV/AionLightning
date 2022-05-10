@@ -14,17 +14,18 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
 /**
+ *
  * @author xTz
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -32,16 +33,9 @@ import javax.xml.bind.annotation.XmlType;
 public class AssemblyItem {
 
 	@XmlAttribute(required = true)
-	protected int id;
-
-	@XmlAttribute(name = "parts_num")
-	protected int partsNum;
-
-    @XmlAttribute(name = "proc_assembly")
-    protected int procAssembly;
-
-	@XmlAttribute(required = true)
 	protected List<Integer> parts;
+	@XmlAttribute(required = true)
+	protected int id;
 
 	public List<Integer> getParts() {
 		if (parts == null) {
@@ -52,6 +46,7 @@ public class AssemblyItem {
 
 	/**
 	 * Gets the value of the id property.
+	 *
 	 */
 	public int getId() {
 		return id;
@@ -59,24 +54,9 @@ public class AssemblyItem {
 
 	/**
 	 * Sets the value of the id property.
+	 *
 	 */
 	public void setId(int value) {
 		this.id = value;
 	}
-
-	public int getPartsNum() {
-		return partsNum;
-	}
-
-	public void setPartsNum(int value) {
-		this.partsNum = value;
-	}
-
-    public int getProcAssembly() {
-        return procAssembly;
-    }
-
-    public void setProcAssembly(int procAssembly) {
-        this.procAssembly = procAssembly;
-    }
 }

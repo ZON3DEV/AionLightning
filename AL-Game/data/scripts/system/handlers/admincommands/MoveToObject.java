@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -43,8 +44,7 @@ public class MoveToObject extends AdminCommand {
 
 		try {
 			objectId = Integer.valueOf(params[0]);
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			PacketSendUtility.sendMessage(admin, "Only numbers please!!!");
 		}
 
@@ -54,7 +54,7 @@ public class MoveToObject extends AdminCommand {
 			return;
 		}
 
-		VisibleObject spawn = object;
+		VisibleObject spawn = (VisibleObject) object;
 
 		TeleportService2.teleportTo(admin, spawn.getWorldId(), spawn.getSpawn().getX(), spawn.getSpawn().getY(), spawn.getSpawn().getZ());
 		admin.getController().stopProtectionActiveTask();

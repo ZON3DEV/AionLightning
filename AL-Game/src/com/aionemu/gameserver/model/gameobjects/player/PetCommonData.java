@@ -14,10 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player;
 
 import java.sql.Timestamp;
-
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.PlayerPetsDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -59,7 +59,6 @@ public class PetCommonData extends VisibleObjectTemplate implements IExpirable {
 	private Timestamp despawnTime;
 	private boolean isLooting = false;
 	private boolean isBuffing = false;
-	private boolean isSeller = false;
 
 	public PetCommonData(int petId, int masterObjectId, int expireTime) {
 		this.petObjectId = IDFactory.getInstance().nextId();
@@ -141,7 +140,6 @@ public class PetCommonData extends VisibleObjectTemplate implements IExpirable {
 	public void scheduleRefeed(final long reFoodTime) {
 		setIsFeedingTime(false);
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				feedingTime = true;
@@ -328,19 +326,12 @@ public class PetCommonData extends VisibleObjectTemplate implements IExpirable {
 		return this.isBuffing;
 	}
 
-	public void setIsSeller(boolean isSeller) {
-		this.isSeller = isSeller;
-	}
-
-	public boolean isSeller() {
-		return this.isSeller;
-	}
-
 	// pet id is not unique for adopt action, this not explicit
-
 	/**
-	 * public AdoptPetAction getAdoptAction() { ItemTemplate eggTemplate = DataManager.ITEM_DATA.getPetEggTemplate(petId); if (eggTemplate == null || eggTemplate.getActions() == null) return null;
-	 * return eggTemplate.getActions().getAdoptPetAction(); }
+	 * public AdoptPetAction getAdoptAction() { ItemTemplate eggTemplate =
+	 * DataManager.ITEM_DATA.getPetEggTemplate(petId); if (eggTemplate == null
+	 * || eggTemplate.getActions() == null) return null; return
+	 * eggTemplate.getActions().getAdoptPetAction(); }
 	 */
 	@Override
 	public int getExpireTime() {

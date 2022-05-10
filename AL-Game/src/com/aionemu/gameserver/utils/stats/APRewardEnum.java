@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.stats;
 
 import java.util.NoSuchElementException;
@@ -55,8 +56,7 @@ public enum APRewardEnum {
 	}
 
 	/**
-	 * @param playerRank
-	 *            current Abyss Rank
+	 * @param playerRank current Abyss Rank
 	 * @return AP reward percentage
 	 */
 	public static float apReward(int playerRank) {

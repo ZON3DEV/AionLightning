@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
@@ -53,8 +54,7 @@ public class Remove extends AdminCommand {
 			if (params.length == 3) {
 				itemCount = Long.parseLong(params[2]);
 			}
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			PacketSendUtility.sendMessage(admin, "Parameters need to be an integer.");
 			return;
 		}

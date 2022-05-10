@@ -1,3 +1,3 @@
 @echo off
 cd AL-Login
-start ..\AL-Tools\Ant\bin\ant
+start ..\Tools\Ant\bin\ant

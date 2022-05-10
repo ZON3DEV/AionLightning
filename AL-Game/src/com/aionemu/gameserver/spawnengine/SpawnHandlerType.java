@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.spawnengine;
 
 /**
@@ -21,13 +22,5 @@ package com.aionemu.gameserver.spawnengine;
  */
 public enum SpawnHandlerType {
 
-	ATTACKER,
-	BOSS,
-	RIFT,
-	STATIC,
-	CONQUEST,
-	FLAG;
-
-	private SpawnHandlerType() {
-	}
+	ATTACKER, BOSS, RIFT, STATIC
 }

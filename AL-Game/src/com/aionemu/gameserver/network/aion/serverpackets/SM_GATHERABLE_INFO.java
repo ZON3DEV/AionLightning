@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.StaticDoor;
@@ -44,12 +45,10 @@ public class SM_GATHERABLE_INFO extends AionServerPacket {
 		if (visibleObject instanceof StaticDoor) {
 			if (((StaticDoor) visibleObject).isOpen()) {
 				writeH(0x09);
-			}
-			else {
+			} else {
 				writeH(0x0A);
 			}
-		}
-		else {
+		} else {
 			writeH(1);
 		}
 		writeC(visibleObject.getSpawn().getHeading());

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.periodicaction;
 
 import java.util.List;
@@ -32,13 +33,16 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "PeriodicActions", propOrder = "periodicActions")
 public class PeriodicActions {
 
-	@XmlElements({ @XmlElement(name = "hpuse", type = HpUsePeriodicAction.class), @XmlElement(name = "mpuse", type = MpUsePeriodicAction.class) })
+	@XmlElements({
+            @XmlElement(name = "hpuse", type = HpUsePeriodicAction.class),
+            @XmlElement(name = "mpuse", type = MpUsePeriodicAction.class),
+            @XmlElement(name = "mpuseval", type = MpUseByValPeriodicAction.class) })
 	protected List<PeriodicAction> periodicActions;
 	@XmlAttribute(name = "checktime")
 	protected int checktime;
 
-	@XmlAttribute(name = "endingtime")
-	protected int endingtime;
+    @XmlAttribute(name = "endingtime")
+    protected int endingtime;
 
 	public List<PeriodicAction> getPeriodicActions() {
 		return periodicActions;
@@ -48,7 +52,7 @@ public class PeriodicActions {
 		return checktime;
 	}
 
-	public int getEndingtime() {
-		return endingtime;
-	}
+    public int getEndingtime() {
+        return endingtime;
+    }
 }

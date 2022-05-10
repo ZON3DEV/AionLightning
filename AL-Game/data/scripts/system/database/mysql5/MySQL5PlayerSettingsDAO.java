@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package mysql5;
 
 import java.sql.Connection;
@@ -21,8 +22,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import org.slf4j.Logger;
 
 import com.aionemu.commons.database.DB;
 import com.aionemu.commons.database.DatabaseFactory;
@@ -41,7 +43,8 @@ public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO {
 	private static final Logger log = LoggerFactory.getLogger(MySQL5PlayerSettingsDAO.class);
 
 	/**
-	 * TODO 1) analyze possibility to zip settings 2) insert/update instead of replace 0 - uisettings 1 - shortcuts 2 - display 3 - deny
+	 * TODO 1) analyze possibility to zip settings 2) insert/update instead of
+	 * replace 0 - uisettings 1 - shortcuts 2 - display 3 - deny
 	 */
 	@Override
 	public void loadSettings(final Player player) {
@@ -75,11 +78,9 @@ public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO {
 			}
 			resultSet.close();
 			statement.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error("Could not restore PlayerSettings data for player " + playerId + " from DB: " + e.getMessage(), e);
-		}
-		finally {
+		} finally {
 			DatabaseFactory.close(con);
 		}
 		playerSettings.setPersistentState(PersistentState.UPDATED);
@@ -103,7 +104,6 @@ public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO {
 
 		if (uiSettings != null) {
 			DB.insertUpdate("REPLACE INTO player_settings values (?, ?, ?)", new IUStH() {
-
 				@Override
 				public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
 					stmt.setInt(1, playerId);
@@ -116,7 +116,6 @@ public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO {
 
 		if (shortcuts != null) {
 			DB.insertUpdate("REPLACE INTO player_settings values (?, ?, ?)", new IUStH() {
-
 				@Override
 				public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
 					stmt.setInt(1, playerId);
@@ -129,7 +128,6 @@ public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO {
 
 		if (houseBuddies != null) {
 			DB.insertUpdate("REPLACE INTO player_settings values (?, ?, ?)", new IUStH() {
-
 				@Override
 				public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
 					stmt.setInt(1, playerId);
@@ -141,7 +139,6 @@ public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO {
 		}
 
 		DB.insertUpdate("REPLACE INTO player_settings values (?, ?, ?)", new IUStH() {
-
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
 				stmt.setInt(1, playerId);
@@ -152,7 +149,6 @@ public class MySQL5PlayerSettingsDAO extends PlayerSettingsDAO {
 		});
 
 		DB.insertUpdate("REPLACE INTO player_settings values (?, ?, ?)", new IUStH() {
-
 			@Override
 			public void handleInsertUpdate(PreparedStatement stmt) throws SQLException {
 				stmt.setInt(1, playerId);

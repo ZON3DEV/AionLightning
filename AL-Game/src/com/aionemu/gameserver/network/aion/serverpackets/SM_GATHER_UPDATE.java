@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.templates.gather.GatherableTemplate;
@@ -47,14 +48,13 @@ public class SM_GATHER_UPDATE extends AionServerPacket {
 	@Override
 	protected void writeImpl(AionConnection con) {
 		writeH(template.getHarvestSkill());
-		writeC(action);
-		writeD(itemId);
+		writeC(this.action);
+		writeD(this.itemId);
 
-		switch (action) {
+		switch (this.action) {
 			case 0: {
-				writeQ(3);
-				writeD(success);
-				writeD(failure);
+				writeD(this.success);
+				writeD(this.failure);
 				writeD(0);
 				writeD(1200); // timer??
 				writeD(1330011); // ??text??skill??
@@ -64,9 +64,8 @@ public class SM_GATHER_UPDATE extends AionServerPacket {
 				break;
 			}
 			case 1: {
-				writeQ(3);
-				writeD(success);
-				writeD(failure);
+				writeD(this.success);
+				writeD(this.failure);
 				writeD(700); // unk timer??
 				writeD(1200); // unk timer??
 				writeD(0); // unk timer??writeD(700);
@@ -74,9 +73,8 @@ public class SM_GATHER_UPDATE extends AionServerPacket {
 				break;
 			}
 			case 2: {
-				writeQ(3);
-				writeD(success);
-				writeD(failure);
+				writeD(this.success);
+				writeD(this.failure);
 				writeD(700);// unk timer??
 				writeD(1200); // unk timer??
 				writeD(0); // unk timer??writeD(700);
@@ -84,9 +82,8 @@ public class SM_GATHER_UPDATE extends AionServerPacket {
 				break;
 			}
 			case 3: {
-				writeQ(3);
-				writeD(success);
-				writeD(failure);
+				writeD(this.success);
+				writeD(this.failure);
 				writeD(700);// unk timer??
 				writeD(1200); // unk timer??
 				writeD(0); // unk timer??writeD(700);
@@ -95,7 +92,6 @@ public class SM_GATHER_UPDATE extends AionServerPacket {
 			}
 			case 5: // you have stopped gathering
 			{
-				writeQ(3);
 				writeD(0);
 				writeD(0);
 				writeD(700);// unk timer??
@@ -105,9 +101,8 @@ public class SM_GATHER_UPDATE extends AionServerPacket {
 				break;
 			}
 			case 6: {
-				writeQ(3);
-				writeD(success);
-				writeD(failure);
+				writeD(this.success);
+				writeD(this.failure);
 				writeD(700); // unk timer??
 				writeD(1200); // unk timer??
 				writeD(0); // unk timer??writeD(700);
@@ -115,14 +110,13 @@ public class SM_GATHER_UPDATE extends AionServerPacket {
 				break;
 			}
 			case 7: {
-				writeQ(3);
-				writeD(success);
-				writeD(failure);
+				writeD(this.success);
+				writeD(this.failure);
 				writeD(0);
 				writeD(1200); // timer??
 				writeD(1330079); // ??text??skill??
 				writeH(0x24); // 0x24
-				writeD(nameId);
+				writeD(this.nameId);
 				writeH(0); // 0x24
 				break;
 			}

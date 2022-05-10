@@ -14,12 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.ai2.handler;
 
 import com.aionemu.gameserver.ai2.AI2Logger;
 import com.aionemu.gameserver.ai2.AIState;
 import com.aionemu.gameserver.ai2.AISubState;
 import com.aionemu.gameserver.ai2.NpcAI2;
+import com.aionemu.gameserver.ai2.event.AIEventType;
 import com.aionemu.gameserver.ai2.manager.AttackManager;
 import com.aionemu.gameserver.ai2.manager.EmoteManager;
 import com.aionemu.gameserver.ai2.manager.WalkManager;
@@ -43,10 +45,17 @@ public class AttackEventHandler {
 		if (creature == null || creature.getLifeStats().isAlreadyDead()) {
 			return;
 		}
+		// TODO lock or better switch
+		if (npcAI.isInState(AIState.RETURNING)) {
+			npcAI.getOwner().getMoveController().abortMove();
+			npcAI.setStateIfNot(AIState.IDLE);
+			npcAI.onGeneralEvent(AIEventType.NOT_AT_HOME);
+			return;
+		}
 		if (!npcAI.canThink()) {
 			return;
 		}
-		if (npcAI.isInState(AIState.WALKING) || npcAI.isInState(AIState.RETURNING)) {
+		if (npcAI.isInState(AIState.WALKING)) {
 			WalkManager.stopWalking(npcAI);
 		}
 		npcAI.getOwner().getGameStats().renewLastAttackedTime();

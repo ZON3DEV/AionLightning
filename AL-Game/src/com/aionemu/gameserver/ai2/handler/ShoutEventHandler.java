@@ -14,11 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai2.handler;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+package com.aionemu.gameserver.ai2.handler;
 
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.ai2.NpcAI2;
@@ -32,6 +29,10 @@ import com.aionemu.gameserver.model.templates.npcshout.ShoutType;
 import com.aionemu.gameserver.model.templates.walker.WalkerTemplate;
 import com.aionemu.gameserver.services.NpcShoutsService;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author Rolandas
@@ -50,7 +51,8 @@ public final class ShoutEventHandler {
 	public static void onBeforeDespawn(NpcAI2 npcAI) {
 		Npc npc = npcAI.getOwner();
 		if (DataManager.NPC_SHOUT_DATA.hasAnyShout(npc.getPosition().getMapId(), npc.getNpcId(), ShoutEventType.BEFORE_DESPAWN)) {
-			List<NpcShout> shouts = DataManager.NPC_SHOUT_DATA.getNpcShouts(npc.getPosition().getMapId(), npc.getNpcId(), ShoutEventType.BEFORE_DESPAWN, null, 0);
+			List<NpcShout> shouts = DataManager.NPC_SHOUT_DATA.getNpcShouts(npc.getPosition().getMapId(), npc.getNpcId(), ShoutEventType.BEFORE_DESPAWN, null,
+					0);
 			NpcShoutsService.getInstance().shout(npc, null, shouts, 0, false);
 			shouts.clear();
 		}
@@ -66,8 +68,7 @@ public final class ShoutEventHandler {
 				List<NpcShout> shouts = DataManager.NPC_SHOUT_DATA.getNpcShouts(npc.getPosition().getMapId(), npc.getNpcId(), shoutType, null, 0);
 				if (npc.getTarget() instanceof Creature) {
 					NpcShoutsService.getInstance().shout(npc, (Creature) npc.getTarget(), shouts, 0, false);
-				}
-				else {
+				} else {
 					NpcShoutsService.getInstance().shout(npc, null, shouts, 0, false);
 				}
 				shouts.clear();
@@ -95,7 +96,7 @@ public final class ShoutEventHandler {
 		}
 	}
 
-	// TODO: Figure out what the difference between ATTACK_BEGIN and HELP; HELPCALL should make NPC run
+    // TODO: Figure out what the difference between ATTACK_BEGIN and HELP; HELPCALL should make NPC run
 
 	/**
 	 * Called on Aggro when NPC is ready to attack
@@ -114,7 +115,7 @@ public final class ShoutEventHandler {
 	 * Handle NPC attacked event (when damage was received or not)
 	 */
 	public static void onHelp(NpcAI2 npcAI, Creature creature) {
-		// TODO: [RR] change AI or randomise behaviour for "cowards" and "fanatics" ???
+        // TODO: [RR] change AI or randomise behaviour for "cowards" and "fanatics" ???
 		Npc npc = npcAI.getOwner();
 		if (npc.getAttackedCount() == 0) {
 			if (DataManager.NPC_SHOUT_DATA.hasAnyShout(npc.getPosition().getMapId(), npc.getNpcId(), ShoutEventType.ATTACKED)) {
@@ -132,8 +133,10 @@ public final class ShoutEventHandler {
 	}
 
 	/**
-	 * Handles attacks from NPC to NPC. <br>
-	 * <b><font color='red'>IMPORTANT!!! </font>All such shouts must be of type SAY and poll_delay specified.</b>
+     * Handles attacks from NPC to NPC.
+     * <br>
+	 * <b><font color='red'>IMPORTANT!!! </font>All such shouts must be of type
+	 * SAY and poll_delay specified.</b>
 	 */
 	public static void onEnemyAttack(NpcAI2 npcAI, Creature target) {
 		final Npc npc = npcAI.getOwner();
@@ -164,7 +167,6 @@ public final class ShoutEventHandler {
 		}
 
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				Iterator<Player> iter = npc.getKnownList().getKnownPlayers().values().iterator();
@@ -202,8 +204,7 @@ public final class ShoutEventHandler {
 		for (NpcShout shout : shouts) {
 			if (shout.getSkillNo() == 0) {
 				nonNumberedShouts.add(shout);
-			}
-			else if (shout.getSkillNo() == owner.getSkillNumber()) {
+			} else if (shout.getSkillNo() == owner.getSkillNumber()) {
 				validShouts.add(shout);
 			}
 		}
@@ -211,8 +212,7 @@ public final class ShoutEventHandler {
 		if (validShouts.size() == 0) {
 			validShouts.clear();
 			validShouts = nonNumberedShouts;
-		}
-		else {
+		} else {
 			nonNumberedShouts.clear();
 		}
 

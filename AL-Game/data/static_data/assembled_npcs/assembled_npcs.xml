@@ -126,7 +126,7 @@
         <assembled_part npcId="258256" staticId="486"/>
     </assembled_npc>
     <!-- battle dredgion 2011 -->
-    <assembled_npc nr="5" routeId="5" liveTime="600000" mapId="210050000">
+    <assembled_npc nr="5" routeId="5" liveTime="600000" mapId="210050000"> 
         <assembled_part npcId="258247" staticId="909"/>
         <assembled_part npcId="254152" staticId="1244"/>
         <assembled_part npcId="258249" staticId="907"/>

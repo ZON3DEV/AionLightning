@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name="packets">
         <xs:complexType>
             <xs:sequence>
@@ -17,9 +16,9 @@
         <xs:attribute type="xs:long" name="delay" use="optional"/>
     </xs:complexType>
     <xs:complexType name="partType">
-        <xs:attribute type="partTypes" name="type" use="required"/>
+        <xs:attribute type="partTypes" name="type"  use="required"/>
         <xs:attribute type="xs:string" name="value" use="required"/>
-        <xs:attribute type="xs:int" name="repeat" use="optional"/>
+        <xs:attribute type="xs:int" name="repeat"   use="optional"/>
     </xs:complexType>
     <xs:simpleType name="partTypes">
         <xs:restriction base="xs:string">

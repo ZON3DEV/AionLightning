@@ -30,6 +30,5 @@
                 <xs:attribute name="chance" type="xs:float" use="required"/>
                 <xs:attribute name="no_reduce" type="xs:boolean"/>
                 <xs:attribute name="eachmember" type="xs:boolean"/>
-                <xs:attribute name="name" type="xs:string"/>
         </xs:complexType>
 </xs:schema>

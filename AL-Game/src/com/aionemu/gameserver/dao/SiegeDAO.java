@@ -14,12 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.dao;
 
-import java.util.Map;
+package com.aionemu.gameserver.dao;
 
 import com.aionemu.commons.database.dao.DAO;
 import com.aionemu.gameserver.model.siege.SiegeLocation;
+import java.util.Map;
 
 /**
  * @author Sarynth
@@ -33,7 +33,8 @@ public abstract class SiegeDAO implements DAO {
 
 	public abstract boolean loadSiegeLocations(Map<Integer, SiegeLocation> locations);
 
-	// private abstract boolean insertSiegeLocation(SiegeLocation siegeLocation);
+	// private abstract boolean insertSiegeLocation(SiegeLocation
+	// siegeLocation);
 	public abstract boolean updateSiegeLocation(SiegeLocation siegeLocation);
 
 	public void updateLocation(final SiegeLocation siegeLocation) {

@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionl.slf4j.filters;
 
 import ch.qos.logback.classic.spi.ILoggingEvent;
@@ -26,11 +27,10 @@ import ch.qos.logback.core.spi.FilterReply;
  *
  */
 public class VeteranRewardsFilter extends Filter<ILoggingEvent> {
-
-	@Override
+  
 	public FilterReply decide(ILoggingEvent loggingEvent) {
 		Object message = loggingEvent.getMessage();
-
+		
 		if (((String) message).startsWith("[VETERANREWARD]")) {
 			return FilterReply.ACCEPT;
 		}

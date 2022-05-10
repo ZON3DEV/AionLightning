@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -23,6 +24,7 @@ import com.aionemu.gameserver.world.geo.GeoService;
 
 /**
  * @author MrPoke
+ *
  */
 public class Geo extends AdminCommand {
 

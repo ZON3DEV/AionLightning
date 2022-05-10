@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai2.manager;
 
-import java.util.List;
+package com.aionemu.gameserver.ai2.manager;
 
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.ai2.AIState;
@@ -33,6 +32,8 @@ import com.aionemu.gameserver.model.templates.walker.WalkerTemplate;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.geo.GeoService;
+
+import java.util.List;
 
 /**
  * @author ATracer
@@ -51,22 +52,7 @@ public class WalkManager {
 		if (template != null) {
 			npcAI.setSubStateIfNot(AISubState.WALK_PATH);
 			startRouteWalking(npcAI, owner, template);
-		}
-		else {
-			return startRandomWalking(npcAI, owner);
-		}
-		return true;
-	}
-
-	public static boolean startRouteWalking(NpcAI2 npcAI, WalkerTemplate template) {
-		npcAI.setStateIfNot(AIState.WALKING);
-		Npc owner = npcAI.getOwner();
-
-		if (template != null) {
-			npcAI.setSubStateIfNot(AISubState.WALK_PATH);
-			startRouteWalking(npcAI, owner, template);
-		}
-		else {
+		} else {
 			return startRandomWalking(npcAI, owner);
 		}
 		return true;
@@ -120,8 +106,7 @@ public class WalkManager {
 		RouteStep nextStep = null;
 		if (currentPoint != 0) {
 			nextStep = findNextRouteStepAfterPause(owner, route, currentPoint);
-		}
-		else {
+		} else {
 			nextStep = findClosestRouteStep(owner, route, nextStep);
 		}
 		return nextStep;
@@ -143,12 +128,10 @@ public class WalkManager {
 			// always choose the 1st step, not the last which is close enough
 			if (owner.getWalkerGroup().getGroupStep() < 2) {
 				nextStep = route.get(0);
-			}
-			else {
+			} else {
 				nextStep = route.get(owner.getWalkerGroup().getGroupStep() - 1);
 			}
-		}
-		else {
+		} else {
 			for (RouteStep step : route) {
 				double stepDist = MathUtil.getDistance(x, y, z, step.getX(), step.getY(), step.getZ());
 				if (closestDist == 0 || stepDist < closestDist) {
@@ -176,7 +159,8 @@ public class WalkManager {
 	}
 
 	/**
-	 * Is this npc will walk. Currently all monsters will walk and those npc wich has walk routes
+	 * Is this npc will walk. Currently all monsters will walk and those npc
+	 * wich has walk routes
 	 *
 	 * @param npcAI
 	 * @return
@@ -203,8 +187,7 @@ public class WalkManager {
 					npcAI.getOwner().updateKnownlist();
 					if (npcAI.getOwner().getWalkerGroup() != null) {
 						npcAI.getOwner().getWalkerGroup().targetReached(npcAI);
-					}
-					else {
+					} else {
 						chooseNextRouteStep(npcAI);
 					}
 					break;
@@ -233,12 +216,10 @@ public class WalkManager {
 			npcAI.getOwner().getMoveController().resetMove();
 			npcAI.getOwner().getMoveController().chooseNextStep();
 			npcAI.getOwner().getMoveController().moveToNextPoint();
-		}
-		else {
+		} else {
 			npcAI.getOwner().getMoveController().abortMove();
 			npcAI.getOwner().getMoveController().chooseNextStep();
 			ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
 					if (npcAI.isInState(AIState.WALKING)) {
@@ -261,22 +242,20 @@ public class WalkManager {
 		final float distToSpawn = (float) owner.getDistanceToSpawnLocation();
 
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				if (npcAI.isInState(AIState.WALKING)) {
 					if (distToSpawn > walkRange) {
 						owner.getMoveController().moveToPoint(owner.getSpawn().getX(), owner.getSpawn().getY(), owner.getSpawn().getZ());
-					}
-					else {
+					} else {
 						int nextX = Rnd.nextInt(walkRange * 2) - walkRange;
 						int nextY = Rnd.nextInt(walkRange * 2) - walkRange;
 						if (GeoDataConfig.GEO_ENABLE && GeoDataConfig.GEO_NPC_MOVE) {
 							byte flags = (byte) (CollisionIntention.PHYSICAL.getId() | CollisionIntention.DOOR.getId() | CollisionIntention.WALK.getId());
-							Vector3f loc = GeoService.getInstance().getClosestCollision(owner, owner.getX() + nextX, owner.getY() + nextY, owner.getZ(), true, flags);
+							Vector3f loc = GeoService.getInstance().getClosestCollision(owner, owner.getX() + nextX, owner.getY() + nextY, owner.getZ(), true,
+									flags);
 							owner.getMoveController().moveToPoint(loc.x, loc.y, loc.z);
-						}
-						else {
+						} else {
 							owner.getMoveController().moveToPoint(owner.getX() + nextX, owner.getY() + nextY, owner.getZ());
 						}
 					}

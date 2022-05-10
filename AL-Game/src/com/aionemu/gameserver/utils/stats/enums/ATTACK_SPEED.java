@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.stats.enums;
 
 /**
@@ -37,7 +38,6 @@ public enum ATTACK_SPEED {
 	RIDER(1500),
 	GUNNER(1500),
 	ARTIST(1500),
-	PAINTER(1500),
 	BARD(1500);
 
 	private int value;

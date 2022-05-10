@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.geometry;
 
 import com.aionemu.gameserver.model.templates.zone.Point2D;
@@ -22,7 +23,8 @@ import com.aionemu.gameserver.world.zone.ZoneName;
 /**
  * Basic interface for all areas in AionEmu.<br>
  * It should be implemented in different ways for performance reasons.<br>
- * For instance, we don't need complex math for squares or circles, but we need it for more complex polygons.
+ * For instance, we don't need complex math for squares or circles, but we need
+ * it for more complex polygons.
  *
  * @author SoulKeeper
  */
@@ -157,7 +159,8 @@ public interface Area {
 
 	/**
 	 * Returns closest point of area to given point.<br>
-	 * Works exactly like {@link #getClosestPoint(int, int)} if {@link #isInsideZ(int)} returns true.<br>
+	 * Works exactly like {@link #getClosestPoint(int, int)} if
+	 * {@link #isInsideZ(int)} returns true.<br>
 	 * In other case closest z edge is set as z coord.
 	 *
 	 * @param point
@@ -168,7 +171,8 @@ public interface Area {
 
 	/**
 	 * Returns closest point of area to given coords.<br>
-	 * Works exactly like {@link #getClosestPoint(int, int)} if {@link #isInsideZ(int)} returns true.<br>
+	 * Works exactly like {@link #getClosestPoint(int, int)} if
+	 * {@link #isInsideZ(int)} returns true.<br>
 	 * In other case closest z edge is set as z coord.
 	 *
 	 * @param x

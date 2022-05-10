@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.Petition;
@@ -45,8 +46,7 @@ public class SM_PETITION extends AionServerPacket {
 			writeD(0x00);
 			writeH(0x00);
 			writeC(0x00);
-		}
-		else {
+		} else {
 			writeC(0x01); // Action ID ?
 			writeD(100); // unk (total online players ?)
 			writeH(PetitionService.getInstance().getWaitingPlayers(con.getActivePlayer().getObjectId())); // Users
@@ -56,7 +56,7 @@ public class SM_PETITION extends AionServerPacket {
 			writeH(0x00);
 			writeC(50); // Total Petitions
 			writeC(49); // Remaining Petitions
-			writeH(PetitionService.getInstance().calculateWaitTime(petition.getPlayerObjId())); // Estimated minutes
+            writeH(PetitionService.getInstance().calculateWaitTime(petition.getPlayerObjId())); // Estimated minutes
 			// before GM reply
 			writeD(0x00);
 		}

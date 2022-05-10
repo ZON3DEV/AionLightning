@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.configs.main.SecurityConfig;
@@ -44,8 +45,7 @@ public class Invis extends AdminCommand {
 			if (SecurityConfig.INVIS) {
 				PlayerVisualStateService.hideValidate(player);
 			}
-		}
-		else {
+		} else {
 			player.getEffectController().unsetAbnormal(AbnormalState.HIDE.getId());
 			player.unsetVisualState(CreatureVisualState.HIDE20);
 			PacketSendUtility.broadcastPacket(player, new SM_PLAYER_STATE(player), true);

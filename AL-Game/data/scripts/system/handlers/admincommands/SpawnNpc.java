@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import java.io.IOException;
@@ -72,12 +73,10 @@ public class SpawnNpc extends AdminCommand {
 		if (visibleObject == null) {
 			PacketSendUtility.sendMessage(admin, "Spawn id " + templateId + " was not found!");
 			return;
-		}
-		else if (respawnTime > 0) {
+		} else if (respawnTime > 0) {
 			try {
 				DataManager.SPAWNS_DATA2.saveSpawn(admin, visibleObject, false);
-			}
-			catch (IOException e) {
+			} catch (IOException e) {
 				e.printStackTrace();
 				PacketSendUtility.sendMessage(admin, "Could not save spawn");
 			}

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2;
 
 import java.util.Collection;
@@ -53,12 +54,10 @@ public abstract class GeneralTeam<M extends AionObject, TM extends TeamMember<M>
 		try {
 			if (event.checkCondition()) {
 				event.handleEvent();
-			}
-			else {
+			} else {
 				log.warn("[TEAM2] skipped event: {} group: {}", event, this);
 			}
-		}
-		finally {
+		} finally {
 			unlock();
 		}
 	}
@@ -104,8 +103,7 @@ public abstract class GeneralTeam<M extends AionObject, TM extends TeamMember<M>
 					return;
 				}
 			}
-		}
-		finally {
+		} finally {
 			unlock();
 		}
 	}
@@ -122,8 +120,7 @@ public abstract class GeneralTeam<M extends AionObject, TM extends TeamMember<M>
 					return;
 				}
 			}
-		}
-		finally {
+		} finally {
 			unlock();
 		}
 	}

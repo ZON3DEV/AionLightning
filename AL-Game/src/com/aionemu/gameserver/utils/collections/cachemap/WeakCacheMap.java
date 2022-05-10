@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.collections.cachemap;
 
 import java.lang.ref.Reference;
@@ -26,7 +27,8 @@ import org.slf4j.LoggerFactory;
 /**
  * This class is a simple map implementation for cache usage.<br>
  * <br>
- * Values from the map will be removed after the first garbage collector run if there isn't any strong reference to the value object.
+ * Values from the map will be removed after the first garbage collector run if
+ * there isn't any strong reference to the value object.
  *
  * @author Luno
  */
@@ -35,7 +37,8 @@ class WeakCacheMap<K, V> extends AbstractCacheMap<K, V> implements CacheMap<K, V
 	private static final Logger log = LoggerFactory.getLogger(WeakCacheMap.class);
 
 	/**
-	 * This class is a {@link WeakReference} with additional responsibility of holding key object
+	 * This class is a {@link WeakReference} with additional responsibility of
+	 * holding key object
 	 *
 	 * @author Luno
 	 */

@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.serverpackets;
 
-import java.util.List;
+package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.house.House;
@@ -25,6 +24,8 @@ import com.aionemu.gameserver.model.house.HouseStatus;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 import com.aionemu.gameserver.services.HousingBidService;
+
+import java.util.List;
 
 /**
  * @author Rolandas
@@ -54,8 +55,7 @@ public class SM_HOUSE_BIDS extends AionServerPacket {
 		if (playerBid == null) {
 			writeD(0);
 			writeQ(0);
-		}
-		else {
+		} else {
 			writeD(playerBid.getEntryIndex());
 			writeQ(playerBid.getBidPrice());
 		}
@@ -74,8 +74,7 @@ public class SM_HOUSE_BIDS extends AionServerPacket {
 			sellData = HousingBidService.getInstance().getHouseBid(sellHouse.getObjectId());
 			writeD(sellData.getEntryIndex());
 			writeQ(sellData.getBidPrice());
-		}
-		else {
+		} else {
 			writeD(0);
 			writeQ(0);
 		}
@@ -89,11 +88,9 @@ public class SM_HOUSE_BIDS extends AionServerPacket {
 			writeD(entry.getBuildingId());
 			if (sellData != null && entry.getEntryIndex() == sellData.getEntryIndex()) {
 				writeD(0);
-			}
-			else if (HousingBidService.canBidHouse(player, entry.getMapId(), entry.getLandId())) {
+			} else if (HousingBidService.canBidHouse(player, entry.getMapId(), entry.getLandId())) {
 				writeD(entry.getHouseType().getId());
-			}
-			else {
+			} else {
 				writeD(0);
 			}
 			writeQ(entry.getBidPrice());

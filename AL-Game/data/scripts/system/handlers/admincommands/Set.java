@@ -14,26 +14,23 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import java.util.Arrays;
 
 import com.aionemu.gameserver.configs.administration.CommandsConfig;
-import com.aionemu.gameserver.configs.main.GSConfig;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TITLE_INFO;
 import com.aionemu.gameserver.services.abyss.AbyssPointsService;
-import com.aionemu.gameserver.services.player.FatigueService;
-import com.aionemu.gameserver.services.player.LunaShopService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 
 /**
  * @author Nemiroff, ATracer, IceReaper Date: 11.12.2009
  * @author Sarynth - Added AP
- * @author Alcapwnd - Added Fatigue
  */
 public class Set extends AdminCommand {
 
@@ -70,16 +67,14 @@ public class Set extends AdminCommand {
 			byte newClass;
 			try {
 				newClass = Byte.parseByte(paramValue);
-			}
-			catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				PacketSendUtility.sendMessage(admin, "You should enter valid second params!");
 				return;
 			}
 
 			PlayerClass oldClass = target.getPlayerClass();
 			setClass(target, oldClass, newClass);
-		}
-		else if (params[0].equals("exp")) {
+		} else if (params[0].equals("exp")) {
 			if (admin.getAccessLevel() < CommandsConfig.SET) {
 				PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 				return;
@@ -88,16 +83,14 @@ public class Set extends AdminCommand {
 			long exp;
 			try {
 				exp = Long.parseLong(paramValue);
-			}
-			catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				PacketSendUtility.sendMessage(admin, "You should enter valid second params!");
 				return;
 			}
 
 			target.getCommonData().setExp(exp);
 			PacketSendUtility.sendMessage(admin, "Set exp of target to " + paramValue);
-		}
-		else if (params[0].equals("ap")) {
+		} else if (params[0].equals("ap")) {
 			if (admin.getAccessLevel() < CommandsConfig.SET) {
 				PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 				return;
@@ -106,8 +99,7 @@ public class Set extends AdminCommand {
 			int ap;
 			try {
 				ap = Integer.parseInt(paramValue);
-			}
-			catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				PacketSendUtility.sendMessage(admin, "You should enter valid second params!");
 				return;
 			}
@@ -115,13 +107,11 @@ public class Set extends AdminCommand {
 			AbyssPointsService.setAp(target, ap);
 			if (target == admin) {
 				PacketSendUtility.sendMessage(admin, "Set your Abyss Points to " + ap + ".");
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(admin, "Set " + target.getName() + " Abyss Points to " + ap + ".");
 				PacketSendUtility.sendMessage(target, "Admin set your Abyss Points to " + ap + ".");
 			}
-		}
-		else if (params[0].equals("gp")) {
+		} else if (params[0].equals("gp")) {
 			if (admin.getAccessLevel() < CommandsConfig.SET) {
 				PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 				return;
@@ -133,8 +123,7 @@ public class Set extends AdminCommand {
 				if (gp > 15000) {
 					return;
 				}
-			}
-			catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				PacketSendUtility.sendMessage(admin, "You should enter valid second params!");
 				return;
 			}
@@ -142,66 +131,12 @@ public class Set extends AdminCommand {
 			AbyssPointsService.setGp(target, gp);
 			if (target == admin) {
 				PacketSendUtility.sendMessage(admin, "Set your Glory Points to " + gp + ".");
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(admin, "Set " + target.getName() + " Glory Points to " + gp + ".");
 				PacketSendUtility.sendMessage(target, "Admin set your Glory Points to " + gp + ".");
 			}
-		}
-		else if (params[0].equals("fatigue")) {
-			if (admin.getAccessLevel() < CommandsConfig.SET) {
-				PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
-				return;
-			}
 
-			int fatigue;
-			try {
-				fatigue = Integer.parseInt(paramValue);
-				if (fatigue > 100)
-					fatigue = 100;
-			}
-			catch (NumberFormatException e) {
-				PacketSendUtility.sendMessage(admin, "You should enter valid second params!");
-				return;
-			}
-
-			int currentFatigue = target.getCommonData().getFatigue();
-
-			target.getCommonData().setFatigue(currentFatigue + fatigue);
-			if (target.getCommonData().getFatigue() > 100)
-				target.getCommonData().setFatigue(100);
-			FatigueService.getInstance().checkFatigue(target);
-			if (target == admin) {
-				PacketSendUtility.sendMessage(admin, "Set your Fatigue to " + fatigue + "%.");
-			}
-			else {
-				PacketSendUtility.sendMessage(admin, "Set " + target.getName() + " Fatigue to " + fatigue + "%.");
-				PacketSendUtility.sendMessage(target, "Admin set your Fatigue to " + fatigue + "%.");
-			}
-		}
-		else if (params[0].equals("level")) {
-			if (admin.getAccessLevel() < CommandsConfig.SET) {
-				PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
-				return;
-			}
-
-			int level;
-			try {
-				level = Integer.parseInt(paramValue);
-			}
-			catch (NumberFormatException e) {
-				PacketSendUtility.sendMessage(admin, "You should enter valid second params!");
-				return;
-			}
-
-			Player player = target;
-
-			if (level <= GSConfig.PLAYER_MAX_LEVEL) {
-				player.getCommonData().setLevel(level);
-			}
-			PacketSendUtility.sendMessage(admin, "Set " + player.getCommonData().getName() + " level to " + level);
-		}
-		else if (params[0].equals("title")) {
+		} else if (params[0].equals("title")) {
 			if (admin.getAccessLevel() < CommandsConfig.SET) {
 				PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
 				return;
@@ -210,61 +145,16 @@ public class Set extends AdminCommand {
 			int titleId;
 			try {
 				titleId = Integer.parseInt(paramValue);
-			}
-			catch (NumberFormatException e) {
+			} catch (NumberFormatException e) {
 				PacketSendUtility.sendMessage(admin, "You should enter valid second params!");
 				return;
 			}
 
-			Player player = target;
-			if (titleId <= 330) {
-				setTitle(player, titleId);
+			if (titleId <= 272) {
+				setTitle(target, titleId);
 			}
-			PacketSendUtility.sendMessage(admin, "Set " + player.getCommonData().getName() + " title to " + titleId);
-		}
-		else if (params[0].equals("luna")) {
-			if (admin.getAccessLevel() < CommandsConfig.SET) {
-				PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
-				return;
-			}
-			int luna;
-			try {
-				luna = Integer.parseInt(paramValue);
-			}
-			catch (NumberFormatException e) {
-				PacketSendUtility.sendMessage(admin, "You should enter valid second params!");
-				return;
-			}
-			LunaShopService.getInstance().lunaPointController(target, (int) (target.getLunaAccount() + luna));
-			if (target == admin) {
-				PacketSendUtility.sendMessage(admin, "Added " + luna + " <Luna Coins>.");
-			}
-			else {
-				PacketSendUtility.sendMessage(admin, "Added " + luna + " <Luna Coins> to " + target.getName() + ".");
-				PacketSendUtility.sendMessage(target, "Admin added " + luna + " <Luna Coins> to your Account.");
-			}
-		}
-		else if (params[0].equals("key")) {
-			if (admin.getAccessLevel() < CommandsConfig.SET) {
-				PacketSendUtility.sendMessage(admin, "You dont have enough rights to execute this command");
-				return;
-			}
-			int key;
-			try {
-				key = Integer.parseInt(paramValue);
-			}
-			catch (NumberFormatException e) {
-				PacketSendUtility.sendMessage(admin, "You should enter valid second params!");
-				return;
-			}
-			LunaShopService.getInstance().muniKeysController(target, target.getMuniKeys() + key);
-			if (target == admin) {
-				PacketSendUtility.sendMessage(admin, "Added " + key + " <Munirunerk's Keys>.");
-			}
-			else {
-				PacketSendUtility.sendMessage(admin, "Added " + key + " <Munirunerk's Keys> to " + target.getName() + ".");
-				PacketSendUtility.sendMessage(target, "Admin added " + key + " <Munirunerk's Keys> to your Char.");
-			}
+			PacketSendUtility.sendMessage(admin, "Set " + target.getCommonData().getName() + " title to " + titleId);
+
 		}
 	}
 
@@ -322,6 +212,6 @@ public class Set extends AdminCommand {
 
 	@Override
 	public void onFail(Player player, String message) {
-		PacketSendUtility.sendMessage(player, "syntax //set <class|exp|ap|gp|fatigue|level|title|luna>");
+		PacketSendUtility.sendMessage(player, "syntax //set <class|exp|ap|level|title>");
 	}
 }

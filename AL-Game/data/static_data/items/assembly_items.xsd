@@ -4,14 +4,12 @@
     <xs:element name="assembly_items">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="item" type="AssemblyItem" maxOccurs="unbounded"/>
+                <xs:element maxOccurs="unbounded" name="item" type="AssemblyItem"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
     <xs:complexType name="AssemblyItem">
         <xs:attribute name="parts" type="IntListType" use="required"/>
         <xs:attribute name="id" type="xs:int" use="required"/>
-        <xs:attribute name="parts_num" type="xs:int"/>
-        <xs:attribute name="proc_assembly" type="xs:int" use="optional"/>
     </xs:complexType>
 </xs:schema>

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.alliance.events;
 
 import java.util.Collection;
@@ -58,8 +59,7 @@ public class ChangeAllianceLeaderEvent extends ChangeLeaderEvent<PlayerAlliance>
 			if (team.isLeader(oldLeader)) {
 				team.applyOnMembers(this);
 			}
-		}
-		else {
+		} else {
 			changeLeaderTo(eventPlayer);
 		}
 		checkLeaderChanged(oldLeader);
@@ -72,14 +72,12 @@ public class ChangeAllianceLeaderEvent extends ChangeLeaderEvent<PlayerAlliance>
 	protected void changeLeaderTo(final Player player) {
 		team.changeLeader(team.getMember(player.getObjectId()));
 		team.applyOnMembers(new Predicate<Player>() {
-
 			@Override
 			public boolean apply(Player member) {
 				PacketSendUtility.sendPacket(member, new SM_ALLIANCE_INFO(team));
 				if (!player.equals(member)) {
 					PacketSendUtility.sendPacket(member, SM_SYSTEM_MESSAGE.STR_FORCE_HE_IS_NEW_LEADER(player.getName()));
-				}
-				else {
+				} else {
 					PacketSendUtility.sendPacket(member, SM_SYSTEM_MESSAGE.STR_FORCE_YOU_BECOME_NEW_LEADER);
 				}
 				return true;

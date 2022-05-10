@@ -14,6 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
+
 package com.aionemu.gameserver.model.templates.item;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -26,33 +28,32 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum ArmorType {
 
-	NO_ARMOR(new int[] {}),
-	CHAIN(new int[] { 42, 49 }),
-	CLOTHES(new int[] { 40 }),
-	LEATHER(new int[] { 41, 48 }),
-	PLATE(new int[] { 54 }),
-	ROBE(new int[] { 103, 106 }),
-	SHIELD(new int[] { 43, 50 }),
-	ARROW(new int[] {}),
-	WING(new int[] {}),
-	PLUME(new int[] {}),
-	ACCESSORY(new int[] {}),
-	GLYPH(new int[] {});
+    NO_ARMOR(new int[] {}),
+    ACCESSORY(new int[] {}),
+    CHAIN(new int[] {6, 13}),
+    CLOTHES(new int[] {4}),
+    LEATHER(new int[] {5, 12}),
+    PLATE(new int[] {18}),
+    ROBE(new int[] {67, 70}),
+    SHIELD(new int[] {7, 14}),
+    ARROW(new int[] {}),
+    WING(new int[] {}),
+    FEATHER(new int[] {});
 
-	private int[] requiredSkills;
+    private int[] requiredSkills;
 
-	private ArmorType(int[] requiredSkills) {
-		this.requiredSkills = requiredSkills;
-	}
+    private ArmorType(int[] requiredSkills) {
+        this.requiredSkills = requiredSkills;
+    }
 
-	public int[] getRequiredSkills() {
-		return requiredSkills;
-	}
+    public int[] getRequiredSkills() {
+        return requiredSkills;
+    }
 
-	/**
-	 * @return int
-	 */
-	public int getMask() {
-		return 1 << this.ordinal();
-	}
+    /**
+     * @return int
+     */
+    public int getMask() {
+        return 1 << this.ordinal();
+    }
 }

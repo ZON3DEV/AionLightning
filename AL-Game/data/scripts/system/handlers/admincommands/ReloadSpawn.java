@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
@@ -22,11 +23,11 @@ import com.aionemu.gameserver.model.gameobjects.StaticObject;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
+import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.world.knownlist.Visitor;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.WorldMapType;
-import com.aionemu.gameserver.world.knownlist.Visitor;
 
 /**
  * @author Luno, reworked Bobobear
@@ -47,8 +48,7 @@ public class ReloadSpawn extends AdminCommand {
 
 		if (params == null || params.length < 1) {
 			PacketSendUtility.sendMessage(player, "syntax //reload_spawn <location name | all>");
-		}
-		else {
+		} else {
 			StringBuilder sbDestination = new StringBuilder();
 			for (String p : params) {
 				sbDestination.append(p + " ");
@@ -58,74 +58,55 @@ public class ReloadSpawn extends AdminCommand {
 
 			if (destination.equalsIgnoreCase("Sanctum")) {
 				worldId = WorldMapType.SANCTUM.getId();
-			}
-			else if (destination.equalsIgnoreCase("Kaisinel")) {
-				worldId = WorldMapType.KAISINEL_ACADEMY.getId();
-			}
-			else if (destination.equalsIgnoreCase("Poeta")) {
+			} else if (destination.equalsIgnoreCase("Kaisinel")) {
+				worldId = WorldMapType.KAISINEL.getId();
+			} else if (destination.equalsIgnoreCase("Poeta")) {
 				worldId = WorldMapType.POETA.getId();
-			}
-			else if (destination.equalsIgnoreCase("Verteron")) {
+			} else if (destination.equalsIgnoreCase("Verteron")) {
 				worldId = WorldMapType.VERTERON.getId();
-			}
-			else if (destination.equalsIgnoreCase("Eltnen")) {
+			} else if (destination.equalsIgnoreCase("Eltnen")) {
 				worldId = WorldMapType.ELTNEN.getId();
-			}
-			else if (destination.equalsIgnoreCase("Theobomos")) {
+			} else if (destination.equalsIgnoreCase("Theobomos")) {
 				worldId = WorldMapType.THEOBOMOS.getId();
-			}
-			else if (destination.equalsIgnoreCase("Heiron")) {
+			} else if (destination.equalsIgnoreCase("Heiron")) {
 				worldId = WorldMapType.HEIRON.getId();
-			}
-			else if (destination.equalsIgnoreCase("Pandaemonium")) {
+			} else if (destination.equalsIgnoreCase("Pandaemonium")) {
 				worldId = WorldMapType.PANDAEMONIUM.getId();
-			}
-			else if (destination.equalsIgnoreCase("Marchutan")) {
-				worldId = WorldMapType.MARCHUTAN_PRIORY.getId();
-			}
-			else if (destination.equalsIgnoreCase("Ishalgen")) {
+			} else if (destination.equalsIgnoreCase("Marchutan")) {
+				worldId = WorldMapType.MARCHUTAN.getId();
+			} else if (destination.equalsIgnoreCase("Ishalgen")) {
 				worldId = WorldMapType.ISHALGEN.getId();
-			}
-			else if (destination.equalsIgnoreCase("Altgard")) {
+			} else if (destination.equalsIgnoreCase("Altgard")) {
 				worldId = WorldMapType.ALTGARD.getId();
-			}
-			else if (destination.equalsIgnoreCase("Morheim")) {
+			} else if (destination.equalsIgnoreCase("Morheim")) {
 				worldId = WorldMapType.MORHEIM.getId();
-			}
-			else if (destination.equalsIgnoreCase("Brusthonin")) {
+			} else if (destination.equalsIgnoreCase("Brusthonin")) {
 				worldId = WorldMapType.BRUSTHONIN.getId();
-			}
-			else if (destination.equalsIgnoreCase("Beluslan")) {
+			} else if (destination.equalsIgnoreCase("Beluslan")) {
 				worldId = WorldMapType.BELUSLAN.getId();
-			}
-			else if (destination.equalsIgnoreCase("Inggison")) {
+			} else if (destination.equalsIgnoreCase("Inggison")) {
 				worldId = WorldMapType.INGGISON.getId();
-			}
-			else if (destination.equalsIgnoreCase("Gelkmaros")) {
+			} else if (destination.equalsIgnoreCase("Gelkmaros")) {
 				worldId = WorldMapType.GELKMAROS.getId();
-			}
-			else if (destination.equalsIgnoreCase("Silentera")) {
+			} else if (destination.equalsIgnoreCase("Silentera")) {
 				worldId = 600010000;
-			}
-			else if (destination.equalsIgnoreCase("Reshanta")) {
+			} else if (destination.equalsIgnoreCase("Reshanta")) {
 				worldId = WorldMapType.RESHANTA.getId();
-			}
-			else if (destination.equalsIgnoreCase("Kaisinel Academy")) {
+			} else if (destination.equalsIgnoreCase("Kaisinel Academy")) {
 				worldId = 110070000;
-			}
-			else if (destination.equalsIgnoreCase("Marchutan Priory")) {
+			} else if (destination.equalsIgnoreCase("Marchutan Priory")) {
 				worldId = 120080000;
-			}
-			else if (destination.equalsIgnoreCase("Oriel")) {
+			} else if (destination.equalsIgnoreCase("Sarpan")) {
+				worldId = 600020000;
+			} else if (destination.equalsIgnoreCase("Tiamaranta")) {
+				worldId = 600030000;
+			} else if (destination.equalsIgnoreCase("Oriel")) {
 				worldId = 700010000;
-			}
-			else if (destination.equalsIgnoreCase("Pernon")) {
+			} else if (destination.equalsIgnoreCase("Pernon")) {
 				worldId = 710010000;
-			}
-			else if (destination.equalsIgnoreCase("All")) {
+			} else if (destination.equalsIgnoreCase("All")) {
 				worldId = 0;
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(player, "Could not find the specified map !");
 			}
 		}
@@ -134,14 +115,14 @@ public class ReloadSpawn extends AdminCommand {
 		// despawn specified map, no instance
 		if (destination.equalsIgnoreCase("All")) {
 			reloadMap(WorldMapType.SANCTUM.getId(), player, "Sanctum");
-			reloadMap(WorldMapType.KAISINEL_ACADEMY.getId(), player, "Kaisinel");
+			reloadMap(WorldMapType.KAISINEL.getId(), player, "Kaisinel");
 			reloadMap(WorldMapType.POETA.getId(), player, "Poeta");
 			reloadMap(WorldMapType.VERTERON.getId(), player, "Verteron");
 			reloadMap(WorldMapType.ELTNEN.getId(), player, "Eltnen");
 			reloadMap(WorldMapType.THEOBOMOS.getId(), player, "Theobomos");
 			reloadMap(WorldMapType.HEIRON.getId(), player, "Heiron");
 			reloadMap(WorldMapType.PANDAEMONIUM.getId(), player, "Pandaemonium");
-			reloadMap(WorldMapType.MARCHUTAN_PRIORY.getId(), player, "Marchutan");
+			reloadMap(WorldMapType.MARCHUTAN.getId(), player, "Marchutan");
 			reloadMap(WorldMapType.ISHALGEN.getId(), player, "Ishalgen");
 			reloadMap(WorldMapType.ALTGARD.getId(), player, "Altgard");
 			reloadMap(WorldMapType.MORHEIM.getId(), player, "Morheim");
@@ -153,22 +134,20 @@ public class ReloadSpawn extends AdminCommand {
 			reloadMap(WorldMapType.RESHANTA.getId(), player, "Reshanta");
 			reloadMap(110070000, player, "Kaisinel Academy");
 			reloadMap(120080000, player, "Marchutan Priory");
+			reloadMap(600020000, player, "Sarpan");
+			reloadMap(600030000, player, "Tiamaranta");
 			reloadMap(700010000, player, "Oriel");
 			reloadMap(710010000, player, "Pernon");
-		}
-		else {
+		} else {
 			reloadMap(worldId, player, destinationMap);
 		}
 	}
 
 	private void reloadMap(int worldId, Player admin, String destinationMap) {
 		final int IdWorld = worldId;
-		final Player adm = admin;
-		final String dest = destinationMap;
 
 		if (IdWorld != 0) {
 			World.getInstance().doOnAllObjects(new Visitor<VisibleObject>() {
-
 				@Override
 				public void visit(VisibleObject object) {
 					if (object.getWorldId() != IdWorld) {
@@ -180,7 +159,7 @@ public class ReloadSpawn extends AdminCommand {
 				}
 			});
 			SpawnEngine.spawnWorldMap(IdWorld);
-			PacketSendUtility.sendMessage(adm, "Spawns for map: " + IdWorld + " (" + dest + ") reloaded succesfully");
+			PacketSendUtility.sendMessage(admin, "Spawns for map: " + IdWorld + " (" + destinationMap + ") reloaded succesfully");
 		}
 	}
 

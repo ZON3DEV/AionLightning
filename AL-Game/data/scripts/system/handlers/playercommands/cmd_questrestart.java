@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package playercommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -44,8 +45,7 @@ public class cmd_questrestart extends PlayerCommand {
 
 		try {
 			id = Integer.valueOf(params[0]);
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			PacketSendUtility.sendMessage(player, "syntax .questrestart <quest id>");
 			return;
 		}
@@ -63,12 +63,10 @@ public class cmd_questrestart extends PlayerCommand {
 				qs.setQuestVar(0);
 				PacketSendUtility.sendPacket(player, new SM_QUEST_ACTION(id, qs.getStatus(), qs.getQuestVars().getQuestVars()));
 				PacketSendUtility.sendMessage(player, "Quest [quest: " + id + "] restarted.");
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(player, "Quest [quest: " + id + "] can't be restarted.");
 			}
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(player, "Quest [quest: " + id + "] can't be restarted.");
 		}
 	}

@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package admincommands;
 
-import java.util.Iterator;
+package admincommands;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.assemblednpc.AssembledNpc;
@@ -28,10 +27,11 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.world.World;
-
+import java.util.Iterator;
 import javolution.util.FastList;
 
 /**
+ *
  * @author xTz
  */
 public class SpawnAssembledNpc extends AdminCommand {
@@ -49,8 +49,7 @@ public class SpawnAssembledNpc extends AdminCommand {
 		int spawnId = 0;
 		try {
 			spawnId = Integer.parseInt(params[0]);
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			onFail(player, null);
 			return;
 		}

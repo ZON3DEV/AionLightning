@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.handlers.models.xmlQuest.events;
 
 import java.util.ArrayList;
@@ -42,26 +43,24 @@ public abstract class QuestEvent {
 	@XmlAttribute
 	protected List<Integer> ids;
 
-	/**
-	 * @param env
-	 */
 	public boolean operate(QuestEnv env) {
 		return false;
 	}
 
 	/**
 	 * Gets the value of the ids property.
-	 * <p/>
-	 * This accessor method returns a reference to the live list, not a snapshot. Therefore any modification you make to the returned list will be present inside the JAXB object. This is why there is
-	 * not a <CODE>set</CODE> method for the ids property.
-	 * <p/>
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a
+	 * snapshot. Therefore any modification you make to the returned list will
+	 * be present inside the JAXB object. This is why there is not a
+	 * <CODE>set</CODE> method for the ids property.
+	 * <p>
 	 * For example, to add a new item, do as follows:
-	 * <p/>
-	 * 
+	 *
 	 * <pre>
 	 * getIds().add(newItem);
 	 * </pre>
-	 * <p/>
+	 * <p>
 	 * Objects of the following type(s) are allowed in the list {@link Integer }
 	 */
 	public List<Integer> getIds() {

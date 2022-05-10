@@ -14,7 +14,21 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.stats.container;
+
+import com.aionemu.gameserver.model.SkillElement;
+import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.items.ManaStone;
+import com.aionemu.gameserver.model.stats.calc.*;
+import com.aionemu.gameserver.model.stats.calc.functions.IStatFunction;
+import com.aionemu.gameserver.model.stats.calc.functions.StatFunction;
+import com.aionemu.gameserver.model.stats.calc.functions.StatFunctionProxy;
+import javolution.util.FastMap;
+import javolution.util.FastMap.Entry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -22,35 +36,22 @@ import java.util.List;
 import java.util.TreeSet;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.aionemu.gameserver.model.SkillElement;
-import com.aionemu.gameserver.model.gameobjects.Creature;
-import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.items.ManaStone;
-import com.aionemu.gameserver.model.stats.calc.AdditionStat;
-import com.aionemu.gameserver.model.stats.calc.ReverseStat;
-import com.aionemu.gameserver.model.stats.calc.Stat2;
-import com.aionemu.gameserver.model.stats.calc.StatCapUtil;
-import com.aionemu.gameserver.model.stats.calc.StatOwner;
-import com.aionemu.gameserver.model.stats.calc.functions.IStatFunction;
-import com.aionemu.gameserver.model.stats.calc.functions.StatFunction;
-import com.aionemu.gameserver.model.stats.calc.functions.StatFunctionProxy;
-
-import javolution.util.FastMap;
-import javolution.util.FastMap.Entry;
-
 /**
  * @author xavier
  */
 public abstract class CreatureGameStats<T extends Creature> {
 
 	protected static final Logger log = LoggerFactory.getLogger(CreatureGameStats.class);
+
+	private static final int ATTACK_MAX_COUNTER = Integer.MAX_VALUE;
 	private long lastGeoUpdate = 0;
+
 	private FastMap<StatEnum, TreeSet<IStatFunction>> stats;
 	private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+
+	private int attackCounter = 0;
 	protected T owner = null;
+
 	private Stat2 cachedHPStat;
 	private Stat2 cachedMPStat;
 
@@ -59,21 +60,55 @@ public abstract class CreatureGameStats<T extends Creature> {
 		this.stats = new FastMap<StatEnum, TreeSet<IStatFunction>>();
 	}
 
+	/**
+	 * @return the atcount
+	 */
+	public int getAttackCounter() {
+		return attackCounter;
+	}
+
+	/**
+	 * @param atcount
+	 *            the atcount to set
+	 */
+	protected void setAttackCounter(int attackCounter) {
+		if (attackCounter <= 0) {
+			this.attackCounter = 1;
+		} else {
+			this.attackCounter = attackCounter;
+		}
+	}
+
+	public void increaseAttackCounter() {
+		if (attackCounter == ATTACK_MAX_COUNTER) {
+			this.attackCounter = 1;
+		} else {
+			this.attackCounter++;
+		}
+	}
+
 	public final void addEffectOnly(StatOwner statOwner, List<? extends IStatFunction> functions) {
 		lock.writeLock().lock();
 		try {
 			for (IStatFunction function : functions) {
-				if (!stats.containsKey(function.getName())) {
+				if (!stats.containsKey(function.getName()))
 					stats.put(function.getName(), new TreeSet<IStatFunction>());
-				}
 				IStatFunction func = function;
 				if (function instanceof StatFunction) {
 					func = new StatFunctionProxy(statOwner, function);
 				}
+				// If already contains old stat, it won't add anyway, so next
+				// check will be false positive
+				// Useless Warning!!!
+				/*
+				 * TreeSet<IStatFunction> mods =
+				 * getStatsByStatEnum(function.getName()); if
+				 * (mods.contains(func)) { log.warn("Effect " + statOwner +
+				 * " already active" + func); }
+				 */
 				addFunction(function.getName(), func);
 			}
-		}
-		finally {
+		} finally {
 			lock.writeLock().unlock();
 		}
 	}
@@ -95,8 +130,7 @@ public abstract class CreatureGameStats<T extends Creature> {
 					}
 				}
 			}
-		}
-		finally {
+		} finally {
 			lock.writeLock().unlock();
 		}
 		onStatsChange();
@@ -115,22 +149,22 @@ public abstract class CreatureGameStats<T extends Creature> {
 	}
 
 	public Stat2 getStat(StatEnum statEnum, int base) {
-		Stat2 stat = new AdditionStat(statEnum, base, owner);
+		Stat2 stat = new AdditionStat(statEnum, base, (Creature) owner);
 		return getStat(statEnum, stat);
 	}
 
 	public Stat2 getStat(StatEnum statEnum, int base, float bonusRate) {
-		Stat2 stat = new AdditionStat(statEnum, base, owner, bonusRate);
+		Stat2 stat = new AdditionStat(statEnum, base, (Creature) owner, bonusRate);
 		return getStat(statEnum, stat);
 	}
 
 	public Stat2 getReverseStat(StatEnum statEnum, int base) {
-		Stat2 stat = new ReverseStat(statEnum, base, owner);
+		Stat2 stat = new ReverseStat(statEnum, base, (Creature) owner);
 		return getStat(statEnum, stat);
 	}
 
 	public Stat2 getReverseStat(StatEnum statEnum, int base, float bonusRate) {
-		Stat2 stat = new ReverseStat(statEnum, base, owner, bonusRate);
+		Stat2 stat = new ReverseStat(statEnum, base, (Creature) owner, bonusRate);
 		return getStat(statEnum, stat);
 	}
 
@@ -148,8 +182,7 @@ public abstract class CreatureGameStats<T extends Creature> {
 			}
 			StatCapUtil.calculateBaseValue(stat, ((Creature) owner).isPlayer());
 			return stat;
-		}
-		finally {
+		} finally {
 			lock.readLock().unlock();
 		}
 	}
@@ -158,16 +191,13 @@ public abstract class CreatureGameStats<T extends Creature> {
 		lock.readLock().lock();
 		try {
 			TreeSet<IStatFunction> functions = getStatsByStatEnum(statEnum);
-			if (functions == null || functions.isEmpty()) {
+			if (functions == null || functions.isEmpty())
 				return stat;
-			}
 			for (IStatFunction func : functions) {
-				if (func.validate(stat, func) && (func.getOwner() instanceof Item || func.getOwner() instanceof ManaStone)) {
+				if (func.validate(stat, func) && (func.getOwner() instanceof Item || func.getOwner() instanceof ManaStone))
 					func.apply(stat);
-				}
 			}
-		}
-		finally {
+		} finally {
 			lock.readLock().unlock();
 		}
 		return stat;
@@ -213,17 +243,13 @@ public abstract class CreatureGameStats<T extends Creature> {
 
 	public abstract Stat2 getMainHandPAccuracy();
 
-	public abstract Stat2 getMAttack();
-
 	public abstract Stat2 getMainHandMAttack();
-
-	public abstract Stat2 getOffHandMAttack();
 
 	public abstract Stat2 getMBoost();
 
 	public abstract Stat2 getMBResist();
 
-	public abstract Stat2 getMAccuracy();
+	public abstract Stat2 getMainHandMAccuracy();
 
 	public abstract Stat2 getMCritical();
 
@@ -231,39 +257,13 @@ public abstract class CreatureGameStats<T extends Creature> {
 
 	public abstract Stat2 getMpRegenRate();
 
-	public abstract Stat2 getStrikeResist();
+	public abstract Stat2 getPCR();
 
-	public abstract Stat2 getStrikeFort();
+	public abstract Stat2 getMCR();
 
-	public abstract Stat2 getSpellResist();
-
-	public abstract Stat2 getSpellFort();
-
-	public abstract Stat2 getBCastingTime();
-
-	public abstract Stat2 getConcentration();
-
-	public abstract Stat2 getRootResistance();
-
-	public abstract Stat2 getSnareResistance();
-
-	public abstract Stat2 getBindResistance();
-
-	public abstract Stat2 getFearResistance();
-
-	public abstract Stat2 getSleepResistance();
+	public abstract Stat2 getHealBoost();
 
 	public abstract Stat2 getAllSpeed();
-
-	public abstract Stat2 getPvpAttack();
-
-	public abstract Stat2 getPvpDeff();
-
-	// New 7.x
-	public abstract Stat2 getPVPAttack();
-	public abstract Stat2 getPVPDefense();
-	public abstract Stat2 getPVEAttack();
-	public abstract Stat2 getPVEDefense();
 
 	public int getMagicalDefenseFor(SkillElement element) {
 		switch (element) {
@@ -302,29 +302,24 @@ public abstract class CreatureGameStats<T extends Creature> {
 
 	public TreeSet<IStatFunction> getStatsByStatEnum(StatEnum stat) {
 		TreeSet<IStatFunction> allStats = stats.get(stat);
-		if (allStats == null) {
+		if (allStats == null)
 			return null;
-		}
 		TreeSet<IStatFunction> tmp = new TreeSet<IStatFunction>();
 		List<IStatFunction> setFuncs = null;
 		for (IStatFunction func : allStats) {
 			if (func.getPriority() >= Integer.MAX_VALUE - 10) {
-				if (setFuncs == null) {
+				if (setFuncs == null)
 					setFuncs = new ArrayList<IStatFunction>();
-				}
 				setFuncs.add(func);
-			}
-			else if (setFuncs != null) {
+			} else if (setFuncs != null) {
 				// all StatSetFunctions added
 				break;
 			}
 		}
-		if (setFuncs == null) {
+		if (setFuncs == null)
 			tmp.addAll(allStats);
-		}
-		else {
+		else
 			tmp.addAll(setFuncs);
-		}
 		return tmp;
 	}
 
@@ -359,9 +354,8 @@ public abstract class CreatureGameStats<T extends Creature> {
 		cachedHPStat = null;
 		Stat2 newHP = this.getMaxHp();
 		cachedHPStat = newHP;
-		if (oldHP == null) {
+		if (oldHP == null)
 			return;
-		}
 		if (oldHP.getCurrent() != newHP.getCurrent()) {
 			float percent = 1f * newHP.getCurrent() / oldHP.getCurrent();
 			owner.getLifeStats().setCurrentHp(Math.round(owner.getLifeStats().getCurrentHp() * percent));
@@ -373,9 +367,8 @@ public abstract class CreatureGameStats<T extends Creature> {
 		cachedMPStat = null;
 		Stat2 newMP = this.getMaxMp();
 		cachedMPStat = newMP;
-		if (oldMP == null) {
+		if (oldMP == null)
 			return;
-		}
 		if (oldMP.getCurrent() != newMP.getCurrent()) {
 			float percent = 1f * newMP.getCurrent() / oldMP.getCurrent();
 			owner.getLifeStats().setCurrentMp(Math.round(owner.getLifeStats().getCurrentMp() * percent));

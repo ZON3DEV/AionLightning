@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
@@ -24,7 +25,6 @@ import com.aionemu.gameserver.world.World;
 
 /**
  * @author ATracer
- * @rework FrozenKiller
  */
 public class SM_ITEM_USAGE_ANIMATION extends AionServerPacket {
 
@@ -33,33 +33,46 @@ public class SM_ITEM_USAGE_ANIMATION extends AionServerPacket {
 	private int itemObjId;
 	private int itemId;
 	private int time;
-	private int animationsId;
-
-	public SM_ITEM_USAGE_ANIMATION(int playerObjId, int itemObjId, int itemId, int animationsId, int unk) {
-		this.playerObjId = playerObjId;
-		this.targetObjId = 0;
-		this.itemObjId = itemObjId;
-		this.itemId = itemId;
-		this.time = 0;
-		this.animationsId = 1;
-	}
+	private int end;
+	private int unk;
 
 	public SM_ITEM_USAGE_ANIMATION(int playerObjId, int itemObjId, int itemId) {
 		this.playerObjId = playerObjId;
-		this.targetObjId = 0;
+		this.targetObjId = playerObjId;
 		this.itemObjId = itemObjId;
 		this.itemId = itemId;
 		this.time = 0;
-		this.animationsId = 1;
+		this.end = 1;
+		this.unk = 1;
 	}
 
-	public SM_ITEM_USAGE_ANIMATION(int playerObjId, int targetObjId, int itemObjId, int itemId, int time, int animationsId) {
+	public SM_ITEM_USAGE_ANIMATION(int playerObjId, int itemObjId, int itemId, int time, int end) {
+		this.playerObjId = playerObjId;
+		this.targetObjId = playerObjId;
+		this.itemObjId = itemObjId;
+		this.itemId = itemId;
+		this.time = time;
+		this.end = end;
+	}
+
+	public SM_ITEM_USAGE_ANIMATION(int playerObjId, int itemObjId, int itemId, int time, int end, int unk) {
+		this.playerObjId = playerObjId;
+		this.targetObjId = playerObjId;
+		this.itemObjId = itemObjId;
+		this.itemId = itemId;
+		this.time = time;
+		this.end = end;
+		this.unk = unk;
+	}
+
+	public SM_ITEM_USAGE_ANIMATION(int playerObjId, int targetObjId, int itemObjId, int itemId, int time, int end, int unk) {
 		this.playerObjId = playerObjId;
 		this.targetObjId = targetObjId;
 		this.itemObjId = itemObjId;
 		this.itemId = itemId;
 		this.time = time;
-		this.animationsId = animationsId;
+		this.end = end;
+		this.unk = unk;
 	}
 
 	@Override
@@ -70,13 +83,17 @@ public class SM_ITEM_USAGE_ANIMATION extends AionServerPacket {
 			player.setUsingItem(item);
 		}
 
-		writeD(playerObjId);
-		writeD(targetObjId);
-		writeD(itemObjId);
-		writeD(itemId);
-		writeD(time);
-		writeH(animationsId); // AnimationsId
-		writeH(1); // Always 1 (5.4)
-		writeD(0); // unk
+		writeD(playerObjId); // player obj id
+		writeD(targetObjId); // target obj id
+
+		writeD(itemObjId); // itemObjId
+		writeD(itemId); // item id
+
+		writeD(time); // unk
+		writeC(end); // unk
+		writeC(0); // unk
+		writeC(1);
+		writeD(unk);
+		writeC(0);// unk
 	}
 }

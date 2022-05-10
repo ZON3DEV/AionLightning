@@ -29,11 +29,11 @@ import javax.xml.bind.annotation.XmlType;
 public class CreatureSpeeds {
 
 	@XmlAttribute(name = "walk")
-	private float walkSpeed = 0.7f;
+	private float walkSpeed;
 	@XmlAttribute(name = "run")
 	private float runSpeed;
 	@XmlAttribute(name = "group_walk")
-	private float groupWalkSpeed = 1.3f;
+	private float groupWalkSpeed;
 	@XmlAttribute(name = "run_fight")
 	private float runSpeedFight;
 	@XmlAttribute(name = "group_run_fight")

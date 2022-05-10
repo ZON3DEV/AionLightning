@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.geoEngine.scene;
 
 import java.nio.Buffer;
@@ -48,23 +49,19 @@ public class Mesh {
 	// TODO: Document this enum
 	public enum Mode {
 
-		Points,
-		Lines,
-		LineLoop,
-		LineStrip,
-		Triangles,
-		TriangleStrip,
-		TriangleFan,
-		Hybrid
+		Points, Lines, LineLoop, LineStrip, Triangles, TriangleStrip, TriangleFan, Hybrid
 	}
 
-	// private static final int BUFFERS_SIZE = VertexBuffer.Type.BoneIndex.ordinal() + 1;
+	// private static final int BUFFERS_SIZE =
+	// VertexBuffer.Type.BoneIndex.ordinal() + 1;
 	/**
-	 * The bounding volume that contains the mesh entirely. By default a BoundingBox (AABB).
+	 * The bounding volume that contains the mesh entirely. By default a
+	 * BoundingBox (AABB).
 	 */
 	private BoundingVolume meshBound = new BoundingBox();
 	private CollisionData collisionTree = null;
-	// private EnumMap<VertexBuffer.Type, VertexBuffer> buffers = new EnumMap<Type,
+	// private EnumMap<VertexBuffer.Type, VertexBuffer> buffers = new
+	// EnumMap<Type,
 	// VertexBuffer>(VertexBuffer.Type.class);
 	// private VertexBuffer[] buffers = new VertexBuffer[BUFFERS_SIZE];
 	private IntMap<VertexBuffer> buffers = new IntMap<VertexBuffer>();
@@ -123,7 +120,8 @@ public class Mesh {
 	}
 
 	/**
-	 * Locks the mesh so it cannot be modified anymore, thus optimizing its data.
+	 * Locks the mesh so it cannot be modified anymore, thus optimizing its
+	 * data.
 	 */
 	@SuppressWarnings("unchecked")
 	public void setStatic() {
@@ -145,7 +143,8 @@ public class Mesh {
 		for (Entry<VertexBuffer> entry : buffers) {
 			vbs.add(entry.getValue());
 		}
-		// ArrayList<VertexBuffer> vbs = new ArrayList<VertexBuffer>(buffers.values());
+		// ArrayList<VertexBuffer> vbs = new
+		// ArrayList<VertexBuffer>(buffers.values());
 		// index buffer not included when interleaving
 		vbs.remove(getBuffer(Type.Index));
 
@@ -153,7 +152,9 @@ public class Mesh {
 		for (int i = 0; i < vbs.size(); i++) {
 			VertexBuffer vb = vbs.get(i);
 			// if (vb.getFormat() != Format.Float){
-			// throw new UnsupportedOperationException("Cannot interleave vertex buffer.\n" +
+			// throw new
+			// UnsupportedOperationException("Cannot interleave vertex buffer.\n"
+			// +
 			// "Contains not-float data.");
 			// }
 			stride += vb.componentsLength;
@@ -246,8 +247,7 @@ public class Mesh {
 		}
 		if (ib != null) {
 			elementCount = computeNumElements(ib.getData().capacity());
-		}
-		else {
+		} else {
 			elementCount = computeNumElements(vertCount);
 		}
 	}
@@ -356,8 +356,7 @@ public class Mesh {
 			vb.setupData(Usage.Dynamic, components, Format.Float, buf);
 			// buffers.put(type, vb);
 			buffers.put(type.ordinal(), vb);
-		}
-		else {
+		} else {
 			vb.setupData(Usage.Dynamic, components, Format.Float, buf);
 		}
 		updateCounts();
@@ -452,14 +451,11 @@ public class Mesh {
 		Buffer buf = vb.getData();
 		if (buf instanceof ByteBuffer) {
 			return new IndexByteBuffer((ByteBuffer) buf);
-		}
-		else if (buf instanceof ShortBuffer) {
+		} else if (buf instanceof ShortBuffer) {
 			return new IndexShortBuffer((ShortBuffer) buf);
-		}
-		else if (buf instanceof IntBuffer) {
+		} else if (buf instanceof IntBuffer) {
 			return new IndexIntBuffer((IntBuffer) buf);
-		}
-		else {
+		} else {
 			throw new UnsupportedOperationException("Index buffer type unsupported: " + buf.getClass());
 		}
 	}

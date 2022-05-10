@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver;
 
 import java.util.Iterator;
@@ -50,8 +51,7 @@ public class ShutdownHook extends Thread {
 	public void run() {
 		if (ShutdownConfig.HOOK_MODE == 1) {
 			shutdownHook(ShutdownConfig.HOOK_DELAY, ShutdownConfig.ANNOUNCE_INTERVAL, ShutdownMode.SHUTDOWN);
-		}
-		else if (ShutdownConfig.HOOK_MODE == 2) {
+		} else if (ShutdownConfig.HOOK_MODE == 2) {
 			shutdownHook(ShutdownConfig.HOOK_DELAY, ShutdownConfig.ANNOUNCE_INTERVAL, ShutdownMode.RESTART);
 		}
 	}
@@ -61,7 +61,6 @@ public class ShutdownHook extends Thread {
 		NONE("terminating"),
 		SHUTDOWN("shutting down"),
 		RESTART("restarting");
-
 		private final String text;
 
 		private ShutdownMode(String text) {
@@ -85,8 +84,7 @@ public class ShutdownHook extends Thread {
 					player.getClientConnection().sendPacket(SM_SYSTEM_MESSAGE.STR_SERVER_SHUTDOWN(String.valueOf(seconds)));
 				}
 			}
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error(e.getMessage());
 		}
 	}
@@ -103,8 +101,7 @@ public class ShutdownHook extends Thread {
 					player.getController().setInShutdownProgress(status);
 				}
 			}
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			log.error(e.getMessage());
 		}
 	}
@@ -116,20 +113,17 @@ public class ShutdownHook extends Thread {
 					log.info("Runtime is " + mode.getText() + " in " + i + " seconds.");
 					sendShutdownMessage(i);
 					sendShutdownStatus(ShutdownConfig.SAFE_REBOOT);
-				}
-				else {
+				} else {
 					log.info("Runtime is " + mode.getText() + " now ...");
 					break; // fast exit.
 				}
 
 				if (i > interval) {
 					sleep(interval * 1000);
-				}
-				else {
+				} else {
 					sleep(i * 1000);
 				}
-			}
-			catch (InterruptedException e) {
+			} catch (InterruptedException e) {
 				return;
 			}
 		}
@@ -144,8 +138,7 @@ public class ShutdownHook extends Thread {
 			Player activePlayer = onlinePlayers.next();
 			try {
 				PlayerLeaveWorldService.startLeaveWorld(activePlayer);
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 				log.error("Error while saving player " + e.getMessage());
 			}
 		}
@@ -164,8 +157,7 @@ public class ShutdownHook extends Thread {
 		// Do system exit.
 		if (mode == ShutdownMode.RESTART) {
 			Runtime.getRuntime().halt(ExitCode.CODE_RESTART);
-		}
-		else {
+		} else {
 			Runtime.getRuntime().halt(ExitCode.CODE_NORMAL);
 		}
 

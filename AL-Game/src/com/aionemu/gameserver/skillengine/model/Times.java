@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.model;
 
 import java.util.HashMap;
@@ -29,6 +30,7 @@ import com.aionemu.gameserver.model.templates.item.WeaponType;
 
 /**
  * @author kecims
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Times")
@@ -79,6 +81,5 @@ public class Times {
 		timeForWeaponType.put(new WeaponTypeWrapper(WeaponType.GUN_2H, null), Integer.parseInt(tokens[19]));
 		timeForWeaponType.put(new WeaponTypeWrapper(WeaponType.KEYBLADE_2H, null), Integer.parseInt(tokens[20]));
 		timeForWeaponType.put(new WeaponTypeWrapper(WeaponType.KEYHAMMER_2H, null), Integer.parseInt(tokens[21]));
-		timeForWeaponType.put(new WeaponTypeWrapper(WeaponType.SPRAY_2H, null), Integer.parseInt(tokens[22]));
 	}
 }

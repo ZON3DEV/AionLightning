@@ -14,18 +14,23 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
  * @author kecimis
+ *
  */
 public class SanctuaryEffect extends EffectTemplate {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.effect.EffectTemplate#applyEffect(com.aionemu.gameserver.skillengine.model.Effect)
+	 *
+	 * @see
+	 * com.aionemu.gameserver.skillengine.effect.EffectTemplate#applyEffect(
+	 * com.aionemu.gameserver.skillengine.model.Effect)
 	 */
 	@Override
 	public void applyEffect(Effect effect) {

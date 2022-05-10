@@ -10,50 +10,34 @@
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details. *
- *
  *  You should have received a copy of the GNU General Public License
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
- *
  */
+
+
 package com.aionemu.gameserver.model.templates.item;
 
 import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
  * @author MrPoke
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TradeinList", propOrder = { "tradeinItem" })
+@XmlType(name = "TradeinList", propOrder = {
+    "tradeinItem"
+})
 public class TradeinList {
 
-	@XmlAttribute
-	protected int ap;
-	@XmlAttribute
-	protected int price;
+    @XmlElement(name = "tradein_item")
+    protected List<TradeinItem> tradeinItem;
 
-	@XmlElement(name = "tradein_item")
-	protected List<TradeinItem> tradeinItem;
-
-	public List<TradeinItem> getTradeinItem() {
-		return this.tradeinItem;
-	}
-
-	public TradeinItem getFirstTradeInItem() {
-		return this.tradeinItem.get(0);
-	}
-
-	public int getAp() {
-		return ap;
-	}
-
-	public int getPrice() {
-		return price;
-	}
+    public List<TradeinItem> getTradeinItem() {
+        return this.tradeinItem;
+    }
 }

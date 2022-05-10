@@ -14,11 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.services;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+package com.aionemu.gameserver.services;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -29,6 +26,9 @@ import com.aionemu.gameserver.services.item.ItemService;
 import com.aionemu.gameserver.utils.audit.AuditLogger;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author xTz
@@ -85,13 +85,13 @@ public class RepurchaseService {
 				if (inventory.tryDecreaseKinah(repurchaseItem.getRepurchasePrice())) {
 					ItemService.addItem(player, repurchaseItem);
 					removeRepurchaseItem(player, repurchaseItem);
+				} else {
+					AuditLogger.info(player, "Player try repurchase item: " + repurchaseItem.getItemId() + " count: " + repurchaseItem.getItemCount()
+							+ " whithout kinah");
 				}
-				else {
-					AuditLogger.info(player, "Player try repurchase item: " + repurchaseItem.getItemId() + " count: " + repurchaseItem.getItemCount() + " whithout kinah");
-				}
-			}
-			else {
-				AuditLogger.info(player, "Player might be abusing CM_BUY_ITEM try dupe item: " + repurchaseItem.getItemId() + " count: " + repurchaseItem.getItemCount());
+			} else {
+				AuditLogger.info(player,
+						"Player might be abusing CM_BUY_ITEM try dupe item: " + repurchaseItem.getItemId() + " count: " + repurchaseItem.getItemCount());
 			}
 		}
 	}

@@ -14,14 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package admincommands;
 
-import org.apache.commons.lang.math.NumberUtils;
+package admincommands;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.services.VortexService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.chathandlers.AdminCommand;
+import org.apache.commons.lang.math.NumberUtils;
 
 public class Invasion extends AdminCommand {
 
@@ -61,17 +61,14 @@ public class Invasion extends AdminCommand {
 		if (COMMAND_START.equalsIgnoreCase(params[0])) {
 			if (VortexService.getInstance().isInvasionInProgress(vortexId)) {
 				PacketSendUtility.sendMessage(player, locationName + " is already under siege");
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(player, locationName + " invasion started!");
 				VortexService.getInstance().startInvasion(vortexId);
 			}
-		}
-		else if (COMMAND_STOP.equalsIgnoreCase(params[0])) {
+		} else if (COMMAND_STOP.equalsIgnoreCase(params[0])) {
 			if (!VortexService.getInstance().isInvasionInProgress(vortexId)) {
 				PacketSendUtility.sendMessage(player, locationName + " is not under siege");
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(player, locationName + " invasion stopped!");
 				VortexService.getInstance().stopInvasion(vortexId);
 			}

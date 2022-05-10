@@ -14,13 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.instance.tallocsHollow;
+
+import ai.AggressiveNpcAI2;
 
 import com.aionemu.gameserver.ai2.AI2Actions;
 import com.aionemu.gameserver.ai2.AIName;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
-
-import ai.AggressiveNpcAI2;
 
 /**
  * @author xTz
@@ -31,7 +32,6 @@ public class MosquaEggAI2 extends AggressiveNpcAI2 {
 	@Override
 	protected void handleSpawned() {
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				checkSpawn();

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.loginserver;
 
 import org.slf4j.Logger;
@@ -32,7 +33,8 @@ public abstract class LsClientPacket extends BaseClientPacket<LoginServerConnect
 	private static final Logger log = LoggerFactory.getLogger(LsClientPacket.class);
 
 	/**
-	 * Constructs new client packet with specified opcode. If using this constructor, user must later manually set buffer and connection.
+	 * Constructs new client packet with specified opcode. If using this
+	 * constructor, user must later manually set buffer and connection.
 	 *
 	 * @param opcode
 	 *            packet id
@@ -48,14 +50,14 @@ public abstract class LsClientPacket extends BaseClientPacket<LoginServerConnect
 	public final void run() {
 		try {
 			runImpl();
-		}
-		catch (Throwable e) {
+		} catch (Throwable e) {
 			log.warn("error handling ls (" + getConnection().getIP() + ") message " + this, e);
 		}
 	}
 
 	/**
-	 * Send new LsServerPacket to connection that is owner of this packet. This method is equivalent to: getConnection().sendPacket(msg);
+	 * Send new LsServerPacket to connection that is owner of this packet. This
+	 * method is equivalent to: getConnection().sendPacket(msg);
 	 *
 	 * @param msg
 	 */
@@ -71,8 +73,7 @@ public abstract class LsClientPacket extends BaseClientPacket<LoginServerConnect
 	public LsClientPacket clonePacket() {
 		try {
 			return (LsClientPacket) super.clone();
-		}
-		catch (CloneNotSupportedException e) {
+		} catch (CloneNotSupportedException e) {
 			return null;
 		}
 	}

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package ai.worlds.pernon;
 
 import com.aionemu.gameserver.ai2.AIName;
@@ -22,14 +23,12 @@ import com.aionemu.gameserver.controllers.observer.GaleCycloneObserver;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.skillengine.SkillEngine;
-
 import javolution.util.FastMap;
 
 /**
  * @author xTz
  */
 @AIName("gale_cyclone")
-// 219227
 public class GaleCycloneAI2 extends NpcAI2 {
 
 	private FastMap<Integer, GaleCycloneObserver> observed = new FastMap<Integer, GaleCycloneObserver>().shared();
@@ -43,7 +42,6 @@ public class GaleCycloneAI2 extends NpcAI2 {
 		if (creature instanceof Player) {
 			final Player player = (Player) creature;
 			final GaleCycloneObserver observer = new GaleCycloneObserver(player, getOwner()) {
-
 				@Override
 				public void onMove() {
 					if (!blocked) {
