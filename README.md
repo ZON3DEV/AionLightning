@@ -1,15 +1,21 @@
 <div align="center"><img src="https://raw.githubusercontent.com/ZON3DEV/AionLightning/7.8.0/Docs/images/al_banner.png" width=40%>
 
-# EU Server Solution
-### Version: 1.9
+  <b>EU Server Solution</b>
+  <br></br>
+  <br></br>
+<b>Aion Lightning Version: 1.9</b>
   ```sh
   .git clone --recursive -b 1.9.0 https://github.com/ZON3DEV/AionLightning.git
   ```
-### Version: 4.6
+<b>Aion Lightning Version: 4.6</b>
   ```sh
   .git clone --recursive -b 4.6.0 https://github.com/ZON3DEV/AionLightning.git
   ```
-### Version: 7.8
+  <b>Aion Lightning Version: 5.8</b>
+  ```sh
+  .git clone --recursive -b 5.8.0 https://github.com/ZON3DEV/AionLightning.git
+  ```
+<b>Aion Lightning Version: 7.8</b>
   ```sh
   .git clone --recursive -b 7.8.0 https://github.com/ZON3DEV/AionLightning.git
   ```
