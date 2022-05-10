@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fly_rings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="fly_rings.xsd">
+    <fly_ring name="HEIRON_FORTRESS_210040000_1" map="210040000" radius="10.0">
+        <center x="2526.8884" y="363.7628" z="435.8084"/>
+        <left x="2530.5347" y="364.1818" z="435.8084"/>
+        <right x="2522.4730" y="362.9527" z="435.8084"/>
+    </fly_ring>
+    <fly_ring name="HEIRON_FORTRESS_210040000_2" map="210040000" radius="10.0">
+        <center x="2535.2385" y="306.3230" z="461.4746"/>
+        <left x="2538.0374" y="306.7517" z="461.4746"/>
+        <right x="2532.4685" y="306.9517" z="461.4746"/>
+    </fly_ring>
+    <fly_ring name="HEIRON_FORTRESS_210040000_3" map="210040000" radius="10.0">
+        <center x="2497.225" y="273.9784" z="480.6524"/>
+        <left x="2499.37" y="271.1969" z="480.6524"/>
+        <right x="2495.009" y="277.0806" z="480.6524"/>
+    </fly_ring>
+    <fly_ring name="HEIRON_FORTRESS_210040000_4" map="210040000" radius="10.0">
+        <center x="2440.4597" y="283.9643" z="472.8773"/>
+        <left x="2437.733" y="280.9825" z="472.8773"/>
+        <right x="2443.2307" y="287.4128" z="472.8773"/>
+    </fly_ring>
+    <fly_ring name="HEIRON_FORTRESS_210040000_5" map="210040000" radius="10.0">
+        <center x="2432.1455" y="332.3591" z="438.9065"/>
+        <left x="2429.3525" y="332.81125" z="438.9065"/>
+        <right x="2435.1726" y="331.5447" z="438.9065"/>
+    </fly_ring>
+    <fly_ring name="HEIRON_FORTRESS_210040000_6" map="210040000" radius="10.0">
+        <center x="2448.513" y="383.5214" z="456.9754"/>
+        <left x="2444.9888" y="384.5716" z="456.9754"/>
+        <right x="2452.0837" y="381.4508" z="456.9754"/>
+    </fly_ring>
+</fly_rings>
