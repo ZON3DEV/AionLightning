@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- generiert am/um 08.09.2018 10:29 aus PS-Drop-Datei: Poeta_5.0_loot_Game-392365204.xml -->
+<npc_drops xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="npc_drops.xsd">
+    <npc_drop npc_id="651844">
+        <drop_group name="POTION_COMMON" use_category="true" race="PC_ALL">
+            <drop item_id="160040005" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Transformation Potion: Graveknight" />
+        </drop_group>
+        <drop_group name="OTHER_COMMON_LVL20" use_category="true" race="PC_ALL">
+            <drop item_id="162005004" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Simple Recovery Serum" />
+        </drop_group>
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010002" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Crystal" />
+        </drop_group>
+        <drop_group name="STONE_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010004" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Stone Fragment" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651848">
+        <drop_group name="POTION_COMMON" use_category="true" race="PC_ALL">
+            <drop item_id="160040005" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Transformation Potion: Graveknight" />
+            <drop item_id="160040006" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Transformation Potion: Kobold" />
+        </drop_group>
+        <drop_group name="OTHER_COMMON_LVL20" use_category="true" race="PC_ALL">
+            <drop item_id="162005004" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Simple Recovery Serum" />
+        </drop_group>
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Membrane" />
+            <drop item_id="182010002" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Crystal" />
+            <drop item_id="182010003" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Essence" />
+        </drop_group>
+        <drop_group name="QUEST_COMMON" use_category="true" race="PC_ALL">
+            <drop item_id="182216251" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Kobold Axe" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651849">
+        <drop_group name="ARMOR_COMMON_LVL10" use_category="true" race="PC_ALL">
+            <drop item_id="114650053" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Sabatons of the Wind" />
+        </drop_group>
+        <drop_group name="POTION_COMMON" use_category="true" race="PC_ALL">
+            <drop item_id="160040005" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Transformation Potion: Graveknight" />
+        </drop_group>
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010003" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Essence" />
+        </drop_group>
+        <drop_group name="QUEST_COMMON" use_category="true" race="PC_ALL">
+            <drop item_id="182216251" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Kobold Axe" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651854">
+        <drop_group name="OTHER_COMMON_LVL20" use_category="true" race="PC_ALL">
+            <drop item_id="162005004" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Simple Recovery Serum" />
+        </drop_group>
+        <drop_group name="POTION_COMMON_LVL20" use_category="true" race="PC_ALL">
+            <drop item_id="162005000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Simple Recovery Potion" />
+        </drop_group>
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Membrane" />
+            <drop item_id="182010002" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Crystal" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651858">
+        <drop_group name="POTION_COMMON" use_category="true" race="PC_ALL">
+            <drop item_id="160040004" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Transformation Potion: Lepharist" />
+        </drop_group>
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Membrane" />
+            <drop item_id="182010002" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Crystal" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651859">
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010002" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Crystal" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651860">
+        <drop_group name="FOOD_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010001" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Scale" />
+        </drop_group>
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Membrane" />
+            <drop item_id="182010003" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Essence" />
+        </drop_group>
+        <drop_group name="QUEST_COMMON" use_category="true" race="PC_ALL">
+            <drop item_id="182216249" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Thin Flute Of Elim" />
+        </drop_group>
+        <drop_group name="STONE_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010005" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Elemental Stone Fragment" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651861">
+        <drop_group name="POTION_COMMON" use_category="true" race="PC_ALL">
+            <drop item_id="160040006" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Transformation Potion: Kobold" />
+        </drop_group>
+        <drop_group name="FOOD_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010001" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Scale" />
+        </drop_group>
+        <drop_group name="STONE_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010004" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Stone Fragment" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651862">
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010002" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Crystal" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651863">
+        <drop_group name="WEAPON_COMMON_LVL10" use_category="true" race="PC_ALL">
+            <drop item_id="101850056" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Aether Revolver of the Wind" />
+        </drop_group>
+        <drop_group name="ARMOR_COMMON_LVL10" use_category="true" race="PC_ALL">
+            <drop item_id="112650053" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Shoulderplates of the Wind" />
+        </drop_group>
+        <drop_group name="OTHER_COMMON_LVL20" use_category="true" race="PC_ALL">
+            <drop item_id="160020001" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Abex Fat" />
+        </drop_group>
+        <drop_group name="POTION_COMMON_LVL20" use_category="true" race="PC_ALL">
+            <drop item_id="162005000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Simple Recovery Potion" />
+        </drop_group>
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Membrane" />
+            <drop item_id="182010002" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Crystal" />
+        </drop_group>
+        <drop_group name="STONE_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010004" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Stone Fragment" />
+            <drop item_id="182010005" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Elemental Stone Fragment" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651864">
+        <drop_group name="OTHER_COMMON_LVL20" use_category="true" race="PC_ALL">
+            <drop item_id="160020000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Vespine Pasta" />
+        </drop_group>
+        <drop_group name="FOOD_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010001" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Scale" />
+        </drop_group>
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010002" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Crystal" />
+        </drop_group>
+        <drop_group name="QUEST_COMMON" use_category="true" race="PC_ALL">
+            <drop item_id="182216252" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Axe Bundle" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651871">
+        <drop_group name="OTHER_COMMON_LVL20" use_category="true" race="PC_ALL">
+            <drop item_id="160020000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Vespine Pasta" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651873">
+        <drop_group name="FOOD_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010001" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Scale" />
+        </drop_group>
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Membrane" />
+        </drop_group>
+        <drop_group name="STONE_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010004" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Stone Fragment" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651874">
+        <drop_group name="ARMOR_COMMON_LVL10" use_category="true" race="PC_ALL">
+            <drop item_id="114550106" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Brogans of the Wind" />
+        </drop_group>
+        <drop_group name="STONE_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010005" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Elemental Stone Fragment" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651875">
+        <drop_group name="OTHER_COMMON_LVL20" use_category="true" race="PC_ALL">
+            <drop item_id="160020000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Vespine Pasta" />
+            <drop item_id="162005004" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Simple Recovery Serum" />
+        </drop_group>
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Membrane" />
+            <drop item_id="182010003" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Essence" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651876">
+        <drop_group name="POTION_COMMON" use_category="true" race="PC_ALL">
+            <drop item_id="160040005" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Transformation Potion: Graveknight" />
+            <drop item_id="160040006" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Transformation Potion: Kobold" />
+        </drop_group>
+        <drop_group name="FOOD_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010001" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Scale" />
+        </drop_group>
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Membrane" />
+            <drop item_id="182010002" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Crystal" />
+        </drop_group>
+        <drop_group name="STONE_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010004" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Stone Fragment" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651877">
+        <drop_group name="ARMOR_COMMON_LVL10" use_category="true" race="PC_ALL">
+            <drop item_id="114350106" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Leather Shoes of the Wind" />
+        </drop_group>
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Membrane" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651891">
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Membrane" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651893">
+        <drop_group name="WEAPON_COMMON_LVL10" use_category="true" race="PC_ALL">
+            <drop item_id="101850056" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Aether Revolver of the Wind" />
+        </drop_group>
+        <drop_group name="ARMOR_COMMON_LVL10" use_category="true" race="PC_ALL">
+            <drop item_id="114150053" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Cloth Shoes of the Wind" />
+        </drop_group>
+        <drop_group name="FOOD_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010001" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Scale" />
+        </drop_group>
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Membrane" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651894">
+        <drop_group name="FOOD_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010001" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Scale" />
+        </drop_group>
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Membrane" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651898">
+        <drop_group name="FOOD_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010001" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Scale" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651899">
+        <drop_group name="FOOD_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010001" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Scale" />
+        </drop_group>
+        <drop_group name="STONE_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010005" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Elemental Stone Fragment" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651900">
+        <drop_group name="ARMOR_COMMON_LVL10" use_category="true" race="PC_ALL">
+            <drop item_id="111150053" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Cloth Gloves of the Wind" />
+        </drop_group>
+        <drop_group name="POTION_COMMON" use_category="true" race="PC_ALL">
+            <drop item_id="160040006" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Transformation Potion: Kobold" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651901">
+        <drop_group name="FOOD_COMMON_LVL20" use_category="true" race="PC_ALL">
+            <drop item_id="160020008" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Malodor Juice" />
+        </drop_group>
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010002" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Crystal" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651902">
+        <drop_group name="FOOD_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010001" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Scale" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651903">
+        <drop_group name="ARMOR_COMMON_LVL10" use_category="true" race="PC_ALL">
+            <drop item_id="113650053" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Plate Greaves of the Wind" />
+        </drop_group>
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010002" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Crystal" />
+        </drop_group>
+    </npc_drop>
+    <npc_drop npc_id="651910">
+        <drop_group name="OTHER_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010000" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Membrane" />
+            <drop item_id="182010002" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Crystal" />
+        </drop_group>
+        <drop_group name="STONE_JUNK" use_category="true" race="PC_ALL">
+            <drop item_id="182010005" chance="10.00" min_amount="1" max_amount="1" no_reduce="false" eachmember="false" name="Faded Elemental Stone Fragment" />
+        </drop_group>
+    </npc_drop>
+</npc_drops>
