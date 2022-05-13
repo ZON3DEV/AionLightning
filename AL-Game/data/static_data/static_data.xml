@@ -72,15 +72,11 @@
     <import file="instance_cooltimes/instance_cooltimes.xml"/>
     <import file="item_sets/item_sets.xml"/>
     <import file="items/item_restriction_cleanups.xml"/>
-    <item_templates>
-        <import file="items/item" skipRoot="true"/>
-    </item_templates>
+    <import file="items/item_templates.xml"/>
     <import file="items/item_custom_sets.xml"/>
     <import file="items/item_random_bonuses.xml"/>
-    <import file="items/item_real_random_bonuses.xml"/>
     <import file="items/item_groups.xml"/>
     <import file="items/assembly_items.xml"/>
-    <import file="items/grind_combines.xml"/>
     <import file="npc_factions/npc_factions.xml"/>
     <import file="npc_skills/npc_skills.xml"/>
     <npc_templates>
@@ -103,7 +99,6 @@
     </quest_scripts>
     <import file="recipe/recipe_templates.xml"/>
     <import file="luna/luna_templates.xml"/>
-    <import file="luna/luna_bonusattr.xml"/>
     <import file="locations/rift/rift_locations.xml"/>
     <import file="roads/roads.xml"/>
     <import file="locations/siege/siege_locations.xml"/>
@@ -174,6 +169,9 @@
         <import file="town_spawns" skipRoot="true"/>
     </town_spawns_data>
     <import file="locations/base/base_locations.xml"/>
+    <import file="locations/beritra/beritra_invasion.xml"/>
+	<import file="locations/svs/svs.xml"/>
+	<import file="locations/rvr/rvr.xml"/>
     <import file="skills/skill_charge.xml"/>
     <import file="items/item_upgrades.xml"/>
     <import file="decomposable_items/decomposable_selectitems.xml"/>
@@ -181,9 +179,11 @@
 	<import file="items/enchant_tables.xml"/>
     <import file="items/item_multi_returns.xml"/>
     <import file="hotspot_teleporter.xml"/>
+    <import file="events_config/atreian_passports.xml"/>
     <import file="stats/absolute_stats.xml"/>
     <import file="arcadelist.xml"/>   
 	<import file="hidden_stigma_tree/hidden_stigma_tree.xml"/>
+	<import file="world_buff/world_buffs.xml"/>
     <import file="service_bonusattr/service_bonusattr.xml"/>
     <import file="service_bonusattr/players_bonus.xml"/>
     <import file="service_bonusattr/f2p_bonusattr.xml"/>
@@ -193,11 +193,20 @@
     <merchants>
         <import file="pets/pet_merchant.xml" skipRoot="true"/>
     </merchants>
+	<panel_cps>
+		<import file="creativity/panel_cps.xml" skipRoot="true"/>
+	</panel_cps>
+	<abyss_ops>
+		<import file="abyss_op/abyss_ops.xml" skipRoot="true"/>
+	</abyss_ops>
+	<import file="locations/abyss_landing/landing_locations.xml"/>
+	<import file="locations/abyss_landing/landing_special_locations.xml"/>
 	<import file="abyss_bonusattr/abyss_bonusattr.xml"/>
 	<import file="abyss_bonusattr/abyss_groupattr.xml"/>
 	<luna_consume_rewards>
 		<import file="luna/luna_consume_rewards.xml" skipRoot="true"/>
 	</luna_consume_rewards>
+	<import file="monster_book/monster_books.xml"/>
 	<import file="events_config/boost_events.xml"/>
 	<skill_skins>
         <import file="skill_skins" skipRoot="true"/>
@@ -207,21 +216,4 @@
 	</events_window>
 	<import file="items/item_skill_enhances.xml"/>
 	<import file="events_config/shugo_sweep.xml"/>
-	<import file="cubics/cubics_templates.xml"/>
-	<import file="transform/transformbook_template.xml"/>
-	<import file="transform/transform_collection_templates.xml"/>
-	<import file="revive_start_points/revive_world_start_points.xml"/>
-	<import file="revive_start_points/instance_revive_start_points.xml"/>
-	<import file="items/enchant_chances.xml"/>
-	<import file="locations/dynamic_portal/dynamic_portal.xml"/>
-	<import file="events_config/atreian_passports.xml"/>
-	<import file="achievement/achievement_templates.xml"/>
-	<import file="achievement/achievement_event_templates.xml"/>
-	<import file="achievement/achievement_action_templates.xml"/>
-	<import file="lumiel/lumiel_material_templates.xml"/>
-	<import file="lumiel/lumiel_templates.xml"/>
-	<import file="collection/collection_templates.xml"/>
-	<import file="collection/collection_exp_templates.xml"/>
-	<import file="items/item_minions_list.xml"/>
-	<import file="items/item_transforms_list.xml"/>
 </ae_static_data>

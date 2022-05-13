@@ -16,9 +16,17 @@
  */
 package com.aionemu.gameserver.model.templates.minion;
 
-import javax.xml.bind.annotation.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
+/**
+ * @author Falke_34
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "MinionActions")
 public class MinionActions {
@@ -27,6 +35,6 @@ public class MinionActions {
 	protected ArrayList<MinionSkill> skillActions;
 
 	public Collection<MinionSkill> getSkillsCollections() {
-		return (Collection<MinionSkill>) (skillActions != null ? skillActions : Collections.emptyList());
+		return skillActions != null ? skillActions : null;
 	}
 }

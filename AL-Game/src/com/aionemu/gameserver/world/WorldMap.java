@@ -22,7 +22,6 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import com.aionemu.gameserver.model.templates.world.WorldMapTemplate;
-import com.aionemu.gameserver.world.handlers.WorldHandler;
 import com.aionemu.gameserver.world.zone.ZoneAttributes;
 
 import javolution.util.FastMap;
@@ -35,7 +34,6 @@ import javolution.util.FastMap;
 public class WorldMap {
 
 	private WorldMapTemplate worldMapTemplate;
-	private WorldHandler worldHandler;
 	private AtomicInteger nextInstanceId = new AtomicInteger(0);
 	/**
 	 * List of instances.
@@ -51,8 +49,7 @@ public class WorldMap {
 		this.world = world;
 		this.worldMapTemplate = worldMapTemplate;
 		this.worldOptions = worldMapTemplate.getFlags();
-        this.worldHandler = WorldEngine.getInstance().getNewInstanceHandler(worldMapTemplate.getMapId());
-        this.worldHandler.onWorldCreate(this);
+
 		for (int i = 1; i <= getInstanceCount(); i++) {
 			int nextId = getNextInstanceId();
 			addInstance(nextId, WorldMapInstanceFactory.createWorldMapInstance(this, nextId));
@@ -257,16 +254,4 @@ public class WorldMap {
 	public Collection<Integer> getAvailableInstanceIds() {
 		return instances.keySet();
 	}
-
-    public Collection<WorldMapInstance> getInstances() {
-        return instances.values();
-    }
-
-    public WorldHandler getWorldHandler() {
-        return worldHandler;
-    }
-
-    public void setWorldHandler(WorldHandler worldHandler) {
-        this.worldHandler = worldHandler;
-    }
 }

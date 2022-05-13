@@ -98,23 +98,23 @@ public class SM_VERSION_CHECK extends AionServerPacket {
 		// aion 4.7.0.7 = 205
 		// aion 4.7.5.x = 206
 		// aion 5.1.x.x = 212
-		if (version < 216) {
+		if (version < 213) {
 			// Send wrong client version
 			writeC(0x02);
 			return;
 		}
-		if (version == 216) {
-			log.info("Authentication with Client Version 7.5");
+		if (version == 213) {
+			log.info("Authentication with Client Version 5.8");
 		}
-		else if (version < 216) {
-			log.info("Authentication with Client Version lower than 7.5");
+		else if (version < 213) {
+			log.info("Authentication with Client Version lower than 5.8");
 		}
 		writeC(0x00);
 		writeC(NetworkConfig.GAMESERVER_ID);
-		writeD(190219);// start year month day
-		writeD(190122);// start year month day
+		writeD(180205);// start year month day
+		writeD(171201);// start year month day
 		writeD(0x00);// spacing
-		writeD(181122);// year month day
+		writeD(180205);// year month day
 		writeD((int) (Calendar.getInstance().getTimeInMillis() / 1000)); // Start Server Time in Seconds Unit (Need to Implements in Config Files)
 		writeC(0x00);// unk
 		writeC(GSConfig.SERVER_COUNTRY_CODE);// country code;
@@ -124,14 +124,13 @@ public class SM_VERSION_CHECK extends AionServerPacket {
 		writeD(-3600);// 5.8 (-3600 = +1 Std, 0 = -1Std)
 		writeD(40014200);
 		// MOVED TO PACKET 168 
-        // writeC(GSConfig.CHARACTER_REENTRY_TIME);
-        // writeC(EventsConfig.ENABLE_DECOR);
-        // writeC(EventService.getInstance().getEventType().getId());
+//		writeC(GSConfig.CHARACTER_REENTRY_TIME);
+//		writeC(EventsConfig.ENABLE_DECOR);
+//		writeC(EventService.getInstance().getEventType().getId());
 		// MOVED TO PACKET 168
 		writeD(0);
 		writeD(68536);
-		writeD(-3600);
-		writeB(new byte[16]);
+		writeB(new byte[20]);
 		for (int i = 0; i < 11; i++) {
 			writeD(1000);
 		}

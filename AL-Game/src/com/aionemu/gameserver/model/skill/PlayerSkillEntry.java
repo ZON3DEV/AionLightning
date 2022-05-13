@@ -47,14 +47,14 @@ public class PlayerSkillEntry extends SkillEntry {
 	 * @return isStigma
 	 */
 	public boolean isStigma() {
-		return isStigma;
+		return this.isStigma;
 	}
 
 	/**
 	 * @return isLinked
 	 */
 	public boolean isLinked() {
-		return isLinked;
+		return this.isLinked;
 	}
 
 	@Override

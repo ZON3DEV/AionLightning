@@ -37,7 +37,6 @@ public enum AGILITY {
 	RIDER(100),
 	GUNNER(110),
 	ARTIST(100),
-	PAINTER(105),
 	BARD(100);
 
 	private int value;

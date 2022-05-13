@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import com.aionemu.gameserver.configs.main.HighDaevaConfig;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.IdianStone;
@@ -36,7 +37,7 @@ import com.aionemu.gameserver.model.templates.item.WeaponType;
 import com.aionemu.gameserver.model.templates.itemset.FullBonus;
 import com.aionemu.gameserver.model.templates.itemset.ItemSetTemplate;
 import com.aionemu.gameserver.model.templates.itemset.PartBonus;
-import com.aionemu.gameserver.services.enchant.EnchantService;
+import com.aionemu.gameserver.services.EnchantService;
 import com.aionemu.gameserver.services.SkillLearnService;
 import com.aionemu.gameserver.services.StigmaService;
 
@@ -85,9 +86,6 @@ public class ItemEquipmentListener {
 		if (item.getItemTemplate().isStigma()) {
 			StigmaService.recheckHiddenStigma(owner);
 		}
-		if (item.getItemSkinSkill() > 0) {
-			owner.getSkillList().addSkill(owner, item.getItemSkinSkill(), 1);
-		}
 		EnchantService.onItemEquip(owner, item);
 		EnchantService.getGloryShield(owner);
 	}
@@ -128,16 +126,11 @@ public class ItemEquipmentListener {
 		if (randomStats != null) {
 			randomStats.onUnEquip(owner);
 		}
-		if (item.isAmplified() && item.getEnchantOrAuthorizeLevel() >= 20) {
+		if (item.isAmplified() && item.getEnchantLevel() >= 20) {
 			SkillLearnService.removeSkill(owner, item.getAmplificationSkill());
 		}
 		if (item.getItemTemplate().isStigma()) {
 			StigmaService.recheckHiddenStigma(owner);
-		}
-		if (item.getItemSkinSkill() > 0) {
-			if (owner.getSkillList().isSkillPresent(item.getItemSkinSkill())) {
-				SkillLearnService.removeSkill(owner, item.getItemSkinSkill());
-			}
 		}
 		EnchantService.getGloryShield(owner);
 	}
@@ -173,13 +166,63 @@ public class ItemEquipmentListener {
 				if (weaponStats != null) {
 					int boostMagicalSkill = Math.round(0.1f * weaponStats.getBoostMagicalSkill());
 					int attack = Math.round(0.1f * weaponStats.getMeanDamage());
-					if (weaponType == WeaponType.ORB_2H || weaponType == WeaponType.BOOK_2H || weaponType == WeaponType.GUN_1H || weaponType == WeaponType.CANNON_2H || weaponType == WeaponType.HARP_2H || weaponType == WeaponType.KEYBLADE_2H || weaponType == WeaponType.SPRAY_2H) {
+					if (weaponType == WeaponType.ORB_2H || weaponType == WeaponType.BOOK_2H || weaponType == WeaponType.GUN_1H || weaponType == WeaponType.CANNON_2H || weaponType == WeaponType.HARP_2H || weaponType == WeaponType.KEYBLADE_2H) {
 						allModifiers.add(new StatAddFunction(StatEnum.MAGICAL_ATTACK, attack, false));
 						allModifiers.add(new StatAddFunction(StatEnum.BOOST_MAGICAL_SKILL, boostMagicalSkill, false));
 					}
 					else {
 						allModifiers.add(new StatAddFunction(StatEnum.MAIN_HAND_POWER, attack, false));
 					}
+				}
+			}
+			if (HighDaevaConfig.ITEM_NOT_FOR_HIGHDAEVA_ENABLE) {
+				if (player.getLevel() >= 65 && !itemTemplate.isHighdaeva()) {
+					for (StatFunction a : modifiers) {
+						int value = a.getValue();
+						int formula = (int) (value * (20.0f / 100.0f));
+						allModifiers.add(new StatAddFunction(a.getName(), -formula, false));
+					}
+				}
+			}
+			// HighDaeva item level limitations
+			if (player.getLevel() >= 65 && itemTemplate.isHighdaeva()) {
+				int pLevel = player.getLevel();
+				int iLevel = itemTemplate.getLevel();
+				float percentageDecrease = 0;
+				if (iLevel - pLevel == 1) {
+					percentageDecrease = 2.0f;
+				}
+				else if (iLevel - pLevel == 2) {
+					percentageDecrease = 4.0f;
+				}
+				else if (iLevel - pLevel == 3) {
+					percentageDecrease = 6.0f;
+				}
+				else if (iLevel - pLevel == 4) {
+					percentageDecrease = 8.0f;
+				}
+				else if (iLevel - pLevel == 5) {
+					percentageDecrease = 10.0f;
+				}
+				else if (iLevel - pLevel == 6) {
+					percentageDecrease = 12.0f;
+				}
+				else if (iLevel - pLevel == 7) {
+					percentageDecrease = 14.0f;
+				}
+				else if (iLevel - pLevel == 8) {
+					percentageDecrease = 16.0f;
+				}
+				else if (iLevel - pLevel == 9) {
+					percentageDecrease = 18.0f;
+				}
+				else if (iLevel - pLevel == 10) {
+					percentageDecrease = 20.0f;
+				}
+				for (StatFunction a : modifiers) {
+					int value = a.getValue();
+					int formula = (int) (value * (percentageDecrease / 100.0f));
+					allModifiers.add(new StatAddFunction(a.getName(), -formula, false));
 				}
 			}
 		}

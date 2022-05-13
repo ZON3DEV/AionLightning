@@ -35,9 +35,7 @@ public class CM_ATTACK extends AionClientPacket {
 	 * Target object id that client wants to TALK WITH or 0 if wants to unselect
 	 */
 	private int targetObjectId;
-	private int attackNo;
 	private int time;
-	private int type;
 
 	public CM_ATTACK(int opcode, State state, State... restStates) {
 		super(opcode, state, restStates);
@@ -46,9 +44,9 @@ public class CM_ATTACK extends AionClientPacket {
 	@Override
 	protected void readImpl() {
 		targetObjectId = readD();// empty
-		attackNo = readC();// AttackCounter 
+		readC();// attackno
 		time = readH();// empty
-		type = readC();// type
+		readC();// type
 	}
 
 	@Override
@@ -64,7 +62,7 @@ public class CM_ATTACK extends AionClientPacket {
 
 		VisibleObject obj = player.getKnownList().getObject(targetObjectId);
 		if (obj != null && obj instanceof Creature) {
-			player.getController().attackTarget((Creature) obj, attackNo, time, type);
+			player.getController().attackTarget((Creature) obj, time);
 		}
 		else {
 			if (obj != null) {

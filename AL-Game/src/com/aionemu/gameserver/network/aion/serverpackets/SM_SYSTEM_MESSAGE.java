@@ -9879,8 +9879,8 @@ public final class SM_SYSTEM_MESSAGE extends AionServerPacket {
 	/**
 	 * You have cancelled the enchanting of %0.
 	 */
-	public static SM_SYSTEM_MESSAGE STR_ENCHANT_ITEM_CANCELED(int value0) {
-		return new SM_SYSTEM_MESSAGE(1300457, value0);
+	public static SM_SYSTEM_MESSAGE STR_ENCHANT_ITEM_CANCELED(DescriptionId descriptionId) {
+		return new SM_SYSTEM_MESSAGE(1300457, descriptionId);
 	}
 
 	/**
@@ -21036,7 +21036,7 @@ public final class SM_SYSTEM_MESSAGE extends AionServerPacket {
 	}
 
 	public static SM_SYSTEM_MESSAGE STR_MSG_ITEM_AUTHORIZE_SUCCEEDED(int nameId, int level) {
-		return new SM_SYSTEM_MESSAGE(1402148, new Object[] { new DescriptionId(nameId), level});
+		return new SM_SYSTEM_MESSAGE(1402148, new Object[] { new DescriptionId(nameId), Integer.valueOf(level) });
 	}
 
 	public static SM_SYSTEM_MESSAGE STR_MSG_ITEM_AUTHORIZE_FAILED(int nameId) {
@@ -21098,16 +21098,10 @@ public final class SM_SYSTEM_MESSAGE extends AionServerPacket {
 	}
 
 	/**
-	 * Stigma Enchant
+	 * You have successfully enchanted %0 and the Stigma's enchantment level has increased by 1 level
 	 */
 	public static SM_SYSTEM_MESSAGE STR_MSG_STIGMA_ENCHANT_SUCCESS(DescriptionId descriptionId) {
 		return new SM_SYSTEM_MESSAGE(1402930, descriptionId);
-	}
-	public static SM_SYSTEM_MESSAGE STR_MSG_STIGMA_ENCHANT_FAIL(DescriptionId descriptionId) {
-		return new SM_SYSTEM_MESSAGE(1402931, descriptionId);
-	}
-	public static SM_SYSTEM_MESSAGE STR_MSG_STIGMA_ENCHANT_CANCEL(DescriptionId descriptionId) {
-		return new SM_SYSTEM_MESSAGE(1402936, descriptionId);
 	}
 	
 	/**
@@ -21115,6 +21109,13 @@ public final class SM_SYSTEM_MESSAGE extends AionServerPacket {
 	 */
 	public static SM_SYSTEM_MESSAGE STR_MSG_STIGMA_MATTER_ENCHANT_SUCCESS(DescriptionId descriptionId, int level) {
 		return new SM_SYSTEM_MESSAGE(1404544, descriptionId, level);
+	}
+
+	/**
+	 * You have failed to enchant %0 and the Stigma has been destroyed.
+	 */
+	public static SM_SYSTEM_MESSAGE STR_MSG_STIGMA_ENCHANT_FAIL(DescriptionId descriptionId) {
+		return new SM_SYSTEM_MESSAGE(1402931, descriptionId);
 	}
 
 	/**
@@ -21472,6 +21473,18 @@ public final class SM_SYSTEM_MESSAGE extends AionServerPacket {
 	public static final SM_SYSTEM_MESSAGE STR_MSG_WORLDRAID_Ere_MESSAGE_03 = new SM_SYSTEM_MESSAGE(1403071);
 	public static final SM_SYSTEM_MESSAGE STR_MSG_WORLDRAID_Ere_MESSAGE_04 = new SM_SYSTEM_MESSAGE(1403072);
 	public static final SM_SYSTEM_MESSAGE STR_MSG_WORLDRAID_Ere_MESSAGE_DIE_01 = new SM_SYSTEM_MESSAGE(1403073);
+
+	/**
+	 * Abyss Landing
+	 */
+	public static final SM_SYSTEM_MESSAGE STR_MSG_Ab1_Fortress_Entrance_In01 = new SM_SYSTEM_MESSAGE(1403044);
+	public static final SM_SYSTEM_MESSAGE STR_MSG_Ab1_Fortress_Entrance_In02 = new SM_SYSTEM_MESSAGE(1403045);
+	public static final SM_SYSTEM_MESSAGE STR_MSG_Ab1_Named_Spawn_Fail01 = new SM_SYSTEM_MESSAGE(1403046);
+	public static final SM_SYSTEM_MESSAGE STR_MSG_Ab1_Named_Spawn_Fail02 = new SM_SYSTEM_MESSAGE(1403047);
+	public static final SM_SYSTEM_MESSAGE STR_MSG_Ab1_Named_Spawn_Fail03 = new SM_SYSTEM_MESSAGE(1403048);
+	public static final SM_SYSTEM_MESSAGE STR_MSG_ABYSS_OP_LEVEL_UP_LIGHT = new SM_SYSTEM_MESSAGE(1403077);
+	public static final SM_SYSTEM_MESSAGE STR_MSG_ABYSS_OP_LEVEL_DOWN = new SM_SYSTEM_MESSAGE(1403078);
+	public static final SM_SYSTEM_MESSAGE STR_MSG_ABYSS_OP_LEVEL_UP_DARK = new SM_SYSTEM_MESSAGE(1403107);
 
 	public static SM_SYSTEM_MESSAGE STR_MSG_BUILDUP_POINT_QUEST_GAIN(int value0) {
 		return new SM_SYSTEM_MESSAGE(1403172, value0);
@@ -21855,10 +21868,8 @@ public final class SM_SYSTEM_MESSAGE extends AionServerPacket {
 	/**
 	 * Luna Shop
 	 */
-	public static final SM_SYSTEM_MESSAGE STR_MSG_LUNA_NOT_ENOUGH_LUNA = new SM_SYSTEM_MESSAGE(1403481);
 	public static final SM_SYSTEM_MESSAGE STR_MSG_LUNA_REWARD_RESTRICTION_RIDE = new SM_SYSTEM_MESSAGE(1403487);
 	public static final SM_SYSTEM_MESSAGE STR_LUNA_CRAFT_MATERIAL_INVENTORY_IS_FULL = new SM_SYSTEM_MESSAGE(1403585);
-	public static final SM_SYSTEM_MESSAGE STR_MSG_INSTANCE_QUNABUFF_SUCCEEDED = new SM_SYSTEM_MESSAGE(1404718);
 
 	public static SM_SYSTEM_MESSAGE STR_MSG_LUNA_REWARD_GOTCHA_ITEM_MULTI(long value1, int nameId) {
 		return new SM_SYSTEM_MESSAGE(1403486, value1, new DescriptionId(nameId));
@@ -21914,54 +21925,6 @@ public final class SM_SYSTEM_MESSAGE extends AionServerPacket {
 	public static SM_SYSTEM_MESSAGE STR_MSG_GET_HCOIN_07(int nameId) {
 		return new SM_SYSTEM_MESSAGE(1401496, new DescriptionId(nameId));
 	}
-
-    public static SM_SYSTEM_MESSAGE STR_FAME_CHANGE_LEVEL_DONE(DescriptionId descriptionId, int Level) {
-        return new SM_SYSTEM_MESSAGE(1405970, descriptionId, Level);
-    }
-
-    public static SM_SYSTEM_MESSAGE STR_GET_FEXP(long value) {
-        return new SM_SYSTEM_MESSAGE(1405961, value);
-    }
-
-    public static SM_SYSTEM_MESSAGE STR_MSG_ITEM_ENCHANT_OP_ODIAN_SUCCEEDED(DescriptionId descriptionId) {
-        return new SM_SYSTEM_MESSAGE(1405920, descriptionId);
-    }
-
-    public static SM_SYSTEM_MESSAGE STR_MSG_ITEM_ENCHANT_OP_RUNE_SUCCEEDED(DescriptionId descriptionId) {
-        return new SM_SYSTEM_MESSAGE(1405921, descriptionId);
-    }
-
-    public static SM_SYSTEM_MESSAGE STR_MSG_ITEM_ENCHANT_GRIND_CANT_STATUS(DescriptionId descriptionId) {
-        return new SM_SYSTEM_MESSAGE(1405906, descriptionId);
-    }
-
-    public static SM_SYSTEM_MESSAGE STR_MSG_ITEM_ENCHANT_GRIND_SUCCEEDED(DescriptionId descriptionId, int value0) {
-        return new SM_SYSTEM_MESSAGE(1405910, descriptionId, value0);
-    }
-
-    public static SM_SYSTEM_MESSAGE STR_MSG_ITEM_ENCHANT_GRIND_CANCEL(int nameId) {
-        return new SM_SYSTEM_MESSAGE(1405911, new DescriptionId(nameId));
-    }
-
-    public static SM_SYSTEM_MESSAGE STR_MSG_ITEM_ENCHANT_GRIND_FAIL(DescriptionId descriptionId) {
-        return new SM_SYSTEM_MESSAGE(1405912, descriptionId);
-    }
-
-    public static SM_SYSTEM_MESSAGE STR_MSG_ITEM_ENCHANT_GRIND_LIMIT(int nameId) {
-        return new SM_SYSTEM_MESSAGE(1405913, new DescriptionId(nameId));
-    }
-
-    public static SM_SYSTEM_MESSAGE STR_GIVE_ITEM_OPTIONSLOT_SUCCEED(DescriptionId descriptionId) {
-        return new SM_SYSTEM_MESSAGE(1404666, descriptionId);
-    }
-
-    public static SM_SYSTEM_MESSAGE STR_GIVE_ITEM_OPTIONSLOT_FAILED(DescriptionId descriptionId) {
-        return new SM_SYSTEM_MESSAGE(1404667, descriptionId);
-    }
-
-    public static SM_SYSTEM_MESSAGE STR_GIVE_ITEM_OPTIONSLOT_CANCELED(int nameId) {
-        return new SM_SYSTEM_MESSAGE(1404668, new DescriptionId(nameId));
-    }
 
 	/**
 	 * Museum of Knowledge
@@ -22027,25 +21990,6 @@ public final class SM_SYSTEM_MESSAGE extends AionServerPacket {
     public static final SM_SYSTEM_MESSAGE STR_FAMILIAR_EVOLVE_MSG_NOEVOLVE = new SM_SYSTEM_MESSAGE(1404349);
     public static final SM_SYSTEM_MESSAGE STR_FAMILIAR_EVOLVE_MSG_EVOLVE_RESULT = new SM_SYSTEM_MESSAGE(1404350);
     public static final SM_SYSTEM_MESSAGE STR_MSG_CANT_ENCHANT_EQUIPED = new SM_SYSTEM_MESSAGE(1403358);
-    public static final SM_SYSTEM_MESSAGE STR_FAMILIAR_MSG_FENERGY_CHARGE_FAIL_BY_GOLD = new SM_SYSTEM_MESSAGE(1404359);
-
-	/**
-	 * Katalam
-	 */
-    public static final SM_SYSTEM_MESSAGE STR_MSG_LDF5a_Open_01 = new SM_SYSTEM_MESSAGE(1405283);
-    public static final SM_SYSTEM_MESSAGE STR_MSG_LDF5a_Open_02 = new SM_SYSTEM_MESSAGE(1405284);
-    public static final SM_SYSTEM_MESSAGE STR_MSG_LDF5_Weapon_Box = new SM_SYSTEM_MESSAGE(1405807);
-    public static final SM_SYSTEM_MESSAGE STR_MSG_LDF5_WarBox_01 = new SM_SYSTEM_MESSAGE(1405811);
-    public static final SM_SYSTEM_MESSAGE STR_MSG_LDF5_WarBox_02 = new SM_SYSTEM_MESSAGE(1405812);
-    public static final SM_SYSTEM_MESSAGE STR_MSG_LDF5b_MSG_01 = new SM_SYSTEM_MESSAGE(1405870);
-
-	public static final SM_SYSTEM_MESSAGE STR_POPUP_ADDFEXP_USE_ITEM_FULL = new SM_SYSTEM_MESSAGE(1405970);
-	public static final SM_SYSTEM_MESSAGE STR_REINVENT_MSG_NOT_ENOUGH_INVENTORY = new SM_SYSTEM_MESSAGE(1406236);
-	public static final SM_SYSTEM_MESSAGE STR_MSG_ITEMCOLLECT_COMPLETE = new SM_SYSTEM_MESSAGE(1406236);
-
-	public static final SM_SYSTEM_MESSAGE STR_MSG_ACT_STATE_POLYMORPH = new SM_SYSTEM_MESSAGE(1401212);
-	public static final SM_SYSTEM_MESSAGE STR_MSG_TRANSFORMATION_CONTRACT_FAIL = new SM_SYSTEM_MESSAGE(1404661);
-	public static final SM_SYSTEM_MESSAGE STR_MSG_TRANSFORMATION_CANT_CURRENT_STATE = new SM_SYSTEM_MESSAGE(1404653);
 
 	/**
 	 * Constructs new <tt>SM_SYSTEM_MESSAGE </tt> packet

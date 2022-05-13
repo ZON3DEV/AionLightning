@@ -146,7 +146,6 @@ public class SM_QUEST_ACTION extends AionServerPacket {
 				writeC(0x01);
 				writeH(0x0);
 				writeC(0x01);
-				break;
 			case 5:
 				writeD(this.sharerId);
 				writeD(0);
@@ -154,7 +153,6 @@ public class SM_QUEST_ACTION extends AionServerPacket {
 			case 6:
 				writeH(0x01);// ???
 				writeH(0x0);
-				break;
 		}
 	}
 }

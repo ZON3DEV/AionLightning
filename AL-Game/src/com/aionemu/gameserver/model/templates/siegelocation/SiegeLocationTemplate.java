@@ -83,9 +83,6 @@ public class SiegeLocationTemplate {
 	@XmlElement(name = "luna_teleport")
 	protected List<LunaTeleport> lunaTeleport;
 
-	@XmlAttribute(name = "base_id")
-	protected int baseId;
-
 	/**
 	 * @return the location id
 	 */
@@ -227,9 +224,5 @@ public class SiegeLocationTemplate {
 
 	public List<LunaTeleport> getLunaTeleport() {
 		return this.lunaTeleport;
-	}
-
-	public int getBaseId() {
-		return baseId;
 	}
 }

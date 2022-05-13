@@ -57,7 +57,6 @@
 		<xs:attribute name="remove_flyend" type="xs:boolean"/>
 		<xs:attribute name="noremoveatdie" type="xs:boolean"/>
 		<xs:attribute name="boost_casting_time" type="xs:boolean"/>
-		<xs:attribute name="is_minion_skill" type="xs:boolean" use="optional"/>
 	</xs:complexType>
 	<xs:complexType name="Effects">
 		<xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -224,9 +223,6 @@
 			<xs:element name="absstatdebuff" type="AbsoluteStatToPCDebuff" minOccurs="0" maxOccurs="1"/>
             <xs:element name="stunalways" type="StunAlwaysEffect" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="targetchange" type="TargetChangeEffect" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="silverstar" type="SilverStarEffect" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="worldplaytime" type="WorldPlayTimeEffect" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="absolutefamepointhealinstant" type="AbsoluteFamePointHealInstantEffect" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="Properties">
@@ -710,13 +706,6 @@
 	<xs:complexType name="FPHealInstantEffect">
 		<xs:complexContent>
 			<xs:extension base="AbstractHealEffect"/>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="SilverStarEffect">
-		<xs:complexContent>
-			<xs:extension base="AbstractHealEffect">
-				<xs:attribute name="points" type="xs:int"/>
-			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 	<xs:complexType name="DamageEffect" abstract="true">
@@ -1434,20 +1423,6 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-	<xs:complexType name="AbsoluteFamePointHealInstantEffect">
-		<xs:complexContent>
-			<xs:extension base="AbstractHealEffect">
-				<xs:attribute name="points" type="xs:int"/>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:complexType name="WorldPlayTimeEffect">
-		<xs:complexContent>
-			<xs:extension base="AbstractHealEffect">
-				<xs:attribute name="points" type="xs:int"/>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 	<xs:complexType name="SummonHouseGateEffect">
 		<xs:complexContent>
 			<xs:extension base="SummonGroupGateEffect">
@@ -1557,7 +1532,6 @@
 			<xs:enumeration value="EFFECTIDRANGE"/>
 			<xs:enumeration value="EFFECTTYPE"/>
 			<xs:enumeration value="SLOTTYPE"/>
-			<xs:enumeration value="DEBUFF"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="attackType">
@@ -1756,7 +1730,6 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="SEARCH1"/>
 			<xs:enumeration value="SEARCH2"/>
-			<xs:enumeration value="SEARCH3"/>
 			<xs:enumeration value="SEARCH5"/>
 			<xs:enumeration value="SEARCH10"/>
 		</xs:restriction>

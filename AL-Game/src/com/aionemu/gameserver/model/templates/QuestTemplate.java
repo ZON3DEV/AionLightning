@@ -95,8 +95,6 @@ public class QuestTemplate {
 	protected List<QuestItems> gunnerSelectableReward;
 	@XmlElement(name = "bard_selectable_reward")
 	protected List<QuestItems> bardSelectableReward;
-	@XmlElement(name = "painter_selectable_reward")
-	protected List<QuestItems> painterSelectableReward;
 	@XmlElement(name = "rider_selectable_reward")
 	protected List<QuestItems> riderSelectableReward;
 	@XmlAttribute(name = "id", required = true)
@@ -459,13 +457,6 @@ public class QuestTemplate {
 			bardSelectableReward = new ArrayList<QuestItems>();
 		}
 		return this.bardSelectableReward;
-	}
-
-	public List<QuestItems> getPainterSelectableReward() {
-		if (painterSelectableReward == null) {
-			painterSelectableReward = new ArrayList<QuestItems>();
-		}
-		return this.painterSelectableReward;
 	}
 
 	public List<QuestItems> getRiderSelectableReward() {

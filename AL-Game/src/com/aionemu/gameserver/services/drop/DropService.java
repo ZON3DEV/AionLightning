@@ -323,7 +323,6 @@ public class DropService {
 
 		Set<DropItem> dropItems = DropRegistrationService.getInstance().getCurrentDropMap().get(npcId);
 		DropNpc dropNpc = DropRegistrationService.getInstance().getDropRegistrationMap().get(npcId);
-		Npc npcID = (Npc) World.getInstance().findVisibleObject(npcId);
 		DropItem requestedItem = null;
 		// drop was unregistered
 		if (dropItems == null || dropNpc == null) {
@@ -340,7 +339,7 @@ public class DropService {
 		}
 
 		if (requestedItem == null) {
-			log.warn("Null requested index item: " + itemIndex + " npcId: " + npcID.getNpcId() + " player: " + player.getObjectId());
+			log.warn("Null requested index item: " + itemIndex + " npcId" + npcId + " player: " + player.getObjectId());
 			return;
 		}
 
@@ -596,39 +595,32 @@ public class DropService {
 	private void uniqueDropAnnounce(final Player player, final DropItem requestedItem) {
 		if (DropConfig.ENABLE_UNIQUE_DROP_ANNOUNCE && !player.getInventory().isFull(requestedItem.getDropTemplate().getItemTemplate().getExtraInventoryId())) {
 			final ItemTemplate itemTemplate = ItemInfoService.getItemTemplate(requestedItem.getDropTemplate().getItemId());
-			switch (itemTemplate.getItemQuality()) {
-				case RARE:
-				case LEGEND:
-				case UNIQUE:
-				case EPIC:
-				case MYTHIC:
-				case ANCIENT:
-				case RELIC:
-				case FINALITY:
-					final String lastGetName = requestedItem.getWinningPlayer() != null ? requestedItem.getWinningPlayer().getName() : player.getName();
-					final int pObjectId = player.getObjectId();
-					final int pRaceId = player.getRace().getRaceId();
-					final int pMapId = player.getWorldId();
-					final int pInstance = player.isInInstance() ? player.getInstanceId() : 0;
+			if (itemTemplate.getItemQuality() == ItemQuality.RARE ||
+				itemTemplate.getItemQuality() == ItemQuality.LEGEND ||
+				itemTemplate.getItemQuality() == ItemQuality.UNIQUE ||
+				itemTemplate.getItemQuality() == ItemQuality.EPIC ||
+				itemTemplate.getItemQuality() == ItemQuality.MYTHIC) {
+				final String lastGetName = requestedItem.getWinningPlayer() != null ? requestedItem.getWinningPlayer().getName() : player.getName();
+				final int pObjectId = player.getObjectId();
+				final int pRaceId = player.getRace().getRaceId();
+				final int pMapId = player.getWorldId();
+				final int pInstance = player.isInInstance() ? player.getInstanceId() : 0;
 
-					World.getInstance().doOnAllPlayers(new Visitor<Player>() {
+				World.getInstance().doOnAllPlayers(new Visitor<Player>() {
 
-						@Override
-						public void visit(Player other) {
+					@Override
+					public void visit(Player other) {
 
-							int oObjectId = other.getObjectId();
-							int oRaceId = other.getRace().getRaceId();
-							int oMapId = other.getWorldId();
-							int oInstance = other.isInInstance() ? other.getInstanceId() : 0;
+						int oObjectId = other.getObjectId();
+						int oRaceId = other.getRace().getRaceId();
+						int oMapId = other.getWorldId();
+						int oInstance = other.isInInstance() ? other.getInstanceId() : 0;
 
-							if (oObjectId != pObjectId && other.isSpawned() && oRaceId == pRaceId && oMapId == pMapId && oInstance == pInstance) {
-								PacketSendUtility.sendPacket(other, new SM_SYSTEM_MESSAGE(1390003, lastGetName, "[item: " + requestedItem.getDropTemplate().getItemId() + "]"));
-							}
+						if (oObjectId != pObjectId && other.isSpawned() && oRaceId == pRaceId && oMapId == pMapId && oInstance == pInstance) {
+							PacketSendUtility.sendPacket(other, new SM_SYSTEM_MESSAGE(1390003, lastGetName, "[item: " + requestedItem.getDropTemplate().getItemId() + "]"));
 						}
-					});
-					break;
-				default:
-					break;
+					}
+				});
 			}
 		}
 	}

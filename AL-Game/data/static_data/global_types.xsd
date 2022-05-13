@@ -997,122 +997,7 @@
             <xs:enumeration value="IDRUN_POLYMORPH_L"/>
             <xs:enumeration value="IDRUN_POLYMORPH_D"/>
             <xs:enumeration value="IDRUN_NPC"/>
-            <!-- New 6.0 -->
-            <xs:enumeration value="DOOR_GUARD"/>
-            <xs:enumeration value="DOOR_GUARD_DARK"/>
-            <xs:enumeration value="ERESUKIGAL_SOLO"/>
-            <xs:enumeration value="GENERAL_DARK_NLIZARDMAN"/>
-            <xs:enumeration value="IDF7_WEAPON"/>
-            <xs:enumeration value="IDF7_WEAPON_BOX"/>
-            <xs:enumeration value="IDF7_WEAPON_BOX_N"/>
-            <xs:enumeration value="IDF7_WEAPON_FOBJ"/>
-            <xs:enumeration value="IDF7_WEAPON_NEPILIM"/>
-            <xs:enumeration value="IDF7_WEAPON_OIL"/>
-            <xs:enumeration value="IDF7_WEAPON_POLYMORPH"/>
-            <xs:enumeration value="IDF7_WEAPON_PRIGIDA"/>
-            <xs:enumeration value="IDINFINITY_HEAL"/>
-            <xs:enumeration value="IDTIAMAT_ANCIENT_V60"/>
-            <xs:enumeration value="IDTIAMAT_XDRAKAN_V60"/>
-            <xs:enumeration value="LDF7_EVENT"/>
-            <xs:enumeration value="LDF7_RAID"/>
-            <xs:enumeration value="LDF7_RAID_TARGET"/>
-            <xs:enumeration value="LF4_NUTE_Q61916A"/>
-            <xs:enumeration value="LYCAN_DARK"/>
-            <xs:enumeration value="NLIZARDMAN_GENERAL_DARK"/>
-            <xs:enumeration value="ONLY_GUARD_AGRRESI"/>
-            <!-- New 6.5 -->
-            <xs:enumeration value="UNDEAD_DARK"/>
-            <xs:enumeration value="UNDEAD_LIGHT"/>
-            <xs:enumeration value="IDF7_MINE"/>
-            <xs:enumeration value="IDF7_MINE_MONSER"/>
-            <xs:enumeration value="IDF7_ERE"/>
-            <xs:enumeration value="IDF7_ERE_KILLER"/>
-            <xs:enumeration value="IDF7_ERE_GUARD_LI"/>
-            <xs:enumeration value="IDF7_ERE_GUARD_DA"/>
-            <xs:enumeration value="IDBC_LIGHT"/>
-            <xs:enumeration value="IDBC_DARK"/>
-            <xs:enumeration value="IDBC_BOSS"/>
-            <xs:enumeration value="IDF7_MINE_MONSER_SUPP"/>
-            <xs:enumeration value="IDBC_LIGHT_BOSS"/>
-            <xs:enumeration value="IDBC_DARK_BOSS"/>
-            <xs:enumeration value="IDBC_NPC_LIGHT"/>
-            <xs:enumeration value="IDF7_ERE_AGGRESSIVEGUARD"/>
-            <xs:enumeration value="IDF7_ERE_LI"/>
-            <xs:enumeration value="IDF7_ERE_DA"/>
-            <xs:enumeration value="IDBC_OBJ_BUFF"/>
-            <xs:enumeration value="IDWATER_MOB"/>
-            <xs:enumeration value="IDWATER_NPC"/>
-            <xs:enumeration value="IDWATER_PC"/>
-            <xs:enumeration value="IDBC_LIGHT_TANK"/>
-            <xs:enumeration value="IDBC_DARK_TANK"/>
-            <xs:enumeration value="IDBC_NPC_DARK"/>
-            <xs:enumeration value="PANDORARAID_ENERGY_LIGHT"/>
-            <xs:enumeration value="PANDORARAID_ENERGY_DARK"/>
-            <xs:enumeration value="IDBC_POL_LIGHT"/>
-            <xs:enumeration value="IDBC_POL_DARK"/>
-            <xs:enumeration value="PANDORARAID_WAVE_MONSTER"/>
-            <!-- New 7.0 -->
-            <xs:enumeration value="ATKGUARD_DARK"/>
-            <xs:enumeration value="ATKGUARD_LIGHT"/>
-            <xs:enumeration value="EVENT_OCT_BEHOLDER_REAL"/>
-            <xs:enumeration value="EVENT_OCT_DEBRIE_POLYMORPH"/>
-            <xs:enumeration value="IDF8_MISSION02_D"/>
-            <xs:enumeration value="IDF8_MISSION02_L"/>
-            <xs:enumeration value="IDF8_MISSION02_M"/>
-            <xs:enumeration value="LDF7_SEP_EVENT_D"/>
-            <xs:enumeration value="LDF7_SEP_EVENT_L"/>
-            <xs:enumeration value="LDF8_AGGRESSIVESINGLEMONSTER"/>
-            <xs:enumeration value="LDF8_FIELD_OBJECT_ALL"/>
-            <xs:enumeration value="LDF8_LEGA"/>
-            <xs:enumeration value="LDF8_NK"/>
-            <xs:enumeration value="LDF8_SNOOWA"/>
-            <xs:enumeration value="LDF8_SP_BUFF"/>
-            <xs:enumeration value="LDF8_STELLA_L_D"/>
-            <xs:enumeration value="LDF8_PC_POLYMORPH"/>
-            <!-- New 7.2 -->
-            <xs:enumeration value="LDF8_DEF_NAKI"/>
-            <xs:enumeration value="IDF8_HOUSE_BOSS"/>
-            <xs:enumeration value="IDF8_HOUSE_FIRE"/>
-            <xs:enumeration value="LDF5_LI_MOB_AGGRESSIVE"/>
-            <xs:enumeration value="LDF5_DA_MOB_AGGRESSIVE"/>
-            <xs:enumeration value="LDF5_LI_MOB"/>
-            <xs:enumeration value="LDF5_DA_MOB"/>
-            <xs:enumeration value="IDINFINITY_SLAYER"/>
-            <xs:enumeration value="IDINFINITY_TRAP"/>
-            <xs:enumeration value="IDINFINITY_ESSENCE"/>
-            <xs:enumeration value="PROTECTGUARD_DRAGON"/>
-            <xs:enumeration value="EVENT_V72_THEWAR"/>
-            <xs:enumeration value="EVENT_V72_THEWAR_BBOO"/>
-            <!-- New 7.3 -->
-            <xs:enumeration value="IDCUSTOMIZE_MONSTER"/>
-            <xs:enumeration value="IDCUSTOMIZE_NPC_D"/>
-            <xs:enumeration value="IDCUSTOMIZE_NPC_L"/>
-            <xs:enumeration value="LDF5B_GUARD_DA"/>
-            <xs:enumeration value="LDF5B_GUARD_LI"/>
-            <xs:enumeration value="UP3_URF_ENEMY"/>
-            <xs:enumeration value="UP3_URF_OBJ"/>
-            <!-- New 7.5 -->
-            <xs:enumeration value="LDF8_LEGION_DIGGER_L"/>
-            <xs:enumeration value="LDF8_LEGION_DIGGER_D"/>
-            <xs:enumeration value="LDF8_LEGION_DIGGER_N"/>
-            <xs:enumeration value="LDF5_PANDAROONGS_POLYMORPH_L"/>
-            <xs:enumeration value="LDF5_PANDAROONGS_POLYMORPH_D"/>
-            <xs:enumeration value="LDF5_PANDAROONGS_ENTRANCE"/>
-            <xs:enumeration value="DRAMATASLIME"/>
-            <xs:enumeration value="IDF8_DRAGON_ALTAR_FOBJ"/>
-            <xs:enumeration value="IDF8_DRAGON_ALTAR_RAID"/>
-            <xs:enumeration value="IDF8_DRAGON_ALTAR_USEALL"/>
-            <xs:enumeration value="LDF8_LEGION_ALL_ATK"/>
-            <xs:enumeration value="EVENT_V75_HAPPYSHUGO"/>
-            <!-- New 7.7 -->
-            <xs:enumeration value="IDCATACOMBS_RUDRA_HINT_01"/>
-            <xs:enumeration value="IDCATACOMBS_RUDRA_HINT_02"/>
-            <xs:enumeration value="ATREIA_GARDEN_PLANTS"/>
-            <xs:enumeration value="ATREIA_GARDEN_BADLARVA"/>
-            <!-- New 7.8 -->
-            <xs:enumeration value="IDWATER_SLAYER"/>
-            <xs:enumeration value="IDWATER_TRAP"/>
-            <xs:enumeration value="IDWATER_ESSENCE"/>
+            <xs:enumeration value=""/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- Base types -->
@@ -1129,7 +1014,6 @@
 			<xs:enumeration value="RIDER"/>
 			<xs:enumeration value="ARTIST"/>
 			<xs:enumeration value="BARD"/>
-			<xs:enumeration value="PAINTER"/>
 			<xs:enumeration value="GUNNER"/>
 			<xs:enumeration value="SORCERER"/>
 			<xs:enumeration value="SPIRIT_MASTER"/>
@@ -1203,32 +1087,18 @@
 			<xs:enumeration value="ORC"/>
 			<xs:enumeration value="DRAGONET"/>
 			<xs:enumeration value="WORLD_EVENT_BONFIRE"/>
-			<xs:enumeration value="COLLECTION_01"/>
-			<xs:enumeration value="COLLECTION_02"/>
-			<xs:enumeration value="COLLECTION_03"/>
-			<xs:enumeration value="COLLECTION_04"/>
-			<xs:enumeration value="F6_RAID_BOSS"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="itemQuality">
 		<xs:restriction base="xs:string">
+			<xs:enumeration value="COMMON"/>
 			<xs:enumeration value="RARE"/>
 			<xs:enumeration value="LEGEND"/>
 			<xs:enumeration value="UNIQUE"/>
-			<xs:enumeration value="RELIC"/>
-			<xs:enumeration value="FINALITY"/>
 			<xs:enumeration value="EPIC"/>
-			 <!-- 6.x New Item Quality -->
-			<xs:enumeration value="JUNK"/> <!-- 5.x white -->
-			<xs:enumeration value="COMMON"/> <!-- 5.x white -->
-			<xs:enumeration value="SUPERIOR"/> <!-- 5.x green -->
-			<xs:enumeration value="HEROIC"/> <!-- 5.x blue -->
-			<xs:enumeration value="FABLED"/> <!-- 5.x gold -->
-			<xs:enumeration value="ETERNAL"/> <!-- 5.x orange -->
-			<xs:enumeration value="MYTHIC"/> <!-- 5.x lila -->
-			<xs:enumeration value="ANCIENT"/> <!-- 6.x gold -->
-			<xs:enumeration value="LEGENDARY"/> <!-- 6.x lila -->
-			<xs:enumeration value="ULTIMATE"/> <!-- 6.x red -->
+			<xs:enumeration value="MYTHIC"/>
+			<xs:enumeration value="ANCIENT"/>
+			<xs:enumeration value="JUNK"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="IntListType">
@@ -1237,12 +1107,4 @@
     <xs:simpleType name="StringListType">
         <xs:list itemType="xs:string"/>
     </xs:simpleType>
-	<xs:simpleType name="CollectionType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="COMMON"/>
-			<xs:enumeration value="ANCIENT"/>
-			<xs:enumeration value="RELIC"/>
-			<xs:enumeration value="EVENT"/>
-		</xs:restriction>
-	</xs:simpleType>
 </xs:schema>

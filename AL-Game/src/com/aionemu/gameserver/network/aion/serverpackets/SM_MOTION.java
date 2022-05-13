@@ -87,7 +87,7 @@ public class SM_MOTION extends AionServerPacket {
 	protected void writeImpl(AionConnection con) {
 		writeC(action);
 		switch (action) {
-			case 1: {
+			case 1:
 				writeH(motions.size());
 				for (Motion motion : motions) {
 					writeH(motion.getId());
@@ -95,22 +95,18 @@ public class SM_MOTION extends AionServerPacket {
 					writeC(motion.isActive() ? 1 : 0);
 				}
 				break;
-			}
-			case 2: { // Add motion
+			case 2: // Add motion
 				writeH(motionId);
 				writeD(remainingTime);
 				break;
-			}
-			case 5: { // Set motion
+			case 5: // Set motion
 				writeH(motionId);
 				writeC(type);
 				break;
-			}
-			case 6: { // remove
+			case 6: // remove
 				writeH(motionId);
 				break;
-			}
-			case 7: { // Player motions
+			case 7: // Player motions
 				writeD(playerId);
 				for (int i = 1; i < 6; i++) {
 					Motion motion = activeMotions.get(i);
@@ -121,10 +117,6 @@ public class SM_MOTION extends AionServerPacket {
 						writeH(motion.getId());
 					}
 				}
-				break;
-			}
-			default:
-				break;
 		}
 	}
 }

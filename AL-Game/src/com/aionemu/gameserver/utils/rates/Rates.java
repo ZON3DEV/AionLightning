@@ -56,6 +56,8 @@ public abstract class Rates {
 
 	public abstract float getQuestGpRate();
 
+	public abstract float getQuestAbyssOpRate();
+
 	public abstract float getQuestExpBoostRate();
 
 	public abstract float getDpNpcRate();

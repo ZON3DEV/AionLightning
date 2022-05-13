@@ -33,7 +33,6 @@ import gnu.trove.map.hash.TIntObjectHashMap;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "minions")
 public class MinionData {
-
 	@XmlElement(name = "minion")
 	private List<MinionTemplate> minionTemplates;
 	@XmlTransient
@@ -42,9 +41,9 @@ public class MinionData {
 	private List<Integer> minionDataList = new ArrayList<Integer>();
 
 	void afterUnmarshal(final Unmarshaller unmarshaller, final Object o) {
-		for (MinionTemplate minion : minionTemplates) {
-			minionData.put(minion.getId(), minion);
-			minionDataList.add(minion.getId());
+		for (MinionTemplate minionTemplate : minionTemplates) {
+			minionData.put(minionTemplate.getId(), minionTemplate);
+			minionDataList.add(minionTemplate.getId());
 		}
 		minionTemplates.clear();
 		minionTemplates = null;
@@ -54,8 +53,8 @@ public class MinionData {
 		return minionData.size();
 	}
 
-	public MinionTemplate getMinionTemplate(int Id) {
-		return minionData.get(Id);
+	public MinionTemplate getMinionTemplate(int minionId) {
+		return minionData.get(minionId);
 	}
 
 	public List<Integer> getAll() {

@@ -26,7 +26,6 @@ import com.aionemu.gameserver.model.instance.StageType;
 import com.aionemu.gameserver.model.instance.instancereward.InstanceReward;
 import com.aionemu.gameserver.model.templates.spawns.SpawnTemplate;
 import com.aionemu.gameserver.services.NpcShoutsService;
-import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.spawnengine.WalkerFormator;
 import com.aionemu.gameserver.world.WorldMapInstance;
@@ -80,10 +79,6 @@ public class GeneralInstanceHandler implements InstanceHandler {
 	@Override
 	public void onPlayMovieEnd(Player player, int movieId) {
 	}
-
-    @Override
-    public void onSkillUse(Player player, SkillTemplate template) {
-    }
 
 	protected VisibleObject spawn(int npcId, float x, float y, float z, byte heading) {
 		SpawnTemplate template = SpawnEngine.addNewSingleTimeSpawn(mapId, npcId, x, y, z, heading);

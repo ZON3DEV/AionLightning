@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="items/item/item_templates.xsd"/>
+    <xs:include schemaLocation="items/item_templates.xsd"/>
     <xs:include schemaLocation="skills/skills.xsd"/>
     <xs:complexType name="Modifiers">
         <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -262,56 +262,6 @@
 			<!-- 5.6 -->
 			<xs:enumeration value="HIDDEN_PVE_ATTACK_RATIO"/>
 			<xs:enumeration value="HIDDEN_PVE_DEFEND_RATIO"/>
-			<!-- 7.x -->
-            <xs:enumeration value="PVP_ATTACK"/>
-            <xs:enumeration value="PVP_DEFENSE"/>
-            <xs:enumeration value="PVE_ATTACK"/>
-            <xs:enumeration value="PVE_DEFENSE"/>
-
-            <xs:enumeration value="OPENAERIAL_ARP"/>
-            <xs:enumeration value="ROOT_ARP"/>
-            <xs:enumeration value="SNARE_ARP"/>
-            <xs:enumeration value="PULLED_ARP"/>
-            <xs:enumeration value="BLIND_ARP"/>
-            <xs:enumeration value="BIND_ARP"/>
-            <xs:enumeration value="SLEEP_ARP"/>
-            <xs:enumeration value="FEAR_ARP"/>
-            
-            <xs:enumeration value="EARTH"/>
-            <xs:enumeration value="WATER"/>
-            <xs:enumeration value="FIRE"/>
-            <xs:enumeration value="AIR"/>
-
-            <xs:enumeration value="MAGICAL_DEFEND"/>
-            
-            <xs:enumeration value="AROPENAERIAL"/>
-            <xs:enumeration value="ARBIND"/>
-            <xs:enumeration value="DEFORM_ARP"/>
-
-            <xs:enumeration value="EXTRA_ERESHKIGAL_DAMAGE"/>
-            <xs:enumeration value="REDUCE_ERESHKIGAL_DAMAGE"/>
-            <xs:enumeration value="idf7_weapon_hard_boss_1st_atk"/>
-            <xs:enumeration value="idf7_weapon_hard_boss_2nd_atk"/>
-            <xs:enumeration value="idf7_weapon_hard_boss_3rd_atk"/>
-            <xs:enumeration value="idf7_weapon_hard_boss_final_atk"/>
-            <xs:enumeration value="bidldf8_lab_boss_04_atk"/>
-            <xs:enumeration value="idf8_house_hugerider_atk"/>
-            <xs:enumeration value="IDF7_Weapon_Hard_Boss_1st"/>
-            <xs:enumeration value="IDF7_Weapon_Hard_Boss_2nd"/>
-            <xs:enumeration value="IDF7_Weapon_Hard_Boss_3rd"/>
-            <xs:enumeration value="IDF7_Weapon_Hard_Boss_Final"/>
-            <xs:enumeration value="IDLDF8_Lab_Boss"/>
-            <xs:enumeration value="IDF8_House_HugeRider"/>
-            <xs:enumeration value="idseal_hard_boss_1st_atk"/>
-            <xs:enumeration value="idf8_Dragon_Altar_atk"/>
-            <xs:enumeration value="idseal_hard_boss_1st"/>
-            <xs:enumeration value="idf8_Dragon_Altar"/>
-            <xs:enumeration value="idseal_hard_boss_2nd_atk"/>
-            <xs:enumeration value="idseal_hard_boss_2nd"/>
-            <xs:enumeration value="cubic_stat_catacombs_3rd_atk"/>
-            <xs:enumeration value="cubic_stat_catacombs_3rd"/>
-            <xs:enumeration value="idseal_hard_boss_3rd_atk"/>
-            <xs:enumeration value="idseal_hard_boss_3rd"/>
         </xs:restriction>
     </xs:simpleType>
 

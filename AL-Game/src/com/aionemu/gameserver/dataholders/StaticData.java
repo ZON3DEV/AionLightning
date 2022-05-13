@@ -63,10 +63,6 @@ public class StaticData {
 	public ItemCustomSetData itemCustomSetData;
 	@XmlElement(name = "random_bonuses")
 	public ItemRandomBonusData itemRandomBonuses;
-	@XmlElement(name = "real_random_bonuses")
-	public ItemRealRandomBonusData itemRealRandomBonuses;
-    @XmlElement(name = "grind_combines")
-    public GrindCombineData grindCombineData;
 	@XmlElement(name = "npc_templates")
 	public NpcData npcData;
 	@XmlElement(name = "npc_shouts")
@@ -97,8 +93,6 @@ public class StaticData {
 	public RecipeData recipeData;
 	@XmlElement(name = "luna_templates")
 	public LunaData lunaData;
-	@XmlElement(name = "luna_bonusattrs")
-    public LunaBuffData lunaBuffData;
 	@XmlElement(name = "chest_templates")
 	public ChestData chestData;
 	@XmlElement(name = "staticdoor_templates")
@@ -205,8 +199,16 @@ public class StaticData {
 	public MultiReturnItemData multiReturnItemData;
 	@XmlElement(name = "hotspot_teleport")
 	public HotspotTeleporterData hotspotTeleporterData;
+	@XmlElement(name = "atreian_passports")
+	public AtreianPassportData atreianPassportData;
 	@XmlElement(name = "base_locations")
 	public BaseData baseData;
+	@XmlElement(name = "beritra_invasion")
+	public BeritraData beritraData;
+	@XmlElement(name = "svs")
+	public SvsData svsData;
+	@XmlElement(name = "rvr")
+	public RvrData rvrData;
 	@XmlElement(name = "abyss_bonusattrs")
 	public AbyssBuffData abyssBuffData;
 	@XmlElement(name = "abyss_groupattrs")
@@ -221,6 +223,8 @@ public class StaticData {
 	public ArcadeUpgradeData arcadeUpgradeData;
 	@XmlElement(name = "hidden_stigma_tree")
 	public HiddenStigmaTreeData hiddenStigmas;
+	@XmlElement(name = "world_buffs")
+	public WorldBuffData buffData;
 	@XmlElement(name = "players")
 	public PlayersAppearanceData playerAppearance;
 	@XmlElement(name = "service_bonusattrs")
@@ -231,12 +235,22 @@ public class StaticData {
 	public PetBuffData petBuffData;
 	@XmlElement(name = "merchants")
 	public PetMerchandData petMerchandData;
+	@XmlElement(name = "panel_cps")
+	public PanelCpData panelCpData;
 	@XmlElement(name = "f2p_bonus")
 	public F2PBonusData f2pBonus;
+	@XmlElement(name = "abyss_ops")
+	public AbyssOpData abyssOpData;
+	@XmlElement(name = "landing")
+	public LandingData landingLocationData;
+	@XmlElement(name = "landing_special")
+	public LandingSpecialData landingSpecialLocationData;
 	@XmlElement(name = "luna_consume_rewards")
 	public LunaConsumeRewardsData lunaConsumeRewardsData;
 	@XmlElement(name = "minions")
 	public MinionData minionData;
+    @XmlElement(name = "monster_books")
+    public MonsterbookData monsterbookData;
 	@XmlElement(name = "boost_events")
 	public BoostEventData boostEvents;
 	@XmlElement(name="skill_skins")
@@ -247,40 +261,6 @@ public class StaticData {
     public ItemSkillEnhanceData itemSkillEnhance;
 	@XmlElement(name = "shugo_sweeps")
 	public ShugoSweepRewardData shugoSweepsRewardData;
-	@XmlElement(name = "cubics_templates")
-    public CubicsData cubicsData;
-	@XmlElement(name = "revive_world_start_points")
-	public ReviveWorldStartPointsData reviveWorldStartPoints;
-	@XmlElement(name = "instance_revive_start_points")
-	public ReviveInstanceStartPointsData reviveInstanceStartPoints;
-	@XmlElement(name = "enchant_chances")
-	public ItemEnchantChancesData itemEnchantChancesData;
-	@XmlElement(name = "dynamic_portal")
-	public DynamicPortalData dynamicPortalData;
-	@XmlElement(name = "atreian_passports")
-	public AtreianPassportData atreianPassportData;
-    @XmlElement(name = "achievement_templates")
-    public AchievementData achievementData;
-    @XmlElement(name = "achievement_event_templates")
-    public AchievementEventData achievementEventData;
-    @XmlElement(name = "achievement_action_templates")
-    public AchievementActionData achievementActionData;
-    @XmlElement(name = "lumiel_material_templates")
-    public LumielMaterialData lumielMaterialData;
-    @XmlElement(name = "lumiel_templates")
-    public LumielTemplateData lumielTemplateData;
-    @XmlElement(name = "collection_templates")
-    public CollectionData collectionTemplateData;
-    @XmlElement(name = "collection_exp_templates")
-    public CollectionExpData collectionExpData;
-    @XmlElement(name = "minions_list")
-    public ItemMinionListData itemMinionList;
-    @XmlElement(name = "transform_book_templates")
-    public TransformBookData transformBookData;
-    @XmlElement(name = "transform_collection_templates")
-    public TransformCollectionData transformCollectionData;
-    @XmlElement(name = "transforms_list")
-    public ItemTransformListData itemTransformListData;
 
 	// JAXB callback
 	@SuppressWarnings("unused")
@@ -294,10 +274,8 @@ public class StaticData {
 		DataManager.log.info("[DataManager] Loaded " + itemCleanup.size() + " item cleanup entries");
 		DataManager.log.info("[DataManager] Loaded " + itemData.size() + " item templates");
 		DataManager.log.info("[DataManager] Loaded " + itemRandomBonuses.size() + " item bonus templates");
-		DataManager.log.info("[DataManager] Loaded " + itemRealRandomBonuses.size() + " item real bonus templates");
 		DataManager.log.info("[DataManager] Loaded " + itemGroupsData.bonusSize() + " bonus item group templates");
 		DataManager.log.info("[DataManager] Loaded " + itemGroupsData.petFoodSize() + " pet food items");
-		DataManager.log.info("[DataManager] Loaded " + grindCombineData.size() + " grind combine items");
 		DataManager.log.info("[DataManager] Loaded " + npcData.size() + " npc templates");
 		DataManager.log.info("[DataManager] Loaded " + systemMailTemplates.size() + " system mail templates");
 		DataManager.log.info("[DataManager] Loaded " + npcShoutData.size() + " npc shout templates");
@@ -323,7 +301,6 @@ public class StaticData {
 		DataManager.log.info("[DataManager] Loaded " + tribeRelationsData.size() + " tribe relation entries");
 		DataManager.log.info("[DataManager] Loaded " + recipeData.size() + " recipe entries");
 		DataManager.log.info("[DataManager] Loaded " + lunaData.size() + " luna recipe entries");
-		DataManager.log.info("[DataManager] Loaded " + lunaBuffData.size() + " luna buff entries");
 		DataManager.log.info("[DataManager] Loaded " + chestData.size() + " chest locations");
 		DataManager.log.info("[DataManager] Loaded " + staticDoorData.size() + " static door locations");
 		DataManager.log.info("[DataManager] Loaded " + itemSetData.size() + " item set entries");
@@ -372,43 +349,36 @@ public class StaticData {
 		DataManager.log.info("[DataManager] Loaded " + multiReturnItemData.size() + " multi returns items");
 		DataManager.log.info("[DataManager] Loaded " + hotspotTeleporterData.size() + " hotspot templates");
 		DataManager.log.info("[DataManager] Loaded " + arcadeUpgradeData.size() + " arcade upgrade entries");
+		DataManager.log.info("[DataManager] Loaded " + atreianPassportData.size() + " atreian passports");
 		DataManager.log.info("[DataManager] Loaded " + baseData.size() + " base entries");
+		DataManager.log.info("[DataManager] Loaded " + beritraData.size() + " beritra invasion entries");
+		DataManager.log.info("[DataManager] Loaded " + svsData.size() + " s.v.s entries");
+		DataManager.log.info("[DataManager] Loaded " + rvrData.size() + " r.v.r entries");
 		DataManager.log.info("[DataManager] Loaded " + abyssBuffData.size() + " abyss bonus entries");
 		DataManager.log.info("[DataManager] Loaded " + abyssGroupData.size() + " abyss bonus group entries");
 		DataManager.log.info("[DataManager] Loaded " + absoluteStatsData.size() + " absolute stat templates");
 		DataManager.log.info("[DataManager] Loaded " + robotData.size() + " robot armor entries");
 		DataManager.log.info("[DataManager] Loaded " + xmlNpcDropData.size() + " custom npc drop data");
 		DataManager.log.info("[DataManager] Loaded " + hiddenStigmas.size() + " hidden stigmas entries");
+		DataManager.log.info("[DataManager] Loaded " + buffData.size() + " world buff map entries");
 		// DataManager.log.info("[DataManager] Loaded " + playerAppearance.size() + " Player Appearances");
 		DataManager.log.info("[DataManager] Loaded " + serviceBuffData.size() + " service bonus entries");
 		DataManager.log.info("[DataManager] Loaded " + playersBonusData.size() + " player bonus entries");
 		DataManager.log.info("[DataManager] Loaded " + petBuffData.size() + " Pets Buff entries");
 		DataManager.log.info("[DataManager] Loaded " + petMerchandData.size() + " Pets Merchant entries");
+		DataManager.log.info("[DataManager] Loaded " + panelCpData.size() + " Creativity Template entries");
 		DataManager.log.info("[DataManager] Loaded " + f2pBonus.size() + " F2P Bonus entries");
+		DataManager.log.info("[DataManager] Loaded " + abyssOpData.size() + " Abyss Landing entries");
+		DataManager.log.info("[DataManager] Loaded " + landingLocationData.size() + " Abyss Landing entries");
+		DataManager.log.info("[DataManager] Loaded " + landingSpecialLocationData.size() + " Abyss Monument entries");
 		DataManager.log.info("[DataManager] Loaded " + lunaConsumeRewardsData.size() + " Luna Consume entries");
 		DataManager.log.info("[DataManager] Loaded " + minionData.size() + " Minion templates");
+		DataManager.log.info("[DataManager] Loaded " + monsterbookData.size() + " Monsterbook templates");
 		DataManager.log.info("[DataManager] Loaded " + boostEvents.size() + " Boost Event templates");
 		DataManager.log.info("[DataManager] Loaded " + itemCustomSetData.size() + " Item Custom Set templates");
 		DataManager.log.info("[DataManager] Loaded " + skillSkinData.size() + " Skill Animation entries");
 		DataManager.log.info("[DataManager] Loaded " + eventsWindow.size() + " Events Window entries");
 		DataManager.log.info("[DataManager] Loaded " + itemSkillEnhance.size() + " Skill Boost entries");
 		DataManager.log.info("[DataManager] Loaded " + shugoSweepsRewardData.size() + " Shugo Sweep Reward entries");
-		DataManager.log.info("[DataManager] Loaded " + cubicsData.size() + " Cubics entries");
-		DataManager.log.info("[DataManager] Loaded " + reviveWorldStartPoints.size() + " Revive World Start Point entrys");
-		DataManager.log.info("[DataManager] Loaded " + reviveInstanceStartPoints.size() + " Revive Instance Start Point entrys");
-		DataManager.log.info("[DataManager] Loaded " + itemEnchantChancesData.size() + " Item Enchant Chances entrys");
-		DataManager.log.info("[DataManager] Loaded " + dynamicPortalData.size() + " Dynamic Portal entrys");
-		DataManager.log.info("[DataManager] Loaded " + achievementData.size() + "  Achievement entrys");
-		DataManager.log.info("[DataManager] Loaded " + achievementEventData.size() + " Achievement Event entrys");
-		DataManager.log.info("[DataManager] Loaded " + achievementActionData.size() + " Achievement Action entrys");
-		DataManager.log.info("[DataManager] Loaded " + atreianPassportData.size() + " Atreian Passport entrys");
-		DataManager.log.info("[DataManager] Loaded " + lumielMaterialData.size() + " Lumiel Material entrys");
-		DataManager.log.info("[DataManager] Loaded " + lumielTemplateData.size() + " Lumiel Template entrys");
-		DataManager.log.info("[DataManager] Loaded " + collectionTemplateData.size() + "Collection Template entrys");
-		DataManager.log.info("[DataManager] Loaded " + collectionExpData.size() + " Collection EXP entrys");
-		DataManager.log.info("[DataManager] Loaded " + itemMinionList.size() + " Minion List entrys");
-		DataManager.log.info("[DataManager] Loaded " + transformBookData.size() + " Transformation entrys");
-		DataManager.log.info("[DataManager] Loaded " + transformCollectionData.size() + " Transformation Collection entrys");
-		DataManager.log.info("[DataManager] Loaded " + itemTransformListData.size() + " Transformation List entrys");
 	}
 }

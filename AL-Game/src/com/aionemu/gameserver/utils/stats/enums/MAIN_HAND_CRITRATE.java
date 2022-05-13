@@ -37,7 +37,6 @@ public enum MAIN_HAND_CRITRATE {
 	RIDER(2),
 	GUNNER(3),
 	ARTIST(1),
-	PAINTER(2),
 	BARD(2);
 
 	private int value;

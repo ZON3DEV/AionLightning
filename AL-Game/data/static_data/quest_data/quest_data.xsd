@@ -32,7 +32,6 @@
             <xs:element name="priest_selectable_reward" type="QuestItems" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="chanter_selectable_reward" type="QuestItems" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="bard_selectable_reward" type="QuestItems" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element name="painter_selectable_reward" type="QuestItems" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="gunner_selectable_reward" type="QuestItems" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="rider_selectable_reward" type="QuestItems" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
@@ -88,8 +87,8 @@
             <xs:element name="selectable_reward_item" type="QuestItems" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="reward_item" type="QuestItems" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="gold" type="xs:long"/>
-        <xs:attribute name="exp" type="xs:long"/>
+        <xs:attribute name="gold" type="xs:int"/>
+        <xs:attribute name="exp" type="xs:int"/>
         <xs:attribute name="dp" type="xs:int"/>
         <xs:attribute name="reward_abyss_point" type="xs:int"/>
         <xs:attribute name="reward_glory_point" type="xs:int"/>
@@ -99,7 +98,6 @@
         <xs:attribute name="title" type="xs:int"/>
         <xs:attribute name="extend_inventory" type="xs:int"/>
         <xs:attribute name="extend_stigma" type="xs:int"/>
-		<xs:attribute name="fame_exp" type="xs:int"/>
     </xs:complexType>
     <xs:complexType name="QuestBonuses">
         <xs:attribute name="type" type="BonusType" use="required"/>
@@ -156,10 +154,10 @@
     <xs:complexType name="QuestStartConditions">
         <xs:sequence>
             <xs:element name="finished" type="FinishedQuest" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element name="unfinished" type="NumberListType" minOccurs="0" maxOccurs="32"/>
-            <xs:element name="noacquired" type="NumberListType" minOccurs="0" maxOccurs="32"/>
-            <xs:element name="acquired" type="NumberListType" minOccurs="0" maxOccurs="32"/>
-            <xs:element name="equipped" type="NumberListType" minOccurs="0" maxOccurs="32"/>
+            <xs:element name="unfinished" type="NumberListType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="noacquired" type="NumberListType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="acquired" type="NumberListType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="equipped" type="NumberListType" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="FinishedQuest">
@@ -181,9 +179,6 @@
             <xs:enumeration value="PUBLIC"/>
             <xs:enumeration value="LEGION"/>
             <xs:enumeration value="PRIMARY"/>
-            <xs:enumeration value="TUTORIAL"/>
-            <xs:enumeration value="GUIDE"/>
-            <xs:enumeration value="EPISODE"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="QuestExtraCategory">

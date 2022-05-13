@@ -93,13 +93,8 @@ public class AI2Actions {
 	}
 
 	public static void handleUseItemFinish(AbstractAI ai2, Player player) {
-        if (ai2.getPosition().isInstanceMap()) {
-            ai2.getPosition().getWorldMapInstance().getInstanceHandler().handleUseItemFinish(player, (Npc)ai2.getOwner());
-        } 
-        else {
-            ai2.getPosition().getWorld().getWorldMap(ai2.getPosition().getMapId()).getWorldHandler().handleUseItemFinish(player, (Npc)ai2.getOwner());
-        }
-    }
+		ai2.getPosition().getWorldMapInstance().getInstanceHandler().handleUseItemFinish(player, ((Npc) ai2.getOwner()));
+	}
 
 	public static void fireIndividualEvent(AbstractAI ai2, Npc target) {
 		target.getAi2().onIndividualNpcEvent(ai2.getOwner());

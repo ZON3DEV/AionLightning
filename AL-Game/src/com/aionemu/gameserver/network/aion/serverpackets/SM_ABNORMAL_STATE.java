@@ -46,7 +46,6 @@ public class SM_ABNORMAL_STATE extends AionServerPacket {
 
 		for (Effect effect : effects) {
 			writeD(effect.getEffectorId());
-			writeD(0); // TODO 6.x
 			writeH(effect.getSkillId());
 			writeC(effect.getSkillLevel());
 			writeC(effect.getTargetSlot());

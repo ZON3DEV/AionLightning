@@ -24,7 +24,6 @@ import com.aionemu.gameserver.model.team2.alliance.PlayerAlliance;
 /**
  * @author ATracer
  */
-@SuppressWarnings("rawtypes")
 public abstract class AddPlayerToAllianceCallback implements Callback {
 
 	@Override

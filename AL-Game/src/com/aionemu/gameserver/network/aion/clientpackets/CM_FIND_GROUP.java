@@ -63,9 +63,7 @@ public class CM_FIND_GROUP extends AionClientPacket {
 				break;
 			case 0x01: // offer delete
 				playerObjId = readD();
-				readH(); //serverId
-				readC(); // 0
-				readC(); // someCode (10) for Group owner ?
+				unk = readD(); // unk(65557)
 				break;
 			case 0x02: // send offer
 				playerObjId = readD();
@@ -74,9 +72,7 @@ public class CM_FIND_GROUP extends AionClientPacket {
 				break;
 			case 0x03: // recruit update
 				playerObjId = readD();
-				readH(); //serverId
-				readC(); // 0
-				readC(); // someCode (10) for Group owner ?
+				unk = readD(); // unk(65557)
 				message = readS();
 				groupType = readC();
 				break;

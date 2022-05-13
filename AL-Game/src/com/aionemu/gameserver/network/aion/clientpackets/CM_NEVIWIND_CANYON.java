@@ -19,6 +19,7 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
 
@@ -112,9 +113,9 @@ public class CM_NEVIWIND_CANYON extends AionClientPacket {
 
 	@Override
 	protected void runImpl() {
-//		final Player player = this.getConnection().getActivePlayer();
-//		switch (action) {
-//			case 0:
-//		}
+		final Player player = this.getConnection().getActivePlayer();
+		switch (action) {
+			case 0:
+		}
 	}
 }

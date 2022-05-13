@@ -54,7 +54,7 @@ public class SM_TUNE_RESULT extends AionServerPacket {
 			default:
 				break;
 		};
-		writeC(item.getEnchantOrAuthorizeLevel());
+		writeC(item.getEnchantLevel());
 		writeD(itemId);
 		writeH(0); // TODO found value 256,512,1024 (maybe slot ?)
 		// int count = 0;

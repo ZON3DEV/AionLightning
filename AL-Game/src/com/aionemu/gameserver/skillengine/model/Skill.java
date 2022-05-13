@@ -38,7 +38,6 @@ import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Item;
-import com.aionemu.gameserver.model.gameobjects.Minion;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -56,7 +55,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.restrictions.RestrictionsManager;
-import com.aionemu.gameserver.services.MinionService;
 import com.aionemu.gameserver.services.MotionLoggingService;
 import com.aionemu.gameserver.services.abyss.AbyssService;
 import com.aionemu.gameserver.services.item.ItemPacketService.ItemUpdateType;
@@ -184,15 +182,6 @@ public class Skill {
 			return false;
 		}
 
-        if (effector instanceof Player) {
-            Player player = (Player) effector;
-            Minion minion = player.getMinion();
-            if (skillTemplate.isMinionSkill()) {
-                player.getCommonData().setMinionEnergy(0);
-                schedule(minion, player);
-            }
-        }
-
 		if (!preCastCheck()) {
 			return false;
 		}
@@ -220,17 +209,6 @@ public class Skill {
 		return true;
 	}
 
-    private void schedule(Minion minion, final Player player) {
-        ThreadPoolManager.getInstance().schedule(new Runnable() {
-            @Override
-            public void run() {
-                if (player.getMinion() != null) {
-                    MinionService.getInstance().despawnMinion(player, player.getMinionList().getLastUsed());
-                }
-            }
-        }, 1000);
-    }
-	
 	private boolean validateEffectedList() {
 		Iterator<Creature> effectedIter = effectedList.iterator();
 		while (effectedIter.hasNext()) {
@@ -1440,7 +1418,7 @@ public class Skill {
 		}
 
 		if (skillMethod == SkillMethod.CAST && getSkillTemplate().getSubType() != SkillSubType.HEAL && hitTime <= 0 || skillMethod == SkillMethod.CHARGE && getSkillTemplate().getSubType() != SkillSubType.HEAL) {
-//			double targetDis = MathUtil.getDistance(effector, firstTarget);
+			double targetDis = MathUtil.getDistance(effector, firstTarget);
 			if (skillskinHitTIme > 0) {
 				hitTime += (int)(skillskinHitTIme * effector.getDistanceToTarget() * 1.8F);
 			} else {

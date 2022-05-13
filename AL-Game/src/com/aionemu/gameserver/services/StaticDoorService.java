@@ -62,7 +62,6 @@ public class StaticDoorService {
 		if (checkStaticDoorKey(player, keyId)) {
 			door.setOpen(true);
 		}
-
 		else {
 			log.info("Opening door without key ...");
 		}

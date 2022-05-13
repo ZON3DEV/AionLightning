@@ -23,5 +23,6 @@ public enum SiegeModType {
 
 	PEACE,
 	SIEGE,
+	LANDING,
 	ASSAULT;
 }

@@ -433,6 +433,8 @@ public class DialogService {
 					case 357019: // Umbral Fortress Stigma Master
 					case 357031: // Eternum Fortress Stigma Master
 					case 357043: // Skyclash Fortress Stigma Master
+					case 358493: // Redemption Landing 4.9.1
+					case 358523: // Harbinger's Landing 4.9.1
 					case 370111: // Abyss Master Stigma A
 					case 370112: // Abyss Master Stigma B
 					case 370503: // Gogorunerk Solution
@@ -604,6 +606,8 @@ public class DialogService {
 					case 358063:
 					case 370503:
 					case 315066:
+					case 358487: // Redemption Landing 4.9.1
+					case 358517: // Harbinger's Landing 4.9.1
 					case 462878:
 						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(targetObjectId, 13));
 						break;
@@ -1185,6 +1189,8 @@ public class DialogService {
 					case 357019: // Umbral Fortress Stigma Master
 					case 357031: // Eternum Fortress Stigma Master
 					case 357043: // Skyclash Fortress Stigma Master
+					case 358493: // Redemption Landing 4.9.1
+					case 358523: // Harbinger's Landing 4.9.1
 					case 370111: // Abyss Master Stigma A
 					case 370112: // Abyss Master Stigma B
 						if (player.getRace() == Race.ELYOS) {

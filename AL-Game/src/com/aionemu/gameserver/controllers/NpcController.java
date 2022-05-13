@@ -48,7 +48,6 @@ import com.aionemu.gameserver.model.team2.TemporaryPlayerTeam;
 import com.aionemu.gameserver.model.team2.alliance.PlayerAlliance;
 import com.aionemu.gameserver.model.team2.common.service.PlayerTeamDistributionService;
 import com.aionemu.gameserver.model.team2.group.PlayerGroup;
-import com.aionemu.gameserver.model.templates.achievement.AchievementActionType;
 import com.aionemu.gameserver.model.templates.npc.NpcRank;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.LOG;
@@ -59,14 +58,13 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.DialogService;
-import com.aionemu.gameserver.services.MinionService;
 import com.aionemu.gameserver.services.RespawnService;
 import com.aionemu.gameserver.services.SiegeService;
+import com.aionemu.gameserver.services.WorldBuffService;
 import com.aionemu.gameserver.services.abyss.AbyssPointsService;
 import com.aionemu.gameserver.services.drop.DropRegistrationService;
 import com.aionemu.gameserver.services.drop.DropService;
-import com.aionemu.gameserver.services.player.AchievementService;
-import com.aionemu.gameserver.services.player.PlayerFameService;
+import com.aionemu.gameserver.services.player.MonsterbookService;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -180,14 +178,8 @@ public class NpcController extends CreatureController<Npc> {
 			if (owner.getAi2().poll(AIQuestion.SHOULD_REWARD)) {
 				this.doReward();
 			}
-            if (owner.getPosition().isInstanceMap()) {
-                owner.getPosition().getWorldMapInstance().getInstanceHandler().onDie(owner);
-                owner.getAi2().onGeneralEvent(AIEventType.DIED);
-            } 
-            else {
-                owner.getPosition().getWorld().getWorldMap(owner.getWorldId()).getWorldHandler().onDie(owner);
-                owner.getAi2().onGeneralEvent(AIEventType.DIED);
-            }
+			owner.getPosition().getWorldMapInstance().getInstanceHandler().onDie(owner);
+			owner.getAi2().onGeneralEvent(AIEventType.DIED);
 		}
 		finally { // always make sure npc is schedulled to respawn
 			if (owner.getAi2().poll(AIQuestion.SHOULD_DECAY)) {
@@ -217,13 +209,8 @@ public class NpcController extends CreatureController<Npc> {
 			if (owner.getAi2().poll(AIQuestion.SHOULD_REWARD)) {
 				this.doReward();
 			}
-            if (owner.getPosition().isInstanceMap()) {
-                owner.getPosition().getWorldMapInstance().getInstanceHandler().onDie(owner);
-                owner.getAi2().onGeneralEvent(AIEventType.DIED);
-            } else {
-                owner.getPosition().getWorld().getWorldMap(owner.getWorldId()).getWorldHandler().onDie(owner);
-                owner.getAi2().onGeneralEvent(AIEventType.DIED);
-            }
+			owner.getPosition().getWorldMapInstance().getInstanceHandler().onDie(owner);
+			owner.getAi2().onGeneralEvent(AIEventType.DIED);
 		}
 		finally { // always make sure npc is schedulled to respawn
 			if (owner.getAi2().poll(AIQuestion.SHOULD_DECAY)) {
@@ -301,31 +288,42 @@ public class NpcController extends CreatureController<Npc> {
 					QuestEngine.getInstance().onKill(new QuestEnv(getOwner(), player, 0, 0));
 					// When a player defeat a "Boss" all ppls on server see!!!
 					defeatNamedMsg(player);
-
-					AchievementService.getInstance().onUpdateAchievementAction(player, getOwner().getObjectTemplate().getTemplateId(), 1, AchievementActionType.HUNT);
-					PlayerFameService.getInstance().addFameExp(player, 10 * getOwner().getLevel() / 2);
+					// Reward XP Solo (New system, Exp Retail NA)
 					switch (player.getWorldId()) {
-						case 210050000:
-						case 220070000:
-						case 600010000:
-							AbyssPointsService.addAp(player, getOwner(), Rnd.get(60, 100));
+						case 301540000: // Archives Of Eternity
+						case 301550000: // Cradle Of Eternity
+                    	case 301560000: // Museum of Knowledge
+						case 301600000: // Adma's Fall
+						case 301610000: // Theobomos Test Chamber
+						case 301620000: // Drakenseer's Lair
+						case 301630000: // Contaminated Underpath
+						case 301640000: // Secret Munitions Factory
+						case 301650000: // Ashunatal Dredgion
+						case 301660000: // Fallen Poeta
+						case 302100000: // Fissure Of Oblivion
+                        case 302340000: // Narakkalli
+                        case 302350000: // Neviwind Canyon
+                        case 302400000: // Tower of Challenge
+							player.getCommonData().addExp(Rnd.get(480000, 550000), RewardType.HUNTING, this.getOwner().getObjectTemplate().getNameId());
 							break;
-						case 600040000: 
-						case 800030000: 
-						case 800040000: 
-						case 800050000: 
-						case 800060000: 
-						case 800070000:
-							AbyssPointsService.addGp(player, Rnd.get(10, 60));
+						case 210100000: // Iluma
+						case 220110000: // Norsvold
+							AbyssPointsService.addAp(player, getOwner(), Rnd.get(60, 100));
+							player.getCommonData().addExp(Rnd.get(480000, 550000), RewardType.HUNTING, this.getOwner().getObjectTemplate().getNameId());
+							break;
+						case 600090000: // Kaldor
+						case 600100000: // Levinshor
+							player.getCommonData().addExp(Rnd.get(50000, 100000), RewardType.HUNTING, this.getOwner().getObjectTemplate().getNameId());
+							break;
+						default:
+							player.getCommonData().addExp(rewardXp, RewardType.HUNTING, this.getOwner().getObjectTemplate().getNameId());
 							break;
 					}
-					player.getCommonData().addExp(rewardXp, RewardType.HUNTING, getOwner().getObjectTemplate().getNameId());
 					player.getCommonData().addDp(rewardDp);
 					if (getOwner().isRewardAP()) {
 						int calculatedAp = StatFunctions.calculatePvEApGained(player, getOwner());
 						rewardAp *= calculatedAp;
 						if (rewardAp >= 1) {
-							player.getCommonData().addSilverStarEnergy(1500); // 0.15%
 							AbyssPointsService.addAp(player, getOwner(), (int) rewardAp);
 						}
 					}
@@ -339,10 +337,9 @@ public class NpcController extends CreatureController<Npc> {
 							PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 						}
 					}
-					if (player.getMinion() == null) {
-						continue;
+					if (player.getLevel() >= 66) {
+						MonsterbookService.getInstance().onKill(player, getOwner().getNpcId());
 					}
-					MinionService.getInstance().onUpdateEnergy(player, 50);
 				}
 			}
 		}
@@ -365,7 +362,7 @@ public class NpcController extends CreatureController<Npc> {
 	}
 
 	@Override
-	public void onDialogSelect(int dialogId, final Player player, int questId, int extendedRewardIndex, int unk) {
+	public void onDialogSelect(int dialogId, final Player player, int questId, int extendedRewardIndex) {
 		QuestEnv env = new QuestEnv(getOwner(), player, questId, dialogId);
 		if (!MathUtil.isInRange(getOwner(), player, getOwner().getObjectTemplate().getTalkDistance() + 2) && !QuestEngine.getInstance().onDialog(env)) {
 			return;
@@ -419,6 +416,7 @@ public class NpcController extends CreatureController<Npc> {
 			onDelete();
 		}
 		super.onReturnHome();
+		WorldBuffService.getInstance().onReturnHome(getOwner());
 	}
 
 	@Override
@@ -438,7 +436,6 @@ public class NpcController extends CreatureController<Npc> {
 				if (MathUtil.isIn3dRange(player, getOwner(), GroupConfig.GROUP_MAX_DISTANCE) && !player.getLifeStats().isAlreadyDead()) {
 					int apPlayerReward = Math.round(StatFunctions.calculatePvEApGained(player, getOwner()) * percentage);
 					AbyssPointsService.addAp(player, getOwner(), apPlayerReward);
-					AchievementService.getInstance().onUpdateAchievementAction(player, getOwner().getNpcId(), 1, AchievementActionType.HUNT_SIEGE);
 				}
 			}
 			else if (aggro.getAttacker() instanceof PlayerGroup) {
@@ -453,9 +450,7 @@ public class NpcController extends CreatureController<Npc> {
 						int baseApReward = StatFunctions.calculatePvEApGained(member, getOwner());
 						int apRewardPerMember = Math.round(baseApReward * percentage / players.size());
 						if (apRewardPerMember > 0) {
-							member.getCommonData().addSilverStarEnergy(1500); // 0.15%
 							AbyssPointsService.addAp(member, getOwner(), apRewardPerMember);
-							AchievementService.getInstance().onUpdateAchievementAction(member, getOwner().getNpcId(), 1, AchievementActionType.HUNT_SIEGE);
 						}
 					}
 				}
@@ -473,9 +468,7 @@ public class NpcController extends CreatureController<Npc> {
 						int baseApReward = StatFunctions.calculatePvEApGained(member, getOwner());
 						int apRewardPerMember = Math.round(baseApReward * percentage / players.size());
 						if (apRewardPerMember > 0) {
-							member.getCommonData().addSilverStarEnergy(1500); // 0.15%
 							AbyssPointsService.addAp(member, getOwner(), apRewardPerMember);
-							AchievementService.getInstance().onUpdateAchievementAction(member, getOwner().getNpcId(), 1, AchievementActionType.HUNT_SIEGE);
 						}
 					}
 				}

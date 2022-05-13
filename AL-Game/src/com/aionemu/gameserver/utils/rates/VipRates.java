@@ -83,6 +83,11 @@ public class VipRates extends Rates {
 	}
 
 	@Override
+	public float getQuestAbyssOpRate() {
+		return RateConfig.VIP_QUEST_ABYSS_OP_RATE + holidayRate;
+	}
+
+	@Override
 	public float getQuestExpBoostRate() {
 		return RateConfig.VIP_QUEST_EXP_BOOST_RATE + holidayRate;
 	}

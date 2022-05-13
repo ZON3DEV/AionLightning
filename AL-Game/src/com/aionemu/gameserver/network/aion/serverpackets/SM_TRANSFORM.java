@@ -16,7 +16,9 @@
  */
 package com.aionemu.gameserver.network.aion.serverpackets;
 
+import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Creature;
+import com.aionemu.gameserver.model.templates.npc.NpcTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 import com.aionemu.gameserver.skillengine.model.TransformType;
@@ -28,66 +30,32 @@ public class SM_TRANSFORM extends AionServerPacket {
 
 	private Creature creature;
 	private int state;
-	@SuppressWarnings("unused")
 	private int modelId;
 	private boolean applyEffect;
-	@SuppressWarnings("unused")
 	private int panelId;
-	@SuppressWarnings("unused")
 	private int itemId;
-	@SuppressWarnings("unused")
 	private int skillId = 0;
-	@SuppressWarnings("unused")
-	private int transformId = 0;
 
-    public SM_TRANSFORM(Creature creature, boolean applyEffect) {
-        modelId = 0;
-        panelId = 0;
-        itemId = 0;
-        skillId = 0;
-        transformId = 0;
-        this.creature = creature;
-        this.state = creature.getState();
-        this.modelId = creature.getTransformModel().getModelId();
-        this.applyEffect = applyEffect;
-    }
-
-	public SM_TRANSFORM(Creature creature, int panelId, boolean applyEffect) {
-		modelId = 0;
-		panelId = 0;
-		itemId = 0;
-		skillId = 0;
-		transformId = 0;
+	public SM_TRANSFORM(Creature creature, boolean applyEffect) {
 		this.creature = creature;
-		state = creature.getState();
+		this.state = creature.getState();
 		modelId = creature.getTransformModel().getModelId();
-		this.panelId = panelId;
 		this.applyEffect = applyEffect;
 	}
 
 	public SM_TRANSFORM(Creature creature, int panelId, boolean applyEffect, int itemId) {
-		this.modelId = 0;
-		this.panelId = 0;
-		this.itemId = 0;
-		this.skillId = 0;
-		this.transformId = 0;
 		this.creature = creature;
 		this.state = creature.getState();
-		this.modelId = creature.getTransformModel().getModelId();
+		modelId = creature.getTransformModel().getModelId();
 		this.panelId = panelId;
 		this.applyEffect = applyEffect;
 		this.itemId = itemId;
 	}
-
+	
 	public SM_TRANSFORM(Creature creature, int panelId, boolean applyEffect, int itemId, int skillId) {
-		this.modelId = 0;
-		this.panelId = 0;
-		this.itemId = 0;
-		this.skillId = 0;
-		this.transformId = 0;
 		this.creature = creature;
 		this.state = creature.getState();
-		this.modelId = creature.getTransformModel().getModelId();
+		modelId = creature.getTransformModel().getModelId();
 		this.panelId = panelId;
 		this.applyEffect = applyEffect;
 		this.itemId = itemId;
@@ -96,8 +64,9 @@ public class SM_TRANSFORM extends AionServerPacket {
 
 	@Override
 	protected void writeImpl(AionConnection con) {
+		NpcTemplate npcTemplate = DataManager.NPC_DATA.getNpcTemplate(modelId);
 		writeD(creature.getObjectId());
-		writeD(creature.getTransformModel().getModelId());
+		writeD(modelId);
 		writeH(state);
 		writeF(0.25f);
 		writeF(2.0f);
@@ -108,11 +77,25 @@ public class SM_TRANSFORM extends AionServerPacket {
 		writeC(0);
 		writeC(0);
 		writeC(0);
-		writeC(0);
-		writeD(creature.getTransformModel().getPanelId());
-		writeD(creature.getTransformModel().getItemId());
-		writeC(1); // 1 = normal, 0 = transparent
-		writeH(creature.getTransformModel().getSkillId());
-		writeD(creature.getTransformModel().getTransformId());
+		writeC(npcTemplate != null && !isMoveNpc(npcTemplate.getTemplateId()) && npcTemplate.getStatsTemplate().getRunSpeed() == 0 ? 1 : 0);
+		writeD(panelId); // display panel
+		writeD(itemId); // ItemId
+		writeC(0); // 0 and 1
+		writeH(skillId);
+	}
+
+	/*
+	 * Exception for Steam Tachysphere and Rentus Tanks FIXME!: fix handling and remove!
+	 */
+	private boolean isMoveNpc(int npcId) {
+		switch (npcId) {
+			case 217384:
+			case 218611:
+			case 218610:
+			case 731533: // Magma Tachysphere [A]
+			case 731534: // Magma Tachysphere [B]
+				return true;
+		}
+		return false;
 	}
 }

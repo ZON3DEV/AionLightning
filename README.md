@@ -1,21 +1,11 @@
-<div align="center"><img src="https://raw.githubusercontent.com/ZON3DEV/AionLightning/7.8.0/Docs/images/al_banner.png" width=40%>
+![](http://falke34.bplaced.net/Splash01.png)
 
-# EU Server Solution
-### Version: 1.9
-  ```sh
-  .git clone --recursive -b 1.9.0 https://github.com/ZON3DEV/AionLightning.git
-  ```
-### Version: 4.6
-  ```sh
-  .git clone --recursive -b 4.6.0 https://github.com/ZON3DEV/AionLightning.git
-  ```
-### Version: 7.8
-  ```sh
-  .git clone --recursive -b 7.8.0 https://github.com/ZON3DEV/AionLightning.git
-  ```
-</div>
-<br></br>
-<br></br>
+# Aion EU Emulator
+### Version: 6.0
+
+**PTS-Client 6.0:** [Gameforge](http://dl.aion.gameforge.com/aion/client/20180806/2018-08-06_AION_Setup_PTS.exe)
+
+**Client:** [Gameforge](https://de.aion.gameforge.com/website/download/) **+** [Launcher](https://github.com/AionGermany/aion-germany/blob/master/AL-Tools/AionLauncherEU_5.x.rar)
 
 ```sh
 Launcher Settings (add this to your config File):
@@ -23,23 +13,22 @@ Launcher Settings (add this to your config File):
 -megaphone
 -aiontv
 ```
-<br></br>
-**GeoViewer and Builder:** [Github](https://github.com/zzsort/monono2)
 
-**Geo Files (v7.3):** [MEGA](https://mega.nz/file/xKoDWJyL#uf_npX9rGt7t7bnq_RvRnpkGrTpwnYf637oWBBs247Q)
-<br></br>
+**Help and Support:** [Aion EU Forum](http://falke34.bplaced.net)
+
 ### Todo:
 ```sh
 Static Data:
-* update Static Data Files
-* add new Instances
+* all
 ```
-<br></br>
+
+```sh
+Data:
+* all
+```
+
 ```sh
 Source:
-* add/write/rework Packets
-* rework Player and Creature Stats
-* add Transformations System (Account)
-* rework Cubics System (Account)
-* rework Minions System
+* remove some old Code
+* add new Packets
 ```

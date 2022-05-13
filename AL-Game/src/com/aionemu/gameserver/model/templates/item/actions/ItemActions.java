@@ -73,13 +73,7 @@ public class ItemActions {
 		@XmlElement(name = "reduce_level", type = ItemReduceLevelAction.class), 
 		@XmlElement(name = "luna", type = LunaChestAction.class), 
 		@XmlElement(name = "skill_enhance", type = SkillEnhanceAction.class),
-		@XmlElement(name = "sweep", type = ShugoSweepAction.class),
-		@XmlElement(name = "unseal", type = UnSealAction.class),
-		@XmlElement(name = "manastone_slot_expansion", type = ManastoneSlotExpansionAction.class),
-		@XmlElement(name = "fame_exp", type = FameAddExpAction.class),
-		@XmlElement(name = "enchant_grind", type = EnchantGrindingAction.class),
-		@XmlElement(name = "grind_slot_expansion", type = GrindSlotExpansionAction.class),
-		@XmlElement(name = "enchant_glyph", type = EnchantGlyphAction.class)})
+		@XmlElement(name = "sweep", type = ShugoSweepAction.class),})
 
 	protected List<AbstractItemAction> itemActions;
 
@@ -239,51 +233,4 @@ public class ItemActions {
 		return null;
 	}
 
-    public ManastoneSlotExpansionAction getMagmaticExpandSlot() {
-        if (itemActions == null) {
-            return null;
-        }
-        for (AbstractItemAction action : itemActions) {
-            if (action instanceof ManastoneSlotExpansionAction); {
-				return (ManastoneSlotExpansionAction) action;
-			}
-        }
-        return null;
-    }
-
-    public GrindSlotExpansionAction getGrindExpandSlot() {
-        if (itemActions == null) {
-            return null;
-        }
-        for (AbstractItemAction action : itemActions) {
-            if (action instanceof GrindSlotExpansionAction); {
-				return (GrindSlotExpansionAction) action;
-			}
-        }
-        return null;
-    }
-
-    public EnchantGrindingAction getEnchantGrindAction() {
-        if (itemActions == null) {
-            return null;
-        }
-        for (AbstractItemAction action : itemActions) {
-            if (action instanceof EnchantGrindingAction); {
-				return (EnchantGrindingAction) action;
-			}
-        }
-        return null;
-    }
-
-    public EnchantGlyphAction getEnchantGlyphAction() {
-        if (itemActions == null) {
-            return null;
-        }
-        for (AbstractItemAction action : itemActions) {
-            if (action instanceof EnchantGlyphAction); {
-				return (EnchantGlyphAction) action;
-			}
-        }
-        return null;
-    }
 }

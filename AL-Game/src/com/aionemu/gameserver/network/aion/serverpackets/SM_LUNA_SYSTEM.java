@@ -180,14 +180,16 @@ public class SM_LUNA_SYSTEM extends AionServerPacket {
 				writeC(1); // free enter = 1
 				writeD(indun_id);
 				break;
-			case 15: // TODO
-				writeD(256);
-				break;
-			case 16: // Luna Dice Game Reward
-				writeH(512);
+			case 15: // TODO Golden Dice
+				int dice = player.getLunaDiceGame();
 				writeC(0);
-				writeD(itemId); // ItemId
-				writeQ(itemCount); // Item Count
+				writeC(dice);
+				writeC(0);
+				writeC(0);
+				break;
+			case 16: // TODO Display Bug
+				writeC(0);
+				writeH(1);
 				writeD(itemId); // ItemId
 				writeQ(itemCount); // Item Count
 				break;

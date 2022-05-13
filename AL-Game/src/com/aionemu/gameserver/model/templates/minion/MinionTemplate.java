@@ -16,64 +16,63 @@
  */
 package com.aionemu.gameserver.model.templates.minion;
 
-import com.aionemu.gameserver.model.templates.stats.*;
-import javax.xml.bind.annotation.*;
-import com.aionemu.gameserver.model.templates.*;
-import java.util.*;
-import com.aionemu.gameserver.model.stats.calc.functions.*;
+import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.aionemu.gameserver.model.stats.calc.functions.StatFunction;
+import com.aionemu.gameserver.model.templates.BoundRadius;
+import com.aionemu.gameserver.model.templates.stats.ModifiersTemplate;
+
+/**
+ * @author Falke_34
+ */
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(namespace = "", name = "MinionTemplate")
+@XmlRootElement(name = "MinionTemplate")
 public class MinionTemplate {
 
 	@XmlAttribute(name = "id", required = true)
 	private int id;
+
 	@XmlAttribute(name = "name")
 	private String name;
+
 	@XmlAttribute(name = "nameid")
 	private int name_id;
-	@XmlAttribute(name = "grade")
-	private String grade;
-	@XmlAttribute(name = "grade_id")
-	private int gradeId;
-	@XmlAttribute(name = "level")
-	private int level;
+
+    @XmlAttribute(name = "grade")
+    private String grade;
+
+    @XmlAttribute(name = "level")
+    private int level;
+
 	@XmlAttribute(name = "growthPoints")
 	private int growthPoints;
+
 	@XmlAttribute(name = "growthMax")
 	private int growthMax;
+
 	@XmlAttribute(name = "growthCost")
 	private int growthCost;
-	@XmlElement(name = "modifiers", required = false)
-	private ModifiersTemplate modifiers;
-	@XmlElement(name = "actions")
-	private MinionActions actions;
-	@XmlElement(name = "minionstats")
-	private MinionStatsTemplate statsTemplate;
-	@XmlElement(name = "bound")
-	private BoundRadius bound;
-	@XmlElement(name = "evolved")
-	private MinionEvolved evolved;
-	@XmlElement(name = "nameId")
-	private int nameId;
-	@XmlElement(name = "physical_attr")
-	protected List<MinionAttr> physicalAttr;
-	@XmlElement(name = "magical_attr")
-	protected List<MinionAttr> magicalAttr;
 
-	public List<MinionAttr> getPhysicalAttr() {
-		if (physicalAttr == null) {
-			physicalAttr = new ArrayList<MinionAttr>();
-		}
-		return physicalAttr;
-	}
+    @XmlElement(name = "modifiers", required = false)
+    private ModifiersTemplate modifiers;
 
-	public List<MinionAttr> getMagicalAttr() {
-		if (magicalAttr == null) {
-			magicalAttr = new ArrayList<MinionAttr>();
-		}
-		return magicalAttr;
-	}
+    @XmlElement(name = "actions")
+    private MinionActions actions;
+
+    @XmlElement(name = "minionstats")
+    private MinionStatsTemplate statsTemplate;
+
+    @XmlElement(name = "bound")
+    private BoundRadius bound;
+
+    @XmlElement(name = "evolved")
+    private MinionEvolved evolved;
 
 	public int getId() {
 		return id;
@@ -83,19 +82,19 @@ public class MinionTemplate {
 		return name;
 	}
 
-	public String getGrade() {
-		return grade;
-	}
+    public String getGrade() {
+        return this.grade;
+    }
 
-	public int getLevel() {
-		return level;
-	}
+    public int getLevel() {
+        return this.level;
+    }
 
-	public int getGrowthPoints() {
+	public int getGrowthPt() {
 		return growthPoints;
 	}
 
-	public int getGrowthMax() {
+	public int getMaxGrowthValue() {
 		return growthMax;
 	}
 
@@ -103,34 +102,26 @@ public class MinionTemplate {
 		return growthCost;
 	}
 
-	public BoundRadius getBoundRadius() {
-		return bound;
-	}
+    public List<StatFunction> getModifiers() {
+        if (this.modifiers != null) {
+            return this.modifiers.getModifiers();
+        }
+        return null;
+    }
 
-	public MinionEvolved getEvolved() {
-		return evolved;
-	}
+    public MinionActions getAction() {
+        return this.actions;
+    }
 
-	public MinionStatsTemplate getStatsTemplate() {
-		return statsTemplate;
-	}
+    public MinionStatsTemplate getStatsTemplate() {
+        return this.statsTemplate;
+    }
 
-	public int getNameId() {
-		return nameId;
-	}
+    public BoundRadius getBoundRadius() {
+        return this.bound;
+    }
 
-	public int getGradeId() {
-		return gradeId;
-	}
-
-	public List<StatFunction> getModifiers() {
-		if (modifiers != null) {
-			return modifiers.getModifiers();
-		}
-		return null;
-	}
-
-	public MinionActions getAction() {
-		return actions;
-	}
+    public MinionEvolved getEvolved() {
+        return this.evolved;
+    }
 }

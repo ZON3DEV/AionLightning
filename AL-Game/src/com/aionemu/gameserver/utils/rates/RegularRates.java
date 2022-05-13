@@ -88,6 +88,11 @@ public class RegularRates extends Rates {
 	}
 
 	@Override
+	public float getQuestAbyssOpRate() {
+		return RateConfig.QUEST_ABYSS_OP_RATE + holidayRate;
+	}
+
+	@Override
 	public float getQuestExpBoostRate() {
 		return RateConfig.QUEST_EXP_BOOST_RATE + holidayRate;
 	}

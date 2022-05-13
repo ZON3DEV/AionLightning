@@ -12,13 +12,11 @@
     <xs:include schemaLocation="instance_cooltimes/instance_cooltimes.xsd"/>
     <xs:include schemaLocation="item_sets/item_sets.xsd"/>
     <xs:include schemaLocation="items/item_restriction_cleanups.xsd"/>
-    <xs:include schemaLocation="items/item/item_templates.xsd"/>
+    <xs:include schemaLocation="items/item_templates.xsd"/>
     <xs:include schemaLocation="items/item_custom_sets.xsd"/>
     <xs:include schemaLocation="items/item_random_bonuses.xsd"/>
-    <xs:include schemaLocation="items/item_real_random_bonuses.xsd"/>
     <xs:include schemaLocation="items/item_groups.xsd"/>
     <xs:include schemaLocation="items/assembly_items.xsd"/>
-    <xs:include schemaLocation="items/grind_combines.xsd"/>
     <xs:include schemaLocation="npc_factions/npc_factions.xsd"/>
     <xs:include schemaLocation="npc_skills/npc_skills.xsd"/>
     <xs:include schemaLocation="npcs/npcs.xsd"/>
@@ -31,7 +29,6 @@
     <xs:include schemaLocation="quest_script_data/quest_script_data.xsd"/>
     <xs:include schemaLocation="recipe/recipe_templates.xsd"/>
     <xs:include schemaLocation="luna/luna_templates.xsd"/>
-    <xs:include schemaLocation="luna/luna_bonusattr.xsd"/>
     <xs:include schemaLocation="locations/rift/rift_locations.xsd"/>
     <xs:include schemaLocation="roads/roads.xsd"/>
     <xs:include schemaLocation="locations/siege/siege_locations.xsd"/>
@@ -84,6 +81,9 @@
     <xs:include schemaLocation="quest_data/challenge_tasks.xsd"/>
     <xs:include schemaLocation="town_spawns/town_spawns.xsd"/>
     <xs:include schemaLocation="locations/base/base_locations.xsd"/>
+    <xs:include schemaLocation="locations/beritra/beritra_invasion.xsd"/>
+	<xs:include schemaLocation="locations/svs/svs.xsd"/>
+	<xs:include schemaLocation="locations/rvr/rvr.xsd"/>
     <xs:include schemaLocation="skills/skill_charge.xsd"/>
     <xs:include schemaLocation="items/item_upgrades.xsd"/>
     <xs:include schemaLocation="decomposable_items/decomposable_selectitems.xsd"/>
@@ -91,39 +91,29 @@
     <xs:include schemaLocation="items/enchant_tables.xsd"/>
     <xs:include schemaLocation="items/item_multi_returns.xsd"/> 
     <xs:include schemaLocation="hotspot_teleporter.xsd"/>
+    <xs:include schemaLocation="events_config/atreian_passports.xsd"/>
     <xs:include schemaLocation="stats/absolute_stats.xsd"/>
     <xs:include schemaLocation="arcadelist.xsd"/> 
 	<xs:include schemaLocation="hidden_stigma_tree/hidden_stigma_tree.xsd"/>
+	<xs:include schemaLocation="world_buff/world_buffs.xsd"/>
     <xs:include schemaLocation="service_bonusattr/service_bonusattr.xsd"/>
     <xs:include schemaLocation="service_bonusattr/players_bonus.xsd"/>
     <xs:include schemaLocation="service_bonusattr/f2p_bonusattr.xsd"/>
     <xs:include schemaLocation="pets/pet_buff.xsd"/>
     <xs:include schemaLocation="pets/pet_merchant.xsd"/>
+	<xs:include schemaLocation="creativity/panel_cps.xsd"/>
+    <xs:include schemaLocation="abyss_op/abyss_ops.xsd"/>
+	<xs:include schemaLocation="locations/abyss_landing/landing_locations.xsd"/>
+	<xs:include schemaLocation="locations/abyss_landing/landing_special_locations.xsd"/>
 	<xs:include schemaLocation="abyss_bonusattr/abyss_bonusattr.xsd"/>
 	<xs:include schemaLocation="abyss_bonusattr/abyss_groupattr.xsd"/>
 	<xs:include schemaLocation="luna/luna_consume_rewards.xsd"/>
+	<xs:include schemaLocation="monster_book/monster_books.xsd"/>
 	<xs:include schemaLocation="events_config/boost_events.xsd"/>
 	<xs:include schemaLocation="skill_skins/skill_skins.xsd"/>
 	<xs:include schemaLocation="events_window/events_window.xsd"/>
 	<xs:include schemaLocation="items/item_skill_enhances.xsd"/>
 	<xs:include schemaLocation="events_config/shugo_sweep.xsd"/>
-	<xs:include schemaLocation="cubics/cubics_templates.xsd"/>
-	<xs:include schemaLocation="transform/transformbook_template.xsd"/>
-	<xs:include schemaLocation="transform/transform_collection_templates.xsd"/>
-	<xs:include schemaLocation="revive_start_points/revive_world_start_points.xsd"/>
-	<xs:include schemaLocation="revive_start_points/instance_revive_start_points.xsd"/>
-	<xs:include schemaLocation="items/enchant_chances.xsd"/>
-	<xs:include schemaLocation="locations/dynamic_portal/dynamic_portal.xsd"/>
-	<xs:include schemaLocation="events_config/atreian_passports.xsd"/>
-	<xs:include schemaLocation="achievement/achievement_templates.xsd"/>
-	<xs:include schemaLocation="achievement/achievement_event_templates.xsd"/>
-	<xs:include schemaLocation="achievement/achievement_action_templates.xsd"/>
-	<xs:include schemaLocation="lumiel/lumiel_material_templates.xsd"/>
-	<xs:include schemaLocation="lumiel/lumiel_templates.xsd"/>
-	<xs:include schemaLocation="collection/collection_templates.xsd"/>
-	<xs:include schemaLocation="collection/collection_exp_templates.xsd"/>
-	<xs:include schemaLocation="items/item_minions_list.xsd"/>
-	<xs:include schemaLocation="items/item_transforms_list.xsd"/>
     <xs:element name="ae_static_data">
         <xs:complexType>
             <xs:sequence>
@@ -143,10 +133,8 @@
                 <xs:element ref="item_templates" minOccurs="0"/>
                 <xs:element ref="item_custom_sets" minOccurs="0"/>
                 <xs:element ref="random_bonuses" minOccurs="0"/>
-                <xs:element ref="real_random_bonuses" minOccurs="0"/>
                 <xs:element ref="item_groups" minOccurs="0"/>
                 <xs:element ref="assembly_items" minOccurs="0"/>
-                <xs:element ref="grind_combines" minOccurs="0"/>
                 <xs:element ref="npc_factions" minOccurs="0"/>
                 <xs:element ref="npc_skill_templates" minOccurs="0"/>
                 <xs:element ref="npc_templates" minOccurs="0"/>
@@ -159,7 +147,6 @@
                 <xs:element ref="quest_scripts" minOccurs="0"/>
                 <xs:element ref="recipe_templates" minOccurs="0"/>
                 <xs:element ref="luna_templates" minOccurs="0"/>
-                <xs:element ref="luna_bonusattrs" minOccurs="0"/>
                 <xs:element ref="rift_locations" minOccurs="0"/>
                 <xs:element ref="roads" minOccurs="0"/>
                 <xs:element ref="siege_locations" minOccurs="0"/>
@@ -212,6 +199,9 @@
                 <xs:element ref="challenge_tasks" minOccurs="0"/>
                 <xs:element ref="town_spawns_data" minOccurs="0"/>
                 <xs:element ref="base_locations" minOccurs="0"/>
+                <xs:element ref="beritra_invasion" minOccurs="0"/>
+                <xs:element ref="svs" minOccurs="0"/>
+                <xs:element ref="rvr" minOccurs="0"/>
                 <xs:element ref="skill_charge" minOccurs="0"/>
                 <xs:element ref="item_upgrades" minOccurs="0"/>
                 <xs:element ref="decomposable_selectitems" minOccurs="0"/>
@@ -219,39 +209,29 @@
                 <xs:element ref="enchant_tables" minOccurs="0"/>
                 <xs:element ref="item_multi_returns" minOccurs="0"/>
                 <xs:element ref="hotspot_teleport" minOccurs="0"/>
+                <xs:element ref="atreian_passports" minOccurs="0"/>
                 <xs:element ref="absolute_stats" minOccurs="0"/>
                 <xs:element ref="arcadelist" minOccurs="0"/>       
 				<xs:element ref="hidden_stigma_tree" minOccurs="0"/>
+                <xs:element ref="world_buffs" minOccurs="0"/>
                 <xs:element ref="service_bonusattrs" minOccurs="0"/>
                 <xs:element ref="players_service_bonusattrs" minOccurs="0"/>
                 <xs:element ref="f2p_bonus" minOccurs="0"/>
                 <xs:element ref="pet_bonusattrs" minOccurs="0"/>
                 <xs:element ref="merchants" minOccurs="0"/>
+				<xs:element ref="panel_cps" minOccurs="0"/>
+				<xs:element ref="abyss_ops" minOccurs="0"/>
+				<xs:element ref="landing" minOccurs="0"/>
+				<xs:element ref="landing_special" minOccurs="0"/>
 				<xs:element ref="abyss_bonusattrs" minOccurs="0"/>
 				<xs:element ref="abyss_groupattrs" minOccurs="0"/>
 				<xs:element ref="luna_consume_rewards" minOccurs="0"/>
+				<xs:element ref="monster_books" minOccurs="0"/>
 				<xs:element ref="boost_events" minOccurs="0"/>
 				<xs:element ref="skill_skins" minOccurs="0"/>
 				<xs:element ref="events_window" minOccurs="0"/>
 				<xs:element ref="item_skill_enhances" minOccurs="0"/>
 				<xs:element ref="shugo_sweeps" minOccurs="0"/>
-				<xs:element ref="cubics_templates" minOccurs="0"/>
-				<xs:element ref="transform_book_templates" minOccurs="0"/>
-				<xs:element ref="transform_collection_templates" minOccurs="0"/>
-				<xs:element ref="revive_world_start_points" minOccurs="0"/>
-				<xs:element ref="instance_revive_start_points" minOccurs="0"/>
-				<xs:element ref="enchant_chances" minOccurs="0"/>
-				<xs:element ref="dynamic_portal" minOccurs="0"/>
-				<xs:element ref="atreian_passports" minOccurs="0"/>
-				<xs:element ref="achievement_templates" minOccurs="0"/>
-				<xs:element ref="achievement_event_templates" minOccurs="0"/>
-				<xs:element ref="achievement_action_templates" minOccurs="0"/>
-				<xs:element ref="lumiel_material_templates" minOccurs="0"/>
-				<xs:element ref="lumiel_templates" minOccurs="0"/>
-				<xs:element ref="collection_templates" minOccurs="0"/>
-				<xs:element ref="collection_exp_templates" minOccurs="0"/>
-				<xs:element ref="minions_list" minOccurs="0"/>
-				<xs:element ref="transforms_list" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

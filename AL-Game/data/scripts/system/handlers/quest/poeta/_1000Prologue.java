@@ -28,7 +28,6 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author MrPoke
- * @rework FrozenKiller
  */
 public class _1000Prologue extends QuestHandler {
 
@@ -47,28 +46,37 @@ public class _1000Prologue extends QuestHandler {
 	@Override
 	public boolean onEnterWorldEvent(QuestEnv env) {
 		Player player = env.getPlayer();
+		if (player.getCommonData().getRace() != Race.ELYOS) {
+			return false;
+		}
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
-		if (qs == null && player.getRace() == Race.ELYOS) {
-			if (QuestService.startQuest(env)) {
-				PacketSendUtility.sendPacket(player, new SM_PLAY_MOVIE(1, 1));
-				return true;
-			}
+		if (qs == null) {
+			env.setQuestId(questId);
+			QuestService.startQuest(env);
+		}
+		qs = player.getQuestStateList().getQuestState(questId);
+		if (qs.getStatus() == QuestStatus.START) {
+			PacketSendUtility.sendPacket(player, new SM_PLAY_MOVIE(1, 1));
+			return true;
 		}
 		return false;
 	}
 
 	@Override
 	public boolean onMovieEndEvent(QuestEnv env, int movieId) {
+		if (movieId != 1) {
+			return false;
+		}
 		Player player = env.getPlayer();
+		if (player.getCommonData().getRace() != Race.ELYOS) {
+			return false;
+		}
 		QuestState qs = player.getQuestStateList().getQuestState(questId);
 		if (qs == null || qs.getStatus() != QuestStatus.START) {
 			return false;
 		}
-		if (movieId == 1 && player.getRace() == Race.ELYOS) {
-			qs.setStatus(QuestStatus.REWARD);
-			QuestService.finishQuest(env);
-			return true;
-		}
-		return false;
+		qs.setStatus(QuestStatus.REWARD);
+		QuestService.finishQuest(env);
+		return true;
 	}
 }

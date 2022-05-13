@@ -45,8 +45,7 @@ public enum PlayerClass {
 	GUNNER(14),
 	ARTIST(15, true),
 	BARD(16),
-	PAINTER(17),
-	ALL(18);
+	ALL(17);
 
 	/**
 	 * This id is used on client side
@@ -127,7 +126,6 @@ public enum PlayerClass {
 			case RIDER:
 				return ENGINEER;
 			case BARD:
-			case PAINTER:
 				return ARTIST;
 			case SCOUT:
 			case WARRIOR:
@@ -160,7 +158,6 @@ public enum PlayerClass {
             case RANGER:
             case GLADIATOR:
             case TEMPLAR:
-            case PAINTER:
             case GUNNER: {
                 break;
             }

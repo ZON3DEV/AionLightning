@@ -62,6 +62,7 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.StigmaService;
 import com.aionemu.gameserver.services.item.ItemPacketService;
 import com.aionemu.gameserver.services.item.ItemPacketService.ItemUpdateType;
+import com.aionemu.gameserver.services.player.CreativityPanel.CreativityEssenceService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.utils.stats.AbyssRankEnum;
@@ -269,6 +270,10 @@ public class Equipment {
 			setPersistentState(PersistentState.UPDATE_REQUIRED);
 			QuestEngine.getInstance().onEquipItem(new QuestEnv(null, owner, 0, 0), item.getItemId());
 
+			if (item.getItemTemplate().isEstima()) {
+				CreativityEssenceService.getInstance().addEstimaCp(owner, item.getObjectId());
+			}
+
 			return item;
 		}
 	}
@@ -372,6 +377,10 @@ public class Equipment {
 		owner.getLifeStats().updateCurrentStats();
 		owner.getGameStats().updateStatsAndSpeedVisually();
 		owner.getInventory().put(item);
+
+		if (item.getItemTemplate().isEstima()) {
+			CreativityEssenceService.getInstance().removeEstimaCp(owner, item.getObjectId());
+		}
 	}
 
 	/**
@@ -716,7 +725,7 @@ public class Equipment {
 		Item twoHanded = null;
 		for (Item item : equipment.values()) {
 			long slot = item.getEquipmentSlot();
-			if (!ItemSlot.isStigma(slot) || slot > ItemSlot.GLYPH.getSlotIdMask()) {
+			if (!ItemSlot.isStigma(slot)) {
 				if (slot <= ItemSlot.BRACELET.getSlotIdMask()) {
 					if (item.getItemTemplate().isTwoHandWeapon()) {
 						if (twoHanded != null) {
@@ -774,32 +783,6 @@ public class Equipment {
 		List<Item> equippedItems = new ArrayList<Item>();
 		for (Item item : equipment.values()) {
 			if (ItemSlot.isAdvancedStigma(item.getEquipmentSlot())) {
-				equippedItems.add(item);
-			}
-		}
-		return equippedItems;
-	}
-	
-	/**
-	 * @return List<Item>
-	 */
-	public List<Item> getEquippedItemsMajorStigma() {
-		List<Item> equippedItems = new ArrayList<Item>();
-		for (Item item : equipment.values()) {
-			if (ItemSlot.isMajorStigma(item.getEquipmentSlot())) {
-				equippedItems.add(item);
-			}
-		}
-		return equippedItems;
-	}
-	
-	/**
-	 * @return List<Item>
-	 */
-	public List<Item> getEquippedItemsSpecialStigma() {
-		List<Item> equippedItems = new ArrayList<Item>();
-		for (Item item : equipment.values()) {
-			if (ItemSlot.isSpecialStigma(item.getEquipmentSlot())) {
 				equippedItems.add(item);
 			}
 		}

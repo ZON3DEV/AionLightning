@@ -16,21 +16,13 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.templates.item.actions.EnchantGlyphAction;
-import com.aionemu.gameserver.model.templates.item.actions.EnchantGrindingAction;
 import com.aionemu.gameserver.model.templates.item.actions.EnchantItemAction;
 import com.aionemu.gameserver.model.templates.item.actions.GodstoneAction;
-import com.aionemu.gameserver.model.templates.item.actions.GrindSlotExpansionAction;
-import com.aionemu.gameserver.model.templates.item.actions.ManastoneSlotExpansionAction;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.services.enchant.GrindCombineService;
 import com.aionemu.gameserver.services.item.ItemSocketService;
 import com.aionemu.gameserver.services.trade.PricesService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -40,15 +32,12 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public class CM_MANASTONE extends AionClientPacket {
 
-	Logger log = LoggerFactory.getLogger(CM_MANASTONE.class);
-
 	private int slotNum;
 	private int actionType;
 	private int targetFusedSlot;
 	private int stoneUniqueId;
 	private int targetItemUniqueId;
 	private int supplementUniqueId;
-	private int grindStone;
 
 	/**
 	 * @param opcode
@@ -62,7 +51,6 @@ public class CM_MANASTONE extends AionClientPacket {
 		actionType = readC();
 		targetFusedSlot = readC();
 		targetItemUniqueId = readD();
-		System.out.println("action " + actionType);
 		switch (actionType) {
 			case 1:
 			case 2:
@@ -76,18 +64,6 @@ public class CM_MANASTONE extends AionClientPacket {
 				readH();
 				readD(); //Old = npcObjId
 				break;
-			case 10:
-				grindStone = readD();
-				read();
-				break;
-			case 11: // Runes Fusion
-				readD(); //itemObjectId
-				readD(); //itemObjectId
-				readD(); // unk 0
-				break;
-			default: 	
-				log.error("Unknown enchantment type? 0x" + Integer.toHexString(actionType).toUpperCase());
-			break;
 		}
 	}
 
@@ -97,61 +73,24 @@ public class CM_MANASTONE extends AionClientPacket {
 
 		switch (actionType) {
 			case 1: // enchant stone
-			case 2: { // add manastone
+			case 2: // add manastone
 				EnchantItemAction action = new EnchantItemAction();
-				ManastoneSlotExpansionAction action2 = new ManastoneSlotExpansionAction();
-				GrindSlotExpansionAction action3 = new GrindSlotExpansionAction();
-				EnchantGrindingAction action4 = new EnchantGrindingAction();
-				EnchantGlyphAction action5 = new EnchantGlyphAction();
-
 				Item manastone = player.getInventory().getItemByObjId(stoneUniqueId);
 				Item targetItem = player.getEquipment().getEquippedItemByObjId(targetItemUniqueId);
-
 				if (targetItem == null) {
 					targetItem = player.getInventory().getItemByObjId(targetItemUniqueId);
 				}
-				
-				switch(manastone.getItemTemplate().getCategory()) {
-					case MANA_SLOT_OPEN: {
-						if (action2.canAct(player, manastone, targetItem)) {
-							action2.act(player, manastone, targetItem);
+				if (action.canAct(player, manastone, targetItem)) {
+					Item supplement = player.getInventory().getItemByObjId(supplementUniqueId);
+					if (supplement != null) {
+						if (supplement.getItemId() / 100000 != 1661) { // suppliment id check
+							return;
 						}
-						break;
 					}
-					case GRIND_SLOT_OPEN: {
-						if (action3.canAct(player, manastone, targetItem)) {
-							action3.act(player, manastone, targetItem);
-						}
-						break;
-					}
-					case GRIND_ENCHANT: {
-						if (action4.canAct(player, manastone, targetItem)) {
-							action4.act(player, manastone, targetItem);
-						}
-						break;
-					}
-					case GLYPH_ENCHANT: {
-						if (action5.canAct(player, manastone, targetItem)) {
-							action5.act(player, manastone, targetItem);
-						}
-						break;
-					}
-					default: {
-						if (action.canAct(player, manastone, targetItem)) {
-							Item supplement = player.getInventory().getItemByObjId(supplementUniqueId);
-							if (supplement != null) {
-								if (supplement.getItemId() / 100000 != 1661) { // suppliment id check
-									return;
-								}
-							}
-							action.act(player, manastone, targetItem, supplement, targetFusedSlot);
-						}
-						break;
-					}
+					action.act(player, manastone, targetItem, supplement, targetFusedSlot);
 				}
 				break;
-			}
-			case 3: {// remove manastone
+			case 3: // remove manastone
 				long price = PricesService.getPriceForService(65000, player.getRace());
 				if (player.getInventory().getKinah() < price) {
 					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_REMOVE_ITEM_OPTION_NOT_ENOUGH_GOLD(price));
@@ -167,8 +106,7 @@ public class CM_MANASTONE extends AionClientPacket {
 					ItemSocketService.removeFusionstone(player, targetItemUniqueId, slotNum);
 				}
 				break;
-			}
-			case 4: {// add godstone
+			case 4: // add godstone
 				Item godStone = player.getInventory().getItemByObjId(stoneUniqueId);
 				Item targetItemGod = player.getEquipment().getEquippedItemByObjId(targetItemUniqueId);
 				if (targetItemGod == null) {
@@ -178,15 +116,6 @@ public class CM_MANASTONE extends AionClientPacket {
 				if (godAction.canAct(player, godStone, targetItemGod)) {
 					godAction.act(player, godStone, targetItemGod);
 				}
-				break;
-			}
-			case 10: {
-				Item mat1 = player.getInventory().getItemByObjId(targetItemUniqueId);
-				Item mat2 = player.getInventory().getItemByObjId(grindStone);
-				GrindCombineService.combineGrind(player, mat1, mat2);
-				break;
-			}
-			default:
 				break;
 		}
 	}

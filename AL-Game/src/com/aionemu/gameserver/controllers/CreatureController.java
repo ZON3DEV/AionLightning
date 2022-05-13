@@ -48,6 +48,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_MOVE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_CANCEL;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_SELECTED;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_TARGET_UPDATE;
+import com.aionemu.gameserver.services.WorldBuffService;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.model.ChargeSkill;
 import com.aionemu.gameserver.skillengine.model.HealType;
@@ -361,7 +362,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 * @param target
 	 * @param time
 	 */
-	public void attackTarget(final Creature target, int attackNo, int time, int type) {
+	public void attackTarget(final Creature target, int time) {
 		boolean addAttackObservers = true;
 		/**
 		 * Check all prerequisites
@@ -397,9 +398,9 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 			damage += result.getDamage();
 		}
 
-//		getOwner().getGameStats().increaseAttackCounter();
-		PacketSendUtility.broadcastPacketAndReceive(getOwner(), new SM_ATTACK(getOwner(), target, attackNo, time, attackType, attackResult));
+		PacketSendUtility.broadcastPacketAndReceive(getOwner(), new SM_ATTACK(getOwner(), target, getOwner().getGameStats().getAttackCounter(), time, attackType, attackResult));
 
+		getOwner().getGameStats().increaseAttackCounter();
 		if (addAttackObservers) {
 			getOwner().getObserveController().notifyAttackObservers(target);
 		}
@@ -430,7 +431,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	 * @param questId
 	 * @param extendedRewardIndex
 	 */
-	public void onDialogSelect(int dialogId, Player player, int questId, int extendedRewardIndex, int unk) {
+	public void onDialogSelect(int dialogId, Player player, int questId, int extendedRewardIndex) {
 		// TODO Auto-generated method stub
 	}
 
@@ -638,6 +639,7 @@ public abstract class CreatureController<T extends Creature> extends VisibleObje
 	@Override
 	public void onAfterSpawn() {
 		super.onAfterSpawn();
+		WorldBuffService.getInstance().onAfterSpawn(getOwner());
 		getOwner().revalidateZones();
 	}
 }

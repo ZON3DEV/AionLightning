@@ -129,7 +129,6 @@ public class RelinquishCraftStatus {
 			}
 		}
 		PacketSendUtility.sendPacket(player, new SM_QUEST_COMPLETED_LIST(player.getQuestStateList().getAllFinishedQuests()));
-		player.getController().updateZone();
 		player.getController().updateNearbyQuests();
 	}
 

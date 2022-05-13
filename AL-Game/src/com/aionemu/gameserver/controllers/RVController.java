@@ -23,14 +23,12 @@ import com.aionemu.gameserver.model.gameobjects.player.RequestResponseHandler;
 import com.aionemu.gameserver.model.team2.alliance.PlayerAllianceService;
 import com.aionemu.gameserver.model.team2.group.PlayerGroup;
 import com.aionemu.gameserver.model.team2.group.PlayerGroupService;
-import com.aionemu.gameserver.model.templates.achievement.AchievementActionType;
 import com.aionemu.gameserver.model.templates.spawns.SpawnTemplate;
 import com.aionemu.gameserver.model.vortex.VortexLocation;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.RiftService;
 import com.aionemu.gameserver.services.VortexService;
-import com.aionemu.gameserver.services.player.AchievementService;
 import com.aionemu.gameserver.services.rift.RiftEnum;
 import com.aionemu.gameserver.services.rift.RiftInformer;
 import com.aionemu.gameserver.services.rift.RiftManager;
@@ -47,7 +45,7 @@ public class RVController extends NpcController {
 	private boolean isMaster = false;
 	private boolean isVortex = false;
 	protected FastMap<Integer, Player> passedPlayers = new FastMap<Integer, Player>();
-	private static SpawnTemplate slaveSpawnTemplate;
+	private SpawnTemplate slaveSpawnTemplate;
 	private Npc slave;
 	private Integer maxEntries;
 	private Integer minLevel;
@@ -73,7 +71,7 @@ public class RVController extends NpcController {
 		if (slave != null)// master rift should be created
 		{
 			this.slave = slave;
-			RVController.slaveSpawnTemplate = slave.getSpawn();
+			this.slaveSpawnTemplate = slave.getSpawn();
 			isMaster = true;
 			isAccepting = true;
 		}
@@ -94,10 +92,6 @@ public class RVController extends NpcController {
 				@Override
 				public void acceptRequest(Creature requester, Player responder) {
 					if (onAccept(responder)) {
-						int worldId = RVController.slaveSpawnTemplate.getWorldId();
-						float x = RVController.slaveSpawnTemplate.getX();
-						float y = RVController.slaveSpawnTemplate.getY();
-						float z = RVController.slaveSpawnTemplate.getZ();
 						if (responder.isInTeam()) {
 							if (responder.getCurrentTeam() instanceof PlayerGroup) {
 								PlayerGroupService.removePlayer(responder);
@@ -109,8 +103,6 @@ public class RVController extends NpcController {
 
 						VortexLocation loc = VortexService.getInstance().getLocationByRift(getOwner().getNpcId());
 						TeleportService2.teleportTo(responder, loc.getStartPoint());
-						TeleportService2.teleportTo(responder, worldId, x, y, z);
-						AchievementService.getInstance().onUpdateAchievementAction(responder, worldId, 1, AchievementActionType.ENTER_WORLD);
 
 						// A Rift Portal battle has begun.
 						PacketSendUtility.sendPacket(responder, new SM_SYSTEM_MESSAGE(1401454));
@@ -261,7 +253,7 @@ public class RVController extends NpcController {
 	private int[] getWorldsList(RVController controller) {
 		int first = controller.getOwner().getWorldId();
 		if (controller.isMaster()) {
-			return new int[] { first, RVController.slaveSpawnTemplate.getWorldId() };
+			return new int[] { first, controller.slaveSpawnTemplate.getWorldId() };
 		}
 		return new int[] { first };
 	}

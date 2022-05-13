@@ -145,10 +145,6 @@ public final class PlayerSkillList implements SkillList<Player> {
 		return addSkill(player, skillId, skillLevel, false, false, PersistentState.NEW);
 	}
 
-	public boolean addSkillWithoutSave(Player player, int skillId, int skillLevel) {
-		return addSkill(player, skillId, skillLevel, false, false, PersistentState.NOACTION);
-	}
-
 	public boolean addStigmaSkill(Player player, int skillId, int skillLevel) {
 		return addSkill(player, skillId, skillLevel, true, false, PersistentState.NEW);
 	}

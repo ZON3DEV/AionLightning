@@ -19,7 +19,10 @@ package com.aionemu.gameserver.spawnengine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.aionemu.gameserver.configs.main.BeritraConfig;
 import com.aionemu.gameserver.configs.main.CustomConfig;
+import com.aionemu.gameserver.configs.main.PanesterraConfig;
+import com.aionemu.gameserver.configs.main.RvRConfig;
 import com.aionemu.gameserver.configs.main.SiegeConfig;
 import com.aionemu.gameserver.controllers.GatherableController;
 import com.aionemu.gameserver.controllers.MinionController;
@@ -34,6 +37,7 @@ import com.aionemu.gameserver.geoEngine.collision.CollisionIntention;
 import com.aionemu.gameserver.geoEngine.math.Vector3f;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.base.BaseLocation;
+import com.aionemu.gameserver.model.beritra.BeritraLocation;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
 import com.aionemu.gameserver.model.gameobjects.GroupGate;
@@ -55,24 +59,38 @@ import com.aionemu.gameserver.model.gameobjects.siege.SiegeNpc;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureVisualState;
 import com.aionemu.gameserver.model.house.House;
+import com.aionemu.gameserver.model.landing.LandingLocation;
+import com.aionemu.gameserver.model.landing_special.LandingSpecialLocation;
 import com.aionemu.gameserver.model.rift.RiftLocation;
+import com.aionemu.gameserver.model.rvr.RvrLocation;
 import com.aionemu.gameserver.model.siege.SiegeLocation;
 import com.aionemu.gameserver.model.siege.SiegeRace;
+import com.aionemu.gameserver.model.svs.SvsLocation;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.minion.MinionTemplate;
 import com.aionemu.gameserver.model.templates.npc.NpcTemplate;
 import com.aionemu.gameserver.model.templates.pet.PetTemplate;
 import com.aionemu.gameserver.model.templates.spawns.SpawnTemplate;
 import com.aionemu.gameserver.model.templates.spawns.basespawns.BaseSpawnTemplate;
+import com.aionemu.gameserver.model.templates.spawns.beritraspawns.BeritraSpawnTemplate;
+import com.aionemu.gameserver.model.templates.spawns.landingspawns.LandingSpawnTemplate;
+import com.aionemu.gameserver.model.templates.spawns.landingspecialspawns.LandingSpecialSpawnTemplate;
 import com.aionemu.gameserver.model.templates.spawns.riftspawns.RiftSpawnTemplate;
+import com.aionemu.gameserver.model.templates.spawns.rvrspawns.RvrSpawnTemplate;
 import com.aionemu.gameserver.model.templates.spawns.siegespawns.SiegeSpawnTemplate;
+import com.aionemu.gameserver.model.templates.spawns.svsspawns.SvsSpawnTemplate;
 import com.aionemu.gameserver.model.templates.spawns.vortexspawns.VortexSpawnTemplate;
 import com.aionemu.gameserver.model.vortex.VortexLocation;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PLAYER_STATE;
+import com.aionemu.gameserver.services.AbyssLandingService;
+import com.aionemu.gameserver.services.AbyssLandingSpecialService;
 import com.aionemu.gameserver.services.BaseService;
+import com.aionemu.gameserver.services.BeritraService;
 import com.aionemu.gameserver.services.RiftService;
+import com.aionemu.gameserver.services.RvrService;
 import com.aionemu.gameserver.services.SiegeService;
 import com.aionemu.gameserver.services.SkillLearnService;
+import com.aionemu.gameserver.services.SvsService;
 import com.aionemu.gameserver.services.VortexService;
 import com.aionemu.gameserver.skillengine.effect.SummonOwner;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
@@ -254,6 +272,149 @@ public class VisibleObjectSpawner {
 			npc.setKnownlist(new NpcKnownList(npc));
 		}
 		else if (!loc.isActive() && spawnId == loc.getId() && spawn.isPeace()) {
+			npc = new Npc(iDFactory.nextId(), new NpcController(), spawn, npcTemplate);
+			npc.setKnownlist(new NpcKnownList(npc));
+		}
+		else {
+			return null;
+		}
+		npc.setEffectController(new EffectController(npc));
+		SpawnEngine.bringIntoWorld(npc, spawn, instanceIndex);
+		return npc;
+	}
+
+	protected static VisibleObject spawnBeritraNpc(BeritraSpawnTemplate spawn, int instanceIndex) {
+		if (!BeritraConfig.BERITRA_ENABLED) {
+			return null;
+		}
+		int objectId = spawn.getNpcId();
+		NpcTemplate npcTemplate = DataManager.NPC_DATA.getNpcTemplate(objectId);
+		if (npcTemplate == null) {
+			log.error("No template for NPC " + String.valueOf(objectId));
+			return null;
+		}
+		IDFactory iDFactory = IDFactory.getInstance();
+		Npc npc;
+		int spawnId = spawn.getId();
+		BeritraLocation loc = BeritraService.getInstance().getBeritraLocation(spawnId);
+		if (loc.isActive() && spawnId == loc.getId() && spawn.isBeritraInvasion()) {
+			npc = new Npc(iDFactory.nextId(), new NpcController(), spawn, npcTemplate);
+			npc.setKnownlist(new NpcKnownList(npc));
+		}
+		else if (!loc.isActive() && spawnId == loc.getId() && spawn.isBeritraPeace()) {
+			npc = new Npc(iDFactory.nextId(), new NpcController(), spawn, npcTemplate);
+			npc.setKnownlist(new NpcKnownList(npc));
+		}
+		else {
+			return null;
+		}
+		npc.setEffectController(new EffectController(npc));
+		SpawnEngine.bringIntoWorld(npc, spawn, instanceIndex);
+		return npc;
+	}
+
+	protected static VisibleObject spawnRvrNpc(RvrSpawnTemplate spawn, int instanceIndex) {
+		if (!RvRConfig.RVR_ENABLED) {
+			return null;
+		}
+		int objectId = spawn.getNpcId();
+		NpcTemplate npcTemplate = DataManager.NPC_DATA.getNpcTemplate(objectId);
+		if (npcTemplate == null) {
+			return null;
+		}
+		IDFactory iDFactory = IDFactory.getInstance();
+		Npc npc;
+		int spawnId = spawn.getId();
+		RvrLocation loc = RvrService.getInstance().getRvrLocation(spawnId);
+		if (loc.isActive() && spawnId == loc.getId() && spawn.isRvr()) {
+			npc = new Npc(iDFactory.nextId(), new NpcController(), spawn, npcTemplate);
+			npc.setKnownlist(new NpcKnownList(npc));
+		}
+		else if (!loc.isActive() && spawnId == loc.getId() && spawn.isRvrPeace()) {
+			npc = new Npc(iDFactory.nextId(), new NpcController(), spawn, npcTemplate);
+			npc.setKnownlist(new NpcKnownList(npc));
+		}
+		else {
+			return null;
+		}
+		npc.setEffectController(new EffectController(npc));
+		SpawnEngine.bringIntoWorld(npc, spawn, instanceIndex);
+		return npc;
+	}
+
+	protected static VisibleObject spawnSvsNpc(SvsSpawnTemplate spawn, int instanceIndex) {
+		if (!PanesterraConfig.SVS_ENABLED) {
+			return null;
+		}
+		int objectId = spawn.getNpcId();
+		NpcTemplate npcTemplate = DataManager.NPC_DATA.getNpcTemplate(objectId);
+		if (npcTemplate == null) {
+			log.error("No template for NPC " + String.valueOf(objectId));
+			return null;
+		}
+		IDFactory iDFactory = IDFactory.getInstance();
+		Npc npc;
+		int spawnId = spawn.getId();
+		SvsLocation loc = SvsService.getInstance().getSvsLocation(spawnId);
+		if (loc.isActive() && spawnId == loc.getId() && spawn.isSvs()) {
+			npc = new Npc(iDFactory.nextId(), new NpcController(), spawn, npcTemplate);
+			npc.setKnownlist(new NpcKnownList(npc));
+		}
+		else if (!loc.isActive() && spawnId == loc.getId() && spawn.isSvsPeace()) {
+			npc = new Npc(iDFactory.nextId(), new NpcController(), spawn, npcTemplate);
+			npc.setKnownlist(new NpcKnownList(npc));
+		}
+		else {
+			return null;
+		}
+		npc.setEffectController(new EffectController(npc));
+		SpawnEngine.bringIntoWorld(npc, spawn, instanceIndex);
+		return npc;
+	}
+
+	protected static VisibleObject spawnLandingNpc(LandingSpawnTemplate spawn, int instanceIndex) {
+		int objectId = spawn.getNpcId();
+		NpcTemplate npcTemplate = DataManager.NPC_DATA.getNpcTemplate(objectId);
+		if (npcTemplate == null) {
+			log.error("No template for NPC " + String.valueOf(objectId));
+			return null;
+		}
+		IDFactory iDFactory = IDFactory.getInstance();
+		Npc npc;
+		int spawnId = spawn.getId();
+		LandingLocation loc = AbyssLandingService.getInstance().getLandingLocation(spawnId);
+		if (loc.isActive() && spawnId == loc.getId() && spawn.isLandingOpen()) {
+			npc = new Npc(iDFactory.nextId(), new NpcController(), spawn, npcTemplate);
+			npc.setKnownlist(new NpcKnownList(npc));
+		}
+		else if (!loc.isActive() && spawnId == loc.getId() && spawn.isLandingClosed()) {
+			npc = new Npc(iDFactory.nextId(), new NpcController(), spawn, npcTemplate);
+			npc.setKnownlist(new NpcKnownList(npc));
+		}
+		else {
+			return null;
+		}
+		npc.setEffectController(new EffectController(npc));
+		SpawnEngine.bringIntoWorld(npc, spawn, instanceIndex);
+		return npc;
+	}
+
+	protected static VisibleObject spawnLandingSpecialNpc(LandingSpecialSpawnTemplate spawn, int instanceIndex) {
+		int objectId = spawn.getNpcId();
+		NpcTemplate npcTemplate = DataManager.NPC_DATA.getNpcTemplate(objectId);
+		if (npcTemplate == null) {
+			log.error("No template for NPC " + String.valueOf(objectId));
+			return null;
+		}
+		IDFactory iDFactory = IDFactory.getInstance();
+		Npc npc;
+		int spawnId = spawn.getId();
+		LandingSpecialLocation loc = AbyssLandingSpecialService.getInstance().getLandingSpecialLocation(spawnId);
+		if (loc.isActive() && spawnId == loc.getId() && spawn.isSpecialLandingSpawn()) {
+			npc = new Npc(iDFactory.nextId(), new NpcController(), spawn, npcTemplate);
+			npc.setKnownlist(new NpcKnownList(npc));
+		}
+		else if (!loc.isActive() && spawnId == loc.getId() && spawn.isSpecialLandingDespawn()) {
 			npc = new Npc(iDFactory.nextId(), new NpcController(), spawn, npcTemplate);
 			npc.setKnownlist(new NpcKnownList(npc));
 		}
@@ -529,31 +690,31 @@ public class VisibleObjectSpawner {
 	 * @param minionId
 	 * @return
 	 */
-    public static Minion spawnMinion(Player player, int minionObjId, int minionId) {
+	public static Minion spawnMinion(Player player, int minionId) {
 
-        MinionCommonData mcd = player.getMinionList().getMinion(minionId);
-        if (mcd == null) {
-            return null;
-        }
-        MinionTemplate mt = DataManager.MINION_DATA.getMinionTemplate(minionObjId);
-        if (mt == null) {
-            return null;
-        }
+		MinionCommonData minionCommonData = player.getMinionList().getMinion(minionId);
+		if (minionCommonData == null) {
+			return null;
+		}
+		MinionTemplate minionTemplate = DataManager.MINION_DATA.getMinionTemplate(minionId);
+		if (minionTemplate == null) {
+			return null;
+		}
 
-        MinionController controller = new MinionController();
-        Minion minion = new Minion(mt, controller, mcd, player);
-        minion.setKnownlist(new PlayerAwareKnownList(minion));
-        player.setMinion(minion);
+		MinionController controller = new MinionController();
+		Minion minion = new Minion(minionTemplate, controller, minionCommonData, player);
+		minion.setKnownlist(new PlayerAwareKnownList(minion));
+		player.setMinion(minion);
 
-        float x = player.getX();
-        float y = player.getY();
-        float z = player.getZ();
-        byte heading = player.getHeading();
-        int worldId = player.getWorldId();
-        int instanceId = player.getInstanceId();
-        SpawnTemplate spawn = SpawnEngine.createSpawnTemplate(worldId, minionObjId, x, y, z, heading);
+		float x = player.getX() - 2;
+		float y = player.getY();
+		float z = player.getZ();
+		byte heading = player.getHeading();
+		int worldId = player.getWorldId();
+		int instanceId = player.getInstanceId();
+		SpawnTemplate spawn = SpawnEngine.createSpawnTemplate(worldId, minionId, x, y, z, heading);
 
-        SpawnEngine.bringIntoWorld(minion, spawn, instanceId);
-        return minion;
-    }
+		SpawnEngine.bringIntoWorld(minion, spawn, instanceId);
+		return minion;
+	}
 }

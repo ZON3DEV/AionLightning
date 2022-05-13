@@ -51,6 +51,7 @@ import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.configs.main.EventsConfig;
 import com.aionemu.gameserver.configs.main.GSConfig;
 import com.aionemu.gameserver.configs.main.MembershipConfig;
+import com.aionemu.gameserver.configs.main.PanesterraConfig;
 import com.aionemu.gameserver.configs.main.SiegeConfig;
 import com.aionemu.gameserver.configs.main.ThreadConfig;
 import com.aionemu.gameserver.configs.main.WeddingsConfig;
@@ -68,39 +69,50 @@ import com.aionemu.gameserver.network.aion.GameConnectionFactoryImpl;
 import com.aionemu.gameserver.network.chatserver.ChatServer;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
 import com.aionemu.gameserver.questEngine.QuestEngine;
+import com.aionemu.gameserver.services.AbyssLandingService;
+import com.aionemu.gameserver.services.AbyssLandingSpecialService;
 import com.aionemu.gameserver.services.AdminService;
+import com.aionemu.gameserver.services.AgentFightService;
 import com.aionemu.gameserver.services.AnnouncementService;
-import com.aionemu.gameserver.services.AtreianPassportService;
 import com.aionemu.gameserver.services.BaseService;
+import com.aionemu.gameserver.services.BeritraService;
 import com.aionemu.gameserver.services.BrokerService;
 import com.aionemu.gameserver.services.ChallengeTaskService;
 import com.aionemu.gameserver.services.DatabaseCleaningService;
 import com.aionemu.gameserver.services.DebugService;
+import com.aionemu.gameserver.services.DiflodoxService;
+import com.aionemu.gameserver.services.DiflonaxService;
 import com.aionemu.gameserver.services.DisputeLandService;
-import com.aionemu.gameserver.services.DynamicPortalService;
 import com.aionemu.gameserver.services.ExchangeService;
 import com.aionemu.gameserver.services.FlyRingService;
 import com.aionemu.gameserver.services.GameTimeService;
 import com.aionemu.gameserver.services.HousingBidService;
 import com.aionemu.gameserver.services.LimitedItemTradeService;
-import com.aionemu.gameserver.services.MinionService;
+import com.aionemu.gameserver.services.MoltenusService;
 import com.aionemu.gameserver.services.NpcShoutsService;
 import com.aionemu.gameserver.services.PeriodicSaveService;
 import com.aionemu.gameserver.services.RestartService;
 import com.aionemu.gameserver.services.RiftService;
 import com.aionemu.gameserver.services.RoadService;
+import com.aionemu.gameserver.services.RvrService;
 import com.aionemu.gameserver.services.ShieldService;
 import com.aionemu.gameserver.services.SiegeService;
 import com.aionemu.gameserver.services.StigmaService;
 import com.aionemu.gameserver.services.SupportService;
+import com.aionemu.gameserver.services.SvsService;
 import com.aionemu.gameserver.services.TownService;
 import com.aionemu.gameserver.services.VortexService;
 import com.aionemu.gameserver.services.WeatherService;
 import com.aionemu.gameserver.services.WeddingService;
-import com.aionemu.gameserver.services.WorldPlayTimeService;
+import com.aionemu.gameserver.services.WorldBuffService;
 import com.aionemu.gameserver.services.abyss.AbyssRankUpdateService;
+import com.aionemu.gameserver.services.abysslandingservice.LandingUpdateService;
 import com.aionemu.gameserver.services.conquerer_protector.ConquerorsService;
 import com.aionemu.gameserver.services.drop.DropRegistrationService;
+import com.aionemu.gameserver.services.dynamic_world.AdmaPortalSpawnService;
+import com.aionemu.gameserver.services.dynamic_world.LaboratoryPortalSpawnService;
+import com.aionemu.gameserver.services.dynamic_world.TowerEntranceService;
+import com.aionemu.gameserver.services.events.AtreianPassportService;
 import com.aionemu.gameserver.services.events.BoostEventService;
 import com.aionemu.gameserver.services.events.EventService;
 import com.aionemu.gameserver.services.events.EventWindowService;
@@ -117,20 +129,15 @@ import com.aionemu.gameserver.services.instance.RunatoriumRuinsService;
 import com.aionemu.gameserver.services.instance.RunatoriumService;
 import com.aionemu.gameserver.services.instance.SanctumBattlefieldService;
 import com.aionemu.gameserver.services.instance.SteelWallBastionBattlefieldService;
-import com.aionemu.gameserver.services.player.AchievementService;
 import com.aionemu.gameserver.services.player.FatigueService;
-import com.aionemu.gameserver.services.player.LumielTransformService;
 import com.aionemu.gameserver.services.player.LunaShopService;
-import com.aionemu.gameserver.services.player.PlayerCollectionService;
-import com.aionemu.gameserver.services.player.PlayerCubicService;
 import com.aionemu.gameserver.services.player.PlayerEventService;
-import com.aionemu.gameserver.services.player.PlayerFameService;
 import com.aionemu.gameserver.services.player.PlayerLimitService;
-import com.aionemu.gameserver.services.ranking.PlayerRankingUpdateService;
 import com.aionemu.gameserver.services.reward.OnlineBonus;
 import com.aionemu.gameserver.services.reward.RewardService;
 import com.aionemu.gameserver.services.teleport.HotspotTeleportService;
 import com.aionemu.gameserver.services.territory.TerritoryService;
+import com.aionemu.gameserver.services.toypet.MinionService;
 import com.aionemu.gameserver.services.transfers.PlayerTransferService;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.spawnengine.TemporarySpawnEngine;
@@ -148,7 +155,6 @@ import com.aionemu.gameserver.utils.i18n.LanguageHandler;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.utils.javaagent.JavaAgentUtils;
 import com.aionemu.gameserver.world.World;
-import com.aionemu.gameserver.world.WorldEngine;
 import com.aionemu.gameserver.world.geo.GeoService;
 import com.aionemu.gameserver.world.zone.ZoneService;
 
@@ -228,10 +234,8 @@ public class GameServer {
 
 		Lambda.enableJitting(true);
 		final GameEngine[] parallelEngines = new GameEngine[] { QuestEngine.getInstance(), InstanceEngine.getInstance(), AI2Engine.getInstance(), ChatProcessor.getInstance() };
-		final GameEngine[] worldEngines = new GameEngine[] { WorldEngine.getInstance() };
 
 		final CountDownLatch progressLatch = new CountDownLatch(parallelEngines.length);
-		final CountDownLatch progressLatch2 = new CountDownLatch(worldEngines.length);
 		initalizeLoggger();
 		initUtilityServicesAndConfig();
 		Util.printSection(" ### StaticData ### ");
@@ -246,14 +250,12 @@ public class GameServer {
 		World.getInstance();
 		Util.printSection(" ### Luna System ### ");
 		LunaShopService.getInstance().init();
+		Util.printSection(" ### Minion System ### ");
+		MinionService.getInstance().init();
 		Util.printSection(" ### Events Window System ### ");
 		EventWindowService.getInstance().initialize();
 		Util.printSsSection(" ### Shugo Sweep initialization ### ");
 		ShugoSweepService.getInstance().initShugoSweep();
-		Util.printSsSection(" ### Atreian Passport initialization ### ");
-		AtreianPassportService.getInstance().onStart();
-		Util.printSsSection(" ### Cubic initialization ### ");
-        PlayerCubicService.getInstance();
 		Util.printSection(" ### GeoData ### ");
 		GeoService.getInstance().initializeGeo();
 		DropRegistrationService.getInstance();
@@ -278,32 +280,16 @@ public class GameServer {
 		catch (InterruptedException e1) {
 			e1.printStackTrace();
 		}
-
-		for (int i = 0; i < worldEngines.length; i++) {
-			final int index = i;
-			ThreadPoolManager.getInstance().execute(new Runnable() {
-
-				@Override
-				public void run() {
-					worldEngines[index].load(progressLatch2);
-				}
-			});
-		}
-
-		try {
-			progressLatch2.await();
-		}
-		catch (InterruptedException e1) {
-			e1.printStackTrace();
-		}
 		// This is loading only siege location data
 		// No Siege schedule or spawns
 		Util.printSection(" ### Siege Location Data ### ");
 		BaseService.getInstance().initBaseLocations();
+		BeritraService.getInstance().initBeritraLocations();
+		RvrService.getInstance().initRvrLocations();
+		SvsService.getInstance().initSvsLocations();
 		SiegeService.getInstance().initSiegeLocations();
 		VortexService.getInstance().initVortexLocations();
 		RiftService.getInstance().initRiftLocations();
-		DynamicPortalService.getInstance().initDynamicPortalLocations();
 		Util.printSection(" ### Spawns ### ");
 		SpawnEngine.spawnAll();
 		if (EventsConfig.EVENT_ENABLED) {
@@ -313,6 +299,10 @@ public class GameServer {
 		if (EventsConfig.ENABLE_EVENT_SERVICE) {
 			EventService.getInstance().start();
 		}
+		if (EventsConfig.ENABLE_ATREIAN_PASSPORT) {
+			AtreianPassportService.getInstance().onStart();
+		}
+		
 		RiftService.getInstance().initRifts();
 		TemporarySpawnEngine.spawnAll();
 
@@ -323,13 +313,36 @@ public class GameServer {
 			ShieldService.getInstance().spawnAll();
 		}
 		SiegeService.getInstance().initSieges();
+		AgentFightService.getInstance().initAgentFight();
+		MoltenusService.getInstance().initMoltenus();
+		DiflodoxService.getInstance().initDiflodox(); // 4.9
+		DiflonaxService.getInstance().initDiflonax(); // 4.9
+		AbyssLandingService.getInstance().initLandingLocations();
+		LandingUpdateService.getInstance().initResetQuestPoints();
+		LandingUpdateService.getInstance().initResetAbyssLandingPoints();
+		AbyssLandingSpecialService.getInstance().initLandingSpecialLocations();
 		DisputeLandService.getInstance().initDisputeLand();
+		TowerEntranceService.getInstance().startTowerEntrance();
 		Util.printSsSection("Bases");
 		if (BaseConfig.BASE_ENABLED) {
 			BaseService.getInstance().initBases();
 		}
 		else {
 			BaseService.getInstance().basesDisabled();
+		}
+		Util.printSsSection("RvR");
+		if (PanesterraConfig.SVS_ENABLED) {
+			RvrService.getInstance().initRvr();
+		}
+		else {
+			RvrService.getInstance().RvrDisabled();
+		}
+		Util.printSsSection("Panesterra");
+		if (PanesterraConfig.SVS_ENABLED) {
+			SvsService.getInstance().initSvs();
+		}
+		else {
+			SvsService.getInstance().SvsDisabled();
 		}
 		Util.printSection(" ### Cleaning ### ");
 		DatabaseCleaningService.getInstance();
@@ -338,10 +351,14 @@ public class GameServer {
 		PacketBroadcaster.getInstance();
 		PeriodicSaveService.getInstance();
 		TaskFromDBManager.getInstance();
+		LaboratoryPortalSpawnService.getInstance().startLaboratory();
+		AdmaPortalSpawnService.getInstance().startAdma();
 		Util.printSection(" ### Services ### ");
 		if (EventsConfig.ENABLE_BOOST_EVENTS) {
 			BoostEventService.getInstance().onStart();
 		}
+		Util.printSsSection("Atreian Passport");
+		AtreianPassportService.getInstance().onStart();
 		Util.printSsSection("HTML");
 		HTMLCache.getInstance();
 		if (CustomConfig.ENABLE_REWARD_SERVICE) {
@@ -350,7 +367,7 @@ public class GameServer {
 		if (WeddingsConfig.WEDDINGS_ENABLE) {
 			WeddingService.getInstance();
 		}
-		Util.printSsSection("Scheduled Services");
+		Util.printSsSection("Sheduled Services");
 		LimitedItemTradeService.getInstance().start();
 		if (AutoGroupConfig.AUTO_GROUP_ENABLE && AutoGroupConfig.DREDGION2_ENABLE)
 			DredgionService.getInstance().start();
@@ -375,12 +392,12 @@ public class GameServer {
 		if (ConquerorProtectorConfig.ENABLE_GUARDIAN_PVP)
 			ConquerorsService.getInstance().initConquerorPvPSystem();
 		AbyssRankUpdateService.getInstance().scheduleUpdate();
-		PlayerRankingUpdateService.getInstance().onStart();
 		/**
 		 * Schedules Garbage Collector to be launched at the specified time to be optimized unused memory. (Avoids OutOfMemoryException)
 		 */
 		GarbageCollector.getInstance().start();
 		Util.printSsSection("Other Services");
+		WorldBuffService.getInstance();
 		// PetitionService.getInstance();
 		if (AIConfig.SHOUTS_ENABLE) {
 			NpcShoutsService.getInstance();
@@ -403,16 +420,6 @@ public class GameServer {
 		RoadService.getInstance();
 		AdminService.getInstance();
 		PlayerTransferService.getInstance();
-		Util.printSection(" ### Minions ### ");
-		MinionService.getInstance().init();
-        Util.printSection(" ### Lugbug Mission ### ");
-        AchievementService.getInstance().init();
-		Util.printSection(" ### Field Fame System ### ");
-		PlayerFameService.getInstance().init();
-        Util.printSection(" ### Lumiel Transformation ### ");
-        LumielTransformService.getInstance().init();
-        Util.printSection(" ### Item Collection ### ");
-        PlayerCollectionService.getInstance().init();
 		Util.printSection(" ### Housing ### ");
 		HousingBidService.getInstance().start();
 		MaintenanceTask.getInstance();
@@ -423,10 +430,9 @@ public class GameServer {
 		SupportService.getInstance();
 		HotspotTeleportService.getInstance();
 		TerritoryService.getInstance().init();
-		WorldPlayTimeService.getInstance().onStart();
 		if (MembershipConfig.ONLINE_BONUS_ENABLE)
 			OnlineBonus.getInstance();
-		RestartService.getInstance().onStart();
+		RestartService.getInstance();
 
 		Util.printSection(" ### System ### ");
 		System.gc();

@@ -43,14 +43,10 @@ public class SkillLearnTemplate {
 	private Race race;
 	@XmlAttribute(name = "minLevel", required = true)
 	private int minLevel;
-    @XmlAttribute(name= "required_skill", required= false)
-    private int requiredSkill;
 	@XmlAttribute
 	private boolean autolearn;
 	@XmlAttribute
 	private boolean stigma = false;
-    @XmlAttribute
-    private boolean daevanionEnchant = false;	
 
 	/**
 	 * @return the classId
@@ -72,13 +68,6 @@ public class SkillLearnTemplate {
 	public int getSkillLevel() {
 		return skillLevel;
 	}
-
-	/**
-	 * @return the requiredSkill
-	 */
-    public int getRequiredSkill() {
-        return requiredSkill;
-    }
 
 	/**
 	 * @return the name
@@ -114,11 +103,4 @@ public class SkillLearnTemplate {
 	public boolean isStigma() {
 		return stigma;
 	}
-
-	/**
-	 * @return the daevanionEnchant
-	 */
-    public boolean isDaevanionEnchant() {
-        return daevanionEnchant;
-    }
 }

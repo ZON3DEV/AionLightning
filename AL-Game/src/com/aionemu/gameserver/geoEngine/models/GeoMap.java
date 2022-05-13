@@ -17,7 +17,6 @@
 package com.aionemu.gameserver.geoEngine.models;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -318,18 +317,10 @@ public class GeoMap extends Node {
 		else {
 			int size = (int) Math.sqrt(terrainData.length);
 			try {
-				int index = yInt + (xInt * size);
-				p1 = terrainData[index] / 32f;
-				p2 = terrainData[index + 1] / 32f;
-				p3 = terrainData[index + size] / 32f;
-				p4 = terrainData[index + size+ 1] / 32f;
-
-				// check if the terrain quad is removed.
-				if (terrainCutoutData != null) {
-					if (Arrays.binarySearch(terrainCutoutData, index) >= 0) {
-					//return false;
-					}
-				}
+				p1 = terrainData[(yInt + (xInt * size))] / 32f;
+				p2 = terrainData[((yInt + 1) + (xInt * size))] / 32f;
+				p3 = terrainData[((yInt) + ((xInt + 1) * size))] / 32f;
+				p4 = terrainData[((yInt + 1) + ((xInt + 1) * size))] / 32f;
 			}
 			catch (Exception e) {
 				return null;
@@ -401,11 +392,4 @@ public class GeoMap extends Node {
 		}
 		super.updateModelBound();
 	}
-	
-	private int[] terrainCutoutData;
-		public void setTerrainCutouts(int[] cutoutData) {
-			int[] arr = cutoutData.clone();
-			Arrays.sort(arr);
-			this.terrainCutoutData = arr;
-		}
 }

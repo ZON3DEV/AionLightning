@@ -34,13 +34,15 @@ public class Rewards {
 	@XmlElement(name = "reward_item")
 	protected List<QuestItems> rewardItem;
 	@XmlAttribute
-	protected Long gold;
+	protected Integer gold;
 	@XmlAttribute
-	protected Long exp;
+	protected Integer exp;
 	@XmlAttribute(name = "reward_abyss_point")
 	protected Integer rewardAbyssPoint;
 	@XmlAttribute(name = "reward_glory_point")
 	protected Integer rewardGloryPoint;
+	@XmlAttribute(name = "reward_abyss_op_point")
+	protected Integer rewardAbyssOpPoint;
 	@XmlAttribute(name = "expBoost")
 	protected Integer expBoost;
 	@XmlAttribute(name = "reward_creativity_point")
@@ -51,8 +53,6 @@ public class Rewards {
 	protected Integer extendInventory;
 	@XmlAttribute(name = "extend_stigma")
 	protected Integer extendStigma;
-    @XmlAttribute(name= "fame_exp")
-    protected Integer fameExp;
 
 	/**
 	 * Gets the value of the selectableRewardItem property.
@@ -103,7 +103,7 @@ public class Rewards {
 	 *
 	 * @return possible object is {@link Integer }
 	 */
-	public Long getGold() {
+	public Integer getGold() {
 		return gold;
 	}
 
@@ -112,7 +112,7 @@ public class Rewards {
 	 *
 	 * @return possible object is {@link Integer }
 	 */
-	public Long getExp() {
+	public Integer getExp() {
 		return exp;
 	}
 
@@ -132,6 +132,15 @@ public class Rewards {
 	 */
 	public Integer getRewardGloryPoint() {
 		return rewardGloryPoint;
+	}
+
+	/**
+	 * Gets the value of the rewardAbyssOperationsPoint property.
+	 *
+	 * @return possible object is {@link Integer }
+	 */
+	public Integer getRewardAbyssOpPoint() {
+		return rewardAbyssOpPoint;
 	}
 
 	/**
@@ -174,11 +183,4 @@ public class Rewards {
 	public Integer getExtendStigma() {
 		return extendStigma;
 	}
-
-	/**
-	 * @return the fameExp
-	 */
-    public Integer getFameExp() {
-        return fameExp;
-    }
 }

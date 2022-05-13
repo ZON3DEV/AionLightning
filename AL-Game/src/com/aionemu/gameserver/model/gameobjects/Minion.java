@@ -25,7 +25,7 @@ import com.aionemu.gameserver.model.templates.minion.MinionTemplate;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
- * @author ATracer
+ * @author Falke_34
  */
 public class Minion extends VisibleObject {
 
@@ -33,12 +33,6 @@ public class Minion extends VisibleObject {
 	private MoveController moveController;
 	private final MinionTemplate minionTemplate;
 
-	/**
-	 * @param minionTemplate
-	 * @param controller
-	 * @param commonData
-	 * @param master
-	 */
 	public Minion(MinionTemplate minionTemplate, MinionController controller, MinionCommonData commonData, Player master) {
 		super(commonData.getObjectId(), controller, null, commonData, new WorldPosition(master.getWorldId()));
 		controller.setOwner(this);

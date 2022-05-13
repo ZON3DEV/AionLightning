@@ -149,7 +149,7 @@ public class Influence {
 						}
 					}
 					break;
-				case 800050000:
+				case 600090000:
 					if (sLoc instanceof FortressLocation) {
 						t_kaldor += sLoc.getInfluenceValue();
 						switch (sLoc.getRace()) {

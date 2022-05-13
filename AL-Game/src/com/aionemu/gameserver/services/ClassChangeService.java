@@ -137,13 +137,10 @@ public class ClassChangeService {
 					case 4081:
 						setClass(player, PlayerClass.getPlayerClassById((byte) 16));
 						break;
-					case 4166:
-						setClass(player, PlayerClass.getPlayerClassById((byte) 17)); // 7.0
-						break;
 
 				}
-				completeQuest(player, 60100);
-				completeQuest(player, 60101);
+				completeQuest(player, 1006);
+				completeQuest(player, 1007);
 
 				// Stigma Quests Elyos
 				if (player.havePermission(MembershipConfig.STIGMA_SLOT_QUEST)) {
@@ -185,13 +182,10 @@ public class ClassChangeService {
 					case 3911:
 						setClass(player, PlayerClass.getPlayerClassById((byte) 16));
 						break;
-					case 3932:
-						setClass(player, PlayerClass.getPlayerClassById((byte) 17)); // 7.0
-						break;
 				}
 				// Optimate @Enomine
-				completeQuest(player, 70100);
-				completeQuest(player, 70101);
+				completeQuest(player, 2008);
+				completeQuest(player, 2009);
 
 				// Stigma Quests Asmodians
 				if (player.havePermission(MembershipConfig.STIGMA_SLOT_QUEST)) {
@@ -258,7 +252,7 @@ public class ClassChangeService {
 					break;
 				}
 			case ARTIST:
-				if (playerClass == PlayerClass.BARD || playerClass == PlayerClass.PAINTER) {
+				if (playerClass == PlayerClass.BARD) {
 					break;
 				}
 			default:
@@ -267,26 +261,4 @@ public class ClassChangeService {
 		}
 		return true;
 	}
-
-    public static void onUpdateQuest15545(Player player) {
-        if (player.getQuestStateList().hasQuest(15545)) {
-            QuestState qs = player.getQuestStateList().getQuestState(15545);
-            if (qs.getStatus() == QuestStatus.START && qs.getQuestVarById(0) == 0) {
-                qs.setQuestVar(1);
-                qs.setStatus(QuestStatus.REWARD);
-                PacketSendUtility.sendPacket(player, new SM_QUEST_ACTION(15545, qs.getStatus(), qs.getQuestVars().getQuestVars()));
-            }
-        }
-    }
-
-    public static void onUpdateQuest25545(Player player) {
-        if (player.getQuestStateList().hasQuest(25545)) {
-            QuestState qs = player.getQuestStateList().getQuestState(25545);
-            if (qs.getStatus() == QuestStatus.START && qs.getQuestVarById(0) == 0) {
-                qs.setQuestVar(1);
-                qs.setStatus(QuestStatus.REWARD);
-                PacketSendUtility.sendPacket(player, new SM_QUEST_ACTION(25545, qs.getStatus(), qs.getQuestVars().getQuestVars()));
-            }
-        }
-    }
 }

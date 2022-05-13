@@ -16,17 +16,15 @@
  */
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
-import com.aionemu.gameserver.services.ranking.PlayerRankingService;
 
 /**
  * @author Falke_34
  */
 public class CM_MY_DOCUMENTATION extends AionClientPacket {
 
-	private int tableId;
+	// TODO - Rank List - My Documentation
 
 	public CM_MY_DOCUMENTATION(int opcode, State state, State... restStates) {
 		super(opcode, state, restStates);
@@ -34,12 +32,10 @@ public class CM_MY_DOCUMENTATION extends AionClientPacket {
 
 	@Override
 	protected void readImpl() {
-		tableId = readD();
+		readD();
 	}
 
 	@Override
 	protected void runImpl() {
-		final Player player = getConnection().getActivePlayer();
-		PlayerRankingService.getInstance().loadPacketPlayer(player, tableId);
 	}
 }

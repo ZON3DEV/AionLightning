@@ -46,7 +46,7 @@ import com.aionemu.gameserver.dao.OldNamesDAO;
 import com.aionemu.gameserver.dao.PlayerAppearanceDAO;
 import com.aionemu.gameserver.dao.PlayerBindPointDAO;
 import com.aionemu.gameserver.dao.PlayerCooldownsDAO;
-import com.aionemu.gameserver.dao.PlayerCubicsDAO;
+import com.aionemu.gameserver.dao.PlayerCreativityPointsDAO;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.dao.PlayerEffectsDAO;
 import com.aionemu.gameserver.dao.PlayerEmotionListDAO;
@@ -54,8 +54,8 @@ import com.aionemu.gameserver.dao.PlayerEquipmentSettingDAO;
 import com.aionemu.gameserver.dao.PlayerEventsWindowDAO;
 import com.aionemu.gameserver.dao.PlayerGameStatsDAO;
 import com.aionemu.gameserver.dao.PlayerLifeStatsDAO;
-import com.aionemu.gameserver.dao.PlayerLunaShopDAO;
 import com.aionemu.gameserver.dao.PlayerMacrossesDAO;
+import com.aionemu.gameserver.dao.PlayerMonsterbookDAO;
 import com.aionemu.gameserver.dao.PlayerNpcFactionsDAO;
 import com.aionemu.gameserver.dao.PlayerPunishmentsDAO;
 import com.aionemu.gameserver.dao.PlayerQuestListDAO;
@@ -73,7 +73,6 @@ import com.aionemu.gameserver.dataholders.PlayerInitialData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.LocationData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData;
 import com.aionemu.gameserver.dataholders.PlayerInitialData.PlayerCreationData.ItemType;
-import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.account.Account;
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.model.gameobjects.Item;
@@ -171,8 +170,6 @@ public class PlayerService {
 		DAOManager.getDAO(PortalCooldownsDAO.class).storePortalCooldowns(player);
 		DAOManager.getDAO(CraftCooldownsDAO.class).storeCraftCooldowns(player);
 		DAOManager.getDAO(PlayerNpcFactionsDAO.class).storeNpcFactions(player);
-		DAOManager.getDAO(PlayerLunaShopDAO.class).store(player);
-		DAOManager.getDAO(EventItemsDAO.class).loadItems(player);
 	}
 
 	/**
@@ -209,14 +206,15 @@ public class PlayerService {
 		player.setFriendList(DAOManager.getDAO(FriendListDAO.class).load(player));
 		player.setBlockList(DAOManager.getDAO(BlockListDAO.class).load(player));
 		player.setTitleList(DAOManager.getDAO(PlayerTitleListDAO.class).loadTitleList(playerObjId));
+		player.setCP(DAOManager.getDAO(PlayerCreativityPointsDAO.class).loadCP(player));
 		player.setEventWindow(DAOManager.getDAO(PlayerEventsWindowDAO.class).load(player));
+		player.setMonsterbook(DAOManager.getDAO(PlayerMonsterbookDAO.class).load(player));
 		player.setWardrobe(DAOManager.getDAO(PlayerWardrobeDAO.class).load(player));
 		DAOManager.getDAO(Free2PlayDAO.class).loadF2pInfo(player, account.getId());
 		DAOManager.getDAO(PlayerSettingsDAO.class).loadSettings(player);
 		DAOManager.getDAO(AbyssRankDAO.class).loadAbyssRank(player);
 		DAOManager.getDAO(PlayerNpcFactionsDAO.class).loadNpcFactions(player);
 		DAOManager.getDAO(MotionDAO.class).loadMotionList(player);
-		player.setMonsterCubic(DAOManager.getDAO(PlayerCubicsDAO.class).load(player));
 		player.setVars(DAOManager.getDAO(PlayerVarsDAO.class).load(player.getObjectId()));
 		player.setEffectController(new PlayerEffectController(player));
 		player.setFlyController(new FlyController(player));
@@ -297,9 +295,7 @@ public class PlayerService {
 		DAOManager.getDAO(PlayerBindPointDAO.class).loadBindPoint(player);
 		// load craft cooldowns
 		DAOManager.getDAO(CraftCooldownsDAO.class).loadCraftCooldowns(player);
-		// load luna items
-		DAOManager.getDAO(PlayerLunaShopDAO.class).load(player);
-		// load event items
+
 		DAOManager.getDAO(EventItemsDAO.class).loadItems(player);
 
 		if (player.getCommonData().getBonusTitleId() > 0) {
@@ -314,6 +310,7 @@ public class PlayerService {
 		}
 		
 		DAOManager.getDAO(PlayerEquipmentSettingDAO.class).loadEquipmentSetting(player);
+
 		return player;
 	}
 
@@ -348,19 +345,15 @@ public class PlayerService {
 		newPlayer.setStorage(accountWarehouse, StorageType.ACCOUNT_WAREHOUSE);
 
 		Equipment equipment = new Equipment(newPlayer);
-
 		if (playerCreationData != null) { // player transfer
 			List<ItemType> items = playerCreationData.getItems();
 			for (ItemType itemType : items) {
-				// check item is not PC_ALL and must equal to playerRace
-				if (itemType.getRace() != Race.PC_ALL && itemType.getRace() != newPlayer.getRace()){
-					continue;
-				}
 				int itemId = itemType.getTemplate().getTemplateId();
 				Item item = ItemFactory.newItem(itemId, itemType.getCount());
 				if (item == null) {
 					continue;
 				}
+
 				// When creating new player - all equipment that has slot values will be equipped
 				// Make sure you will not put into xml file more items than possible to equip.
 				ItemTemplate itemTemplate = item.getItemTemplate();
@@ -370,7 +363,8 @@ public class PlayerService {
 					ItemSlot itemSlot = ItemSlot.getSlotFor(itemTemplate.getItemSlot());
 					item.setEquipmentSlot(itemSlot.getSlotIdMask());
 					equipment.onLoadHandler(item);
-				} else {
+				}
+				else {
 					playerInventory.onLoadHandler(item);
 				}
 			}
@@ -402,7 +396,8 @@ public class PlayerService {
 	/**
 	 * Cancel Player deletion process if its possible.
 	 *
-	 * @param accData PlayerAccountData
+	 * @param accData
+	 *            PlayerAccountData
 	 * @return True if deletion was successful canceled.
 	 */
 	public static boolean cancelPlayerDeletion(PlayerAccountData accData) {

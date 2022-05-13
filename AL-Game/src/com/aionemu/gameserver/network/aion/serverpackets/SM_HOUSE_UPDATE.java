@@ -49,10 +49,13 @@ public class SM_HOUSE_UPDATE extends AionServerPacket {
 		writeD(house.getAddress().getId());
 		int playerObjectId = house.getOwnerId();
 		writeD(playerObjectId);
+
 		writeD(house.getBuilding().getType().getId());
-		writeC(house.getNoticeState().getPacketValue()); // Hide or Show Owner
+		writeC(1); // unk
+
 		writeD(house.getBuilding().getId());
-		writeC(house.getHouseOwnerInfoFlags()); // owner info
+		writeC(house.getHouseOwnerInfoFlags());
+
 		writeC(house.getDoorState().getPacketValue());
 
 		int dataSize = 52;

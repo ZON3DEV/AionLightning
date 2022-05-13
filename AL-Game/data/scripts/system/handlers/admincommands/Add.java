@@ -50,7 +50,7 @@ public class Add extends AdminCommand {
 		try {
 			String item = params[0];
 			// Some item links have space before Id
-			if (item.contains("[item:")) {
+			if (item.equals("[item:")) {
 				item = params[1];
 				Pattern id = Pattern.compile("(\\d{9})");
 				Matcher result = id.matcher(item);
@@ -60,21 +60,6 @@ public class Add extends AdminCommand {
 
 				if (params.length == 3) {
 					itemCount = Long.parseLong(params[2]);
-				}
-			}
-			else if (item.contains("[@item:")) {
-				Pattern id = Pattern.compile("\\[@item:(\\d{9})");
-				Matcher result = id.matcher(item);
-
-				if (result.find()) {
-					itemId = Integer.parseInt(result.group(1));
-				}
-				else {
-					itemId = Integer.parseInt(params[0]);
-				}
-
-				if (params.length == 2) {
-					itemCount = Long.parseLong(params[1]);
 				}
 			}
 			else {
@@ -104,7 +89,7 @@ public class Add extends AdminCommand {
 			try {
 				String item = params[1];
 				// Some item links have space before Id
-				if (item.contains("[item:")) {
+				if (item.equals("[item:")) {
 					item = params[2];
 					Pattern id = Pattern.compile("(\\d{9})");
 					Matcher result = id.matcher(item);
@@ -114,21 +99,6 @@ public class Add extends AdminCommand {
 
 					if (params.length == 4) {
 						itemCount = Long.parseLong(params[3]);
-					}
-				}
-				else if (item.contains("[@item:")) {
-					Pattern id = Pattern.compile("\\[@item:(\\d{9})");
-					Matcher result = id.matcher(item);
-					
-					if (result.find()) {
-						itemId = Integer.parseInt(result.group(1));
-					}
-					else {
-						itemId = Integer.parseInt(params[1]);
-					}
-					
-					if (params.length == 3) {
-						itemCount = Long.parseLong(params[2]);
 					}
 				}
 				else {

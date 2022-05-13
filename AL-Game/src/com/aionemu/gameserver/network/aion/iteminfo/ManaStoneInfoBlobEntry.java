@@ -25,7 +25,6 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.items.IdianStone;
 import com.aionemu.gameserver.model.items.ItemStone;
 import com.aionemu.gameserver.model.items.ManaStone;
-import com.aionemu.gameserver.model.items.RealRandomBonusStat;
 import com.aionemu.gameserver.network.aion.iteminfo.ItemInfoBlob.ItemBlobType;
 
 /**
@@ -48,7 +47,7 @@ public class ManaStoneInfoBlobEntry extends ItemBlobEntry {
 		Item item = ownerItem;
 
 		writeC(buf, item.isSoulBound() ? 1 : 0);
-		writeC(buf, item.getItemTemplate().getMaxAuthorize() > 0 ? 0 : item.getEnchantOrAuthorizeLevel()); // enchant (1-15)
+		writeC(buf, item.getEnchantLevel()); // enchant (1-15)
 		writeD(buf, item.getItemSkinTemplate().getTemplateId());
 		writeC(buf, item.getOptionalSocket());
 		writeC(buf, 0); // enchant Bonus
@@ -82,7 +81,7 @@ public class ManaStoneInfoBlobEntry extends ItemBlobEntry {
 			writeC(buf, 0); // polish statset ID
 		}
 
-		writeC(buf, item.getItemTemplate().getMaxAuthorize() > 0 ? item.getEnchantOrAuthorizeLevel() : 0);
+		writeC(buf, item.getAuthorize());
 		writeH(buf, 0);
 		writePlumeStats(buf); // 64-bytes
 		writeB(buf, new byte[36]);
@@ -91,45 +90,6 @@ public class ManaStoneInfoBlobEntry extends ItemBlobEntry {
 		writeSkillBoost(buf); // 8-bytes
 		writeD(buf, item.isLunaReskin() ? 1 : 0); // Luna Reskin
 		writeC(buf, item.getReductionLevel()); // Level Reduction
-		writeRandomBonus(buf); // TODO
-		writeD(buf, item.getItemSkinTemplate().getTemplateId());
-		writeGrind(buf);
-	}
-
-    private void writeGrind(ByteBuffer buf) {
-        Item item = ownerItem;
-        writeC(buf, item.getGrindSocket());
-        writeC(buf, item.getGrindColor());
-		writeQ(buf, 0);
-        writeC(buf, item.isContaminated() ? 1 : 0);
-        writeC(buf, 0);
-        writeC(buf, 0);
-        writeD(buf, 0);
-    }
-	
-	/**
-	 * Writes random Bonus data
-	 * 
-	 * @param item
-	 */
-	private void writeRandomBonus(ByteBuffer buf) { // TODO
-		Item item = ownerItem;
-		if (item.getRealRndBonus() == null) {
-			writeB(buf, new byte[40]);
-		} else {
-			final int size = (20 - (item.getRealRndBonus().getStats().size() * 2));
-			for (RealRandomBonusStat bonus : item.getRealRndBonus().getStats()) {
-				writeH(buf, bonus.getStat().getItemStoneMask());
-				//System.out.println("Bonus STAT-NAME: " + bonus.getStat().name() + " STAT-ID: " + bonus.getStat().getItemStoneMask());
-			}
-			writeB(buf, new byte[size]);
-			for (RealRandomBonusStat bonus : item.getRealRndBonus().getStats()) {
-				writeH(buf, bonus.getValue());
-				//System.out.println("Bonus VAL: " + bonus.getValue());
-			}
-			writeB(buf, new byte[size]);
-			//System.out.println("Size: " + size);
-		}
 	}
 
 	/**
@@ -168,14 +128,14 @@ public class ManaStoneInfoBlobEntry extends ItemBlobEntry {
 			writeD(buf, 0); // unk plume stat
 			writeD(buf, 0); // value
 			writeD(buf, 42);
-			writeD(buf, item.getEnchantOrAuthorizeLevel() * 150); // HP Boost for Tempering Solution
+			writeD(buf, item.getAuthorize() * 150); // HP Boost for Tempering Solution
 			switch (authorizeName) {
 				case 10051:
 				case 10063:
 				case 10103:
 				case 11003:
 					writeD(buf, 30);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 4); // Physical Attack
+					writeD(buf, item.getAuthorize() * 4); // Physical Attack
 					writeD(buf, 0); // New Plume Stat 4.7.5.6 (NcSoft will implement it at future)
 					writeD(buf, 0); // it's Value
 					break;
@@ -183,51 +143,51 @@ public class ManaStoneInfoBlobEntry extends ItemBlobEntry {
 				case 10064:
 				case 10104:
 					writeD(buf, 35);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 20); // Magic Boost
+					writeD(buf, item.getAuthorize() * 20); // Magic Boost
 					writeD(buf, 0);
 					writeD(buf, 0);
 					break;
 				case 10056:
 				case 10065:
 					writeD(buf, 33);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 12); // Physical Critical
+					writeD(buf, item.getAuthorize() * 12); // Physical Critical
 					writeD(buf, 0);
 					writeD(buf, 0);
 					break;
 				case 10057:
 				case 10066:
 					writeD(buf, 36);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 8); // Magical Accuracy
+					writeD(buf, item.getAuthorize() * 8); // Magical Accuracy
 					writeD(buf, 0);
 					writeD(buf, 0);
 					break;
 				case 10105:
 				case 10223:
 					writeD(buf, 30);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 4); // Physical Attack
+					writeD(buf, item.getAuthorize() * 4); // Physical Attack
 					writeD(buf, 32);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 16); // Physical Accuracy
+					writeD(buf, item.getAuthorize() * 16); // Physical Accuracy
 					break;
 				case 10106:
 				case 10224:
 					writeD(buf, 35);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 20); // Magic Boost
+					writeD(buf, item.getAuthorize() * 20); // Magic Boost
 					writeD(buf, 34);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 8); // Magic Critical
+					writeD(buf, item.getAuthorize() * 8); // Magic Critical
 					break;
 				case 11105:
 				case 11223:
 					writeD(buf, 33);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 12); // Physical Critical
+					writeD(buf, item.getAuthorize() * 12); // Physical Critical
 					writeD(buf, 32);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 16); // Physical Accuracy
+					writeD(buf, item.getAuthorize() * 16); // Physical Accuracy
 					break;
 				case 11106:
 				case 11224:
 					writeD(buf, 36);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 8); // Magical Accuracy
+					writeD(buf, item.getAuthorize() * 8); // Magical Accuracy
 					writeD(buf, 34);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 8); // Magic Critical
+					writeD(buf, item.getAuthorize() * 8); // Magic Critical
 					break;
 				case 10107:
 				case 10109:
@@ -235,40 +195,36 @@ public class ManaStoneInfoBlobEntry extends ItemBlobEntry {
 				case 10227:
 				case 11002:
 					writeD(buf, 30);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 4); // Physical Attack
+					writeD(buf, item.getAuthorize() * 4); // Physical Attack
 					writeD(buf, 33);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 12); // Physical Critical
+					writeD(buf, item.getAuthorize() * 12); // Physical Critical
 					break;
 				case 10108:
 				case 10110:
 				case 10226:
 				case 10228:
 					writeD(buf, 36);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 8); // Magical Accuracy
+					writeD(buf, item.getAuthorize() * 8); // Magical Accuracy
 					writeD(buf, 35);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 20); // Magic Boost
+					writeD(buf, item.getAuthorize() * 20); // Magic Boost
 					break;
 				case 11000:
 					writeD(buf, 30);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 4); // Physical Attack
+					writeD(buf, item.getAuthorize() * 4); // Physical Attack
 					writeD(buf, 33);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 12); // Physical Critical
+					writeD(buf, item.getAuthorize() * 12); // Physical Critical
 				 // writeD(buf, 0);
 				 // writeD(buf, 0); // PvE Attack Ratio
 					break;
 				case 11001:
 					writeD(buf, 30);
-					writeD(buf, item.getEnchantOrAuthorizeLevel() * 4); // Physical Attack
+					writeD(buf, item.getAuthorize() * 4); // Physical Attack
 				    writeD(buf, 0);
 				    writeD(buf, 0);
 				 // writeD(buf, 0);
 				 // writeD(buf, 0); // PvE Defend Ratio
 					break;
 				default:
-					writeD(buf, 0);
-				    writeD(buf, 0);
-				    writeD(buf, 0);
-				    writeD(buf, 0);
 					break;
 			}
 				// Some Padding for future.
@@ -316,6 +272,6 @@ public class ManaStoneInfoBlobEntry extends ItemBlobEntry {
 
 	@Override
 	public int getSize() {
-		return 248; // 7.5
+		return 187; // 5.0 EU
 	}
 }

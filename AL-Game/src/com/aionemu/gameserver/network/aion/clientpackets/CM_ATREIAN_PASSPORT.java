@@ -19,31 +19,45 @@ package com.aionemu.gameserver.network.aion.clientpackets;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
-import com.aionemu.gameserver.services.AtreianPassportService;
+import com.aionemu.gameserver.services.events.AtreianPassportService;
 
 /**
- * @author Falke_34
+ * @author Alcapwnd
  */
 public class CM_ATREIAN_PASSPORT extends AionClientPacket {
 
 	@SuppressWarnings("unused")
 	private int passportId;
 
+	/**
+	 * @param opcode
+	 * @param state
+	 * @param restStates
+	 */
 	public CM_ATREIAN_PASSPORT(int opcode, State state, State... restStates) {
 		super(opcode, state, restStates);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see com.aionemu.commons.network.packet.BaseClientPacket#readImpl()
+	 */
 	@Override
 	protected void readImpl() {
-		passportId = readD(); // Id
+		passportId = readD();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see com.aionemu.commons.network.packet.BaseClientPacket#runImpl()
+	 */
 	@Override
 	protected void runImpl() {
-		final Player player = getConnection().getActivePlayer();
+		Player player = getConnection().getActivePlayer();
 		if (player == null) {
 			return;
 		}
-		AtreianPassportService.getInstance().getReward(player, 11);
+		AtreianPassportService.getInstance().getReward(player, 8); // 8 = active PassportID (Todo Config ?)
 	}
+
 }

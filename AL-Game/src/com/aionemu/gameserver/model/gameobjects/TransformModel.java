@@ -34,8 +34,6 @@ public class TransformModel {
 	private TribeClass transformTribe;
 	private TribeClass overrideTribe;
 	private int ItemId;
-    private int skillId;
-    private int transformId;	
 
 	public TransformModel(Creature creature) {
 		if (creature instanceof Player) {
@@ -146,20 +144,4 @@ public class TransformModel {
 			this.transformTribe = transformTribe;
 		}
 	}
-
-    public int getSkillId() {
-        return skillId;
-    }
-    
-    public void setSkillId(int skillId) {
-        this.skillId = skillId;
-    }
-    
-    public int getTransformId() {
-        return transformId;
-    }
-    
-    public void setTransformId(int transformId) {
-        this.transformId = transformId;
-    }
 }

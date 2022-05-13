@@ -47,13 +47,9 @@ public enum ReviveType {
 	 */
 	OBELISK_REVIVE(8),
 	/**
-	 * Revive to actual world where player Died
+	 * Revive to actual world where player Died (Kisk in Main City)5.3
 	 */
-	START_POINT_REVIVE(11),
-	/**
-	 * Revive with Luna
-	 */
-	LUNA_REVIVE(12);
+	IN_CURRENT_WORLD_REVIVE(11);// 5.3
 
 	private int typeId;
 

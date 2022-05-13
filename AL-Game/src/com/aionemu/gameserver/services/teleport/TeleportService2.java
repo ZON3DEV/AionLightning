@@ -39,15 +39,12 @@ import com.aionemu.gameserver.model.gameobjects.player.BindPointPosition;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
 import com.aionemu.gameserver.model.items.storage.Storage;
-import com.aionemu.gameserver.model.templates.achievement.AchievementActionType;
 import com.aionemu.gameserver.model.templates.flypath.FlyPathEntry;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.model.templates.portal.InstanceExit;
 import com.aionemu.gameserver.model.templates.portal.PortalLoc;
 import com.aionemu.gameserver.model.templates.portal.PortalPath;
 import com.aionemu.gameserver.model.templates.portal.PortalScroll;
-import com.aionemu.gameserver.model.templates.revive_start_points.InstanceReviveStartPoints;
-import com.aionemu.gameserver.model.templates.revive_start_points.WorldReviveStartPoints;
 import com.aionemu.gameserver.model.templates.robot.RobotInfo;
 import com.aionemu.gameserver.model.templates.spawns.SpawnSearchResult;
 import com.aionemu.gameserver.model.templates.spawns.SpawnSpotTemplate;
@@ -77,12 +74,9 @@ import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.services.DisputeLandService;
 import com.aionemu.gameserver.services.DuelService;
 import com.aionemu.gameserver.services.FastTrackService;
-import com.aionemu.gameserver.services.MinionService;
 import com.aionemu.gameserver.services.PrivateStoreService;
 import com.aionemu.gameserver.services.instance.InstanceService;
 import com.aionemu.gameserver.services.item.ItemPacketService.ItemUpdateType;
-import com.aionemu.gameserver.services.player.AchievementService;
-import com.aionemu.gameserver.services.player.LunaShopService;
 import com.aionemu.gameserver.services.trade.PricesService;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.PacketSendUtility;
@@ -194,6 +188,8 @@ public class TeleportService2 {
 			player.setFlightTeleportId(location.getTeleportId());
 			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, EmotionType.START_FLYTELEPORT, location.getTeleportId(), 0), true);
 			playerTransformation(player);
+			instanceTransformation(player);
+			highdaevaTransformation(player);
 		}
 		else {
 			int instanceId = 1;
@@ -203,6 +199,8 @@ public class TeleportService2 {
 			}
 			sendLoc(player, mapId, instanceId, locationTemplate.getX(), locationTemplate.getY(), locationTemplate.getZ(), (byte) locationTemplate.getHeading(), animation);
 			playerTransformation(player);
+			instanceTransformation(player);
+			highdaevaTransformation(player);
 		}
 	}
 
@@ -252,6 +250,8 @@ public class TeleportService2 {
 		}
 		player.unsetPlayerMode(PlayerMode.RIDE);
 		playerTransformation(player);
+		instanceTransformation(player);
+		highdaevaTransformation(player);
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
 
 			@Override
@@ -289,12 +289,10 @@ public class TeleportService2 {
 			if (summon != null) {
 				World.getInstance().setPosition(summon, pos.getMapId(), player.getInstanceId(), pos.getX(), pos.getY(), pos.getZ(), pos.getHeading());
 			}
-			MinionService.getInstance().onTeleportPlayer(player);
 			PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
 			PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));
 			player.setPortAnimation(4); // Beam exit animation
 			PacketSendUtility.sendPacket(player, new SM_PLAYER_INFO(player, false));
-			player.getController().startProtectionActiveTask();
 			PacketSendUtility.sendPacket(player, new SM_MOTION(player.getObjectId(), player.getMotions().getActiveMotions()));
 			// Pet
 			if (pet != null) {
@@ -304,7 +302,6 @@ public class TeleportService2 {
 			if (summon != null) {
 				World.getInstance().spawn(summon);
 			}
-			MinionService.getInstance().onTeleportPlayer(player);
 			player.getKnownList().clear();
 			player.updateKnownlist();
 			player.getController().updateZone();
@@ -312,6 +309,8 @@ public class TeleportService2 {
 			DisputeLandService.getInstance().onLogin(player);
 			player.getEffectController().updatePlayerEffectIcons();
 			playerTransformation(player);
+			instanceTransformation(player);
+			highdaevaTransformation(player);
 		}
 		else if (player.getLifeStats().isAlreadyDead()) {
 			teleportDeadTo(player, pos.getMapId(), 1, pos.getX(), pos.getY(), pos.getZ(), pos.getHeading());
@@ -385,6 +384,8 @@ public class TeleportService2 {
 		}
 		if (animation.isNoAnimation()) {
 			playerTransformation(player);
+			instanceTransformation(player);
+			highdaevaTransformation(player);
 			player.unsetPlayerMode(PlayerMode.RIDE);
 			changePosition(player, worldId, instanceId, x, y, z, heading, animation);
 		}
@@ -414,6 +415,8 @@ public class TeleportService2 {
 		World.getInstance().despawn(player);
 		// Send 2x, is normal !!!
 		playerTransformation(player);
+		instanceTransformation(player);
+		highdaevaTransformation(player);
 		player.getController().cancelCurrentSkill();
 		int currentWorldId = player.getWorldId();
 		WorldPosition pos = World.getInstance().createPosition(worldId, x, y, z, heading, instanceId);
@@ -431,11 +434,9 @@ public class TeleportService2 {
 			World.getInstance().setPosition(summon, worldId, instanceId, x, y, z, heading);
 		}
 		player.setPortAnimation(animation.getEndAnimationId());
-		player.getController().startProtectionActiveTask();
 		if (currentWorldId == worldId) {
 			PacketSendUtility.sendPacket(player, new SM_PLAYER_INFO(player, false));
 			PacketSendUtility.sendPacket(player, new SM_STATS_INFO(player));
-			player.getController().startProtectionActiveTask();
 			PacketSendUtility.sendPacket(player, new SM_MOTION(player.getObjectId(), player.getMotions().getActiveMotions()));
 			World.getInstance().spawn(player);
 			player.getEffectController().updatePlayerEffectIcons();
@@ -444,6 +445,8 @@ public class TeleportService2 {
 			DisputeLandService.getInstance().onLogin(player);
 			// Send 2x, is normal !!!
 			playerTransformation(player);
+			instanceTransformation(player);
+			highdaevaTransformation(player);
 			// Pet
 			if (pet != null) {
 				World.getInstance().spawn(pet);
@@ -464,6 +467,8 @@ public class TeleportService2 {
 			PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));
 			PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
 			playerTransformation(player);
+			instanceTransformation(player);
+			highdaevaTransformation(player);
 			if (player.isUseRobot() || player.getRobotId() != 0) {
 				ThreadPoolManager.getInstance().schedule(new Runnable() {
 
@@ -478,7 +483,6 @@ public class TeleportService2 {
 			PacketSendUtility.broadcastPacketToLegion(player.getLegion(), new SM_LEGION_UPDATE_MEMBER(player, 0, ""));
 		}
 		sendWorldSwitchMessage(player, currentWorldId, worldId, isInstance);
-		AchievementService.getInstance().onUpdateAchievementAction(player, worldId, 1, AchievementActionType.ENTER_WORLD);
 	}
 
 	public static RobotInfo getRobotInfo(Player player) {
@@ -487,24 +491,15 @@ public class TeleportService2 {
 	}
 
 	private static void sendWorldSwitchMessage(Player player, int oldWorld, int newWorld, boolean enteredInstance) {
-		onEnterInstance(player, oldWorld, newWorld, enteredInstance);
+		if (enteredInstance && oldWorld != newWorld) {
+			if (!WorldMapType.getWorld(newWorld).isPersonal()) {
+				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_INSTANCE_DUNGEON_OPENED_FOR_SELF(newWorld));
+			}
+			playerTransformation(player);
+			instanceTransformation(player);
+			highdaevaTransformation(player);
+		}
 	}
-
-    private static void onEnterInstance(Player player, int oldWorld, int newWorld, boolean enteredInstance) {
-        if (enteredInstance && oldWorld != newWorld && !WorldMapType.getWorld(newWorld).isPersonal()) {
-            PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_INSTANCE_DUNGEON_OPENED_FOR_SELF(newWorld));
-            LunaShopService.getInstance().sendLunaInstanceBuff(player, player.getLevel());
-            AchievementService.getInstance().onUpdateAchievementAction(player, newWorld, 1, AchievementActionType.ENTER_WORLD);
-            if (player.getPortalCooldownList().getPortalCooldownItem(newWorld) == null) {
-                player.getPortalCooldownList().addPortalCooldown(newWorld, 1, DataManager.INSTANCE_COOLTIME_DATA.getInstanceEntranceCooltime(player, newWorld));
-            }
-            else {
-                player.getPortalCooldownList().addEntry(newWorld);
-                PacketSendUtility.playerSendPacketTime(player, SM_SYSTEM_MESSAGE.STR_MSG_INSTANCE_DUNGEON_COUNT_USE, 20000);
-            }
-        }
-        playerTransformation(player);
-    }
 
 	/**
 	 * @param player
@@ -542,7 +537,7 @@ public class TeleportService2 {
 
 	public static void teleportToPrison(Player player) {
 		if (player.getRace() == Race.ELYOS) {
-			teleportTo(player, WorldMapType.LF_PRISON.getId(), 275, 239, 49);
+			teleportTo(player, WorldMapType.DE_PRISON.getId(), 275, 239, 49);
 		}
 		else if (player.getRace() == Race.ASMODIANS) {
 			teleportTo(player, WorldMapType.DF_PRISON.getId(), 275, 239, 49);
@@ -695,14 +690,6 @@ public class TeleportService2 {
 		return DataManager.INSTANCE_EXIT_DATA.getInstanceExit(worldId, race);
 	}
 
-	public static InstanceReviveStartPoints getReviveInstanceStartPoints(int worldId) {
-		return DataManager.REVIVE_INSTANCE_START_POINTS.getReviveStartPoint(worldId);
-	}
-
-	public static WorldReviveStartPoints getReviveWorldStartPoints(int worldId, Race race, int level) {
-		return DataManager.REVIVE_WORLD_START_POINTS.getReviveStartPoint(worldId, race, level);
-	}
-
 	/**
 	 * @param portalName
 	 */
@@ -725,43 +712,6 @@ public class TeleportService2 {
 			return;
 		}
 		teleportTo(player, worldId, loc.getX(), loc.getY(), loc.getZ(), player.getHeading(), TeleportAnimation.BEAM_ANIMATION);
-		AchievementService.getInstance().onUpdateAchievementAction(player, worldId, 1, AchievementActionType.ENTER_WORLD);
-	}
-
-	public static void teleportWorldStartPoint(Player player, int worldId) {
-		player.getController().onLeaveWorld();
-		World.getInstance().despawn(player);
-		WorldReviveStartPoints startPoint = getReviveWorldStartPoints(worldId, player.getRace(), player.getLevel());
-		if (startPoint != null) {
-			World.getInstance().setPosition(player, startPoint.getReviveWorld(), 0, startPoint.getX(), startPoint.getY(), startPoint.getZ(), (byte) startPoint.getH());
-		} else {
-			moveToBindLocation(player, false);
-		}
-		PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));
-		PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
-		player.setPortAnimation(4);
-		PacketSendUtility.sendPacket(player, new SM_PLAYER_INFO(player, false));
-		if (player.isLegionMember()) {
-			PacketSendUtility.broadcastPacketToLegion(player.getLegion(), new SM_LEGION_UPDATE_MEMBER(player, 0, ""));
-		}
-	}
-
-	public static void teleportInstanceStartPoint(Player player, int worldId) {
-		player.getController().onLeaveWorld();
-		World.getInstance().despawn(player);
-		InstanceReviveStartPoints revivePoint = getReviveInstanceStartPoints(worldId);
-		if (revivePoint != null) {
-			TeleportService2.teleportTo(player, worldId, worldId, revivePoint.getX(), revivePoint.getY(), revivePoint.getY(), (byte) revivePoint.getY());
-		} else {
-			moveToBindLocation(player, false);
-		}
-		PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));
-		PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
-		player.setPortAnimation(4);
-		PacketSendUtility.sendPacket(player, new SM_PLAYER_INFO(player, false));
-		if (player.isLegionMember()) {
-			PacketSendUtility.broadcastPacketToLegion(player.getLegion(), new SM_LEGION_UPDATE_MEMBER(player, 0, ""));
-		}
 	}
 
 	/**
@@ -770,10 +720,11 @@ public class TeleportService2 {
 	public static void changeChannel(Player player, int channel) {
 		World.getInstance().despawn(player);
 		World.getInstance().setPosition(player, player.getWorldId(), channel + 1, player.getX(), player.getY(), player.getZ(), player.getHeading());
-		player.getController().startProtectionActiveTask();
 		PacketSendUtility.sendPacket(player, new SM_CHANNEL_INFO(player.getPosition()));
 		PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
 		playerTransformation(player);
+		instanceTransformation(player);
+		highdaevaTransformation(player);
 	}
 
 	/**
@@ -782,9 +733,10 @@ public class TeleportService2 {
 	public static void moveFastTrack(Player player, int serverId, boolean back) {
 		if (back) {
 			playerTransformation(player);
+			instanceTransformation(player);
+			highdaevaTransformation(player);
 			World.getInstance().despawn(player);
 			World.getInstance().setPosition(player, player.getWorldId(), player.getX(), player.getY(), player.getZ(), player.getHeading());
-            player.getController().startProtectionActiveTask();
 			player.FAST_TRACK_TYPE = 0;
 			PacketSendUtility.sendPacket(player, new SM_FAST_TRACK_MOVE(NetworkConfig.GAMESERVER_ID, serverId, player.getWorldId()));
 			PacketSendUtility.sendPacket(player, new SM_FAST_TRACK(NetworkConfig.GAMESERVER_ID, serverId, false));
@@ -794,12 +746,13 @@ public class TeleportService2 {
 		else {
 			World.getInstance().despawn(player);
 			World.getInstance().setPosition(player, player.getWorldId(), player.getX(), player.getY(), player.getZ(), player.getHeading());
-            player.getController().startProtectionActiveTask();
 			player.FAST_TRACK_TYPE = 1;
 			PacketSendUtility.sendPacket(player, new SM_FAST_TRACK_MOVE(serverId, NetworkConfig.GAMESERVER_ID, player.getWorldId()));
 			PacketSendUtility.sendPacket(player, new SM_FAST_TRACK(serverId, NetworkConfig.GAMESERVER_ID, false));
 			PacketSendUtility.sendPacket(player, new SM_PLAYER_SPAWN(player));
 			playerTransformation(player);
+			instanceTransformation(player);
+			highdaevaTransformation(player);
 			FastTrackService.getInstance().checkFastTrackMove(player, player.getPlayerAccount().getId(), false);
 		}
 	}
@@ -807,5 +760,328 @@ public class TeleportService2 {
 	public static void playerTransformation(Player player) {
 		DAOManager.getDAO(PlayerTransformationDAO.class).loadPlTransfo(player);
 		PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, player.getTransformModel().getPanelId(), true, player.getTransformModel().getItemId()));
+	}
+
+	/**
+	 * Archdaeva Transformation 5.1 If a player is under one of the following effects, and uses a "Teleport/Fly/Hotspot/Return Scroll" or use admin command "goto/movetoplayer/movetonpc" Then, the
+	 * "Skill Panel" linked to this effect, never disappear !!!
+	 */
+	public static void highdaevaTransformation(Player player) {
+		if (!player.isInGroup2() || player != null) {
+			if (player.getEffectController().hasAbnormalEffect(4752)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(76);
+					player.getTransformModel().setItemId(102301000);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 76, true, 102301000));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(4757)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(77);
+					player.getTransformModel().setItemId(102303000);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 77, true, 102303000));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(4762)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(78);
+					player.getTransformModel().setItemId(102302000);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 78, true, 102302000));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(4768)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(79);
+					player.getTransformModel().setItemId(102304000);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 79, true, 102304000));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(4804)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(76);
+					player.getTransformModel().setItemId(102301000);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 76, true, 102301000));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(4805)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(77);
+					player.getTransformModel().setItemId(102303000);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 77, true, 102303000));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(4806)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(78);
+					player.getTransformModel().setItemId(102302000);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 78, true, 102302000));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(4807)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(79);
+					player.getTransformModel().setItemId(102304000);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 79, true, 102304000));
+				}
+			}
+		}
+	}
+
+	/**
+	 * Instance + Event Transformation If a player is under one of the following effects, and uses a "Teleport/Fly/Hotspot/Return Scroll" or use admin command "goto/movetoplayer/movetonpc" Then, the
+	 * "Skill Panel" linked to this effect, never disappear !!!
+	 */
+	public static void instanceTransformation(Player player) {
+		if (!player.isInGroup2() || player != null) {
+			// [PvP] Arena
+			if (player.getEffectController().hasAbnormalEffect(10405)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(15);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 15, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(10406)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(15);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 15, true, 0));
+				}
+			}
+			// Fissure Of Oblivion 5.1
+			if (player.getEffectController().hasAbnormalEffect(4829) || player.getEffectController().hasAbnormalEffect(4831) || player.getEffectController().hasAbnormalEffect(4834) || player.getEffectController().hasAbnormalEffect(4835) || player.getEffectController().hasAbnormalEffect(4836)) {
+				player.getTransformModel().setPanelId(81);
+				PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 81, true, 0));
+			}
+			if (player.getEffectController().hasAbnormalEffect(4808)) {
+				player.getTransformModel().setPanelId(82);
+				player.getTransformModel().setItemId(102301000);
+				PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 82, true, 102301000));
+			}
+			if (player.getEffectController().hasAbnormalEffect(4813)) {
+				player.getTransformModel().setPanelId(83);
+				player.getTransformModel().setItemId(102303000);
+				PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 83, true, 102303000));
+			}
+			if (player.getEffectController().hasAbnormalEffect(4818)) {
+				player.getTransformModel().setPanelId(84);
+				player.getTransformModel().setItemId(102302000);
+				PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 84, true, 102302000));
+			}
+			if (player.getEffectController().hasAbnormalEffect(4824)) {
+				player.getTransformModel().setPanelId(85);
+				player.getTransformModel().setItemId(102304000);
+				PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 85, true, 102304000));
+			}
+			// Aturam Sky Fortress 4.8
+			if (player.getEffectController().hasAbnormalEffect(21807)) {
+				player.getTransformModel().setPanelId(61);
+				PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 61, true, 0));
+			}
+			if (player.getEffectController().hasAbnormalEffect(21808)) {
+				player.getTransformModel().setPanelId(62);
+				PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 62, true, 0));
+			}
+			// Cradle Of Eternity 5.1
+			if (player.getEffectController().hasAbnormalEffect(21340)) {
+				player.getTransformModel().setPanelId(71);
+				PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 71, true, 0));
+			}
+			// Shugo Imperial Tomb 4.3
+			if (player.getEffectController().hasAbnormalEffect(21096)) {
+				player.getTransformModel().setPanelId(27);
+				PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 27, true, 0));
+			}
+			// Tiamat Stronghold 3.5
+			if (player.getEffectController().hasAbnormalEffect(20865)) {
+				player.getTransformModel().setPanelId(17);
+				PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 17, true, 0));
+			}
+			// Contaminated Underpath 5.1
+			if (player.getEffectController().hasAbnormalEffect(21345)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(68);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 68, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21346)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(68);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 68, true, 0));
+				}
+			}
+			// Secret Munitions Factory 5.1
+			if (player.getEffectController().hasAbnormalEffect(21347)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(69);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 69, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21348)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(69);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 69, true, 0));
+				}
+			}
+			// Occupied Rentus Base 4.8 & Fallen Poeta 5.1
+			if (player.getEffectController().hasAbnormalEffect(21805)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(63);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 63, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21806)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(63);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 63, true, 0));
+				}
+			}
+			// Smoldering Fire Temple 5.1
+			if (player.getEffectController().hasAbnormalEffect(21375)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(72);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 72, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21376)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(74);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 74, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21377)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(75);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 75, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21378)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(72);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 72, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21379)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(74);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 74, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21380)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(75);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 75, true, 0));
+				}
+			}
+			// Ophidan Warpath 5.1
+			if (player.getEffectController().hasAbnormalEffect(21336)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(70);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 70, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21337)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(70);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 70, true, 0));
+				}
+			}
+			// Illuminary Obelisk & [Infernal] Illuminary Obelisk 4.7
+			if (player.getEffectController().hasAbnormalEffect(21511)) {
+				player.getTransformModel().setPanelId(51);
+				PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 51, true, 0));
+			}
+			// The Eternal Bastion 4.3
+			if (player.getEffectController().hasAbnormalEffect(21065)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(20);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 20, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21066)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(20);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 20, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21141)) {
+				player.getTransformModel().setPanelId(31);
+				PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 31, true, 0));
+			}
+			// Nightmare Circus 4.3
+			if (player.getEffectController().hasAbnormalEffect(21469)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(38);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 38, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21470)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(39);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 39, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21471)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(38);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 38, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21472)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(39);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 39, true, 0));
+				}
+			}
+			// Transidium Annex 4.7.5
+			if (player.getEffectController().hasAbnormalEffect(21728) || player.getEffectController().hasAbnormalEffect(21729) || player.getEffectController().hasAbnormalEffect(21730) || player.getEffectController().hasAbnormalEffect(21731)) {
+				player.getTransformModel().setPanelId(55);
+				PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 55, true, 0));
+			}
+			if (player.getEffectController().hasAbnormalEffect(21579) || player.getEffectController().hasAbnormalEffect(21586) || player.getEffectController().hasAbnormalEffect(21587) || player.getEffectController().hasAbnormalEffect(21588)) {
+				player.getTransformModel().setPanelId(56);
+				PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 56, true, 0));
+			}
+			if (player.getEffectController().hasAbnormalEffect(21582) || player.getEffectController().hasAbnormalEffect(21589) || player.getEffectController().hasAbnormalEffect(21590) || player.getEffectController().hasAbnormalEffect(21591)) {
+				player.getTransformModel().setPanelId(57);
+				PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 57, true, 0));
+			}
+			// The Shugo Emperor Vault 4.7.5
+			// Emperor Trillirunerk Safe 4.9.1
+			if (player.getEffectController().hasAbnormalEffect(21829)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(64);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 64, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21830)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(65);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 65, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21831)) {
+				if (player.getCommonData().getRace() == Race.ELYOS) {
+					player.getTransformModel().setPanelId(66);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 66, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21832)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(64);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 64, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21833)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(65);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 65, true, 0));
+				}
+			}
+			if (player.getEffectController().hasAbnormalEffect(21834)) {
+				if (player.getCommonData().getRace() == Race.ASMODIANS) {
+					player.getTransformModel().setPanelId(66);
+					PacketSendUtility.sendPacket(player, new SM_TRANSFORM(player, 66, true, 0));
+				}
+			}
+		}
 	}
 }

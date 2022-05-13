@@ -48,7 +48,6 @@ public class cmd_reskin extends PlayerCommand {
 			return;
 		}
 
-		@SuppressWarnings("unused")
 		Player target = player;
 		VisibleObject creature = player.getTarget();
 		if (player.getTarget() instanceof Player) {

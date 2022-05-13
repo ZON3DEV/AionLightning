@@ -102,7 +102,7 @@ public class SummonController extends CreatureController<Summon> {
 	}
 
 	@Override
-	public void attackTarget(Creature target, int attackNo, int time, int type) {
+	public void attackTarget(Creature target, int time) {
 		Player master = getOwner().getMaster();
 
 		if (!RestrictionsManager.canAttack(master, target)) {
@@ -118,7 +118,7 @@ public class SummonController extends CreatureController<Summon> {
 			return;
 		}
 		lastAttackMilis = milis;
-		super.attackTarget(target, attackNo, time, type);
+		super.attackTarget(target, time);
 	}
 
 	@Override

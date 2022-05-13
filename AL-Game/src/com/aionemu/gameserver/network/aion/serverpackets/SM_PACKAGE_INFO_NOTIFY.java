@@ -16,6 +16,7 @@
  */
 package com.aionemu.gameserver.network.aion.serverpackets;
 
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -27,10 +28,6 @@ public class SM_PACKAGE_INFO_NOTIFY extends AionServerPacket {
 	private int count;
 	private int packId;
 	private int time;
-	
-	public SM_PACKAGE_INFO_NOTIFY(int count) {
-		this.count = count;
-	}
 
 	public SM_PACKAGE_INFO_NOTIFY(int count, int packId, int time) {
 		this.count = count;
@@ -40,10 +37,10 @@ public class SM_PACKAGE_INFO_NOTIFY extends AionServerPacket {
 
 	@Override
 	protected void writeImpl(AionConnection con) {
+		@SuppressWarnings("unused")
+		Player activePlayer = con.getActivePlayer();
 		writeH(count);
-		if (count > 0) {
-			writeC(packId); // packId?
-			writeD(time); // Gold-packet Expire
-		}
+		writeC(packId); // packId?
+		writeD(time); // Gold-packet Expire
 	}
 }

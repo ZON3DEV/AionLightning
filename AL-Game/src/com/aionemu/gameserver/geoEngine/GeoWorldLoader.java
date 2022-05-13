@@ -89,7 +89,7 @@ public class GeoWorldLoader {
 			for (int c = 0; c < modelCount; c++) {
 				Mesh m = new Mesh();
 
-				int vectorCount = (geo.getInt()) * 3;
+				int vectorCount = (geo.getShort()) * 3;
 				ByteBuffer floatBuffer = ByteBuffer.allocateDirect(vectorCount * 4);
 				FloatBuffer vertices = floatBuffer.asFloatBuffer();
 				for (int x = 0; x < vectorCount; x++) {
@@ -157,26 +157,15 @@ public class GeoWorldLoader {
 		geo = roChannel.map(FileChannel.MapMode.READ_ONLY, 0, (int) roChannel.size()).load();
 		geo.order(ByteOrder.LITTLE_ENDIAN);
 		if (geo.get() == 0) {
-			// no terrain
-			map.setTerrainData(new short[]{geo.getShort()});
-			/*int cutoutSize =*/ geo.getInt();
-		} else {
+			map.setTerrainData(new short[] { geo.getShort() });
+		}
+		else {
 			int size = geo.getInt();
 			short[] terrainData = new short[size];
 			for (int i = 0; i < size; i++) {
 				terrainData[i] = geo.getShort();
 			}
 			map.setTerrainData(terrainData);
-
-			// read list of terrain indexes to remove.
-			int cutoutSize = geo.getInt();
-			if (cutoutSize > 0) {
-				int[] cutoutData = new int[cutoutSize];
-				for (int i = 0; i < cutoutSize; i++) {
-					cutoutData[i] = geo.getInt();
-				}
-				map.setTerrainCutouts(cutoutData); 
-			}
 		}
 
 		while (geo.hasRemaining()) {
@@ -190,7 +179,6 @@ public class GeoWorldLoader {
 				matrix[i] = geo.getFloat();
 			}
 			float scale = geo.getFloat();
-			geo.get(); // TODO : use the data: EventType eventType = EventType.fromByte(geo.get());
 			Matrix3f matrix3f = new Matrix3f();
 			matrix3f.set(matrix);
 			Spatial node = models.get(name.toLowerCase().intern());

@@ -16,23 +16,24 @@
  */
 package com.aionemu.gameserver.network.aion.serverpackets;
 
-import java.util.Calendar;
-
-import com.aionemu.gameserver.configs.main.EventsConfig;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
- * @author Falke_34
+ * @author Alcapwnd
  */
 public class SM_ATREIAN_PASSPORT extends AionServerPacket {
 
+	private int month;
+	private int year;
 	private int passportId;
 	private int countCollected;
 	private int lastStampRecived;
 	private boolean hasCollected;
 
-	public SM_ATREIAN_PASSPORT(int passportId, int countCollected, int lastStampRecived, boolean hasCollected) {
+	public SM_ATREIAN_PASSPORT(int passportId, int countCollected, int lastStampRecived, boolean hasCollected, int month, int year) {
+		this.month = month;
+		this.year = year;
 		this.passportId = passportId;
 		this.countCollected = countCollected;
 		this.lastStampRecived = lastStampRecived;
@@ -41,16 +42,20 @@ public class SM_ATREIAN_PASSPORT extends AionServerPacket {
 
 	@Override
 	protected void writeImpl(AionConnection con) {
-		long tStamp = con.getActivePlayer().getPlayerAccount().getPlayerAccountData(con.getActivePlayer().getObjectId()).getPlayerCommonData().getCreationDate().getTime();
-		Calendar cal = Calendar.getInstance();
-		cal.setTimeInMillis(tStamp);
-		writeH(cal.get(Calendar.YEAR)); // Year?
-		writeH(cal.get(Calendar.MONTH)); // Month?
-		writeH(cal.get(Calendar.DAY_OF_MONTH)); // Day?
-		writeH(EventsConfig.ENABLE_ATREIAN_PASSPORT); // 1=on, 0=off
-		writeD(passportId); // Id
+		writeH(year);
+		writeH(month);
+		writeH(8);// can be variable
+		//TODO
+		writeH(2); // TODO PassportCount
+		//TODO
+		writeD(passportId);
 		writeD(lastStampRecived);
 		writeD(countCollected);
 		writeC(hasCollected ? 0 : 1);
+		//TODO Aniversity (9 0 0 1 = Get Aniversity)
+		writeD(9);
+		writeD(0);
+		writeD(0);
+		writeC(0);
 	}
 }

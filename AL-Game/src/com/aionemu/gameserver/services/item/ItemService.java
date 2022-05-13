@@ -34,7 +34,6 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.ItemId;
 import com.aionemu.gameserver.model.items.ManaStone;
 import com.aionemu.gameserver.model.items.storage.Storage;
-import com.aionemu.gameserver.model.templates.achievement.AchievementActionType;
 import com.aionemu.gameserver.model.templates.item.ItemCategory;
 import com.aionemu.gameserver.model.templates.item.ItemSkillEnhance;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
@@ -42,7 +41,6 @@ import com.aionemu.gameserver.model.templates.quest.QuestItems;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.item.ItemPacketService.ItemAddType;
 import com.aionemu.gameserver.services.item.ItemPacketService.ItemUpdateType;
-import com.aionemu.gameserver.services.player.AchievementService;
 import com.aionemu.gameserver.taskmanager.tasks.ExpireTimerTask;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.RndArray;
@@ -104,7 +102,6 @@ public class ItemService {
 			log.info("[ITEM] ID/Count" + (LoggingConfig.ENABLE_ADVANCED_LOGGING ? "/Item Name - " + itemTemplate.getTemplateId() + "/" + count + "/" + itemTemplate.getName() : " - " + itemTemplate.getTemplateId() + "/" + count) + " to player " + player.getName());
 		}
 
-		AchievementService.getInstance().onUpdateAchievementAction(player, itemId, (int)count, AchievementActionType.COLLECT_ITEM);
 		Storage inventory = player.getInventory();
 		if (itemTemplate.isKinah()) {
 			// quests do not add here
@@ -166,8 +163,8 @@ public class ItemService {
 		if (sourceItem.getGodStone() != null) {
 			newItem.addGodStone(sourceItem.getGodStone().getItemId());
 		}
-		if (sourceItem.getEnchantOrAuthorizeLevel() > 0) {
-			newItem.setEnchantOrAuthorizeLevel(sourceItem.getEnchantOrAuthorizeLevel());
+		if (sourceItem.getEnchantLevel() > 0) {
+			newItem.setEnchantLevel(sourceItem.getEnchantLevel());
 		}
 		if (sourceItem.isSoulBound()) {
 			newItem.setSoulBound(true);
@@ -347,7 +344,7 @@ public class ItemService {
 	public static void makeUpgradeItem(Player player, Item sourceItem, Item newItem) {
 		Storage inventory = player.getInventory();
 		newItem.setOptionalSocket(sourceItem.getOptionalSocket());
-		int enchantLevel = sourceItem.getEnchantOrAuthorizeLevel();
+		int enchantLevel = sourceItem.getEnchantLevel();
 		
 		if (sourceItem.getFusionedItemId() != 0) {
 			newItem.setFusionedItem(sourceItem.getFusionedItemTemplate());
@@ -362,16 +359,16 @@ public class ItemService {
 		}
 		
 		if (sourceItem.getItemTemplate().isPlume()) {
-			newItem.setEnchantOrAuthorizeLevel(1);
-			newItem.setEnchantOrAuthorizeLevel(0);
+			newItem.setAuthorize(1);
+			newItem.setEnchantLevel(0);
 		} else {
 			if (enchantLevel >= 20) {
-				newItem.setEnchantOrAuthorizeLevel(enchantLevel - 5);
+				newItem.setEnchantLevel(enchantLevel - 5);
 				newItem.setAmplificationSkill(sourceItem.getAmplificationSkill());
 				newItem.setAmplified(true);
 			}
 			else {
-				newItem.setEnchantOrAuthorizeLevel(enchantLevel);
+				newItem.setEnchantLevel(enchantLevel);
 			}
 		}
 

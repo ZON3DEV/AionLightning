@@ -16,20 +16,33 @@
  */
 package com.aionemu.gameserver.model.templates.minion;
 
-import com.aionemu.gameserver.model.templates.stats.*;
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
+import com.aionemu.gameserver.model.templates.stats.StatsTemplate;
+
+/**
+ * @author Falke_34
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "MinionStatsTemplate")
 public class MinionStatsTemplate extends StatsTemplate {
 
-	@XmlAttribute(name = "height")
-	private float height;
+	@XmlAttribute(name = "run_speed")
+	private float runSpeed;
+	@XmlAttribute(name = "walk_speed")
+	private float walkSpeed;
 	@XmlAttribute(name = "altitude")
 	private float altitude;
 
-	public float getHeight() {
-		return height;
+	public float getRunSpeed() {
+		return runSpeed;
+	}
+
+	public float getWalkSpeed() {
+		return walkSpeed;
 	}
 
 	public float getAltitude() {

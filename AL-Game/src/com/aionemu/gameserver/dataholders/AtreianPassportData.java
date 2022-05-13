@@ -25,30 +25,32 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
-import com.aionemu.gameserver.model.templates.atreianpassport.AtreianPassportTemplate;
+import com.aionemu.gameserver.model.templates.event.AtreianPassport;
 
 import gnu.trove.map.hash.TIntObjectHashMap;
 
 /**
- * @author Falke_34
+ * @author Alcapwnd
  */
 @XmlRootElement(name = "atreian_passports")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class AtreianPassportData {
 
 	@XmlElement(name = "atreian_passport")
-	private List<AtreianPassportTemplate> tlist;
+	private List<AtreianPassport> tlist;
+	/**
+	 * A map containing all teleport location templates
+	 */
+	private TIntObjectHashMap<AtreianPassport> passportData = new TIntObjectHashMap<AtreianPassport>();
+	private Map<Integer, AtreianPassport> passportDataMap = new HashMap<Integer, AtreianPassport>(1);
 
-	@XmlTransient
-	private final TIntObjectHashMap<AtreianPassportTemplate> passportData = new TIntObjectHashMap<>();
-
-	@XmlTransient
-	private final Map<Integer, AtreianPassportTemplate> passportDataMap = new HashMap<>(1);
-
-	void afterUnmarshal(Unmarshaller paramUnmarshaller, Object paramObject) {
-		for (AtreianPassportTemplate id : tlist) {
+	/**
+	 * @param u
+	 * @param parent
+	 */
+	void afterUnmarshal(Unmarshaller u, Object parent) {
+		for (AtreianPassport id : tlist) {
 			passportData.put(id.getId(), id);
 			passportDataMap.put(id.getId(), id);
 		}
@@ -58,11 +60,11 @@ public class AtreianPassportData {
 		return passportData.size();
 	}
 
-	public AtreianPassportTemplate getAtreianPassportId(int id) {
+	public AtreianPassport getAtreianPassportId(int id) {
 		return passportData.get(id);
 	}
 
-	public Map<Integer, AtreianPassportTemplate> getAll() {
+	public Map<Integer, AtreianPassport> getAll() {
 		return passportDataMap;
 	}
 }
