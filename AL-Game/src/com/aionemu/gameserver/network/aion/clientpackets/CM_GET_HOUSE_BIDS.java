@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import java.util.List;
@@ -43,17 +44,16 @@ public class CM_GET_HOUSE_BIDS extends AionClientPacket {
 
 	@Override
 	protected void runImpl() {
-		boolean isFirst = true;
 		Player player = getConnection().getActivePlayer();
 		HouseBidEntry playerBid = HousingBidService.getInstance().getLastPlayerBid(player.getObjectId());
 
+		// TODO: [RR] check player bids placement in sniffs, it's just a guess ;)
 		List<HouseBidEntry> houseBids = HousingBidService.getInstance().getHouseBidEntries(player.getRace());
 		ListSplitter<HouseBidEntry> splitter = new ListSplitter<HouseBidEntry>(houseBids, 181);
 		while (!splitter.isLast()) {
 			List<HouseBidEntry> packetBids = splitter.getNext();
 			HouseBidEntry playerData = splitter.isLast() ? playerBid : null;
-			PacketSendUtility.sendPacket(player, new SM_HOUSE_BIDS(isFirst, splitter.isLast(), playerData, packetBids));
-			isFirst = false;
+			PacketSendUtility.sendPacket(player, new SM_HOUSE_BIDS(splitter.isFirst(), splitter.isLast(), playerData, packetBids));
 		}
 	}
 }

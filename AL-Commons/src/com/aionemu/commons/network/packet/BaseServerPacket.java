@@ -15,11 +15,11 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.network.packet;
 
 import java.nio.ByteBuffer;
 
-import com.aionemu.commons.utils.PrintUtils;
 
 /**
  * Base class for every Server Packet
@@ -37,7 +37,7 @@ public abstract class BaseServerPacket extends BasePacket {
 	 * Constructs a new server packet with specified id.
 	 * 
 	 * @param opcode
-	 *            packet opcode.
+	 *          packet opcode.
 	 */
 	protected BaseServerPacket(int opcode) {
 		super(PacketType.SERVER, opcode);
@@ -53,12 +53,12 @@ public abstract class BaseServerPacket extends BasePacket {
 
 	/**
 	 * @param buf
-	 *            the buf to set
+	 *          the buf to set
 	 */
 	public void setBuf(ByteBuffer buf) {
 		this.buf = buf;
 	}
-
+	
 	/**
 	 * Write int to buffer.
 	 * 
@@ -128,7 +128,8 @@ public abstract class BaseServerPacket extends BasePacket {
 	protected final void writeS(String text) {
 		if (text == null) {
 			buf.putChar('\000');
-		} else {
+		}
+		else {
 			final int len = text.length();
 			for (int i = 0; i < len; i++)
 				buf.putChar(text.charAt(i));
@@ -144,14 +145,5 @@ public abstract class BaseServerPacket extends BasePacket {
 	 */
 	protected final void writeB(byte[] data) {
 		buf.put(data);
-	}
-
-	/**
-	 * Write bytes
-	 * 
-	 * @param bytes
-	 */
-	protected final void writeB(final String bytes) {
-		this.writeB(PrintUtils.hex2bytes(bytes));
 	}
 }

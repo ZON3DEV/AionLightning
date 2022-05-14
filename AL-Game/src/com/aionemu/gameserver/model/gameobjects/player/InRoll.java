@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player;
 
 /**
@@ -57,9 +58,6 @@ public class InRoll {
 		this.itemId = itemId;
 	}
 
-	/**
-	 * @param index
-	 */
 	public void setIndexd(int index) {
 		this.index = itemId;
 	}

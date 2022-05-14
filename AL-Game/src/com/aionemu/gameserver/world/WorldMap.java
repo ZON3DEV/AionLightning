@@ -14,17 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world;
+
+import com.aionemu.gameserver.model.templates.world.WorldMapTemplate;
+import com.aionemu.gameserver.world.zone.ZoneAttributes;
 
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import com.aionemu.gameserver.model.templates.world.WorldMapTemplate;
-import com.aionemu.gameserver.world.handlers.WorldHandler;
-import com.aionemu.gameserver.world.zone.ZoneAttributes;
-
 import javolution.util.FastMap;
 
 /**
@@ -35,7 +34,6 @@ import javolution.util.FastMap;
 public class WorldMap {
 
 	private WorldMapTemplate worldMapTemplate;
-	private WorldHandler worldHandler;
 	private AtomicInteger nextInstanceId = new AtomicInteger(0);
 	/**
 	 * List of instances.
@@ -51,8 +49,7 @@ public class WorldMap {
 		this.world = world;
 		this.worldMapTemplate = worldMapTemplate;
 		this.worldOptions = worldMapTemplate.getFlags();
-        this.worldHandler = WorldEngine.getInstance().getNewInstanceHandler(worldMapTemplate.getMapId());
-        this.worldHandler.onWorldCreate(this);
+
 		for (int i = 1; i <= getInstanceCount(); i++) {
 			int nextId = getNextInstanceId();
 			addInstance(nextId, WorldMapInstanceFactory.createWorldMapInstance(this, nextId));
@@ -73,6 +70,10 @@ public class WorldMap {
 
 	public WorldType getWorldType() {
 		return worldMapTemplate.getWorldType();
+	}
+
+	public WorldDropType getWorldDropType() {
+		return worldMapTemplate.getWorldDropType();
 	}
 
 	public int getWorldSize() {
@@ -148,7 +149,9 @@ public class WorldMap {
 	}
 
 	/**
-	 * Return a WorldMapInstance - depends on map configuration one map may have twins instances to balance player. This method will return WorldMapInstance by server chose.
+	 * Return a WorldMapInstance - depends on map configuration one map may have
+	 * twins instances to balance player. This method will return
+	 * WorldMapInstance by server chose.
 	 *
 	 * @return WorldMapInstance.
 	 */
@@ -164,7 +167,8 @@ public class WorldMap {
 	 * @return WorldMapInstance
 	 */
 	public WorldMapInstance getWorldMapInstanceById(int instanceId) {
-		// instanceId is a count, some code still uses 0 for the default instance
+		// instanceId is a count, some code still uses 0 for the default
+		// instance
 		if (instanceId == 0) {
 			instanceId = 1;
 		}
@@ -183,7 +187,8 @@ public class WorldMap {
 	 * @return WorldMapInstance/
 	 */
 	private WorldMapInstance getWorldMapInstance(int instanceId) {
-		// instanceId is a count, some code still uses 0 for the default instance
+		// instanceId is a count, some code still uses 0 for the default
+		// instance
 		if (instanceId == 0) {
 			instanceId = 1;
 		}
@@ -196,7 +201,8 @@ public class WorldMap {
 	 * @param instanceId
 	 */
 	public void removeWorldMapInstance(int instanceId) {
-		// instanceId is a count, some code still uses 0 for the default instance
+		// instanceId is a count, some code still uses 0 for the default
+		// instance
 		if (instanceId == 0) {
 			instanceId = 1;
 		}
@@ -210,7 +216,8 @@ public class WorldMap {
 	 * @param instance
 	 */
 	public void addInstance(int instanceId, WorldMapInstance instance) {
-		// instanceId is a count, some code still uses 0 for the default instance
+		// instanceId is a count, some code still uses 0 for the default
+		// instance
 		if (instanceId == 0) {
 			instanceId = 1;
 		}
@@ -257,16 +264,4 @@ public class WorldMap {
 	public Collection<Integer> getAvailableInstanceIds() {
 		return instances.keySet();
 	}
-
-    public Collection<WorldMapInstance> getInstances() {
-        return instances.values();
-    }
-
-    public WorldHandler getWorldHandler() {
-        return worldHandler;
-    }
-
-    public void setWorldHandler(WorldHandler worldHandler) {
-        this.worldHandler = worldHandler;
-    }
 }

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dao;
 
 import com.aionemu.commons.database.dao.DAO;
@@ -36,7 +37,8 @@ public abstract class BlockListDAO implements DAO {
 	public abstract BlockList load(Player player);
 
 	/**
-	 * Adds the given object id to the list of blocked players for the given player
+	 * Adds the given object id to the list of blocked players for the given
+	 * player
 	 *
 	 * @param playerObjId
 	 *            ID of player to edit the blocklist of
@@ -47,7 +49,8 @@ public abstract class BlockListDAO implements DAO {
 	public abstract boolean addBlockedUser(int playerObjId, int objIdToBlock, String reason);
 
 	/**
-	 * Deletes the given object id from the list of blocked players for the given player
+	 * Deletes the given object id from the list of blocked players for the
+	 * given player
 	 *
 	 * @param playerObjId
 	 *            ID of player to edit the blocklist of

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import java.util.List;
@@ -23,7 +24,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.gameserver.GameServer;
 import com.aionemu.gameserver.dao.TownDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.Race;
@@ -39,8 +39,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_TOWNS_LIST;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.MapRegion;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
-
-import javolution.util.FastMap;
 
 /**
  * @author ViAl
@@ -66,14 +64,17 @@ public class TownService {
 		if (elyosTowns.size() == 0 && asmosTowns.size() == 0) {
 			for (HousingLand land : DataManager.HOUSE_DATA.getLands()) {
 				for (HouseAddress address : land.getAddresses()) {
-					if (address.getTownId() != 0) {
-						Race townRace = DataManager.NPC_DATA.getNpcTemplate(land.getManagerNpcId()).getTribe() == TribeClass.GENERAL ? Race.ELYOS : Race.ASMODIANS;
-						if ((townRace == Race.ELYOS && !elyosTowns.containsKey(address.getTownId())) || (townRace == Race.ASMODIANS && !asmosTowns.containsKey(address.getTownId()))) {
+					if (address.getTownId() == 0) {
+						continue;
+					} else {
+						Race townRace = DataManager.NPC_DATA.getNpcTemplate(land.getManagerNpcId()).getTribe() == TribeClass.GENERAL ? Race.ELYOS
+								: Race.ASMODIANS;
+						if ((townRace == Race.ELYOS && !elyosTowns.containsKey(address.getTownId()))
+								|| (townRace == Race.ASMODIANS && !asmosTowns.containsKey(address.getTownId()))) {
 							Town town = new Town(address.getTownId(), townRace);
 							if (townRace == Race.ELYOS) {
 								elyosTowns.put(town.getId(), town);
-							}
-							else {
+							} else {
 								asmosTowns.put(town.getId(), town);
 							}
 							DAOManager.getDAO(TownDAO.class).store(town);
@@ -83,14 +84,14 @@ public class TownService {
 				}
 			}
 		}
-		GameServer.log.info("[TownService] Loaded totally " + (asmosTowns.size() + elyosTowns.size()) + " Towns (Elyos: " + elyosTowns.size() + " / Asmos: " + asmosTowns.size() + ")");
+		log.info("Loaded " + asmosTowns.size() + " elyos towns.");
+		log.info("Loaded " + asmosTowns.size() + " asmodians towns.");
 	}
 
 	public Town getTownById(int townId) {
 		if (elyosTowns.containsKey(townId)) {
 			return elyosTowns.get(townId);
-		}
-		else {
+		} else {
 			return asmosTowns.get(townId);
 		}
 	}
@@ -99,8 +100,7 @@ public class TownService {
 		House house = player.getActiveHouse();
 		if (house == null) {
 			return 0;
-		}
-		else {
+		} else {
 			return house.getAddress().getTownId();
 		}
 	}
@@ -114,10 +114,9 @@ public class TownService {
 		int townId = 0;
 		MapRegion region = creature.getPosition().getMapRegion();
 		if (region == null) {
-			log.warn("[TownService] npc " + creature.getName() + " haven't any map region!");
+			log.warn("TownService: npc " + creature.getName() + " haven't any map region!");
 			return 0;
-		}
-		else {
+		} else {
 			List<ZoneInstance> zones = region.getZones(creature);
 			for (ZoneInstance zone : zones) {
 				townId = zone.getTownId();
@@ -130,12 +129,6 @@ public class TownService {
 	}
 
 	public void onEnterWorld(Player player) {
-
-		if (player.getWorldId() != 700010000 && player.getWorldId() != 710010000) {
-			// offi 4.9.1 send empty packet
-			PacketSendUtility.sendPacket(player, new SM_TOWNS_LIST(new FastMap<Integer, Town>()));
-			return;
-		}
 		switch (player.getRace()) {
 			case ELYOS:
 				if (player.getWorldId() == 700010000) {

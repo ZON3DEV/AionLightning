@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects;
 
 import com.aionemu.gameserver.model.TribeClass;
@@ -33,15 +34,11 @@ public class TransformModel {
 	private boolean isActive = false;
 	private TribeClass transformTribe;
 	private TribeClass overrideTribe;
-	private int ItemId;
-    private int skillId;
-    private int transformId;	
 
 	public TransformModel(Creature creature) {
 		if (creature instanceof Player) {
 			this.originalType = TransformType.PC;
-		}
-		else {
+		} else {
 			this.originalType = TransformType.NONE;
 		}
 		this.originalModelId = creature.getObjectTemplate().getTemplateId();
@@ -62,29 +59,9 @@ public class TransformModel {
 		if (modelId == 0 || modelId == originalModelId) {
 			modelId = originalModelId;
 			isActive = false;
-		}
-		else {
+		} else {
 			this.modelId = modelId;
 			isActive = true;
-		}
-	}
-
-	/**
-	 * @return the itemId
-	 */
-	public int getItemId() {
-		if (ItemId > 0) {
-			return ItemId;
-		}
-		return 0;
-	}
-
-	public void setItemId(int itemId) {
-		if (itemId == 0) {
-			ItemId = 0;
-		}
-		else {
-			this.ItemId = itemId;
 		}
 	}
 
@@ -141,25 +118,8 @@ public class TransformModel {
 	public void setTribe(TribeClass transformTribe, boolean override) {
 		if (override) {
 			this.overrideTribe = transformTribe;
-		}
-		else {
+		} else {
 			this.transformTribe = transformTribe;
 		}
 	}
-
-    public int getSkillId() {
-        return skillId;
-    }
-    
-    public void setSkillId(int skillId) {
-        this.skillId = skillId;
-    }
-    
-    public int getTransformId() {
-        return transformId;
-    }
-    
-    public void setTransformId(int transformId) {
-        this.transformId = transformId;
-    }
 }

@@ -14,20 +14,21 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.handlers.template;
 
-import java.util.Iterator;
-
-import com.aionemu.gameserver.model.DialogAction;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.handlers.models.Monster;
 import com.aionemu.gameserver.questEngine.handlers.models.XmlQuestData;
 import com.aionemu.gameserver.questEngine.handlers.models.xmlQuest.events.OnKillEvent;
 import com.aionemu.gameserver.questEngine.handlers.models.xmlQuest.events.OnTalkEvent;
+import com.aionemu.gameserver.model.DialogAction;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
+
+import java.util.Iterator;
 
 /**
  * @author Mr. Poke, modified Bobobear
@@ -84,13 +85,11 @@ public class XmlQuest extends QuestHandler {
 			if (targetId == xmlQuestData.getStartNpcId()) {
 				if (env.getDialog() == DialogAction.QUEST_SELECT) {
 					return sendQuestDialog(env, 1011);
-				}
-				else {
+				} else {
 					return sendQuestStartDialog(env);
 				}
 			}
-		}
-		else if (qs.getStatus() == QuestStatus.REWARD && targetId == xmlQuestData.getEndNpcId()) {
+		} else if (qs.getStatus() == QuestStatus.REWARD && targetId == xmlQuestData.getEndNpcId()) {
 			return sendQuestEndDialog(env);
 		}
 		return false;

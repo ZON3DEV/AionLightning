@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.decomposable;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -21,11 +22,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.Race;
-
-/**
- * @author Alcapwnd
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SelectItem")
 public class SelectItem {
@@ -36,18 +32,11 @@ public class SelectItem {
 	@XmlAttribute
 	private int count = 1;
 
-	@XmlAttribute
-	private Race race = Race.PC_ALL;
-
 	public int getSelectItemId() {
-		return this.id;
+		return id;
 	}
 
 	public int getCount() {
-		return this.count;
-	}
-
-	public Race getRace() {
-		return race;
+		return count;
 	}
 }

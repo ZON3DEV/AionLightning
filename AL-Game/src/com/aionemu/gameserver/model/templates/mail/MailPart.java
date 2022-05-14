@@ -14,13 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.mail;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -61,8 +58,7 @@ public abstract class MailPart extends StringParamList implements IMailFormatter
 		String joinedParams = StringUtils.join(paramValues, ',');
 		if (StringUtils.isEmpty(result)) {
 			return joinedParams;
-		}
-		else if (!StringUtils.isEmpty(joinedParams)) {
+		} else if (!StringUtils.isEmpty(joinedParams)) {
 			result += "," + joinedParams;
 		}
 

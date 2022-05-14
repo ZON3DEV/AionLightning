@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.stats.container;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -56,39 +57,39 @@ public class HomingGameStats extends SummonedObjectGameStats {
 		int skillLvl = skill.getLvl();
 		switch (skillLvl) {
 			case 3:
-				if (homing.getName().equalsIgnoreCase("stone energy")) {
+				if (homing.getName().equals("stone energy")) {
 					power = 316;
 				}
-				if (homing.getName().equalsIgnoreCase("water energy")) {
+				if (homing.getName().equals("water energy")) {
 					power = 362;
 				}
 				break;
 			case 4:
-				if (homing.getName().equalsIgnoreCase("cyclone servant")) {
+				if (homing.getName().equals("cyclone servant")) {
 					power = 1166;
 				}
-				if (homing.getName().equalsIgnoreCase("fire energy")) {
+				if (homing.getName().equals("fire energy")) {
 					power = 313;
 				}
-				if (homing.getName().equalsIgnoreCase("wind servant")) {
+				if (homing.getName().equals("wind servant")) {
 					power = 373;
 				}
-				if (homing.getName().equalsIgnoreCase("stone energy")) {
+				if (homing.getName().equals("stone energy")) {
 					power = 384;
 				}
 				break;
 			case 5:
-				if (homing.getName().equalsIgnoreCase("cyclone servant")) {
+				if (homing.getName().equals("cyclone servant")) {
 					power = 1221;
 				}
 				break;
 			case 6:
-				if (homing.getName().equalsIgnoreCase("cyclone servant")) {
+				if (homing.getName().equals("cyclone servant")) {
 					power = 1283;
 				}
 				break;
 			case 7:
-				if (homing.getName().equalsIgnoreCase("cyclone servant")) {
+				if (homing.getName().equals("cyclone servant")) {
 					power = 1342;
 				}
 				break;

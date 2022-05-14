@@ -14,19 +14,21 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+
 
 /**
  * @author Alcapwnd
  */
 public class SM_AFTER_TIME_CHECK extends AionServerPacket {
 
-	@Override
-	protected void writeImpl(AionConnection con) {
-		writeH(1);
-		writeD(0);
-	}
+    @Override
+    protected void writeImpl(AionConnection con) {
+        writeH(1);
+        writeD(0);
+    }
 }

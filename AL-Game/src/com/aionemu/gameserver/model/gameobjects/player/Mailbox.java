@@ -14,23 +14,17 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.gameobjects.player;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.SortedSet;
-import java.util.TreeSet;
+package com.aionemu.gameserver.model.gameobjects.player;
 
 import com.aionemu.gameserver.model.gameobjects.Letter;
 import com.aionemu.gameserver.model.gameobjects.LetterType;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MAIL_SERVICE;
 import com.aionemu.gameserver.services.mail.MailService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-
 import javolution.util.FastMap;
+
+import java.util.*;
 
 /**
  * @author kosyachok
@@ -58,8 +52,7 @@ public class Mailbox {
 	public void putLetterToMailbox(Letter letter) {
 		if (haveFreeSlots()) {
 			mails.put(letter.getObjectId(), letter);
-		}
-		else {
+		} else {
 			reserveMail.put(letter.getObjectId(), letter);
 		}
 	}
@@ -71,7 +64,6 @@ public class Mailbox {
 	 */
 	public Collection<Letter> getLetters() {
 		SortedSet<Letter> letters = new TreeSet<Letter>(new Comparator<Letter>() {
-
 			@Override
 			public int compare(Letter o1, Letter o2) {
 				if (o1.getTimeStamp().getTime() > o2.getTimeStamp().getTime()) {
@@ -91,7 +83,8 @@ public class Mailbox {
 	}
 
 	/**
-	 * Get system letters which senders start with the string specified and were received since the last player login
+	 * Get system letters which senders start with the string specified and were
+	 * received since the last player login
 	 *
 	 * @param substring
 	 *            must start with special characters: % or $$
@@ -198,8 +191,7 @@ public class Mailbox {
 				if (haveFreeSlots()) {
 					mails.put(letter.getObjectId(), letter);
 					reserveMail.remove(letter.getObjectId());
-				}
-				else {
+				} else {
 					break;
 				}
 			}

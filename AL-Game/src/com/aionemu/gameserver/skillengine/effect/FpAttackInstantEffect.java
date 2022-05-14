@@ -14,15 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
+
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.skillengine.model.Effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
-
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
  * @author Sippolo
@@ -53,7 +54,7 @@ public class FpAttackInstantEffect extends EffectTemplate {
 		int newValue = value;
 		// Support for values in percentage
 		if (percent) {
-			newValue = (maxFP * value) / 100;
+			newValue = (int) ((maxFP * value) / 100);
 		}
 		player.getLifeStats().reduceFp(newValue);
 	}

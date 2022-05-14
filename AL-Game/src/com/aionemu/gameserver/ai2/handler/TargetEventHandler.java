@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.ai2.handler;
 
 import com.aionemu.gameserver.ai2.AI2Logger;
@@ -53,8 +54,7 @@ public class TargetEventHandler {
 				npcAI.getOwner().getMoveController().recallPreviousStep();
 				if (npcAI.getOwner().isAtSpawnLocation()) {
 					npcAI.onGeneralEvent(AIEventType.BACK_HOME);
-				}
-				else {
+				} else {
 					npcAI.onGeneralEvent(AIEventType.NOT_AT_HOME);
 				}
 				break;

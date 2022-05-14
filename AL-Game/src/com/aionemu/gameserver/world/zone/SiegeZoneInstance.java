@@ -14,20 +14,22 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world.zone;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.zone.ZoneInfo;
 import com.aionemu.gameserver.world.knownlist.Visitor;
 
-import javolution.util.FastMap;
-
 /**
  * @author MrPoke
+ *
  */
 public class SiegeZoneInstance extends ZoneInstance {
 
@@ -44,7 +46,7 @@ public class SiegeZoneInstance extends ZoneInstance {
 	}
 
 	@Override
-	public synchronized boolean onEnter(Creature creature) {
+	public boolean onEnter(Creature creature) {
 		if (super.onEnter(creature)) {
 			if (creature instanceof Player) {
 				players.put(creature.getObjectId(), (Player) creature);
@@ -73,8 +75,7 @@ public class SiegeZoneInstance extends ZoneInstance {
 					visitor.visit(player);
 				}
 			}
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			log.error("Exception when running visitor on all players" + ex);
 		}
 	}

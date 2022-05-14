@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -36,10 +37,6 @@ public class GodstoneInfo {
 	private int probability;
 	@XmlAttribute
 	private int probabilityleft;
-	@XmlAttribute
-	private int breakprob;
-	@XmlAttribute
-	private int breakcount;
 
 	/**
 	 * @return the skillid
@@ -67,19 +64,5 @@ public class GodstoneInfo {
 	 */
 	public int getProbabilityleft() {
 		return probabilityleft;
-	}
-
-	/**
-	 * @return the breakprob
-	 */
-	public int getBreakprob() {
-		return breakprob;
-	}
-
-	/**
-	 * @return the breakcount
-	 */
-	public int getBreakcount() {
-		return breakcount;
 	}
 }

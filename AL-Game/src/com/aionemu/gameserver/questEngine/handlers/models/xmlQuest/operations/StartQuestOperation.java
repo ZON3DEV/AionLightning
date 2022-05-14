@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.handlers.models.xmlQuest.operations;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -35,7 +36,11 @@ public class StartQuestOperation extends QuestOperation {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.aionemu.gameserver.questEngine.handlers.models.xmlQuest.operations.QuestOperation#doOperate(com.aionemu.gameserver .questEngine.model.QuestEnv)
+	 *
+	 * @see
+	 * com.aionemu.gameserver.questEngine.handlers.models.xmlQuest.operations
+	 * .QuestOperation#doOperate(com.aionemu.gameserver
+	 * .questEngine.model.QuestEnv)
 	 */
 	@Override
 	public void doOperate(QuestEnv env) {

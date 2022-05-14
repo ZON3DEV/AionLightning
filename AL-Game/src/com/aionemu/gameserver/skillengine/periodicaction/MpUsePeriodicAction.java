@@ -14,38 +14,40 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.periodicaction;
 
 import javax.xml.bind.annotation.XmlAttribute;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.skillengine.model.Effect;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author antness
- * @Reworked Kill3r
  */
 public class MpUsePeriodicAction extends PeriodicAction {
 
 	@XmlAttribute(name = "value")
 	protected int value;
-	@XmlAttribute(name = "ratio")
-	protected boolean ratio;
 
 	@Override
 	public void act(final Effect effect) {
 		Creature effected = effect.getEffected();
 		int maxMp = effected.getGameStats().getMaxMp().getCurrent();
-		int requiredMp = value;
-		if (ratio) {
-			requiredMp = (int) (maxMp * (value / 100f));
-		}
-
+		int requiredMp = (int) (maxMp * (value / 100f));
 		if (effected.getLifeStats().getCurrentMp() < requiredMp) {
 			effect.endEffect();
 			return;
 		}
-
+        if(effect.getSkillId() == 2766){
+            ThreadPoolManager.getInstance().schedule(new Runnable() {
+                @Override
+                public void run() {
+                    effect.endEffect();
+                }
+            },10000);
+        }
 		effected.getLifeStats().reduceMp(requiredMp);
 	}
 }

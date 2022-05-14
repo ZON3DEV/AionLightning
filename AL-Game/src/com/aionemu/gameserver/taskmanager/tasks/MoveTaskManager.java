@@ -14,7 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.taskmanager.tasks;
+
+import javolution.util.FastList;
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.ai2.event.AIEventType;
 import com.aionemu.gameserver.ai2.poll.AIQuestion;
@@ -22,9 +26,6 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.taskmanager.AbstractPeriodicTaskManager;
 import com.aionemu.gameserver.taskmanager.FIFOSimpleExecutableQueue;
 import com.aionemu.gameserver.world.zone.ZoneUpdateService;
-
-import javolution.util.FastList;
-import javolution.util.FastMap;
 
 /**
  * @author ATracer
@@ -59,8 +60,7 @@ public class MoveTaskManager extends AbstractPeriodicTaskManager {
 			if (creature.getAi2().poll(AIQuestion.DESTINATION_REACHED)) {
 				movingCreatures.remove(e.getKey());
 				arrivedCreatures.add(e.getValue());
-			}
-			else {
+			} else {
 				followingCreatures.add(e.getValue());
 			}
 		}
@@ -83,8 +83,7 @@ public class MoveTaskManager extends AbstractPeriodicTaskManager {
 			try {
 				creature.getAi2().onGeneralEvent(AIEventType.MOVE_ARRIVED);
 				ZoneUpdateService.getInstance().add(creature);
-			}
-			catch (RuntimeException e) {
+			} catch (RuntimeException e) {
 				log.warn("", e);
 			}
 		}
@@ -97,8 +96,7 @@ public class MoveTaskManager extends AbstractPeriodicTaskManager {
 			final Creature creature = removeFirst();
 			try {
 				creature.getAi2().onGeneralEvent(AIEventType.MOVE_VALIDATE);
-			}
-			catch (RuntimeException e) {
+			} catch (RuntimeException e) {
 				log.warn("", e);
 			}
 		}

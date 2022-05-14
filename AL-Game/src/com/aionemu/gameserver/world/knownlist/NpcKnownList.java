@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world.knownlist;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -33,8 +34,7 @@ public class NpcKnownList extends CreatureAwareKnownList {
 		MapRegion activeRegion = owner.getActiveRegion();
 		if (activeRegion != null && activeRegion.isMapRegionActive()) {
 			super.doUpdate();
-		}
-		else {
+		} else {
 			clear();
 		}
 	}

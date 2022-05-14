@@ -14,21 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.schedule;
-
-import java.io.File;
-import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
-import org.apache.commons.io.FileUtils;
 
 import com.aionemu.commons.utils.xml.JAXBUtil;
 import com.aionemu.gameserver.model.templates.rift.OpenRift;
+import java.io.File;
+import java.util.List;
+import javax.xml.bind.annotation.*;
+import org.apache.commons.io.FileUtils;
 
 /**
  * @author Source
@@ -71,9 +65,8 @@ public class RiftSchedule {
 		try {
 			String xml = FileUtils.readFileToString(new File("./config/schedule/rift_schedule.xml"));
 			rs = JAXBUtil.deserialize(xml, RiftSchedule.class);
-		}
-		catch (Exception e) {
-			throw new RuntimeException("Failed to initialize Rifts", e);
+		} catch (Exception e) {
+			throw new RuntimeException("Failed to initialize rifts", e);
 		}
 		return rs;
 	}

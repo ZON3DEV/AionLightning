@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.handlers.models;
 
 import java.util.List;
@@ -42,9 +43,9 @@ public class ItemCollectingData extends XMLQuest {
 	protected List<Integer> endNpcIds;
 	@XmlAttribute(name = "next_npc_id", required = true)
 	protected int nextNpcId;
-	@XmlAttribute(name = "start_dialog_id")
+	@XmlAttribute(name = "HACTION_QUEST_SELECT_id")
 	protected int startDialogId;
-	@XmlAttribute(name = "start_dialog_id2")
+	@XmlAttribute(name = "HACTION_QUEST_SELECT_id2")
 	protected int startDialogId2;
 	@XmlAttribute(name = "item_id")
 	protected int itemId;

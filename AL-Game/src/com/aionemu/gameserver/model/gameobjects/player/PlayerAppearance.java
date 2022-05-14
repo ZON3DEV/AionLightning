@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player;
 
 /**
@@ -30,21 +31,12 @@ public class PlayerAppearance implements Cloneable {
 	private int tattoo;
 	private int faceContour; // 2.5
 	private int expression; // 2.5
-	private int pupilShape; // 5.0
-	private int removeMane; // 5.0
-	private int rightEyeRGB; // 5.0
-	private int eyeLashshape; // 5.0
 	private int jawLine; // 2.5
 	private int skinRGB;
 	private int hairRGB;
 	private int lipRGB;
 	private int eyeRGB;
 	private int faceShape;
-	private int pupilSize; // 5.0
-	private int upperTorso; // 5.0
-	private int foreArmThickness; // 5.0
-	private int handSpan; // 5.0
-	private int calfThickness; // 5.0
 	private int forehead;
 	private int eyeHeight;
 	private int eyeSpace;
@@ -80,7 +72,7 @@ public class PlayerAppearance implements Cloneable {
 	private int armThickness;
 	private int armLength;
 	private int handSize;
-	private int legThickness;
+	private int legThicnkess;
 	private int legLength;
 	private int footSize;
 	private int facialRate;
@@ -192,141 +184,6 @@ public class PlayerAppearance implements Cloneable {
 	 */
 	public void setExpression(int expression) {
 		this.expression = expression;
-	}
-
-	/**
-	 * @return the pupilShape
-	 */
-	public int getPupilShape() {
-		return pupilShape;
-	}
-
-	/**
-	 * @param pupilShape
-	 *            the pupilShape to set
-	 */
-	public void setPupilShape(int pupilShape) {
-		this.pupilShape = pupilShape;
-	}
-
-	/**
-	 * @return the removeMane
-	 */
-	public int getRemoveMane() {
-		return removeMane;
-	}
-
-	/**
-	 * @param removeMane
-	 *            the removeMane to set
-	 */
-	public void setRemoveMane(int removeMane) {
-		this.removeMane = removeMane;
-	}
-
-	/**
-	 * @return the rightEyeRGB
-	 */
-	public int getRightEyeRGB() {
-		return rightEyeRGB;
-	}
-
-	/**
-	 * @param rightEyeRGB
-	 *            the rightEyeRGB to set
-	 */
-	public void setRightEyeRGB(int rightEyeRGB) {
-		this.rightEyeRGB = rightEyeRGB;
-	}
-
-	/**
-	 * @return the eyeLashshape
-	 */
-	public int getEyeLashShape() {
-		return eyeLashshape;
-	}
-
-	/**
-	 * @param eyeLashshape
-	 *            the eyeLashshape to set
-	 */
-	public void setEyeLashShape(int eyeLashshape) {
-		this.eyeLashshape = eyeLashshape;
-	}
-
-	/**
-	 * @return the pupilSize
-	 */
-	public int getPupilSize() {
-		return pupilSize;
-	}
-
-	/**
-	 * @param pupilSize
-	 *            the pupilSize to set
-	 */
-	public void setPupilSize(int pupilSize) {
-		this.pupilSize = pupilSize;
-	}
-
-	/**
-	 * @return the upperTorso
-	 */
-	public int getUpperTorso() {
-		return upperTorso;
-	}
-
-	/**
-	 * @param upperTorso
-	 *            the upperTorso to set
-	 */
-	public void setUpperTorso(int upperTorso) {
-		this.upperTorso = upperTorso;
-	}
-
-	/**
-	 * @return the foreArmThickness
-	 */
-	public int getForeArmThickness() {
-		return foreArmThickness;
-	}
-
-	/**
-	 * @param foreArmThickness
-	 *            the foreArmThickness to set
-	 */
-	public void setForeArmThickness(int foreArmThickness) {
-		this.foreArmThickness = foreArmThickness;
-	}
-
-	/**
-	 * @return the handSpan
-	 */
-	public int getHandSpan() {
-		return handSpan;
-	}
-
-	/**
-	 * @param handSpan
-	 *            the handSpan to set
-	 */
-	public void setHandSpan(int handSpan) {
-		this.handSpan = handSpan;
-	}
-
-	/**
-	 * @return the calfThickness
-	 */
-	public int getCalfThickness() {
-		return calfThickness;
-	}
-
-	/**
-	 * @param calfThickness
-	 *            the calfThickness to set
-	 */
-	public void setCalfThickness(int calfThickness) {
-		this.calfThickness = calfThickness;
 	}
 
 	/**
@@ -617,7 +474,8 @@ public class PlayerAppearance implements Cloneable {
 	}
 
 	/**
-	 * ***************************************************************************************************************** Sets brow shape
+	 * *************************************************************************
+	 * **************************************** Sets brow shape
 	 *
 	 * @param browShape
 	 *            brow shape
@@ -1106,18 +964,18 @@ public class PlayerAppearance implements Cloneable {
 	 *
 	 * @return leg thickness
 	 */
-	public int getLegThickness() {
-		return legThickness;
+	public int getLegThicnkess() {
+		return legThicnkess;
 	}
 
 	/**
 	 * Sets leg thickness
 	 *
-	 * @param legThickness
+	 * @param legThicnkess
 	 *            leg thickness
 	 */
-	public void setLegThickness(int legThickness) {
-		this.legThickness = legThickness;
+	public void setLegThicnkess(int legThicnkess) {
+		this.legThicnkess = legThicnkess;
 	}
 
 	/**
@@ -1226,8 +1084,7 @@ public class PlayerAppearance implements Cloneable {
 
 		try {
 			newObject = super.clone();
-		}
-		catch (CloneNotSupportedException e) {
+		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
 		}
 

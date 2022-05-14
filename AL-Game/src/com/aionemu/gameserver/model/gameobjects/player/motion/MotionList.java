@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player.motion;
 
 import java.util.Collections;
@@ -30,6 +31,7 @@ import javolution.util.FastMap;
 
 /**
  * @author MrPoke
+ *
  */
 public class MotionList {
 
@@ -119,8 +121,7 @@ public class MotionList {
 			}
 			motion.setActive(true);
 			DAOManager.getDAO(MotionDAO.class).updateMotion(owner.getObjectId(), motion);
-		}
-		else if (activeMotions != null) {
+		} else if (activeMotions != null) {
 			Motion old = activeMotions.remove(motionType);
 			if (old == null) {
 				return; // TODO packet hack??

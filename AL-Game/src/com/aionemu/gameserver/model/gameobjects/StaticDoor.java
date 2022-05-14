@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects;
 
 import java.util.EnumSet;
@@ -45,7 +46,8 @@ public class StaticDoor extends StaticObject {
 		super(objectId, controller, spawnTemplate, objectTemplate);
 		states = EnumSet.copyOf(getObjectTemplate().getInitialStates());
 		if (objectTemplate.getMeshFile() != null) {
-			doorName = GeoService.getInstance().getDoorName(spawnTemplate.getWorldId(), objectTemplate.getMeshFile(), objectTemplate.getX(), objectTemplate.getY(), objectTemplate.getZ());
+			doorName = GeoService.getInstance().getDoorName(spawnTemplate.getWorldId(), objectTemplate.getMeshFile(), objectTemplate.getX(),
+					objectTemplate.getY(), objectTemplate.getZ());
 		}
 	}
 
@@ -72,8 +74,7 @@ public class StaticDoor extends StaticObject {
 			states.remove(StaticDoorState.CLICKABLE);
 			states.add(StaticDoorState.OPENED); // 1001
 			packetState = 0x9;
-		}
-		else {
+		} else {
 			emotion = EmotionType.CLOSE_DOOR;
 			if (getObjectTemplate().getInitialStates().contains(StaticDoorState.CLICKABLE)) {
 				states.add(StaticDoorState.CLICKABLE);

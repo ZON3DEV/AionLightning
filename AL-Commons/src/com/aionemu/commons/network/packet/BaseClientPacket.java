@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.network.packet;
 
 import java.nio.ByteBuffer;
@@ -29,7 +30,7 @@ import com.aionemu.commons.network.AConnection;
  * 
  * @author -Nemesiss-
  * @param <T>
- *            AConnection - owner of this client packet.
+ *          AConnection - owner of this client packet.
  */
 public abstract class BaseClientPacket<T extends AConnection> extends BasePacket implements Runnable {
 
@@ -50,9 +51,9 @@ public abstract class BaseClientPacket<T extends AConnection> extends BasePacket
 	 * Constructs a new client packet with specified id and data buffer.
 	 * 
 	 * @param buf
-	 *            packet data container.
+	 *          packet data container.
 	 * @param opcode
-	 *            packet opcode.
+	 *          packet opcode.
 	 */
 	public BaseClientPacket(ByteBuffer buf, int opcode) {
 		this(opcode);
@@ -60,11 +61,10 @@ public abstract class BaseClientPacket<T extends AConnection> extends BasePacket
 	}
 
 	/**
-	 * Constructs a new client packet with specified id. ByteBuffer must be
-	 * later set with setBuffer method.
+	 * Constructs a new client packet with specified id. ByteBuffer must be later set with setBuffer method.
 	 * 
 	 * @param opcode
-	 *            packet opcode.
+	 *          packet opcode.
 	 */
 	public BaseClientPacket(int opcode) {
 		super(PacketType.CLIENT, opcode);
@@ -89,11 +89,9 @@ public abstract class BaseClientPacket<T extends AConnection> extends BasePacket
 	}
 
 	/**
-	 * This method reads data from a packet buffer. If the error occurred while
-	 * reading data, the connection is closed.
+	 * This method reads data from a packet buffer. If the error occurred while reading data, the connection is closed.
 	 * 
-	 * @return <code>true</code> if reading was successful, otherwise
-	 *         <code>false</code>
+	 * @return <code>true</code> if reading was successful, otherwise <code>false</code>
 	 */
 	public final boolean read() {
 		try {
@@ -103,7 +101,8 @@ public abstract class BaseClientPacket<T extends AConnection> extends BasePacket
 				log.debug("Packet " + this + " not fully readed!");
 
 			return true;
-		} catch (Exception re) {
+		}
+		catch (Exception re) {
 			log.error("Reading failed for packet " + this, re);
 			return false;
 		}
@@ -129,7 +128,8 @@ public abstract class BaseClientPacket<T extends AConnection> extends BasePacket
 	protected final int readD() {
 		try {
 			return buf.getInt();
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.error("Missing D for: " + this);
 		}
 		return 0;
@@ -143,7 +143,8 @@ public abstract class BaseClientPacket<T extends AConnection> extends BasePacket
 	protected final int readC() {
 		try {
 			return buf.get() & 0xFF;
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.error("Missing C for: " + this);
 		}
 		return 0;
@@ -157,7 +158,8 @@ public abstract class BaseClientPacket<T extends AConnection> extends BasePacket
 	protected final byte readSC() {
 		try {
 			return buf.get();
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.error("Missing C for: " + this);
 		}
 		return 0;
@@ -171,7 +173,8 @@ public abstract class BaseClientPacket<T extends AConnection> extends BasePacket
 	protected final short readSH() {
 		try {
 			return buf.getShort();
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.error("Missing H for: " + this);
 		}
 		return 0;
@@ -180,7 +183,8 @@ public abstract class BaseClientPacket<T extends AConnection> extends BasePacket
 	protected final int readH() {
 		try {
 			return buf.getShort() & 0xFFFF;
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.error("Missing H for: " + this);
 		}
 		return 0;
@@ -194,7 +198,8 @@ public abstract class BaseClientPacket<T extends AConnection> extends BasePacket
 	protected final double readDF() {
 		try {
 			return buf.getDouble();
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.error("Missing DF for: " + this);
 		}
 		return 0;
@@ -208,7 +213,8 @@ public abstract class BaseClientPacket<T extends AConnection> extends BasePacket
 	protected final float readF() {
 		try {
 			return buf.getFloat();
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.error("Missing F for: " + this);
 		}
 		return 0;
@@ -222,7 +228,8 @@ public abstract class BaseClientPacket<T extends AConnection> extends BasePacket
 	protected final long readQ() {
 		try {
 			return buf.getLong();
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.error("Missing Q for: " + this);
 		}
 		return 0;
@@ -239,7 +246,8 @@ public abstract class BaseClientPacket<T extends AConnection> extends BasePacket
 		try {
 			while ((ch = buf.getChar()) != 0)
 				sb.append(ch);
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.error("Missing S for: " + this);
 		}
 		return sb.toString();
@@ -255,26 +263,12 @@ public abstract class BaseClientPacket<T extends AConnection> extends BasePacket
 		byte[] result = new byte[length];
 		try {
 			buf.get(result);
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.error("Missing byte[] for: " + this);
 		}
 		return result;
 	}
-
-    protected final byte[] readB(String string) {
-        String finalString = string.replaceAll("\\s+", "");
-        byte[] bytes = new byte[finalString.length() / 2];
-        for (int i = 0; i < bytes.length; ++i) {
-            bytes[i] = (byte)Integer.parseInt(finalString.substring(2 * i, 2 * i + 2), 16);
-        }
-        try {
-            buf.get(bytes);
-        }
-        catch (Exception e) {
-            BaseClientPacket.log.error("Missing byte[] for: " + this);
-        }
-        return bytes;
-    }
 
 	/**
 	 * Execute this packet action.

@@ -14,22 +14,21 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.autogroup;
 
-import static ch.lambdaj.Lambda.on;
-import static ch.lambdaj.Lambda.sort;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import static ch.lambdaj.Lambda.*;
 import com.aionemu.commons.taskmanager.AbstractLockManager;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.instance.instancereward.InstanceReward;
 import com.aionemu.gameserver.world.WorldMapInstance;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
+ *
  * @author xTz
  */
 public abstract class AutoInstance extends AbstractLockManager implements AutoInstanceHandler {
@@ -54,8 +53,7 @@ public abstract class AutoInstance extends AbstractLockManager implements AutoIn
 			long l = player.getInventory().decreaseItemCount(item, count);
 			if (l == 0) {
 				break;
-			}
-			else {
+			} else {
 				count = l;
 			}
 		}

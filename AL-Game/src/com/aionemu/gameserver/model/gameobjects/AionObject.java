@@ -14,14 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.gameobjects;
 
-import javax.annotation.Nullable;
+package com.aionemu.gameserver.model.gameobjects;
 
 import com.google.common.base.Function;
 
+import javax.annotation.Nullable;
+
 /**
- * This is the base class for all "in-game" objects, that player can interact with, such as: npcs, monsters, players, items.<br>
+ * This is the base class for all "in-game" objects, that player can interact
+ * with, such as: npcs, monsters, players, items.<br>
  * <br>
  * Each AionObject is uniquely identified by objectId.
  *
@@ -30,7 +32,6 @@ import com.google.common.base.Function;
 public abstract class AionObject {
 
 	public static Function<AionObject, Integer> OBJECT_TO_ID_TRANSFORMER = new Function<AionObject, Integer>() {
-
 		@Override
 		public Integer apply(@Nullable AionObject input) {
 			return input != null ? input.getObjectId() : null;

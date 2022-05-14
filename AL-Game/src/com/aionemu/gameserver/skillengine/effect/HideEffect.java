@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -43,7 +44,7 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "HideEffect")
-public class HideEffect extends BuffEffect {
+public class HideEffect extends BufEffect {
 
 	@XmlAttribute
 	protected CreatureVisualState state;
@@ -92,20 +93,22 @@ public class HideEffect extends BuffEffect {
 		// Cancel targeted enemy cast
 		AttackUtil.cancelCastOn(effected);
 
-		// send all to set new 'effected' visual state (remove all visual targetting from 'effected')
+		// send all to set new 'effected' visual state (remove all visual
+		// targetting from 'effected')
 		PacketSendUtility.broadcastPacketAndReceive(effected, new SM_PLAYER_STATE(effected));
 
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
-				// do on all who targetting on 'effected' (set target null, cancel attack skill, cancel npc pursuit)
+				// do on all who targetting on 'effected' (set target null,
+				// cancel attack skill, cancel npc pursuit)
 				AttackUtil.removeTargetFrom(effected, true);
 			}
 		}, 500);
 
 		/**
-		 * for player adding: Remove Hide when using any item action . when requesting dialog to any npc . when being attacked . when attacking
+		 * for player adding: Remove Hide when using any item action . when
+		 * requesting dialog to any npc . when being attacked . when attacking
 		 */
 		if (effected instanceof Player) {
 
@@ -115,7 +118,6 @@ public class HideEffect extends BuffEffect {
 
 			// Remove Hide when use skill
 			ActionObserver observer = new ActionObserver(ObserverType.SKILLUSE) {
-
 				int bufNumber = 1;
 
 				@Override
@@ -139,7 +141,6 @@ public class HideEffect extends BuffEffect {
 
 			// Remove Hide when attacking
 			effected.getObserveController().attach(new ActionObserver(ObserverType.ATTACK) {
-
 				@Override
 				public void attack(Creature creature) {
 					effect.endEffect();
@@ -147,27 +148,23 @@ public class HideEffect extends BuffEffect {
 			});
 
 			effected.getObserveController().attach(new ActionObserver(ObserverType.ITEMUSE) {
-
 				@Override
 				public void itemused(Item item) {
 					effect.endEffect();
 				}
 			});
 			effected.getObserveController().attach(new ActionObserver(ObserverType.NPCDIALOGREQUEST) {
-
 				@Override
 				public void npcdialogrequested(Npc npc) {
 					effect.endEffect();
 				}
 			});
-		}
-		else { // effected is npc
+		} else { // effected is npc
 			if (type == 0) { // type >= 1, hide is maintained even after damage
 				effect.setCancelOnDmg(true);
 
 				// Remove Hide when attacking
 				effected.getObserveController().attach(new ActionObserver(ObserverType.ATTACK) {
-
 					@Override
 					public void attack(Creature creature) {
 						effect.endEffect();
@@ -176,7 +173,6 @@ public class HideEffect extends BuffEffect {
 
 				// Remove Hide when use skill
 				effected.getObserveController().attach(new ActionObserver(ObserverType.SKILLUSE) {
-
 					@Override
 					public void skilluse(Skill skill) {
 						effect.endEffect();

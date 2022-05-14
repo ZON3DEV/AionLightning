@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.clientpackets;
 
-import java.util.concurrent.Future;
+package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.TaskId;
 import com.aionemu.gameserver.model.gameobjects.LetterType;
@@ -27,6 +26,8 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.spawnengine.VisibleObjectSpawner;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
+
+import java.util.concurrent.Future;
 
 /**
  * @author antness thx to Guapo for sniffing
@@ -61,17 +62,13 @@ public class CM_READ_EXPRESS_MAIL extends AionClientPacket {
 				// click on icon
 				if (player.getPostman() != null) {
 					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_POSTMAN_ALREADY_SUMMONED);
-				}
-				else if (player.isFlying()) {
+				} else if (player.isFlying()) {
 					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_POSTMAN_UNABLE_IN_FLIGHT);
-				}
-				else if (player.getController().hasScheduledTask(TaskId.EXPRESS_MAIL_USE)) {
+				} else if (player.getController().hasTask(TaskId.EXPRESS_MAIL_USE)) {
 					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_POSTMAN_UNABLE_IN_COOLTIME);
-				}
-				else if (haveUnreadExpress) {
+				} else if (haveUnreadExpress) {
 					VisibleObjectSpawner.spawnPostman(player);
 					Future<?> task = ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 						@Override
 						public void run() {
 						}

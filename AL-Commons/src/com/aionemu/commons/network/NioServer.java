@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.network;
 
 import java.io.IOException;
@@ -79,24 +80,23 @@ public class NioServer {
 	 * Constructor.
 	 * 
 	 * @param readWriteThreads
-	 *            - number of threads that will be used for handling read and
-	 *            write.
+	 *          - number of threads that will be used for handling read and write.
 	 * @param dcPool
-	 *            - ThreadPool on witch Disconnection tasks will be executed.
+	 *          - ThreadPool on witch Disconnection tasks will be executed.
 	 * @param cfgs
-	 *            - Server Configurations
+	 *          - Server Configurations
 	 */
 	public NioServer(int readWriteThreads, ServerCfg... cfgs) {
 		/**
-		 * Test if this build should use assertion and enforce it. If
-		 * NetworkAssertion == false javac will remove this code block
+		 * Test if this build should use assertion and enforce it. If NetworkAssertion == false javac will remove this code
+		 * block
 		 */
 		if (Assertion.NetworkAssertion) {
 			boolean assertionEnabled = false;
 			assert assertionEnabled = true;
 			if (!assertionEnabled)
 				throw new RuntimeException(
-						"This is unstable build. Assertion must be enabled! Add -ea to your start script or consider using stable build instead.");
+					"This is unstable build. Assertion must be enabled! Add -ea to your start script or consider using stable build instead.");
 		}
 		this.dcPool = ThreadPoolManager.getInstance();
 		this.readWriteThreads = readWriteThreads;
@@ -116,24 +116,23 @@ public class NioServer {
 				InetSocketAddress isa;
 				if ("*".equals(cfg.hostName)) {
 					isa = new InetSocketAddress(cfg.port);
-					log.info(
-							"Server listening on all available IPs on Port " + cfg.port + " for " + cfg.connectionName);
-				} else {
+					log.info("Server listening on all available IPs on Port " + cfg.port + " for " + cfg.connectionName);
+				}
+				else {
 					isa = new InetSocketAddress(cfg.hostName, cfg.port);
-					log.info("Server listening on IP: " + cfg.hostName + " Port " + cfg.port + " for "
-							+ cfg.connectionName);
+					log.info("Server listening on IP: " + cfg.hostName + " Port " + cfg.port + " for " + cfg.connectionName);
 				}
 				serverChannel.socket().bind(isa);
 
 				/**
-				 * Register the server socket channel, indicating an interest in
-				 * accepting new connections
+				 * Register the server socket channel, indicating an interest in accepting new connections
 				 */
 				SelectionKey acceptKey = getAcceptDispatcher().register(serverChannel, SelectionKey.OP_ACCEPT,
-						new Acceptor(cfg.factory, this));
+					new Acceptor(cfg.factory, this));
 				serverChannelKeys.add(acceptKey);
 			}
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.error("NioServer Initialization Error: " + e, e);
 			throw new Error("NioServer Initialization Error!");
 		}
@@ -147,8 +146,7 @@ public class NioServer {
 	}
 
 	/**
-	 * @return one of ReadWrite Dispatcher or Accept Dispatcher if
-	 *         readWriteThreads was set to 0.
+	 * @return one of ReadWrite Dispatcher or Accept Dispatcher if readWriteThreads was set to 0.
 	 */
 	public final Dispatcher getReadWriteDispatcher() {
 		if (readWriteDispatchers == null)
@@ -173,7 +171,8 @@ public class NioServer {
 		if (readWriteThreads < 1) {
 			acceptDispatcher = new AcceptReadWriteDispatcherImpl("AcceptReadWrite Dispatcher", dcPool);
 			acceptDispatcher.start();
-		} else {
+		}
+		else {
 			acceptDispatcher = new AcceptDispatcherImpl("Accept Dispatcher");
 			acceptDispatcher.start();
 
@@ -193,7 +192,8 @@ public class NioServer {
 		if (readWriteDispatchers != null) {
 			for (Dispatcher d : readWriteDispatchers)
 				count += d.selector().keys().size();
-		} else {
+		}
+		else {
 			count = acceptDispatcher.selector().keys().size() - serverChannelKeys.size();
 		}
 		return count;
@@ -208,7 +208,8 @@ public class NioServer {
 			for (SelectionKey key : serverChannelKeys)
 				key.cancel();
 			log.info("ServerChannel closed.");
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.error("Error during closing ServerChannel, " + e, e);
 		}
 
@@ -216,7 +217,8 @@ public class NioServer {
 		/** Wait 5s */
 		try {
 			Thread.sleep(1000);
-		} catch (Throwable t) {
+		}
+		catch (Throwable t) {
 			log.warn("Nio thread was interrupted during shutdown", t);
 		}
 
@@ -227,12 +229,13 @@ public class NioServer {
 		closeAll();
 		log.info(" Active connections: " + getActiveConnections());
 
-		// dcPool.waitForDisconnectionTasks();
+		//dcPool.waitForDisconnectionTasks();
 
 		/** Wait 5s */
 		try {
 			Thread.sleep(1000);
-		} catch (Throwable t) {
+		}
+		catch (Throwable t) {
 			log.warn("Nio thread was interrupted during shutdown", t);
 		}
 	}
@@ -248,7 +251,8 @@ public class NioServer {
 						((AConnection) key.attachment()).onServerClose();
 					}
 				}
-		} else {
+		}
+		else {
 			for (SelectionKey key : acceptDispatcher.selector().keys()) {
 				if (key.attachment() instanceof AConnection) {
 					((AConnection) key.attachment()).onServerClose();
@@ -268,7 +272,8 @@ public class NioServer {
 						((AConnection) key.attachment()).close(true);
 					}
 				}
-		} else {
+		}
+		else {
 			for (SelectionKey key : acceptDispatcher.selector().keys()) {
 				if (key.attachment() instanceof AConnection) {
 					((AConnection) key.attachment()).close(true);

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.slf4j.Logger;
@@ -34,9 +35,11 @@ public class CM_SUMMON_ATTACK extends AionClientPacket {
 	private static final Logger log = LoggerFactory.getLogger(CM_SUMMON_ATTACK.class);
 	private int summonObjId;
 	private int targetObjId;
-	private int attackNo;
+	@SuppressWarnings("unused")
+	private int unk1;
 	private int time;
-	private int type;
+	@SuppressWarnings("unused")
+	private int unk3;
 
 	public CM_SUMMON_ATTACK(int opcode, State state, State... restStates) {
 		super(opcode, state, restStates);
@@ -46,9 +49,9 @@ public class CM_SUMMON_ATTACK extends AionClientPacket {
 	protected void readImpl() {
 		summonObjId = readD();
 		targetObjId = readD();
-		attackNo = readC(); // AttackCounter
+		unk1 = readC();
 		time = readH();
-		type = readC();
+		unk3 = readC();
 	}
 
 	@Override
@@ -68,9 +71,8 @@ public class CM_SUMMON_ATTACK extends AionClientPacket {
 
 		VisibleObject obj = summon.getKnownList().getObject(targetObjId);
 		if (obj != null && obj instanceof Creature) {
-			summon.getController().attackTarget((Creature) obj, attackNo, time, type);
-		}
-		else {
+			summon.getController().attackTarget((Creature) obj, time);
+		} else {
 			log.warn("summon attack on a wrong target on " + player.getName());
 		}
 	}

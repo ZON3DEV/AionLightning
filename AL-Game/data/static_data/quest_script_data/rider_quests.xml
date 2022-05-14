@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quest_scripts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="quest_script_data.xsd">
+	<!--
+		[BEGIN] SUMMARY
+			3121  [XML]    Archaeologist Pyrrha
+			3547  [SCRIPT]   Enemy Harassing the Elim
+			4120  [XML]    Vengeful Spirit Consolation
+			4542  [SCRIPT] The Secret of the Seiren Treasure
+			14010 [SCRIPT] Terrain of the Verteron Fortress
+			14011 [SCRIPT] Fragments in the Sky
+			14012 [SCRIPT] Dukaki Mischief
+			14013 [SCRIPT] A Frill of a Fuss
+			14014 [SCRIPT] Turning the Ide
+			14015 [SCRIPT] Not Blinded by Vengeance
+			14016 [SCRIPT] A Gate Agape
+			14020 [SCRIPT] Orders from Eltnen
+			14021 [SCRIPT] To Cure a Curse
+			14022 [SCRIPT] The Test of the Heart
+			14023 [SCRIPT] Playing Around at the Temple
+			14024 [SCRIPT] A Krall-ing Suspicion
+			14025 [SCRIPT] Cooking up Disasters
+			14026 [SCRIPT] A Lone Defense
+			14030 [SCRIPT] Retrieved Memory
+			14031 [SCRIPT] A Hyper-vention
+			14040 [SCRIPT] Orders from Reshanta
+			14041 [SCRIPT] Abyssal Abilities
+			14042 [SCRIPT] A Rescue Operation
+			14043 [SCRIPT] Drawling Balaur
+			14044 [SCRIPT] Shards of Memory
+			14045 [SCRIPT] Rumors on Wings
+			14046 [SCRIPT] Piecing the Memory
+			14047 [SCRIPT] Chaining Memories
+			14050 [SCRIPT] Orders from Heiron Fortress
+			14051 [SCRIPT] Root of the Problem
+			14052 [SCRIPT] Restless Souls
+			14053 [SCRIPT] Danger Cubed
+			14054 [SCRIPT] Krall-ing to Kralltumagna ->reward no work
+			14060 [SCRIPT] The Land of Ide
+			14061 [SCRIPT] Holy Problems
+			14062 [SCRIPT] Ide-ling Dragonbound
+			14070 [SCRIPT] Clue After Clue
+			14071 [SCRIPT] Hurdling for Truth
+			14080 [SCRIPT] Teetering in Tiamaranta
+			14081 [SCRIPT] The Heart of the Present
+			14090 [SCRIPT] Traces of the Past
+			14091 [SCRIPT] Identity Business
+			14095 [SCRIPT] Preparing for the Future
+			24010 [SCRIPT] Suthran's Orders
+			24011 [SCRIPT] Funny Floating Fungus
+			24012 [SCRIPT] An Ominous Crop
+			24013 [SCRIPT] Poison In the Waters
+			24014 [SCRIPT] Stomp Out the Plot
+			24015 [SCRIPT] Totem-Plowed
+			24016 [SCRIPT] A Strange New Threat
+			24020 [SCRIPT] Aegir's Orders
+			24021 [SCRIPT] Ghosts in the Desert
+			24022 [SCRIPT] Sneak Behind the Ice Claw
+			24023 [SCRIPT] A Blazing Rescue
+			24024 [SCRIPT] A Nepra Protector
+			24025 [SCRIPT] Crisis in Morheim
+			24026 [SCRIPT] A Hand from Each Side
+			24030 [SCRIPT] Showdown with Destiny
+			24031 [SCRIPT] Enemy at the Doorstep
+			24040 [SCRIPT] Votan's Orders
+			24041 [SCRIPT] Training in the Abyss
+			24042 [SCRIPT] A Ready Rescue
+			24043 [SCRIPT] Lazy Language Lessons
+			24044 [SCRIPT] Change the Future
+			24045 [SCRIPT] A Speedy Errand
+			24046 [SCRIPT] The Shadow Calls
+			24050 [SCRIPT] Nerita's Orders
+			24051 [SCRIPT] Invesetigate the Disappearance
+			24052 [SCRIPT] A Frozen City
+			24053 [SCRIPT] The Mauling of the Mau
+			24054 [SCRIPT] Crisis in Beluslan
+			24060 [SCRIPT] March to Balaurea
+			24061 [SCRIPT] Untangling Taloc's Hollow
+			24062 [SCRIPT] A Dark Plan
+			24070 [SCRIPT] Foreign Land, Familiar Plot
+			24071 [SCRIPT] The Protector's Test
+			24080 [SCRIPT] Conspiracy in Tiamaranta
+			24081 [SCRIPT] Secrets Within the Heart
+			24090 [SCRIPT] Footsteps of the Past
+			24091 [SCRIPT] Unending Mission
+			24095 [SCRIPT] For a New Future
+		[END] SUMMARY
+	-->
+
+	<monster_hunt id="3121" start_npc_ids="798155" end_npc_ids="798225">
+        <monster var="0" npc_ids="214615" end_var="1"/>
+        <monster var="1" npc_ids="214616" end_var="1"/>
+        <monster var="2" npc_ids="214617" end_var="1"/>
+        <monster var="3" npc_ids="214618" end_var="1"/>
+    </monster_hunt>
+	<monster_hunt id="4120" start_npc_ids="205150" end_npc_ids="204057">
+        <monster var="0" npc_ids="214698" end_var="1"/>
+    </monster_hunt>
+</quest_scripts>

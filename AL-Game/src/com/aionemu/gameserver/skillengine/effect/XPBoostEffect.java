@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -27,7 +28,7 @@ import com.aionemu.gameserver.skillengine.model.Effect;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "XPBoostEffect")
-public class XPBoostEffect extends BuffEffect {
+public class XPBoostEffect extends BufEffect {
 
 	@Override
 	public void calculate(Effect effect) {

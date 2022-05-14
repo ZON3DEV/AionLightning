@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.network.aion.AionClientPacket;
@@ -22,7 +23,8 @@ import com.aionemu.gameserver.network.aion.AionConnection.State;
 import com.aionemu.gameserver.services.player.PlayerEnterWorldService;
 
 /**
- * In this packets aion client is asking if given char [by oid] may login into game [ie start playing].
+ * In this packets aion client is asking if given char [by oid] may login into
+ * game [ie start playing].
  *
  * @author -Nemesiss-, Avol
  */

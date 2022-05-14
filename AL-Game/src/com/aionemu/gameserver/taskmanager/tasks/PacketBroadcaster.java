@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.taskmanager.tasks;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -36,61 +37,52 @@ public final class PacketBroadcaster extends AbstractFIFOPeriodicTaskManager<Cre
 
 	private PacketBroadcaster() {
 		super(200);
-		log.debug("[PacketBroadCaster] Init Packet Broadcaster...");
 	}
 
 	public static enum BroadcastMode {
 
 		UPDATE_STATS {
-
 			@Override
 			public void sendPacket(Creature creature) {
 				creature.getGameStats().updateStatInfo();
 			}
 		},
 		UPDATE_SPEED {
-
 			@Override
 			public void sendPacket(Creature creature) {
 				creature.getGameStats().updateSpeedInfo();
 			}
 		},
 		UPDATE_PLAYER_HP_STAT {
-
 			@Override
 			public void sendPacket(Creature creature) {
 				((Player) creature).getLifeStats().sendHpPacketUpdateImpl();
 			}
 		},
 		UPDATE_PLAYER_MP_STAT {
-
 			@Override
 			public void sendPacket(Creature creature) {
 				((Player) creature).getLifeStats().sendMpPacketUpdateImpl();
 			}
 		},
 		UPDATE_PLAYER_EFFECT_ICONS {
-
 			@Override
 			public void sendPacket(Creature creature) {
 				creature.getEffectController().updatePlayerEffectIconsImpl();
 			}
 		},
 		UPDATE_PLAYER_FLY_TIME {
-
 			@Override
 			public void sendPacket(Creature creature) {
 				((Player) creature).getLifeStats().sendFpPacketUpdateImpl();
 			}
 		},
 		BROAD_CAST_EFFECTS {
-
 			@Override
 			public void sendPacket(Creature creature) {
 				creature.getEffectController().broadCastEffectsImp();
 			}
 		};
-
 		private final byte MASK;
 
 		private BroadcastMode() {

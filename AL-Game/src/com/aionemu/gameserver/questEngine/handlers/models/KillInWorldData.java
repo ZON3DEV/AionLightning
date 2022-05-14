@@ -14,8 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.handlers.models;
 
+//import gnu.trove.list.array.TIntArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -23,8 +25,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
-
-//import gnu.trove.list.array.TIntArrayList;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.templates.world.WorldMapTemplate;
@@ -48,8 +48,6 @@ public class KillInWorldData extends XMLQuest {
 	protected List<Integer> worldIds;
 	@XmlAttribute(name = "invasion_world")
 	protected int invasionWorld;
-	@XmlAttribute(name = "end_dialog")
-	protected int endDialog;
 
 	@Override
 	public void register(QuestEngine questEngine) {
@@ -61,7 +59,7 @@ public class KillInWorldData extends XMLQuest {
 				worldIds.add(template.getMapId());
 			}
 		}
-		KillInWorld template = new KillInWorld(id, endNpcIds, startNpcIds, worldIds, amount, invasionWorld, endDialog);
+		KillInWorld template = new KillInWorld(id, endNpcIds, startNpcIds, worldIds, amount, invasionWorld);
 		questEngine.addQuestHandler(template);
 	}
 }

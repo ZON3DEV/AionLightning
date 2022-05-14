@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.trade;
 
 import com.aionemu.gameserver.configs.main.PricesConfig;
@@ -22,8 +23,10 @@ import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.siege.Influence;
 
 /**
- * @author Sarynth modified by wakizashi Used to get prices for the player. - Packets: SM_PRICES, SM_TRADELIST, SM_SELL_ITEM - Services: Godstone socket, teleporter, other fees. TODO: Add Player
- *         owner; value and check for PremiumRates or faction price influence.
+ * @author Sarynth modified by wakizashi Used to get prices for the player. -
+ *         Packets: SM_PRICES, SM_TRADELIST, SM_SELL_ITEM - Services: Godstone
+ *         socket, teleporter, other fees. TODO: Add Player owner; value and
+ *         check for PremiumRates or faction price influence.
  */
 public class PricesService {
 
@@ -53,12 +56,10 @@ public class PricesService {
 		}
 		if (influenceValue == 0.5f) {
 			return defaultPrices;
-		}
-		else if (influenceValue > 0.5f) {
+		} else if (influenceValue > 0.5f) {
 			float diff = influenceValue - 0.5f;
 			return Math.round(defaultPrices - ((diff / 2) * 100));
-		}
-		else {
+		} else {
 			float diff = 0.5f - influenceValue;
 			return Math.round(defaultPrices + ((diff / 2) * 100));
 		}
@@ -119,7 +120,8 @@ public class PricesService {
 	 * @return sellingModifier
 	 */
 	public static final int getVendorSellModifier(Race playerRace) {
-		return (int) ((int) ((int) (PricesConfig.VENDOR_SELL_MODIFIER * getGlobalPrices(playerRace) / 100F) * getGlobalPricesModifier() / 100F) * getTaxes(playerRace) / 100F);
+		return (int) ((int) ((int) (PricesConfig.VENDOR_SELL_MODIFIER * getGlobalPrices(playerRace) / 100F) * getGlobalPricesModifier() / 100F)
+				* getTaxes(playerRace) / 100F);
 	}
 
 	/**
@@ -129,9 +131,6 @@ public class PricesService {
 	public static final long getPriceForService(long basePrice, Race playerRace) {
 		// Tricky. Requires multiplication by Prices, Modifier, Taxes
 		// In order, and round down each time to match client calculation.
-		// System.out.println("GlobalPrice: " + getGlobalPrices(playerRace) / 100D);
-		// System.out.println("GlobalPriceModifier: " + getGlobalPricesModifier() / 100D);
-		// System.out.println("Tax: " + getTaxes(playerRace) / 100D);
 		return (long) ((long) ((long) (basePrice * getGlobalPrices(playerRace) / 100D) * getGlobalPricesModifier() / 100D) * getTaxes(playerRace) / 100D);
 	}
 
@@ -141,7 +140,9 @@ public class PricesService {
 	 */
 	public static final long getKinahForBuy(long requiredKinah, Race playerRace) {
 		// Requires double precision for 2mil+ kinah items
-		return (long) ((long) ((long) ((long) (requiredKinah * getVendorBuyModifier() / 100.0D) * getGlobalPrices(playerRace) / 100.0D) * getGlobalPricesModifier() / 100.0D) * getTaxes(playerRace) / 100.0D);
+		return (long) ((long) ((long) ((long) (requiredKinah * getVendorBuyModifier() / 100.0D) * getGlobalPrices(playerRace) / 100.0D)
+				* getGlobalPricesModifier() / 100.0D)
+				* getTaxes(playerRace) / 100.0D);
 	}
 
 	/**

@@ -77,7 +77,11 @@ public final class SM_INIT extends AionServerPacket {
         writeD(0x0000c621); // protocol revision
         writeB(publicRsaKey); // RSA Public Key
         // unk
-        writeB(new byte[16]);
+        writeD(0x00);
+        writeD(0x00);
+        writeD(0x00);
+        writeD(0x00);
+
         writeB(blowfishKey); // BlowFish key
         writeD(197635); // unk
         writeD(2097152); // unk

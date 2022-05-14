@@ -14,13 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.services.siegeservice;
 
-import java.util.concurrent.Future;
+package com.aionemu.gameserver.services.siegeservice;
 
 import com.aionemu.gameserver.model.gameobjects.siege.SiegeNpc;
 import com.aionemu.gameserver.model.siege.SiegeLocation;
 import com.aionemu.gameserver.model.siege.SiegeRace;
+import java.util.concurrent.Future;
 
 /**
  * @author Luzien

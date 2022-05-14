@@ -14,15 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world.geo;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.geoEngine.GeoWorldLoader;
@@ -30,8 +23,14 @@ import com.aionemu.gameserver.geoEngine.models.GeoMap;
 import com.aionemu.gameserver.geoEngine.scene.Spatial;
 import com.aionemu.gameserver.model.templates.world.WorldMapTemplate;
 import com.aionemu.gameserver.utils.Util;
-
 import gnu.trove.map.hash.TIntObjectHashMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author ATracer
@@ -64,8 +63,7 @@ public class RealGeoData implements GeoData {
 				if (GeoWorldLoader.loadWorld(map.getMapId(), models, geoMap)) {
 					geoMaps.put(map.getMapId(), geoMap);
 				}
-			}
-			catch (Throwable t) {
+			} catch (Throwable t) {
 				mapsWithErrors.add(map.getMapId());
 				geoMaps.put(map.getMapId(), DummyGeoData.DUMMY_MAP);
 			}
@@ -87,8 +85,7 @@ public class RealGeoData implements GeoData {
 		Map<String, Spatial> models = null;
 		try {
 			models = GeoWorldLoader.loadMeshs("data/geo/meshs.geo");
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			throw new IllegalStateException("Problem loading meshes", e);
 		}
 		return models;

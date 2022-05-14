@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.town;
 
 import java.sql.Timestamp;
@@ -130,7 +131,6 @@ public class Town {
 		data.put(this.id, this);
 		final SM_TOWNS_LIST packet = new SM_TOWNS_LIST(data);
 		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player player) {
 				if (player.getRace() == race) {
@@ -145,7 +145,8 @@ public class Town {
 		int worldId = DataManager.TOWN_SPAWNS_DATA.getWorldIdForTown(this.id);
 		for (Spawn spawn : newSpawns) {
 			for (SpawnSpotTemplate sst : spawn.getSpawnSpotTemplates()) {
-				SpawnTemplate spawnTemplate = SpawnEngine.addNewSpawn(worldId, spawn.getNpcId(), sst.getX(), sst.getY(), sst.getZ(), sst.getHeading(), spawn.getRespawnTime());
+				SpawnTemplate spawnTemplate = SpawnEngine.addNewSpawn(worldId, spawn.getNpcId(), sst.getX(), sst.getY(), sst.getZ(), sst.getHeading(),
+						spawn.getRespawnTime());
 				spawnTemplate.setStaticId(sst.getStaticId());
 				spawnTemplate.setRandomWalk(0);
 				VisibleObject object = SpawnEngine.spawnObject(spawnTemplate, 1);
@@ -179,8 +180,7 @@ public class Town {
 	public void setPersistentState(PersistentState state) {
 		if (this.persistentState == PersistentState.NEW && state == PersistentState.UPDATE_REQUIRED) {
 			return;
-		}
-		else {
+		} else {
 			this.persistentState = state;
 		}
 	}

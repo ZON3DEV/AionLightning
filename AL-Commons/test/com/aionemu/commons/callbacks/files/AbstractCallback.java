@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.callbacks.files;
 
 import com.aionemu.commons.callbacks.Callback;
@@ -22,8 +23,8 @@ import com.aionemu.commons.callbacks.Callback;
 @SuppressWarnings("rawtypes")
 public abstract class AbstractCallback implements Callback {
 
-	@Override
-	public Class<? extends Callback> getBaseClass() {
-		return AbstractCallback.class;
-	}
+    @Override
+    public Class<? extends Callback> getBaseClass() {
+        return AbstractCallback.class;
+    }
 }

@@ -14,7 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
+
+import gnu.trove.map.hash.THashMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +31,9 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.aionemu.gameserver.skillengine.model.MotionTime;
 
-import gnu.trove.map.hash.THashMap;
-
 /**
  * @author kecimis
+ *
  */
 @XmlRootElement(name = "motion_times")
 @XmlAccessorType(XmlAccessType.FIELD)

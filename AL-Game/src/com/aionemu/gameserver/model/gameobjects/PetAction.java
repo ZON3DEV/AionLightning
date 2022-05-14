@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects;
 
 import gnu.trove.map.hash.TIntObjectHashMap;
@@ -42,7 +43,6 @@ public enum PetAction {
 			petActions.put(action.getActionId(), action);
 		}
 	}
-
 	private int actionId;
 
 	private PetAction(int actionId) {

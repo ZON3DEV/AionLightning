@@ -14,22 +14,19 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.templates.teleport.TeleportLocation;
 import com.aionemu.gameserver.model.templates.teleport.TeleporterTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
-
-import javolution.util.FastList;
 
 /**
  * @author alexa026 , orz
@@ -41,7 +38,6 @@ public class SM_TELEPORT_MAP extends AionServerPacket {
 	private TeleporterTemplate teleport;
 	public Npc npc;
 	private static final Logger log = LoggerFactory.getLogger(SM_TELEPORT_MAP.class);
-	private static final FastList<Integer> disableTeleportNpcs = new FastList<Integer>();
 
 	public SM_TELEPORT_MAP(Player player, int targetObjectId, TeleporterTemplate teleport) {
 		this.player = player;
@@ -52,34 +48,12 @@ public class SM_TELEPORT_MAP extends AionServerPacket {
 
 	@Override
 	protected void writeImpl(AionConnection con) {
-		for (String s : CustomConfig.DISABLE_TELEPORTER_NPCS.split(",")) {
-			disableTeleportNpcs.add(Integer.parseInt(s));
-		}
-
 		if (teleport != null && teleport.getTeleportId() != 0) {
 			writeD(targetObjectId);
 			writeH(teleport.getTeleportId());
-			if (disableTeleportNpcs.contains(npc.getNpcId())) {
-				for (Integer npcId : disableTeleportNpcs) {
-					if (npc.getNpcId() == npcId) {
-						writeH(teleport.getTeleLocIdData().getTelelocations().size());
-						for (TeleportLocation locationid : teleport.getTeleLocIdData().getTelelocations()) {
-							writeD(locationid.getLocId());
-						}
-					}
-					else {
-						continue;
-					}
-				}
-			}
-			else {
-				writeH(0);
-			}
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(player, "Missing info at npc_teleporter.xml with npcid: " + npc.getNpcId());
 			log.info(String.format("Missing teleport info with npcid: %d", npc.getNpcId()));
 		}
-		disableTeleportNpcs.clear();
 	}
 }

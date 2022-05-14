@@ -14,10 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world.exceptions;
 
 /**
- * This exception will be thrown when object will be spawned more than one time (without despawning)
+ * This exception will be thrown when object will be spawned more than one time
+ * (without despawning)
  *
  * @author -Nemesiss-
  */
@@ -25,14 +27,16 @@ package com.aionemu.gameserver.world.exceptions;
 public class AlreadySpawnedException extends RuntimeException {
 
 	/**
-	 * Constructs an <code>AlreadySpawnedException</code> with no detail message.
+	 * Constructs an <code>AlreadySpawnedException</code> with no detail
+	 * message.
 	 */
 	public AlreadySpawnedException() {
 		super();
 	}
 
 	/**
-	 * Constructs an <code>AlreadySpawnedException</code> with the specified detail message.
+	 * Constructs an <code>AlreadySpawnedException</code> with the specified
+	 * detail message.
 	 *
 	 * @param s
 	 *            the detail message.

@@ -14,11 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers.attack;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+
+import javolution.util.FastMap;
 
 import com.aionemu.commons.callbacks.Callback;
 import com.aionemu.commons.callbacks.CallbackResult;
@@ -36,8 +39,6 @@ import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.utils.MathUtil;
 
-import javolution.util.FastMap;
-
 /**
  * @author ATracer, KKnD
  */
@@ -52,7 +53,8 @@ public class AggroList {
 	}
 
 	/**
-	 * Only add damage from enemies. (Verify this includes summons, traps, pets, and excludes fall damage.)
+	 * Only add damage from enemies. (Verify this includes summons, traps, pets,
+	 * and excludes fall damage.)
 	 *
 	 * @param attacker
 	 * @param damage
@@ -66,7 +68,8 @@ public class AggroList {
 		AggroInfo ai = getAggroInfo(attacker);
 		ai.addDamage(damage);
 		/**
-		 * For now we add hate equal to each damage received Additionally there will be broadcast of extra hate
+		 * For now we add hate equal to each damage received Additionally there
+		 * will be broadcast of extra hate
 		 */
 		ai.addHate(damage);
 
@@ -130,8 +133,7 @@ public class AggroList {
 		AionObject winner = getMostDamage();
 		if (winner instanceof PlayerGroup) {
 			return ((PlayerGroup) winner).getRace();
-		}
-		else if (winner instanceof Player) {
+		} else if (winner instanceof Player) {
 			return ((Player) winner).getRace();
 		}
 		return null;
@@ -176,7 +178,7 @@ public class AggroList {
 				continue;
 			}
 
-			if (!team.contains(ai.getAttacker())) {
+			if (!team.contains((Player) ai.getAttacker())) {
 				continue;
 			}
 
@@ -321,7 +323,8 @@ public class AggroList {
 	}
 
 	/**
-	 * Used to get a list of AggroInfo with npc and player/group/alliance damages combined.
+	 * Used to get a list of AggroInfo with npc and player/group/alliance
+	 * damages combined.
 	 *
 	 * @return finalDamageList
 	 */
@@ -342,25 +345,21 @@ public class AggroList {
 
 				if (creature instanceof Player && ((Player) creature).isInTeam()) {
 					source = ((Player) creature).getCurrentTeam();
-				}
-				else {
+				} else {
 					source = creature;
 				}
 
 				if (list.containsKey(source.getObjectId())) {
 					list.get(source.getObjectId()).addDamage(ai.getDamage());
-				}
-				else {
+				} else {
 					AggroInfo aggro = new AggroInfo(source);
 					aggro.setDamage(ai.getDamage());
 					list.put(source.getObjectId(), aggro);
 				}
-			}
-			else if (list.containsKey(creature.getObjectId())) {
+			} else if (list.containsKey(creature.getObjectId())) {
 				// Summon or other assistance
 				list.get(creature.getObjectId()).addDamage(ai.getDamage());
-			}
-			else {
+			} else {
 				// Create a separate object so we don't taint current list.
 				AggroInfo aggro = new AggroInfo(creature);
 				aggro.addDamage(ai.getDamage());

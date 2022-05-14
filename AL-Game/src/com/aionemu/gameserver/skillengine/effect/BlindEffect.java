@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -21,10 +22,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.commons.utils.Rnd;
+import com.aionemu.gameserver.model.stats.container.StatEnum;
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
 import com.aionemu.gameserver.controllers.observer.AttackCalcObserver;
 import com.aionemu.gameserver.controllers.observer.AttackStatusObserver;
-import com.aionemu.gameserver.model.stats.container.StatEnum;
 import com.aionemu.gameserver.skillengine.model.Effect;
 
 /**
@@ -50,7 +51,6 @@ public class BlindEffect extends EffectTemplate {
 		effect.setAbnormal(AbnormalState.BLIND.getId());
 		effect.getEffected().getEffectController().setAbnormal(AbnormalState.BLIND.getId());
 		AttackCalcObserver acObserver = new AttackStatusObserver(value, AttackStatus.DODGE) {
-
 			@Override
 			public boolean checkAttackerStatus(AttackStatus status) {
 				return Rnd.get(0, 100) <= value;

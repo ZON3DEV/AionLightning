@@ -119,50 +119,6 @@ public class MySQL5PremiumDAO extends PremiumDAO {
 		
 		return s;
 	}
-	
-	@Override
-	public long getLuna(int accountId) {
-		long luna = 0;
-		PreparedStatement st = DB.prepareStatement("SELECT luna FROM account_data WHERE id=?");
-		try {
-			st.setInt(1, accountId);
-			ResultSet rs = st.executeQuery();
-			if (rs.next()) {
-				luna = rs.getLong("luna");
-			}
-		}
-		catch (Exception e) {
-			log.error("getLuna [select Luna] "+accountId, e);
-		}
-		finally {
-			DB.close(st);
-		}
-		return luna;
-	}
-		
-	
-	@Override
-	public boolean updateLuna(int accountId, long luna) {
-		Connection con = null;
-		boolean s = true;
-		try {
-			con = DatabaseFactory.getConnection();
-			PreparedStatement stmt = con.prepareStatement("UPDATE account_data SET luna = ? WHERE id = ?");
-			stmt.setLong(1, luna);
-			stmt.setInt(2, accountId);
-			stmt.execute();
-			stmt.close();
-		}
-		catch (Exception e) {
-			log.error("updateLuna "+accountId, e);
-			s = false;
-		}
-		finally {
-			DatabaseFactory.close(con);
-		}
-		
-		return s;
-	}
 
 	@Override
 	public boolean supports(String database, int majorVersion, int minorVersion) {

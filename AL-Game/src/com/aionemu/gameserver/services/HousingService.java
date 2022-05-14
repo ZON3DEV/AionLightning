@@ -14,21 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
-
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.commons.utils.internal.chmv8.PlatformDependent;
-import com.aionemu.gameserver.GameServer;
 import com.aionemu.gameserver.controllers.HouseController;
 import com.aionemu.gameserver.dao.HousesDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -45,19 +35,19 @@ import com.aionemu.gameserver.model.templates.housing.BuildingType;
 import com.aionemu.gameserver.model.templates.housing.HouseAddress;
 import com.aionemu.gameserver.model.templates.housing.HousingLand;
 import com.aionemu.gameserver.model.templates.spawns.SpawnType;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_FRIEND_LIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_HOUSE_ACQUIRE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_HOUSE_OWNER_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_MARK_FRIENDLIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.*;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.WorldPosition;
-
 import javolution.util.FastList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.sql.Timestamp;
+import java.util.*;
 
 /**
  * @author Rolandas
@@ -82,10 +72,10 @@ public class HousingService {
 	}
 
 	private HousingService() {
-		log.debug("[HousingService] Loading housing data...");
+		log.info("Loading housing data...");
 		customHouses = PlatformDependent.newConcurrentHashMap(DAOManager.getDAO(HousesDAO.class).loadHouses(DataManager.HOUSE_DATA.getLands(), false));
 		studios = PlatformDependent.newConcurrentHashMap(DAOManager.getDAO(HousesDAO.class).loadHouses(DataManager.HOUSE_DATA.getLands(), true));
-		log.debug("[HousingService] Housing Service loaded.");
+		log.info("Housing Service loaded.");
 	}
 
 	/**
@@ -160,9 +150,8 @@ public class HousingService {
 				housesForMap.add(customHouse);
 			}
 		}
-		String worldName = DataManager.WORLD_MAPS_DATA.getTemplate(worldId).getName() + " (id:" + worldId + ")";
-		if (spawnedCounter > 0 && instanceId == 1) {
-			GameServer.log.info("[HousingService] Spawned " + spawnedCounter + " houses in " + worldName);
+		if (spawnedCounter > 0) {
+			log.info("Spawned houses " + worldId + " [" + instanceId + "] : " + spawnedCounter);
 		}
 	}
 
@@ -308,7 +297,7 @@ public class HousingService {
 		currentHouse.getRegistry().save();
 		currentHouse.reloadHouseRegistry(); // load new defaults
 		DAOManager.getDAO(HousesDAO.class).storeHouse(currentHouse);
-		HouseController controller = currentHouse.getController();
+		HouseController controller = ((HouseController) currentHouse.getController());
 		controller.broadcastAppearance();
 		controller.spawnObjects();
 	}
@@ -348,12 +337,10 @@ public class HousingService {
 			if (qs != null && qs.getStatus().equals(QuestStatus.COMPLETE)) {
 				buildingState |= PlayerHouseOwnerFlags.BIDDING_ALLOWED.getId();
 			}
-		}
-		else {
+		} else {
 			if (activeHouse.getStatus() == HouseStatus.SELL_WAIT) {
 				buildingState = PlayerHouseOwnerFlags.SELLING_HOUSE.getId();
-			}
-			else {
+			} else {
 				buildingState = PlayerHouseOwnerFlags.HOUSE_OWNER.getId();
 			}
 		}

@@ -14,23 +14,17 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.services.item;
 
-import java.util.Collections;
+package com.aionemu.gameserver.services.item;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.storage.StorageType;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_CUBE_UPDATE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_ITEM;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DELETE_WAREHOUSE_ITEM;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_ADD_ITEM;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INVENTORY_UPDATE_ITEM;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_LEGION_EDIT;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_WAREHOUSE_ADD_ITEM;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_WAREHOUSE_UPDATE_ITEM;
+import com.aionemu.gameserver.network.aion.serverpackets.*;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+
+import java.util.Collections;
 
 /**
  * @author ATracer
@@ -41,12 +35,11 @@ public class ItemPacketService {
 
 		EQUIP_UNEQUIP(-1, false), // internal usage only
 		CHARGE(-2, false), // internal usage only
-		TUNING(76, true),
 		STATS_CHANGE(0, true), // soul healer pay, manastone socketing, armor/weapons/arrows
 		INC_ITEM_MERGE(0x01, true),
 		INC_KINAH_MERGE(0x05, true),
 		DEC_ITEM_SPLIT(0x06, true),
-		DEC_ITEM_SPLIT_MOVE(0x0A, true), // move to other storage with split
+		DEC_ITEM_SPLIT_MOVE(0x0A, true), // move																														// split
 		DEC_ITEM_USE(0x16, true),
 		INC_ITEM_COLLECT(0x19, true),
 		INC_KINAH_COLLECT(0x1A, true),
@@ -55,12 +48,10 @@ public class ItemPacketService {
 		INC_KINAH_QUEST(0x32, true),
 		DEC_KINAH_LEARN(0x49, true), // craft skill learn
 		DEC_KINAH_FLY(0x4B, true), // teleport or fly
-		LUNA_UPDATE(0x49, true),
 		INC_CASH_ITEM(0x50, true), // event items, for exchange
 		INC_ITEM_REPURCHASE(0x51, true),
 		DEC_KINAH_CUBE(0x5A, true), // expand cube
 		DEC_PET_FOOD(0x5E, true),
-		INC_PASSPORT_ADD(0x8A, true),
 		PUT(0x13, true); // from other storage
 
 		private final int mask;
@@ -103,10 +94,7 @@ public class ItemPacketService {
 		BUY(0x1C),
 		ITEM_COLLECT(0x19), // Item collect
 		QUEST_WORK_ITEM(0x35),
-		LUNA_ADD(0x36),
-		QUESTIONNAIRE(0x40),
-		MAGIC_MORPH(0xB0),
-		MAGIC_CRAFT(0xB2);
+		QUESTIONNAIRE(0x40);
 
 		private final int mask;
 
@@ -130,8 +118,7 @@ public class ItemPacketService {
 		QUEST_COMPLETE(0x31),
 		QUEST_START(0x34),
 		DECOMPOSE(0x66),
-		REGISTER(0x78),
-		MAGIC_MORPH(0xB1);
+		REGISTER(0x78);
 
 		private final int mask;
 
@@ -185,8 +172,7 @@ public class ItemPacketService {
 	public static final void sendItemPacket(Player player, StorageType storageType, Item item, ItemUpdateType updateType) {
 		if (item.getItemCount() <= 0 && !item.getItemTemplate().isKinah()) {
 			sendItemDeletePacket(player, storageType, item, ItemDeleteType.fromUpdateType(updateType));
-		}
-		else {
+		} else {
 			sendItemUpdatePacket(player, storageType, item, updateType);
 		}
 	}

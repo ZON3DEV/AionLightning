@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -36,6 +37,7 @@ public class CM_REMOVE_ALTERED_STATE extends AionClientPacket {
 
 	/*
 	 * (non-Javadoc)
+	 *
 	 * @see com.aionemu.commons.network.packet.BaseClientPacket#readImpl()
 	 */
 	@Override
@@ -46,6 +48,7 @@ public class CM_REMOVE_ALTERED_STATE extends AionClientPacket {
 
 	/*
 	 * (non-Javadoc)
+	 *
 	 * @see com.aionemu.commons.network.packet.BaseClientPacket#runImpl()
 	 */
 	@Override

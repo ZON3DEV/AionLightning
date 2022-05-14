@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.team.legion.Legion;
@@ -54,9 +55,9 @@ public class CM_LEGION_SEND_EMBLEM extends AionClientPacket {
 		if (legion != null) {
 			LegionEmblem legionEmblem = legion.getLegionEmblem();
 			if (legionEmblem.getEmblemType() == LegionEmblemType.DEFAULT) {
-				sendPacket(new SM_LEGION_SEND_EMBLEM(legionId, legionEmblem.getEmblemId(), legionEmblem.getColor_r(), legionEmblem.getColor_g(), legionEmblem.getColor_b(), legion.getLegionName(), legionEmblem.getEmblemType(), 0));
-			}
-			else {
+				sendPacket(new SM_LEGION_SEND_EMBLEM(legionId, legionEmblem.getEmblemId(), legionEmblem.getColor_r(), legionEmblem.getColor_g(),
+						legionEmblem.getColor_b(), legion.getLegionName(), legionEmblem.getEmblemType(), 0));
+			} else {
 				LegionService.getInstance().sendEmblemData(getConnection().getActivePlayer(), legionEmblem, legionId, legion.getLegionName());
 			}
 		}

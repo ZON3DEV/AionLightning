@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.chatserver;
 
 import java.nio.channels.SelectionKey;
@@ -75,18 +76,15 @@ public class ChatServer {
 				chatServer.initialized();
 
 				return chatServer;
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 				log.info("Cant connect to ChatServer: " + e.getMessage());
-				System.out.println("");
 			}
 			try {
 				/**
 				 * 10s sleep
 				 */
 				Thread.sleep(10 * 1000);
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 			}
 		}
 	}
@@ -101,7 +99,6 @@ public class ChatServer {
 
 		if (!serverShutdown) {
 			ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
 					connect();

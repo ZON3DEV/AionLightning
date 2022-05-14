@@ -14,19 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.decomposable;
 
+import com.aionemu.gameserver.model.templates.item.ExtractedItemsCollection;
 import java.util.List;
-
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.templates.item.ExtractedItemsCollection;
-
-/**
- * @author Alcapwnd
- */
 @XmlType(name = "DecomposableItem")
 public class DecomposableItemInfo {
 
@@ -36,10 +32,10 @@ public class DecomposableItemInfo {
 	private List<ExtractedItemsCollection> itemsCollections;
 
 	public int getItemId() {
-		return this.itemId;
+		return itemId;
 	}
 
 	public List<ExtractedItemsCollection> getItemsCollections() {
-		return this.itemsCollections;
+		return itemsCollections;
 	}
 }

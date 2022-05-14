@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.network;
 
 /**
@@ -39,8 +40,7 @@ public class ServerCfg {
 	 */
 	public final String connectionName;
 	/**
-	 * <code>ConnectionFactory</code> that will create <code>AConection</code>
-	 * object<br>
+	 * <code>ConnectionFactory</code> that will create <code>AConection</code> object<br>
 	 * representing new socket connection.
 	 * 
 	 * @see com.aionemu.commons.network.ConnectionFactory
@@ -52,14 +52,13 @@ public class ServerCfg {
 	 * Constructor
 	 * 
 	 * @param hostName
-	 *            - Host Name on witch we will listen for connections.
+	 *          - Host Name on witch we will listen for connections.
 	 * @param port
-	 *            - Port number on witch we will listen for connections.
+	 *          - Port number on witch we will listen for connections.
 	 * @param connectionName
-	 *            - only for logging purposes.
+	 *          - only for logging purposes.
 	 * @param factory
-	 *            <code>ConnectionFactory</code> that will create
-	 *            <code>AConection</code> object
+	 *          <code>ConnectionFactory</code> that will create <code>AConection</code> object
 	 */
 	public ServerCfg(String hostName, int port, String connectionName, ConnectionFactory factory) {
 		this.hostName = hostName;

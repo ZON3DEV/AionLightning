@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.configs.main.GroupConfig;
@@ -91,14 +92,15 @@ public class CM_QUEST_SHARE extends AionClientPacket {
 
 				if (!questTemplate.isRepeatable()) {
 					if (member.getQuestStateList().getQuestState(questId) != null) {
-						if (member.getQuestStateList().getQuestState(questId).getStatus() != null && member.getQuestStateList().getQuestState(questId).getStatus() != QuestStatus.NONE) {
+						if (member.getQuestStateList().getQuestState(questId).getStatus() != null
+								&& member.getQuestStateList().getQuestState(questId).getStatus() != QuestStatus.NONE) {
 							continue;
 						}
 					}
-				}
-				else {
+				} else {
 					if (member.getQuestStateList().getQuestState(questId) != null) {
-						if (member.getQuestStateList().getQuestState(questId).getStatus() == QuestStatus.START || member.getQuestStateList().getQuestState(questId).getStatus() == QuestStatus.REWARD) {
+						if (member.getQuestStateList().getQuestState(questId).getStatus() == QuestStatus.START
+								|| member.getQuestStateList().getQuestState(questId).getStatus() == QuestStatus.REWARD) {
 							continue;
 						}
 					}
@@ -116,8 +118,7 @@ public class CM_QUEST_SHARE extends AionClientPacket {
 				}
 				PacketSendUtility.sendPacket(member, new SM_QUEST_ACTION(this.questId, member.getObjectId(), true));
 			}
-		}
-		else if (player.isInAlliance2()) {
+		} else if (player.isInAlliance2()) {
 			for (Player member : player.getPlayerAllianceGroup2().getOnlineMembers()) {
 				if (player == member) {
 					continue;
@@ -128,12 +129,13 @@ public class CM_QUEST_SHARE extends AionClientPacket {
 				}
 
 				if (!questTemplate.isRepeatable()) {
-					if (member.getQuestStateList().getQuestState(questId).getStatus() != null && member.getQuestStateList().getQuestState(questId).getStatus() != QuestStatus.NONE) {
+					if (member.getQuestStateList().getQuestState(questId).getStatus() != null
+							&& member.getQuestStateList().getQuestState(questId).getStatus() != QuestStatus.NONE) {
 						continue;
 					}
-				}
-				else {
-					if (member.getQuestStateList().getQuestState(questId).getStatus() == QuestStatus.START || member.getQuestStateList().getQuestState(questId).getStatus() == QuestStatus.REWARD) {
+				} else {
+					if (member.getQuestStateList().getQuestState(questId).getStatus() == QuestStatus.START
+							|| member.getQuestStateList().getQuestState(questId).getStatus() == QuestStatus.REWARD) {
 						continue;
 					}
 				}
@@ -150,8 +152,7 @@ public class CM_QUEST_SHARE extends AionClientPacket {
 				}
 				PacketSendUtility.sendPacket(member, new SM_QUEST_ACTION(this.questId, member.getObjectId(), true));
 			}
-		}
-		else {
+		} else {
 			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1100000));
 			return;
 		}

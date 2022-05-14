@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.condition;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -26,6 +27,7 @@ import com.aionemu.gameserver.utils.PositionUtil;
 
 /**
  * @author kecimis
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "BackCondition")
@@ -33,7 +35,10 @@ public class BackCondition extends Condition {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.aionemu.gameserver.skillengine.condition.Condition#validate(com.aionemu.gameserver.skillengine.model.Skill)
+	 *
+	 * @see
+	 * com.aionemu.gameserver.skillengine.condition.Condition#validate(com.aionemu
+	 * .gameserver.skillengine.model.Skill)
 	 */
 	@Override
 	public boolean validate(Skill env) {

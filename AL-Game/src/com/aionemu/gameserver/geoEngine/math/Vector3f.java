@@ -14,22 +14,23 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.geoEngine.math;
 
-import java.util.logging.Logger;
-
 import com.aionemu.gameserver.configs.main.GeoDataConfig;
-
 import javolution.context.ObjectFactory;
 import javolution.lang.Reusable;
+
+import java.util.logging.Logger;
 
 /*
  * -- Added *Local methods to cut down on object creation - JS
  */
-
 /**
- * <code>Vector3f</code> defines a Vector for a three float value tuple. <code>Vector3f</code> can represent any three dimensional value, such as a vertex, a normal, etc. Utility methods are also
- * included to aid in mathematical calculations.
+ * <code>Vector3f</code> defines a Vector for a three float value tuple.
+ * <code>Vector3f</code> can represent any three dimensional value, such as a
+ * vertex, a normal, etc. Utility methods are also included to aid in
+ * mathematical calculations.
  *
  * @author Mark Powell
  * @author Joshua Slack
@@ -39,7 +40,6 @@ public final class Vector3f implements Cloneable, Reusable {
 	private static final Logger logger = Logger.getLogger(Vector3f.class.getName());
 	@SuppressWarnings("rawtypes")
 	private static final ObjectFactory FACTORY = new ObjectFactory() {
-
 		@Override
 		public Object create() {
 			return new Vector3f();
@@ -67,14 +67,16 @@ public final class Vector3f implements Cloneable, Reusable {
 	public float z;
 
 	/**
-	 * Constructor instantiates a new <code>Vector3f</code> with default values of (0,0,0).
+	 * Constructor instantiates a new <code>Vector3f</code> with default values
+	 * of (0,0,0).
 	 */
 	public Vector3f() {
 		x = y = z = 0f;
 	}
 
 	/**
-	 * Constructor instantiates a new <code>Vector3f</code> with provides values.
+	 * Constructor instantiates a new <code>Vector3f</code> with provides
+	 * values.
 	 *
 	 * @param x
 	 *            the x value of the vector.
@@ -90,7 +92,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * Constructor instantiates a new <code>Vector3f</code> that is a copy of the provided vector
+	 * Constructor instantiates a new <code>Vector3f</code> that is a copy of
+	 * the provided vector
 	 *
 	 * @param copy
 	 *            The Vector3f to copy
@@ -100,7 +103,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>set</code> sets the x,y,z values of the vector based on passed parameters.
+	 * <code>set</code> sets the x,y,z values of the vector based on passed
+	 * parameters.
 	 *
 	 * @param x
 	 *            the x value of the vector.
@@ -118,7 +122,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>set</code> sets the x,y,z values of the vector by copying the supplied vector.
+	 * <code>set</code> sets the x,y,z values of the vector by copying the
+	 * supplied vector.
 	 *
 	 * @param vect
 	 *            the vector to copy.
@@ -132,7 +137,9 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>add</code> adds a provided vector to this vector creating a resultant vector which is returned. If the provided vector is null, null is returned.
+	 * <code>add</code> adds a provided vector to this vector creating a
+	 * resultant vector which is returned. If the provided vector is null, null
+	 * is returned.
 	 *
 	 * @param vec
 	 *            the vector to add to this.
@@ -147,7 +154,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>add</code> adds the values of a provided vector storing the values in the supplied vector.
+	 * <code>add</code> adds the values of a provided vector storing the values
+	 * in the supplied vector.
 	 *
 	 * @param vec
 	 *            the vector to add to this
@@ -163,7 +171,9 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>addLocal</code> adds a provided vector to this vector internally, and returns a handle to this vector for easy chaining of calls. If the provided vector is null, null is returned.
+	 * <code>addLocal</code> adds a provided vector to this vector internally,
+	 * and returns a handle to this vector for easy chaining of calls. If the
+	 * provided vector is null, null is returned.
 	 *
 	 * @param vec
 	 *            the vector to add to this vector.
@@ -181,7 +191,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>add</code> adds the provided values to this vector, creating a new vector that is then returned.
+	 * <code>add</code> adds the provided values to this vector, creating a new
+	 * vector that is then returned.
 	 *
 	 * @param addX
 	 *            the x value to add.
@@ -196,7 +207,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>addLocal</code> adds the provided values to this vector internally, and returns a handle to this vector for easy chaining of calls.
+	 * <code>addLocal</code> adds the provided values to this vector internally,
+	 * and returns a handle to this vector for easy chaining of calls.
 	 *
 	 * @param addX
 	 *            value to add to x
@@ -214,7 +226,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>scaleAdd</code> multiplies this vector by a scalar then adds the given Vector3f.
+	 * <code>scaleAdd</code> multiplies this vector by a scalar then adds the
+	 * given Vector3f.
 	 *
 	 * @param scalar
 	 *            the value to multiply this vector by.
@@ -229,7 +242,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>scaleAdd</code> multiplies the given vector by a scalar then adds the given vector.
+	 * <code>scaleAdd</code> multiplies the given vector by a scalar then adds
+	 * the given vector.
 	 *
 	 * @param scalar
 	 *            the value to multiply this vector by.
@@ -246,7 +260,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>dot</code> calculates the dot product of this vector with a provided vector. If the provided vector is null, 0 is returned.
+	 * <code>dot</code> calculates the dot product of this vector with a
+	 * provided vector. If the provided vector is null, 0 is returned.
 	 *
 	 * @param vec
 	 *            the vector to dot with this vector.
@@ -261,7 +276,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>cross</code> calculates the cross product of this vector with a parameter vector v.
+	 * <code>cross</code> calculates the cross product of this vector with a
+	 * parameter vector v.
 	 *
 	 * @param v
 	 *            the vector to take the cross product of with this.
@@ -272,7 +288,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>cross</code> calculates the cross product of this vector with a parameter vector v. The result is stored in <code>result</code>
+	 * <code>cross</code> calculates the cross product of this vector with a
+	 * parameter vector v. The result is stored in <code>result</code>
 	 *
 	 * @param v
 	 *            the vector to take the cross product of with this.
@@ -285,14 +302,18 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>cross</code> calculates the cross product of this vector with a parameter vector v. The result is stored in <code>result</code>
+	 * <code>cross</code> calculates the cross product of this vector with a
+	 * parameter vector v. The result is stored in <code>result</code>
 	 *
 	 * @param otherX
-	 *            x component of the vector to take the cross product of with this.
+	 *            x component of the vector to take the cross product of with
+	 *            this.
 	 * @param otherY
-	 *            y component of the vector to take the cross product of with this.
+	 *            y component of the vector to take the cross product of with
+	 *            this.
 	 * @param otherZ
-	 *            z component of the vector to take the cross product of with this.
+	 *            z component of the vector to take the cross product of with
+	 *            this.
 	 * @param result
 	 *            the vector to store the cross product result.
 	 * @return result, after recieving the cross product vector.
@@ -309,7 +330,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>crossLocal</code> calculates the cross product of this vector with a parameter vector v.
+	 * <code>crossLocal</code> calculates the cross product of this vector with
+	 * a parameter vector v.
 	 *
 	 * @param v
 	 *            the vector to take the cross product of with this.
@@ -320,14 +342,18 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>crossLocal</code> calculates the cross product of this vector with a parameter vector v.
+	 * <code>crossLocal</code> calculates the cross product of this vector with
+	 * a parameter vector v.
 	 *
 	 * @param otherX
-	 *            x component of the vector to take the cross product of with this.
+	 *            x component of the vector to take the cross product of with
+	 *            this.
 	 * @param otherY
-	 *            y component of the vector to take the cross product of with this.
+	 *            y component of the vector to take the cross product of with
+	 *            this.
 	 * @param otherZ
-	 *            z component of the vector to take the cross product of with this.
+	 *            z component of the vector to take the cross product of with
+	 *            this.
 	 * @return this.
 	 */
 	public Vector3f crossLocal(float otherX, float otherY, float otherZ) {
@@ -355,7 +381,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>lengthSquared</code> calculates the squared value of the magnitude of the vector.
+	 * <code>lengthSquared</code> calculates the squared value of the magnitude
+	 * of the vector.
 	 *
 	 * @return the magnitude squared of the vector.
 	 */
@@ -364,7 +391,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>distanceSquared</code> calculates the distance squared between this vector and vector v.
+	 * <code>distanceSquared</code> calculates the distance squared between this
+	 * vector and vector v.
 	 *
 	 * @param v
 	 *            the second vector to determine the distance squared.
@@ -378,7 +406,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>distance</code> calculates the distance between this vector and vector v.
+	 * <code>distance</code> calculates the distance between this vector and
+	 * vector v.
 	 *
 	 * @param v
 	 *            the second vector to determine the distance.
@@ -389,7 +418,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>mult</code> multiplies this vector by a scalar. The resultant vector is returned.
+	 * <code>mult</code> multiplies this vector by a scalar. The resultant
+	 * vector is returned.
 	 *
 	 * @param scalar
 	 *            the value to multiply this vector by.
@@ -400,7 +430,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>mult</code> multiplies this vector by a scalar. The resultant vector is supplied as the second parameter and returned.
+	 * <code>mult</code> multiplies this vector by a scalar. The resultant
+	 * vector is supplied as the second parameter and returned.
 	 *
 	 * @param scalar
 	 *            the scalar to multiply this vector by.
@@ -420,7 +451,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>multLocal</code> multiplies this vector by a scalar internally, and returns a handle to this vector for easy chaining of calls.
+	 * <code>multLocal</code> multiplies this vector by a scalar internally, and
+	 * returns a handle to this vector for easy chaining of calls.
 	 *
 	 * @param scalar
 	 *            the value to multiply this vector by.
@@ -434,7 +466,9 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>multLocal</code> multiplies a provided vector to this vector internally, and returns a handle to this vector for easy chaining of calls. If the provided vector is null, null is returned.
+	 * <code>multLocal</code> multiplies a provided vector to this vector
+	 * internally, and returns a handle to this vector for easy chaining of
+	 * calls. If the provided vector is null, null is returned.
 	 *
 	 * @param vec
 	 *            the vector to mult to this vector.
@@ -452,7 +486,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>multLocal</code> multiplies this vector by 3 scalars internally, and returns a handle to this vector for easy chaining of calls.
+	 * <code>multLocal</code> multiplies this vector by 3 scalars internally,
+	 * and returns a handle to this vector for easy chaining of calls.
 	 *
 	 * @param x
 	 * @param y
@@ -467,7 +502,9 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>multLocal</code> multiplies a provided vector to this vector internally, and returns a handle to this vector for easy chaining of calls. If the provided vector is null, null is returned.
+	 * <code>multLocal</code> multiplies a provided vector to this vector
+	 * internally, and returns a handle to this vector for easy chaining of
+	 * calls. If the provided vector is null, null is returned.
 	 *
 	 * @param vec
 	 *            the vector to mult to this vector.
@@ -482,7 +519,9 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>multLocal</code> multiplies a provided vector to this vector internally, and returns a handle to this vector for easy chaining of calls. If the provided vector is null, null is returned.
+	 * <code>multLocal</code> multiplies a provided vector to this vector
+	 * internally, and returns a handle to this vector for easy chaining of
+	 * calls. If the provided vector is null, null is returned.
 	 *
 	 * @param vec
 	 *            the vector to mult to this vector.
@@ -502,7 +541,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>divide</code> divides the values of this vector by a scalar and returns the result. The values of this vector remain untouched.
+	 * <code>divide</code> divides the values of this vector by a scalar and
+	 * returns the result. The values of this vector remain untouched.
 	 *
 	 * @param scalar
 	 *            the value to divide this vectors attributes by.
@@ -514,7 +554,9 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>divideLocal</code> divides this vector by a scalar internally, and returns a handle to this vector for easy chaining of calls. Dividing by zero will result in an exception.
+	 * <code>divideLocal</code> divides this vector by a scalar internally, and
+	 * returns a handle to this vector for easy chaining of calls. Dividing by
+	 * zero will result in an exception.
 	 *
 	 * @param scalar
 	 *            the value to divides this vector by.
@@ -529,7 +571,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>divide</code> divides the values of this vector by a scalar and returns the result. The values of this vector remain untouched.
+	 * <code>divide</code> divides the values of this vector by a scalar and
+	 * returns the result. The values of this vector remain untouched.
 	 *
 	 * @param scalar
 	 *            the value to divide this vectors attributes by.
@@ -540,7 +583,9 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>divideLocal</code> divides this vector by a scalar internally, and returns a handle to this vector for easy chaining of calls. Dividing by zero will result in an exception.
+	 * <code>divideLocal</code> divides this vector by a scalar internally, and
+	 * returns a handle to this vector for easy chaining of calls. Dividing by
+	 * zero will result in an exception.
 	 *
 	 * @param scalar
 	 *            the value to divides this vector by.
@@ -554,7 +599,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>negate</code> returns the negative of this vector. All values are negated and set to a new vector.
+	 * <code>negate</code> returns the negative of this vector. All values are
+	 * negated and set to a new vector.
 	 *
 	 * @return the negated vector.
 	 */
@@ -575,7 +621,9 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>subtract</code> subtracts the values of a given vector from those of this vector creating a new vector object. If the provided vector is null, null is returned.
+	 * <code>subtract</code> subtracts the values of a given vector from those
+	 * of this vector creating a new vector object. If the provided vector is
+	 * null, null is returned.
 	 *
 	 * @param vec
 	 *            the vector to subtract from this vector.
@@ -586,8 +634,9 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>subtractLocal</code> subtracts a provided vector to this vector internally, and returns a handle to this vector for easy chaining of calls. If the provided vector is null, null is
-	 * returned.
+	 * <code>subtractLocal</code> subtracts a provided vector to this vector
+	 * internally, and returns a handle to this vector for easy chaining of
+	 * calls. If the provided vector is null, null is returned.
 	 *
 	 * @param vec
 	 *            the vector to subtract
@@ -624,7 +673,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>subtract</code> subtracts the provided values from this vector, creating a new vector that is then returned.
+	 * <code>subtract</code> subtracts the provided values from this vector,
+	 * creating a new vector that is then returned.
 	 *
 	 * @param subtractX
 	 *            the x value to subtract.
@@ -639,7 +689,9 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>subtractLocal</code> subtracts the provided values from this vector internally, and returns a handle to this vector for easy chaining of calls.
+	 * <code>subtractLocal</code> subtracts the provided values from this vector
+	 * internally, and returns a handle to this vector for easy chaining of
+	 * calls.
 	 *
 	 * @param subtractX
 	 *            the x value to subtract.
@@ -677,7 +729,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>normalizeLocal</code> makes this vector into a unit vector of itself.
+	 * <code>normalizeLocal</code> makes this vector into a unit vector of
+	 * itself.
 	 *
 	 * @return this.
 	 */
@@ -696,7 +749,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>maxLocal</code> computes the maximum value for each component in this and <code>other</code> vector. The result is stored in this vector.
+	 * <code>maxLocal</code> computes the maximum value for each component in
+	 * this and <code>other</code> vector. The result is stored in this vector.
 	 *
 	 * @param other
 	 */
@@ -707,7 +761,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>minLocal</code> computes the minimum value for each component in this and <code>other</code> vector. The result is stored in this vector.
+	 * <code>minLocal</code> computes the minimum value for each component in
+	 * this and <code>other</code> vector. The result is stored in this vector.
 	 *
 	 * @param other
 	 */
@@ -726,7 +781,9 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>angleBetween</code> returns (in radians) the angle between two vectors. It is assumed that both this vector and the given vector are unit vectors (iow, normalized).
+	 * <code>angleBetween</code> returns (in radians) the angle between two
+	 * vectors. It is assumed that both this vector and the given vector are
+	 * unit vectors (iow, normalized).
 	 *
 	 * @param otherVector
 	 *            a unit vector to find the angle against
@@ -734,17 +791,18 @@ public final class Vector3f implements Cloneable, Reusable {
 	 */
 	public float angleBetween(Vector3f otherVector) {
 		float dotProduct = dot(otherVector);
-		float angle = FastMath.acos(dotProduct);
-		return angle;
+		return FastMath.acos(dotProduct);
 	}
 
 	/**
-	 * Sets this vector to the interpolation by changeAmnt from this to the finalVec this=(1-changeAmnt)*this + changeAmnt * finalVec
+	 * Sets this vector to the interpolation by changeAmnt from this to the
+	 * finalVec this=(1-changeAmnt)*this + changeAmnt * finalVec
 	 *
 	 * @param finalVec
 	 *            The final vector to interpolate towards
 	 * @param changeAmnt
-	 *            An amount between 0.0 - 1.0 representing a precentage change from this towards finalVec
+	 *            An amount between 0.0 - 1.0 representing a precentage change
+	 *            from this towards finalVec
 	 */
 	public Vector3f interpolate(Vector3f finalVec, float changeAmnt) {
 		this.x = (1 - changeAmnt) * this.x + changeAmnt * finalVec.x;
@@ -754,14 +812,16 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * Sets this vector to the interpolation by changeAmnt from beginVec to finalVec this=(1-changeAmnt)*beginVec + changeAmnt * finalVec
+	 * Sets this vector to the interpolation by changeAmnt from beginVec to
+	 * finalVec this=(1-changeAmnt)*beginVec + changeAmnt * finalVec
 	 *
 	 * @param beginVec
 	 *            the beging vector (changeAmnt=0)
 	 * @param finalVec
 	 *            The final vector to interpolate towards
 	 * @param changeAmnt
-	 *            An amount between 0.0 - 1.0 representing a precentage change from beginVec towards finalVec
+	 *            An amount between 0.0 - 1.0 representing a precentage change
+	 *            from beginVec towards finalVec
 	 */
 	public Vector3f interpolate(Vector3f beginVec, Vector3f finalVec, float changeAmnt) {
 		this.x = (1 - changeAmnt) * beginVec.x + changeAmnt * finalVec.x;
@@ -771,7 +831,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * Check a vector... if it is null or its floats are NaN or infinite, return false. Else return true.
+	 * Check a vector... if it is null or its floats are NaN or infinite, return
+	 * false. Else return true.
 	 *
 	 * @param vector
 	 *            the vector to check
@@ -807,8 +868,7 @@ public final class Vector3f implements Cloneable, Reusable {
 			v.x = w.y * u.z;
 			v.y = w.z * u.x - w.x * u.z;
 			v.z = -w.y * u.x;
-		}
-		else {
+		} else {
 			// w.y or w.z is the largest magnitude component, swap them
 			fInvLength = FastMath.invSqrt(w.y * w.y + w.z * w.z);
 			u.x = 0.0f;
@@ -824,8 +884,7 @@ public final class Vector3f implements Cloneable, Reusable {
 	public Vector3f clone() {
 		try {
 			return (Vector3f) super.clone();
-		}
-		catch (CloneNotSupportedException e) {
+		} catch (CloneNotSupportedException e) {
 			throw new AssertionError(); // can not happen
 		}
 	}
@@ -834,7 +893,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	 * Saves this Vector3f into the given float[] object.
 	 *
 	 * @param floats
-	 *            The float[] to take this Vector3f. If null, a new float[3] is created.
+	 *            The float[] to take this Vector3f. If null, a new float[3] is
+	 *            created.
 	 * @return The array, with X, Y, Z float values in that order
 	 */
 	public float[] toArray(float[] floats) {
@@ -848,7 +908,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * are these two vectors the same? they are is they both have the same x,y, and z values.
+	 * are these two vectors the same? they are is they both have the same x,y,
+	 * and z values.
 	 *
 	 * @param o
 	 *            the object to compare for equality
@@ -878,7 +939,9 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>hashCode</code> returns a unique code for this vector object based on it's values. If two vectors are logically equivalent, they will return the same hash code value.
+	 * <code>hashCode</code> returns a unique code for this vector object based
+	 * on it's values. If two vectors are logically equivalent, they will return
+	 * the same hash code value.
 	 *
 	 * @return the hash code value of this vector.
 	 */
@@ -892,7 +955,8 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * <code>toString</code> returns the string representation of this vector. The format is:
+	 * <code>toString</code> returns the string representation of this vector.
+	 * The format is:
 	 * <p/>
 	 * org.jme.math.Vector3f [X=XX.XXXX, Y=YY.YYYY, Z=ZZ.ZZZZ]
 	 *
@@ -932,7 +996,8 @@ public final class Vector3f implements Cloneable, Reusable {
 
 	/**
 	 * @param index
-	 * @return x value if index == 0, y value if index == 1 or z value if index == 2
+	 * @return x value if index == 0, y value if index == 1 or z value if index
+	 *         == 2
 	 * @throws IllegalArgumentException
 	 *             if index is not one of 0, 1, 2.
 	 */
@@ -973,6 +1038,7 @@ public final class Vector3f implements Cloneable, Reusable {
 
 	/*
 	 * (non-Javadoc)
+	 *
 	 * @see javolution.lang.Reusable#reset()
 	 */
 	@Override
@@ -981,7 +1047,9 @@ public final class Vector3f implements Cloneable, Reusable {
 	}
 
 	/**
-	 * Returns a new, preallocated or {@link #recycle recycled} text builder (on the stack when executing in a {@link javolution.context.StackContext StackContext}).
+	 * Returns a new, preallocated or {@link #recycle recycled} text builder (on
+	 * the stack when executing in a {@link javolution.context.StackContext
+	 * StackContext}).
 	 *
 	 * @return a new, preallocated or recycled text builder instance.
 	 */
@@ -990,21 +1058,21 @@ public final class Vector3f implements Cloneable, Reusable {
 			Vector3f vector3f = (Vector3f) FACTORY.object();
 			vector3f.x = vector3f.y = vector3f.z = 0;
 			return vector3f;
-		}
-		else {
+		} else {
 			return new Vector3f();
 		}
 	}
 
 	/**
-	 * Recycles a text builder {@link #newInstance() instance} immediately (on the stack when executing in a {@link javolution.context.StackContext StackContext}).
+	 * Recycles a text builder {@link #newInstance() instance} immediately (on
+	 * the stack when executing in a {@link javolution.context.StackContext
+	 * StackContext}).
 	 */
 	@SuppressWarnings("unchecked")
 	public static void recycle(Vector3f instance) {
 		if (GeoDataConfig.GEO_OBJECT_FACTORY_ENABLE) {
 			FACTORY.recycle(instance);
-		}
-		else {
+		} else {
 			instance = null;
 		}
 	}

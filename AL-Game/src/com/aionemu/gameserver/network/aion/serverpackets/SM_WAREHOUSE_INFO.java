@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.util.Collection;
@@ -21,6 +22,7 @@ import java.util.Collections;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.items.storage.StorageType;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
@@ -43,8 +45,7 @@ public class SM_WAREHOUSE_INFO extends AionServerPacket {
 		this.firstPacket = firstPacket;
 		if (items == null) {
 			this.itemList = Collections.emptyList();
-		}
-		else {
+		} else {
 			this.itemList = items;
 		}
 		this.player = player;
@@ -55,7 +56,12 @@ public class SM_WAREHOUSE_INFO extends AionServerPacket {
 		writeC(warehouseType);
 		writeC(firstPacket ? 1 : 0);
 		writeC(expandLvl); // warehouse expand (0 - 9)
-		writeH(0);
+		if (warehouseType == StorageType.REGULAR_WAREHOUSE.getId()) {
+			writeC(1);
+			writeC(0); // unk, seen value 0x02
+		} else {
+			writeH(0);
+		}
 		writeH(itemList.size());
 		for (Item item : itemList) {
 			writeItemInfo(item);
@@ -67,7 +73,7 @@ public class SM_WAREHOUSE_INFO extends AionServerPacket {
 
 		writeD(item.getObjectId());
 		writeD(itemTemplate.getTemplateId());
-		writeC(0); // some item info (4 - weapon, 7 - armor, 8 - rings, 17 - bottles)
+        writeC(0); // some item info (4 - weapon, 7 - armor, 8 - rings, 17 - bottles)
 		writeNameId(itemTemplate.getNameId());
 
 		ItemInfoBlob itemInfoBlob = ItemInfoBlob.getFullBlob(player, item);

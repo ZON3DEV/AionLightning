@@ -15,33 +15,30 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.scripting.impl.javacompiler;
 
+import com.aionemu.commons.scripting.ScriptClassLoader;
+import com.aionemu.commons.utils.ClassUtils;
+import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.tools.JavaFileObject;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.URL;
-import java.net.URLDecoder;
+import java.net.*;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.tools.JavaFileObject;
-
-import org.apache.commons.io.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.aionemu.commons.scripting.ScriptClassLoader;
-import com.aionemu.commons.utils.ClassUtils;
-
 /**
  * This classloader is used to load script classes. <br>
  * <br>
- * Due to JavaCompiler limitations we have to keep list of available classes
- * here.
+ * Due to JavaCompiler limitations we have to keep list of available classes here.
  * 
  * @author SoulKeeper
  */
@@ -56,14 +53,10 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader {
 
 	/**
 	 * Creates new ScriptClassLoader with given ClassFileManger. <br>
-	 * Parent ClassLoader is ClassLoader of current class:
-	 * 
-	 * <pre>
-	 * ScriptClassLoaderImpl.class.getClassLoader()
-	 * </pre>
+	 * Parent ClassLoader is ClassLoader of current class: <pre>ScriptClassLoaderImpl.class.getClassLoader()</pre>
 	 *
 	 * @param classFileManager
-	 *            classFileManager of this classLoader
+	 *          classFileManager of this classLoader
 	 */
 	ScriptClassLoaderImpl(ClassFileManager classFileManager) {
 		super(new URL[] {}, ScriptClassLoaderImpl.class.getClassLoader());
@@ -71,13 +64,12 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader {
 	}
 
 	/**
-	 * Creates new ScriptClassLoader with given ClassFileManger and another
-	 * classLoader as parent
+	 * Creates new ScriptClassLoader with given ClassFileManger and another classLoader as parent
 	 * 
 	 * @param classFileManager
-	 *            classFileManager of this classLoader
+	 *          classFileManager of this classLoader
 	 * @param parent
-	 *            parent classLoader
+	 *          parent classLoader
 	 */
 	ScriptClassLoaderImpl(ClassFileManager classFileManager, ClassLoader parent) {
 		super(new URL[] {}, parent);
@@ -106,10 +98,10 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader {
 	 * Returns list of classes that are members of a package
 	 * 
 	 * @param packageName
-	 *            package to search for classes
+	 *          package to search for classes
 	 * @return list of classes that are package members
 	 * @throws IOException
-	 *             if was unable to load class
+	 *           if was unable to load class
 	 */
 	public Set<JavaFileObject> getClassesForPackage(String packageName) throws IOException {
 		Set<JavaFileObject> result = new HashSet<JavaFileObject>();
@@ -135,23 +127,22 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader {
 
 		// load package members from this classloader
 		Enumeration<URL> urls = getResources(packageName.replace('.', '/'));
-		while (urls.hasMoreElements()) {
+		while(urls.hasMoreElements()){
 			URL url = urls.nextElement();
 			String path = URLDecoder.decode(url.getPath(), "UTF-8");
-			if (new File(path).isDirectory()) {
+			if(new File(path).isDirectory()){
 				Set<String> packageClasses = ClassUtils.getClassNamesFromPackage(new File(path), packageName, false);
 				classNames.addAll(packageClasses);
-			} else if (path.toLowerCase().contains(".jar!")) {
+			} else if(path.toLowerCase().contains(".jar!")){
 				File file = new File(path);
-				while (!file.getName().toLowerCase().endsWith(".jar!")) {
+				while(!file.getName().toLowerCase().endsWith(".jar!")){
 					file = file.getParentFile();
 				}
 				path = file.getPath().substring(0, file.getPath().length() - 1);
 				path = path.replace('\\', '/');
 				path = path.substring(path.indexOf(":") + 1);
 				file = new File(path);
-				// add jar file as library. Actually it's doesn't matter if we
-				// have it as library
+				// add jar file as library. Actually it's doesn't matter if we have it as library
 				// or as file in class path
 				addJarFile(file);
 			}
@@ -168,7 +159,8 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader {
 					byte[] data = getRawClassByName(cn);
 					OutputStream os = bc.openOutputStream();
 					os.write(data);
-				} catch (IOException e) {
+				}
+				catch (IOException e) {
 					log.error("Error while loading class from package " + packageName, e);
 					throw e;
 				}
@@ -180,17 +172,15 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader {
 	}
 
 	/**
-	 * Finds class with the specified name from the URL search path. Any URLs
-	 * referring to JAR files are loaded and opened as needed until the class is
-	 * found.
+	 * Finds class with the specified name from the URL search path. Any URLs referring to JAR files are loaded and opened
+	 * as needed until the class is found.
 	 * 
 	 * @param name
-	 *            the name of the class
+	 *          the name of the class
 	 * @return the resulting class data
 	 * @throws IOException
-	 *             if failed to load class
-	 * @throws IllegalArgumentException
-	 *             if failed to open input stream for class
+	 *           if failed to load class
+	 * @throws IllegalArgumentException if failed to open input stream for class
 	 */
 	protected byte[] getRawClassByName(String name) throws IOException {
 		String resourceName = name.replace('.', '/').concat(".class");
@@ -201,17 +191,21 @@ public class ScriptClassLoaderImpl extends ScriptClassLoader {
 		try {
 			is = resource.openStream();
 			clazz = IOUtils.toByteArray(is);
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			log.error("Error while loading class data: " + name, e);
 			throw e;
-		} catch (NullPointerException e) {
+		}
+		catch(NullPointerException e){
 			log.error("Can't open input stream for resource: " + name);
 			throw new IllegalArgumentException("Failed to open input stream for resource: " + name);
-		} finally {
+		}
+		finally {
 			if (is != null) {
 				try {
 					is.close();
-				} catch (IOException e) {
+				}
+				catch (IOException e) {
 					log.error("Error while closing stream", e);
 				}
 			}

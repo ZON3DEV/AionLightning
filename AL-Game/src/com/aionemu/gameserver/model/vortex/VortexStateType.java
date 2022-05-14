@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.vortex;
 
 /**
@@ -21,6 +22,5 @@ package com.aionemu.gameserver.model.vortex;
  */
 public enum VortexStateType {
 
-	INVASION,
-	PEACE;
+	INVASION, PEACE
 }

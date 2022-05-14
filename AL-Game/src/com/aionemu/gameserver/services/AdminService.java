@@ -14,28 +14,29 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javolution.util.FastList;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aionemu.gameserver.GameServer;
 import com.aionemu.gameserver.configs.administration.AdminConfig;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-
-import javolution.util.FastList;
 
 /**
  * @author KID
  */
 public class AdminService {
 
+	private final Logger log = LoggerFactory.getLogger(AdminService.class);
 	private static final Logger itemLog = LoggerFactory.getLogger("GMITEMRESTRICTION");
 	private FastList<Integer> list;
 	private static AdminService instance = new AdminService();
@@ -52,7 +53,7 @@ public class AdminService {
 	}
 
 	public void reload() {
-		if (list.size() > 0) {
+		if (!list.isEmpty()) {
 			list.clear();
 		}
 
@@ -61,29 +62,26 @@ public class AdminService {
 			br = new BufferedReader(new FileReader("./config/administration/item.restriction.txt"));
 			String line = null;
 			while ((line = br.readLine()) != null) {
-				if (line.startsWith("#") || line.trim().length() == 0) {
+				if (line.startsWith("#") || line.trim().isEmpty()) {
 					continue;
 				}
 
 				String pt = line.split("#")[0].replaceAll(" ", "");
 				list.add(Integer.parseInt(pt));
 			}
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			if (br != null) {
 				try {
 					br.close();
-				}
-				catch (IOException e) {
+				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
 		}
 
-		GameServer.log.info("[AdminService] loaded " + list.size() + " operational items.");
+		log.info("AdminService loaded " + list.size() + " operational items.");
 	}
 
 	public boolean canOperate(Player player, Player target, Item item, String type) {
@@ -100,7 +98,7 @@ public class AdminService {
 			return true;
 		}
 
-		if(player.getAccessLevel() > 0 && player.getAccessLevel() < 4) { // run check only for 1-3 level gms
+		if (player.getAccessLevel() > 0) {
 			boolean value = list.contains(itemId);
 			String str = "GM " + player.getName() + "|" + player.getObjectId() + " (" + type + "): " + itemId + "|result=" + value;
 			if (target != null) {
@@ -112,8 +110,7 @@ public class AdminService {
 			}
 
 			return value;
-		}
-		else {
+		} else {
 			return true;
 		}
 	}

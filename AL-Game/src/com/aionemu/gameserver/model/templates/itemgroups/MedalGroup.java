@@ -14,19 +14,19 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.itemgroups;
 
+import com.aionemu.gameserver.model.templates.rewards.MedalItem;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.templates.rewards.MedalItem;
-
 /**
+ *
  * @author Luzien
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -45,6 +45,7 @@ public class MedalGroup extends BonusItemGroup {
 
 	@Override
 	public ItemRaceEntry[] getRewards() {
-		return getItems().toArray(new ItemRaceEntry[0]);
+		List<MedalItem> var = getItems();
+		return var.toArray(new ItemRaceEntry[var.size()]);
 	}
 }

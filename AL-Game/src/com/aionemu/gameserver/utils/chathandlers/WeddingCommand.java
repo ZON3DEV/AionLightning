@@ -14,9 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.chathandlers;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.utils.chathandlers.ChatCommand;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -48,8 +50,7 @@ public abstract class WeddingCommand extends ChatCommand {
 		boolean success = false;
 		if (text.length() == alias.length()) {
 			success = this.run(player, EMPTY_PARAMS);
-		}
-		else {
+		} else {
 			success = this.run(player, text.substring(alias.length() + 1).split(" "));
 		}
 

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.group.events;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -60,11 +61,11 @@ public class PlayerGroupLeavedEvent extends PlayerLeavedEvent<PlayerGroupMember,
 		switch (reason) {
 			case BAN:
 			case LEAVE:
-				// PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_PARTY_SECEDE); // client side?
+				// PacketSendUtility.sendPacket(player,
+				// SM_SYSTEM_MESSAGE.STR_PARTY_SECEDE); // client side?
 				if (team.onlineMembers() <= 1) {
 					PlayerGroupService.disband(team);
-				}
-				else {
+				} else {
 					if (leavedPlayer.equals(team.getLeader().getObject())) {
 						team.onEvent(new ChangeGroupLeaderEvent(team));
 					}
@@ -82,7 +83,6 @@ public class PlayerGroupLeavedEvent extends PlayerLeavedEvent<PlayerGroupMember,
 
 		if (leavedPlayer.isInInstance()) {
 			ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
 					if (!leavedPlayer.isInGroup2()) {

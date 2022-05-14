@@ -14,10 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.vortex;
 
-import java.util.ArrayList;
-import java.util.List;
+package com.aionemu.gameserver.model.vortex;
 
 import com.aionemu.gameserver.controllers.RVController;
 import com.aionemu.gameserver.model.Race;
@@ -37,7 +35,8 @@ import com.aionemu.gameserver.world.WorldPosition;
 import com.aionemu.gameserver.world.zone.InvasionZoneInstance;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 import com.aionemu.gameserver.world.zone.handler.ZoneHandler;
-
+import java.util.ArrayList;
+import java.util.List;
 import javolution.util.FastMap;
 
 /**
@@ -150,7 +149,7 @@ public class VortexLocation implements ZoneHandler {
 		return isActive() && getVortexController().getPassedPlayers().containsKey(objId);
 	}
 
-	public boolean isInsideActiveVortex(Player player) {
+	public boolean isInsideActiveVotrex(Player player) {
 		return isActive() && isInsideLocation(player);
 	}
 
@@ -181,8 +180,7 @@ public class VortexLocation implements ZoneHandler {
 			if (creature.getRace().equals(getInvadersRace())) {
 				kisks.putEntry(creature.getObjectId(), (Kisk) creature);
 			}
-		}
-		else if (creature instanceof Player) {
+		} else if (creature instanceof Player) {
 			Player player = (Player) creature;
 
 			// if (player.isGM()) {
@@ -193,11 +191,11 @@ public class VortexLocation implements ZoneHandler {
 
 				if (isActive()) {
 					if (player.getRace().equals(getInvadersRace())) {
-						if (getVortexController().getPassedPlayers().containsKey(player.getObjectId()) && !getActiveVortex().getInvaders().containsKey(player.getObjectId())) {
+						if (getVortexController().getPassedPlayers().containsKey(player.getObjectId())
+								&& !getActiveVortex().getInvaders().containsKey(player.getObjectId())) {
 							getActiveVortex().addPlayer(player, true);
 						}
-					}
-					else {
+					} else {
 						getActiveVortex().updateDefenders(player);
 					}
 				}
@@ -227,23 +225,20 @@ public class VortexLocation implements ZoneHandler {
 
 							// start kick timer
 							ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 								@Override
 								public void run() {
-									if (player.isOnline() && !isInsideActiveVortex(player)) {
+									if (player.isOnline() && !isInsideActiveVotrex(player)) {
 										getActiveVortex().kickPlayer(player, true);
 									}
 								}
 							}, 10 * 1000);
 						}
-					}
-					else {
+					} else {
 						// start kick timer
 						ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 							@Override
 							public void run() {
-								if (player.isOnline() && !isInsideActiveVortex(player)) {
+								if (player.isOnline() && !isInsideActiveVotrex(player)) {
 									getActiveVortex().kickPlayer(player, false);
 								}
 							}

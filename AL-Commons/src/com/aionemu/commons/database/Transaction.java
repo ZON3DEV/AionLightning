@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.database;
 
 import java.sql.Connection;
@@ -26,12 +27,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * This class allows easy manipulations with transactions, it should be used
- * when critical or synchronized data should be commited to two or more tables.
- * This class allows us to avoid data synchronization problems in db.
+ * This class allows easy manipulations with transactions, it should be used when critical or synchronized data should
+ * be commited to two or more tables. This class allows us to avoid data synchronization problems in db.
  * <p/>
- * Class is not designed to be thread-safe, should be synchronized
- * externally.<br>
+ * Class is not designed to be thread-safe, should be synchronized externally.<br>
  * Class is not fail-safe, if error happens - exception will be thrown.
  * 
  * @author SoulKeeper
@@ -49,13 +48,13 @@ public class Transaction {
 	private Connection connection;
 
 	/**
-	 * Package private constructor, should be instantiated via
-	 * {@link com.aionemu.commons.database.DB#beginTransaction()} class
+	 * Package private constructor, should be instantiated via {@link com.aionemu.commons.database.DB#beginTransaction()}
+	 * class
 	 * 
 	 * @param con
-	 *            Connection that will be used for this transaction
+	 *          Connection that will be used for this transaction
 	 * @throws java.sql.SQLException
-	 *             if can't disable autocommit mode
+	 *           if can't disable autocommit mode
 	 */
 	Transaction(Connection con) throws SQLException {
 		this.connection = con;
@@ -66,31 +65,31 @@ public class Transaction {
 	 * Adds Insert / Update Query to the transaction
 	 * 
 	 * @param sql
-	 *            SQL string
+	 *          SQL string
 	 * @throws SQLException
-	 *             if something went wrong
+	 *           if something went wrong
 	 */
 	public void insertUpdate(String sql) throws SQLException {
 		insertUpdate(sql, null);
 	}
 
 	/**
-	 * Adds Insert / Update Query to this transaction. Utilizes IUSth for
-	 * Batching and Query Editing. MUST MANUALLY EXECUTE QUERY / BATACH IN IUSth
-	 * (No need to close Statement after execution)
+	 * Adds Insert / Update Query to this transaction. Utilizes IUSth for Batching and Query Editing. MUST MANUALLY
+	 * EXECUTE QUERY / BATACH IN IUSth (No need to close Statement after execution)
 	 * 
 	 * @param sql
-	 *            Sql query
+	 *          Sql query
 	 * @param iusth
-	 *            query helper
+	 *          query helper
 	 * @throws SQLException
-	 *             if something went wrong
+	 *           if something went wrong
 	 */
 	public void insertUpdate(String sql, IUStH iusth) throws SQLException {
 		PreparedStatement statement = connection.prepareStatement(sql);
 		if (iusth != null) {
 			iusth.handleInsertUpdate(statement);
-		} else {
+		}
+		else {
 			statement.executeUpdate();
 		}
 	}
@@ -99,10 +98,10 @@ public class Transaction {
 	 * Creates new savepoint
 	 * 
 	 * @param name
-	 *            name of savepoint
+	 *          name of savepoint
 	 * @return created savepoint
 	 * @throws SQLException
-	 *             if can't create save point
+	 *           if can't create save point
 	 */
 	public Savepoint setSavepoint(String name) throws SQLException {
 		return connection.setSavepoint(name);
@@ -112,9 +111,9 @@ public class Transaction {
 	 * Releases savepoint of transaction
 	 * 
 	 * @param savepoint
-	 *            savepoint to release
+	 *          savepoint to release
 	 * @throws SQLException
-	 *             if something went wrong
+	 *           if something went wrong
 	 */
 	public void releaseSavepoint(Savepoint savepoint) throws SQLException {
 		connection.releaseSavepoint(savepoint);
@@ -124,35 +123,37 @@ public class Transaction {
 	 * Commits transaction
 	 * 
 	 * @throws SQLException
-	 *             if something is wrong with transaction
+	 *           if something is wrong with transaction
 	 */
 	public void commit() throws SQLException {
 		commit(null);
 	}
 
 	/**
-	 * Commits transaction. If rollBackToOnError is null - whole transaction
-	 * will be rolledback
+	 * Commits transaction. If rollBackToOnError is null - whole transaction will be rolledback
 	 * 
 	 * @param rollBackToOnError
-	 *            savepoint that should be used to rollback
+	 *          savepoint that should be used to rollback
 	 * @throws SQLException
-	 *             if something went wrongF
+	 *           if something went wrongF
 	 */
 	public void commit(Savepoint rollBackToOnError) throws SQLException {
 
 		try {
 			connection.commit();
-		} catch (SQLException e) {
+		}
+		catch (SQLException e) {
 			log.warn("Error while commiting transaction", e);
 
 			try {
 				if (rollBackToOnError != null) {
 					connection.rollback(rollBackToOnError);
-				} else {
+				}
+				else {
 					connection.rollback();
 				}
-			} catch (SQLException e1) {
+			}
+			catch (SQLException e1) {
 				log.error("Can't rollback transaction", e1);
 			}
 		}

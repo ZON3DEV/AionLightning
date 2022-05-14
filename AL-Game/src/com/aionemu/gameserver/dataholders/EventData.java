@@ -14,7 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
+
+import gnu.trove.map.hash.THashMap;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,15 +36,13 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.gameserver.model.templates.event.EventTemplate;
 
-import gnu.trove.map.hash.THashMap;
-
 /**
- * <p/>
+ * <p>
  * Java class for EventData complex type.
- * <p/>
- * The following schema fragment specifies the expected content contained within this class.
- * <p/>
- * 
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ *
  * <pre>
  * &lt;complexType name="EventData">
  *   &lt;complexContent>

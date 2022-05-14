@@ -18,34 +18,12 @@ CREATE TABLE `account_data` (
   `ip_force` varchar(20) DEFAULT NULL,
   `expire` date DEFAULT NULL,
   `toll` bigint(13) NOT NULL DEFAULT '0',
-  `email` varchar(50) DEFAULT NULL,
-  `question` varchar(50) DEFAULT NULL,
-  `answer` varchar(50) DEFAULT NULL,
-  `balance` float DEFAULT NULL,
-  `luna` bigint(13) NOT NULL DEFAULT '0',
-  `return_account` tinyint(1) NOT NULL DEFAULT '0',
-  `return_end` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 CHARSET=utf8;
 
 -- ----------------------------
 -- Records of account_data
--- ----------------------------
-
--- ----------------------------
--- Table structure for account_playtime
--- ----------------------------
-DROP TABLE IF EXISTS `account_playtime`;
-CREATE TABLE `account_playtime` (
-  `account_id` int(10) unsigned NOT NULL,
-  `accumulated_online` int(10) unsigned NOT NULL DEFAULT '0',
-  `lastupdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`account_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of account_playtime
 -- ----------------------------
 
 -- ----------------------------
@@ -59,9 +37,7 @@ CREATE TABLE `account_rewards` (
   `points` decimal(20,0) NOT NULL DEFAULT '0',
   `received` varchar(70) NOT NULL DEFAULT '0',
   `rewarded` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`uniqId`),
-  KEY `FK_account_rewards` (`accountId`),
-  CONSTRAINT `FK_account_rewards` FOREIGN KEY (`accountId`) REFERENCES `account_data` (`id`) ON DELETE CASCADE
+  PRIMARY KEY (`uniqId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -80,8 +56,7 @@ CREATE TABLE `account_time` (
   `accumulated_online` int(10) DEFAULT '0',
   `accumulated_rest` int(10) DEFAULT '0',
   `penalty_end` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`account_id`),
-  CONSTRAINT `FK_account_time` FOREIGN KEY (`account_id`) REFERENCES `account_data` (`id`) ON DELETE CASCADE
+  PRIMARY KEY (`account_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -160,7 +135,7 @@ CREATE TABLE `player_transfers` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for svstats
+-- Table structure for `svstats`
 -- ----------------------------
 DROP TABLE IF EXISTS `svstats`;
 CREATE TABLE `svstats` (
@@ -177,7 +152,7 @@ CREATE TABLE `svstats` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for tasks
+-- Table structure for `tasks`
 -- ----------------------------
 DROP TABLE IF EXISTS `tasks`;
 CREATE TABLE `tasks` (

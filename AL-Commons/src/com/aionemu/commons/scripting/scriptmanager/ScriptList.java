@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.scripting.scriptmanager;
 
 import java.util.Set;
@@ -52,7 +53,7 @@ public class ScriptList {
 	 * Sets list of script descriptors
 	 * 
 	 * @param scriptInfos
-	 *            lisft of script descriptors
+	 *          lisft of script descriptors
 	 */
 	public void setScriptInfos(Set<ScriptInfo> scriptInfos) {
 		this.scriptInfos = scriptInfos;

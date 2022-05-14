@@ -14,10 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gm;
 
 /**
- * @author Ever' - Magenik
+ * @author Ever - Magenik
  */
 public enum GmPanelCommands {
 
@@ -63,12 +64,12 @@ public enum GmPanelCommands {
 	TELEPORT_TO_NAMED,
 	WISH,
 	WISHID,
-	DELETE_ITEMS,
-	/**
-	 * @PLAYER INFO
-	 */
-	BOOKMARK_ADD,
-	SEARCH;
+    DELETE_ITEMS,
+    /**
+     * @PLAYER INFO
+     */
+    BOOKMARK_ADD,
+    SEARCH;
 
 	public static GmPanelCommands getValue(String command) {
 		for (GmPanelCommands value : values()) {

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.captcha;
 
 import java.awt.Color;
@@ -87,8 +88,7 @@ public class CAPTCHAUtil {
 
 			// resource dispose
 			g2.dispose();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			bImg = null;
 		}

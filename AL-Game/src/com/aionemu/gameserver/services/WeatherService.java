@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import java.util.ArrayList;
@@ -105,7 +106,6 @@ public class WeatherService {
 	 */
 	public void checkWeathersTime() {
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				for (WeatherKey key : worldZoneWeathers.keySet()) {
@@ -125,8 +125,7 @@ public class WeatherService {
 			WeatherEntry newEntry = null;
 			if (oldEntry == null) {
 				newEntry = getRandomWeather(key.getCreatedTime(), table, zoneIndex + 1);
-			}
-			else {
+			} else {
 				newEntry = table.getWeatherAfter(oldEntry);
 				if (newEntry == null) {
 					newEntry = getRandomWeather(key.getCreatedTime(), table, zoneIndex + 1);
@@ -145,8 +144,7 @@ public class WeatherService {
 		int rank = 2;
 		if (chance > 600) {
 			rank = 0;
-		}
-		else if (chance > 400) {
+		} else if (chance > 400) {
 			rank = 1;
 		}
 
@@ -171,9 +169,9 @@ public class WeatherService {
 		if (chosenWeather.size() == 0) {
 			// no weather, code = 0
 			newWeather = new WeatherEntry();
-		}
-		else {
-			// almost all weather types have after and before weathers, so chances
+		} else {
+			// almost all weather types have after and before weathers, so
+			// chances
 			// to pick up are almost equal
 			newWeather = chosenWeather.get(Rnd.get(chosenWeather.size()));
 			// now find "before" weather if such exists
@@ -186,14 +184,16 @@ public class WeatherService {
 				}
 			}
 
-			// now to be or not to be -- we don't want weather present every time :P
+			// now to be or not to be -- we don't want weather present every
+			// time :P
 			// rank 2 is strongest to appear, rank 0 is the weakest
 			int dayTimeCorrection = 1;
 			if (createdTime.getDayTime() == DayTime.AFTERNOON) {
 				dayTimeCorrection *= 2; // sunny days more often :)
 			}
 			chance = Rnd.get(0, 100);
-			if ((newWeather.getRank() == 0 && chance > 33 / dayTimeCorrection) || (newWeather.getRank() == 1 && chance > 50 / dayTimeCorrection) || (newWeather.getRank() == 2 && chance > 66 / dayTimeCorrection)) {
+			if ((newWeather.getRank() == 0 && chance > 33 / dayTimeCorrection) || (newWeather.getRank() == 1 && chance > 50 / dayTimeCorrection)
+					|| (newWeather.getRank() == 2 && chance > 66 / dayTimeCorrection)) {
 				newWeather = new WeatherEntry();
 			}
 
@@ -251,8 +251,7 @@ public class WeatherService {
 			WeatherEntry oldEntry = weatherEntries[i];
 			if (oldEntry == null) {
 				weatherEntries[i] = new WeatherEntry(0, weatherCode);
-			}
-			else {
+			} else {
 				weatherEntries[i] = new WeatherEntry(oldEntry.getZoneId(), weatherCode);
 			}
 		}
@@ -260,7 +259,8 @@ public class WeatherService {
 	}
 
 	/**
-	 * Allows server to reinitialize Weathers for all regions TODO: not thread safe if run by admin
+	 * Allows server to reinitialize Weathers for all regions TODO: not thread
+	 * safe if run by admin
 	 */
 	public synchronized void resetWeather() {
 		Set<WeatherKey> loadedWeathers = new HashSet<WeatherKey>(worldZoneWeathers.keySet());
@@ -309,8 +309,7 @@ public class WeatherService {
 					PacketSendUtility.sendPacket(currentPlayer, new SM_WEATHER(weatherEntries));
 				}
 			}
-		}
-		else {
+		} else {
 			PacketSendUtility.sendPacket(player, new SM_WEATHER(weatherEntries));
 		}
 	}

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.summons;
 
 import com.aionemu.gameserver.ai2.event.AIEventType;
@@ -25,17 +26,13 @@ import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.summons.SummonMode;
 import com.aionemu.gameserver.model.summons.UnsummonType;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_EMOTION;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SUMMON_OWNER_REMOVE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SUMMON_PANEL;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SUMMON_PANEL_REMOVE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SUMMON_UPDATE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.*;
 import com.aionemu.gameserver.spawnengine.VisibleObjectSpawner;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
+ *
  * @author xTz
  */
 public class SummonsService {
@@ -78,18 +75,11 @@ public class SummonsService {
 				PacketSendUtility.sendPacket(master, new SM_SUMMON_UPDATE(summon));
 				break;
 			case LOGOUT:
-				break;
 			case UNSPECIFIED:
-				PacketSendUtility.sendPacket(master, new SM_SUMMON_UPDATE(summon));
 				break;
 		}
 		summon.getObserveController().notifySummonReleaseObservers();
-		if (unsummonType == UnsummonType.UNSPECIFIED) {
-			summon.setReleaseTask(ThreadPoolManager.getInstance().schedule(new ReleaseSummonTask(summon, unsummonType, isAttacked), 1000));
-		}
-		else {
-			summon.setReleaseTask(ThreadPoolManager.getInstance().schedule(new ReleaseSummonTask(summon, unsummonType, isAttacked), 3000));
-		}
+		summon.setReleaseTask(ThreadPoolManager.getInstance().schedule(new ReleaseSummonTask(summon, unsummonType, isAttacked), 5000));
 	}
 
 	public static class ReleaseSummonTask implements Runnable {
@@ -128,7 +118,6 @@ public class SummonsService {
 						final Creature lastAttacker = (Creature) target;
 						if (!master.getLifeStats().isAlreadyDead() && !lastAttacker.getLifeStats().isAlreadyDead() && isAttacked) {
 							ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 								@Override
 								public void run() {
 									lastAttacker.getAggroList().addHate(master, 1);

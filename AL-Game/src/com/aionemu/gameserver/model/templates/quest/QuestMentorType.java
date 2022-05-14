@@ -14,12 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.quest;
 
 import javax.xml.bind.annotation.XmlEnum;
 
 /**
  * @author MrPoke
+ *
  */
 @XmlEnum
 public enum QuestMentorType {

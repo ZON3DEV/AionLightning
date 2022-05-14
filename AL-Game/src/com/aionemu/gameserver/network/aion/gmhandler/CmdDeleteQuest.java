@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.gmhandler;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -26,11 +27,9 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_QUEST_COMPLETED_LIST
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.Util;
-import com.aionemu.gameserver.world.World;
 
 /**
- * @author Alcapwnd
+ * @author Antraxx
  */
 public class CmdDeleteQuest extends AbstractGMHandler {
 
@@ -40,18 +39,15 @@ public class CmdDeleteQuest extends AbstractGMHandler {
 	}
 
 	private void run() {
-		Player t = admin;
-
-		if (admin.getTarget() != null && admin.getTarget() instanceof Player)
-			t = World.getInstance().findPlayer(Util.convertName(admin.getTarget().getName()));
+		Player t = target != null ? target : admin;
 
 		Integer questID = Integer.parseInt(params);
 		if (questID <= 0) {
 			return;
 		}
 
-		DataManager.getInstance();
-		QuestTemplate qt = DataManager.QUEST_DATA.getQuestById(questID);
+		@SuppressWarnings("static-access")
+		QuestTemplate qt = DataManager.getInstance().QUEST_DATA.getQuestById(questID);
 		if (qt == null) {
 			PacketSendUtility.sendMessage(admin, "Quest with ID: " + questID + " was not found");
 			return;
@@ -68,8 +64,7 @@ public class CmdDeleteQuest extends AbstractGMHandler {
 		qs.setCompleteCount(0);
 		if (qt.getCategory() == QuestCategory.MISSION) {
 			qs.setStatus(QuestStatus.START);
-		}
-		else {
+		} else {
 			qs.setStatus(null);
 		}
 		if (qs.getPersistentState() != PersistentState.NEW) {
@@ -78,5 +73,4 @@ public class CmdDeleteQuest extends AbstractGMHandler {
 		PacketSendUtility.sendPacket(t, new SM_QUEST_COMPLETED_LIST(t.getQuestStateList().getAllFinishedQuests()));
 		t.getController().updateNearbyQuests();
 	}
-
 }

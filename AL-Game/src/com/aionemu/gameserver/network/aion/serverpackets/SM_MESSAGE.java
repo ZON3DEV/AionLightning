@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.configs.main.CustomConfig;
@@ -110,7 +111,8 @@ public class SM_MESSAGE extends AionServerPacket {
 		boolean canRead = true;
 
 		if (race != null) {
-			canRead = chatType.isSysMsg() || CustomConfig.SPEAKING_BETWEEN_FACTIONS || player.getAccessLevel() > 0 || (con.getActivePlayer() != null && con.getActivePlayer().getAccessLevel() > 0);
+			canRead = chatType.isSysMsg() || CustomConfig.SPEAKING_BETWEEN_FACTIONS || player.getAccessLevel() > 0
+					|| (con.getActivePlayer() != null && con.getActivePlayer().getAccessLevel() > 0);
 		}
 
 		writeC(chatType.toInteger()); // type
@@ -123,13 +125,13 @@ public class SM_MESSAGE extends AionServerPacket {
 
 		switch (chatType) {
 			case NORMAL:
+			case GOLDEN_YELLOW:
 			case WHITE:
 			case YELLOW:
 			case BRIGHT_YELLOW:
 			case WHITE_CENTER:
 			case YELLOW_CENTER:
 			case BRIGHT_YELLOW_CENTER:
-			case BRIGHT_YELLOW_CENTER_NEW:
 				writeH(0x00); // unknown
 				writeS(message);
 				break;
@@ -158,13 +160,9 @@ public class SM_MESSAGE extends AionServerPacket {
 			case CH9:
 			case CH10:
 			case COMMAND:
-			case UNION_WAR:
-			case GMRESPONSE:
 				writeS(senderName);
 				writeS(message);
 				break;
-		default:
-			break;
 		}
 	}
 }

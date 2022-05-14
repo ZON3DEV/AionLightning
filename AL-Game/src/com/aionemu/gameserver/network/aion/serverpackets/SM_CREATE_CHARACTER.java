@@ -14,11 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.account.PlayerAccountData;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.PlayerInfo;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This packet is response for CM_CREATE_CHARACTER
@@ -27,6 +31,8 @@ import com.aionemu.gameserver.network.aion.PlayerInfo;
  */
 public class SM_CREATE_CHARACTER extends PlayerInfo {
 
+	@SuppressWarnings("unused")
+	private static final Logger logger = LoggerFactory.getLogger(SM_CREATE_CHARACTER.class);
 	/**
 	 * If response is ok
 	 */
@@ -60,10 +66,8 @@ public class SM_CREATE_CHARACTER extends PlayerInfo {
 	 * You cannot create characters of other races in the same server
 	 */
 	public static final int RESPONSE_OTHER_RACE = 12;
-	/**
-	 * Character Creator initialize for creating the char
-	 */
-	public static final int RESPONSE_CREATE_CHAR = 22;
+
+	public static final int RESPONE_CREATE_READY = 20;
 	/**
 	 * response code
 	 */
@@ -76,10 +80,8 @@ public class SM_CREATE_CHARACTER extends PlayerInfo {
 	/**
 	 * Constructs new <tt>SM_CREATE_CHARACTER </tt> packet
 	 *
-	 * @param accPlData
-	 *            playerAccountData of player that was created
-	 * @param responseCode
-	 *            response code (invalid nickname, nickname is already taken, ok)
+	 * @param accPlData playerAccountData of player that was created
+	 * @param responseCode response code (invalid nickname, nickname is already taken, ok)
 	 */
 	public SM_CREATE_CHARACTER(PlayerAccountData accPlData, int responseCode) {
 		this.player = accPlData;
@@ -95,10 +97,9 @@ public class SM_CREATE_CHARACTER extends PlayerInfo {
 
 		if (responseCode == RESPONSE_OK) {
 			writePlayerInfo(player); // if everything is fine, all the character's data should be sent
-			writeB(new byte[260]); // 5.0 Playerinfo = 492 + 260 + 4 = 756(PacketSize)
-		}
-		else {
-			writeB(new byte[752]); // if something is wrong, only return code should be sent in the packet (Packet Size 5.0 is 756 - responseCode)
+			writeB(new byte[136]);
+		} else {
+			writeB(new byte[616]); // if something is wrong, only return code should be sent in the packet
 		}
 	}
 }

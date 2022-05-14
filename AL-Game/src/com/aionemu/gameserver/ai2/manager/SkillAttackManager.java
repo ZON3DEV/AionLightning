@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.ai2.manager;
 
 import com.aionemu.gameserver.ai2.AI2Logger;
@@ -50,9 +51,9 @@ public class SkillAttackManager {
 		}
 		if (npcAI.setSubStateIfNot(AISubState.CAST)) {
 			if (delay > 0) {
-				ThreadPoolManager.getInstance().schedule(new SkillAction(npcAI), delay + DataManager.SKILL_DATA.getSkillTemplate(npcAI.getSkillId()).getDuration());
-			}
-			else {
+				ThreadPoolManager.getInstance().schedule(new SkillAction(npcAI),
+						delay + DataManager.SKILL_DATA.getSkillTemplate(npcAI.getSkillId()).getDuration());
+			} else {
 				skillAction(npcAI);
 			}
 		}
@@ -102,8 +103,7 @@ public class SkillAttackManager {
 			if (!success) {
 				afterUseSkill(npcAI);
 			}
-		}
-		else {
+		} else {
 			npcAI.setSubStateIfNot(AISubState.NONE);
 			npcAI.onGeneralEvent(AIEventType.TARGET_GIVEUP);
 		}
@@ -141,7 +141,9 @@ public class SkillAttackManager {
 				if (npcSkill.isReady(currentHpPercent, System.currentTimeMillis() - owner.getGameStats().getFightStartingTime())) {
 					// Check for Bind/Silence/Fear debuffs on npc
 					SkillTemplate template = npcSkill.getSkillTemplate();
-					if ((template.getType() == SkillType.MAGICAL && owner.getEffectController().isAbnormalSet(AbnormalState.SILENCE)) || (template.getType() == SkillType.PHYSICAL && owner.getEffectController().isAbnormalSet(AbnormalState.BIND)) || (owner.getEffectController().isUnderFear())) {
+					if ((template.getType() == SkillType.MAGICAL && owner.getEffectController().isAbnormalSet(AbnormalState.SILENCE))
+							|| (template.getType() == SkillType.PHYSICAL && owner.getEffectController().isAbnormalSet(AbnormalState.BIND))
+							|| (owner.getEffectController().isUnderFear())) {
 						return null;
 					}
 

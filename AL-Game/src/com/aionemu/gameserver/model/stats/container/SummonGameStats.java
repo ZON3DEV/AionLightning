@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.stats.container;
 
 import com.aionemu.gameserver.model.EmotionType;
@@ -75,9 +76,8 @@ public class SummonGameStats extends CreatureGameStats<Summon> {
 	@Override
 	public Stat2 getStat(StatEnum statEnum, int base) {
 		Stat2 stat = super.getStat(statEnum, base);
-		if (owner.getMaster() == null) {
+		if (owner.getMaster() == null)
 			return stat;
-		}
 		switch (statEnum) {
 			case MAXHP:
 				stat.setBonusRate(0.5f);
@@ -115,63 +115,23 @@ public class SummonGameStats extends CreatureGameStats<Summon> {
 	}
 
 	@Override
-	public Stat2 getMaxMp() {
-		return getStat(StatEnum.MAXHP, statsTemplate.getMaxMp());
-	}
-
-	@Override
-	public Stat2 getStrikeResist() {
+	public Stat2 getPCR() {
 		return getStat(StatEnum.PHYSICAL_CRITICAL_RESIST, 0);
 	}
 
 	@Override
-	public Stat2 getStrikeFort() {
-		return getStat(StatEnum.PHYSICAL_CRITICAL_DAMAGE_REDUCE, 0);
-	}
-
-	@Override
-	public Stat2 getSpellResist() {
+	public Stat2 getMCR() {
 		return getStat(StatEnum.MAGICAL_CRITICAL_RESIST, 0);
 	}
 
 	@Override
-	public Stat2 getSpellFort() {
-		return getStat(StatEnum.MAGICAL_CRITICAL_DAMAGE_REDUCE, 0);
+	public Stat2 getHealBoost() {
+		return getStat(StatEnum.HEAL_BOOST, 0);
 	}
 
 	@Override
-	public Stat2 getBCastingTime() {
-		return getStat(StatEnum.BOOST_CASTING_TIME, 1000);
-	}
-
-	@Override
-	public Stat2 getConcentration() {
-		return getStat(StatEnum.CONCENTRATION, 0);
-	}
-
-	@Override
-	public Stat2 getRootResistance() {
-		return getStat(StatEnum.ROOT_RESISTANCE, 0);
-	}
-
-	@Override
-	public Stat2 getSnareResistance() {
-		return getStat(StatEnum.SNARE_RESISTANCE, 0);
-	}
-
-	@Override
-	public Stat2 getBindResistance() {
-		return getStat(StatEnum.BIND_RESISTANCE, 0);
-	}
-
-	@Override
-	public Stat2 getFearResistance() {
-		return getStat(StatEnum.FEAR_RESISTANCE, 0);
-	}
-
-	@Override
-	public Stat2 getSleepResistance() {
-		return getStat(StatEnum.SLEEP_RESISTANCE, 0);
+	public Stat2 getMaxMp() {
+		return getStat(StatEnum.MAXHP, statsTemplate.getMaxMp());
 	}
 
 	@Override
@@ -191,7 +151,7 @@ public class SummonGameStats extends CreatureGameStats<Summon> {
 
 	@Override
 	public Stat2 getAttackRange() {
-		return getStat(StatEnum.ATTACK_RANGE, owner.getObjectTemplate().getAttackRange() * 1500);
+		return getStat(StatEnum.ATTACK_RANGE, owner.getObjectTemplate().getAttackRange() * 1000);
 	}
 
 	@Override
@@ -276,18 +236,8 @@ public class SummonGameStats extends CreatureGameStats<Summon> {
 	}
 
 	@Override
-	public Stat2 getMAttack() {
-		return getStat(StatEnum.MAGICAL_ATTACK, 100);
-	}
-
-	@Override
 	public Stat2 getMainHandMAttack() {
 		return getStat(StatEnum.MAGICAL_ATTACK, 100);
-	}
-
-	@Override
-	public Stat2 getOffHandMAttack() {
-		return getStat(StatEnum.MAGICAL_ATTACK, 0);
 	}
 
 	@Override
@@ -296,7 +246,7 @@ public class SummonGameStats extends CreatureGameStats<Summon> {
 	}
 
 	@Override
-	public Stat2 getMAccuracy() {
+	public Stat2 getMainHandMAccuracy() {
 		return getStat(StatEnum.MAGICAL_ACCURACY, statsTemplate.getMagicAccuracy());
 	}
 
@@ -327,36 +277,5 @@ public class SummonGameStats extends CreatureGameStats<Summon> {
 	@Override
 	public void updateSpeedInfo() {
 		PacketSendUtility.broadcastPacket(owner, new SM_EMOTION(owner, EmotionType.START_EMOTE2, 0, 0));
-	}
-
-	@Override
-	public Stat2 getPvpAttack() {
-		return null;
-	}
-
-	@Override
-	public Stat2 getPvpDeff() {
-		return null;
-	}
-
-	// new 7.x
-	@Override
-	public Stat2 getPVPAttack() {
-		return null;
-	}
-
-	@Override
-	public Stat2 getPVPDefense() {
-		return null;
-	}
-
-	@Override
-	public Stat2 getPVEAttack() {
-		return null;
-	}
-
-	@Override
-	public Stat2 getPVEDefense() {
-		return null;
 	}
 }

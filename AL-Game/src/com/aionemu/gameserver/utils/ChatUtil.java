@@ -14,11 +14,9 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils;
 
-import com.aionemu.gameserver.configs.administration.AdminConfig;
-import com.aionemu.gameserver.configs.main.MembershipConfig;
-import com.aionemu.gameserver.configs.main.WeddingsConfig;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
@@ -26,13 +24,13 @@ import com.aionemu.gameserver.world.WorldPosition;
  */
 public class ChatUtil {
 
-	public static String position(String label, WorldPosition pos) {
-		return position(label, pos.getMapId(), pos.getX(), pos.getY(), pos.getZ());
+	public static String position(String label, int raceid, WorldPosition pos) {
+		return position(label, raceid, pos.getMapId(), pos.getX(), pos.getY(), pos.getZ());
 	}
 
-	public static String position(String label, long worldId, float x, float y, float z) {
+	public static String position(String label, int raceid, long worldId, float x, float y, float z) {
 		// TODO: need rework for abyss map
-		return String.format("[pos:%s;%d %f %f %f -1]", label, worldId, x, y, z);
+		return String.format("[pos:%s;%d %d %f %f %f 0]", label, raceid, worldId, x, y, z);
 	}
 
 	public static String item(long itemId) {
@@ -47,34 +45,11 @@ public class ChatUtil {
 		return String.format("[quest: %d]", questId);
 	}
 
-	public static String removePattern(String PlayerName, String Pattern) {
-
-		int index = Pattern.indexOf("%s");
-		if (index == -1)
-			return PlayerName;
-
-		String RealName = "";
-		RealName = PlayerName.replace(Pattern.substring(0, index), "");
-		RealName = RealName.replace(Pattern.substring(index + 2), "");
-
-		return RealName;
-	}
-
-	public static String getRealAdminName(String PlayerName) {
-		String RealAdminName = "";
-		RealAdminName = removePattern(PlayerName, MembershipConfig.TAG_VIP);
-		RealAdminName = removePattern(RealAdminName, MembershipConfig.TAG_PREMIUM);
-		RealAdminName = removePattern(RealAdminName, WeddingsConfig.TAG_WEDDING);
-		RealAdminName = removePattern(RealAdminName, AdminConfig.CUSTOMTAG_ACCESS1);
-		RealAdminName = removePattern(RealAdminName, AdminConfig.CUSTOMTAG_ACCESS2);
-		RealAdminName = removePattern(RealAdminName, AdminConfig.CUSTOMTAG_ACCESS3);
-		RealAdminName = removePattern(RealAdminName, AdminConfig.CUSTOMTAG_ACCESS4);
-		RealAdminName = removePattern(RealAdminName, AdminConfig.CUSTOMTAG_ACCESS5);
-		RealAdminName = removePattern(RealAdminName, AdminConfig.CUSTOMTAG_ACCESS6);
-		RealAdminName = removePattern(RealAdminName, AdminConfig.CUSTOMTAG_ACCESS7);
-		RealAdminName = removePattern(RealAdminName, AdminConfig.CUSTOMTAG_ACCESS8);
-		RealAdminName = removePattern(RealAdminName, AdminConfig.CUSTOMTAG_ACCESS9);
-		RealAdminName = removePattern(RealAdminName, AdminConfig.CUSTOMTAG_ACCESS10);
-		return RealAdminName;
+	public static String getRealAdminName(String name) {
+		int index = name.lastIndexOf(" ");
+		if (index == -1) {
+			return name;
+		}
+		return name.substring(index + 1);
 	}
 }

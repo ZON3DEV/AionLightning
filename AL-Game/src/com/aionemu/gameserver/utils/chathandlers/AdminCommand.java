@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.chathandlers;
 
 import org.slf4j.Logger;
@@ -44,9 +45,8 @@ public abstract class AdminCommand extends ChatCommand {
 	boolean process(Player player, String text) {
 
 		if (!checkLevel(player)) {
-			if (LoggingConfig.LOG_GMAUDIT) {
+			if (LoggingConfig.LOG_GMAUDIT)
 				log.info("[ADMIN COMMAND] > [Player: " + player.getName() + "] has tried to use the command " + getAlias() + " without having the rights");
-			}
 			if (player.isGM()) {
 				PacketSendUtility.sendMessage(player, "[WARN] You need to have access level " + this.getLevel() + " or more to use " + getAlias());
 				return true;
@@ -55,29 +55,23 @@ public abstract class AdminCommand extends ChatCommand {
 		}
 
 		boolean success = false;
-		if (text.length() == getAlias().length()) {
+		if (text.length() == getAlias().length())
 			success = this.run(player, EMPTY_PARAMS);
-		}
-		else {
+		else
 			success = this.run(player, text.substring(getAlias().length() + 1).split(" "));
-		}
 
 		if (LoggingConfig.LOG_GMAUDIT) {
 			if (player.getTarget() != null && player.getTarget() instanceof Creature) {
 				Creature target = (Creature) player.getTarget();
 				log.info("[ADMIN COMMAND] > [Name: " + player.getName() + "][Target : " + target.getName() + "]: " + text);
-			}
-			else {
+			} else
 				log.info("[ADMIN COMMAND] > [Name: " + player.getName() + "]: " + text);
-			}
 		}
 
 		if (!success) {
 			PacketSendUtility.sendMessage(player, "<You have failed to execute " + text + ">");
 			return true;
-		}
-		else {
+		} else
 			return success;
-		}
 	}
 }

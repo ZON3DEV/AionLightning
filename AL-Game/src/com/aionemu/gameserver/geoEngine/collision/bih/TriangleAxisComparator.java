@@ -14,11 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.geoEngine.collision.bih;
 
-import java.util.Comparator;
-
 import com.aionemu.gameserver.geoEngine.math.Vector3f;
+
+import java.util.Comparator;
 
 public class TriangleAxisComparator implements Comparator<BIHTriangle> {
 
@@ -52,11 +53,9 @@ public class TriangleAxisComparator implements Comparator<BIHTriangle> {
 		}
 		if (v1 > v2) {
 			return 1;
-		}
-		else if (v1 < v2) {
+		} else if (v1 < v2) {
 			return -1;
-		}
-		else {
+		} else {
 			return 0;
 		}
 	}

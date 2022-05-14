@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -42,6 +43,8 @@ public class ChatService {
 	/**
 	 * @param playerId
 	 * @param token
+	 * @param account
+	 * @param nick
 	 */
 	public static void playerAuthed(int playerId, byte[] token) {
 		Player player = World.getInstance().findPlayer(playerId);

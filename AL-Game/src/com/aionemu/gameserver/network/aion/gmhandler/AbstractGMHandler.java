@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.gmhandler;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -21,7 +22,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
- * @author Magenik, Antraxx, Alcapwnd
+ * @author Antraxx
  */
 abstract public class AbstractGMHandler {
 
@@ -51,5 +52,4 @@ abstract public class AbstractGMHandler {
 		PacketSendUtility.sendMessage(admin, "Target not found or target is not an player");
 		return false;
 	}
-
 }

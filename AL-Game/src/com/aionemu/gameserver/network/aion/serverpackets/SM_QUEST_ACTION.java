@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -102,7 +103,6 @@ public class SM_QUEST_ACTION extends AionServerPacket {
 	 * Display Timer(4)
 	 *
 	 * @param questId
-	 * @param fake
 	 * @param timer
 	 */
 	public SM_QUEST_ACTION(int questId, boolean fake) {
@@ -114,7 +114,10 @@ public class SM_QUEST_ACTION extends AionServerPacket {
 
 	/*
 	 * (non-Javadoc)
-	 * @see com.aionemu.commons.network.mmocore.SendablePacket#writeImpl(com.aionemu.commons.network.mmocore.MMOConnection)
+	 *
+	 * @see
+	 * com.aionemu.commons.network.mmocore.SendablePacket#writeImpl(com.aionemu
+	 * .commons.network.mmocore.MMOConnection)
 	 */
 	@Override
 	protected void writeImpl(AionConnection con) {
@@ -142,11 +145,10 @@ public class SM_QUEST_ACTION extends AionServerPacket {
 				writeD(0);
 				break;
 			case 4:
-				writeD(timer);// sets client timer ie 84030000 is 900 seconds/15 mins
+                writeD(timer);// sets client timer ie 84030000 is 900 seconds/15 mins
 				writeC(0x01);
 				writeH(0x0);
 				writeC(0x01);
-				break;
 			case 5:
 				writeD(this.sharerId);
 				writeD(0);
@@ -154,7 +156,6 @@ public class SM_QUEST_ACTION extends AionServerPacket {
 			case 6:
 				writeH(0x01);// ???
 				writeH(0x0);
-				break;
 		}
 	}
 }

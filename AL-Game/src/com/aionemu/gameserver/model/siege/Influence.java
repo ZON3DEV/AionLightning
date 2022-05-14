@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.siege;
 
-import java.util.Iterator;
+package com.aionemu.gameserver.model.siege;
 
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -24,9 +23,11 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_INFLUENCE_RATIO;
 import com.aionemu.gameserver.services.SiegeService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
+import java.util.Iterator;
 
 /**
- * Calculates fortresses as 10 points and artifacts as 1 point each. Need to find retail calculation. (Upper forts worth more...)
+ * Calculates fortresses as 10 points and artifacts as 1 point each. Need to
+ * find retail calculation. (Upper forts worth more...)
  *
  * @author Sarynth
  * @updated Eloann
@@ -43,21 +44,15 @@ public class Influence {
 	private float abyss_e = 0;
 	private float abyss_a = 0;
 	private float abyss_b = 0;
-	private float kaldor_e = 0;
-	private float kaldor_a = 0;
-	private float kaldor_b = 0;
-	private float belus_e = 0;
-	private float belus_a = 0;
-	private float belus_b = 0;
-	private float aspida_e = 0;
-	private float aspida_a = 0;
-	private float aspida_b = 0;
-	private float atanatos_e = 0;
-	private float atanatos_a = 0;
-	private float atanatos_b = 0;
-	private float disillon_e = 0;
-	private float disillon_a = 0;
-	private float disillon_b = 0;
+	private float tiamaranta_e = 0;
+	private float tiamaranta_a = 0;
+	private float tiamaranta_b = 0;
+	private float katalam_e = 0;
+	private float katalam_a = 0;
+	private float katalam_b = 0;
+	private float danaria_e = 0;
+	private float danaria_a = 0;
+	private float danaria_b = 0;
 	private float global_e = 0;
 	private float global_a = 0;
 	private float global_b = 0;
@@ -81,7 +76,7 @@ public class Influence {
 	 * calculate influence
 	 */
 	private void calculateInfluence() {
-		float balaurea = 0.0039512194f;
+		float balaurea = 0.0019512194f;
 		float abyss = 0.006097561f;
 		float e_inggison = 0;
 		float a_inggison = 0;
@@ -95,10 +90,7 @@ public class Influence {
 		float a_abyss = 0;
 		float b_abyss = 0;
 		float t_abyss = 0;
-		float e_kaldor = 0;
-		float a_kaldor = 0;
-		float b_kaldor = 0;
-		float t_kaldor = 0;
+
 		for (SiegeLocation sLoc : SiegeService.getInstance().getSiegeLocations().values()) {
 			switch (sLoc.getWorldId()) {
 				case 210050000:
@@ -134,34 +126,17 @@ public class Influence {
 					}
 					break;
 				case 400010000:
-					if (sLoc instanceof FortressLocation) {
-						t_abyss += sLoc.getInfluenceValue();
-						switch (sLoc.getRace()) {
-							case ELYOS:
-								e_abyss += sLoc.getInfluenceValue();
-								break;
-							case ASMODIANS:
-								a_abyss += sLoc.getInfluenceValue();
-								break;
-							case BALAUR:
-								b_abyss += sLoc.getInfluenceValue();
-								break;
-						}
-					}
-					break;
-				case 800050000:
-					if (sLoc instanceof FortressLocation) {
-						t_kaldor += sLoc.getInfluenceValue();
-						switch (sLoc.getRace()) {
-							case ELYOS:
-								e_kaldor += sLoc.getInfluenceValue();
-								break;
-							case ASMODIANS:
-								a_kaldor += sLoc.getInfluenceValue();
-								break;
-							case BALAUR:
-								b_kaldor += sLoc.getInfluenceValue();
-						}
+					t_abyss += sLoc.getInfluenceValue();
+					switch (sLoc.getRace()) {
+						case ELYOS:
+							e_abyss += sLoc.getInfluenceValue();
+							break;
+						case ASMODIANS:
+							a_abyss += sLoc.getInfluenceValue();
+							break;
+						case BALAUR:
+							b_abyss += sLoc.getInfluenceValue();
+							break;
 					}
 					break;
 			}
@@ -179,21 +154,14 @@ public class Influence {
 		abyss_a = a_abyss / t_abyss;
 		abyss_b = b_abyss / t_abyss;
 
-		kaldor_e = (e_kaldor / t_kaldor);
-		kaldor_a = (a_kaldor / t_kaldor);
-		kaldor_b = (b_kaldor / t_kaldor);
-
-		// global_e = ((kaldor_e * balaurea + inggison_e * balaurea + gelkmaros_e * balaurea + abyss_e * abyss) * 100f);
-		// global_a = ((kaldor_a * balaurea + inggison_a * balaurea + gelkmaros_a * balaurea + abyss_a * abyss) * 100f);
-		// global_b = ((kaldor_b * balaurea + inggison_b * balaurea + gelkmaros_b * balaurea + abyss_b * abyss) * 100f);
-		// without Inggison and Gelkmaros since 5.3
-		global_e = ((kaldor_e * balaurea + abyss_e * abyss) * 100f);
-		global_a = ((kaldor_a * balaurea + abyss_a * abyss) * 100f);
-		global_b = ((kaldor_b * balaurea + abyss_b * abyss) * 100f);
+		global_e = (inggison_e * balaurea + gelkmaros_e * balaurea + abyss_e * abyss) * 100f;
+		global_a = (inggison_a * balaurea + gelkmaros_a * balaurea + abyss_a * abyss) * 100f;
+		global_b = (inggison_b * balaurea + gelkmaros_b * balaurea + abyss_b * abyss) * 100f;
 	}
 
 	/**
-	 * Broadcast packet with influence update to all players. - Responsible for the message "The Divine Fortress is now vulnerable."
+	 * Broadcast packet with influence update to all players. - Responsible for
+	 * the message "The Divine Fortress is now vulnerable."
 	 */
 	@SuppressWarnings("unused")
 	private void broadcastInfluencePacket() {
@@ -294,106 +262,64 @@ public class Influence {
 	/**
 	 * @return elyos control
 	 */
-	public float getKaldorElyosInfluence() {
-		return this.kaldor_e;
+	public float getTiamarantaElyosInfluence() {
+		return this.tiamaranta_e;
 	}
 
 	/**
 	 * @return asmos control
 	 */
-	public float getKaldorAsmodiansInfluence() {
-		return this.kaldor_a;
+	public float getTiamarantaAsmodiansInfluence() {
+		return this.tiamaranta_a;
 	}
 
 	/**
 	 * @return balaur control
 	 */
-	public float getKaldorBalaursInfluence() {
-		return this.kaldor_b;
+	public float getTiamarantaBalaursInfluence() {
+		return this.tiamaranta_b;
 	}
 
 	/**
 	 * @return elyos control
 	 */
-	public float getBelusElyosInfluence() {
-		return this.belus_e;
+	public float getKatalamElyosInfluence() {
+		return katalam_e;
 	}
 
 	/**
 	 * @return asmos control
 	 */
-	public float getBelusAsmodiansInfluence() {
-		return this.belus_a;
+	public float getKatalamAsmodiansInfluence() {
+		return katalam_a;
 	}
 
 	/**
 	 * @return balaur control
 	 */
-	public float getBelusBalaursInfluence() {
-		return this.belus_b;
+	public float getKatalamBalaursInfluence() {
+		return katalam_b;
 	}
 
 	/**
 	 * @return elyos control
 	 */
-	public float getAspidaElyosInfluence() {
-		return this.aspida_e;
+	public float getDanariaElyosInfluence() {
+		return danaria_e;
 	}
 
 	/**
 	 * @return asmos control
 	 */
-	public float getAspidaAsmodiansInfluence() {
-		return this.aspida_a;
+	public float getDanariaAsmodiansInfluence() {
+		return danaria_a;
 	}
 
 	/**
 	 * @return balaur control
 	 */
-	public float getAspidaBalaursInfluence() {
-		return this.aspida_b;
-	}
-
-	/**
-	 * @return elyos control
-	 */
-	public float getAtanatosElyosInfluence() {
-		return this.atanatos_e;
-	}
-
-	/**
-	 * @return asmos control
-	 */
-	public float getAtanatosAsmodiansInfluence() {
-		return this.atanatos_a;
-	}
-
-	/**
-	 * @return balaur control
-	 */
-	public float getAtanatosBalaursInfluence() {
-		return this.atanatos_b;
-	}
-
-	/**
-	 * @return elyos control
-	 */
-	public float getDisillonElyosInfluence() {
-		return this.disillon_e;
-	}
-
-	/**
-	 * @return asmos control
-	 */
-	public float getDisillonAsmodiansInfluence() {
-		return this.disillon_a;
-	}
-
-	/**
-	 * @return balaur control
-	 */
-	public float getDisillonBalaursInfluence() {
-		return this.disillon_b;
+	public float getDanariaBalaursInfluence() {
+		return danaria_b;
 	}
 
 	/**
@@ -407,22 +333,18 @@ public class Influence {
 			case ASMODIANS:
 				if (elyos >= 0.81f && asmo <= 0.10f) {
 					bonus = 1.2f;
-				}
-				else if (elyos >= 0.81f || (elyos >= 0.71f && asmo <= 0.10f)) {
+				} else if (elyos >= 0.81f || (elyos >= 0.71f && asmo <= 0.10f)) {
 					bonus = 1.15f;
-				}
-				else if (elyos >= 0.71f) {
+				} else if (elyos >= 0.71f) {
 					bonus = 1.1f;
 				}
 				break;
 			case ELYOS:
 				if (asmo >= 0.81f && elyos <= 0.10f) {
 					bonus = 1.2f;
-				}
-				else if (asmo >= 0.81f || (asmo >= 0.71f && elyos <= 0.10f)) {
+				} else if (asmo >= 0.81f || (asmo >= 0.71f && elyos <= 0.10f)) {
 					bonus = 1.15f;
-				}
-				else if (asmo >= 0.71f) {
+				} else if (asmo >= 0.71f) {
 					bonus = 1.1f;
 				}
 				break;

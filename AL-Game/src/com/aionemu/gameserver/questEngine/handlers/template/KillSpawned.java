@@ -14,27 +14,27 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.handlers.template;
 
+import gnu.trove.list.array.TIntArrayList;
+import javolution.util.FastMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.model.DialogAction;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.spawns.SpawnSearchResult;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.handlers.models.Monster;
 import com.aionemu.gameserver.questEngine.handlers.models.SpawnedMonster;
+import com.aionemu.gameserver.model.DialogAction;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.services.QuestService;
-
-import gnu.trove.list.array.TIntArrayList;
-import javolution.util.FastMap;
 
 /**
  * @author vlog
@@ -54,8 +54,7 @@ public class KillSpawned extends QuestHandler {
 		this.startNpcs.remove(0);
 		if (endNpcIds == null) {
 			this.endNpcs.addAll(startNpcs);
-		}
-		else {
+		} else {
 			this.endNpcs.addAll(endNpcIds);
 			this.endNpcs.remove(0);
 		}
@@ -100,13 +99,11 @@ public class KillSpawned extends QuestHandler {
 			if (startNpcs.isEmpty() || startNpcs.contains(targetId)) {
 				if (env.getDialog() == DialogAction.QUEST_SELECT) {
 					return sendQuestDialog(env, 1011);
-				}
-				else {
+				} else {
 					return sendQuestStartDialog(env);
 				}
 			}
-		}
-		else if (qs.getStatus() == QuestStatus.START) {
+		} else if (qs.getStatus() == QuestStatus.START) {
 			if (spawnerObjects.contains(targetId)) {
 				if (env.getDialog() == DialogAction.USE_OBJECT) {
 					int monsterId = 0;
@@ -118,11 +115,11 @@ public class KillSpawned extends QuestHandler {
 					}
 
 					SpawnSearchResult searchResult = DataManager.SPAWNS_DATA2.getFirstSpawnByNpcId(player.getWorldId(), targetId);
-					QuestService.addNewSpawn(player.getWorldId(), player.getInstanceId(), monsterId, searchResult.getSpot().getX(), searchResult.getSpot().getY(), searchResult.getSpot().getZ(), searchResult.getSpot().getHeading());
+					QuestService.addNewSpawn(player.getWorldId(), player.getInstanceId(), monsterId, searchResult.getSpot().getX(), searchResult.getSpot()
+							.getY(), searchResult.getSpot().getZ(), searchResult.getSpot().getHeading());
 					return true;
 				}
-			}
-			else {
+			} else {
 				for (Monster mi : spawnedMonsters.values()) {
 					if (mi.getEndVar() > qs.getQuestVarById(mi.getVar())) {
 						return false;
@@ -132,14 +129,12 @@ public class KillSpawned extends QuestHandler {
 				if (endNpcs.contains(targetId)) {
 					if (env.getDialog() == DialogAction.QUEST_SELECT) {
 						return sendQuestDialog(env, 10002);
-					}
-					else if (env.getDialog() == DialogAction.SELECT_QUEST_REWARD) {
+					} else if (env.getDialog() == DialogAction.SELECT_QUEST_REWARD) {
 						return sendQuestDialog(env, 5);
 					}
 				}
 			}
-		}
-		else if (qs.getStatus() == QuestStatus.REWARD) {
+		} else if (qs.getStatus() == QuestStatus.REWARD) {
 			if (endNpcs.contains(targetId)) {
 				return sendQuestEndDialog(env);
 			}

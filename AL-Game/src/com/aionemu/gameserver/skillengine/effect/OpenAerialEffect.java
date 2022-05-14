@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -34,7 +35,8 @@ public class OpenAerialEffect extends EffectTemplate {
 
 	@Override
 	public void applyEffect(Effect effect) {
-		if (!effect.getEffected().getEffectController().hasPhysicalStateEffect() && !effect.getEffected().getEffectController().isAbnormalSet(AbnormalState.STUMBLE)) {
+		if (!effect.getEffected().getEffectController().hasPhysicalStateEffect()
+				&& !effect.getEffected().getEffectController().isAbnormalSet(AbnormalState.STUMBLE)) {
 			effect.addToEffectedController();
 			effect.setIsPhysicalState(true);
 			effect.getEffected().getEffectController().removeParalyzeEffects();

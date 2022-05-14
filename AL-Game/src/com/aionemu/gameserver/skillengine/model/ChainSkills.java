@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.model;
 
 import java.util.ArrayList;
@@ -52,11 +53,9 @@ public class ChainSkills {
 	public long getLastChainUseTime(String category) {
 		if (this.multiSkills.get(category) != null) {
 			return this.multiSkills.get(category).getUseTime();
-		}
-		else if (chainSkill.getCategory().equals(category)) {
+		} else if (chainSkill.getCategory().equals(category)) {
 			return this.chainSkill.getUseTime();
-		}
-		else {
+		} else {
 			return 0;
 		}
 	}
@@ -72,17 +71,11 @@ public class ChainSkills {
 		long useTime = 0;
 		if (this.multiSkills.get(category) != null) {
 			useTime = this.multiSkills.get(category).getUseTime();
-		}
-		else if (chainSkill.getCategory().equals(category)) {
+		} else if (chainSkill.getCategory().equals(category)) {
 			useTime = chainSkill.getUseTime();
 		}
 
-		if ((useTime + time) >= System.currentTimeMillis()) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return (useTime + time) >= System.currentTimeMillis();
 	}
 
 	public void addChainSkill(String category, boolean multiCast) {
@@ -92,12 +85,10 @@ public class ChainSkills {
 					this.multiSkills.get(category).increaseChainCount();
 				}
 				this.multiSkills.get(category).setUseTime(System.currentTimeMillis());
-			}
-			else {
+			} else {
 				this.multiSkills.put(category, new ChainSkill(category, (multiCast ? 1 : 0), System.currentTimeMillis()));
 			}
-		}
-		else {
+		} else {
 			chainSkill.updateChainSkill(category);
 		}
 	}

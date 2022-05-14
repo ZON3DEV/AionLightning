@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.account;
 
 import java.sql.Timestamp;
@@ -26,11 +27,13 @@ import com.aionemu.gameserver.model.team.legion.Legion;
 import com.aionemu.gameserver.model.team.legion.LegionMember;
 
 /**
- * This class is holding information about player, that is displayed on char selection screen, such as: player commondata, player's appearance and creation/deletion time.
+ * This class is holding information about player, that is displayed on char
+ * selection screen, such as: player commondata, player's appearance and
+ * creation/deletion time.
  *
- * @author Luno
  * @see PlayerCommonData
  * @see PlayerAppearance
+ * @author Luno
  */
 public class PlayerAccountData {
 
@@ -42,7 +45,8 @@ public class PlayerAccountData {
 	private Timestamp deletionDate;
 	private LegionMember legionMember;
 
-	public PlayerAccountData(PlayerCommonData playerCommonData, CharacterBanInfo cbi, PlayerAppearance appereance, List<Item> equipment, LegionMember legionMember) {
+	public PlayerAccountData(PlayerCommonData playerCommonData, CharacterBanInfo cbi, PlayerAppearance appereance, List<Item> equipment,
+			LegionMember legionMember) {
 		this.playerCommonData = playerCommonData;
 		this.cbi = cbi;
 		this.appereance = appereance;
@@ -77,7 +81,8 @@ public class PlayerAccountData {
 	}
 
 	/**
-	 * Get time in seconds when this player will be deleted ( 0 if player was not set to be deleted )
+	 * Get time in seconds when this player will be deleted ( 0 if player was
+	 * not set to be deleted )
 	 *
 	 * @return deletion time in seconds
 	 */

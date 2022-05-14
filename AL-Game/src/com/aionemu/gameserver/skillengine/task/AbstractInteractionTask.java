@@ -14,14 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.task;
 
-import java.util.concurrent.Future;
+package com.aionemu.gameserver.skillengine.task;
 
 import com.aionemu.gameserver.configs.main.CraftConfig;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
+
+import java.util.concurrent.Future;
 
 /**
  * @author ATracer
@@ -41,8 +42,7 @@ public abstract class AbstractInteractionTask {
 		this.requestor = requestor;
 		if (responder == null) {
 			this.responder = requestor;
-		}
-		else {
+		} else {
 			this.responder = responder;
 		}
 	}
@@ -75,7 +75,6 @@ public abstract class AbstractInteractionTask {
 	public void start() {
 		onInteractionStart();
 		task = ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 			@Override
 			public void run() {
 				if (!validateParticipants()) {

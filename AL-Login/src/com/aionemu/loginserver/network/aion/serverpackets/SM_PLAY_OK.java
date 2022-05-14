@@ -59,6 +59,5 @@ public class SM_PLAY_OK extends AionServerPacket {
         writeD(playOk1);
         writeD(playOk2);
         writeC(serverId);
-    	writeB(new byte[14]);
     }
 }

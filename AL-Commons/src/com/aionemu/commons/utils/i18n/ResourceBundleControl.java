@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.utils.i18n;
 
 import java.io.IOException;
@@ -30,14 +31,12 @@ import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
 /**
- * This class allows us to read ResourceBundles with custom encodings, so we
- * don't have write \\uxxxx symbols and use utilities like native2ascii to
- * convert files.
+ * This class allows us to read ResourceBundles with custom encodings, so we don't have write \\uxxxx symbols and use
+ * utilities like native2ascii to convert files.
  * <p/>
  * <br>
- * Usage: For instance we want to load resource bundle "test" from current
- * deirectory and use english locale. If locale not found, we will use default
- * file (and ignore default locale).
+ * Usage: For instance we want to load resource bundle "test" from current deirectory and use english locale. If locale
+ * not found, we will use default file (and ignore default locale).
  * 
  * <pre>
  * URLClassLoader loader = new URLClassLoader(new URL[] { new File(&quot;.&quot;).toURI().toURL() });
@@ -57,8 +56,7 @@ import java.util.ResourceBundle;
 public class ResourceBundleControl extends ResourceBundle.Control {
 
 	/**
-	 * Encoding which will be used to read resource bundle, by defaults it's
-	 * 8859_1
+	 * Encoding which will be used to read resource bundle, by defaults it's 8859_1
 	 */
 	private String encoding = "UTF-8";
 
@@ -69,43 +67,43 @@ public class ResourceBundleControl extends ResourceBundle.Control {
 	}
 
 	/**
-	 * This constructor allows to set encoding that will be used while reading
-	 * resource bundle
+	 * This constructor allows to set encoding that will be used while reading resource bundle
 	 * 
 	 * @param encoding
-	 *            encoding to use
+	 *          encoding to use
 	 */
 	public ResourceBundleControl(String encoding) {
 		this.encoding = encoding;
 	}
 
 	/**
-	 * This code is just copy-paste with usage {@link java.io.Reader} instead of
-	 * {@link java.io.InputStream} to read properties.<br>
-	 * <br>
-	 * {@inheritDoc}
+	 * This code is just copy-paste with usage {@link java.io.Reader} instead of {@link java.io.InputStream} to read
+	 * properties.<br>
+	 * <br> {@inheritDoc}
 	 */
 	@Override
 	public ResourceBundle newBundle(String baseName, Locale locale, String format, ClassLoader loader, boolean reload)
-			throws IllegalAccessException, InstantiationException, IOException {
+		throws IllegalAccessException, InstantiationException, IOException {
 		String bundleName = toBundleName(baseName, locale);
 		ResourceBundle bundle = null;
 		if (format.equals("java.class")) {
 			try {
 				@SuppressWarnings({ "unchecked" })
-				Class<? extends ResourceBundle> bundleClass = (Class<? extends ResourceBundle>) loader
-						.loadClass(bundleName);
+				Class<? extends ResourceBundle> bundleClass = (Class<? extends ResourceBundle>) loader.loadClass(bundleName);
 
 				// If the class isn't a ResourceBundle subclass, throw a
 				// ClassCastException.
 				if (ResourceBundle.class.isAssignableFrom(bundleClass)) {
 					bundle = bundleClass.newInstance();
-				} else {
+				}
+				else {
 					throw new ClassCastException(bundleClass.getName() + " cannot be cast to ResourceBundle");
 				}
-			} catch (ClassNotFoundException ignored) {
 			}
-		} else if (format.equals("java.properties")) {
+			catch (ClassNotFoundException ignored) {
+			}
+		}
+		else if (format.equals("java.properties")) {
 			final String resourceName = toResourceName(bundleName, "properties");
 			final ClassLoader classLoader = loader;
 			final boolean reloadFlag = reload;
@@ -128,7 +126,8 @@ public class ResourceBundleControl extends ResourceBundle.Control {
 									is = connection.getInputStream();
 								}
 							}
-						} else {
+						}
+						else {
 							is = classLoader.getResourceAsStream(resourceName);
 						}
 						return is;
@@ -137,17 +136,20 @@ public class ResourceBundleControl extends ResourceBundle.Control {
 				if (stream != null) {
 					isr = new InputStreamReader(stream, encoding);
 				}
-			} catch (PrivilegedActionException e) {
+			}
+			catch (PrivilegedActionException e) {
 				throw (IOException) e.getException();
 			}
 			if (isr != null) {
 				try {
 					bundle = new PropertyResourceBundle(isr);
-				} finally {
+				}
+				finally {
 					isr.close();
 				}
 			}
-		} else {
+		}
+		else {
 			throw new IllegalArgumentException("unknown format: " + format);
 		}
 		return bundle;
@@ -166,7 +168,7 @@ public class ResourceBundleControl extends ResourceBundle.Control {
 	 * Sets the encoding that will be used to read properties resource bundles
 	 * 
 	 * @param encoding
-	 *            encoding that will be used for properties
+	 *          encoding that will be used for properties
 	 */
 	public void setEncoding(String encoding) {
 		this.encoding = encoding;

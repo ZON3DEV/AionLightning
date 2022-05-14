@@ -14,37 +14,19 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 /**
  * @author ATracer
- * @Reworked Kill3r
  */
 public enum AbnormalState {
 
-	BUFF(0),
-	POISON(1),
-	BLEED(2),
-	PARALYZE(4),
-	SLEEP(8),
-	ROOT(16), // ?? cannot move ?
-	BLIND(32),
-	UNKNOWN(64),
-	DISEASE(128),
-	SILENCE(256),
-	FEAR(512), // Fear I
-	CURSE(1024),
-	CHAOS(2056),
-	STUN(4096),
-	PETRIFICATION(8192),
-	STUMBLE(16384),
-	STAGGER(32768),
-	OPENAERIAL(65536),
-	SNARE(131072),
-	SLOW(262144),
-	SPIN(524288),
-	BIND(1048576),
-	DEFORM(2097152), // (Curse of Roots I, Fear I)
+	BUFF(0), POISON(1), BLEED(2), PARALYZE(4), SLEEP(8), ROOT(16), // ?? cannot
+																	// move ?
+	BLIND(32), UNKNOWN(64), DISEASE(128), SILENCE(256), FEAR(512), // Fear I
+	CURSE(1024), CHAOS(2056), STUN(4096), PETRIFICATION(8192), STUMBLE(16384), STAGGER(32768), OPENAERIAL(65536), SNARE(131072), SLOW(262144), SPIN(524288), BIND(
+			1048576), DEFORM(2097152), // (Curse of Roots I, Fear I)
 	CANNOT_MOVE(4194304), // (Inescapable Judgment I)
 	NOFLY(8388608), // cannot fly
 	KNOCKBACK(16777216), // simple_root
@@ -53,12 +35,9 @@ public enum AbnormalState {
 	/**
 	 * Compound abnormal states
 	 */
-	CANT_ATTACK_STATE(SPIN.id | SLEEP.id | STUN.id | STUMBLE.id | STAGGER.id | OPENAERIAL.id | PARALYZE.id | FEAR.id | CANNOT_MOVE.id),
-	CANT_MOVE_STATE(SPIN.id | ROOT.id | SLEEP.id | STUMBLE.id | STUN.id | STAGGER.id | OPENAERIAL.id | PARALYZE.id | CANNOT_MOVE.id),
-	CANT_MOVE_STATE2(SPIN.id | SLEEP.id | STUMBLE.id | STUN.id | STAGGER.id | OPENAERIAL.id | PARALYZE.id | CANNOT_MOVE.id), // without root , for CM_EMOTION, because you can buff up and go attack
-																																// mode while rooted
-	DISMOUT_RIDE(SPIN.id | ROOT.id | SLEEP.id | STUMBLE.id | STUN.id | STAGGER.id | OPENAERIAL.id | PARALYZE.id | CANNOT_MOVE.id | FEAR.id | SNARE.id);
-
+	CANT_ATTACK_STATE(SPIN.id | SLEEP.id | STUN.id | STUMBLE.id | STAGGER.id | OPENAERIAL.id | PARALYZE.id | FEAR.id | CANNOT_MOVE.id), CANT_MOVE_STATE(SPIN.id
+			| ROOT.id | SLEEP.id | STUMBLE.id | STUN.id | STAGGER.id | OPENAERIAL.id | PARALYZE.id | CANNOT_MOVE.id), DISMOUT_RIDE(SPIN.id | ROOT.id | SLEEP.id
+			| STUMBLE.id | STUN.id | STAGGER.id | OPENAERIAL.id | PARALYZE.id | CANNOT_MOVE.id | FEAR.id | SNARE.id);
 	private int id;
 
 	private AbnormalState(int id) {

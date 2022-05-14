@@ -52,15 +52,9 @@ public class SM_ACCOUNT_AUTH_RESPONSE extends GsServerPacket {
      */
     private final byte membership;
     /**
-     * Toll
+     * TOLL
      */
     private final long toll;
-    /**
-     * luna
-     */
-    private final long luna;
-
-    private final byte isReturn;
 
     /**
      * Constructor.
@@ -70,17 +64,15 @@ public class SM_ACCOUNT_AUTH_RESPONSE extends GsServerPacket {
      * @param accountName
      * @param accessLevel
      * @param membership
-     * @param luna
+     * @param toll
      */
-    public SM_ACCOUNT_AUTH_RESPONSE(int accountId, boolean ok, String accountName, byte accessLevel, byte membership, long toll, long luna, byte isReturn) {
+    public SM_ACCOUNT_AUTH_RESPONSE(int accountId, boolean ok, String accountName, byte accessLevel, byte membership, long toll) {
         this.accountId = accountId;
         this.ok = ok;
         this.accountName = accountName;
         this.accessLevel = accessLevel;
         this.membership = membership;
         this.toll = toll;
-        this.luna = luna;
-        this.isReturn = isReturn;
     }
 
     /**
@@ -102,8 +94,6 @@ public class SM_ACCOUNT_AUTH_RESPONSE extends GsServerPacket {
             writeC(accessLevel);
             writeC(membership);
             writeQ(toll);
-            writeQ(luna);
-            writeC(isReturn);
         }
     }
 }

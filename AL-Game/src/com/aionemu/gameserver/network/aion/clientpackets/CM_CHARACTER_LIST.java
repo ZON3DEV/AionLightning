@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.configs.administration.AdminConfig;
@@ -21,7 +22,6 @@ import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ACCOUNT_ACCESS_PROPERTIES;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_CHARACTER_LIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_UNK_14F;
 
 /**
  * In this packets aion client is requesting character list.
@@ -57,13 +57,9 @@ public class CM_CHARACTER_LIST extends AionClientPacket {
 	 */
 	@Override
 	protected void runImpl() {
-		// NA Server sends SM_CHARACTER_LIST 2 times first with 0 and then with 2
-		boolean isGM = (getConnection()).getAccount().getAccessLevel() >= AdminConfig.GM_PANEL;
-		sendPacket(new SM_ACCOUNT_ACCESS_PROPERTIES(isGM));
-		sendPacket(new SM_ACCOUNT_ACCESS_PROPERTIES(isGM));
-		sendPacket(new SM_ACCOUNT_ACCESS_PROPERTIES(isGM));
-		sendPacket(new SM_UNK_14F());
-		sendPacket(new SM_CHARACTER_LIST(0, playOk2)); // Clean Character_List (0)
-		sendPacket(new SM_CHARACTER_LIST(2, playOk2)); // Send Character_List (2)
+		sendPacket(new SM_CHARACTER_LIST(playOk2));
+		if (getConnection().getAccount().getAccessLevel() >= AdminConfig.GM_PANEL) {
+			sendPacket(new SM_ACCOUNT_ACCESS_PROPERTIES());
+		}
 	}
 }

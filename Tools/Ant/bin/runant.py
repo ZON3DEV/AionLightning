@@ -19,10 +19,13 @@
 
  runant.py
 
-    This script is a translation of the runant.pl
+    This script is a translation of the runant.pl written by Steve Loughran.
     It runs ant with/out arguments, it should be quite portable (thanks to
     the python os library)
     This script has been tested with Python2.0/Win2K
+
+ created:         2001-04-11
+ author:          Pierre Dittgen pierre.dittgen@criltelecom.com
 
  Assumptions:
 
@@ -51,10 +54,7 @@ if not os.environ.has_key('JAVACMD'):
         if not os.path.exists(os.environ['JAVA_HOME']):
             print "Warning: JAVA_HOME is not defined correctly."
         else:
-            JAVA_HOME = os.environ['JAVA_HOME']
-            while JAVA_HOME[0] == JAVA_HOME[-1] == "\"":
-                JAVA_HOME = JAVA_HOME[1:-1]
-            JAVACMD = os.path.join(JAVA_HOME, 'bin', 'java')
+            JAVACMD = os.path.join(os.environ['JAVA_HOME'], 'bin', 'java')
     else:
         print "Warning: JAVA_HOME not set."
 else:
@@ -88,11 +88,8 @@ CLASSPATH = ""
 if os.environ.has_key('CLASSPATH'):
     CLASSPATH = "-lib " + os.environ['CLASSPATH']
 
-while JAVACMD[0] == JAVACMD[-1] == "\"":
-    JAVACMD = JAVACMD[1:-1]
-
 # Builds the commandline
-cmdline = ('"%s" %s -classpath %s -Dant.home=%s %s ' + \
+cmdline = ('%s %s -classpath %s -Dant.home=%s %s ' + \
     'org.apache.tools.ant.launch.Launcher %s %s %s') \
      % (JAVACMD, ANT_OPTS, LOCALCLASSPATH, ANT_HOME, OPTS, ANT_ARGS, \
         CLASSPATH, string.join(sys.argv[1:], ' '))

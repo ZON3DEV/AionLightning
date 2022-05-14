@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.team2.common.legacy;
 
-import java.util.Collection;
+package com.aionemu.gameserver.model.team2.common.legacy;
 
 import com.aionemu.gameserver.model.actions.PlayerMode;
 import com.aionemu.gameserver.model.drop.DropItem;
@@ -25,7 +24,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.item.ItemQuality;
 import com.aionemu.gameserver.services.drop.DropDistributionService;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
-
+import java.util.Collection;
 import javolution.util.FastList;
 
 /**
@@ -40,10 +39,6 @@ public class LootGroupRules {
 	private int heroic_item_above;
 	private int fabled_item_above;
 	private int ethernal_item_above;
-	private int mythic_item_above;
-	private int ancient_item_above;
-	private int relic_item_above;
-	private int finality_item_above;
 	private int misc;
 	private int nrMisc;
 	private int nrRoundRobin;
@@ -57,14 +52,10 @@ public class LootGroupRules {
 		heroic_item_above = 2;
 		fabled_item_above = 2;
 		ethernal_item_above = 2;
-		mythic_item_above = 2;
-		ancient_item_above = 2;
-		relic_item_above = 2;
-		finality_item_above = 2;
-		
 	}
 
-	public LootGroupRules(LootRuleType lootRule, LootDistribution autodistribution, int commonItemAbove, int superiorItemAbove, int heroicItemAbove, int fabledItemAbove, int ethernalItemAbove, int mythicItemAbove, int ancientItemAbove, int relicItemAbove, int finalityItemAbove, int misc) {
+	public LootGroupRules(LootRuleType lootRule, LootDistribution autodistribution, int commonItemAbove, int superiorItemAbove, int heroicItemAbove,
+			int fabledItemAbove, int ethernalItemAbove, int misc) {
 		super();
 		this.lootRule = lootRule;
 		this.autodistribution = autodistribution;
@@ -74,11 +65,6 @@ public class LootGroupRules {
 		heroic_item_above = heroicItemAbove;
 		fabled_item_above = fabledItemAbove;
 		ethernal_item_above = ethernalItemAbove;
-		mythic_item_above = mythicItemAbove;
-		ancient_item_above = ancientItemAbove;
-		relic_item_above = relicItemAbove;
-		finality_item_above = finalityItemAbove;
-
 	}
 
 	/**
@@ -95,16 +81,8 @@ public class LootGroupRules {
 				return heroic_item_above != 0;
 			case UNIQUE: // Yellow
 				return fabled_item_above != 0;
-			case EPIC: // Orange
+			case MYTHIC: // Orange
 				return ethernal_item_above != 0;
-			case MYTHIC: // Purple
-				return mythic_item_above != 0;
-			case ANCIENT:
-				return ancient_item_above != 0;
-			case RELIC:
-				return relic_item_above != 0;
-			case FINALITY:
-				return finality_item_above != 0;
 			default:
 				break;
 		}
@@ -169,34 +147,6 @@ public class LootGroupRules {
 	}
 
 	/**
-	 * @return the mythic_item_above
-	 */
-	public int getMythicItemAbove() {
-		return mythic_item_above;
-	}
-	
-	/**
-	 * @return the mythic_item_above
-	 */
-	public int getAncientItemAbove() {
-		return ancient_item_above;
-	}
-	
-	/**
-	 * @return the mythic_item_above
-	 */
-	public int getRelicItemAbove() {
-		return relic_item_above;
-	}
-	
-	/**
-	 * @return the mythic_item_above
-	 */
-	public int getFinalityItemAbove() {
-		return finality_item_above;
-	}
-
-	/**
 	 * @return the nrMisc
 	 */
 	public int getNrMisc() {
@@ -213,7 +163,6 @@ public class LootGroupRules {
 
 	public void setPlayersInRoll(final Collection<Player> players, int time, final int index, final int npcId) {
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				for (Player player : players) {

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.challenge;
 
 import java.sql.Timestamp;
@@ -27,6 +28,7 @@ import com.aionemu.gameserver.model.templates.challenge.ChallengeTaskTemplate;
 
 /**
  * @author ViAl
+ *
  */
 public class ChallengeTask {
 

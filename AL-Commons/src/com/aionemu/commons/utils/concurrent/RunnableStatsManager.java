@@ -15,24 +15,18 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aionemu.commons.utils.concurrent;
 
-import java.io.PrintStream;
-import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.concurrent.locks.ReentrantLock;
+package com.aionemu.commons.utils.concurrent;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.PrintStream;
+import java.text.NumberFormat;
+import java.util.*;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author NB4L1
@@ -67,8 +61,7 @@ public final class RunnableStatsManager {
 		}
 
 		private MethodStat getMethodStat(String methodName, boolean synchronizedAlready) {
-			// method names will be interned automatically because of compiling,
-			// so this gonna work
+			// method names will be interned automatically because of compiling, so this gonna work
 			if ("run()".equals(methodName))
 				return runnableStat;
 
@@ -117,7 +110,8 @@ public final class RunnableStatsManager {
 				total += runTime;
 				min = Math.min(min, runTime);
 				max = Math.max(max, runTime);
-			} finally {
+			}
+			finally {
 				lock.unlock();
 			}
 		}
@@ -147,7 +141,13 @@ public final class RunnableStatsManager {
 	}
 
 	public static enum SortBy {
-		AVG("average"), COUNT("count"), TOTAL("total"), NAME("class"), METHOD("method"), MIN("min"), MAX("max"),;
+		AVG("average"),
+		COUNT("count"),
+		TOTAL("total"),
+		NAME("class"),
+		METHOD("method"),
+		MIN("min"),
+		MAX("max"), ;
 
 		private final String xmlAttributeName;
 
@@ -191,10 +191,10 @@ public final class RunnableStatsManager {
 					return result;
 
 				switch (SortBy.this) {
-				case METHOD:
-					return NAME.comparator.compare(o1, o2);
-				default:
-					return 0;
+					case METHOD:
+						return NAME.comparator.compare(o1, o2);
+					default:
+						return 0;
 				}
 			}
 		};
@@ -202,22 +202,22 @@ public final class RunnableStatsManager {
 		@SuppressWarnings("rawtypes")
 		private Comparable getComparableValueOf(MethodStat stat) {
 			switch (this) {
-			case AVG:
-				return stat.total / stat.count;
-			case COUNT:
-				return stat.count;
-			case TOTAL:
-				return stat.total;
-			case NAME:
-				return stat.className;
-			case METHOD:
-				return stat.methodName;
-			case MIN:
-				return stat.min;
-			case MAX:
-				return stat.max;
-			default:
-				throw new InternalError();
+				case AVG:
+					return stat.total / stat.count;
+				case COUNT:
+					return stat.count;
+				case TOTAL:
+					return stat.total;
+				case NAME:
+					return stat.className;
+				case METHOD:
+					return stat.methodName;
+				case MIN:
+					return stat.min;
+				case MAX:
+					return stat.max;
+				default:
+					throw new InternalError();
 			}
 		}
 
@@ -279,20 +279,18 @@ public final class RunnableStatsManager {
 
 			if (sortBy != null) {
 				switch (sortBy) {
-				case NAME:
-				case METHOD:
-					appendAttribute(sb, SortBy.NAME, values[SortBy.NAME.ordinal()][k],
-							maxLength[SortBy.NAME.ordinal()]);
-					set.remove(SortBy.NAME);
+					case NAME:
+					case METHOD:
+						appendAttribute(sb, SortBy.NAME, values[SortBy.NAME.ordinal()][k], maxLength[SortBy.NAME.ordinal()]);
+						set.remove(SortBy.NAME);
 
-					appendAttribute(sb, SortBy.METHOD, values[SortBy.METHOD.ordinal()][k],
-							maxLength[SortBy.METHOD.ordinal()]);
-					set.remove(SortBy.METHOD);
-					break;
-				default:
-					appendAttribute(sb, sortBy, values[sortBy.ordinal()][k], maxLength[sortBy.ordinal()]);
-					set.remove(sortBy);
-					break;
+						appendAttribute(sb, SortBy.METHOD, values[SortBy.METHOD.ordinal()][k], maxLength[SortBy.METHOD.ordinal()]);
+						set.remove(SortBy.METHOD);
+						break;
+					default:
+						appendAttribute(sb, sortBy, values[sortBy.ordinal()][k], maxLength[sortBy.ordinal()]);
+						set.remove(sortBy);
+						break;
 				}
 			}
 
@@ -313,9 +311,11 @@ public final class RunnableStatsManager {
 
 			for (String line : lines)
 				ps.println(line);
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.warn("", e);
-		} finally {
+		}
+		finally {
 			IOUtils.closeQuietly(ps);
 		}
 	}

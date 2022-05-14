@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import java.util.concurrent.Future;
@@ -30,7 +31,6 @@ import com.aionemu.gameserver.model.TaskId;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Homing;
 import com.aionemu.gameserver.model.templates.spawns.SpawnTemplate;
-import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.spawnengine.VisibleObjectSpawner;
@@ -38,7 +38,6 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author ATracer
- * @modified Kill3r
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SummonHomingEffect")
@@ -53,8 +52,7 @@ public class SummonHomingEffect extends SummonEffect {
 
 	@Override
 	public void applyEffect(Effect effect) {
-		final Creature effected = effect.getEffected();
-		final Creature effector = effect.getEffector();
+		Creature effector = effect.getEffector();
 		float x = effector.getX();
 		float y = effector.getY();
 		float z = effector.getZ();
@@ -64,17 +62,14 @@ public class SummonHomingEffect extends SummonEffect {
 
 		for (int i = 0; i < npcCount; i++) {
 			SpawnTemplate spawn = SpawnEngine.addNewSingleTimeSpawn(worldId, npcId, x, y, z, heading);
-			final Homing homing = VisibleObjectSpawner.spawnHoming(spawn, instanceId, effector, attackCount, effect.getSkillId(), effect.getSkillLevel(), skillId);
+			final Homing homing = VisibleObjectSpawner.spawnHoming(spawn, instanceId, effector, attackCount, effect.getSkillId(), effect.getSkillLevel(),
+					skillId);
 
 			if (attackCount > 0) {
 				ActionObserver observer = new ActionObserver(ObserverType.ATTACK) {
-
 					@Override
 					public void attack(Creature creature) {
 						homing.setAttackCount(homing.getAttackCount() - 1);
-						if (skillId != 0) {
-							SkillEngine.getInstance().applyEffectDirectly(skillId, effector, effected, 0);
-						}
 						if (homing.getAttackCount() <= 0) {
 							homing.getController().onDelete();
 						}
@@ -86,7 +81,6 @@ public class SummonHomingEffect extends SummonEffect {
 			}
 			// Schedule a despawn just in case
 			Future<?> task = ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
 					if ((homing != null) && (homing.isSpawned())) {

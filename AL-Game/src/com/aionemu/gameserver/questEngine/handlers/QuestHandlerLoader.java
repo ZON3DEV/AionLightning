@@ -14,16 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.handlers;
-
-import java.lang.reflect.Modifier;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.scripting.classlistener.ClassListener;
 import com.aionemu.commons.utils.ClassUtils;
 import com.aionemu.gameserver.questEngine.QuestEngine;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.lang.reflect.Modifier;
 
 /**
  * @author MrPoke
@@ -53,8 +53,7 @@ public class QuestHandlerLoader implements ClassListener {
 					if (tmp != null) {
 						QuestEngine.getInstance().addQuestHandler(tmp.newInstance());
 					}
-				}
-				catch (Exception e) {
+				} catch (Exception e) {
 					throw new RuntimeException("Failed to load quest handler class: " + c.getName(), e);
 				}
 			}

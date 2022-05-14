@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.model;
 
 import java.util.Timer;
@@ -54,7 +55,6 @@ public class QuestTimer {
 		isTicking = true;
 		// TODO Send Packet that timer start
 		TimerTask task = new TimerTask() {
-
 			@Override
 			public void run() {
 				PacketSendUtility.sendMessage(player, "Timer is over");
@@ -76,6 +76,7 @@ public class QuestTimer {
 	}
 
 	/**
+	 * @return true - if Timer started, and ticking.
 	 * @return false - if Timer not started or stoped.
 	 */
 	public boolean isTicking() {
@@ -86,6 +87,6 @@ public class QuestTimer {
 	 * @return
 	 */
 	public int getTimeSeconds() {
-		return this.Time / 1000;
+		return (int) this.Time / 1000;
 	}
 }

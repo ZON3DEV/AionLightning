@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.network;
 
 import java.io.IOException;
@@ -72,8 +73,8 @@ public abstract class Dispatcher extends Thread {
 	}
 
 	/**
-	 * Add connection to pendingClose list, so this connection will be closed by
-	 * this <code>Dispatcher</code> as soon as possible.
+	 * Add connection to pendingClose list, so this connection will be closed by this <code>Dispatcher</code> as soon as
+	 * possible.
 	 * 
 	 * @param con
 	 * @see com.aionemu.commons.network.Dispatcher#closeConnection(com.aionemu.commons.network.AConnection)
@@ -107,15 +108,16 @@ public abstract class Dispatcher extends Thread {
 
 				synchronized (gate) {
 				}
-			} catch (Exception e) {
+			}
+			catch (Exception e) {
 				log.error("Dispatcher error! " + e, e);
 			}
 		}
 	}
 
 	/**
-	 * Register new client connected to this Dispatcher and set SelectionKey
-	 * (result of registration) as this key of given AConnection.
+	 * Register new client connected to this Dispatcher and set SelectionKey (result of registration) as this key of given
+	 * AConnection.
 	 * 
 	 * @param ch
 	 * @param ops
@@ -130,8 +132,7 @@ public abstract class Dispatcher extends Thread {
 	}
 
 	/**
-	 * Register new Acceptor this Dispatcher and return SelectionKey (result of
-	 * registration).
+	 * Register new Acceptor this Dispatcher and return SelectionKey (result of registration).
 	 * 
 	 * @param ch
 	 * @param ops
@@ -154,14 +155,14 @@ public abstract class Dispatcher extends Thread {
 	final void accept(SelectionKey key) {
 		try {
 			((Acceptor) key.attachment()).accept(key);
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			log.error("Error while accepting connection: +" + e, e);
 		}
 	}
 
 	/**
-	 * Read data from socketChannel represented by SelectionKey key. Parse and
-	 * Process data. Prepare buffer for next read.
+	 * Read data from socketChannel represented by SelectionKey key. Parse and Process data. Prepare buffer for next read.
 	 * 
 	 * @param key
 	 */
@@ -172,8 +173,7 @@ public abstract class Dispatcher extends Thread {
 		ByteBuffer rb = con.readBuffer;
 
 		/**
-		 * Test if this build should use assertion. If NetworkAssertion == false
-		 * javac will remove this code block
+		 * Test if this build should use assertion. If NetworkAssertion == false javac will remove this code block
 		 */
 		if (Assertion.NetworkAssertion) {
 			assert con.readBuffer.hasRemaining();
@@ -183,19 +183,20 @@ public abstract class Dispatcher extends Thread {
 		int numRead;
 		try {
 			numRead = socketChannel.read(rb);
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			closeConnectionImpl(con);
 			return;
 		}
 
 		if (numRead == -1) {
 			/**
-			 * Remote entity shut the socket down cleanly. Do the same from our
-			 * end and cancel the channel.
+			 * Remote entity shut the socket down cleanly. Do the same from our end and cancel the channel.
 			 */
 			closeConnectionImpl(con);
 			return;
-		} else if (numRead == 0) {
+		}
+		else if (numRead == 0) {
 			return;
 		}
 
@@ -211,24 +212,23 @@ public abstract class Dispatcher extends Thread {
 			con.readBuffer.compact();
 
 			/**
-			 * Test if this build should use assertion. If NetworkAssertion ==
-			 * false javac will remove this code block
+			 * Test if this build should use assertion. If NetworkAssertion == false javac will remove this code block
 			 */
 			if (Assertion.NetworkAssertion) {
 				assert con.readBuffer.hasRemaining();
 			}
-		} else
+		}
+		else
 			rb.clear();
 	}
 
 	/**
-	 * Parse data from buffer and prepare buffer for reading just one packet -
-	 * call processData(ByteBuffer b).
+	 * Parse data from buffer and prepare buffer for reading just one packet - call processData(ByteBuffer b).
 	 * 
 	 * @param con
-	 *            Connection
+	 *          Connection
 	 * @param buf
-	 *            Buffer with packet data
+	 *          Buffer with packet data
 	 * @return True if packet was parsed.
 	 */
 	private boolean parse(AConnection con, ByteBuffer buf) {
@@ -243,17 +243,18 @@ public abstract class Dispatcher extends Thread {
 			buf.position(buf.position() + sz);
 
 			return con.processData(b);
-		} catch (IllegalArgumentException e) {
-			log.warn("Error on parsing input from client - account: " + con + " packet size: " + sz + " real size:"
+		}
+		catch (IllegalArgumentException e) {
+			log.warn(
+				"Error on parsing input from client - account: " + con + " packet size: " + sz + " real size:"
 					+ buf.remaining(), e);
 			return false;
 		}
 	}
 
 	/**
-	 * Write as much as possible data to socketChannel represented by
-	 * SelectionKey key. If all data were written key write interest will be
-	 * disabled.
+	 * Write as much as possible data to socketChannel represented by SelectionKey key. If all data were written key write
+	 * interest will be disabled.
 	 * 
 	 * @param key
 	 */
@@ -267,7 +268,8 @@ public abstract class Dispatcher extends Thread {
 		if (wb.hasRemaining()) {
 			try {
 				numWrite = socketChannel.write(wb);
-			} catch (IOException e) {
+			}
+			catch (IOException e) {
 				closeConnectionImpl(con);
 				return;
 			}
@@ -294,7 +296,8 @@ public abstract class Dispatcher extends Thread {
 			/** Attempt to write to the channel */
 			try {
 				numWrite = socketChannel.write(wb);
-			} catch (IOException e) {
+			}
+			catch (IOException e) {
 				closeConnectionImpl(con);
 				return;
 			}
@@ -310,45 +313,38 @@ public abstract class Dispatcher extends Thread {
 		}
 
 		/**
-		 * Test if this build should use assertion. If NetworkAssertion == false
-		 * javac will remove this code block
+		 * Test if this build should use assertion. If NetworkAssertion == false javac will remove this code block
 		 */
 		if (Assertion.NetworkAssertion) {
 			assert !wb.hasRemaining();
 		}
 
 		/**
-		 * We wrote away all data, so we're no longer interested in writing on
-		 * this socket.
+		 * We wrote away all data, so we're no longer interested in writing on this socket.
 		 */
 		key.interestOps(key.interestOps() & ~SelectionKey.OP_WRITE);
 
-		/**
-		 * We wrote all data so we can close connection that is "PandingClose"
-		 */
+		/** We wrote all data so we can close connection that is "PandingClose" */
 		if (con.isPendingClose())
 			closeConnectionImpl(con);
 	}
 
 	/**
-	 * Connection will be closed [onlyClose()] and onDisconnect() method will be
-	 * executed on another thread [DisconnectionThreadPool] after
-	 * getDisconnectionDelay() time in ms. This method may only be called by
-	 * current Dispatcher Thread.
+	 * Connection will be closed [onlyClose()] and onDisconnect() method will be executed on another thread
+	 * [DisconnectionThreadPool] after getDisconnectionDelay() time in ms. This method may only be called by current
+	 * Dispatcher Thread.
 	 * 
 	 * @param con
 	 */
 	protected final void closeConnectionImpl(AConnection con) {
 		/**
-		 * Test if this build should use assertion. If NetworkAssertion == false
-		 * javac will remove this code block
+		 * Test if this build should use assertion. If NetworkAssertion == false javac will remove this code block
 		 */
 		if (Assertion.NetworkAssertion)
 			assert Thread.currentThread() == this;
 
 		if (con.onlyClose())
-			// dcPool.scheduleDisconnection(new DisconnectionTask(con),
-			// con.getDisconnectionDelay());
+		//	dcPool.scheduleDisconnection(new DisconnectionTask(con), con.getDisconnectionDelay());
 			dcPool.execute(new DisconnectionTask(con));
 	}
 }

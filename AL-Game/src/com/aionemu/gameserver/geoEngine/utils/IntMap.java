@@ -14,11 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.geoEngine.utils;
 
-import java.util.Iterator;
-
 import com.aionemu.gameserver.geoEngine.utils.IntMap.Entry;
+
+import java.util.Iterator;
 
 /**
  * Taken from http://code.google.com/p/skorpios/
@@ -73,8 +74,7 @@ public final class IntMap<T> implements Iterable<Entry>, Cloneable {
 			}
 			clone.table = newTable;
 			return clone;
-		}
-		catch (CloneNotSupportedException ex) {
+		} catch (CloneNotSupportedException ex) {
 		}
 		return null;
 	}
@@ -92,7 +92,7 @@ public final class IntMap<T> implements Iterable<Entry>, Cloneable {
 	}
 
 	public boolean containsKey(int key) {
-		int index = (key) & mask;
+		int index = ((int) key) & mask;
 		for (Entry e = table[index]; e != null; e = e.next) {
 			if (e.key == key) {
 				return true;
@@ -141,8 +141,7 @@ public final class IntMap<T> implements Iterable<Entry>, Cloneable {
 						e.next = newTable[index];
 						newTable[index] = e;
 						e = next;
-					}
-					while (e != null);
+					} while (e != null);
 				}
 			}
 			table = newTable;
@@ -164,8 +163,7 @@ public final class IntMap<T> implements Iterable<Entry>, Cloneable {
 				size--;
 				if (prev == e) {
 					table[index] = next;
-				}
-				else {
+				} else {
 					prev.next = next;
 				}
 				return (T) e.value;
@@ -190,7 +188,7 @@ public final class IntMap<T> implements Iterable<Entry>, Cloneable {
 
 	@Override
 	public Iterator<Entry> iterator() {
-		return new IntMapIterator();
+		return (Iterator<Entry>) new IntMapIterator();
 	}
 
 	final class IntMapIterator implements Iterator<Entry> {
@@ -230,7 +228,8 @@ public final class IntMap<T> implements Iterable<Entry>, Cloneable {
 				return e;
 			}
 			// if (cur != null && cur.next != null){
-			// if we have a current entry, continue to the next entry in the list
+			// if we have a current entry, continue to the next entry in the
+			// list
 			// cur = cur.next;
 			// el++;
 			// return cur;
@@ -240,8 +239,7 @@ public final class IntMap<T> implements Iterable<Entry>, Cloneable {
 				// either we exhausted the current entry list, or
 				// the entry was null. find another non-null entry.
 				cur = table[++idx];
-			}
-			while (cur == null);
+			} while (cur == null);
 			Entry e = cur;
 			cur = cur.next;
 			el++;
@@ -285,8 +283,7 @@ public final class IntMap<T> implements Iterable<Entry>, Cloneable {
 				Entry<T> clone = (Entry<T>) super.clone();
 				clone.next = next != null ? next.clone() : null;
 				return clone;
-			}
-			catch (CloneNotSupportedException ex) {
+			} catch (CloneNotSupportedException ex) {
 			}
 			return null;
 		}

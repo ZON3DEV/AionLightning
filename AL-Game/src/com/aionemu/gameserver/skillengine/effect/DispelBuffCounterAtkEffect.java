@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -66,8 +67,7 @@ public class DispelBuffCounterAtkEffect extends DamageEffect {
 		int newValue = 0;
 		if (i == 1) {
 			newValue = hitvalue;
-		}
-		else if (i > 1) {
+		} else if (i > 1) {
 			newValue = hitvalue + ((hitvalue / 2) * (i - 1));
 		}
 
@@ -75,6 +75,11 @@ public class DispelBuffCounterAtkEffect extends DamageEffect {
 
 		ActionModifier modifier = getActionModifiers(effect);
 
-		AttackUtil.calculateMagicalSkillResult(effect, valueWithDelta, modifier, getElement(), true, true, false, Func.ADD, 0, 0, shared, true); // critprob 0, dispels can not crit
+		AttackUtil.calculateMagicalSkillResult(effect, valueWithDelta, modifier, getElement(), true, true, false, Func.ADD, 0, 0, shared, true); // critprob
+																																					// 0,
+																																					// dispels
+																																					// can
+																																					// not
+																																					// crit
 	}
 }

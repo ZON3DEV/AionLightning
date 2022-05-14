@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.handlers.template;
 
 import java.util.HashSet;
@@ -21,9 +22,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import com.aionemu.gameserver.model.DialogAction;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
+import com.aionemu.gameserver.model.DialogAction;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
@@ -37,8 +38,6 @@ public class ReportTo extends QuestHandler {
 	private final Set<Integer> startNpcs = new HashSet<Integer>();
 	private final Set<Integer> endNpcs = new HashSet<Integer>();
 	private final int itemId;
-	private final int startDialogId;
-	private final int startDialogId2;
 
 	/**
 	 * @param id
@@ -46,7 +45,7 @@ public class ReportTo extends QuestHandler {
 	 * @param endNpcIds
 	 * @param itemId2
 	 */
-	public ReportTo(int questId, List<Integer> startNpcIds, List<Integer> endNpcIds, int startDialogId, int startDialogId2, int itemId) {
+	public ReportTo(int questId, List<Integer> startNpcIds, List<Integer> endNpcIds, int itemId) {
 		super(questId);
 		startNpcs.addAll(startNpcIds);
 		startNpcs.remove(0);
@@ -54,8 +53,6 @@ public class ReportTo extends QuestHandler {
 			endNpcs.addAll(endNpcIds);
 			endNpcs.remove(0);
 		}
-		this.startDialogId = startDialogId;
-		this.startDialogId2 = startDialogId2;
 		this.itemId = itemId;
 	}
 
@@ -85,12 +82,7 @@ public class ReportTo extends QuestHandler {
 			if (startNpcs.isEmpty() || startNpcs.contains(targetId)) {
 				switch (dialog) {
 					case QUEST_SELECT: {
-						if (startDialogId != 0) {
-							return sendQuestDialog(env, startDialogId);
-						}
-						else {
-							return sendQuestDialog(env, 1011);
-						}
+						return sendQuestDialog(env, 1011);
 					}
 					case QUEST_ACCEPT_1:
 					case QUEST_ACCEPT_SIMPLE: {
@@ -99,8 +91,7 @@ public class ReportTo extends QuestHandler {
 								return sendQuestStartDialog(env);
 							}
 							return false;
-						}
-						else {
+						} else {
 							return sendQuestStartDialog(env);
 						}
 					}
@@ -109,17 +100,15 @@ public class ReportTo extends QuestHandler {
 					}
 				}
 			}
-		}
-		else if (qs.getStatus() == QuestStatus.START) {
-			if (endNpcs.contains(targetId)) {
+		} else if (qs.getStatus() == QuestStatus.START) {
+			if (startNpcs.contains(targetId)) {
+				if (dialog == DialogAction.FINISH_DIALOG) {
+					return sendQuestSelectionDialog(env);
+				}
+			} else if (endNpcs.contains(targetId)) {
 				switch (dialog) {
 					case QUEST_SELECT: {
-						if (startDialogId2 != 0) {
-							return sendQuestDialog(env, startDialogId2);
-						}
-						else {
-							return sendQuestDialog(env, 2375);
-						}
+						return sendQuestDialog(env, 2375);
 					}
 					case SELECT_QUEST_REWARD: {
 						if (itemId != 0) {
@@ -137,8 +126,7 @@ public class ReportTo extends QuestHandler {
 						break;
 				}
 			}
-		}
-		else if (qs.getStatus() == QuestStatus.REWARD) {
+		} else if (qs.getStatus() == QuestStatus.REWARD) {
 			if (endNpcs.contains(targetId)) {
 				return sendQuestEndDialog(env);
 			}

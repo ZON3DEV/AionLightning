@@ -14,21 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.instance.instancereward;
 
-import static ch.lambdaj.Lambda.maxFrom;
-import static ch.lambdaj.Lambda.minFrom;
-import static ch.lambdaj.Lambda.on;
-import static ch.lambdaj.Lambda.sort;
-import static ch.lambdaj.Lambda.sum;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import static ch.lambdaj.Lambda.*;
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.instance.instanceposition.ChaosInstancePosition;
@@ -41,10 +30,16 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_INSTANCE_SCORE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.WorldMapInstance;
 import com.aionemu.gameserver.world.knownlist.Visitor;
-
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javolution.util.FastList;
 
 /**
+ *
  * @author xTz
  */
 public class PvPArenaReward extends InstanceReward<PvPArenaPlayerReward> {
@@ -72,18 +67,15 @@ public class PvPArenaReward extends InstanceReward<PvPArenaPlayerReward> {
 			positionSize = 4;
 			buffId = 8;
 			instancePosition = new DisciplineInstancePosition();
-		}
-		else if (isGlory()) {
+		} else if (isGlory()) {
 			buffId = 7;
 			positionSize = 8;
 			instancePosition = new GloryInstancePosition();
-		}
-		else if (mapId == 300450000 || mapId == 300570000 || mapId == 301100000) {
+		} else if (mapId == 300450000 || mapId == 300570000) {
 			buffId = 7;
 			positionSize = 12;
 			instancePosition = new HarmonyInstancePosition();
-		}
-		else {
+		} else {
 			buffId = 7;
 			positionSize = 12;
 			instancePosition = new ChaosInstancePosition();
@@ -96,7 +88,7 @@ public class PvPArenaReward extends InstanceReward<PvPArenaPlayerReward> {
 	}
 
 	public final boolean isSoloArena() {
-		return mapId == 300360000 || mapId == 300430000;
+		return mapId == 300430000 || mapId == 300360000;
 	}
 
 	public final boolean isGlory() {
@@ -173,7 +165,6 @@ public class PvPArenaReward extends InstanceReward<PvPArenaPlayerReward> {
 
 	public List<PvPArenaPlayerReward> sortPoints() {
 		return sort(getInstanceRewards(), on(PvPArenaPlayerReward.class).getScorePoints(), new Comparator<Integer>() {
-
 			@Override
 			public int compare(Integer o1, Integer o2) {
 				return o2 != null ? o2.compareTo(o1) : -o1.compareTo(o2);
@@ -211,10 +202,7 @@ public class PvPArenaReward extends InstanceReward<PvPArenaPlayerReward> {
 	}
 
 	public boolean canRewarded() {
-		return mapId == 300350000 || mapId == 300360000 ||
-		mapId == 300420000 || mapId == 300430000 ||
-		mapId == 300450000 || mapId == 300550000 ||
-		mapId == 300570000 || mapId == 301100000;
+		return mapId == 300350000 || mapId == 300360000 || mapId == 300550000 || mapId == 300450000;
 	}
 
 	public int getNpcBonusSkill(int npcId) {
@@ -254,8 +242,7 @@ public class PvPArenaReward extends InstanceReward<PvPArenaPlayerReward> {
 		}
 		if (result < 120000) {
 			return (int) (120000 - result);
-		}
-		else {
+		} else {
 			return (int) (180000 * getRound() - (result - 120000));
 		}
 	}
@@ -267,7 +254,6 @@ public class PvPArenaReward extends InstanceReward<PvPArenaPlayerReward> {
 	public void sendPacket() {
 		final List<Player> players = instance.getPlayersInside();
 		instance.doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player player) {
 				PacketSendUtility.sendPacket(player, new SM_INSTANCE_SCORE(getTime(), getInstanceReward(), players));

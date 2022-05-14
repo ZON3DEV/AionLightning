@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect.modifier;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -58,13 +59,11 @@ public class TargetRaceDamageModifier extends ActionModifier {
 				default:
 					break;
 			}
-		}
-		else if (effected instanceof Npc) {
+		} else if (effected instanceof Npc) {
 			Npc npc = (Npc) effected;
 			if (npc.getObjectTemplate().getRace().toString().equals(skillTargetRace.toString())) {
 				return newValue;
-			}
-			else {
+			} else {
 				return 0;
 			}
 		}
@@ -80,8 +79,7 @@ public class TargetRaceDamageModifier extends ActionModifier {
 			Player player = (Player) effected;
 			Race race = player.getRace();
 			return (race == Race.ASMODIANS && skillTargetRace == Race.ASMODIANS) || (race == Race.ELYOS && skillTargetRace == Race.ELYOS);
-		}
-		else if (effected instanceof Npc) {
+		} else if (effected instanceof Npc) {
 			Npc npc = (Npc) effected;
 
 			Race race = npc.getObjectTemplate().getRace();

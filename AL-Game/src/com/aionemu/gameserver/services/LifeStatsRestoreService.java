@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.services;
 
-import java.util.concurrent.Future;
+package com.aionemu.gameserver.services;
 
 import com.aionemu.gameserver.ai2.AIState;
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -25,6 +24,7 @@ import com.aionemu.gameserver.model.stats.container.PlayerLifeStats;
 import com.aionemu.gameserver.model.templates.zone.ZoneType;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
+import java.util.concurrent.Future;
 
 /**
  * @author ATracer
@@ -33,7 +33,7 @@ public class LifeStatsRestoreService {
 
 	private static final int DEFAULT_DELAY = 6000;
 	private static final int DEFAULT_FPREDUCE_DELAY = 2000;
-	private static final int DEFAULT_FPRESTORE_DELAY = 1000;
+	private static final int DEFAULT_FPRESTORE_DELAY = 2000;
 	private static LifeStatsRestoreService instance = new LifeStatsRestoreService();
 
 	/**
@@ -90,8 +90,7 @@ public class LifeStatsRestoreService {
 			if (!inWorld || lifeStats.isAlreadyDead() || lifeStats.isFullyRestoredHp() || lifeStats.getOwner().getAi2().getState().equals(AIState.FIGHT)) {
 				lifeStats.cancelRestoreTask();
 				lifeStats = null;
-			}
-			else {
+			} else {
 				lifeStats.restoreHp();
 			}
 		}
@@ -111,8 +110,7 @@ public class LifeStatsRestoreService {
 			if (!inWorld || lifeStats.isAlreadyDead() || lifeStats.isFullyRestoredHpMp()) {
 				lifeStats.cancelRestoreTask();
 				lifeStats = null;
-			}
-			else {
+			} else {
 				lifeStats.restoreHp();
 				lifeStats.restoreMp();
 			}
@@ -140,15 +138,11 @@ public class LifeStatsRestoreService {
 
 			if (lifeStats.getCurrentFp() == 0) {
 				if (lifeStats.getOwner().getFlyState() > 0) {
-					if (lifeStats.getOwner().getWorldId() != 400010000) {
-						lifeStats.getOwner().getFlyController().endFly(true);
-					}
-				}
-				else {
+					lifeStats.getOwner().getFlyController().endFly(true);
+				} else {
 					lifeStats.triggerFpRestore();
 				}
-			}
-			else {
+			} else {
 				int reduceFp = lifeStats.getOwner().getFlyState() == 2 && lifeStats.getOwner().isInsideZoneType(ZoneType.FLY) ? 1 : 2;
 				if (costFp != null) {
 					reduceFp = costFp.intValue();
@@ -173,8 +167,7 @@ public class LifeStatsRestoreService {
 			if (lifeStats.isAlreadyDead() || lifeStats.isFlyTimeFullyRestored()) {
 				lifeStats.cancelFpRestore();
 				lifeStats = null;
-			}
-			else {
+			} else {
 				lifeStats.restoreFp();
 			}
 		}

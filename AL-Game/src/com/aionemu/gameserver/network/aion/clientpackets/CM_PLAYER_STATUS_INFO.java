@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -61,7 +62,6 @@ public class CM_PLAYER_STATUS_INFO extends AionClientPacket {
 				break;
 			default:
 				PlayerTeamCommandService.executeCommand(activePlayer, command, playerObjId);
-				break;
 		}
 	}
 }

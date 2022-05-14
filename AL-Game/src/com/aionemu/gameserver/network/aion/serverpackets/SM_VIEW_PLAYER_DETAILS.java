@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.util.List;
@@ -57,7 +58,6 @@ public class SM_VIEW_PLAYER_DETAILS extends AionServerPacket {
 
 		writeD(0);
 		writeD(template.getTemplateId());
-		writeH(0x24);// Testing
 		writeNameId(template.getNameId());
 
 		ItemInfoBlob itemInfoBlob = ItemInfoBlob.getFullBlob(player, item);

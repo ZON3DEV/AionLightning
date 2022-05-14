@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -45,7 +46,8 @@ public class SpellAtkDrainInstantEffect extends DamageEffect {
 			effect.getEffector().getLifeStats().increaseHp(TYPE.HP, effect.getReserved1() * hp_percent / 100, effect.getSkillId(), LOG.SPELLATKDRAININSTANT);
 		}
 		if (mp_percent != 0) {
-			effect.getEffector().getLifeStats().increaseMp(TYPE.ABSORBED_MP, effect.getReserved1() * mp_percent / 100, effect.getSkillId(), LOG.SPELLATKDRAININSTANT);
+			effect.getEffector().getLifeStats()
+					.increaseMp(TYPE.ABSORBED_MP, effect.getReserved1() * mp_percent / 100, effect.getSkillId(), LOG.SPELLATKDRAININSTANT);
 		}
 	}
 

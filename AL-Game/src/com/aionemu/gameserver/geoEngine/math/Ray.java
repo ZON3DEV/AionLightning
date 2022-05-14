@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.geoEngine.math;
 
 import com.aionemu.gameserver.geoEngine.bounding.BoundingVolume;
@@ -23,8 +24,9 @@ import com.aionemu.gameserver.geoEngine.collision.CollisionResults;
 import com.aionemu.gameserver.geoEngine.collision.UnsupportedCollisionException;
 
 /**
- * <code>Ray</code> defines a line segment which has an origin and a direction. That is, a point and an infinite ray is cast from this point. The ray is defined by the following equation: R(t) =
- * origin + t*direction for t >= 0.
+ * <code>Ray</code> defines a line segment which has an origin and a direction.
+ * That is, a point and an infinite ray is cast from this point. The ray is
+ * defined by the following equation: R(t) = origin + t*direction for t >= 0.
  *
  * @author Mark Powell
  * @author Joshua Slack
@@ -45,9 +47,9 @@ public final class Ray implements Cloneable, Collidable {
 	// protected static final Vector3f tempVb=new Vector3f();
 	// protected static final Vector3f tempVc=new Vector3f();
 	// protected static final Vector3f tempVd=new Vector3f();
-
 	/**
-	 * Constructor instantiates a new <code>Ray</code> object. As default, the origin is (0,0,0) and the direction is (0,0,0).
+	 * Constructor instantiates a new <code>Ray</code> object. As default, the
+	 * origin is (0,0,0) and the direction is (0,0,0).
 	 */
 	public Ray() {
 		origin = new Vector3f();
@@ -55,7 +57,8 @@ public final class Ray implements Cloneable, Collidable {
 	}
 
 	/**
-	 * Constructor instantiates a new <code>Ray</code> object. The origin and direction are given.
+	 * Constructor instantiates a new <code>Ray</code> object. The origin and
+	 * direction are given.
 	 *
 	 * @param origin
 	 *            the origin of the ray.
@@ -78,7 +81,8 @@ public final class Ray implements Cloneable, Collidable {
 	// return intersect(t.get(0), t.get(1), t.get(2));
 	// }
 	/**
-	 * <code>intersect</code> determines if the Ray intersects a triangle defined by the specified points.
+	 * <code>intersect</code> determines if the Ray intersects a triangle
+	 * defined by the specified points.
 	 *
 	 * @param v0
 	 *            first point of the triangle.
@@ -91,14 +95,15 @@ public final class Ray implements Cloneable, Collidable {
 	// public boolean intersect(Vector3f v0,Vector3f v1,Vector3f v2){
 	// return intersectWhere(v0, v1, v2, null);
 	// }
-
 	/**
-	 * <code>intersectWhere</code> determines if the Ray intersects a triangle. It then stores the point of intersection in the given loc vector
+	 * <code>intersectWhere</code> determines if the Ray intersects a triangle.
+	 * It then stores the point of intersection in the given loc vector
 	 *
 	 * @param t
 	 *            the Triangle to test against.
 	 * @param loc
-	 *            storage vector to save the collision point in (if the ray collides)
+	 *            storage vector to save the collision point in (if the ray
+	 *            collides)
 	 * @return true if the ray collides.
 	 */
 	public boolean intersectWhere(Triangle t, Vector3f loc) {
@@ -106,7 +111,9 @@ public final class Ray implements Cloneable, Collidable {
 	}
 
 	/**
-	 * <code>intersectWhere</code> determines if the Ray intersects a triangle defined by the specified points and if so it stores the point of intersection in the given loc vector.
+	 * <code>intersectWhere</code> determines if the Ray intersects a triangle
+	 * defined by the specified points and if so it stores the point of
+	 * intersection in the given loc vector.
 	 *
 	 * @param v0
 	 *            first point of the triangle.
@@ -115,7 +122,8 @@ public final class Ray implements Cloneable, Collidable {
 	 * @param v2
 	 *            third point of the triangle.
 	 * @param loc
-	 *            storage vector to save the collision point in (if the ray collides) if null, only boolean is calculated.
+	 *            storage vector to save the collision point in (if the ray
+	 *            collides) if null, only boolean is calculated.
 	 * @return true if the ray collides.
 	 */
 	public boolean intersectWhere(Vector3f v0, Vector3f v1, Vector3f v2, Vector3f loc) {
@@ -123,13 +131,17 @@ public final class Ray implements Cloneable, Collidable {
 	}
 
 	/**
-	 * <code>intersectWherePlanar</code> determines if the Ray intersects a triangle and if so it stores the point of intersection in the given loc vector as t, u, v where t is the distance from the
-	 * origin to the point of intersection and u,v is the intersection point in terms of the triangle plane.
+	 * <code>intersectWherePlanar</code> determines if the Ray intersects a
+	 * triangle and if so it stores the point of intersection in the given loc
+	 * vector as t, u, v where t is the distance from the origin to the point of
+	 * intersection and u,v is the intersection point in terms of the triangle
+	 * plane.
 	 *
 	 * @param t
 	 *            the Triangle to test against.
 	 * @param loc
-	 *            storage vector to save the collision point in (if the ray collides) as t, u, v
+	 *            storage vector to save the collision point in (if the ray
+	 *            collides) as t, u, v
 	 * @return true if the ray collides.
 	 */
 	public boolean intersectWherePlanar(Triangle t, Vector3f loc) {
@@ -137,8 +149,11 @@ public final class Ray implements Cloneable, Collidable {
 	}
 
 	/**
-	 * <code>intersectWherePlanar</code> determines if the Ray intersects a triangle defined by the specified points and if so it stores the point of intersection in the given loc vector as t, u, v
-	 * where t is the distance from the origin to the point of intersection and u,v is the intersection point in terms of the triangle plane.
+	 * <code>intersectWherePlanar</code> determines if the Ray intersects a
+	 * triangle defined by the specified points and if so it stores the point of
+	 * intersection in the given loc vector as t, u, v where t is the distance
+	 * from the origin to the point of intersection and u,v is the intersection
+	 * point in terms of the triangle plane.
 	 *
 	 * @param v0
 	 *            first point of the triangle.
@@ -147,7 +162,8 @@ public final class Ray implements Cloneable, Collidable {
 	 * @param v2
 	 *            third point of the triangle.
 	 * @param loc
-	 *            storage vector to save the collision point in (if the ray collides) as t, u, v
+	 *            storage vector to save the collision point in (if the ray
+	 *            collides) as t, u, v
 	 * @return true if the ray collides.
 	 */
 	public boolean intersectWherePlanar(Vector3f v0, Vector3f v1, Vector3f v2, Vector3f loc) {
@@ -183,12 +199,10 @@ public final class Ray implements Cloneable, Collidable {
 		float sign;
 		if (dirDotNorm > FastMath.FLT_EPSILON) {
 			sign = 1;
-		}
-		else if (dirDotNorm < -FastMath.FLT_EPSILON) {
+		} else if (dirDotNorm < -FastMath.FLT_EPSILON) {
 			sign = -1f;
 			dirDotNorm = -dirDotNorm;
-		}
-		else {
+		} else {
 			// ray and triangle/quad are parallel
 			return false;
 		}
@@ -218,8 +232,7 @@ public final class Ray implements Cloneable, Collidable {
 						float t = diffDotNorm * inv;
 						if (!doPlanar) {
 							store.set(origin).addLocal(direction.x * t, direction.y * t, direction.z * t);
-						}
-						else {
+						} else {
 							// these weights can be used to determine
 							// interpolated values, such as texture coord.
 							// eg. texcoord s,t at intersection point:
@@ -264,12 +277,10 @@ public final class Ray implements Cloneable, Collidable {
 		float sign;
 		if (dirDotNorm > FastMath.FLT_EPSILON) {
 			sign = 1;
-		}
-		else if (dirDotNorm < -FastMath.FLT_EPSILON) {
+		} else if (dirDotNorm < -FastMath.FLT_EPSILON) {
 			sign = -1f;
 			dirDotNorm = -dirDotNorm;
-		}
-		else {
+		} else {
 			// ray and triangle/quad are parallel
 			return Float.POSITIVE_INFINITY;
 		}
@@ -294,8 +305,7 @@ public final class Ray implements Cloneable, Collidable {
 						// ray intersects triangle
 						// fill in.
 						float inv = 1f / dirDotNorm;
-						float t = diffDotNorm * inv;
-						return t;
+						return diffDotNorm * inv;
 					}
 				}
 			}
@@ -305,10 +315,15 @@ public final class Ray implements Cloneable, Collidable {
 	}
 
 	/**
-	 * <code>intersectWherePlanar</code> determines if the Ray intersects a quad defined by the specified points and if so it stores the point of intersection in the given loc vector as t, u, v where
-	 * t is the distance from the origin to the point of intersection and u,v is the intersection point in terms of the quad plane. One edge of the quad is [v0,v1], another one [v0,v2]. The behaviour
-	 * thus is like {@link #intersectWherePlanar(Vector3f, Vector3f, Vector3f, Vector3f)} except for the extended area, which is equivalent to the union of the triangles [v0,v1,v2] and
-	 * [-v0+v1+v2,v1,v2].
+	 * <code>intersectWherePlanar</code> determines if the Ray intersects a quad
+	 * defined by the specified points and if so it stores the point of
+	 * intersection in the given loc vector as t, u, v where t is the distance
+	 * from the origin to the point of intersection and u,v is the intersection
+	 * point in terms of the quad plane. One edge of the quad is [v0,v1],
+	 * another one [v0,v2]. The behaviour thus is like
+	 * {@link #intersectWherePlanar(Vector3f, Vector3f, Vector3f, Vector3f)}
+	 * except for the extended area, which is equivalent to the union of the
+	 * triangles [v0,v1,v2] and [-v0+v1+v2,v1,v2].
 	 *
 	 * @param v0
 	 *            top left point of the quad.
@@ -317,7 +332,8 @@ public final class Ray implements Cloneable, Collidable {
 	 * @param v2
 	 *            bottom left point of the quad.
 	 * @param loc
-	 *            storage vector to save the collision point in (if the ray collides) as t, u, v
+	 *            storage vector to save the collision point in (if the ray
+	 *            collides) as t, u, v
 	 * @return true if the ray collides with the quad.
 	 */
 	public boolean intersectWherePlanarQuad(Vector3f v0, Vector3f v1, Vector3f v2, Vector3f loc) {
@@ -351,8 +367,7 @@ public final class Ray implements Cloneable, Collidable {
 		if (other instanceof BoundingVolume) {
 			BoundingVolume bv = (BoundingVolume) other;
 			return bv.collideWith(this, results);
-		}
-		else if (other instanceof AbstractTriangle) {
+		} else if (other instanceof AbstractTriangle) {
 			AbstractTriangle tri = (AbstractTriangle) other;
 			float d = intersects(tri.get1(), tri.get2(), tri.get3());
 			if (Float.isInfinite(d) || Float.isNaN(d)) {
@@ -362,8 +377,7 @@ public final class Ray implements Cloneable, Collidable {
 			Vector3f point = new Vector3f(direction).multLocal(d).addLocal(origin);
 			results.addCollision(new CollisionResult(point, d));
 			return 1;
-		}
-		else {
+		} else {
 			throw new UnsupportedCollisionException();
 		}
 	}
@@ -376,8 +390,7 @@ public final class Ray implements Cloneable, Collidable {
 		float rayParam = direction.dot(tempVa);
 		if (rayParam > 0) {
 			origin.add(direction.mult(rayParam, tempVb), tempVb);
-		}
-		else {
+		} else {
 			tempVb.set(origin);
 			rayParam = 0.0f;
 		}
@@ -409,7 +422,8 @@ public final class Ray implements Cloneable, Collidable {
 	}
 
 	/**
-	 * <code>getLimit</code> returns the limit or the ray, aka the length. If the limit is not infinity, then this ray is a line with length <code>
+	 * <code>getLimit</code> returns the limit or the ray, aka the length. If
+	 * the limit is not infinity, then this ray is a line with length <code>
 	 * limit</code>.
 	 *
 	 * @return
@@ -475,8 +489,7 @@ public final class Ray implements Cloneable, Collidable {
 			r.direction = direction.clone();
 			r.origin = origin.clone();
 			return r;
-		}
-		catch (CloneNotSupportedException e) {
+		} catch (CloneNotSupportedException e) {
 			throw new AssertionError();
 		}
 	}

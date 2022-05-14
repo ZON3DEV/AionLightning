@@ -14,11 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.i18n;
 
 import java.io.File;
 import java.util.List;
 import java.util.Map;
+
+import javolution.util.FastMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,8 +32,6 @@ import com.aionemu.commons.scripting.classlistener.ScheduledTaskClassListener;
 import com.aionemu.commons.scripting.scriptmanager.ScriptManager;
 import com.aionemu.gameserver.GameServerError;
 import com.aionemu.gameserver.configs.main.GSConfig;
-
-import javolution.util.FastMap;
 
 /**
  * @author Fennek
@@ -53,8 +54,7 @@ public class LanguageHandler {
 
 		try {
 			instance.sm.load(LANGUAGE_DESCRIPTOR_FILE);
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			throw new GameServerError("Cannot load languages", e);
 		}
 

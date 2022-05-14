@@ -14,12 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.controllers.RVController;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-
 import javolution.util.FastMap;
 
 /**
@@ -33,6 +33,7 @@ public class SM_RIFT_ANNOUNCE extends AionServerPacket {
 	private FastMap<Integer, Integer> rifts;
 	private int objectId;
 	private int gelkmaros, inggison;
+	private int cl, cr, tl, tr;
 
 	/**
 	 * Rift announce packet
@@ -67,6 +68,14 @@ public class SM_RIFT_ANNOUNCE extends AionServerPacket {
 	 */
 	public SM_RIFT_ANNOUNCE(int objectId) {
 		this.objectId = objectId;
+		this.actionId = 4;
+	}
+
+	public SM_RIFT_ANNOUNCE(boolean cl, boolean cr, boolean tl, boolean tr) {
+		this.cl = cl ? 1 : 0; // Western Tiamaranta's Eye Entrance (Center left)
+		this.cr = cr ? 1 : 0; // Eastern Tiamaranta's Eye Entrance (Center right)
+		this.tl = tl ? 1 : 0; // Eye Abyss Gate Elyos (Top left)
+		this.tr = tr ? 1 : 0; // Eye Abyss Gate Asmodians (Top rigft)
 		this.actionId = 5;
 	}
 
@@ -77,7 +86,7 @@ public class SM_RIFT_ANNOUNCE extends AionServerPacket {
 	protected void writeImpl(AionConnection con) {
 		switch (actionId) {
 			case 0: // announce
-				writeH(0x57);// 4.7 // old -->writeH(0x19); // 0x19 // 4.9 = 57
+				writeH(0x19);// 4.0 // old -->writeH(0x11); // 0x11
 				writeC(actionId);
 				for (int value : rifts.values()) {
 					writeD(value);
@@ -90,7 +99,7 @@ public class SM_RIFT_ANNOUNCE extends AionServerPacket {
 				writeD(inggison);
 				break;
 			case 2:
-				writeH(0x39); // 0x39
+				writeH(0x23); // 0x23
 				writeC(actionId);
 				writeD(rift.getOwner().getObjectId());
 				writeD(rift.getMaxEntries());
@@ -102,28 +111,28 @@ public class SM_RIFT_ANNOUNCE extends AionServerPacket {
 				writeF(rift.getOwner().getZ());
 				writeC(rift.isVortex() ? 1 : 0); // red | blue
 				writeC(rift.isMaster() ? 1 : 0); // display | hide
-				writeD(rift.getOwner().getWorldId());
 				break;
 			case 3:
-				writeH(0x15);
+				writeH(0x0f); // 0x0f
 				writeC(actionId);
 				writeD(rift.getOwner().getObjectId());
 				writeD(rift.getUsedEntries());
 				writeD(rift.getRemainTime());
-				writeC(rift.isVortex() ? 1 : 0); // red | blue
-				writeC(rift.isMaster() ? 1 : 0); // display | hide
+				writeC(rift.isVortex() ? 1 : 0);
+				writeC(0); // unk
 				break;
 			case 4:
-				writeH(0x07);
-				writeC(actionId);
-				writeD(objectId);
-				writeC(rift.isVortex() ? 1 : 0); // red | blue
-				writeC(rift.isMaster() ? 1 : 0); // display | hide
-				break;
-			case 5:
 				writeH(0x05);
 				writeC(actionId);
-				writeD(0x00); // 0x00
+				writeD(objectId);
+				break;
+			case 5:
+				writeH(0x05); // 0x05
+				writeC(actionId);
+				writeC(cl);
+				writeC(cr);
+				writeC(tl);
+				writeC(tr);
 				break;
 
 		}

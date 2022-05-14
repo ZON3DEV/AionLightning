@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.siegelocation;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -50,6 +51,6 @@ public class ArtifactActivation {
 	}
 
 	public long getCd() {
-		return cd * 1000;
+		return (long) (cd * 1000);
 	}
 }

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.flyring;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -39,10 +40,10 @@ public class FlyRingTemplate {
 	protected float radius;
 	@XmlElement(name = "center")
 	protected FlyRingPoint center;
-	@XmlElement(name = "left")
-	protected FlyRingPoint left;
-	@XmlElement(name = "right")
-	protected FlyRingPoint right;
+	@XmlElement(name = "p1")
+	protected FlyRingPoint p1;
+	@XmlElement(name = "p2")
+	protected FlyRingPoint p2;
 
 	public String getName() {
 		return name;
@@ -61,22 +62,22 @@ public class FlyRingTemplate {
 	}
 
 	public FlyRingPoint getP1() {
-		return left;
+		return p1;
 	}
 
 	public FlyRingPoint getP2() {
-		return right;
+		return p2;
 	}
 
 	public FlyRingTemplate() {
 	}
 
-	public FlyRingTemplate(String name, int mapId, Point3D center, Point3D left, Point3D right, int radius) {
+	public FlyRingTemplate(String name, int mapId, Point3D center, Point3D p1, Point3D p2, int radius) {
 		this.name = name;
 		this.map = mapId;
 		this.radius = radius;
 		this.center = new FlyRingPoint(center);
-		this.left = new FlyRingPoint(left);
-		this.right = new FlyRingPoint(right);
+		this.p1 = new FlyRingPoint(p1);
+		this.p2 = new FlyRingPoint(p2);
 	}
 }

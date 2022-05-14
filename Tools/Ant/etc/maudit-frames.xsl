@@ -28,6 +28,7 @@
 
     It use the Xalan redirect extension to write to multiple output files.
 
+    @author Stephane Bailliez <a href="mailto:sbailliez@apache.org"/>
 -->
 
 <xsl:param name="output.dir" select="'.'"/>

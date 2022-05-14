@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.commons.objects.filter.ObjectFilter;
@@ -95,8 +96,7 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket {
 					// Alert must go to entire group or alliance.
 					if (player.isInGroup2()) {
 						broadcastToGroupMembers(player);
-					}
-					else {
+					} else {
 						broadcastToAllianceMembers(player);
 					}
 					break;
@@ -114,12 +114,10 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket {
 				case SHOUT:
 					if (player.isGM()) {
 						broadcastFromGm(player);
-					}
-					else {
+					} else {
 						if (CustomConfig.SPEAKING_BETWEEN_FACTIONS) {
 							broadcastToNonBlockedPlayers(player);
-						}
-						else {
+						} else {
 							broadcastToNonBlockedRacePlayers(player);
 						}
 					}
@@ -132,8 +130,7 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket {
 				default:
 					if (player.isGM()) {
 						broadcastFromGm(player);
-					}
-					else {
+					} else {
 						AuditLogger.info(player, String.format("Send message type %s. Message: %s", type, message));
 					}
 					break;
@@ -144,7 +141,6 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket {
 	private void broadcastFromCommander(final Player player) {
 		final int senderRace = player.getRace().getRaceId();
 		PacketSendUtility.broadcastPacket(player, new SM_MESSAGE(player, message, type), true, new ObjectFilter<Player>() {
-
 			@Override
 			public boolean acceptObject(Player object) {
 				return (senderRace == object.getRace().getRaceId() || object.isGM());
@@ -168,7 +164,6 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket {
 	 */
 	private void broadcastToNonBlockedPlayers(final Player player) {
 		PacketSendUtility.broadcastPacket(player, new SM_MESSAGE(player, message, type), true, new ObjectFilter<Player>() {
-
 			@Override
 			public boolean acceptObject(Player object) {
 				return !object.getBlockList().contains(player.getObjectId());
@@ -177,21 +172,20 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket {
 	}
 
 	/**
-	 * Sends message to races members (other race will receive an unknown message)
+	 * Sends message to races members (other race will receive an unknown
+	 * message)
 	 *
 	 * @param player
 	 */
 	private void broadcastToNonBlockedRacePlayers(final Player player) {
 		final int senderRace = player.getRace().getRaceId();
 		PacketSendUtility.broadcastPacket(player, new SM_MESSAGE(player, message, type), true, new ObjectFilter<Player>() {
-
 			@Override
 			public boolean acceptObject(Player object) {
 				return ((senderRace == object.getRace().getRaceId() && !object.getBlockList().contains(player.getObjectId())) || object.isGM());
 			}
 		});
 		PacketSendUtility.broadcastPacket(player, new SM_MESSAGE(player, "Unknow Message", type), false, new ObjectFilter<Player>() {
-
 			@Override
 			public boolean acceptObject(Player object) {
 				return senderRace != object.getRace().getRaceId() && !object.getBlockList().contains(player.getObjectId()) && !object.isGM();
@@ -200,15 +194,16 @@ public class CM_CHAT_MESSAGE_PUBLIC extends AionClientPacket {
 	}
 
 	/**
-	 * Sends message to all group members (regular player group, or alliance sub-group Error 105, random value for players to report. Should never happen.
+	 * Sends message to all group members (regular player group, or alliance
+	 * sub-group Error 105, random value for players to report. Should never
+	 * happen.
 	 *
 	 * @param player
 	 */
 	private void broadcastToGroupMembers(final Player player) {
 		if (player.isInTeam()) {
 			player.getCurrentGroup().sendPacket(new SM_MESSAGE(player, message, type));
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(player, "You are not in an alliance or group. (Error 105)");
 		}
 	}

@@ -14,19 +14,19 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model;
 
 /**
+ *
  * @author xTz
  */
 public enum EventType {
 
-	NONE(0, ""),
-	CHRISTMAS(1 << 0, "christmas"), // 1
+	NONE(0, ""), CHRISTMAS(1 << 0, "christmas"), // 1
 	HALLOWEEN(1 << 1, "halloween"), // 2
 	VALENTINE(1 << 2, "valentine"), // 4
 	BRAXCAFE(1 << 3, "braxcafe"); // 8
-
 	private int id;
 	private String theme;
 

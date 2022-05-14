@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.model;
 
 import java.util.Collection;
@@ -21,6 +22,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Future;
+
+import javolution.util.FastMap;
 
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.controllers.attack.AttackStatus;
@@ -56,14 +59,11 @@ import com.aionemu.gameserver.skillengine.periodicaction.PeriodicActions;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 
-import javolution.util.FastMap;
-
 /**
  * @author ATracer
  * @modified by Wakizashi
  * @modified by Sippolo
  * @modified by kecimis
- * @Reworked Kill3r (updated 4.8)
  */
 public class Effect implements StatOwner {
 
@@ -85,7 +85,6 @@ public class Effect implements StatOwner {
 	private float targetX = 0;
 	private float targetY = 0;
 	private float targetZ = 0;
-	private int mpShield = 0;
 	private boolean isPhysicalState = false;
 	private boolean isMagicalState = false;
 	/**
@@ -110,7 +109,8 @@ public class Effect implements StatOwner {
 	private int reserved5;
 	private int[] reservedInts;
 	/**
-	 * Spell Status 1 : stumble 2 : knockback 4 : open aerial 8 : close aerial 16 : spin 32 : block 64 : parry 128 : dodge 256 : resist
+	 * Spell Status 1 : stumble 2 : knockback 4 : open aerial 8 : close aerial
+	 * 16 : spin 32 : block 64 : parry 128 : dodge 256 : resist
 	 */
 	private SpellStatus spellStatus = SpellStatus.NONE;
 	private DashStatus dashStatus = DashStatus.NONE;
@@ -134,32 +134,11 @@ public class Effect implements StatOwner {
 	private boolean isDamageEffect;
 	private boolean isPetOrder;
 	private boolean isSummoning;
-	// Xp Boost
 	private boolean isXpBoost;
-	// Ap Boost
-	private boolean isApBoost;
-	// Dr Boost
-	private boolean isDrBoost;
-	// Bdr Boost
-	private boolean isBdrBoost;
-	// Authorize Boost
-	private boolean isAuthorizeBoost;
-	// Enchant Boost
-	private boolean isEnchantBoost;
-	// Enchant Option Boost
-	private boolean isEnchantOptionBoost;
-	// Idun Drop Boost
-	private boolean isIdunDropBoost;
-	// New Effect
-	private boolean isSprintFpReduce;
-	private boolean isReturnCoolReduce;
-	private boolean isOdellaRecoverIncrease;
 	private boolean isCancelOnDmg;
 	private boolean subEffectAbortedBySubConditions;
 	private ItemTemplate itemTemplate;
-	private boolean isDeathPenaltyReduce;
 	private boolean isNoDeathPenalty;
-	private boolean isNoDeathPenaltyReduce;
 	private boolean isNoResurrectPenalty;
 	private boolean isHiPass;
 	/**
@@ -370,26 +349,6 @@ public class Effect implements StatOwner {
 
 	public boolean isChant() {
 		return skillTemplate.getTargetSlot() == SkillTargetSlot.CHANT;
-	}
-
-	public boolean isRangerEye() {
-		int skillId = skillTemplate.getSkillId();
-		switch (skillId) {
-			case 796: // Strong Shots.
-			case 809: // Dodging.
-			case 813: // Focused Shots.
-			case 888: // Hunter's Might.
-			case 889: // Bestial Fury.
-			case 1053: // Aiming.
-			case 1099: // Hunter's Eye.
-				return true;
-			default:
-				return false;
-		}
-	}
-
-	public boolean isBuff() {
-		return skillTemplate.getTargetSlot() == SkillTargetSlot.BUFF;
 	}
 
 	public int getTargetSlot() {
@@ -636,7 +595,6 @@ public class Effect implements StatOwner {
 	 */
 	public void initialize() {
 		if (skillTemplate.getEffects() == null) {
-			System.out.println("Effect = NULL");
 			return;
 		}
 
@@ -682,35 +640,30 @@ public class Effect implements StatOwner {
 					Player pl = (Player) getEffector();
 					if (pl.getPlayerClass() == PlayerClass.GUNNER || pl.getPlayerClass() == PlayerClass.RIDER) {
 						if (getAttackStatus() == AttackStatus.CRITICAL) {
-							setAttackStatus(AttackStatus.CRITICAL_RESIST);// TODO recheck
-						}
-						else {
+							setAttackStatus(AttackStatus.CRITICAL_RESIST);// TODO
+																			// recheck
+						} else {
 							setAttackStatus(AttackStatus.RESIST);
 						}
-					}
-					else {
+					} else {
 						if (getAttackStatus() == AttackStatus.CRITICAL) {
 							setAttackStatus(AttackStatus.CRITICAL_DODGE);
-						}
-						else {
+						} else {
 							setAttackStatus(AttackStatus.DODGE);
 						}
 					}
-				}
-				else {
+				} else {
 					if (getAttackStatus() == AttackStatus.CRITICAL) {
 						setAttackStatus(AttackStatus.CRITICAL_DODGE);
-					}
-					else {
+					} else {
 						setAttackStatus(AttackStatus.DODGE);
 					}
 				}
-			}
-			else {
+			} else {
 				if (getAttackStatus() == AttackStatus.CRITICAL) {
-					setAttackStatus(AttackStatus.CRITICAL_RESIST);// TODO recheck
-				}
-				else {
+					setAttackStatus(AttackStatus.CRITICAL_RESIST);// TODO
+																	// recheck
+				} else {
 					setAttackStatus(AttackStatus.RESIST);
 				}
 			}
@@ -788,99 +741,47 @@ public class Effect implements StatOwner {
 
 	public boolean isRiderEffect(int skillId) {
 		switch (skillId) {
-			case 2767: // Embark
-			case 2768:
-			case 2769:
-			case 2770:
-			case 2771:
-			case 2772:
-			case 2773:
-			case 2774:
-			case 2775:
-			case 2776:
-			case 2777:
-			case 2778:
-			case 2440: // Kinetic Battery
-			case 2441:
-			case 2442:
-			case 2443:
-			case 2444:
-			case 2445:
-			case 2446:
-			case 2447:
-			case 2448:
-			case 2449:
-			case 2579: // Kinetic Bulwark
-			case 2580:
-			case 2581:
-			case 2421: // Mobility Thrusters
-			case 2422:
-			case 2736: // Stability Thrusters
-			case 2737:
-			case 2738:
-			case 2739:
-			case 2740:
-			case 2838: // Mounting Frustration
-			case 2839:
-			case 2840:
-			case 2841:
-			case 2842:
-			case 2843:
-			case 2844:
-			case 2845:
-			case 2846:
-			case 2847:
-			case 2848:
+			case 3597: // Embark
+			case 3598:
+			case 3599:
+			case 3600:
+			case 3601:
+			case 3766: // Kinetic Battery
+			case 3767:
+			case 3768:
+			case 3769:
+			case 3770:
+			case 3771: // Kinetic Bulwark
+			case 3772:
+			case 3773:
+			case 3774:
+			case 3776: // Mobility Thrusters
+			case 3777:
+			case 3778:
+			case 3779: // Stability Thrusters
+			case 3780:
+			case 3781:
+			case 3782:
+			case 3783:
+			case 3784:
+			case 3785:
 				return true;
 		}
 
 		return false;
 	}
 
-	public int checkForToggleBardEffect(int skillId) {
-		// returns 0 if its Impassion
-		// returns 1 if its exultation
-		// returns 2 if its another skill
-		int Impassion = 4590;
-		int Exultation = 4589;
-
-		if (skillId == Impassion) {
-			return 0;
-		}
-		else {
-			if (skillId == Exultation) {
-				return 1;
-			}
-			return 2;
-		}
-	}
-
-	public int checkForToggleRideEffect(int skillId) {
-		int[] Battery = { 2440, 2441, 2442, 2443, 2444, 2445, 2446, 2447, 2448, 2449 };
-		int[] Bulwark = { 2579, 2580, 2581 };
-
-		for (int id : Battery) {
-			if (id == skillId) {
-				return 0;
-			}
-		}
-		for (int id : Bulwark) {
-			if (id == skillId) {
-				return 1;
-			}
-		}
-		return 2;
-	}
-
 	/**
-	 * Start effect which includes: - start effect defined in template - start subeffect if possible - activate toogle skill if needed - schedule end of effect
+	 * Start effect which includes: - start effect defined in template - start
+	 * subeffect if possible - activate toogle skill if needed - schedule end of
+	 * effect
 	 */
 	public void startEffect(boolean restored) {
 		if (successEffects.isEmpty()) {
 			return;
 		}
 
-		schedulePeriodicActions();
+		shedulePeriodicActions();
 
 		for (EffectTemplate template : successEffects.values()) {
 			template.startEffect(this);
@@ -894,116 +795,20 @@ public class Effect implements StatOwner {
 		if (!restored && !forcedDuration) {
 			duration = getEffectsDuration();
 		}
-		if (checkForToggleBardEffect(getSkillId()) == 0 || checkForToggleBardEffect(getSkillId()) == 1 && checkForToggleBardEffect(getSkillId()) != 2) {
-			if (checkForToggleBardEffect(getSkillId()) == 0) {
-				checkBardEffects(0);
-			}
-			else {
-				checkBardEffects(1);
-			}
-		}
-		if (checkForToggleRideEffect(getSkillId()) == 0 || checkForToggleRideEffect(getSkillId()) == 1 && checkForToggleRideEffect(getSkillId()) != 2) {
-			if (checkForToggleRideEffect(getSkillId()) == 0) {
-				checkRideEffects(0);
-			}
-			else {
-				checkRideEffects(1);
-			}
-		}
-		if (isKineticSkill()) {
-			duration = skillTemplate.getToggleTimer();
-		}
 		if (isToggle()) {
 			duration = skillTemplate.getToggleTimer();
 		}
 		if (duration == 0) {
 			return;
 		}
-		if (isOpenAerialSkill()) {
-			duration = skillTemplate.getDuration();
-		}
 		endTime = System.currentTimeMillis() + duration;
-		task = ThreadPoolManager.getInstance().schedule(new Runnable() {
 
+		task = ThreadPoolManager.getInstance().schedule(new Runnable() {
 			@Override
 			public void run() {
 				endEffect();
 			}
 		}, duration);
-	}
-
-	/**
-	 * Just for Rider class skills
-	 */
-	private boolean isKineticSkill() {
-		switch (getSkillId()) {
-			case 2440:// Kinetic BAttery Start
-			case 2441:
-			case 2442:
-			case 2443:
-			case 2444:
-			case 2445:
-			case 2446:
-			case 2447:
-			case 2448:
-			case 2449:
-			case 2579:// Kinetic Bulwark Start
-			case 2580:
-			case 2581:
-				return true;
-		}
-		return false;
-	}
-
-	/**
-	 * Check if ride has Kinetic Bulwark and Kinetic BAttery turned on same time Updated 4.8
-	 */
-	private void checkRideEffects(int code) {
-		int[] Battery = { 2440, 2441, 2442, 2443, 2444, 2445, 2446, 2447, 2448, 2449 };
-		int[] Bulwark = { 2579, 2580, 2581 };
-		// 0 = Kinetic Battery
-		// 1 = Kinetic Bulwark
-		// 2 = NULL
-		if (effector instanceof Player) {
-			Player player = (Player) effector;
-
-			if (code == 0) {
-				for (int skillId : Bulwark) {
-					if (player.getEffectController().isNoshowPresentBySkillId(skillId)) {
-						player.getEffectController().removeNoshowEffect(skillId);
-					}
-				}
-			}
-			else {
-				for (int skillId : Battery) {
-					if (player.getEffectController().isNoshowPresentBySkillId(skillId)) {
-						player.getEffectController().removeNoshowEffect(skillId);
-					}
-				}
-			}
-		}
-	}
-
-	/**
-	 * Check if bard has Impassion and Exultation activated at same time.
-	 */
-	private void checkBardEffects(int code) {
-		// 0 = Impassion == 4590
-		// 1 = Excultation == 4589
-		if (effector instanceof Player) {
-			Player player = (Player) effector;
-
-			if (code == 0) {
-				if (player.getEffectController().isNoshowPresentBySkillId(4589)) { // if Impassion is on check for Excultation
-					player.getEffectController().removeNoshowEffect(4589);
-				}
-			}
-			else {
-				if (player.getEffectController().isNoshowPresentBySkillId(4590)) { // if Excultation is on Check for Impassion
-					player.getEffectController().removeNoshowEffect(4590);
-				}
-			}
-		}
 	}
 
 	/**
@@ -1021,7 +826,9 @@ public class Effect implements StatOwner {
 	}
 
 	/**
-	 * End effect and all effect actions This method is synchronized and prevented to be called several times which could cause unexpected behavior
+	 * End effect and all effect actions This method is synchronized and
+	 * prevented to be called several times which could cause unexpected
+	 * behavior
 	 */
 	public synchronized void endEffect() {
 		if (isStopped) {
@@ -1040,6 +847,15 @@ public class Effect implements StatOwner {
 				player.getController().startStance(0);
 			}
 		}
+
+		// TODO better way to finish
+		/*
+		 * if (getSkillTemplate().getTargetSlot() == SkillTargetSlot.SPEC2) {
+		 * getEffected().getLifeStats().increaseHp(TYPE.HP, (int)
+		 * (getEffected().getLifeStats().getMaxHp() * 0.2));
+		 * getEffected().getLifeStats().increaseMp(TYPE.MP, (int)
+		 * (getEffected().getLifeStats().getMaxMp() * 0.2)); }
+		 */
 		if (isToggle() && effector instanceof Player || isRiderEffect(getSkillId())) {
 			deactivateToggleSkill();
 		}
@@ -1163,11 +979,8 @@ public class Effect implements StatOwner {
 	}
 
 	public boolean isInSuccessEffects(int position) {
-		if (successEffects.get(position) != null) {
-			return true;
-		}
+		return successEffects.get(position) != null;
 
-		return false;
 	}
 
 	/**
@@ -1188,13 +1001,12 @@ public class Effect implements StatOwner {
 		successEffects.clear();
 	}
 
-	private void schedulePeriodicActions() {
+	private void shedulePeriodicActions() {
 		if (periodicActions == null || periodicActions.getPeriodicActions() == null || periodicActions.getPeriodicActions().isEmpty()) {
 			return;
 		}
 		int checktime = periodicActions.getChecktime();
 		periodicActionsTask = ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 			@Override
 			public void run() {
 				for (PeriodicAction action : periodicActions.getPeriodicActions()) {
@@ -1214,7 +1026,8 @@ public class Effect implements StatOwner {
 	public int getEffectsDuration() {
 		int duration = 0;
 
-		// iterate skill's effects until we can calculate a duration time, which is valid for all of them
+		// iterate skill's effects until we can calculate a duration time, which
+		// is valid for all of them
 		Iterator<EffectTemplate> itr = successEffects.values().iterator();
 		while (itr.hasNext() && duration == 0) {
 			EffectTemplate et = itr.next();
@@ -1337,70 +1150,6 @@ public class Effect implements StatOwner {
 		return this.isXpBoost;
 	}
 
-	public void setApBoost(boolean value) {
-		this.isApBoost = value;
-	}
-
-	public boolean isApBoost() {
-		return this.isApBoost;
-	}
-
-	public void setDrBoost(boolean value) {
-		this.isDrBoost = value;
-	}
-
-	public boolean isDrBoost() {
-		return this.isDrBoost;
-	}
-
-	public void setBdrBoost(boolean value) {
-		this.isBdrBoost = value;
-	}
-
-	public boolean isBdrBoost() {
-		return this.isBdrBoost;
-	}
-
-	public void setAuthorizeBoost(boolean value) {
-		this.isAuthorizeBoost = value;
-	}
-
-	public boolean isAuthorizeBoost() {
-		return this.isAuthorizeBoost;
-	}
-
-	public void setEnchantBoost(boolean value) {
-		this.isEnchantBoost = value;
-	}
-
-	public boolean isEnchantBoost() {
-		return this.isEnchantBoost;
-	}
-
-	public void setEnchantOptionBoost(boolean value) {
-		this.isEnchantOptionBoost = value;
-	}
-
-	public boolean isEnchantOptionBoost() {
-		return this.isEnchantOptionBoost;
-	}
-
-	public void setIdunDropBoost(boolean value) {
-		this.isIdunDropBoost = value;
-	}
-
-	public boolean isIdunDropBoost() {
-		return this.isIdunDropBoost;
-	}
-
-	public void setNoDeathPenaltyReduce(boolean value) {
-		this.isNoDeathPenaltyReduce = value;
-	}
-
-	public boolean isNoDeathPenaltyReduce() {
-		return this.isNoDeathPenaltyReduce;
-	}
-
 	public void setNoDeathPenalty(boolean value) {
 		this.isNoDeathPenalty = value;
 	}
@@ -1425,38 +1174,6 @@ public class Effect implements StatOwner {
 		return this.isHiPass;
 	}
 
-	public void setReturnCoolReduce(boolean value) {
-		this.isReturnCoolReduce = value;
-	}
-
-	public boolean isReturnCoolReduce() {
-		return this.isReturnCoolReduce;
-	}
-
-	public void setOdellaRecoverIncrease(boolean value) {
-		this.isOdellaRecoverIncrease = value;
-	}
-
-	public boolean isOdellaRecoverIncrease() {
-		return this.isOdellaRecoverIncrease;
-	}
-
-	public void setSprintFpReduce(boolean value) {
-		this.isSprintFpReduce = value;
-	}
-
-	public boolean isSprintFpReduce() {
-		return this.isSprintFpReduce;
-	}
-
-	public void setDeathPenaltyReduce(boolean value) {
-		this.isDeathPenaltyReduce = value;
-	}
-
-	public boolean isDeathPenaltyReduce() {
-		return this.isDeathPenaltyReduce;
-	}
-
 	/**
 	 * Check all in use equipment conditions
 	 *
@@ -1464,7 +1181,7 @@ public class Effect implements StatOwner {
 	 */
 	private boolean useEquipmentConditionsCheck() {
 		Conditions useEquipConditions = skillTemplate.getUseEquipmentconditions();
-		return useEquipConditions != null ? useEquipConditions.validate(this) : true;
+		return useEquipConditions == null || useEquipConditions.validate(this);
 	}
 
 	/**
@@ -1475,14 +1192,11 @@ public class Effect implements StatOwner {
 		// Observe for unequip event and remove effect if event occurs
 		if ((getSkillTemplate().getUseEquipmentconditions() != null) && (getSkillTemplate().getUseEquipmentconditions().getConditions().size() > 0)) {
 			ActionObserver observer = new ActionObserver(ObserverType.UNEQUIP) {
-
 				@Override
 				public void unequip(Item item, Player owner) {
 					if (!useEquipmentConditionsCheck()) {
 						endEffect();
-						if (this != null) {
-							effected.getObserveController().removeObserver(this);
-						}
+						effected.getObserveController().removeObserver(this);
 					}
 				}
 			};
@@ -1491,12 +1205,12 @@ public class Effect implements StatOwner {
 	}
 
 	/**
-	 * Add Attacked/Dot_Attacked observers if this effect needs to be removed on damage received by effected
+	 * Add Attacked/Dot_Attacked observers if this effect needs to be removed on
+	 * damage received by effected
 	 */
 	private void checkCancelOnDmg() {
 		if (isCancelOnDmg()) {
 			effected.getObserveController().attach(new ActionObserver(ObserverType.ATTACKED) {
-
 				@Override
 				public void attacked(Creature creature) {
 					effected.getEffectController().removeEffect(getSkillId());
@@ -1504,7 +1218,6 @@ public class Effect implements StatOwner {
 			});
 
 			effected.getObserveController().attach(new ActionObserver(ObserverType.DOT_ATTACKED) {
-
 				@Override
 				public void dotattacked(Creature creature, Effect dotEffect) {
 					effected.getEffectController().removeEffect(getSkillId());
@@ -1566,90 +1279,72 @@ public class Effect implements StatOwner {
 			return 30;
 		}
 		switch (skill.getSkillId()) {
-			case 4170: // Word Of Destruction I
-			case 4171: // Word Of Destruction II
-			case 4172: // Word Of Destruction III
-			case 4173: // Word Of Destruction IV
-			case 4174: // Word Of Destruction V
-			case 4175: // Word Of Destruction VI
-			case 1066: // Silence Arrow I
-			case 1067: // Silence Arrow II
-			case 1068: // Silence Arrow III
-			case 1069: // Silence Arrow IV
-			case 1070: // Silence Arrow V
-			case 1071: // Silence Arrow VI
-			case 1072: // Silence Arrow VII
-			case 1073: // Silence Arrow VIII
-			case 1074: // Silence Arrow IX
+			case 1176:// Word of Destruction I
+			case 2259:// Word of Destruction II
+			case 666:
+			case 723:
+			case 783:
+			case 784:
+			case 785:
+			case 2087:
+			case 2507:
 				return 20;
-			case 2932: // Unwavering Devotion I
-			case 3127: // Iron Skin I
-			case 2922: // Empyrean Providence I
-			case 3128: // Prayer Of Freedom I
-			case 3839: // Spirit Preserve I
-			case 1832: // Elemental Screen I
-			case 1192: // Gain Mana I
-			case 1193: // Gain Mana II
-			case 1194: // Gain Mana III
-			case 1195: // Gain Mana IV
-			case 1196: // Gain Mana V
-			case 1197: // Gain Mana VI
-			case 1198: // Gain Mana VII
-			case 1199: // Gain Mana VIII
-			case 1200: // Gain Mana IX
-			case 1201: // Gain Mana X
-			case 1202: // Gain Mana XI
-			case 1203: // Gain Mana XII
-			case 4725: // [ArchDaeva] Gain Mana 5.1
-			case 1022: // Shackle Arrow I
-			case 1023: // Shackle Arrow II
-			case 1024: // Shackle Arrow III
-			case 1025: // Shackle Arrow IV
-			case 1026: // Shackle Arrow V
-			case 618: // Ankle Snare I
-			case 1329: // Curse Of Weakness I
-			case 1330: // Curse Of Weakness II
-			case 1331: // Curse Of Weakness II
-			case 1332: // Curse Of Weakness IV
-			case 1333: // Curse Of Weakness V
-			case 1334: // Curse Of Weakness VI
-			case 1335: // Curse Of Weakness VII
-			case 1336: // Curse Of Weakness VIII
-			case 4144: // Chain Of Suffering I
-			case 4145: // Chain Of Suffering II
-			case 4146: // Chain Of Suffering III
-			case 4147: // Chain Of Suffering IV
-			case 4148: // Chain Of Suffering V
-			case 4149: // Chain Of Suffering VI
-			case 1754: // Stilling Word I
-			case 3854: // Wing Root I
-				// Npc Skill
-			case 18214: // Protective Shield
-			case 18232: // Explosion Of Wrath
-			case 18239: // Soul Petrify
+			case 287:// Unwavering Devotion
+			case 426:// Iron Skin
+			case 1978: // Empyrean Providence
+			case 390: // Nezekans Blessing
+			case 391: // Zikels Threat
+			case 537:// Prayer of Freedom
+			case 1794:// Spirit Substitution
+			case 2010: // Spirit Preserve
+			case 2001: // Elemental Screen
+			case 1472: // Gain Mana
+			case 1509:
+			case 671:// Shock Arrow
+			case 672:
+			case 2089:
+			case 2090:
+			case 322:// Ankle Snare
+			case 1560:// Curse Of Weakness
+			case 1561:
+			case 2196:
+			case 1040:// Chain of Suffering
+			case 2129:
+			case 2136:
+			case 2152:
+			case 2578:
+			case 1343: // Stilling Word
+				// some npc skills
+			case 18232: // Tahabata fear
+			case 18239: // Tahabata paralyse
+			case 18214:
+			case 1789:
 				return 30;
-			case 3790: // Cursecloud I
-			case 3791: // Cursecloud II
-			case 3792: // Cursecloud III
-			case 3793: // Cursecloud IV
-			case 3794: // Cursecloud V
-			case 3795: // Cursecloud VI
-				return 40;
-			// Npc Skill
-			case 18889: // Submissive Strike I
-			case 18892: // Weeping Curtain I
-			case 18994: // Weakness I
-			case 19090: // Spinning Smash I
-			case 19148: // Resistance I
-			case 19504: // Canyonguard's Target I
-			case 19505: // Relic Explosion I
-			case 19512: // Sap Damage I
-			case 19513: // Sap Damage II
-			case 19514: // Sap Damage III
-			case 19515: // Sap Damage IV
-			case 19516: // Sap Damage V
-			case 19644: // Total Exhaustion I
-			case 19647: // Weaken I
+			case 1774:// Cursecloud
+			case 2225:
+            case 19666:
+            case 8253:
+            case 8308:
+            case 8536:
+            case 8649:
+            case 8712:
+            case 8808:
+				return 40; // need 2 cleric dispels or potions
+			case 19512:
+			case 19513: // need find "rule" in templates why those are not
+						// dispellable.
+			case 19514:
+			case 19515:
+			case 19516:
+			case 19644:
+			case 19148:
+			case 18892:
+			case 18889:
+			case 19090:
+			case 18994:
+			case 19647:
+			case 19504:
+			case 19505:
 				return 255;
 		}
 
@@ -1673,6 +1368,7 @@ public class Effect implements StatOwner {
 
 	public int removePower(int power) {
 		this.power -= power;
+
 		return this.power;
 	}
 
@@ -1734,14 +1430,6 @@ public class Effect implements StatOwner {
 		this.effectResult = effectResult;
 	}
 
-	public int getMpShield() {
-		return this.mpShield;
-	}
-
-	public void setMpShield(int mpShield) {
-		this.mpShield = mpShield;
-	}
-
 	public boolean isPhysicalState() {
 		return isPhysicalState;
 	}
@@ -1756,23 +1444,5 @@ public class Effect implements StatOwner {
 
 	public void setIsMagicalState(boolean isMagicalState) {
 		this.isMagicalState = isMagicalState;
-	}
-
-	private boolean isOpenAerialSkill() {
-		switch (getSkillId()) {
-			case 8224:
-			case 8678:
-			case 9173:
-			case 19552:
-			case 20371:
-			case 20680:
-			case 20872:
-			case 21133:
-			case 21476:
-			case 21529:
-			case 21911:
-				return true;
-		}
-		return false;
 	}
 }

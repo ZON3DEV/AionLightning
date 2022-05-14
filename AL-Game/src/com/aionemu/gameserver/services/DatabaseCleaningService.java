@@ -14,22 +14,20 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.aionemu.commons.database.dao.DAOManager;
-import com.aionemu.gameserver.GameServer;
 import com.aionemu.gameserver.configs.main.CleaningConfig;
 import com.aionemu.gameserver.dao.PlayerDAO;
 import com.aionemu.gameserver.services.player.PlayerService;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Offers the functionality to delete all data about inactive players
@@ -40,6 +38,10 @@ public class DatabaseCleaningService {
 
 	private Logger log = LoggerFactory.getLogger(DatabaseCleaningService.class);
 	private PlayerDAO dao = DAOManager.getDAO(PlayerDAO.class);
+	// A limit of cleaning period for security reasons
+	private final int SECURITY_MINIMUM_PERIOD = 30;
+	// Worker execution check time
+	private final int WORKER_CHECK_TIME = 10 * 1000;
 	// Singelton
 	private static DatabaseCleaningService instance = new DatabaseCleaningService();
 	// Workers
@@ -68,12 +70,10 @@ public class DatabaseCleaningService {
 		int periodInDays = CleaningConfig.CLEANING_PERIOD;
 
 		// only a security feature
-		int SECURITY_MINIMUM_PERIOD = 30;
 		if (periodInDays > SECURITY_MINIMUM_PERIOD) {
 			delegateToThreads(CleaningConfig.CLEANING_THREADS, dao.getInactiveAccounts(periodInDays, CleaningConfig.CLEANING_LIMIT));
 			monitoringProcess();
-		}
-		else {
+		} else {
 			log.warn("The configured days for database cleaning is to low. For security reasons the service will only execute with periods over 30 days!");
 		}
 	}
@@ -81,11 +81,10 @@ public class DatabaseCleaningService {
 	private void monitoringProcess() {
 		while (!allWorkersReady()) {
 			try {
-				int WORKER_CHECK_TIME = 10 * 1000;
 				Thread.sleep(WORKER_CHECK_TIME);
-				log.info("DatabaseCleaningService: Until now " + currentlyDeletedChars() + " chars deleted in " + (System.currentTimeMillis() - startTime) / 1000 + " seconds!");
-			}
-			catch (InterruptedException ex) {
+				log.info("DatabaseCleaningService: Until now " + currentlyDeletedChars() + " chars deleted in " + (System.currentTimeMillis() - startTime)
+						/ 1000 + " seconds!");
+			} catch (InterruptedException ex) {
 				log.error("DatabaseCleaningService: Got Interrupted!");
 			}
 		}
@@ -133,7 +132,6 @@ public class DatabaseCleaningService {
 	 * @return a singleton DatabaseCleaningService
 	 */
 	public static DatabaseCleaningService getInstance() {
-		GameServer.log.info("[DatabaseCleaningService] started ...");
 		return instance;
 	}
 

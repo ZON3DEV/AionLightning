@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.Gatherable;
@@ -48,8 +49,7 @@ public class CM_GATHER extends AionClientPacket {
 		if (target != null && target.getPosition().isSpawned() && target instanceof Gatherable) {
 			if (isStartGather) {
 				((Gatherable) target).getController().onStartUse(player);
-			}
-			else {
+			} else {
 				((Gatherable) target).getController().finishGathering(player);
 			}
 		}

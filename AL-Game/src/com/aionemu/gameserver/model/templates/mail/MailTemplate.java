@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.mail;
 
 import java.util.HashMap;
@@ -21,13 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -40,7 +35,8 @@ import com.aionemu.gameserver.model.Race;
 @XmlType(name = "MailTemplate")
 public class MailTemplate {
 
-	@XmlElements({ @XmlElement(name = "sender", type = Sender.class), @XmlElement(name = "title", type = Title.class), @XmlElement(name = "header", type = Header.class), @XmlElement(name = "body", type = Body.class), @XmlElement(name = "tail", type = Tail.class) })
+	@XmlElements({ @XmlElement(name = "sender", type = Sender.class), @XmlElement(name = "title", type = Title.class),
+			@XmlElement(name = "header", type = Header.class), @XmlElement(name = "body", type = Body.class), @XmlElement(name = "tail", type = Tail.class) })
 	private List<MailPart> mailParts;
 	@XmlAttribute(name = "name", required = true)
 	protected String name;
@@ -96,14 +92,12 @@ public class MailTemplate {
 		String message = headerStr;
 		if (StringUtils.isEmpty(message)) {
 			message = bodyStr;
-		}
-		else if (!StringUtils.isEmpty(bodyStr)) {
+		} else if (!StringUtils.isEmpty(bodyStr)) {
 			message += "," + bodyStr;
 		}
 		if (StringUtils.isEmpty(message)) {
 			message = tailStr;
-		}
-		else if (!StringUtils.isEmpty(tailStr)) {
+		} else if (!StringUtils.isEmpty(tailStr)) {
 			message += "," + tailStr;
 		}
 		return message;

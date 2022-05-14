@@ -19,19 +19,16 @@ package com.aionemu.gameserver.model.stats.calc;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.stats.container.StatEnum;
 
-/**
- * @author ATracer
- */
 public abstract class Stat2 {
 
-	float bonusRate = 1f;
+	float bonusRate = 1.0F;
 	int base;
 	int bonus;
 	private final Creature owner;
 	protected final StatEnum stat;
 
 	public Stat2(StatEnum stat, int base, Creature owner) {
-		this(stat, base, owner, 1);
+		this(stat, base, owner, 1.0F);
 	}
 
 	public Stat2(StatEnum stat, int base, Creature owner, float bonusRate) {
@@ -42,21 +39,19 @@ public abstract class Stat2 {
 	}
 
 	public final StatEnum getStat() {
-		return stat;
+		return this.stat;
 	}
 
 	public final int getBase() {
-		return base;
+		return this.base;
 	}
 
 	public final void setBase(int base) {
 		this.base = base;
 	}
 
-	public abstract void addToBase(int base);
-
 	public final int getBonus() {
-		return bonus;
+		return this.bonus;
 	}
 
 	public final int getCurrent() {
@@ -68,23 +63,25 @@ public abstract class Stat2 {
 	}
 
 	public final float getBonusRate() {
-		return bonusRate;
+		return this.bonusRate;
 	}
 
 	public final void setBonusRate(float bonusRate) {
 		this.bonusRate = bonusRate;
 	}
 
-	public abstract void addToBonus(int bonus);
-
-	public abstract float calculatePercent(int delta);
-
 	public final Creature getOwner() {
-		return owner;
+		return this.owner;
 	}
 
 	@Override
 	public String toString() {
 		return "[" + stat.name() + " base=" + base + ", bonus=" + bonus + "]";
 	}
+
+	public abstract void addToBase(int paramInt);
+
+	public abstract void addToBonus(int paramInt);
+
+	public abstract float calculatePercent(int paramInt);
 }

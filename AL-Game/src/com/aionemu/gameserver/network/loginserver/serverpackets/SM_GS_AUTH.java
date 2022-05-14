@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.loginserver.serverpackets;
 
 import java.util.List;
@@ -25,7 +26,8 @@ import com.aionemu.gameserver.network.loginserver.LoginServerConnection;
 import com.aionemu.gameserver.network.loginserver.LsServerPacket;
 
 /**
- * This is authentication packet that gs will send to login server for registration.
+ * This is authentication packet that gs will send to login server for
+ * registration.
  *
  * @author -Nemesiss-
  */

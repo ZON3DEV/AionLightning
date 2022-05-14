@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
 
 import static org.apache.commons.io.filefilter.FileFilterUtils.and;
@@ -41,6 +42,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
  * @author ViAl
+ *
  */
 public abstract class ReloadableData {
 
@@ -57,8 +59,7 @@ public abstract class ReloadableData {
 		SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 		try {
 			schema = sf.newSchema(new File(xml_schema));
-		}
-		catch (SAXException saxe) {
+		} catch (SAXException saxe) {
 			throw new Error("Error while getting schema", saxe);
 		}
 		return schema;

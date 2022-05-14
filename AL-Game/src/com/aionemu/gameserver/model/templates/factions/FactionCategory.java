@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.factions;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -27,8 +28,5 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "FactionCategory")
 public enum FactionCategory {
 
-	MENTOR,
-	DAILY,
-	COMBINESKILL,
-	SHUGO;
+	MENTOR, DAILY, COMBINESKILL, SHUGO
 }

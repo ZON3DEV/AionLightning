@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -53,7 +54,8 @@ public class RecipeService {
 		}
 
 		if (!player.getSkillList().isSkillPresent(template.getSkillid())) {
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_CRAFT_RECIPE_CANT_LEARN_SKILL(DataManager.SKILL_DATA.getSkillTemplate(template.getSkillid()).getNameId()));
+			PacketSendUtility.sendPacket(player,
+					SM_SYSTEM_MESSAGE.STR_CRAFT_RECIPE_CANT_LEARN_SKILL(DataManager.SKILL_DATA.getSkillTemplate(template.getSkillid()).getNameId()));
 			return null;
 		}
 
@@ -69,8 +71,7 @@ public class RecipeService {
 		RecipeTemplate template = null;
 		if (useValidation) {
 			template = validateNewRecipe(player, recipeId);
-		}
-		else {
+		} else {
 			template = DataManager.RECIPE_DATA.getRecipeTemplateById(recipeId);
 		}
 

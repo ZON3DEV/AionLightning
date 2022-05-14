@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.autogroup;
 
 import com.aionemu.gameserver.model.PlayerClass;
@@ -21,6 +22,7 @@ import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
+ *
  * @author xTz
  */
 public class AGPlayer {

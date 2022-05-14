@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.restrictions;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
@@ -39,8 +40,6 @@ public interface Restrictions {
 	public boolean canInviteToGroup(Player player, Player target);
 
 	public boolean canInviteToAlliance(Player player, Player target);
-
-	public boolean canInviteToLeague(Player player, Player target);
 
 	public boolean canChangeEquip(Player player);
 

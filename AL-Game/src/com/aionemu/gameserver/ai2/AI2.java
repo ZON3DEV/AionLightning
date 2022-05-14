@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.ai2;
 
 import com.aionemu.gameserver.ai2.event.AIEventType;
@@ -60,8 +61,6 @@ public interface AI2 {
 	int modifyDamage(int damage);
 
 	int modifyOwnerDamage(int damage);
-
-	void onIndividualNpcEvent(Creature npc);
 
 	int modifyHealValue(int value);
 

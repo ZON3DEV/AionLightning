@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers;
 
 import org.slf4j.Logger;
@@ -32,7 +33,6 @@ import com.aionemu.gameserver.utils.audit.AuditLogger;
 
 /**
  * @author ATracer
- * @rework Blackfire
  */
 public class FlyController {
 
@@ -41,7 +41,6 @@ public class FlyController {
 	private static final long FLY_REUSE_TIME = 10000;
 	private Player player;
 	private ActionObserver glideObserver = new ActionObserver(ObserverType.ABNORMALSETTED) {
-
 		@Override
 		public void abnormalsetted(AbnormalState state) {
 			if ((state.getId() & AbnormalState.CANT_MOVE_STATE.getId()) > 0 && !player.isInvulnerableWing()) {
@@ -55,16 +54,15 @@ public class FlyController {
 	}
 
 	/**
-	 *
-	 */
+     *
+     */
 	public void onStopGliding(boolean removeWings) {
 		if (player.isInState(CreatureState.GLIDING)) {
 			player.unsetState(CreatureState.GLIDING);
 
 			if (player.isInState(CreatureState.FLYING)) {
 				player.setFlyState(1);
-			}
-			else {
+			} else {
 				player.setFlyState(0);
 				player.getLifeStats().triggerFpRestore();
 				if (removeWings) {
@@ -80,7 +78,9 @@ public class FlyController {
 	}
 
 	/**
-	 * Ends flying 1) by CM_EMOTION (pageDown or fly button press) 2) from server side during teleportation (abyss gates should not break flying) 3) when FP is decreased to 0
+	 * Ends flying 1) by CM_EMOTION (pageDown or fly button press) 2) from
+	 * server side during teleportation (abyss gates should not break flying) 3)
+	 * when FP is decreased to 0
 	 */
 	public void endFly(boolean forceEndFly) {
 		// unset flying and gliding
@@ -91,6 +91,7 @@ public class FlyController {
 			player.setFlyState(0);
 
 			// this is probably needed to change back fly speed into speed.
+			// TODO remove this and just send in update?
 			PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, EmotionType.START_EMOTE2, 0, 0), true);
 
 			if (forceEndFly) {
@@ -120,13 +121,16 @@ public class FlyController {
 		}
 		player.setFlyState(1);
 		player.getLifeStats().triggerFpReduce();
+		// TODO remove it?
 		PacketSendUtility.broadcastPacket(player, new SM_EMOTION(player, EmotionType.START_EMOTE2, 0, 0), true);
 		player.getGameStats().updateStatsAndSpeedVisually();
 	}
 
 	/**
-	 * Switching to glide mode (called by CM_MOVE with VALIDATE_GLIDE movement type) 1) from standing state 2) from flying state If from stand to glide - start fp reduce + emotions/stats if from fly
-	 * to glide - only emotions/stats
+	 * Switching to glide mode (called by CM_MOVE with VALIDATE_GLIDE movement
+	 * type) 1) from standing state 2) from flying state If from stand to glide
+	 * - start fp reduce + emotions/stats if from fly to glide - only
+	 * emotions/stats
 	 */
 	public boolean switchToGliding() {
 		if (!player.isInState(CreatureState.GLIDING) && player.canPerformMove()) {

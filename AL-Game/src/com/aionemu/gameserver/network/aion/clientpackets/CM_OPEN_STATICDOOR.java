@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -44,6 +45,5 @@ public class CM_OPEN_STATICDOOR extends AionClientPacket {
 	protected void runImpl() {
 		Player player = this.getConnection().getActivePlayer();
 		StaticDoorService.getInstance().openStaticDoor(player, doorId);
-		player.getPosition().getWorldMapInstance().getInstanceHandler().onOpenDoor(doorId);
 	}
 }

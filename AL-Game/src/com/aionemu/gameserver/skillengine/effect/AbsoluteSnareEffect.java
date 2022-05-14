@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -22,8 +23,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * @author Dtem
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AbsoluteSnareEffect")
-public class AbsoluteSnareEffect extends BuffEffect {
+public class AbsoluteSnareEffect extends BufEffect {
 }

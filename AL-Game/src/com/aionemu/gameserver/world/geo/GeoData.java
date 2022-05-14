@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world.geo;
 
 import com.aionemu.gameserver.geoEngine.models.GeoMap;

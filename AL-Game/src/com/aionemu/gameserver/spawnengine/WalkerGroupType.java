@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.spawnengine;
 
 /**
@@ -21,7 +22,5 @@ package com.aionemu.gameserver.spawnengine;
  */
 public enum WalkerGroupType {
 
-	POINT,
-	SQUARE,
-	CIRCLE;
+	POINT, SQUARE, CIRCLE
 }

@@ -14,7 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.vortexservice;
+
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Kisk;
@@ -30,8 +33,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_QUESTION_WINDOW;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.teleport.TeleportService2;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-
-import javolution.util.FastMap;
 
 /**
  * @author Source
@@ -78,29 +79,25 @@ public class Invasion extends DimensionalVortex<VortexLocation> {
 
 		if (alliance != null && alliance.size() > 0) {
 			PlayerAllianceService.addPlayer(alliance, player);
-		}
-		else if (!list.isEmpty()) {
+		} else if (!list.isEmpty()) {
 			Player first = null;
 
 			for (Player firstOne : list.values()) {
 				if (firstOne.isInGroup2()) {
 					PlayerGroupService.removePlayer(firstOne);
-				}
-				else if (firstOne.isInAlliance2()) {
+				} else if (firstOne.isInAlliance2()) {
 					PlayerAllianceService.removePlayer(firstOne);
 				}
 				first = firstOne;
 			}
 
-			if (first.getObjectId() != player.getObjectId()) {
+			if (first != null && !first.getObjectId().equals(player.getObjectId())) {
 				if (isInvader) {
 					invAlliance = PlayerAllianceService.createAlliance(first, player, TeamType.ALLIANCE_OFFENCE);
-				}
-				else {
+				} else {
 					defAlliance = PlayerAllianceService.createAlliance(first, player, TeamType.ALLIANCE_DEFENCE);
 				}
-			}
-			else {
+			} else {
 				kickPlayer(player, isInvader);
 			}
 		}
@@ -122,8 +119,7 @@ public class Invasion extends DimensionalVortex<VortexLocation> {
 			if (alliance.size() == 0) {
 				if (isInvader) {
 					invAlliance = null;
-				}
-				else {
+				} else {
 					defAlliance = null;
 				}
 			}
@@ -147,13 +143,11 @@ public class Invasion extends DimensionalVortex<VortexLocation> {
 
 		if (defAlliance == null || !defAlliance.isFull()) {
 			RequestResponseHandler responseHandler = new RequestResponseHandler(defender) {
-
 				@Override
 				public void acceptRequest(Creature requester, Player responder) {
 					if (responder.isInGroup2()) {
 						PlayerGroupService.removePlayer(responder);
-					}
-					else if (responder.isInAlliance2()) {
+					} else if (responder.isInAlliance2()) {
 						PlayerAllianceService.removePlayer(responder);
 					}
 

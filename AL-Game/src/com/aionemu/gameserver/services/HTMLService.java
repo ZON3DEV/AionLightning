@@ -14,9 +14,9 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -38,6 +38,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.knownlist.Visitor;
+import java.util.ArrayList;
 
 /**
  * Use this service to send raw html to the client.
@@ -67,7 +68,6 @@ public class HTMLService {
 	public static void pushSurvey(final String html) {
 		final int messageId = IDFactory.getInstance().nextId();
 		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player player) {
 				sendData(player, messageId, html);
@@ -94,14 +94,12 @@ public class HTMLService {
 					String sub = html.substring(from, to);
 					if (player != null && player.getClientConnection() != null) {
 						player.getClientConnection().sendPacket(new SM_QUESTIONNAIRE(messageId, i, packet_count, sub));
-					}
-					else {
+					} else {
 						log.warn("sendData failed. null player or connection");
 						// TODO
 						break;
 					}
-				}
-				catch (Exception e) {
+				} catch (Exception e) {
 					log.error("htmlservice.sendData", e);
 				}
 			}
@@ -129,15 +127,6 @@ public class HTMLService {
 		}
 	}
 
-	public static void sendGuideHtml(Player player, String title) {
-		GuideTemplate template = DataManager.GUIDE_HTML_DATA.getTemplateByTitle(title);
-		if (template != null) {
-			int id = IDFactory.getInstance().nextId();
-			DAOManager.getDAO(GuideDAO.class).saveGuide(id, player, title);
-			sendData(player, id, getHTMLTemplate(template));
-		}
-	}
-
 	public static void onPlayerLogin(Player player) {
 		if (player == null) {
 			return;
@@ -151,8 +140,7 @@ public class HTMLService {
 				if (template.isActivated()) {
 					sendData(player, guide.getGuideId(), getHTMLTemplate(template));
 				}
-			}
-			else {
+			} else {
 				log.warn("Null guide template for title: {}", guide.getTitle());
 			}
 		}
@@ -183,11 +171,10 @@ public class HTMLService {
 				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_DICE_INVEN_ERROR);
 				return;
 			}
-			List<SurveyTemplate> templates;
+			List<SurveyTemplate> templates = null;
 			if (template.getSurveys().size() != template.getRewardCount()) {
 				templates = getSurveyTemplates(template.getSurveys(), items);
-			}
-			else {
+			} else {
 				templates = template.getSurveys();
 			}
 			if (templates.isEmpty()) {
@@ -205,7 +192,7 @@ public class HTMLService {
 	}
 
 	private static List<SurveyTemplate> getSurveyTemplates(List<SurveyTemplate> surveys, List<Integer> items) {
-		List<SurveyTemplate> templates = new ArrayList<>();
+		List<SurveyTemplate> templates = new ArrayList<SurveyTemplate>();
 		for (SurveyTemplate survey : surveys) {
 			if (items.contains(survey.getItemId())) {
 				templates.add(survey);
@@ -219,7 +206,7 @@ public class HTMLService {
 
 		sb.append("<poll>\n");
 		sb.append("<poll_introduction>\n");
-		sb.append("	<![CDATA[<font color='4CB1E5'>" + title + "</font>]]>\n");
+		sb.append("	<![CDATA[<font color='4CB1E5'>").append(title).append("</font>]]>\n");
 		sb.append("</poll_introduction>\n");
 		sb.append("<poll_title>\n");
 		sb.append("	<font color='ffc519'></font>\n");

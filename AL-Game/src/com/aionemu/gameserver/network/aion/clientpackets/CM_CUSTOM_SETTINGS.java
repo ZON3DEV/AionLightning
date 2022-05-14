@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -44,7 +45,8 @@ public class CM_CUSTOM_SETTINGS extends AionClientPacket {
 		 */
 		display = readH();
 		/**
-		 * 1 : view detail player 2 : trade 4 : party/force 8 : legion 16 : friend 32 : dual(pvp)
+		 * 1 : view detail player 2 : trade 4 : party/force 8 : legion 16 :
+		 * friend 32 : dual(pvp)
 		 */
 		deny = readH();
 	}

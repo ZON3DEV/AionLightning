@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.configs.main.AutoGroupConfig;
@@ -22,18 +23,14 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
 import com.aionemu.gameserver.services.AutoGroupService;
-import com.aionemu.gameserver.services.instance.BalaurMarchingRouteService;
 import com.aionemu.gameserver.services.instance.DredgionService;
-import com.aionemu.gameserver.services.instance.JormungandService;
+import com.aionemu.gameserver.services.instance.IronWallWarFrontService;
 import com.aionemu.gameserver.services.instance.KamarBattlefieldService;
-import com.aionemu.gameserver.services.instance.RunatoriumRuinsService;
-import com.aionemu.gameserver.services.instance.RunatoriumService;
-import com.aionemu.gameserver.services.instance.SteelWallBastionBattlefieldService;
+import com.aionemu.gameserver.services.instance.OphidanBridgeService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author Shepper, Guapo, nrg
- * @author GiGatR00n v4.7.5.x
  */
 public class CM_AUTO_GROUP extends AionClientPacket {
 
@@ -78,12 +75,9 @@ public class CM_AUTO_GROUP extends AionClientPacket {
 				break;
 			case 104:
 				DredgionService.getInstance().showWindow(player, instanceMaskId);
-				SteelWallBastionBattlefieldService.getInstance().showWindow(player, instanceMaskId);
+				IronWallWarFrontService.getInstance().showWindow(player, instanceMaskId);
 				KamarBattlefieldService.getInstance().showWindow(player, instanceMaskId);
-				JormungandService.getInstance().showWindow(player, instanceMaskId);
-				BalaurMarchingRouteService.getInstance().showWindow(player, instanceMaskId);
-				RunatoriumService.getInstance().showWindow(player, instanceMaskId);
-				RunatoriumRuinsService.getInstance().showWindow(player, instanceMaskId);
+				OphidanBridgeService.getInstance().showWindow(player, instanceMaskId);
 				break;
 			case 105:
 				// DredgionRegService.getInstance().failedEnterDredgion(player);

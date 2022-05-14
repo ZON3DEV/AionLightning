@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.TaskId;
@@ -51,8 +52,7 @@ public class CM_RELEASE_OBJECT extends AionClientPacket {
 			VisibleObject object = World.getInstance().findVisibleObject(targetObjectId);
 			if (object instanceof UseableItemObject && !player.getController().hasScheduledTask(TaskId.HOUSE_OBJECT_USE)) {
 				// not cancelled
-			}
-			else {
+			} else {
 				// mailboxes always show this message even if not cancelled
 				player.getController().cancelTask(TaskId.HOUSE_OBJECT_USE);
 				sendPacket(SM_SYSTEM_MESSAGE.STR_MSG_HOUSING_OBJECT_CANCEL_USE);

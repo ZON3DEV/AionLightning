@@ -14,13 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.serverpackets;
 
-import java.util.HashMap;
-import java.util.Map.Entry;
+package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 /**
  * @author MrPoke, Rolandas
@@ -45,8 +46,7 @@ public class SM_NEARBY_QUESTS extends AionServerPacket {
 			if (nearbyQuest.getValue() > 0) {
 				writeH(nearbyQuest.getKey());
 				writeH(0x02); // To show grey icons for future quests
-			}
-			else {
+			} else {
 				// Quests are displayed on map
 				writeD(nearbyQuest.getKey());
 			}

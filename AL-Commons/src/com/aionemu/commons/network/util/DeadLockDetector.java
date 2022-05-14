@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.network.util;
 
 import java.lang.management.LockInfo;
@@ -89,8 +90,8 @@ public class DeadLockDetector extends Thread {
 						ThreadInfo dl = ti;
 						info += "Java-level deadlock:\n";
 						info += createShortLockInfo(dl);
-						while ((dl = tmx.getThreadInfo(new long[] { dl.getLockOwnerId() }, true, true)[0])
-								.getThreadId() != ti.getThreadId())
+						while ((dl = tmx.getThreadInfo(new long[] { dl.getLockOwnerId() }, true, true)[0]).getThreadId() != ti
+							.getThreadId())
 							info += createShortLockInfo(dl);
 
 						info += "\nDumping all threads:\n";
@@ -104,7 +105,8 @@ public class DeadLockDetector extends Thread {
 						System.exit(ExitCode.CODE_RESTART);
 				}
 				Thread.sleep(sleepTime);
-			} catch (Exception e) {
+			}
+			catch (Exception e) {
 				log.warn("DeadLockDetector: " + e, e);
 			}
 	}
@@ -113,10 +115,8 @@ public class DeadLockDetector extends Thread {
 	 * Example:
 	 * <p>
 	 * Java-level deadlock:<br>
-	 * Thread-0 is waiting to lock java.lang.Object@276af2 which is held by
-	 * main. Locked synchronizers:0 monitors:1<br>
-	 * main is waiting to lock java.lang.Object@fa3ac1 which is held by
-	 * Thread-0. Locked synchronizers:0 monitors:1<br>
+	 * Thread-0 is waiting to lock java.lang.Object@276af2 which is held by main. Locked synchronizers:0 monitors:1<br>
+	 * main is waiting to lock java.lang.Object@fa3ac1 which is held by Thread-0. Locked synchronizers:0 monitors:1<br>
 	 * </p>
 	 */
 	private String createShortLockInfo(ThreadInfo threadInfo) {
@@ -147,7 +147,7 @@ public class DeadLockDetector extends Thread {
 	private String printDumpedThreadInfo(ThreadInfo threadInfo) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n\"" + threadInfo.getThreadName() + "\"" + " Id=" + threadInfo.getThreadId() + " "
-				+ threadInfo.getThreadState() + "\n");
+			+ threadInfo.getThreadState() + "\n");
 		StackTraceElement[] stacktrace = threadInfo.getStackTrace();
 		for (int i = 0; i < stacktrace.length; i++) {
 			StackTraceElement ste = stacktrace[i];

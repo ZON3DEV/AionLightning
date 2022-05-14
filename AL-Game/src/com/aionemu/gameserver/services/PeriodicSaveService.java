@@ -14,10 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import java.util.Iterator;
 import java.util.concurrent.Future;
+
+import javolution.util.FastList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,8 +32,6 @@ import com.aionemu.gameserver.dao.ItemStoneListDAO;
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.team.legion.Legion;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
-
-import javolution.util.FastList;
 
 /**
  * @author ATracer
@@ -45,7 +46,7 @@ public class PeriodicSaveService {
 	}
 
 	private PeriodicSaveService() {
-		log.info("Init Periodic Save...");
+
 		int DELAY_LEGION_ITEM = PeriodicSaveConfig.LEGION_ITEMS * 1000;
 
 		legionWhUpdateTask = ThreadPoolManager.getInstance().scheduleAtFixedRate(new LegionWhUpdateTask(), DELAY_LEGION_ITEM, DELAY_LEGION_ITEM);
@@ -55,7 +56,7 @@ public class PeriodicSaveService {
 
 		@Override
 		public void run() {
-			log.debug("Legion WH update task started.");
+			log.info("Legion WH update task started.");
 			long startTime = System.currentTimeMillis();
 			Iterator<Legion> legionsIterator = LegionService.getInstance().getCachedLegionIterator();
 			int legionWhUpdated = 0;
@@ -73,15 +74,14 @@ public class PeriodicSaveService {
 					 * 2. save item stones
 					 */
 					DAOManager.getDAO(ItemStoneListDAO.class).save(allItems);
-				}
-				catch (Exception ex) {
+				} catch (Exception ex) {
 					log.error("Exception during periodic saving of legion WH", ex);
 				}
 
 				legionWhUpdated++;
 			}
 			long workTime = System.currentTimeMillis() - startTime;
-			log.debug("Legion WH update: " + workTime + " ms, legions: " + legionWhUpdated + ".");
+			log.info("Legion WH update: " + workTime + " ms, legions: " + legionWhUpdated + ".");
 		}
 	}
 

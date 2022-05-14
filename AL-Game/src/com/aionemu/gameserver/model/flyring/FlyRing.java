@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.flyring;
 
 import com.aionemu.gameserver.controllers.FlyRingController;
@@ -34,19 +35,20 @@ public class FlyRing extends VisibleObject {
 	private String name = null;
 	private Plane3D plane = null;
 	private Point3D center = null;
-	private Point3D left = null;
-	private Point3D right = null;
+	private Point3D p1 = null;
+	private Point3D p2 = null;
 
 	public FlyRing(FlyRingTemplate template, int instanceId) {
-		super(IDFactory.getInstance().nextId(), new FlyRingController(), null, null, World.getInstance().createPosition(template.getMap(), template.getCenter().getX(), template.getCenter().getY(), template.getCenter().getZ(), (byte) 0, instanceId));
+		super(IDFactory.getInstance().nextId(), new FlyRingController(), null, null, World.getInstance().createPosition(template.getMap(),
+				template.getCenter().getX(), template.getCenter().getY(), template.getCenter().getZ(), (byte) 0, instanceId));
 
 		((FlyRingController) getController()).setOwner(this);
 		this.template = template;
 		this.name = (template.getName() == null) ? "FLY_RING" : template.getName();
 		this.center = new Point3D(template.getCenter().getX(), template.getCenter().getY(), template.getCenter().getZ());
-		this.left = new Point3D(template.getP1().getX(), template.getP1().getY(), template.getP1().getZ());
-		this.right = new Point3D(template.getP2().getX(), template.getP2().getY(), template.getP2().getZ());
-		this.plane = new Plane3D(center, left, right);
+		this.p1 = new Point3D(template.getP1().getX(), template.getP1().getY(), template.getP1().getZ());
+		this.p2 = new Point3D(template.getP2().getX(), template.getP2().getY(), template.getP2().getZ());
+		this.plane = new Plane3D(center, p1, p2);
 		setKnownlist(new SphereKnownList(this, template.getRadius() * 2));
 	}
 

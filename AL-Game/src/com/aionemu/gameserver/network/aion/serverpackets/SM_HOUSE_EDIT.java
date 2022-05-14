@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.HouseDecoration;
@@ -68,8 +69,7 @@ public class SM_HOUSE_EDIT extends AionServerPacket {
 			if (obj == null) {
 				HouseDecoration deco = player.getHouseRegistry().getCustomPartByObjId(itemObjectId);
 				templateId = deco.getTemplate().getId();
-			}
-			else {
+			} else {
 				templateId = obj.getObjectTemplate().getTemplateId();
 				typeId = obj.getObjectTemplate().getTypeId();
 			}
@@ -79,8 +79,7 @@ public class SM_HOUSE_EDIT extends AionServerPacket {
 			writeD(templateId);
 			if (obj != null && obj.getUseSecondsLeft() > 0) {
 				writeD(obj.getUseSecondsLeft());
-			}
-			else {
+			} else {
 				writeD(0);
 			}
 
@@ -94,8 +93,7 @@ public class SM_HOUSE_EDIT extends AionServerPacket {
 				writeC((color & 0xFF0000) >> 16);
 				writeC((color & 0xFF00) >> 8);
 				writeC((color & 0xFF));
-			}
-			else {
+			} else {
 				writeC(0); // Is dyed (False)
 				writeC(0);
 				writeC(0);
@@ -109,13 +107,11 @@ public class SM_HOUSE_EDIT extends AionServerPacket {
 				writeD(player.getObjectId());
 				((UseableItemObject) obj).writeUsageData(getBuf());
 			}
-		}
-		else if (action == 4) { // Remove from inventory
+		} else if (action == 4) { // Remove from inventory
 			writeC(action);
 			writeC(storeId);
 			writeD(itemObjectId);
-		}
-		else if (action == 5) { // Spawn or move object
+		} else if (action == 5) { // Spawn or move object
 			writeC(action);
 			writeD(player.getHouseOwnerId()); // if painted 0 ?
 			writeD(player.getCommonData().getPlayerObjId());
@@ -128,8 +124,7 @@ public class SM_HOUSE_EDIT extends AionServerPacket {
 			writeD(player.getHouseObjectCooldownList().getReuseDelay(itemObjectId));
 			if (obj.getUseSecondsLeft() > 0) {
 				writeD(obj.getUseSecondsLeft());
-			}
-			else {
+			} else {
 				writeD(0);
 			}
 
@@ -139,8 +134,7 @@ public class SM_HOUSE_EDIT extends AionServerPacket {
 				writeC(0);
 				writeC(0);
 				writeC(0);
-			}
-			else {
+			} else {
 				writeC((color & 0xFF0000) >> 16);
 				writeC((color & 0xFF00) >> 8);
 				writeC((color & 0xFF));
@@ -152,12 +146,10 @@ public class SM_HOUSE_EDIT extends AionServerPacket {
 			if (obj instanceof UseableItemObject) {
 				((UseableItemObject) obj).writeUsageData(getBuf());
 			}
-		}
-		else if (action == 7) { // Despawn object
+		} else if (action == 7) { // Despawn object
 			writeC(action);
 			writeD(itemObjectId);
-		}
-		else {
+		} else {
 			writeC(action);
 		}
 	}

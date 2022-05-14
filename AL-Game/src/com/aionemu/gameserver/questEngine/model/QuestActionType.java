@@ -14,13 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.model;
 
 /**
  * @author MrPoke
+ *
  */
 public enum QuestActionType {
 
-	ITEM_USE,
-	ACTION_ITEM_USE
+	ITEM_USE, ACTION_ITEM_USE
 }

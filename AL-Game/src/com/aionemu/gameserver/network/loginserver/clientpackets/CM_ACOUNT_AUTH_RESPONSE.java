@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.loginserver.clientpackets;
 
 import com.aionemu.gameserver.model.account.AccountTime;
@@ -21,7 +22,9 @@ import com.aionemu.gameserver.network.loginserver.LoginServer;
 import com.aionemu.gameserver.network.loginserver.LsClientPacket;
 
 /**
- * In this packet LoginServer is answering on GameServer request about valid authentication data and also sends account name of user that is authenticating on GameServer.
+ * In this packet LoginServer is answering on GameServer request about valid
+ * authentication data and also sends account name of user that is
+ * authenticating on GameServer.
  *
  * @author -Nemesiss-
  */
@@ -59,15 +62,6 @@ public class CM_ACOUNT_AUTH_RESPONSE extends LsClientPacket {
 	 * Toll
 	 */
 	private long toll;
-	/**
-	 * Luna
-	 */
-	private long luna;
-
-	/**
-	 * isReturn
-	 */
-	private byte isReturn;
 
 	/**
 	 * {@inheritDoc}
@@ -87,8 +81,6 @@ public class CM_ACOUNT_AUTH_RESPONSE extends LsClientPacket {
 			accessLevel = (byte) readC();
 			membership = (byte) readC();
 			toll = readQ();
-			luna = readQ();
-			isReturn = (byte) readC();
 		}
 	}
 
@@ -97,6 +89,6 @@ public class CM_ACOUNT_AUTH_RESPONSE extends LsClientPacket {
 	 */
 	@Override
 	public void runImpl() {
-		LoginServer.getInstance().accountAuthenticationResponse(accountId, accountName, result, accountTime, accessLevel, membership, toll, luna, isReturn);
+		LoginServer.getInstance().accountAuthenticationResponse(accountId, accountName, result, accountTime, accessLevel, membership, toll);
 	}
 }

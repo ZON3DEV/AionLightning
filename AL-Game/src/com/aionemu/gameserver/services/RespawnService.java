@@ -14,10 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import java.util.Set;
 import java.util.concurrent.Future;
+
+import javolution.util.FastList;
 
 import com.aionemu.gameserver.model.TaskId;
 import com.aionemu.gameserver.model.drop.DropItem;
@@ -29,8 +32,6 @@ import com.aionemu.gameserver.services.instance.InstanceService;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
-
-import javolution.util.FastList;
 
 /**
  * @author ATracer, Source, xTz
@@ -51,11 +52,9 @@ public class RespawnService {
 
 		if (drop == null) {
 			decayInterval = IMMEDIATE_DECAY;
-		}
-		else if (drop.isEmpty()) {
+		} else if (drop.isEmpty()) {
 			decayInterval = WITHOUT_DROP_DECAY;
-		}
-		else {
+		} else {
 			decayInterval = WITH_DROP_DECAY;
 		}
 
@@ -80,7 +79,7 @@ public class RespawnService {
 	 * @param spawnTemplate
 	 * @param instanceId
 	 */
-	private static VisibleObject respawn(SpawnTemplate spawnTemplate, final int instanceId) {
+	private static final VisibleObject respawn(SpawnTemplate spawnTemplate, final int instanceId) {
 		if (spawnTemplate.isTemporarySpawn() && !spawnTemplate.getTemporarySpawn().isInSpawnTime()) {
 			return null;
 		}

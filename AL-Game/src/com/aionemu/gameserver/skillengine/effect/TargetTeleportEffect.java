@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -37,7 +38,8 @@ public class TargetTeleportEffect extends EffectTemplate {
 
 	@Override
 	public void applyEffect(Effect effect) {
-		// TODO Should be handled manually for each effect with isSameMap = false
+		// TODO Should be handled manually for each effect with isSameMap =
+		// false
 		// if in same map, should be teleported at the distance in front of NPC
 	}
 }

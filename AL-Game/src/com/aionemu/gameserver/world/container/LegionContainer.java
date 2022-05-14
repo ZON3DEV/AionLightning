@@ -14,16 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.world.container;
 
-import java.util.Iterator;
-import java.util.Map;
+package com.aionemu.gameserver.world.container;
 
 import com.aionemu.gameserver.model.team.legion.Legion;
 import com.aionemu.gameserver.world.exceptions.DuplicateAionObjectException;
-
-import javolution.util.FastList;
 import javolution.util.FastMap;
+
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Container for storing Legions by legionId and name.
@@ -74,7 +73,8 @@ public class LegionContainer implements Iterable<Legion> {
 	 *
 	 * @param legionId
 	 *            - legionId of legion.
-	 * @return Legion with given ojectId or null if Legion with given legionId is not logged.
+	 * @return Legion with given ojectId or null if Legion with given legionId
+	 *         is not logged.
 	 */
 	public Legion get(int legionId) {
 		return legionsById.get(legionId);
@@ -85,16 +85,11 @@ public class LegionContainer implements Iterable<Legion> {
 	 *
 	 * @param name
 	 *            - name of legion
-	 * @return Legion with given name or null if Legion with given name is not logged.
+	 * @return Legion with given name or null if Legion with given name is not
+	 *         logged.
 	 */
 	public Legion get(String name) {
 		return legionsByName.get(name.toLowerCase());
-	}
-
-	public FastList<Legion> getAllLegions() {
-		FastList<Legion> list = new FastList<Legion>();
-		list.addAll(legionsByName.values());
-		return list;
 	}
 
 	/**

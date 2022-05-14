@@ -14,13 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.loginserver.serverpackets;
 
 import com.aionemu.gameserver.network.loginserver.LoginServerConnection;
 import com.aionemu.gameserver.network.loginserver.LsServerPacket;
 
 /**
- * This packet is sended by GameServer when player is requesting fast reconnect to login server. LoginServer in response will send reconectKey.
+ * This packet is sended by GameServer when player is requesting fast reconnect
+ * to login server. LoginServer in response will send reconectKey.
  *
  * @author -Nemesiss-
  */

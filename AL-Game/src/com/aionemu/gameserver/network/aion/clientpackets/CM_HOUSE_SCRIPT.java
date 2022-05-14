@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -74,8 +75,7 @@ public class CM_HOUSE_SCRIPT extends AionClientPacket {
 			// Deposit perhaps should send 0, while delete -1
 			// But the client sends the same packets now
 			scripts.addScript(scriptIndex, new byte[0], 0);
-		}
-		else {
+		} else {
 			scripts.addScript(scriptIndex, stream, uncompressedSize);
 		}
 

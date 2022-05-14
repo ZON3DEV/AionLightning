@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders.loadingutils.adapters;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
@@ -27,7 +28,9 @@ public class NpcEquippedGearAdapter extends XmlAdapter<NpcEquipmentList, NpcEqui
 
 	/*
 	 * (non-Javadoc)
-	 * @see javax.xml.bind.annotation.adapters.XmlAdapter#marshal(java.lang.Object)
+	 *
+	 * @see
+	 * javax.xml.bind.annotation.adapters.XmlAdapter#marshal(java.lang.Object)
 	 */
 	@Override
 	public NpcEquipmentList marshal(NpcEquippedGear v) throws Exception {
@@ -37,7 +40,9 @@ public class NpcEquippedGearAdapter extends XmlAdapter<NpcEquipmentList, NpcEqui
 
 	/*
 	 * (non-Javadoc)
-	 * @see javax.xml.bind.annotation.adapters.XmlAdapter#unmarshal(java.lang.Object)
+	 *
+	 * @see
+	 * javax.xml.bind.annotation.adapters.XmlAdapter#unmarshal(java.lang.Object)
 	 */
 	@Override
 	public NpcEquippedGear unmarshal(NpcEquipmentList v) throws Exception {

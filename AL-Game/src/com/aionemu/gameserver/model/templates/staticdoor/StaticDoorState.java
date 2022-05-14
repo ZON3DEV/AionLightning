@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.staticdoor;
 
 import java.util.EnumSet;
@@ -24,16 +25,16 @@ import java.util.EnumSet;
 public enum StaticDoorState {
 
 	NONE(0),
-	OPENED(1 << 0),
+    OPENED(1 << 0),
 	CLICKABLE(1 << 1),
 	CLOSEABLE(1 << 2),
 	ONEWAY(1 << 3);
 
-	private int flag;
-
 	private StaticDoorState(int flag) {
 		this.flag = flag;
 	}
+
+	private int flag;
 
 	public int getFlag() {
 		return flag;
@@ -46,8 +47,7 @@ public enum StaticDoorState {
 			}
 			if ((flags & states.flag) == 0) {
 				state.remove(states);
-			}
-			else {
+			} else {
 				state.add(states);
 			}
 		}

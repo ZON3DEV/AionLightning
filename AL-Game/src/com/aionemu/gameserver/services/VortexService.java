@@ -14,14 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.services.CronService;
 import com.aionemu.gameserver.configs.main.CustomConfig;
@@ -36,13 +30,15 @@ import com.aionemu.gameserver.model.templates.spawns.vortexspawns.VortexSpawnTem
 import com.aionemu.gameserver.model.vortex.VortexLocation;
 import com.aionemu.gameserver.model.vortex.VortexStateType;
 import com.aionemu.gameserver.services.rift.RiftInformer;
-import com.aionemu.gameserver.services.rift.RiftManager;
 import com.aionemu.gameserver.services.vortexservice.DimensionalVortex;
 import com.aionemu.gameserver.services.vortexservice.Invasion;
+import com.aionemu.gameserver.services.rift.RiftManager;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
-
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 import javolution.util.FastMap;
 
 /**
@@ -53,7 +49,6 @@ public class VortexService {
 	private static final int duration = CustomConfig.VORTEX_DURATION;
 	private final Map<Integer, DimensionalVortex<?>> activeInvasions = new FastMap<Integer, DimensionalVortex<?>>().shared();
 	private Map<Integer, VortexLocation> vortex;
-	private static final Logger log = LoggerFactory.getLogger(VortexService.class);
 
 	public void initVortexLocations() {
 		if (CustomConfig.VORTEX_ENABLED) {
@@ -64,11 +59,8 @@ public class VortexService {
 				spawn(loc, VortexStateType.PEACE);
 			}
 
-			log.info("[VortexService] Loaded " + vortex.size() + " vortex locations");
-
 			// Brusthonin schedule
 			CronService.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
 					startInvasion(1);
@@ -77,14 +69,12 @@ public class VortexService {
 
 			// Theobomos schedule
 			CronService.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
 					startInvasion(0);
 				}
 			}, CustomConfig.VORTEX_THEOBOMOS_SCHEDULE);
-		}
-		else {
+		} else {
 			vortex = Collections.emptyMap();
 		}
 	}
@@ -104,7 +94,6 @@ public class VortexService {
 
 		// Scheduled invasion end
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				if (!invasion.isGeneratorDestroyed()) {
@@ -223,11 +212,9 @@ public class VortexService {
 	public VortexLocation getLocationByWorld(int worldId) {
 		if (worldId == 210060000) {
 			return getVortexLocation(0);
-		}
-		else if (worldId == 220050000) {
+		} else if (worldId == 220050000) {
 			return getVortexLocation(1);
-		}
-		else {
+		} else {
 			return null;
 		}
 	}

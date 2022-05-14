@@ -54,7 +54,11 @@ public class CM_AUTH_GG extends AionClientPacket {
     @Override
     protected void readImpl() {
         sessionId = readD();
-        readB(27);
+        readD();
+        readD();
+        readD();
+        readD();
+        readB(0x0B);
     }
 
     /**

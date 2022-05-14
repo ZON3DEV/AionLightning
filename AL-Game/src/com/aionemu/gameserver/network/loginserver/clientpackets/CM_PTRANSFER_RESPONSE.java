@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.loginserver.clientpackets;
 
 import com.aionemu.gameserver.configs.network.NetworkConfig;
@@ -61,13 +62,12 @@ public class CM_PTRANSFER_RESPONSE extends LsClientPacket {
 				byte serverId = readSC();
 				if (NetworkConfig.GAMESERVER_ID != serverId) {
 					try {
-						throw new Exception("Requesting player transfer for server id " + serverId + " but this is " + NetworkConfig.GAMESERVER_ID + " omgshit!");
-					}
-					catch (Exception e) {
+						throw new Exception("Requesting player transfer for server id " + serverId + " but this is " + NetworkConfig.GAMESERVER_ID
+								+ " omgshit!");
+					} catch (Exception e) {
 						e.printStackTrace();
 					}
-				}
-				else {
+				} else {
 					byte targetServerId = readSC();
 					int account = readD();
 					int targetAccount = readD();

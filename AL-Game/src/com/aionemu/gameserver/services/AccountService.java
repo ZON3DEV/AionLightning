@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import java.util.Iterator;
@@ -23,7 +24,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.database.dao.DAOManager;
+import com.aionemu.gameserver.GameServer;
 import com.aionemu.gameserver.configs.main.CacheConfig;
+import com.aionemu.gameserver.configs.main.GSConfig;
 import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.dao.LegionMemberDAO;
 import com.aionemu.gameserver.dao.PlayerAppearanceDAO;
@@ -48,11 +51,11 @@ import com.aionemu.gameserver.utils.collections.cachemap.CacheMapFactory;
 import com.aionemu.gameserver.world.World;
 
 /**
- * This class is a front-end for daos and it's responsibility is to retrieve the Account objects
+ * This class is a front-end for daos and it's responsibility is to retrieve the
+ * Account objects
  *
  * @author Luno
  * @modified cura
- * @author GiGatR00n
  */
 public class AccountService {
 
@@ -69,7 +72,7 @@ public class AccountService {
 	 * @param membership
 	 * @return Account
 	 */
-	public static Account getAccount(int accountId, String accountName, AccountTime accountTime, byte accessLevel, byte membership, long toll, long luna, byte isReturn) {
+	public static Account getAccount(int accountId, String accountName, AccountTime accountTime, byte accessLevel, byte membership, long toll) {
 		log.debug("[AS] request for account: " + accountId);
 
 		Account account = accountsMap.get(accountId);
@@ -84,14 +87,13 @@ public class AccountService {
 		account.setAccessLevel(accessLevel);
 		account.setMembership(membership);
 		account.setToll(toll);
-		account.setLuna(luna);
-		account.setIsReturn(isReturn);
 		removeDeletedCharacters(account);
 		return account;
 	}
 
 	/**
-	 * Removes from db characters that should be deleted (their deletion time has passed).
+	 * Removes from db characters that should be deleted (their deletion time
+	 * has passed).
 	 *
 	 * @param account
 	 */
@@ -101,11 +103,16 @@ public class AccountService {
 		while (it.hasNext()) {
 			PlayerAccountData pad = it.next();
 			Race race = pad.getPlayerCommonData().getRace();
-			long deletionTime = (long) pad.getDeletionTimeInSeconds() * (long) 1000;
+			int deletionTime = pad.getDeletionTimeInSeconds() * 1000;
 			if (deletionTime != 0 && deletionTime <= System.currentTimeMillis()) {
 				it.remove();
 				account.decrementCountOf(race);
 				PlayerService.deletePlayerFromDB(pad.getPlayerCommonData().getPlayerObjId());
+				if (GSConfig.ENABLE_RATIO_LIMITATION && pad.getPlayerCommonData().getLevel() >= GSConfig.RATIO_MIN_REQUIRED_LEVEL) {
+					if (account.getNumberOf(race) == 0) {
+						GameServer.updateRatio(pad.getPlayerCommonData().getRace(), -1);
+					}
+				}
 			}
 		}
 		if (account.isEmpty()) {
@@ -147,7 +154,8 @@ public class AccountService {
 			LegionMember legionMember = DAOManager.getDAO(LegionMemberDAO.class).loadLegionMember(playerId);
 
 			/**
-			 * Load only equipment and its stones to display on character selection screen
+			 * Load only equipment and its stones to display on character
+			 * selection screen
 			 */
 			List<Item> equipment = DAOManager.getDAO(InventoryDAO.class).loadEquipment(playerId);
 

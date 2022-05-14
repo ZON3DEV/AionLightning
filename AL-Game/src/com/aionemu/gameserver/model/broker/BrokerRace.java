@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.broker;
 
 /**
@@ -22,5 +23,5 @@ package com.aionemu.gameserver.model.broker;
 public enum BrokerRace {
 
 	ELYOS,
-	ASMODIAN;
+    ASMODIAN;
 }

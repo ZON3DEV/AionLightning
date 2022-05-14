@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.trade;
 
 import java.util.ArrayList;
@@ -123,8 +124,7 @@ public class TradeList {
 			}
 			if (alreadyAddedCount == 0) {
 				requiredItems.put(abysItemId, (long) aquisition.getItemCount());
-			}
-			else {
+			} else {
 				requiredItems.put(abysItemId, alreadyAddedCount + aquisition.getItemCount() * tradeItem.getCount());
 			}
 		}
@@ -164,8 +164,7 @@ public class TradeList {
 			}
 			if (alreadyAddedCount == 0) {
 				requiredItems.put(itemId, aquisition.getItemCount() * tradeItem.getCount());
-			}
-			else {
+			} else {
 				requiredItems.put(itemId, alreadyAddedCount + aquisition.getItemCount() * tradeItem.getCount());
 			}
 		}

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.craft;
 
 import org.slf4j.Logger;
@@ -67,7 +68,6 @@ public class CraftService {
 		int productItemId = critCount > 0 ? recipetemplate.getComboProduct(critCount) : recipetemplate.getProductid();
 
 		ItemService.addItem(player, productItemId, recipetemplate.getQuantity(), new ItemUpdatePredicate() {
-
 			@Override
 			public boolean changeItem(Item item) {
 				if (item.getItemTemplate().isWeapon() || item.getItemTemplate().isArmor()) {
@@ -79,25 +79,25 @@ public class CraftService {
 
 		ItemTemplate itemTemplate = DataManager.ITEM_DATA.getItemTemplate(productItemId);
 		if (LoggingConfig.LOG_CRAFT) {
-			log.info((critCount > 0 ? "[CRAFT][Critical] ID/Count" : "[CRAFT][Normal] ID/Count") + (LoggingConfig.ENABLE_ADVANCED_LOGGING ? "/Item Name - " + productItemId + "/" + recipetemplate.getQuantity() + "/" + itemTemplate.getName() : " - " + productItemId + "/" + recipetemplate.getQuantity()) + " to player " + player.getName());
+			log.info((critCount > 0 ? "[CRAFT][Critical] ID/Count" : "[CRAFT][Normal] ID/Count")
+					+ (LoggingConfig.ENABLE_ADVANCED_LOGGING ? "/Item Name - " + productItemId + "/" + recipetemplate.getQuantity() + "/"
+							+ itemTemplate.getName() : " - " + productItemId + "/" + recipetemplate.getQuantity()) + " to player " + player.getName());
 		}
 
 		int gainedCraftExp = (int) RewardType.CRAFTING.calcReward(player, xpReward);
 
 		// Check Expert and Master Crafting
 		int skillId = recipetemplate.getSkillid();
-		if ((skillId == 40001) || (skillId == 40002) || (skillId == 40003) || (skillId == 40004) || (skillId == 40007) || (skillId == 40008) || (skillId == 40010)) {
+		if ((skillId == 40001) || (skillId == 40002) || (skillId == 40003) || (skillId == 40004) || (skillId == 40007) || (skillId == 40008)
+				|| (skillId == 40010)) {
 			if ((player.getSkillList().getSkillLevel(skillId) >= 500) && (recipetemplate.getSkillpoint() < 500)) {
 				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_DONT_GET_COMBINE_EXP_GRAND_MASTER);
-			}
-			else if ((player.getSkillList().getSkillLevel(skillId) >= 400) && (recipetemplate.getSkillpoint() < 400)) {
+			} else if ((player.getSkillList().getSkillLevel(skillId) >= 400) && (recipetemplate.getSkillpoint() < 400)) {
 				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_DONT_GET_COMBINE_EXP);
-			}
-			else {
+			} else {
 				if (player.getSkillList().addSkillXp(player, recipetemplate.getSkillid(), gainedCraftExp, recipetemplate.getSkillpoint())) {
 					player.getCommonData().addExp(xpReward, RewardType.CRAFTING);
-				}
-				else {
+				} else {
 					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_DONT_GET_PRODUCTION_EXP(new DescriptionId(DataManager.SKILL_DATA.getSkillTemplate(recipetemplate.getSkillid()).getNameId())));
 				}
 			}
@@ -130,8 +130,7 @@ public class CraftService {
 
 		if (skillId == 40009) {
 			player.setCraftingTask(new MorphingTask(player, (StaticObject) target, recipeTemplate));
-		}
-		else {
+		} else {
 			int skillLvlDiff = player.getSkillList().getSkillLevel(skillId) - recipeTemplate.getSkillpoint();
 			player.setCraftingTask(new CraftingTask(player, (StaticObject) target, recipeTemplate, skillLvlDiff, craftType == 1 ? 15 : 0));
 		}
@@ -194,7 +193,7 @@ public class CraftService {
 		}
 
 		if (craftType == 1 && !player.getInventory().decreaseByItemId(getBonusReqItem(skillId), 1)) {
-			AuditLogger.info(player, " tried craft without " + getBonusReqItem(skillId) + " . ");
+			AuditLogger.info(player, " tried craft without 169401079.");
 			return false;
 		}
 
@@ -237,8 +236,6 @@ public class CraftService {
 				return 169401079;
 			case 40010: // Menusier
 				return 169401082;
-			case 40011:
-				return 0;
 		}
 		return 0;
 	}

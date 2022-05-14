@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.event;
 
 import java.util.ArrayList;
@@ -32,8 +33,9 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 import org.joda.time.DateTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import com.aionemu.gameserver.GameServer;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.dataholders.SpawnsData2;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -57,6 +59,7 @@ import com.aionemu.gameserver.world.knownlist.Visitor;
 @XmlType(name = "EventTemplate")
 public class EventTemplate {
 
+	private static Logger log = LoggerFactory.getLogger(EventTemplate.class);
 	@XmlElement(name = "event_drops", required = false)
 	protected EventDrops eventDrops;
 	@XmlElement(name = "quests", required = false)
@@ -64,7 +67,7 @@ public class EventTemplate {
 	@XmlElement(name = "spawns", required = false)
 	protected SpawnsData2 spawns;
 	@XmlElement(name = "inventory_drop", required = false)
-	private InventoryDrop inventoryDrop;
+	protected InventoryDrop inventoryDrop;
 	@XmlList
 	@XmlElement(name = "surveys", required = false)
 	protected List<String> surveys;
@@ -141,45 +144,42 @@ public class EventTemplate {
 			if (spawnedObjects == null) {
 				spawnedObjects = new ArrayList<VisibleObject>();
 			}
-			int spawnCount = 0;
 			for (SpawnMap map : spawns.getTemplates()) {
 				DataManager.SPAWNS_DATA2.addNewSpawnMap(map);
 				Collection<Integer> instanceIds = World.getInstance().getWorldMap(map.getMapId()).getAvailableInstanceIds();
 				for (Integer instanceId : instanceIds) {
+					int spawnCount = 0;
 					for (Spawn spawn : map.getSpawns()) {
 						spawn.setEventTemplate(this);
 						for (SpawnSpotTemplate spot : spawn.getSpawnSpotTemplates()) {
-							SpawnTemplate t = SpawnEngine.addNewSpawn(map.getMapId(), spawn.getNpcId(), spot.getX(), spot.getY(), spot.getZ(), spot.getHeading(), spawn.getRespawnTime());
+							SpawnTemplate t = SpawnEngine.addNewSpawn(map.getMapId(), spawn.getNpcId(), spot.getX(), spot.getY(), spot.getZ(),
+									spot.getHeading(), spawn.getRespawnTime());
 							t.setEventTemplate(this);
 							SpawnEngine.spawnObject(t, instanceId);
 							spawnCount++;
 						}
 					}
+					log.info("Spawned event objects in " + map.getMapId() + " [" + instanceId + "] : " + spawnCount + " (" + this.getName() + ")");
 				}
 			}
-			GameServer.log.info("[EventService] Spawned " + spawnCount + " Event objects:" + " (" + this.getName() + ")");
 			DataManager.SPAWNS_DATA2.afterUnmarshal(null, null);
 			DataManager.SPAWNS_DATA2.clearTemplates();
 		}
 
-		if (getInventoryDrop() != null) {
+		if (inventoryDrop != null) {
 			invDropTask = ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 				@Override
 				public void run() {
 					World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 						@Override
 						public void visit(Player player) {
-							int itemId = getInventoryDrop().getDropItem();
-							if (player.getCommonData().getLevel() >= getInventoryDrop().getStartLevel() && player.getCommonData().getLevel() <= getInventoryDrop().getEndLevel() && player.getItemMaxThisCount(itemId) < getInventoryDrop().getMaxCountOfDay()) {
-								ItemService.dropItemToInventory(player, getInventoryDrop().getDropItem());
-								player.addItemMaxCountOfDay(itemId, player.getItemMaxThisCount(itemId) + 1);
+							if (player.getCommonData().getLevel() >= inventoryDrop.getStartLevel()) {
+								ItemService.dropItemToInventory(player, inventoryDrop.getDropItem());
 							}
 						}
 					});
 				}
-			}, getInventoryDrop().getInterval() * 60000, getInventoryDrop().getInterval() * 60000);
+			}, inventoryDrop.getInterval() * 60000, inventoryDrop.getInterval() * 60000);
 		}
 
 		if (surveys != null) {
@@ -206,7 +206,7 @@ public class EventTemplate {
 				}
 			}
 			DataManager.SPAWNS_DATA2.removeEventSpawnObjects(spawnedObjects);
-			GameServer.log.info("[EventService] Despawned " + spawnedObjects.size() + " Event objects (" + this.getName() + ")");
+			log.info("Despawned " + spawnedObjects.size() + " event objects (" + this.getName() + ")");
 			spawnedObjects.clear();
 			spawnedObjects = null;
 		}
@@ -243,9 +243,5 @@ public class EventTemplate {
 			return theme.toLowerCase();
 		}
 		return theme;
-	}
-
-	public InventoryDrop getInventoryDrop() {
-		return inventoryDrop;
 	}
 }

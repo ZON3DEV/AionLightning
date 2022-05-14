@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc_drops>
+	<npc_drop npc_id="212840"> <!-- Lava Gatneri -->
+		<drop_group name="NAMED_RARE_ARMOR">
+			<drop item_id="111100406" chance="50.0" min_amount="1" max_amount="1"/>
+			<drop item_id="111500445" chance="50.0" min_amount="1" max_amount="1"/>
+			<drop item_id="114100422" chance="50.0" min_amount="1" max_amount="1"/>
+		</drop_group>
+		<drop_group name="NAMED_LEGEND_ARMOR">
+			<drop item_id="111101107" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="111501090" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="111301104" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="111601080" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="111301591" chance="25.0" min_amount="1" max_amount="1"/>
+		</drop_group>
+		<drop_group name="CHEST">
+			<drop item_id="188051411" chance="2.941" min_amount="1" max_amount="1"/> <!-- Gatneri's Fabled Weapon Chest -->
+		</drop_group>
+	</npc_drop>	
+	<npc_drop npc_id="212839"> <!-- Blue Crystal Molgat -->
+		<drop_group name="NAMED_RARE_ARMOR">
+			<drop item_id="114300435" chance="50.0" min_amount="1" max_amount="1"/>
+		</drop_group>
+		<drop_group name="NAMED_LEGEND_ARMOR">
+			<drop item_id="114301156" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="114101148" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="114301657" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="114601060" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="114501106" chance="25.0" min_amount="1" max_amount="1"/>
+		</drop_group>
+	</npc_drop>
+	<npc_drop npc_id="212843"> <!-- Tough Sipus -->
+		<drop_group name="NAMED_LEGEND_SHIELD">
+			<drop item_id="115000440" chance="20.0" min_amount="1" max_amount="1"/>
+		</drop_group>
+		<drop_group name="NAMED_LEGEND_ACCESSORY">
+			<drop item_id="123001329" chance="50.0" min_amount="1" max_amount="1"/>
+			<drop item_id="123001330" chance="50.0" min_amount="1" max_amount="1"/>
+		</drop_group>	
+		<drop_group name="NAMED_RARE_ACCESSORY">
+			<drop item_id="123000579" chance="50.0" min_amount="1" max_amount="1"/>
+			<drop item_id="123000949" chance="50.0" min_amount="1" max_amount="1"/>
+		</drop_group>
+	</npc_drop>			
+	<npc_drop npc_id="212844"> <!-- Silver Blade Rotan -->
+		<drop_group name="NAMED_RARE_ACCESSORY">
+			<drop item_id="122001061" chance="100.0" min_amount="1" max_amount="1"/>
+			<drop item_id="122000559" chance="100.0" min_amount="1" max_amount="1"/>
+		</drop_group>
+		<drop_group name="NAMED_RARE_ARMOR">
+			<drop item_id="110100475" chance="50.0" min_amount="1" max_amount="1"/>
+			<drop item_id="110500464" chance="50.0" min_amount="1" max_amount="1"/>
+		</drop_group>	
+		<drop_group name="NAMED_LEGEND_ACCESSORY">
+			<drop item_id="122001540" chance="50.0" min_amount="1" max_amount="1"/>
+			<drop item_id="122001541" chance="50.0" min_amount="1" max_amount="1"/>			
+		</drop_group>
+	</npc_drop>	
+	<npc_drop npc_id="212842"> <!-- Black Smoke Asparn -->
+		<drop_group name="NAMED_RARE_ARMOR">
+			<drop item_id="113300421" chance="50.0" min_amount="1" max_amount="1"/>
+			<drop item_id="113600429" chance="50.0" min_amount="1" max_amount="1"/>
+			<drop item_id="112300371" chance="50.0" min_amount="1" max_amount="1"/>
+			<drop item_id="112600414" chance="50.0" min_amount="1" max_amount="1"/>
+		</drop_group>
+		<drop_group name="NAMED_LEGEND_ARMOR">
+			<drop item_id="112301051" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="112601055" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="112501041" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="112101065" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="112301530" chance="25.0" min_amount="1" max_amount="1"/>
+		</drop_group>
+		<drop_group name="CHEST">
+			<drop item_id="188051412" chance="2.941" min_amount="1" max_amount="1"/> <!-- Asparn's Fabled Weapon Chest -->
+		</drop_group>
+	</npc_drop>		
+	<npc_drop npc_id="212841"> <!-- Flame Branch Flavi -->
+		<drop_group name="NAMED_RARE_ARMOR">
+			<drop item_id="112500409" chance="50.0" min_amount="1" max_amount="1"/>
+			<drop item_id="112100371" chance="50.0" min_amount="1" max_amount="1"/>
+			<drop item_id="113100405" chance="50.0" min_amount="1" max_amount="1"/>
+			<drop item_id="113500444" chance="50.0" min_amount="1" max_amount="1"/>
+		</drop_group>
+		<drop_group name="NAMED_LEGEND_ARMOR">
+			<drop item_id="110301651" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="110101217" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="110501122" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="110601104" chance="25.0" min_amount="1" max_amount="1"/>
+		</drop_group>
+	</npc_drop>	
+	<npc_drop npc_id="212845"> <!-- Broken Wing Kutisen -->
+		<drop_group name="NAMED_RARE_ACCESSORY">
+			<drop item_id="120000928" chance="50.0" min_amount="1" max_amount="1"/>
+			<drop item_id="120000518" chance="50.0" min_amount="1" max_amount="1"/>
+		</drop_group>
+		<drop_group name="NAMED_RARE_ARMOR">
+			<drop item_id="110100475" chance="50.0" min_amount="1" max_amount="1"/>
+			<drop item_id="110500464" chance="50.0" min_amount="1" max_amount="1"/>
+			<drop item_id="110300436" chance="50.0" min_amount="1" max_amount="1"/>
+			<drop item_id="110600460" chance="50.0" min_amount="1" max_amount="1"/>
+		</drop_group>
+		<drop_group name="NAMED_LEGEND_ARMOR">
+			<drop item_id="113101119" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="113601064" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="113501099" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="113301122" chance="25.0" min_amount="1" max_amount="1"/>
+			<drop item_id="113301618" chance="25.0" min_amount="1" max_amount="1"/>
+		</drop_group>
+	</npc_drop>	
+	<npc_drop npc_id="212846"> <!-- Kromede the Corrupt -->
+		<drop_group name="NAMED_LEGEND_MATERIAL">
+			<drop item_id="152012530" chance="16.875" min_amount="1" max_amount="1"/>
+		</drop_group>
+		<drop_group name="NAMED_LEGEND_WEAPON">
+            <drop item_id="100001021" chance="0.938" max_amount="1" min_amount="1"/>
+            <drop item_id="100100768" chance="1.563" max_amount="1" min_amount="1"/>
+            <drop item_id="100200903" chance="0.938" max_amount="1" min_amount="1"/>
+            <drop item_id="100500788" chance="1.563" max_amount="1" min_amount="1"/>
+            <drop item_id="100600843" chance="0.625" max_amount="1" min_amount="1"/>
+            <drop item_id="100900765" chance="1.563" max_amount="1" min_amount="1"/>
+            <drop item_id="101300737" chance="0.938" max_amount="1" min_amount="1"/>
+            <drop item_id="101500793" chance="1.875" max_amount="1" min_amount="1"/> 
+			<drop item_id="101700810" chance="0.625" max_amount="1" min_amount="1"/>
+			<drop item_id="101800915" chance="0.313" max_amount="1" min_amount="1"/>		
+			<drop item_id="101900670" chance="0.938" max_amount="1" min_amount="1"/>
+			<drop item_id="102000704" chance="1.563" max_amount="1" min_amount="1"/>
+			<drop item_id="102100770" chance="0.625" max_amount="1" min_amount="1"/>
+		</drop_group>
+		<drop_group name="NAMED_RARE_ACCESSORY">
+            <drop item_id="125001107" chance="0.313" max_amount="1" min_amount="1"/>
+			<drop item_id="125001108" chance="0.313" max_amount="1" min_amount="1"/>
+			<drop item_id="125001109" chance="0.313" max_amount="1" min_amount="1"/>
+			<drop item_id="125001110" chance="0.313" max_amount="1" min_amount="1"/>
+		</drop_group>
+		<drop_group name="NAMED_LEGEND_ACCESSORY">
+			<drop item_id="121000458" chance="7.188" max_amount="1" min_amount="1"/>
+			<drop item_id="121001271" chance="7.813" max_amount="1" min_amount="1"/>			
+			<drop item_id="125003310" chance="4.688" max_amount="1" min_amount="1"/>
+			<drop item_id="125003311" chance="5.625" max_amount="1" min_amount="1"/>
+			<drop item_id="125003312" chance="6.563" max_amount="1" min_amount="1"/>
+			<drop item_id="125003313" chance="3.75" max_amount="1" min_amount="1"/>
+		</drop_group>
+		<drop_group name="CHEST">
+			<drop item_id="188051396" chance="1.25" max_amount="1" min_amount="1"/> <!-- Judge's Fabled Weapon Chest -->
+		</drop_group>
+		<drop_group name="CHEST_2">
+			<drop item_id="188053083" chance="0.313" max_amount="1" min_amount="1" no_reduce="true" eachmember="true"/> <!-- Tempering Solution Chest -->
+		</drop_group>				
+	</npc_drop>
+	<npc_drop npc_id="214621"> <!-- Vile Judge Kromede -->
+		<drop_group name="NAMED_LEGEND_MATERIAL">
+			<drop item_id="152012530" chance="2.941" max_amount="1" min_amount="1"/>
+		</drop_group>
+		<drop_group name="NAMED_RARE_ACCESSORY">
+			<drop item_id="125001110" chance="2.941" max_amount="1" min_amount="1"/>
+			<drop item_id="125001108" chance="2.941" max_amount="1" min_amount="1"/>
+			<drop item_id="125001109" chance="2.941" max_amount="1" min_amount="1"/>
+			<drop item_id="125001107" chance="2.941" max_amount="1" min_amount="1"/>
+		</drop_group>
+		<drop_group name="NAMED_LEGEND_ACCESSORY">
+			<drop item_id="121000458" chance="2.941" max_amount="1" min_amount="1"/>
+			<drop item_id="121001271" chance="2.941" max_amount="1" min_amount="1"/>
+		</drop_group>
+		<drop_group name="NAMED_LEGEND_WEAPON">
+            <drop item_id="100001021" chance="11.765" max_amount="1" min_amount="1"/>
+            <drop item_id="100100768" chance="5.882" max_amount="1" min_amount="1"/>
+            <drop item_id="100200903" chance="2.941" max_amount="1" min_amount="1"/>
+            <drop item_id="100500788" chance="2.941" max_amount="1" min_amount="1"/>
+            <drop item_id="100600843" chance="2.941" max_amount="1" min_amount="1"/>
+            <drop item_id="100900765" chance="5.882" max_amount="1" min_amount="1"/>
+            <drop item_id="101300737" chance="2.941" max_amount="1" min_amount="1"/>
+            <drop item_id="101500793" chance="2.941" max_amount="1" min_amount="1"/>
+			<drop item_id="101700810" chance="2.941" max_amount="1" min_amount="1"/>
+			<drop item_id="101800915" chance="2.941" max_amount="1" min_amount="1"/>
+			<drop item_id="101900670" chance="2.941" max_amount="1" min_amount="1"/>
+			<drop item_id="102000704" chance="5.882" max_amount="1" min_amount="1"/>
+			<drop item_id="102100770" chance="2.941" max_amount="1" min_amount="1"/>
+		</drop_group>
+		<drop_group name="CHEST">
+			<drop item_id="188051396" chance="2.941" max_amount="1" min_amount="1"/> <!-- Judge's Fabled Weapon Chest -->
+		</drop_group>
+		<drop_group name="CHEST_2">
+			<drop item_id="188053083" chance="2.941" max_amount="1" min_amount="1" no_reduce="true" eachmember="true"/> <!-- Tempering Solution Chest -->
+			<drop item_id="188053295" chance="2.941" max_amount="1" min_amount="1" no_reduce="true" eachmember="true"/> <!-- Empyrean Plume Chest -->
+		</drop_group>		
+	</npc_drop>
+</npc_drops>

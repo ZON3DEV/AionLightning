@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.iteminfo;
 
 import java.nio.ByteBuffer;
@@ -22,8 +23,9 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.network.aion.iteminfo.ItemInfoBlob.ItemBlobType;
 
 /**
- * This blob entry is sent with ALL items. (unless partial blob is constructed, ie: sending equip slot only) It is the first and only block for non-equipable items, and the last blob for
- * EquipableItems
+ * This blob entry is sent with ALL items. (unless partial blob is constructed,
+ * ie: sending equip slot only) It is the first and only block for non-equipable
+ * items, and the last blob for EquipableItems
  *
  * @author -Nemesiss-
  * @modified Rolandas
@@ -44,7 +46,7 @@ public class GeneralInfoBlobEntry extends ItemBlobEntry {
 		writeD(buf, item.getExpireTimeRemaining()); // Disappears time
 		writeD(buf, 0);
 		writeD(buf, item.getTemporaryExchangeTimeRemaining());
-		writeH(buf, item.getUnSeal());
+		writeH(buf, 0);
 		writeD(buf, 0);
 	}
 

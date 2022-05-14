@@ -14,18 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
-
-import java.sql.Timestamp;
-
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+import java.sql.Timestamp;
 
-/**
- * I have no idea wtf is this
- *
- * @author -Nemesiss-
- */
 public class SM_TIME_CHECK extends AionServerPacket {
 
 	// Don't be fooled with empty class :D

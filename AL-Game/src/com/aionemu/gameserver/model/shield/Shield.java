@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.shield;
 
 import com.aionemu.gameserver.controllers.ShieldController;
@@ -58,7 +59,8 @@ public class Shield extends VisibleObject {
 
 	public void spawn() {
 		World w = World.getInstance();
-		WorldPosition position = w.createPosition(template.getMap(), template.getCenter().getX(), template.getCenter().getY(), template.getCenter().getZ(), (byte) 0, 0);
+		WorldPosition position = w.createPosition(template.getMap(), template.getCenter().getX(), template.getCenter().getY(), template.getCenter().getZ(),
+				(byte) 0, 0);
 		this.setPosition(position);
 		w.storeObject(this);
 		w.spawn(this);

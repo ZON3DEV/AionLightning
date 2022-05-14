@@ -15,16 +15,12 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.scripting.scriptmanager;
 
+import javax.xml.bind.annotation.*;
 import java.io.File;
 import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Simple class that represents script info.<br>
@@ -38,8 +34,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ScriptInfo {
 
 	/**
-	 * Root of this script context. Child directories of root will be scanned
-	 * for script files
+	 * Root of this script context. Child directories of root will be scanned for script files
 	 */
 	@XmlAttribute(required = true)
 	private File root;
@@ -75,15 +70,14 @@ public class ScriptInfo {
 	 * Sets root for script context
 	 * 
 	 * @param root
-	 *            root for script context
+	 *          root for script context
 	 */
 	public void setRoot(File root) {
 		this.root = root;
 	}
 
 	/**
-	 * Returns list of libraries that will be used byscript context and it's
-	 * children
+	 * Returns list of libraries that will be used byscript context and it's children
 	 * 
 	 * @return lib of libraries
 	 */
@@ -92,11 +86,10 @@ public class ScriptInfo {
 	}
 
 	/**
-	 * Sets list of libraries that will be used by script context and it's
-	 * children
+	 * Sets list of libraries that will be used by script context and it's children
 	 * 
 	 * @param libraries
-	 *            sets list of libraries
+	 *          sets list of libraries
 	 */
 	public void setLibraries(List<File> libraries) {
 		this.libraries = libraries;
@@ -115,7 +108,7 @@ public class ScriptInfo {
 	 * Sets list of child context descriptors
 	 * 
 	 * @param scriptInfos
-	 *            list of child context descriptors
+	 *          list of child context descriptors
 	 */
 	public void setScriptInfos(List<ScriptInfo> scriptInfos) {
 		this.scriptInfos = scriptInfos;
@@ -134,7 +127,7 @@ public class ScriptInfo {
 	 * Sets compiler class name
 	 * 
 	 * @param compilerClass
-	 *            name of compiler class
+	 *          name of compiler class
 	 */
 	public void setCompilerClass(String compilerClass) {
 		this.compilerClass = compilerClass;
@@ -144,7 +137,7 @@ public class ScriptInfo {
 	 * Returns true if roots are quals
 	 * 
 	 * @param o
-	 *            object to compare with
+	 *          object to compare with
 	 * @return true if this ScriptInfo and anothers ScriptInfo has same root
 	 */
 	@Override

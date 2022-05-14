@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.model;
 
 /**
@@ -22,13 +23,7 @@ package com.aionemu.gameserver.skillengine.model;
  */
 public enum DashStatus {
 
-	NONE(0),
-	RANDOMMOVELOC(1),
-	DASH(2),
-	BACKDASH(3),
-	MOVEBEHIND(4),
-	ROBOTMOVELOC(6);
-
+	NONE(0), RANDOMMOVELOC(1), DASH(2), BACKDASH(3), MOVEBEHIND(4);
 	private int id;
 
 	private DashStatus(int id) {

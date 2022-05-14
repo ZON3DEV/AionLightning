@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -63,7 +64,6 @@ public class HealCastorOnTargetDeadEffect extends EffectTemplate {
 		final int valueWithDelta = value + delta * effect.getSkillLevel();
 
 		ActionObserver observer = new ActionObserver(ObserverType.DEATH) {
-
 			@Override
 			public void died(Creature creature) {
 				// Heal Caster first
@@ -81,8 +81,7 @@ public class HealCastorOnTargetDeadEffect extends EffectTemplate {
 								p.getController().onRestore(HealType.HP, valueWithDelta);
 							}
 						}
-					}
-					else if (player.isInAlliance2()) {
+					} else if (player.isInAlliance2()) {
 						for (Player p : player.getPlayerAllianceGroup2().getMembers()) {
 							if (!p.isOnline()) {
 								continue;

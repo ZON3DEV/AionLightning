@@ -14,17 +14,19 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.geoEngine.bounding;
 
-import static java.lang.Math.max;
-import static java.lang.Math.min;
+package com.aionemu.gameserver.geoEngine.bounding;
 
 import com.aionemu.gameserver.geoEngine.math.FastMath;
 import com.aionemu.gameserver.geoEngine.math.Plane;
 import com.aionemu.gameserver.geoEngine.math.Vector3f;
 
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+
 /**
- * This class includes some utility methods for computing intersection between bounding volumes and triangles.
+ * This class includes some utility methods for computing intersection between
+ * bounding volumes and triangles.
  *
  * @author Kirill
  */
@@ -46,7 +48,8 @@ public class Intersection {
 		}
 	}
 
-	// private boolean axisTest(float a, float b, float fa, float fb, Vector3f v0, Vector3f v1, )
+	// private boolean axisTest(float a, float b, float fa, float fb, Vector3f
+	// v0, Vector3f v1, )
 	// private boolean axisTestX01(float a, float b, float fa, float fb,
 	// Vector3f center, Vector3f ext,
 	// Vector3f v1, Vector3f v2, Vector3f v3){
@@ -66,7 +69,8 @@ public class Intersection {
 	public static final boolean intersect(BoundingBox bbox, Vector3f v1, Vector3f v2, Vector3f v3) {
 		// use separating axis theorem to test overlap between triangle and box
 		// need to test for overlap in these directions:
-		// 1) the {x,y,z}-directions (actually, since we use the AABB of the triangle
+		// 1) the {x,y,z}-directions (actually, since we use the AABB of the
+		// triangle
 		// we do not even need to test these)
 		// 2) normal of the triangle
 		// 3) crossproduct(edge from tri, {x,y,z}-directin)

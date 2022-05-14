@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import java.util.Iterator;
@@ -46,10 +47,9 @@ public class GameTimeService {
 		 * Update players with current game time
 		 */
 		ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 			@Override
 			public void run() {
-				log.debug("[GameTimeService] Sending current game time to all players");
+				log.info("Sending current game time to all players");
 				Iterator<Player> iterator = World.getInstance().getPlayersIterator();
 				while (iterator.hasNext()) {
 					Player next = iterator.next();
@@ -60,7 +60,7 @@ public class GameTimeService {
 			}
 		}, GAMETIME_UPDATE, GAMETIME_UPDATE);
 
-		log.info("[GameTimeService] GameTimeService started. Update interval: every " + (GAMETIME_UPDATE / 1000) / 60 + " minutes.");
+		log.info("GameTimeService started. Update interval:" + GAMETIME_UPDATE);
 	}
 
 	@SuppressWarnings("synthetic-access")

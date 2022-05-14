@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.ai2.manager;
 
 import com.aionemu.gameserver.ai2.AI2Logger;
@@ -52,8 +53,7 @@ public class AttackManager {
 		AISubState subState = npcAI.getSubState();
 		if (subState == AISubState.NONE) {
 			chooseAttack(npcAI, npcAI.getOwner().getGameStats().getNextAttackInterval());
-		}
-		else {
+		} else {
 			if (npcAI.isLogging()) {
 				AI2Logger.info(npcAI, "Will not choose attack in substate" + subState);
 			}
@@ -139,9 +139,10 @@ public class AttackManager {
 		if (distanceToHome > chaseHome) {
 			return true;
 		}
-		// start thinking about home after 100 meters and no attack for 10 seconds (only for default monsters)
-		if (chaseHome <= 200) { // TODO: Check Client and use chase_user_by_trace value
-			if ((npc.getGameStats().getLastAttackTimeDelta() > 20 && npc.getGameStats().getLastAttackedTimeDelta() > 20) || (distanceToHome > chaseHome / 2 && npc.getGameStats().getLastAttackedTimeDelta() > 10)) {
+        // start thinking about home after 100 meters and no attack for 10 seconds (only for default monsters)
+        if (chaseHome <= 200) { // TODO: Check Client and use chase_user_by_trace value
+			if ((npc.getGameStats().getLastAttackTimeDelta() > 20 && npc.getGameStats().getLastAttackedTimeDelta() > 20)
+					|| (distanceToHome > chaseHome / 2 && npc.getGameStats().getLastAttackedTimeDelta() > 10)) {
 				return true;
 			}
 		}

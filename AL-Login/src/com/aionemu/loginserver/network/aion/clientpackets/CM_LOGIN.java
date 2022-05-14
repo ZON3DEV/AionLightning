@@ -65,10 +65,10 @@ public class CM_LOGIN extends AionClientPacket {
 
     @Override
     protected void readImpl() {
-    	readD();
-    	if (getRemainingBytes() >= 128) {
-      		data = readB(128);
-    	}
+        readD();
+        data = readB(128);
+        readD();
+        readB(31);
     }
 
     @Override

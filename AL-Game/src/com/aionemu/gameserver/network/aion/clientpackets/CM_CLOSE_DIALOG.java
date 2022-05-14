@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.commons.network.util.ThreadPoolManager;
@@ -70,10 +71,9 @@ public class CM_CLOSE_DIALOG extends AionClientPacket {
 			DialogService.onCloseDialog(npc, player);
 
 			ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
-					client.sendPacket(new SM_HEADING_UPDATE(targetObjectId, obj.getHeading()));
+					client.sendPacket(new SM_HEADING_UPDATE(targetObjectId, (byte) obj.getHeading()));
 				}
 			}, 1200);
 

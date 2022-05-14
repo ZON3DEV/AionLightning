@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.abyss;
 
 import com.aionemu.gameserver.model.DescriptionId;
@@ -29,30 +30,7 @@ import com.aionemu.gameserver.world.knownlist.Visitor;
  */
 public class AbyssService {
 
-	private static final int[] abyssMapList = {
-	////***////
-	210020000, // Elten
-	210040000, // Heiron
-	210050000, // Inggison
-	210060000, // Theobomos
-	210070000, // Cygnea
-	210090000, // Idian Depths.
-	210100000, // Iluma
-	220020000, // Morheim
-	220040000, // Beluslan
-	220050000, // Brusthonin
-	220070000, // Gelkmaros
-	220080000, // Enshar
-	220100000, // Idian Depths
-	220110000, // Norvsvold
-	400010000, // Reshanta
-	400020000, // Belus
-	400040000, // Aspida
-	400050000, // Atanatos
-	400060000, // Disillon
-	600010000, // Silentera Canyon
-	600090000, // Kaldor
-	600100000}; // Levinshor
+	private static final int[] abyssMapList = { 210050000, 220070000, 400010000, 600010000, 600020000, 600030000, 600040000, 600050000, 600060000, 600070000 };
 
 	/**
 	 * @param player
@@ -72,7 +50,6 @@ public class AbyssService {
 	public static final void rankedKillAnnounce(final Player victim) {
 
 		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player p) {
 				if (p != victim && victim.getWorldType() == p.getWorldType() && !p.isInInstance()) {
@@ -84,7 +61,6 @@ public class AbyssService {
 
 	public static final void rankerSkillAnnounce(final Player player, final int nameId) {
 		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player p) {
 				if (p != player && player.getWorldType() == p.getWorldType() && !p.isInInstance()) {

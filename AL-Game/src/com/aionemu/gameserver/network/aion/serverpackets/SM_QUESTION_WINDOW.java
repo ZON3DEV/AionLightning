@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.DescriptionId;
@@ -22,167 +23,234 @@ import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
- * Opens a yes/no question window on the client. Question based on the code given, defined in client_strings.xml
+ * Opens a yes/no question window on the client. Question based on the code
+ * given, defined in client_strings.xml
  *
  * @author Ben, avol, Lyahim
  */
 public class SM_QUESTION_WINDOW extends AionServerPacket {
 
+	/**
+	 * %0 has challenged you to a duel. Do you accept?
+	 */
 	public static final int STR_DUEL_DO_YOU_ACCEPT_REQUEST = 50028;
+	/**
+	 * Do you want to withdraw your challenge to %0?
+	 */
 	public static final int STR_DUEL_DO_YOU_WITHDRAW_REQUEST = 50030;
+	/**
+	 * %0 has invited you to join a group. Accept the invitation?
+	 */
 	public static final int STR_PARTY_DO_YOU_ACCEPT_INVITATION = 60000;
+	/**
+	 * %0 has invited you to join an Alliance. Accept the invitation?
+	 */
+	public static final int STR_PARTY_ALLIANCE_DO_YOU_ACCEPT_HIS_INVITATION = 70000;
+	/**
+	 * %0 has asked to change the Alliance's loot distribution to 'free for all'
+	 * mode. Accept?
+	 */
 	public static final int STR_PARTY_ALLIANCE_CHANGE_LOOT_TO_FREE_HE_ASKED = 70001;
+	/**
+	 * %0 has asked to change the Alliance's loot distribution to 'auto loot'
+	 * mode. Accept?
+	 */
 	public static final int STR_PARTY_ALLIANCE_CHANGE_LOOT_TO_RANDOM_HE_ASKED = 70002;
+	/**
+	 * %0 requested permission to pick up %1. Grant permission?
+	 */
 	public static final int STR_PARTY_ALLIANCE_PICKUP_ITEM_HE_ASKED = 70003;
+	/**
+	 * %0 has invited you to join an Alliance. Accept the invitation?
+	 */
 	public static final int STR_FORCE_DO_YOU_ACCEPT_INVITATION = 70004;
+	/**
+	 * Creating a Legion requires &lt;font
+	 * font_xml="v3_msgbox_money"&gt;%qina0&lt;/font&gt;. Create a Legion?
+	 */
 	public static final int STR_GUILD_CREATE_DO_YOU_ACCEPT_PAY = 80000;
-	public static final int STR_GUILD_INVITE_I_JOINED_MSGBOX = 906024;
+	/**
+	 * You have been invited to the %0 Legion (Level %1) by %2. Accept the
+	 * invitation?
+	 */
+	public static final int STR_GUILD_INVITE_DO_YOU_ACCEPT_INVITATION = 80001;
+	/**
+	 * Are you sure you want to transfer Legion Brigade General authority to %0?
+	 */
 	public static final int STR_GUILD_TRANSFER_GUILDMASTER = 80005;
+	/**
+	 * Are you sure you want to leave the %0 Legion?
+	 */
 	public static final int STR_GUILD_DO_YOU_LEAVE = 80006;
+	/**
+	 * Are you sure you want to kick %0 out of the Legion?
+	 */
 	public static final int STR_GUILD_DO_YOU_BANISH = 80007;
+	/**
+	 * The Legion will remain in disbanding mode for a day following your
+	 * request. Are you sure you wish to &lt;font
+	 * color="ff0000"&gt;disband&lt;/font&gt; the Legion?
+	 */
 	public static final int STR_GUILD_DISPERSE_STAYMODE = 80008;
+	/**
+	 * The %0 Legion is currently waiting to be disbanded. Do you want to cancel
+	 * the disbanding process?
+	 */
 	public static final int STR_GUILD_DISPERSE_STAYMODE_CANCEL = 80009;
+	/**
+	 * Level upgrade requires &lt;font
+	 * font_xml="v3_msgbox_money"&gt;%qina0&lt;/font&gt;. Do you want to
+	 * upgrade?
+	 */
 	public static final int STR_GUILD_CHANGE_LEVEL_DO_YOU_ACCEPT_PAY = 80010;
+	/**
+	 * %0 nominated you as Legion Brigade General. Accept the position?
+	 */
 	public static final int STR_GUILD_CHANGE_MASTER_DO_YOU_ACCEPT_OFFER = 80011;
+	/**
+	 * The price of this item is set rather high. Are you sure you want to buy
+	 * it?
+	 */
 	public static final int STR_BUY_SELL_CONFIRM_PURCHASE_EXCESSIVE_PRICE = 90000;
+	/**
+	 * %0 has asked you to trade items. Accept?
+	 */
 	public static final int STR_EXCHANGE_DO_YOU_ACCEPT_EXCHANGE = 90001;
+	/**
+	 * Are you sure you want to abandon this quest?
+	 */
 	public static final int STR_QUEST_GIVEUP = 150000;
+	/**
+	 * Discard %0 and abandon the %1 quest?
+	 */
 	public static final int STR_QUEST_GIVEUP_WHEN_DELETE_QUEST_ITEM = 150001;
+	/**
+	 * &lt;p&gt;You can restore XP and remove the resurrection aftereffect if
+	 * your soul is healed. Soul healing requires &lt;font
+	 * font_xml="v3_msgbox_money"&gt;%qina0&lt;/font&gt;.&lt;/p&gt;&lt;p&gt;Do
+	 * you want to heal your soul?&lt;/p&gt;
+	 */
 	public static final int STR_ASK_RECOVER_EXPERIENCE = 160011;
-	public static final int STR_ASK_RECOVER_EXPERIENCE2 = 1404454;
+	/**
+	 * Binding to this location costs &lt;font
+	 * font_xml="v3_msgbox_money"&gt;%qina0&lt;/font&gt;. Proceed?
+	 */
 	public static final int STR_ASK_REGISTER_RESURRECT_POINT = 160012;
+	/**
+	 * Do you want to travel using the magic passage?
+	 */
 	public static final int STR_ASK_GROUP_GATE_DO_YOU_ACCEPT_MOVE = 160014;
+	/**
+	 * Using the artifact requires &lt;font font_xml="v3_msgbox_money"&gt;%1
+	 * %0(s)&lt;/font&gt;. Proceed?
+	 */
 	public static final int STR_ASK_USE_ARTIFACT = 160016;
+	/**
+	 * Do you want to pass through the castle gate?
+	 */
 	public static final int STR_ASK_PASS_BY_GATE = 160017;
+	/**
+	 * Do you want to bind yourself to this Obelisk?
+	 */
 	public static final int STR_ASK_REGISTER_BINDSTONE = 160018;
+	/**
+	 * Do you want to teleport through the Rift?
+	 */
 	public static final int STR_ASK_PASS_BY_DIRECT_PORTAL = 160019;
+	/**
+	 * The repair costs &lt;font font_xml="v3_msgbox_money"&gt;%0(%1
+	 * pieces)&lt;/font&gt;. Repair?
+	 */
 	public static final int STR_ASK_DOOR_REPAIR_DO_YOU_ACCEPT_REPAIR = 160021;
+	/**
+	 * @
+	 */
 	public static final int STR_ASK_DOOR_REPAIR_POPUPDIALOG = 160027;
-	public static final int STR_ASK_ARTIFACT_POPUPDIALOG = 160028;
+	/**
+	 * You are currently a member of %0. Do you want to leave it to join %1?
+	 */
 	public static final int STR_ASK_JOIN_NEW_FACTION = 160033;
+	/**
+	 * %0 is an untradable item. Are you sure you want to acquire it?
+	 */
 	public static final int STR_CONFIRM_LOOT = 900495;
+	/**
+	 * &lt;p&gt;To expand the cube you need &lt;font
+	 * font_xml="v3_msgbox_money"&gt;%qina0&lt;/font&gt; Kinah.&lt;/p&gt;
+	 * &lt;p&gt;Do you want to expand it?&lt;/p&gt;
+	 */
 	public static final int STR_WAREHOUSE_EXPAND_WARNING = 900686;
+	/**
+	 * To upgrade the %0 skill, you need &lt;font
+	 * font_xml="v3_msgbox_money"&gt;%qina1&lt;/font&gt;. Are you sure you want
+	 * to upgrade the skill?
+	 */
 	public static final int STR_CRAFT_ADDSKILL_CONFIRM = 900852;
+	/**
+	 * &lt;p align="left"&gt;%0 is about to summon you using %1. Will you
+	 * accept?&lt;/p&gt; &lt;p&gt;&lt;/p&gt;&lt;p align="left"&gt;You must
+	 * decide in %2 seconds.&lt;/p&gt;
+	 */
 	public static final int STR_SUMMON_PARTY_DO_YOU_ACCEPT_REQUEST = 901721;
+	/**
+	 * Enter %WORLDNAME0 (Difficulty: %1)?
+	 */
+	public static final int STR_INSTANCE_DUNGEON_WITH_DIFFICULTY_ENTER_CONFIRM = 902050;
+	/**
+	 * &lt;p&gt;%0 legion has invited your force to join their
+	 * League.&lt;/p&gt;&lt;p&gt;Will you accept the invitation?&lt;/p&gt;
+	 */
 	public static final int STR_MSGBOX_UNION_INVITE_ME = 902249;
+	/**
+	 * &lt;p&gt;The %0 must be soulbound to equip it.&lt;/p&gt; &lt;p&gt;You
+	 * cannot trade the item that has been soulbound.&lt;/p&gt;
+	 * &lt;p&gt;Equip?&lt;/p&gt;
+	 */
 	public static final int STR_SOUL_BOUND_ITEM_DO_YOU_WANT_SOUL_BOUND = 95006;
+	/**
+	 * &lt;p&gt;All the equipped items will be conditioned to the maximum level.
+	 * &lt;/p&gt;&lt;p&gt;You need &lt;font
+	 * font_xml="v3_msgbox_money"&gt;%qina0&lt;/font&gt;to do this. Are you sure
+	 * you want to condition them?&lt;/p&gt;
+	 */
 	public static final int STR_ITEM_CHARGE_ALL_CONFIRM = 903026;
 	public static final int STR_ITEM_CHARGE2_ALL_CONFIRM = 904039;
+	/**
+	 * &lt;p&gt;You can condition only %0 of the registered items up to level
+	 * %1. &lt;/p&gt;&lt;p&gt;You need &lt;font
+	 * font_xml="v3_msgbox_money"&gt;%qina2&lt;/font&gt;to do this.
+	 * &lt;/p&gt;&lt;p&gt;Are you sure you want to condition them?&lt;/p&gt;
+	 */
 	public static final int STR_ITEM_CHARGE_CONFIRM_SOME_ALREADY_CHARGED = 903028;
+	/**
+	 * You can make %1 by assembling %0. Do you want to assemble it
+	 */
 	public static final int STR_ASSEMBLY_ITEM_POPUP_CONFIRM = 903441;
-	public static final int STR_ASK_REMOVE_BINDSTONE = 904901;
-	public static final int STR_INSTANCE_DUNGEON_WITH_DIFFICULTY_ENTER_CONFIRM = 902050;
-	public static final int STR_INSTANCE_DUNGEON_DIFFICULTY_NORMAL = 902051;
-	public static final int STR_INSTANCE_DUNGEON_DIFFICULTY_HARD = 902052;
-
-	// DIVERS
-	public static final int STR_MSGBOX_BUY_RANKITEM_WITH_RANKDOWN_CONFIRM = 904006;
-	public static final int STR_VIP_LOBBY_NOTICE_CASE12_POPUP_01 = 906080;
-	public static final int STR_MSGBOX_AKS_ENTER_PK_SERVER = 902812;
-	public static final int STR_MSGBOX_DISASSEMBLEBOX_NOTICE = 904307;
-	public static final int STR_MSGBOX_FORCE_INVITE_PARTY = 901256;
-	public static final int STR_ENCHANT_ITEM_DO_YOU_WANT_ENCHANT_ITEM = 95001;
-	public static final int STR_GIVE_ITEM_OPTION_DO_YOU_WANT_GIVE_OPTION_WITH_WARNING = 95003;
-	public static final int STR_MSGBOX_CANT_REOBTAIN_QUEST_OVER_MAX_LEVEL = 903065;
-
-	// INSTANCES
-	public static final int STR_INSTANT_DUNGEON_RESURRECT = 901874;
-	public static final int STR_INSTANT_DUNGEON_IDLF1_RESURRECT = 901891;
-	public static final int STR_IDARENA_RESURRECT = 903241;
-	public static final int STR_IDARENA_PVP_RESURRECT = 903487;
-	public static final int STR_INSTANT_DUNGEON_RESURRECT_RESURRECT_POINT = 904731;
-	public static final int STR_INDUN_COOLTIME_RESET_CONFIRM_MONEY = 906115;
-	public static final int STR_INDUN_COOLTIME_RESET_CONFIRM_MONEY_2 = 906151;
-	public static final int STR_INDUN_COOLTIME_RESET_CONFIRM_ITEM = 906153;
-	public static final int STR_INDUN_COOLTIME_RESET_CONFIRM_ITEM_2 = 906154;
-	public static final int STR_INDUN_COOLTIME_RESET_CONFIRM_ITEM_3 = 906535;
-	public static final int STR_INDUN_COOLTIME_RESET_SELECT_1 = 906171;
-	public static final int STR_INDUN_COOLTIME_RESET_SELECT_2 = 906172;
-
-	// HOUSING 3.0
+	/**
+	 * You are about to teleport to your own house. Continue?
+	 */
 	public static final int STR_HOUSING_TELEPORT_HOME_CONFIRM = 903533;
+	/**
+	 * You are about to teleport to %0's house. Continue?
+	 */
 	public static final int STR_HOUSING_TELEPORT_BUDDY_CONFIRM = 903534;
+	/**
+	 * You are about to teleport to the house of a friend of the current house
+	 * owner. Continue?
+	 */
 	public static final int STR_HOUSING_TELEPORT_RANDOM_CONFIRM = 903535;
+	/**
+	 * You are about to teleport to your Legion's house. Continue?
+	 */
 	public static final int STR_HOUSING_TELEPORT_GUILD_CONFIRM = 903536;
+	/**
+	 * %0 wants to list you as a friend. Do you want to accept it?
+	 */
 	public static final int STR_BUDDYLIST_ADD_BUDDY_REQUEST = 1300911;
+	/**
+	 * %0 declined your trade offer. TODO: make it a simple box, not a question.
+	 */
 	public static final int STR_EXCHANGE_HE_REJECTED_EXCHANGE = 1300354;
-
-	// DIMENSIONAL RIFT 3.5
-	public static final int STR_ASK_PASS_BY_INVADE_DIRECT_PORTAL = 904304;
-	public static final int STR_CONFIRM_INVADE_DIRECT_PORTAL_OUT = 904305;
-	public static final int STR_ASK_INVADE_DIRECT_PORTAL_DEFENSE_FORCE = 904306;
-	public static final int STR_CONFIRM_INVADE_DIRECT_PORTAL_DEFENSE_FORCE_OUT = 904391;
-	public static final int STR_ASK_INVADE_DIRECT_PORTAL_DEFENSE_FORCE_DARK = 904393;
-	public static final int STR_INVADE_DIRECT_POTAL_RESURRECT = 904404;
-	public static final int STR_ASK_PASS_BY_RVR_DIRECT_PORTAL = 906458;
-
-	// EMERGENCY_ESCAPE 3.7
-	public static final int STR_CMD_EMERGENCY_ESCAPE = 904653;
-	public static final int STR_POPUP_EMERGENCY_ESCAPE = 904643;
-
-	// LIVE PARTY CONCERT ALL 4.3
-	public static final int STR_ASK_PASS_BY_EVENT_DIRECT_PORTAL = 904837;
-
-	// PANESTERRA 4.7
-	public static final int STR_ASK_PASS_BY_SVS_DIRECT_PORTAL = 905067;
-	public static final int STR_CONFIRM_SVS_DIRECT_PORTAL_OUT = 905068;
-	public static final int STR_MSG_SVS_DIRECT_PORTAL_OPEN_NOTICE = 1402418;
-
-	// UPGRADE ARCADE 4.7
-	public static final int STR_POPUP_GACHA_FEVER_TIME_CHECK = 905394;
-	public static final int STR_POPUP_GACHA_USER_WEB_SHOP_GO = 906302;
-
-	// VOLATILE/CHAOS RIFT 4.8
-	public static final int STR_ASK_PASS_BY_CHAOS_DIRECT_PORTAL = 905959;
-	public static final int STR_ASK_PASS_BY_LEGION_DIRECT_PORTAL = 905960;
-
-	// CUBE 4.9
-	public static final int STR_ASK_EXTEND_INVENTORY_CONFIRM_2 = 906178;
-	public static final int STR_ASK_EXTEND_INVENTORY_CONFIRM_3 = 906179;
-
-	/**
-	 * You have silenced %0. Abusing this function can lead to penalties.
-	 */
-	public static final int STR_MSG_REPORT_CHAT_CONFIRM = 905083;
-
-	/**
-	 * You cannot silence characters of the opposing faction.
-	 */
-	public static final int STR_MSG_REPORT_CHAT_CANT_OTHER_RACE = 905084;
-
-	/**
-	 * You cannot silence the same person more than once.
-	 */
-	public static final int STR_MSG_REPORT_CHAT_CANT_NO_USER = 905085;
-
-	/**
-	 * This character is currently not logged in or does not exist.
-	 */
-	public static final int STR_MSG_REPORT_CHAT_CANT_NO_ENTER = 905086;
-
-	/**
-	 * You must be Level 10 or above to use the Silence function.
-	 */
-	public static final int STR_MSG_REPORT_CHAT_CANT_LOW_LEVEL = 905087;
-
-	/**
-	 * You cannot send mail as you are under probation for spamming.
-	 */
-	public static final int STR_MSG_CANT_SEND_CHATRESTRICT_MAILS = 905088;
-
-	/**
-	 * You cannot open a private store as you are under probation for spamming.
-	 */
-	public static final int STR_PERSONAL_SHOP_DISABLED_CHATRESTRICT_MODE = 905089;
-
-	public static final int STR_ASK_ROUND_RETURN_ITEM_DO_YOU_ACCEPT_MOVE = 907535;
-
-	public static final int STR_ASK_ROUND_RETURN_ITEM_ACCEPT_MOVE_DONT_RETURN = 907536;
-
-	public static final int STR_HOTSPOT_CONFIRM_NO_COST = 905097;
-
-    public static final int STR_INFINITY_INDUN_RESURRECT = 913809;
-
 	private int code;
 	private int senderId;
 	private int range;
@@ -230,11 +298,10 @@ public class SM_QUESTION_WINDOW extends AionServerPacket {
 			if (param instanceof DescriptionId) {
 				writeH(0x24);
 				writeD(((DescriptionId) param).getValue());
-			}
-			else if (param instanceof ArtifactLocation) {
+				writeH(0x00); // unk
+			} else if (param instanceof ArtifactLocation) {
 				this.artifact = (ArtifactLocation) param;
-			}
-			else {
+			} else {
 				writeS(String.valueOf(param));
 			}
 		}
@@ -257,36 +324,24 @@ public class SM_QUESTION_WINDOW extends AionServerPacket {
 			writeD(0x00);
 			if (artifact == null) {
 				writeD(0x00);
-			}
-			else {
+			} else {
 				writeD(artifact.getCoolDown());// ArtifactLocation reuse
 			}
-		}
-		else if (code == STR_BUDDYLIST_ADD_BUDDY_REQUEST) {
+		} else if (code == STR_BUDDYLIST_ADD_BUDDY_REQUEST) {
 			writeB(new byte[17]);
-		}
-		else if (code == STR_INSTANCE_DUNGEON_WITH_DIFFICULTY_ENTER_CONFIRM) {
+		} else if (code == STR_INSTANCE_DUNGEON_WITH_DIFFICULTY_ENTER_CONFIRM) {
 			writeD(0x00);
 			writeH(0x00);
 			writeC(0x01);
 			writeD(senderId);
 			writeD(0x05);
-		}
-		else if (code == STR_ASK_RECOVER_EXPERIENCE2) {
-			System.out.println("RECOVER 2");
-			writeD(0x00);// unk
-			writeD(0x00);// unk
-			writeC(range > 0 ? 0x01 : 0x00);// unk maybe boolean for rangecheck?
-			writeD(senderId);
-			writeD(range);// range within the Question is valid
-		}
-		else {
+		} else {
 			writeD(0x00);// unk
 			writeD(0x00);// unk
 			writeH(0x00);// unk
 			writeC(range > 0 ? 0x01 : 0x00);// unk maybe boolean for rangecheck?
 			writeD(senderId);
-			writeD(range);// range within the Question is valid
+			writeD(range);// range within the Question is valod
 		}
 	}
 }

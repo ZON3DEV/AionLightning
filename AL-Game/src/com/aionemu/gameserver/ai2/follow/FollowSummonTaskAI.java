@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai2.follow;
 
-import java.util.concurrent.Future;
+package com.aionemu.gameserver.ai2.follow;
 
 import com.aionemu.gameserver.ai2.event.AIEventType;
 import com.aionemu.gameserver.model.TaskId;
@@ -27,6 +26,8 @@ import com.aionemu.gameserver.model.summons.SummonMode;
 import com.aionemu.gameserver.model.summons.UnsummonType;
 import com.aionemu.gameserver.services.summons.SummonsService;
 import com.aionemu.gameserver.utils.MathUtil;
+
+import java.util.concurrent.Future;
 
 /**
  * @author xTz
@@ -72,8 +73,7 @@ public class FollowSummonTaskAI implements Runnable {
 				setLeadingCoordinates();
 				onOutOfTargetRange();
 			}
-		}
-		else if (!master.equals(target)) {
+		} else if (!master.equals(target)) {
 			onDestination();
 		}
 	}

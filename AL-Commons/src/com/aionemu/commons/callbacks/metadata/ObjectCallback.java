@@ -15,15 +15,12 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.callbacks.metadata;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
 import com.aionemu.commons.callbacks.Callback;
+
+import java.lang.annotation.*;
 
 /**
  * Annotation that is used to mark enhanceable methods or classes.<br>
@@ -38,10 +35,10 @@ import com.aionemu.commons.callbacks.Callback;
 @SuppressWarnings("rawtypes")
 public @interface ObjectCallback {
 
-	/**
-	 * Returns callback class that will be used as listener
-	 *
-	 * @return callback class that will be used as listener
-	 */
-	Class<? extends Callback> value();
+    /**
+     * Returns callback class that will be used as listener
+     *
+     * @return callback class that will be used as listener
+     */
+    Class<? extends Callback> value();
 }

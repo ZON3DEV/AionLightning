@@ -14,17 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.npc;
-
-import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 import com.aionemu.gameserver.ai2.AiNames;
 import com.aionemu.gameserver.model.Race;
@@ -35,6 +26,9 @@ import com.aionemu.gameserver.model.templates.BoundRadius;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
 import com.aionemu.gameserver.model.templates.stats.KiskStatsTemplate;
 import com.aionemu.gameserver.model.templates.stats.NpcStatsTemplate;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 /**
  * @author Luno
@@ -52,8 +46,6 @@ public class NpcTemplate extends VisibleObjectTemplate {
 	private int titleId;
 	@XmlAttribute(name = "name")
 	private String name;
-	@XmlAttribute(name = "name_desc")
-	private String desc;
 	@XmlAttribute(name = "height")
 	private float height = 1;
 	@XmlElement(name = "stats")
@@ -94,16 +86,12 @@ public class NpcTemplate extends VisibleObjectTemplate {
 	private BoundRadius boundRadius;
 	@XmlAttribute(name = "type")
 	private NpcTemplateType npcTemplateType;
-	@XmlAttribute(name = "ui_type")
-	private NpcUiType npcUiType;
 	@XmlAttribute(name = "abyss_type")
 	private AbyssNpcType abyssNpcType;
 	@XmlElement(name = "talk_info")
 	private TalkInfo talkInfo;
 	@XmlTransient
 	private NpcDrop npcDrop;
-	@XmlElement(name = "massive_looting")
-	private MassiveLooting massiveLooting;
 
 	@Override
 	public int getTemplateId() {
@@ -152,10 +140,6 @@ public class NpcTemplate extends VisibleObjectTemplate {
 		return tribe;
 	}
 
-	public void setTribe(TribeClass tribe) {
-		this.tribe = tribe;
-	}
-
 	public String getAi() {
 		// TODO: npc_template repars
 		return (!"noaction".equals(ai) && level > 1 && getAbyssNpcType().equals(AbyssNpcType.TELEPORTER)) ? "siege_teleporter" : ai;
@@ -170,7 +154,7 @@ public class NpcTemplate extends VisibleObjectTemplate {
 	@XmlAttribute(name = "npc_id", required = true)
 	private void setXmlUid(String uid) {
 		/*
-		 * This method is used only by JAXB unmarshaller. I couldn't set annotations at field, because ID must be a string.
+         * This method is used only by JAXB unmarshaller. I couldn't set annotations at field, because ID must be a string.
 		 */
 		npcId = Integer.parseInt(uid);
 	}
@@ -200,10 +184,6 @@ public class NpcTemplate extends VisibleObjectTemplate {
 
 	public void setAttackRange(int value) {
 		this.attackRange = value;
-	}
-
-	public void setAggroRange(int value) {
-		this.aggrorange = value;
 	}
 
 	public int getAttackRate() {
@@ -237,10 +217,6 @@ public class NpcTemplate extends VisibleObjectTemplate {
 		return npcTemplateType != null ? npcTemplateType : NpcTemplateType.NONE;
 	}
 
-	public NpcUiType getNpcUiType() {
-		return npcUiType != null ? npcUiType : NpcUiType.NONE;
-	}
-
 	public AbyssNpcType getAbyssNpcType() {
 		return abyssNpcType != null ? abyssNpcType : AbyssNpcType.NONE;
 	}
@@ -266,13 +242,6 @@ public class NpcTemplate extends VisibleObjectTemplate {
 		return talkInfo.getFuncDialogIds();
 	}
 
-	public String getSubDialogType() {
-		if (talkInfo == null) {
-			return null;
-		}
-		return talkInfo.getSubDialogType();
-	}
-
 	/**
 	 * @return the npcDrop
 	 */
@@ -281,8 +250,7 @@ public class NpcTemplate extends VisibleObjectTemplate {
 	}
 
 	/**
-	 * @param npcDrop
-	 *            the npcDrop to set
+     * @param npcDrop the npcDrop to set
 	 */
 	public void setNpcDrop(NpcDrop npcDrop) {
 		this.npcDrop = npcDrop;
@@ -314,13 +282,5 @@ public class NpcTemplate extends VisibleObjectTemplate {
 
 	public Boolean getMistSpawnCondition() {
 		return onMist;
-	}
-
-	public String getDesc() {
-		return desc;
-	}
-
-	public MassiveLooting getMassiveLooting() {
-		return massiveLooting;
 	}
 }

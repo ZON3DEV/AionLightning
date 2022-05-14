@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.network.packet;
 
 /**
@@ -48,9 +49,9 @@ public abstract class BasePacket {
 	 * Constructs a new packet with specified type and id.
 	 * 
 	 * @param packetType
-	 *            Type of packet
+	 *          Type of packet
 	 * @param opcode
-	 *            Id of packet
+	 *          Id of packet
 	 */
 	protected BasePacket(PacketType packetType, int opcode) {
 		this.packetType = packetType;
@@ -69,8 +70,7 @@ public abstract class BasePacket {
 
 	/**
 	 * Sets opcode of this packet.<br>
-	 * <font color='red'>NOTICE: </font> Use only if BasePacket(PacketType)
-	 * constructor was use
+	 * <font color='red'>NOTICE: </font> Use only if BasePacket(PacketType) constructor was use
 	 * 
 	 * @param opcode
 	 */
@@ -144,8 +144,7 @@ public abstract class BasePacket {
 	}
 
 	/**
-	 * Returns string representation of this packet based on packet type, opcode
-	 * and name.
+	 * Returns string representation of this packet based on packet type, opcode and name.
 	 * 
 	 * @return packet type string
 	 * @see #TYPE_PATTERN

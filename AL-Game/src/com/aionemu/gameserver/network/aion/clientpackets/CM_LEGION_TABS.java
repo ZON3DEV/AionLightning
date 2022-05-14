@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import java.util.Collection;
@@ -61,9 +62,9 @@ public class CM_LEGION_TABS extends AionClientPacket {
 			}
 
 			switch (tab) {
-				/**
-				 * History Tab
-				 */
+			/**
+			 * History Tab
+			 */
 				case 0: // legion history
 				case 2: // legion WH history
 					Collection<LegionHistory> history = activePlayer.getLegion().getLegionHistoryByTabId(tab);
@@ -84,8 +85,7 @@ public class CM_LEGION_TABS extends AionClientPacket {
 					// TODO Reward Tab Page
 					break;
 			}
-		}
-		else {
+		} else {
 			log.warn("Player " + activePlayer.getName() + " was requested null legion");
 		}
 	}

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.toypet;
 
 import java.sql.Timestamp;
@@ -33,7 +34,6 @@ import com.aionemu.gameserver.model.templates.pet.PetFunction;
 import com.aionemu.gameserver.model.templates.pet.PetTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_PET;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_WAREHOUSE_INFO;
-import com.aionemu.gameserver.services.MinionService;
 import com.aionemu.gameserver.spawnengine.VisibleObjectSpawner;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
@@ -48,9 +48,6 @@ public class PetSpawnService {
 	 * @param petId
 	 */
 	public static final void summonPet(Player player, int petId, boolean isManualSpawn) {
-        if (player.getMinion() != null) {
-            MinionService.getInstance().despawnMinion(player, player.getMinion().getObjectId());
-        }
 		PetCommonData lastPetCommonData;
 
 		if (player.getPet() != null) {
@@ -61,8 +58,7 @@ public class PetSpawnService {
 
 			lastPetCommonData = player.getPet().getCommonData();
 			dismissPet(player, isManualSpawn);
-		}
-		else {
+		} else {
 			lastPetCommonData = player.getPetList().getLastUsedPet();
 		}
 
@@ -73,7 +69,10 @@ public class PetSpawnService {
 			}
 		}
 
-		player.getController().addTask(TaskId.PET_UPDATE, ThreadPoolManager.getInstance().scheduleAtFixedRate(new PetController.PetUpdateTask(player), PeriodicSaveConfig.PLAYER_PETS * 1000, PeriodicSaveConfig.PLAYER_PETS * 1000));
+		player.getController().addTask(
+				TaskId.PET_UPDATE,
+				ThreadPoolManager.getInstance().scheduleAtFixedRate(new PetController.PetUpdateTask(player), PeriodicSaveConfig.PLAYER_PETS * 1000,
+						PeriodicSaveConfig.PLAYER_PETS * 1000));
 
 		Pet pet = VisibleObjectSpawner.spawnPet(player, petId);
 		// It means serious error or cheater - why its just nothing say "null"?
@@ -116,7 +115,8 @@ public class PetSpawnService {
 			PetFeedProgress progress = toyPet.getCommonData().getFeedProgress();
 			if (progress != null) {
 				toyPet.getCommonData().setCancelFeed(true);
-				DAOManager.getDAO(PlayerPetsDAO.class).saveFeedStatus(player, toyPet.getPetId(), progress.getHungryLevel().getValue(), progress.getDataForPacket(), toyPet.getCommonData().getRefeedTime());
+				DAOManager.getDAO(PlayerPetsDAO.class).saveFeedStatus(player, toyPet.getPetId(), progress.getHungryLevel().getValue(),
+						progress.getDataForPacket(), toyPet.getCommonData().getRefeedTime());
 			}
 			PetDopingBag bag = toyPet.getCommonData().getDopingBag();
 			if (bag != null && bag.isDirty()) {

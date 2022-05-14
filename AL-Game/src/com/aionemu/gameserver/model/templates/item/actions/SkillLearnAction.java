@@ -14,12 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.templates.item.actions;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
+package com.aionemu.gameserver.model.templates.item.actions;
 
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
@@ -29,6 +25,11 @@ import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION;
 import com.aionemu.gameserver.services.SkillLearnService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * @author ATracer
@@ -73,7 +74,8 @@ public class SkillLearnAction extends AbstractItemAction {
 	public void act(Player player, Item parentItem, Item targetItem) {
 		// item animation and message
 		ItemTemplate itemTemplate = parentItem.getItemTemplate();
-		// PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.USE_ITEM(itemTemplate.getDescription()));
+		// PacketSendUtility.sendPacket(player,
+		// SM_SYSTEM_MESSAGE.USE_ITEM(itemTemplate.getDescription()));
 		player.getController().cancelUseItem();
 		PacketSendUtility.broadcastPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), parentItem.getObjectId(), itemTemplate.getTemplateId()), true);
 
@@ -87,7 +89,8 @@ public class SkillLearnAction extends AbstractItemAction {
 
 	private boolean validateClass(PlayerClass pc) {
 		boolean result = false;
-		// 2. check if current class is second class and book is for starting class
+		// 2. check if current class is second class and book is for starting
+		// class
 		if (!pc.isStartingClass() && PlayerClass.getStartingClassFor(pc).ordinal() == playerClass.ordinal()) {
 			result = true;
 		}

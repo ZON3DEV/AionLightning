@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -30,7 +31,7 @@ import com.aionemu.gameserver.skillengine.model.SkillType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "OneTimeBoostSkillAttackEffect")
-public class OneTimeBoostSkillAttackEffect extends BuffEffect {
+public class OneTimeBoostSkillAttackEffect extends BufEffect {
 
 	@XmlAttribute
 	private int count;
@@ -48,15 +49,13 @@ public class OneTimeBoostSkillAttackEffect extends BuffEffect {
 		switch (type) {
 			case MAGICAL:
 				observer = new AttackCalcObserver() {
-
 					private int count = 0;
 
 					@Override
 					public float getBaseMagicalDamageMultiplier() {
 						if (count++ < stopCount) {
 							return percent;
-						}
-						else {
+						} else {
 							effect.getEffected().getEffectController().removeEffect(effect.getSkillId());
 						}
 
@@ -66,42 +65,7 @@ public class OneTimeBoostSkillAttackEffect extends BuffEffect {
 				break;
 			case PHYSICAL:
 				observer = new AttackCalcObserver() {
-
 					private int count = 0;
-
-					@Override
-					public float getBasePhysicalDamageMultiplier(boolean isSkill) {
-						if (!isSkill) {
-							return 1f;
-						}
-
-						if (count++ < stopCount) {
-							if (count == stopCount) {
-								effect.getEffected().getEffectController().removeEffect(effect.getSkillId());
-							}
-							return percent;
-						}
-
-						return 1.0f;
-					}
-				};
-				break;
-			case ALL:
-				observer = new AttackCalcObserver() {
-
-					private int count = 0;
-
-					@Override
-					public float getBaseMagicalDamageMultiplier() {
-						if (count++ < stopCount) {
-							return percent;
-						}
-						else {
-							effect.getEffected().getEffectController().removeEffect(effect.getSkillId());
-						}
-
-						return 1.0f;
-					}
 
 					@Override
 					public float getBasePhysicalDamageMultiplier(boolean isSkill) {
@@ -122,7 +86,6 @@ public class OneTimeBoostSkillAttackEffect extends BuffEffect {
 				break;
 			default:
 				break;
-
 		}
 
 		effect.getEffected().getObserveController().addAttackCalcObserver(observer);

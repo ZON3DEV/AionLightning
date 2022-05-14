@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item.bonuses;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -26,8 +27,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum StatBonusType {
 
-	INVENTORY,
-	POLISH;
+	INVENTORY, POLISH;
 
 	public String value() {
 		return name();

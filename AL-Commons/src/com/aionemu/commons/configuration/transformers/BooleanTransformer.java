@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.configuration.transformers;
 
 import java.lang.reflect.Field;
@@ -25,17 +26,15 @@ import com.aionemu.commons.configuration.TransformationException;
 /**
  * This class implements basic boolean transfromer.
  * <p/>
- * Boolean can be represented by "true/false" (case doen't matter) or "1/0". In
- * other cases {@link com.aionemu.commons.configuration.TransformationException}
- * is thrown
+ * Boolean can be represented by "true/false" (case doen't matter) or "1/0". In other cases
+ * {@link com.aionemu.commons.configuration.TransformationException} is thrown
  * 
  * @author SoulKeeper
  */
 public class BooleanTransformer implements PropertyTransformer<Boolean> {
 
 	/**
-	 * Shared instance of this transformer, it's thread safe so no need to
-	 * create multiple instances
+	 * Shared instance of this transformer, it's thread safe so no need to create multiple instances
 	 */
 	public static final BooleanTransformer SHARED_INSTANCE = new BooleanTransformer();
 
@@ -43,12 +42,12 @@ public class BooleanTransformer implements PropertyTransformer<Boolean> {
 	 * Transforms string to boolean.
 	 * 
 	 * @param value
-	 *            value that will be transformed
+	 *          value that will be transformed
 	 * @param field
-	 *            value will be assigned to this field
+	 *          value will be assigned to this field
 	 * @return Boolean object that represents transformed value
 	 * @throws TransformationException
-	 *             if something goes wrong
+	 *           if something goes wrong
 	 */
 	@Override
 	public Boolean transform(String value, Field field) throws TransformationException {
@@ -57,9 +56,11 @@ public class BooleanTransformer implements PropertyTransformer<Boolean> {
 		// is not "true" ignoring case
 		if ("true".equalsIgnoreCase(value) || "1".equals(value)) {
 			return true;
-		} else if ("false".equalsIgnoreCase(value) || "0".equals(value)) {
+		}
+		else if ("false".equalsIgnoreCase(value) || "0".equals(value)) {
 			return false;
-		} else {
+		}
+		else {
 			throw new TransformationException("Invalid boolean string: " + value);
 		}
 	}

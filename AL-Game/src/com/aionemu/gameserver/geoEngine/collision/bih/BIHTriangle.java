@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.geoEngine.collision.bih;
 
 import com.aionemu.gameserver.geoEngine.math.FastMath;
@@ -83,34 +84,27 @@ public final class BIHTriangle {
 			if (v1 < v2) {
 				if (v1 < v3) {
 					return v1;
-				}
-				else {
+				} else {
 					return v3;
 				}
-			}
-			else {
+			} else {
 				if (v2 < v3) {
 					return v2;
-				}
-				else {
+				} else {
 					return v3;
 				}
 			}
-		}
-		else {
+		} else {
 			if (v1 > v2) {
 				if (v1 > v3) {
 					return v1;
-				}
-				else {
+				} else {
 					return v3;
 				}
-			}
-			else {
+			} else {
 				if (v2 > v3) {
 					return v2;
-				}
-				else {
+				} else {
 					return v3;
 				}
 			}

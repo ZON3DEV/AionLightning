@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<spawns>
+	<spawn_map map_id="300900000">
+		<!-- Hyperion Defense Officer -->
+		<spawn npc_id="230396">
+			<spot x="147.38441" y="154.66823" z="123.40982" h="100"/>
+		</spawn>
+		<!-- IDRuneWeapon_Q_Ultimate -->
+		<spawn npc_id="730738">
+			<spot x="128.97711" y="138.00671" z="113.35148" h="60"/>
+		</spawn>
+		<!-- Kahrun -->
+		<spawn npc_id="800842">
+			<spot x="142.27884" y="156.19482" z="122.29011" h="100"/>
+		</spawn>
+		<!-- Broken Hyperion -->
+		<spawn npc_id="701556">
+			<spot x="129.2489" y="137.8630" z="112.3251" h="54"/>
+		</spawn>
+		<!-- Idgel-Kern -->
+		<spawn npc_id="701558" respawn_time="1">
+			<spot x="114" y="141" z="112" h="61" static_id="1652"/>
+		</spawn>		
+		<!-- Schutz -->
+		<spawn npc_id="206330" respawn_time="1">
+			<spot x="107.15058" y="143.30057" z="126.68744" h="0" static_id="28"/>
+		</spawn>		
+	</spawn_map>
+</spawns>

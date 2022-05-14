@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -78,12 +79,6 @@ public class CM_REVIVE extends AionClientPacket {
 				break;
 			case INSTANCE_REVIVE:
 				PlayerReviveService.instanceRevive(activePlayer);
-				break;
-			case START_POINT_REVIVE:
-				PlayerReviveService.startPositionRevive(activePlayer);
-				break;
-			case LUNA_REVIVE:
-				PlayerReviveService.startLunaRevive(activePlayer);
 				break;
 			default:
 				break;

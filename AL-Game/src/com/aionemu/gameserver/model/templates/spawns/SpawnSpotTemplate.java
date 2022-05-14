@@ -14,15 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.spawns;
 
 import javax.xml.bind.Marshaller;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 /**
  * @author xTz
@@ -55,15 +51,14 @@ public class SpawnSpotTemplate {
 	@XmlAttribute(name = "state")
 	private Integer state = 0;
 	@XmlElement(name = "temporary_spawn")
-	private TemporarySpawn temporaySpawn;
+    private TemporarySpawn temporaySpawn;
 	@XmlElement(name = "model")
 	private SpawnModel model;
-	private static final Integer ZERO = new Integer(0);
-	@XmlTransient
-	private boolean fixed = false;
 
 	public SpawnSpotTemplate() {
 	}
+
+	private static final Integer ZERO = new Integer(0);
 
 	void beforeMarshal(Marshaller marshaller) {
 		if (ZERO.equals(staticId)) {
@@ -99,13 +94,6 @@ public class SpawnSpotTemplate {
 		if (walkerIdx == null) {
 			walkerIdx = 0;
 		}
-	}
-
-	public SpawnSpotTemplate(float x, float y, float z, byte h) {
-		this.x = x;
-		this.y = y;
-		this.z = z;
-		this.h = h;
 	}
 
 	public SpawnSpotTemplate(float x, float y, float z, byte h, int randomWalk, String walkerId, Integer walkerIndex) {
@@ -183,16 +171,6 @@ public class SpawnSpotTemplate {
 	}
 
 	public TemporarySpawn getTemporarySpawn() {
-		return temporaySpawn;
-	}
-
-	public void setZ(float z) {
-		if (this.z > z && (this.z - z) > 0.5)
-			this.fixed = true;
-		this.z = z;
-	}
-
-	public boolean isFixed() {
-		return fixed;
+        return temporaySpawn;
 	}
 }

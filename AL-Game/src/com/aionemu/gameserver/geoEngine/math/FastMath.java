@@ -14,12 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.geoEngine.math;
 
 import java.util.Random;
 
 /**
- * <code>FastMath</code> provides 'fast' math approximations and float equivalents of Math functions. These are all used as static values and functions.
+ * <code>FastMath</code> provides 'fast' math approximations and float
+ * equivalents of Math functions. These are all used as static values and
+ * functions.
  *
  * @author Various
  * @version $Id: FastMath.java,v 1.45 2007/08/26 08:44:20 irrisor Exp $
@@ -82,8 +85,11 @@ final public class FastMath {
 	/**
 	 * Returns true if the number is a power of 2 (2,4,8,16...)
 	 * <p/>
-	 * A good implementation found on the Java boards. note: a number is a power of two if and only if it is the smallest number with that number of significant bits. Therefore, if you subtract 1, you
-	 * know that the new number will have fewer bits, so ANDing the original number with anything less than it will give 0.
+	 * A good implementation found on the Java boards. note: a number is a power
+	 * of two if and only if it is the smallest number with that number of
+	 * significant bits. Therefore, if you subtract 1, you know that the new
+	 * number will have fewer bits, so ANDing the original number with anything
+	 * less than it will give 0.
 	 *
 	 * @param number
 	 *            The number to test.
@@ -98,7 +104,8 @@ final public class FastMath {
 	}
 
 	/**
-	 * Linear interpolation from startValue to endValue by the given percent. Basically: ((1 - percent) * startValue) + (percent * endValue)
+	 * Linear interpolation from startValue to endValue by the given percent.
+	 * Basically: ((1 - percent) * startValue) + (percent * endValue)
 	 *
 	 * @param scale
 	 *            scale value to use. if 1, use endValue, if 0, use startValue.
@@ -122,7 +129,8 @@ final public class FastMath {
 	}
 
 	/**
-	 * Linear interpolation from startValue to endValue by the given percent. Basically: ((1 - percent) * startValue) + (percent * endValue)
+	 * Linear interpolation from startValue to endValue by the given percent.
+	 * Basically: ((1 - percent) * startValue) + (percent * endValue)
 	 *
 	 * @param scale
 	 *            scale value to use. if 1, use endValue, if 0, use startValue.
@@ -141,8 +149,11 @@ final public class FastMath {
 	}
 
 	/**
-	 * Interpolate a spline between at least 4 control points following the Catmull-Rom equation. here is the interpolation matrix m = [ 0.0 1.0 0.0 0.0 ] [-T 0.0 T 0.0 ] [ 2T T-3 3-2T -T ] [-T 2-T
-	 * T-2 T ] where T is the curve tension the result is a value between p1 and p2, t=0 for p1, t=1 for p2
+	 * Interpolate a spline between at least 4 control points following the
+	 * Catmull-Rom equation. here is the interpolation matrix m = [ 0.0 1.0 0.0
+	 * 0.0 ] [-T 0.0 T 0.0 ] [ 2T T-3 3-2T -T ] [-T 2-T T-2 T ] where T is the
+	 * curve tension the result is a value between p1 and p2, t=0 for p1, t=1
+	 * for p2
 	 *
 	 * @param u
 	 *            value from 0 to 1
@@ -169,8 +180,11 @@ final public class FastMath {
 	}
 
 	/**
-	 * Interpolate a spline between at least 4 control points following the Catmull-Rom equation. here is the interpolation matrix m = [ 0.0 1.0 0.0 0.0 ] [-T 0.0 T 0.0 ] [ 2T T-3 3-2T -T ] [-T 2-T
-	 * T-2 T ] where T is the tension of the curve the result is a value between p1 and p2, t=0 for p1, t=1 for p2
+	 * Interpolate a spline between at least 4 control points following the
+	 * Catmull-Rom equation. here is the interpolation matrix m = [ 0.0 1.0 0.0
+	 * 0.0 ] [-T 0.0 T 0.0 ] [ 2T T-3 3-2T -T ] [-T 2-T T-2 T ] where T is the
+	 * tension of the curve the result is a value between p1 and p2, t=0 for p1,
+	 * t=1 for p2
 	 *
 	 * @param u
 	 *            value from 0 to 1
@@ -281,8 +295,11 @@ final public class FastMath {
 	}
 
 	/**
-	 * Fast Trig functions for x86. This forces the trig functiosn to stay within the safe area on the x86 processor (-45 degrees to +45 degrees) The results may be very slightly off from what the
-	 * Math and StrictMath trig functions give due to rounding in the angle reduction but it will be very very close.
+	 * Fast Trig functions for x86. This forces the trig functiosn to stay
+	 * within the safe area on the x86 processor (-45 degrees to +45 degrees)
+	 * The results may be very slightly off from what the Math and StrictMath
+	 * trig functions give due to rounding in the angle reduction but it will be
+	 * very very close.
 	 * <p/>
 	 * note: code from wiki posting on java.net by jeffpk
 	 */
@@ -309,7 +326,8 @@ final public class FastMath {
 	 * @see java.lang.Math#sin(double)
 	 */
 	public static float sin2(float fValue) {
-		fValue = reduceSinAngle(fValue); // limits angle to between -PI/2 and +PI/2
+		fValue = reduceSinAngle(fValue); // limits angle to between -PI/2 and
+											// +PI/2
 		if (Math.abs(fValue) <= Math.PI / 4) {
 			return (float) Math.sin(fValue);
 		}
@@ -393,7 +411,8 @@ final public class FastMath {
 		int i = Float.floatToIntBits(x); // get bits for floating value
 		i = 0x5f375a86 - (i >> 1); // gives initial guess y0
 		x = Float.intBitsToFloat(i); // convert bits back to float
-		x = x * (1.5f - xhalf * x * x); // Newton step, repeating increases accuracy
+		x = x * (1.5f - xhalf * x * x); // Newton step, repeating increases
+										// accuracy
 		return x;
 	}
 
@@ -410,7 +429,9 @@ final public class FastMath {
 	}
 
 	/**
-	 * Returns the logarithm of value with given base, calculated as log(value)/log(base), so that pow(base, return)==value (contributed by vear)
+	 * Returns the logarithm of value with given base, calculated as
+	 * log(value)/log(base), so that pow(base, return)==value (contributed by
+	 * vear)
 	 *
 	 * @param value
 	 *            The value to log.
@@ -460,7 +481,8 @@ final public class FastMath {
 	}
 
 	/**
-	 * Returns the tangent of a value. If USE_FAST_TRIG is enabled, an approximate value is returned. Otherwise, a direct value is used.
+	 * Returns the tangent of a value. If USE_FAST_TRIG is enabled, an
+	 * approximate value is returned. Otherwise, a direct value is used.
 	 *
 	 * @param fValue
 	 *            The value to tangent, in radians.
@@ -472,7 +494,8 @@ final public class FastMath {
 	}
 
 	/**
-	 * Returns 1 if the number is positive, -1 if the number is negative, and 0 otherwise
+	 * Returns 1 if the number is positive, -1 if the number is negative, and 0
+	 * otherwise
 	 *
 	 * @param iValue
 	 *            The integer to examine.
@@ -489,7 +512,8 @@ final public class FastMath {
 	}
 
 	/**
-	 * Returns 1 if the number is positive, -1 if the number is negative, and 0 otherwise
+	 * Returns 1 if the number is positive, -1 if the number is negative, and 0
+	 * otherwise
 	 *
 	 * @param fValue
 	 *            The float to examine.
@@ -500,7 +524,8 @@ final public class FastMath {
 	}
 
 	/**
-	 * Given 3 points in a 2d plane, this function computes if the points going from A-B-C are moving counter clock wise.
+	 * Given 3 points in a 2d plane, this function computes if the points going
+	 * from A-B-C are moving counter clock wise.
 	 *
 	 * @param p0
 	 *            Point 0.
@@ -508,7 +533,8 @@ final public class FastMath {
 	 *            Point 1.
 	 * @param p2
 	 *            Point 2.
-	 * @return 1 If they are CCW, -1 if they are not CCW, 0 if p2 is between p0 and p1.
+	 * @return 1 If they are CCW, -1 if they are not CCW, 0 if p2 is between p0
+	 *         and p1.
 	 */
 	public static int counterClockwise(Vector2f p0, Vector2f p1, Vector2f p2) {
 		float dx1, dx2, dy1, dy2;
@@ -532,7 +558,8 @@ final public class FastMath {
 	}
 
 	/**
-	 * Test if a point is inside a triangle. 1 if the point is on the ccw side, -1 if the point is on the cw side, and 0 if it is on neither.
+	 * Test if a point is inside a triangle. 1 if the point is on the ccw side,
+	 * -1 if the point is on the cw side, and 0 if it is on neither.
 	 *
 	 * @param t0
 	 *            First point of the triangle.
@@ -569,7 +596,8 @@ final public class FastMath {
 	/**
 	 * Returns the determinant of a 4x4 matrix.
 	 */
-	public static float determinant(double m00, double m01, double m02, double m03, double m10, double m11, double m12, double m13, double m20, double m21, double m22, double m23, double m30, double m31, double m32, double m33) {
+	public static float determinant(double m00, double m01, double m02, double m03, double m10, double m11, double m12, double m13, double m20, double m21,
+			double m22, double m23, double m30, double m31, double m32, double m33) {
 
 		double det01 = m20 * m31 - m21 * m30;
 		double det02 = m20 * m32 - m22 * m30;
@@ -577,13 +605,15 @@ final public class FastMath {
 		double det12 = m21 * m32 - m22 * m31;
 		double det13 = m21 * m33 - m23 * m31;
 		double det23 = m22 * m33 - m23 * m32;
-		return (float) (m00 * (m11 * det23 - m12 * det13 + m13 * det12) - m01 * (m10 * det23 - m12 * det03 + m13 * det02) + m02 * (m10 * det13 - m11 * det03 + m13 * det01) - m03 * (m10 * det12 - m11 * det02 + m12 * det01));
+		return (float) (m00 * (m11 * det23 - m12 * det13 + m13 * det12) - m01 * (m10 * det23 - m12 * det03 + m13 * det02) + m02
+				* (m10 * det13 - m11 * det03 + m13 * det01) - m03 * (m10 * det12 - m11 * det02 + m12 * det01));
 	}
 
 	/**
 	 * Returns a random float between 0 and 1.
 	 *
-	 * @return A random float between <tt>0.0f</tt> (inclusive) to <tt>1.0f</tt> (exclusive).
+	 * @return A random float between <tt>0.0f</tt> (inclusive) to <tt>1.0f</tt>
+	 *         (exclusive).
 	 */
 	public static float nextRandomFloat() {
 		return rand.nextFloat();
@@ -592,7 +622,8 @@ final public class FastMath {
 	/**
 	 * Returns a random float between min and max.
 	 *
-	 * @return A random int between <tt>min</tt> (inclusive) to <tt>max</tt> (inclusive).
+	 * @return A random int between <tt>min</tt> (inclusive) to <tt>max</tt>
+	 *         (inclusive).
 	 */
 	public static int nextRandomInt(int min, int max) {
 		return (int) (nextRandomFloat() * (max - min + 1)) + min;
@@ -603,7 +634,8 @@ final public class FastMath {
 	}
 
 	/**
-	 * Converts a point from Spherical coordinates to Cartesian (using positive Y as up) and stores the results in the store var.
+	 * Converts a point from Spherical coordinates to Cartesian (using positive
+	 * Y as up) and stores the results in the store var.
 	 */
 	public static Vector3f sphericalToCartesian(Vector3f sphereCoords, Vector3f store) {
 		store.y = sphereCoords.x * FastMath.sin(sphereCoords.z);
@@ -615,7 +647,9 @@ final public class FastMath {
 	}
 
 	/**
-	 * Converts a point from Cartesian coordinates (using positive Y as up) to Spherical and stores the results in the store var. (Radius, Azimuth, Polar)
+	 * Converts a point from Cartesian coordinates (using positive Y as up) to
+	 * Spherical and stores the results in the store var. (Radius, Azimuth,
+	 * Polar)
 	 */
 	public static Vector3f cartesianToSpherical(Vector3f cartCoords, Vector3f store) {
 		if (cartCoords.x == 0) {
@@ -631,7 +665,8 @@ final public class FastMath {
 	}
 
 	/**
-	 * Converts a point from Spherical coordinates to Cartesian (using positive Z as up) and stores the results in the store var.
+	 * Converts a point from Spherical coordinates to Cartesian (using positive
+	 * Z as up) and stores the results in the store var.
 	 */
 	public static Vector3f sphericalToCartesianZ(Vector3f sphereCoords, Vector3f store) {
 		store.z = sphereCoords.x * FastMath.sin(sphereCoords.z);
@@ -643,7 +678,9 @@ final public class FastMath {
 	}
 
 	/**
-	 * Converts a point from Cartesian coordinates (using positive Z as up) to Spherical and stores the results in the store var. (Radius, Azimuth, Polar)
+	 * Converts a point from Cartesian coordinates (using positive Z as up) to
+	 * Spherical and stores the results in the store var. (Radius, Azimuth,
+	 * Polar)
 	 */
 	public static Vector3f cartesianZToSpherical(Vector3f cartCoords, Vector3f store) {
 		if (cartCoords.x == 0) {
@@ -689,11 +726,9 @@ final public class FastMath {
 	public static float copysign(float x, float y) {
 		if (y >= 0 && x <= -0) {
 			return -x;
-		}
-		else if (y < 0 && x >= 0) {
+		} else if (y < 0 && x >= 0) {
 			return -x;
-		}
-		else {
+		} else {
 			return x;
 		}
 	}
@@ -721,7 +756,8 @@ final public class FastMath {
 	}
 
 	/**
-	 * Converts a single precision (32 bit) floating point value into half precision (16 bit).
+	 * Converts a single precision (32 bit) floating point value into half
+	 * precision (16 bit).
 	 * <p/>
 	 * Source: http://www.fox-toolkit.org/ftp/fasthalffloatconversion.pdf
 	 *
@@ -729,8 +765,8 @@ final public class FastMath {
 	 *            The half floating point value as a short.
 	 * @return floating point value of the half.
 	 */
-	public static float convertHalfToFloat(int half) {
-		switch (half) {
+	public static float convertHalfToFloat(short half) {
+		switch ((int) half) {
 			case 0x0000:
 				return 0f;
 			case 0x8000:
@@ -739,7 +775,7 @@ final public class FastMath {
 				return Float.POSITIVE_INFINITY;
 			case 0xfc00:
 				return Float.NEGATIVE_INFINITY;
-			// TODO: Support for NaN?
+				// TODO: Support for NaN?
 			default:
 				return Float.intBitsToFloat(((half & 0x8000) << 16) | (((half & 0x7c00) + 0x1C000) << 13) | ((half & 0x03FF) << 13));
 		}
@@ -748,30 +784,22 @@ final public class FastMath {
 	public static short convertFloatToHalf(float flt) {
 		if (Float.isNaN(flt)) {
 			throw new UnsupportedOperationException("NaN to half conversion not supported!");
-		}
-		else if (flt == Float.POSITIVE_INFINITY) {
+		} else if (flt == Float.POSITIVE_INFINITY) {
 			return (short) 0x7c00;
-		}
-		else if (flt == Float.NEGATIVE_INFINITY) {
+		} else if (flt == Float.NEGATIVE_INFINITY) {
 			return (short) 0xfc00;
-		}
-		else if (flt == 0f) {
+		} else if (flt == 0f) {
 			return (short) 0x0000;
-		}
-		else if (flt == -0f) {
+		} else if (flt == -0f) {
 			return (short) 0x8000;
-		}
-		else if (flt > 65504f) {
+		} else if (flt > 65504f) {
 			// max value supported by half float
 			return 0x7bff;
-		}
-		else if (flt < -65504f) {
+		} else if (flt < -65504f) {
 			return (short) (0x7bff | 0x8000);
-		}
-		else if (flt > 0f && flt < 5.96046E-8f) {
+		} else if (flt > 0f && flt < 5.96046E-8f) {
 			return 0x0001;
-		}
-		else if (flt < 0f && flt > -5.96046E-8f) {
+		} else if (flt < 0f && flt > -5.96046E-8f) {
 			return (short) 0x8001;
 		}
 

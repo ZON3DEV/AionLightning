@@ -14,11 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.actions;
 
 import com.aionemu.gameserver.model.gameobjects.Npc;
 
 /**
+ *
  * @author xTz
  */
 public class NpcActions extends CreatureActions {

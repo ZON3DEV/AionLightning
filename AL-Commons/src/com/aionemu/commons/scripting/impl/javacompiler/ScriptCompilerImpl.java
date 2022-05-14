@@ -15,27 +15,27 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.scripting.impl.javacompiler;
 
+import com.aionemu.commons.scripting.CompilationResult;
+import com.aionemu.commons.scripting.ScriptClassLoader;
+import com.aionemu.commons.scripting.ScriptCompiler;
+import com.sun.tools.javac.api.JavacTool;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.tools.DiagnosticListener;
+import javax.tools.JavaCompiler;
+import javax.tools.JavaFileObject;
+import javax.tools.ToolProvider;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-
-import javax.tools.DiagnosticListener;
-import javax.tools.JavaCompiler;
-import javax.tools.JavaFileObject;
-import javax.tools.ToolProvider;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.aionemu.commons.scripting.CompilationResult;
-import com.aionemu.commons.scripting.ScriptClassLoader;
-import com.aionemu.commons.scripting.ScriptCompiler;
-import com.sun.tools.javac.api.JavacTool;
 
 /**
  * Wrapper for JavaCompiler api
@@ -62,11 +62,10 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 	protected ScriptClassLoader parentClassLoader;
 
 	/**
-	 * Creates new instance of JavaCompilerImpl. If system compiler is not
-	 * available - throws RuntimeExcetion
+	 * Creates new instance of JavaCompilerImpl. If system compiler is not available - throws RuntimeExcetion
 	 * 
 	 * @throws RuntimeException
-	 *             if compiler is not available
+	 *           if compiler is not available
 	 */
 	public ScriptCompilerImpl() {
 		this.javaCompiler = JavacTool.create();
@@ -82,7 +81,7 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 	 * Sets parent classLoader for this JavaCompilerImpl
 	 * 
 	 * @param classLoader
-	 *            parent classloader
+	 *          parent classloader
 	 */
 	@Override
 	public void setParentClassLoader(ScriptClassLoader classLoader) {
@@ -93,7 +92,7 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 	 * Sets jar files that should be used for this compiler as libraries
 	 * 
 	 * @param files
-	 *            list of jar files
+	 *          list of jar files
 	 */
 	@Override
 	public void setLibraires(Iterable<File> files) {
@@ -104,12 +103,12 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 	 * Compiles given class.
 	 * 
 	 * @param className
-	 *            Name of the class
+	 *          Name of the class
 	 * @param sourceCode
-	 *            source code
+	 *          source code
 	 * @return CompilationResult with the class
 	 * @throws RuntimeException
-	 *             if compilation failed with errros
+	 *           if compilation failed with errros
 	 */
 	@Override
 	public CompilationResult compile(String className, String sourceCode) {
@@ -117,18 +116,17 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 	}
 
 	/**
-	 * Compiles list of classes. Amount of classNames must be equal to amount of
-	 * sourceCodes
+	 * Compiles list of classes. Amount of classNames must be equal to amount of sourceCodes
 	 * 
 	 * @param classNames
-	 *            classNames
+	 *          classNames
 	 * @param sourceCode
-	 *            list of source codes
+	 *          list of source codes
 	 * @return CompilationResult with needed files
 	 * @throws IllegalArgumentException
-	 *             if size of classNames not equals to size of sourceCodes
+	 *           if size of classNames not equals to size of sourceCodes
 	 * @throws RuntimeException
-	 *             if compilation failed with errros
+	 *           if compilation failed with errros
 	 */
 	@Override
 	public CompilationResult compile(String[] classNames, String[] sourceCode) throws IllegalArgumentException {
@@ -151,10 +149,10 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 	 * Compiles given files. Files must be java sources.
 	 * 
 	 * @param compilationUnits
-	 *            files to compile
+	 *          files to compile
 	 * @return CompilationResult with classes
 	 * @throws RuntimeException
-	 *             if compilation failed with errros
+	 *           if compilation failed with errros
 	 */
 	@Override
 	public CompilationResult compile(Iterable<File> compilationUnits) {
@@ -168,14 +166,14 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 	}
 
 	/**
-	 * Actually performs compilation. Compiler expects sources in UTF-8
-	 * encoding. Also compiler generates full debugging info for classes.
+	 * Actually performs compilation. Compiler expects sources in UTF-8 encoding. Also compiler generates full debugging
+	 * info for classes.
 	 * 
 	 * @param compilationUnits
-	 *            Units that will be compiled
+	 *          Units that will be compiled
 	 * @return CompilationResult with compiledClasses
 	 * @throws RuntimeException
-	 *             if compilation failed with errros
+	 *           if compilation failed with errros
 	 */
 	protected CompilationResult doCompilation(Iterable<JavaFileObject> compilationUnits) {
 		List<String> options = Arrays.asList("-encoding", "UTF-8", "-g");
@@ -186,13 +184,13 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 		if (libraries != null) {
 			try {
 				manager.addLibraries(libraries);
-			} catch (IOException e) {
+			}
+			catch (IOException e) {
 				log.error("Can't set libraries for compiler.", e);
 			}
 		}
 
-		JavaCompiler.CompilationTask task = javaCompiler.getTask(null, manager, listener, options, null,
-				compilationUnits);
+		JavaCompiler.CompilationTask task = javaCompiler.getTask(null, manager, listener, options, null, compilationUnits);
 
 		if (!task.call()) {
 			throw new RuntimeException("Error while compiling classes");
@@ -207,12 +205,12 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 	 * Reolves list of classes by their names
 	 * 
 	 * @param classNames
-	 *            names of the classes
+	 *          names of the classes
 	 * @param cl
-	 *            classLoader to use to resove classes
+	 *          classLoader to use to resove classes
 	 * @return resolved classes
 	 * @throws RuntimeException
-	 *             if can't find class
+	 *           if can't find class
 	 */
 	protected Class<?>[] classNamesToClasses(Collection<String> classNames, ScriptClassLoader cl) {
 		Class<?>[] classes = new Class<?>[classNames.size()];
@@ -222,7 +220,8 @@ public class ScriptCompilerImpl implements ScriptCompiler {
 			try {
 				Class<?> clazz = cl.loadClass(className);
 				classes[i] = clazz;
-			} catch (ClassNotFoundException e) {
+			}
+			catch (ClassNotFoundException e) {
 				throw new RuntimeException(e);
 			}
 			i++;

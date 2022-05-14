@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.spawnengine;
 
 import static ch.lambdaj.Lambda.by;
@@ -31,11 +32,11 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ch.lambdaj.group.Group;
+
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Npc;
-
-import ch.lambdaj.group.Group;
 
 /**
  * @author Rolandas
@@ -70,7 +71,8 @@ public class InstanceWalkerFormations {
 	}
 
 	/**
-	 * Organizes spawns in all processed walker groups. Must be called only when spawning all npcs for the instance of world.
+	 * Organizes spawns in all processed walker groups. Must be called only when
+	 * spawning all npcs for the instance of world.
 	 */
 	protected void organizeAndSpawn() {
 		for (List<ClusteredNpc> candidates : groupedSpawnObjects.values()) {
@@ -86,12 +88,12 @@ public class InstanceWalkerFormations {
 			}
 			if (maxSize == 1) {
 				if (candidates.size() != 1) {
-					// log.warn("Walkers not aligned for route: " + candidates.get(0).getWalkTemplate().getRouteId());
+					// log.warn("Walkers not aligned for route: " +
+					// candidates.get(0).getWalkTemplate().getRouteId());
 					for (ClusteredNpc snpc : candidates) {
 						snpc.spawn(snpc.getNpc().getSpawn().getZ());
 					}
-				}
-				else {
+				} else {
 					ClusteredNpc singleNpc = candidates.get(0);
 					if (singleNpc.getWalkTemplate().getVersionId() != null) {
 						List<ClusteredNpc> variants = walkerVariants.get(singleNpc.getWalkTemplate().getVersionId());
@@ -100,13 +102,11 @@ public class InstanceWalkerFormations {
 							walkerVariants.put(singleNpc.getWalkTemplate().getVersionId(), variants);
 						}
 						variants.add(singleNpc);
-					}
-					else {
+					} else {
 						singleNpc.spawn(singleNpc.getNpc().getSpawn().getZ());
 					}
 				}
-			}
-			else {
+			} else {
 				WalkerGroup wg = new WalkerGroup(npcs);
 				if (candidates.get(0).getWalkTemplate().getPool() != candidates.size()) {
 					log.warn("Incorrect pool for route: " + candidates.get(0).getWalkTemplate().getRouteId());
@@ -117,13 +117,12 @@ public class InstanceWalkerFormations {
 					wg.spawn();
 					// spawn the rest which didn't have the same coordinates
 					for (ClusteredNpc snpc : candidates) {
-						if (npcs.contains(snpc)) {
+						if (npcs != null && npcs.contains(snpc)) {
 							continue;
 						}
 						snpc.spawn(snpc.getNpc().getZ());
 					}
-				}
-				else {
+				} else {
 					List<WalkerGroup> variants = formationVariants.get(wg.getVersionId());
 					if (variants == null) {
 						variants = new ArrayList<>();

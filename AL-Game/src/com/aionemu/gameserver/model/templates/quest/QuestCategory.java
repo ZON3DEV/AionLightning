@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.quest;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -37,11 +38,7 @@ public enum QuestCategory {
 	FACTION(0),
 	CHALLENGE_TASK(0),
 	PUBLIC(0),
-	LEGION(0),
-	PRIMARY(0),
-	TUTORIAL(0),
-	GUIDE(0), 
-	EPISODE(0);
+	LEGION(0);
 
 	private int id;
 

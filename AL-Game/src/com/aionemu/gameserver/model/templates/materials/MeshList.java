@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.materials;
 
 import java.util.HashMap;
@@ -22,12 +23,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "MeshList", propOrder = { "meshMaterials" })
@@ -64,8 +60,7 @@ public class MeshList {
 	/**
 	 * Find material ID for the specific mesh
 	 *
-	 * @param meshPath
-	 *            Mesh geo path
+     * @param meshPath Mesh geo path
 	 * @return 0 if not found
 	 */
 	public int getMeshMaterialId(String meshPath) {

@@ -46,5 +46,8 @@ public class SM_CHANNEL_RESPONSE extends AbstractServerPacket {
         writeH(buf, 0x00);
         writeH(buf, 0x00);
         writeD(buf, channel.getChannelId());
+        // writeC(buf, 0x19);
+        // writeC(buf, 0x00);
+        // writeC(buf, 0x80); //part of id
     }
 }

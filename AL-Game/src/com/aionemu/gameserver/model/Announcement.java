@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model;
 
 /**
@@ -74,15 +75,15 @@ public class Announcement {
 	}
 
 	/**
-	 * Return the id of the announcement In case of the id doesn't exist, return -1
+	 * Return the id of the announcement In case of the id doesn't exist, return
+	 * -1
 	 *
 	 * @return int - Announcement's id
 	 */
 	public int getId() {
 		if (id != 0) {
 			return id;
-		}
-		else {
+		} else {
 			return -1;
 		}
 	}
@@ -97,7 +98,8 @@ public class Announcement {
 	}
 
 	/**
-	 * Return the announcement's faction in string mode : - ELYOS - ASMODIANS - ALL
+	 * Return the announcement's faction in string mode : - ELYOS - ASMODIANS -
+	 * ALL
 	 *
 	 * @return String - Announcement's faction
 	 */
@@ -106,15 +108,15 @@ public class Announcement {
 	}
 
 	/**
-	 * Return the announcement's faction in Race enum mode : - Race.ELYOS - Race.ASMODIANS
+	 * Return the announcement's faction in Race enum mode : - Race.ELYOS -
+	 * Race.ASMODIANS
 	 *
 	 * @return Race - Announcement's faction
 	 */
 	public Race getFactionEnum() {
 		if (faction.equalsIgnoreCase("ELYOS")) {
 			return Race.ELYOS;
-		}
-		else if (faction.equalsIgnoreCase("ASMODIANS")) {
+		} else if (faction.equalsIgnoreCase("ASMODIANS")) {
 			return Race.ASMODIANS;
 		}
 
@@ -136,22 +138,17 @@ public class Announcement {
 	 * @return ChatType - Announcement's chatType
 	 */
 	public ChatType getChatType() {
-		if (chatType.equalsIgnoreCase("Yellow")) {
-			return ChatType.YELLOW;
-		}
-		else if (chatType.equalsIgnoreCase("White")) {
+		if (chatType.equalsIgnoreCase("System")) {
+			return ChatType.GOLDEN_YELLOW;
+		} else if (chatType.equalsIgnoreCase("White")) {
 			return ChatType.WHITE_CENTER;
-		}
-		else if (chatType.equalsIgnoreCase("Yellow")) {
+		} else if (chatType.equalsIgnoreCase("Yellow")) {
 			return ChatType.YELLOW_CENTER;
-		}
-		else if (chatType.equalsIgnoreCase("Shout")) {
+		} else if (chatType.equalsIgnoreCase("Shout")) {
 			return ChatType.SHOUT;
-		}
-		else if (chatType.equalsIgnoreCase("Orange")) {
+		} else if (chatType.equalsIgnoreCase("Orange")) {
 			return ChatType.GROUP_LEADER;
-		}
-		else {
+		} else {
 			return ChatType.BRIGHT_YELLOW_CENTER;
 		}
 	}

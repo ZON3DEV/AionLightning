@@ -14,13 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.loginserver.serverpackets;
 
 import com.aionemu.gameserver.network.loginserver.LoginServerConnection;
 import com.aionemu.gameserver.network.loginserver.LsServerPacket;
 
 /**
- * In this packet GameServer is informing LoginServer that some account is no longer on GameServer [ie was disconencted]
+ * In this packet GameServer is informing LoginServer that some account is no
+ * longer on GameServer [ie was disconencted]
  *
  * @author -Nemesiss-
  */

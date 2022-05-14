@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player;
 
 public enum ReviveType {
@@ -45,16 +46,7 @@ public enum ReviveType {
 	/**
 	 * Revive to Obelisk
 	 */
-	OBELISK_REVIVE(8),
-	/**
-	 * Revive to actual world where player Died
-	 */
-	START_POINT_REVIVE(11),
-	/**
-	 * Revive with Luna
-	 */
-	LUNA_REVIVE(12);
-
+	OBELISK_REVIVE(8);
 	private int typeId;
 
 	/**

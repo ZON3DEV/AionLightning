@@ -14,7 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
+
+import gnu.trove.map.hash.TIntObjectHashMap;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -32,12 +35,11 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.npc.NpcTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
-import gnu.trove.map.hash.TIntObjectHashMap;
-
 /**
  * This is a container holding and serving all {@link NpcTemplate} instances.<br>
- * Briefly: Every {@link Npc} instance represents some class of NPCs among which each have the same id, name, items, statistics. Data for such NPC class is defined in {@link NpcTemplate} and is
- * uniquely identified by npc id.
+ * Briefly: Every {@link Npc} instance represents some class of NPCs among which
+ * each have the same id, name, items, statistics. Data for such NPC class is
+ * defined in {@link NpcTemplate} and is uniquely identified by npc id.
  *
  * @author Luno
  */
@@ -47,12 +49,14 @@ public class NpcData extends ReloadableData {
 
 	@XmlElement(name = "npc_template")
 	private List<NpcTemplate> npcs;
+
+    private List<NpcTemplate> npcTemplates;
 	/**
 	 * A map containing all npc templates
 	 */
 	private TIntObjectHashMap<NpcTemplate> npcData = new TIntObjectHashMap<NpcTemplate>();
 
-	void afterUnmarshal(Unmarshaller u, Object parent) {
+    void afterUnmarshal(Unmarshaller u, Object parent) {
 		for (NpcTemplate npc : npcs) {
 			npcData.put(npc.getTemplateId(), npc);
 		}
@@ -75,12 +79,38 @@ public class NpcData extends ReloadableData {
 		return npcData.get(id);
 	}
 
+    /**
+     *
+     * @return npcTemplates
+     */
+    public List<NpcTemplate> getNpcTemplates(){
+        return npcTemplates;
+    }
+
 	/**
 	 * @return the npcData
 	 */
 	public TIntObjectHashMap<NpcTemplate> getNpcData() {
 		return npcData;
 	}
+
+    public String getNpcName(String npcName){
+        for(NpcTemplate nc : npcData.valueCollection()){
+            if(npcName.equalsIgnoreCase(nc.getName())){
+                return nc.getName();
+            }
+        }
+        return "";
+    }
+
+    public int getNpcIdof(String npcName){
+        for(NpcTemplate nc : npcData.valueCollection()){
+            if(npcName.equalsIgnoreCase(nc.getName())){
+                return nc.getTemplateId();
+            }
+        }
+        return 0;
+    }
 
 	@Override
 	public void reload(Player admin) {
@@ -97,12 +127,10 @@ public class NpcData extends ReloadableData {
 				}
 			}
 			DataManager.NPC_DATA.setData(newTemplates);
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			PacketSendUtility.sendMessage(admin, "Npc reload failed!");
 			log.error("Npc reload failed!", e);
-		}
-		finally {
+		} finally {
 			PacketSendUtility.sendMessage(admin, "Npc reload Success! Total loaded: " + DataManager.NPC_DATA.size());
 		}
 	}

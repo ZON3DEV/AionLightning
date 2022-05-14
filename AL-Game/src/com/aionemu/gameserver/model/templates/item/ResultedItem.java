@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item;
 
 import javax.xml.bind.annotation.XmlAttribute;
@@ -31,8 +32,6 @@ import com.aionemu.gameserver.model.Race;
 @XmlType(name = "ResultedItem")
 public class ResultedItem {
 
-	@XmlAttribute(name = "name")
-	public String itemName;
 	@XmlAttribute(name = "id")
 	public int itemId;
 	@XmlAttribute(name = "count")
@@ -45,10 +44,6 @@ public class ResultedItem {
 	public Race race = Race.PC_ALL;
 	@XmlAttribute(name = "player_class")
 	public PlayerClass playerClass = PlayerClass.ALL;
-
-	public String getItemName() {
-		return itemName;
-	}
 
 	public int getItemId() {
 		return itemId;
@@ -77,17 +72,14 @@ public class ResultedItem {
 	public final int getResultCount() {
 		if (count == 0 && rndMin == 0 && rndMax == 0) {
 			return 1;
-		}
-		else if (rndMin > 0 || rndMax > 0) {
+		} else if (rndMin > 0 || rndMax > 0) {
 			if (rndMax < rndMin) {
 				LoggerFactory.getLogger(ResultedItem.class).warn("Wronte rnd result item definition {} {}", rndMin, rndMax);
 				return 1;
-			}
-			else {
+			} else {
 				return Rnd.get(rndMin, rndMax);
 			}
-		}
-		else {
+		} else {
 			return count;
 		}
 	}

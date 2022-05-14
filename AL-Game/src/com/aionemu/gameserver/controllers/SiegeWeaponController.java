@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers;
 
 import com.aionemu.gameserver.ai2.event.AIEventType;
@@ -25,6 +26,7 @@ import com.aionemu.gameserver.model.summons.UnsummonType;
 import com.aionemu.gameserver.model.templates.npcskill.NpcSkillTemplates;
 
 /**
+ *
  * @author xTz
  */
 public class SiegeWeaponController extends SummonController {

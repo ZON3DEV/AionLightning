@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player.emotion;
 
 import java.util.Collection;
@@ -31,6 +32,7 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author MrPoke
+ *
  */
 public class EmotionList {
 
@@ -74,7 +76,8 @@ public class EmotionList {
 	}
 
 	public boolean canUse(int emotionId) {
-		return emotionId < 64 || emotionId > 155 || (emotions != null && emotions.containsKey(emotionId)) || owner.havePermission(MembershipConfig.EMOTIONS_ALL);
+		return emotionId < 64 || emotionId > 149 /* 4.7 */|| (emotions != null && emotions.containsKey(emotionId))
+				|| owner.havePermission(MembershipConfig.EMOTIONS_ALL);
 	}
 
 	public Collection<Emotion> getEmotions() {

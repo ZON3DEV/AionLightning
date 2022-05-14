@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.gmhandler;
 
 import java.util.ArrayList;
@@ -30,7 +31,8 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_COOLDOWN;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
- * @author Alcapwnd
+ * @author ronny
+ *
  */
 public class CmdItemCoolTime extends AbstractGMHandler {
 
@@ -71,12 +73,12 @@ public class CmdItemCoolTime extends AbstractGMHandler {
 			while (iter.hasNext()) {
 				HouseObject<?> obj = iter.next();
 				if (obj instanceof UseableItemObject) {
-					if (!playerT.getHouseObjectCooldownList().isCanUseObject(obj.getObjectId()))
+					if (!playerT.getHouseObjectCooldownList().isCanUseObject(obj.getObjectId())) {
 						playerT.getHouseObjectCooldownList().addHouseObjectCooldown(obj.getObjectId(), 0);
+					}
 				}
 			}
 		}
 
 	}
-
 }

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.quest;
 
 import java.util.ArrayList;
@@ -34,40 +35,39 @@ public class Rewards {
 	@XmlElement(name = "reward_item")
 	protected List<QuestItems> rewardItem;
 	@XmlAttribute
-	protected Long gold;
+	protected Integer gold;
 	@XmlAttribute
-	protected Long exp;
+	protected Integer exp;
 	@XmlAttribute(name = "reward_abyss_point")
 	protected Integer rewardAbyssPoint;
 	@XmlAttribute(name = "reward_glory_point")
 	protected Integer rewardGloryPoint;
-	@XmlAttribute(name = "expBoost")
-	protected Integer expBoost;
-	@XmlAttribute(name = "reward_creativity_point")
-	protected Integer rewardCP;
 	@XmlAttribute
 	protected Integer title;
 	@XmlAttribute(name = "extend_inventory")
 	protected Integer extendInventory;
 	@XmlAttribute(name = "extend_stigma")
 	protected Integer extendStigma;
-    @XmlAttribute(name= "fame_exp")
-    protected Integer fameExp;
+	@XmlAttribute(name = "dp")
+	protected Integer rewardDp;
 
 	/**
 	 * Gets the value of the selectableRewardItem property.
-	 * <p/>
-	 * This accessor method returns a reference to the live list, not a snapshot. Therefore any modification you make to the returned list will be present inside the JAXB object. This is why there is
-	 * not a <CODE>set</CODE> method for the selectableRewardItem property.
-	 * <p/>
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a
+	 * snapshot. Therefore any modification you make to the returned list will
+	 * be present inside the JAXB object. This is why there is not a
+	 * <CODE>set</CODE> method for the selectableRewardItem property.
+	 * <p>
 	 * For example, to add a new item, do as follows:
-	 * <p/>
-	 * 
+	 *
 	 * <pre>
 	 * getSelectableRewardItem().add(newItem);
 	 * </pre>
-	 * <p/>
-	 * Objects of the following type(s) are allowed in the list {@link QuestItems }
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list
+	 * {@link QuestItems
+     * }
 	 */
 	public List<QuestItems> getSelectableRewardItem() {
 		if (selectableRewardItem == null) {
@@ -78,18 +78,21 @@ public class Rewards {
 
 	/**
 	 * Gets the value of the rewardItem property.
-	 * <p/>
-	 * This accessor method returns a reference to the live list, not a snapshot. Therefore any modification you make to the returned list will be present inside the JAXB object. This is why there is
-	 * not a <CODE>set</CODE> method for the rewardItem property.
-	 * <p/>
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a
+	 * snapshot. Therefore any modification you make to the returned list will
+	 * be present inside the JAXB object. This is why there is not a
+	 * <CODE>set</CODE> method for the rewardItem property.
+	 * <p>
 	 * For example, to add a new item, do as follows:
-	 * <p/>
-	 * 
+	 *
 	 * <pre>
 	 * getRewardItem().add(newItem);
 	 * </pre>
-	 * <p/>
-	 * Objects of the following type(s) are allowed in the list {@link QuestItems }
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list
+	 * {@link QuestItems
+     * }
 	 */
 	public List<QuestItems> getRewardItem() {
 		if (rewardItem == null) {
@@ -103,7 +106,7 @@ public class Rewards {
 	 *
 	 * @return possible object is {@link Integer }
 	 */
-	public Long getGold() {
+	public Integer getGold() {
 		return gold;
 	}
 
@@ -112,7 +115,7 @@ public class Rewards {
 	 *
 	 * @return possible object is {@link Integer }
 	 */
-	public Long getExp() {
+	public Integer getExp() {
 		return exp;
 	}
 
@@ -132,24 +135,6 @@ public class Rewards {
 	 */
 	public Integer getRewardGloryPoint() {
 		return rewardGloryPoint;
-	}
-
-	/**
-	 * Gets the value of the rewardGrowthEnergy property.
-	 *
-	 * @return possible object is {@link Integer }
-	 */
-	public Integer getExpBoost() {
-		return expBoost;
-	}
-
-	/**
-	 * Gets the value of the rewardCP property.
-	 *
-	 * @return possible object is {@link Integer }
-	 */
-	public Integer getRewardCP() {
-		return rewardCP;
 	}
 
 	/**
@@ -176,9 +161,11 @@ public class Rewards {
 	}
 
 	/**
-	 * @return the fameExp
+	 * Gets the value of the rewardDp property.
+	 *
+	 * @return possible object is {@link Integer }
 	 */
-    public Integer getFameExp() {
-        return fameExp;
-    }
+	public Integer getRewardDp() {
+		return rewardDp;
+	}
 }

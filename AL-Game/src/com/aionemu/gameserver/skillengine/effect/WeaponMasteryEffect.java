@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ import com.aionemu.gameserver.skillengine.model.Effect;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "WeaponMasteryEffect")
-public class WeaponMasteryEffect extends BuffEffect {
+public class WeaponMasteryEffect extends BufEffect {
 
 	@XmlAttribute(name = "weapon")
 	private WeaponType weaponType;
@@ -51,8 +52,7 @@ public class WeaponMasteryEffect extends BuffEffect {
 		for (IStatFunction modifier : modifiers) {
 			if (weaponType.getRequiredSlots() == 2) {
 				masteryModifiers.add(new StatWeaponMasteryFunction(weaponType, modifier.getName(), modifier.getValue(), modifier.isBonus()));
-			}
-			else if (modifier.getName() == StatEnum.PHYSICAL_ATTACK) {
+			} else if (modifier.getName() == StatEnum.PHYSICAL_ATTACK) {
 				masteryModifiers.add(new StatWeaponMasteryFunction(weaponType, StatEnum.MAIN_HAND_POWER, modifier.getValue(), modifier.isBonus()));
 				masteryModifiers.add(new StatWeaponMasteryFunction(weaponType, StatEnum.OFF_HAND_POWER, modifier.getValue(), modifier.isBonus()));
 			}

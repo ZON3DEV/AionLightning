@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.common.events;
 
 import org.apache.commons.lang.StringUtils;
@@ -31,10 +32,7 @@ public abstract class PlayerLeavedEvent<TM extends TeamMember<Player>, T extends
 
 	public static enum LeaveReson {
 
-		BAN,
-		LEAVE,
-		LEAVE_TIMEOUT,
-		DISBAND;
+		BAN, LEAVE, LEAVE_TIMEOUT, DISBAND
 	}
 
 	protected final T team;

@@ -15,11 +15,11 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.network;
 
 /**
- * Disconnection Task that will be execute on
- * <code>DisconnectionThreadPool</code>
+ * Disconnection Task that will be execute on <code>DisconnectionThreadPool</code>
  * 
  * @author -Nemesiss-
  * @see com.aionemu.commons.network.DisconnectionThreadPool
@@ -27,8 +27,7 @@ package com.aionemu.commons.network;
 public class DisconnectionTask implements Runnable {
 
 	/**
-	 * Connection that onDisconnect() method will be executed by
-	 * <code>DisconnectionThreadPool</code>
+	 * Connection that onDisconnect() method will be executed by <code>DisconnectionThreadPool</code>
 	 * 
 	 * @see com.aionemu.commons.network.DisconnectionThreadPool
 	 */

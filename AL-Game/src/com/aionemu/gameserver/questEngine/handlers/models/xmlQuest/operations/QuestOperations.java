@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.handlers.models.xmlQuest.operations;
 
 import java.util.List;
@@ -31,7 +32,10 @@ import com.aionemu.gameserver.questEngine.model.QuestEnv;
 @XmlType(name = "QuestOperations", propOrder = { "operations" })
 public class QuestOperations {
 
-	@XmlElements({ @XmlElement(name = "take_item", type = TakeItemOperation.class), @XmlElement(name = "npc_dialog", type = NpcDialogOperation.class), @XmlElement(name = "set_quest_status", type = SetQuestStatusOperation.class), @XmlElement(name = "give_item", type = GiveItemOperation.class), @XmlElement(name = "start_quest", type = StartQuestOperation.class), @XmlElement(name = "npc_use", type = ActionItemUseOperation.class), @XmlElement(name = "set_quest_var", type = SetQuestVarOperation.class), @XmlElement(name = "collect_items", type = CollectItemQuestOperation.class) })
+	@XmlElements({ @XmlElement(name = "take_item", type = TakeItemOperation.class), @XmlElement(name = "npc_dialog", type = NpcDialogOperation.class),
+			@XmlElement(name = "set_quest_status", type = SetQuestStatusOperation.class), @XmlElement(name = "give_item", type = GiveItemOperation.class),
+			@XmlElement(name = "start_quest", type = StartQuestOperation.class), @XmlElement(name = "npc_use", type = ActionItemUseOperation.class),
+			@XmlElement(name = "set_quest_var", type = SetQuestVarOperation.class), @XmlElement(name = "collect_items", type = CollectItemQuestOperation.class) })
 	protected List<QuestOperation> operations;
 	@XmlAttribute
 	protected Boolean override;
@@ -44,8 +48,7 @@ public class QuestOperations {
 	public boolean isOverride() {
 		if (override == null) {
 			return true;
-		}
-		else {
+		} else {
 			return override;
 		}
 	}

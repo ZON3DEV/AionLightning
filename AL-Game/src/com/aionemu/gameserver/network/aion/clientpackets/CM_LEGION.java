@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.slf4j.Logger;
@@ -29,7 +30,7 @@ import com.aionemu.gameserver.services.NameRestrictionService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
- * @author Simple, modified CoolyT
+ * @author Simple
  */
 public class CM_LEGION extends AionClientPacket {
 
@@ -48,10 +49,6 @@ public class CM_LEGION extends AionClientPacket {
 	private String newNickname;
 	private String announcement;
 	private String newSelfIntro;
-	private String joinDescription;
-	private int joinType;
-	private int minLevel;
-	private int playerId;
 
 	/**
 	 * Constructs new instance of CM_LEGION packet
@@ -70,9 +67,9 @@ public class CM_LEGION extends AionClientPacket {
 		exOpcode = readC();
 
 		switch (exOpcode) {
-			/**
-			 * Create a legion *
-			 */
+		/**
+		 * Create a legion *
+		 */
 			case 0x00:
 				readD(); // 00 78 19 00 40
 				legionName = readS();
@@ -160,30 +157,6 @@ public class CM_LEGION extends AionClientPacket {
 				charName = readS();
 				newNickname = readS();
 				break;
-			/**
-			 * Change Legion Join Description
-			 */
-			case 0x11:
-				joinDescription = readS();
-				break;
-			/**
-			 * Change Legion Recruit Type 0 : can Join / 1 : can join after request / 2: join legion via legionSearch is disabled.
-			 */
-			case 0x12:
-				joinType = readC();
-				break;
-			// change recruitMinLevel
-			case 0x13:
-				minLevel = readH();
-				break;
-			// accept Legion Join Request from Player
-			case 0x14:
-				playerId = readD();
-				break;
-			// deny Legion Join Request from Player
-			case 0x15:
-				playerId = readD();
-				break;
 			default:
 				log.info("Unknown Legion exOpcode? 0x" + Integer.toHexString(exOpcode).toUpperCase());
 				break;
@@ -201,12 +174,11 @@ public class CM_LEGION extends AionClientPacket {
 
 			if (charName != null) {
 				LegionService.getInstance().handleCharNameRequest(exOpcode, activePlayer, charName, newNickname, rank);
-			}
-			else {
+			} else {
 				switch (exOpcode) {
-					/**
-					 * Refresh legion info *
-					 */
+				/**
+				 * Refresh legion info *
+				 */
 					case 0x08:
 						sendPacket(new SM_LEGION_INFO(legion));
 						break;
@@ -227,43 +199,9 @@ public class CM_LEGION extends AionClientPacket {
 					 */
 					case 0x0D:
 						if (activePlayer.getLegionMember().isBrigadeGeneral()) {
-							LegionService.getInstance().changePermissions(legion, deputyPermission, centurionPermission, legionarPermission, volunteerPermission);
+							LegionService.getInstance().changePermissions(legion, deputyPermission, centurionPermission, legionarPermission,
+									volunteerPermission);
 						}
-						break;
-					/**
-					 * Change Legion description *
-					 */
-					case 0x11:
-						if (activePlayer.getLegionMember().isBrigadeGeneral())
-							LegionService.getInstance().setJoinDescription(activePlayer, joinDescription);
-						break;
-					/**
-					 * Change Legion joinType *
-					 */
-					case 0x12:
-						if (activePlayer.getLegionMember().isBrigadeGeneral())
-							LegionService.getInstance().setJoinType(activePlayer, joinType);
-						break;
-					/**
-					 * Change Legion minimal Join Level *
-					 */
-					case 0x13:
-						if (activePlayer.getLegionMember().isBrigadeGeneral())
-							LegionService.getInstance().setJoinMinLevel(activePlayer, minLevel);
-						break;
-					/**
-					 * Legion accept recruit request *
-					 */
-					case 0x14:
-						if (activePlayer.getLegionMember().isBrigadeGeneral())
-							LegionService.getInstance().handleJoinRequestGiveAnswer(activePlayer, playerId, true);
-						break;
-					/**
-					 * Legion deny recruit request *
-					 */
-					case 0x15:
-						if (activePlayer.getLegionMember().isBrigadeGeneral())
-							LegionService.getInstance().handleJoinRequestGiveAnswer(activePlayer, playerId, false);
 						break;
 					/**
 					 * Misc. *
@@ -273,17 +211,15 @@ public class CM_LEGION extends AionClientPacket {
 						break;
 				}
 			}
-		}
-		else {
+		} else {
 			switch (exOpcode) {
-				/**
-				 * Create a legion *
-				 */
+			/**
+			 * Create a legion *
+			 */
 				case 0x00:
 					if (NameRestrictionService.isForbiddenWord(legionName)) {
 						PacketSendUtility.sendMessage(activePlayer, "You are trying to use a forbidden name. Choose another one!");
-					}
-					else {
+					} else {
 						LegionService.getInstance().createLegion(activePlayer, legionName);
 					}
 					break;

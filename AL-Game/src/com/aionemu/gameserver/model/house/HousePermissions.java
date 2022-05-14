@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.house;
 
 /**
@@ -22,7 +23,7 @@ package com.aionemu.gameserver.model.house;
 public enum HousePermissions {
 
 	NOT_SET(0),
-	SHOW_OWNER(1 << 0),
+    SHOW_OWNER(1 << 0),
 	DOOR_OPENED_ALL(1 << 8),
 	DOOR_OPENED_FRIENDS(2 << 8),
 	DOOR_CLOSED(3 << 8);

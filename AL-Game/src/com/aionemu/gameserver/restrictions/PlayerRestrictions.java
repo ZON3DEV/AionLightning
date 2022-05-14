@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.restrictions;
 
 import com.aionemu.gameserver.configs.main.GroupConfig;
@@ -24,12 +25,10 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.state.CreatureState;
-import com.aionemu.gameserver.model.team2.alliance.PlayerAlliance;
 import com.aionemu.gameserver.model.team2.group.PlayerGroup;
 import com.aionemu.gameserver.model.templates.zone.ZoneClassName;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.skillengine.effect.AbnormalState;
-import com.aionemu.gameserver.skillengine.effect.EffectType;
 import com.aionemu.gameserver.skillengine.model.Skill;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.skillengine.model.SkillType;
@@ -48,10 +47,6 @@ public class PlayerRestrictions extends AbstractRestrictions {
 		if (skill == null) {
 			return false;
 		}
-		if (player.isInPlayerMode(PlayerMode.RIDE)) {
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_CANNOT_RIDE_ABNORMAL_STATE);
-			return false;		
-		}
 
 		// dont allow to use skills in Fly Teleport state
 		if (target instanceof Player && ((Player) target).isProtectionActive()) {
@@ -68,7 +63,9 @@ public class PlayerRestrictions extends AbstractRestrictions {
 		}
 
 		// cant ressurect non players and non dead
-		if (skill.getSkillTemplate().hasResurrectEffect() && (!(target instanceof Player) || !((Creature) target).getLifeStats().isAlreadyDead() || (!((Creature) target).isInState(CreatureState.DEAD) && !((Creature) target).isInState(CreatureState.FLOATING_CORPSE)))) {
+		if (skill.getSkillTemplate().hasResurrectEffect()
+				&& (!(target instanceof Player) || !((Creature) target).getLifeStats().isAlreadyDead() || (!((Creature) target).isInState(CreatureState.DEAD) && !((Creature) target)
+						.isInState(CreatureState.FLOATING_CORPSE)))) {
 			return false;
 		}
 
@@ -95,10 +92,6 @@ public class PlayerRestrictions extends AbstractRestrictions {
 
 		if (player.isInState(CreatureState.PRIVATE_SHOP)) { // You cannot use an item while running a Private Store.
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_CANNOT_USE_ITEM_DURING_PATH_FLYING(new DescriptionId(2800123)));
-			return false;
-		} 
-		if (((target instanceof Player)) && (((Player) target).isTransformed()) && (((Player) target).getTransformModel().getType() == TransformType.AVATAR)
-			&& (skill.getSkillTemplate().getEffects().isEffectTypePresent(EffectType.HIDE))) {
 			return false;
 		}
 
@@ -131,17 +124,9 @@ public class PlayerRestrictions extends AbstractRestrictions {
 		// TODO cancel skill if other is used
 		if (player.isCasting()) {
 			return false;
-		} 
-		if (player.isInPlayerMode(PlayerMode.RIDE)) {
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_SKILL_RESTRICTION_RIDE);
-			return false;
-		} 
-		if (player.getInventory().isFull()) {
-			//You are too overburdened to fight.
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_TOO_HEAVY_TO_ATTACK);
-			return false;
-		} 
-		if (!player.canAttack() && !template.hasEvadeEffect()) {
+		}
+
+		if ((!player.canAttack()) && !template.hasEvadeEffect()) {
 			return false;
 		}
 
@@ -156,11 +141,11 @@ public class PlayerRestrictions extends AbstractRestrictions {
 			return false;
 		}
 
-		// //cannot use abyss skill in tiamat down
-		// if (skill.getSkillTemplate().getStack().contains("ABYSS_RANKERSKILL") && player.getWorldId() == 600040000) {
-		// PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_SKILL_CANT_CAST_IN_CURRENT_POSTION);
-		// return false;
-		// }
+		// cannot use abyss skill in tiamat down
+		if (skill.getSkillTemplate().getStack().contains("ABYSS_RANKERSKILL") && player.getWorldId() == 600040000) {
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_SKILL_CANT_CAST_IN_CURRENT_POSTION);
+			return false;
+		}
 
 		if (player.isSkillDisabled(template)) {
 			return false;
@@ -184,9 +169,6 @@ public class PlayerRestrictions extends AbstractRestrictions {
 				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_SKILL_TARGET_IS_NOT_VALID);
 				return false;
 			}
-		} 
-		if ((player.isTransformed()) && (player.getTransformModel().getType() == TransformType.AVATAR) && (skill.getSkillTemplate().getEffects().isEffectTypePresent(EffectType.HIDE))) {
-			return false;
 		}
 
 		return true;
@@ -194,44 +176,35 @@ public class PlayerRestrictions extends AbstractRestrictions {
 
 	@Override
 	public boolean canInviteToGroup(Player player, Player target) {
-		PlayerGroup group = player.getPlayerGroup2();
+		final com.aionemu.gameserver.model.team2.group.PlayerGroup group = player.getPlayerGroup2();
 
 		if (group != null && group.isFull()) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_PARTY_CANT_ADD_NEW_MEMBER);
 			return false;
-		}
-		else if (group != null && !player.getObjectId().equals(group.getLeader().getObjectId())) {
+		} else if (group != null && !player.getObjectId().equals(group.getLeader().getObjectId())) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_PARTY_ONLY_LEADER_CAN_INVITE);
 			return false;
-		}
-		else if (target == null) {
+		} else if (target == null) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_PARTY_NO_USER_TO_INVITE);
 			return false;
-		}
-		else if (target.getRace() != player.getRace() && !GroupConfig.GROUP_INVITEOTHERFACTION) {
+		} else if (target.getRace() != player.getRace() && !GroupConfig.GROUP_INVITEOTHERFACTION) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_PARTY_CANT_INVITE_OTHER_RACE);
 			return false;
-		}
-		else if (target.sameObjectId(player.getObjectId())) {
+		} else if (target.sameObjectId(player.getObjectId())) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_PARTY_CAN_NOT_INVITE_SELF);
 			return false;
-		}
-		else if (target.getLifeStats().isAlreadyDead()) {
+		} else if (target.getLifeStats().isAlreadyDead()) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_UI_PARTY_DEAD);
 			return false;
-		}
-		else if (player.getLifeStats().isAlreadyDead()) {
+		} else if (player.getLifeStats().isAlreadyDead()) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_PARTY_CANT_INVITE_WHEN_DEAD);
 			return false;
-		}
-		else if (player.isInGroup2() && target.isInGroup2() && player.getPlayerGroup2().getTeamId() == target.getPlayerGroup2().getTeamId()) {
+        } else if (player.isInGroup2() && target.isInGroup2() && player.getPlayerGroup2().getTeamId() == target.getPlayerGroup2().getTeamId()) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_PARTY_HE_IS_ALREADY_MEMBER_OF_OUR_PARTY(target.getName()));
-		}
-		else if (target.isInGroup2()) {
+		} else if (target.isInGroup2()) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_PARTY_HE_IS_ALREADY_MEMBER_OF_OTHER_PARTY(target.getName()));
 			return false;
-		}
-		else if (target.isInAlliance2()) {
+		} else if (target.isInAlliance2()) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_FORCE_ALREADY_OTHER_FORCE(target.getName()));
 			return false;
 		}
@@ -241,7 +214,6 @@ public class PlayerRestrictions extends AbstractRestrictions {
 
 	@Override
 	public boolean canInviteToAlliance(Player player, Player target) {
-		int level = player.getLevel();
 		if (target == null) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_FORCE_NO_USER_TO_INVITE);
 			return false;
@@ -252,18 +224,13 @@ public class PlayerRestrictions extends AbstractRestrictions {
 			return false;
 		}
 
-		PlayerAlliance alliance = player.getPlayerAlliance2();
-		if (level < 10) {
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_PARTY_ALLIANCE_TOO_LOW_LEVEL_TO_INVITE("10"));
-			return false;
-		}
+		final com.aionemu.gameserver.model.team2.alliance.PlayerAlliance alliance = player.getPlayerAlliance2();
 
 		if (target.isInAlliance2()) {
 			if (target.getPlayerAlliance2() == alliance) {
 				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_PARTY_ALLIANCE_HE_IS_ALREADY_MEMBER_OF_OUR_ALLIANCE(target.getName()));
 				return false;
-			}
-			else {
+			} else {
 				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_FORCE_ALREADY_OTHER_FORCE(target.getName()));
 				return false;
 			}
@@ -299,43 +266,11 @@ public class PlayerRestrictions extends AbstractRestrictions {
 			if (targetGroup.isLeader(target)) {
 				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_FORCE_INVITE_PARTY_HIM(target.getName(), targetGroup.getLeader().getName()));
 				return false;
-			} if (alliance != null && (targetGroup.size() + alliance.size() >= 24)) {
+			}
+			if (alliance != null && (targetGroup.size() + alliance.size() >= 24)) {
 				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_FORCE_INVITE_FAILED_NOT_ENOUGH_SLOT);
 				return false;
 			}
-		}
-		return true;
-	}
-	
-	public boolean canInviteToLeague(Player player, Player target) {
-		if (target == null) {
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_UNION_ONLY_INVITE_FORCE_MEMBER);
-			return false;
-		}
-		PlayerAlliance alliance = player.getPlayerAlliance2();
-		 if (target.isInLeague()) {
-			if (target.getPlayerAlliance2() == alliance) {
-				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_UNION_ALREADY_MY_UNION(target.getName()));
-				return false;
-			} else {
-				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_UNION_ALREADY_OTHER_UNION(target.getName()));
-				return false;
-			}
-		} if (alliance != null && alliance.isFull()) {
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_UNION_CANT_ADD_NEW_MEMBER);
-			return false;
-		} if (alliance != null) {
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_UNION_ONLY_LEADER_CAN_LEAVE);
-			return false;
-		} if (player.getLifeStats().isAlreadyDead()) {
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_UNION_CANT_INVITE_WHEN_DEAD);
-			return false;
-		} if (target.isInGroup2()) {
-			PlayerGroup targetGroup = target.getPlayerGroup2();
-			if (targetGroup.isLeader(target)) {
-				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_UNION_INVITE_HIM(target.getName(), targetGroup.getLeader().getName()));
-				return false;
-			} 
 		}
 
 		return true;
@@ -359,16 +294,6 @@ public class PlayerRestrictions extends AbstractRestrictions {
 
 		if (creature.getLifeStats().isAlreadyDead()) {
 			return false;
-		} 
-		if (player.isInPlayerMode(PlayerMode.RIDE)) {
-			//You cannot attack while mounted.
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_ATTACK_RESTRICTION_RIDE);
-			return false;
-		} 
-		if (player.getInventory().isFull()) {
-			//You are too overburdened to fight.
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_TOO_HEAVY_TO_ATTACK);
-			return false;
 		}
 
 		return player.isEnemy(creature);
@@ -376,15 +301,12 @@ public class PlayerRestrictions extends AbstractRestrictions {
 
 	@Override
 	public boolean canUseWarehouse(Player player) {
-		int level = player.getLevel();
 		if (player == null || !player.isOnline()) {
 			return false;
 		}
+
+		// TODO retail message to requestor and player
 		if (player.isTrading()) {
-			return false;
-		} 
-		if (level < 10) {
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_FREE_EXPERIENCE_CHARACTER_CANT_USE_ACCOUNT_WAREHOUSE("10"));
 			return false;
 		}
 
@@ -393,7 +315,6 @@ public class PlayerRestrictions extends AbstractRestrictions {
 
 	@Override
 	public boolean canTrade(Player player) {
-		int level = player.getLevel();
 		if (player == null || !player.isOnline()) {
 			return false;
 		}
@@ -401,22 +322,8 @@ public class PlayerRestrictions extends AbstractRestrictions {
 		if (player.isTrading()) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_EXCHANGE_PARTNER_IS_EXCHANGING_WITH_OTHER);
 			return false;
-		} 
-		if (player.getEffectController().isAbnormalSet(AbnormalState.HIDE)) {
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_EXCHANGE_CANT_EXCHANGE_WHILE_INVISIBLE);
-			return false;
-		} if (level < 10) {
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_FREE_EXPERIENCE_CHARACTER_CANT_TRADE("10"));
-			return false;
 		}
-		return true;
-	}
-	
-	@Override
-    public boolean canChangeEquip(Player player){
-        if (player.getEffectController().isAbnormalSet(AbnormalState.CANT_ATTACK_STATE)) {
-            return false;
-        }
+
 		return true;
 	}
 
@@ -454,8 +361,7 @@ public class PlayerRestrictions extends AbstractRestrictions {
 					PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300143));
 					return false;
 				}
-			}
-			else if (restriction != null && !player.isInsideItemUseZone(restriction)) {
+			} else if (restriction != null && !player.isInsideItemUseZone(restriction)) {
 				// You cannot use that item here.
 				PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1300143));
 				return false;

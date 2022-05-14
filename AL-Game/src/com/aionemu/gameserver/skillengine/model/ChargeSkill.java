@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.model;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -22,6 +23,7 @@ import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 
 /**
  * @author Cheatkiller
+ *
  */
 public class ChargeSkill extends Skill {
 

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.i18n;
 
 import java.lang.reflect.Modifier;
@@ -23,7 +24,6 @@ import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.scripting.classlistener.ClassListener;
 import com.aionemu.commons.utils.ClassUtils;
-import com.aionemu.gameserver.GameServer;
 
 /**
  * @author blakawk
@@ -54,15 +54,14 @@ public class LanguagesLoader implements ClassListener {
 				if (language != null) {
 					try {
 						handler.registerLanguage(language.newInstance());
-					}
-					catch (Exception e) {
+					} catch (Exception e) {
 						log.error("Registering " + language.getName(), e);
 					}
 				}
 			}
 		}
 
-		GameServer.log.info("[LanguagesLoader] Loaded " + handler.size() + " custom message handlers.");
+		log.info("Loaded " + handler.size() + " custom message handlers.");
 	}
 
 	@Override

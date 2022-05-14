@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -21,36 +22,36 @@ import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
 import com.aionemu.gameserver.services.FastTrackService;
 
+
 /**
  * @author Alcapwnd
  */
 public class CM_FAST_TRACK_CHECK extends AionClientPacket {
 
-	private int accountId;
+    private int accountId;
 
-	/**
-	 * @param opcode
-	 * @param state
-	 * @param restStates
-	 */
-	public CM_FAST_TRACK_CHECK(int opcode, State state, State... restStates) {
-		super(opcode, state, restStates);
-	}
+    /**
+     * @param opcode
+     * @param state
+     * @param restStates
+     */
+    public CM_FAST_TRACK_CHECK(int opcode, State state, State... restStates) {
+        super(opcode, state, restStates);
+    }
 
-	@Override
-	protected void readImpl() {
-		accountId = readD();
-	}
+    @Override
+    protected void readImpl() {
+        accountId = readD();
+    }
 
-	@Override
-	protected void runImpl() {
-		final Player player = this.getConnection().getActivePlayer();
-		if (player.isOnFastTrack()) {
-			FastTrackService.getInstance().checkFastTrackMove(player, accountId, true);
-		}
-		else {
-			FastTrackService.getInstance().checkFastTrackMove(player, accountId, false);
-		}
-	}
+    @Override
+    protected void runImpl() {
+        final Player player = this.getConnection().getActivePlayer();
+        if (player.isOnFastTrack()) {
+            FastTrackService.getInstance().checkFastTrackMove(player, accountId, true);
+        } else {
+            FastTrackService.getInstance().checkFastTrackMove(player, accountId, false);
+        }
+    }
 
 }

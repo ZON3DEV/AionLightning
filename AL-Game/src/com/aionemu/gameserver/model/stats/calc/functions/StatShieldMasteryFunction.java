@@ -20,9 +20,6 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.stats.calc.Stat2;
 import com.aionemu.gameserver.model.stats.container.StatEnum;
 
-/**
- * @author VladimirZ
- */
 public class StatShieldMasteryFunction extends StatRateFunction {
 
 	public StatShieldMasteryFunction(StatEnum name, int value, boolean bonus) {

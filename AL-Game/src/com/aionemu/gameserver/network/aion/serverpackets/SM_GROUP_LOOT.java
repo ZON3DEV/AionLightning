@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -35,8 +36,7 @@ public class SM_GROUP_LOOT extends AionServerPacket {
 	private long luck;
 
 	/**
-	 * @param Player
-	 *            Id must be 0 to start the Roll Options
+     * @param Player Id must be 0 to start the Roll Options
 	 */
 	public SM_GROUP_LOOT(int groupId, int playerId, int itemId, int lootCorpseId, int distributionId, long luck, int index) {
 		this.groupId = groupId;
@@ -62,6 +62,7 @@ public class SM_GROUP_LOOT extends AionServerPacket {
 		writeC(unk3);
 		writeC(0); // 3.0
 		writeC(0); // 3.5
+		writeC(0); // 4.6
 		writeD(lootCorpseId);
 		writeC(distributionId);
 		writeD(playerId);

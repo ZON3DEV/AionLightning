@@ -14,12 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dao;
 
 import com.aionemu.commons.database.dao.DAO;
 
 /**
- * This interface is generic one for all DAO classes that are generating their id's using {@link com.aionemu.gameserver.utils.idfactory.IDFactory}
+ * This interface is generic one for all DAO classes that are generating their
+ * id's using {@link com.aionemu.gameserver.utils.idfactory.IDFactory}
  *
  * @author SoulKeeper
  */

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -46,9 +47,8 @@ public abstract class DamageEffect extends EffectTemplate {
 	}
 
 	public boolean calculate(Effect effect, DamageType damageType) {
-		if (!super.calculate(effect, null, null)) {
+		if (!super.calculate(effect, null, null))
 			return false;
-		}
 
 		int skillLvl = effect.getSkillLevel();
 		int valueWithDelta = value + delta * skillLvl;
@@ -62,17 +62,19 @@ public abstract class DamageEffect extends EffectTemplate {
 					cannotMiss = ((SkillAttackInstantEffect) this).isCannotmiss();
 				}
 				int rndDmg = (this instanceof SkillAttackInstantEffect ? ((SkillAttackInstantEffect) this).getRnddmg() : 0);
-				AttackUtil.calculateSkillResult(effect, valueWithDelta, modifier, this.getMode(), rndDmg, accMod, this.critProbMod2, critAddDmg, cannotMiss, shared, false, false);
+				AttackUtil.calculateSkillResult(effect, valueWithDelta, modifier, this.getMode(), rndDmg, accMod, this.critProbMod2, critAddDmg, cannotMiss,
+						shared, false);
 				break;
 			case MAGICAL:
 				boolean useKnowledge = true;
 				if (this instanceof ProcAtkInstantEffect) {
 					useKnowledge = false;
 				}
-				AttackUtil.calculateMagicalSkillResult(effect, valueWithDelta, modifier, getElement(), true, useKnowledge, false, this.getMode(), this.critProbMod2, critAddDmg, shared, false);
+				AttackUtil.calculateMagicalSkillResult(effect, valueWithDelta, modifier, getElement(), true, useKnowledge, false, this.getMode(),
+						this.critProbMod2, critAddDmg, shared, false);
 				break;
 			default:
-				AttackUtil.calculateSkillResult(effect, 0, null, this.getMode(), 0, accMod, 100, 0, false, shared, false, false);
+				AttackUtil.calculateSkillResult(effect, 0, null, this.getMode(), 0, accMod, 100, 0, false, shared, false);
 		}
 
 		return true;

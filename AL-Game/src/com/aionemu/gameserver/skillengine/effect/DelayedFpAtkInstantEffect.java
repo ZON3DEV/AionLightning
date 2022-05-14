@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAttribute;
@@ -24,6 +25,7 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 
 /**
  * @author kecimis
+ *
  */
 public class DelayedFpAtkInstantEffect extends EffectTemplate {
 
@@ -43,7 +45,6 @@ public class DelayedFpAtkInstantEffect extends EffectTemplate {
 	@Override
 	public void applyEffect(final Effect effect) {
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				if (effect.getEffector().isEnemy(effect.getEffected())) {
@@ -65,7 +66,7 @@ public class DelayedFpAtkInstantEffect extends EffectTemplate {
 		int newValue = valueWithDelta;
 		// Support for values in percentage
 		if (percent) {
-			newValue = (maxFP * valueWithDelta) / 100;
+			newValue = (int) ((maxFP * valueWithDelta) / 100);
 		}
 
 		player.getLifeStats().reduceFp(newValue);

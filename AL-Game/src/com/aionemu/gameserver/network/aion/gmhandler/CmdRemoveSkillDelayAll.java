@@ -14,12 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.gmhandler;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
- * @author Alcapwnd
+ * @author Antraxx
  */
 public class CmdRemoveSkillDelayAll extends AbstractGMHandler {
 
@@ -28,12 +29,16 @@ public class CmdRemoveSkillDelayAll extends AbstractGMHandler {
 		run();
 	}
 
-	// TODO its a little bit odd
 	private void run() {
+		@SuppressWarnings("unused")
+		Player t = target != null ? target : admin;
 		/*
-		 * Player t = target != null ? target : admin; if (t.getRemoveSkillDelay() == 1) { t.setRemoveSkillDelay(0); PacketSendUtility.sendMessage(t, "Now you got your normal Skill Cooldowns!"); }
-		 * else if (t.getRemoveSkillDelay() == 0) { t.setRemoveSkillDelay(1); PacketSendUtility.sendMessage(t, "Now you wont have any Skill Cooldowns!"); }
+		 * if (t.getRemoveSkillDelay() == 1) {//TODO NEED TO REWORK?
+		 * t.setRemoveSkillDelay(0); PacketSendUtility.sendMessage(t,
+		 * "Now you got your normal Skill Cooldowns!"); } else if
+		 * (t.getRemoveSkillDelay() == 0) { t.setRemoveSkillDelay(1);
+		 * PacketSendUtility.sendMessage(t,
+		 * "Now you wont have any Skill Cooldowns!"); }
 		 */
 	}
-
 }

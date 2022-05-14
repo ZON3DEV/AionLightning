@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.model;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -26,6 +27,5 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum ProvokeType {
 
-	ATTACK,
-	ATTACKED
+	ATTACK, ATTACKED
 }

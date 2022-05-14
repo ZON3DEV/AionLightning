@@ -14,14 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers;
+
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.controllers.observer.FlyRingObserver;
 import com.aionemu.gameserver.model.flyring.FlyRing;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-
-import javolution.util.FastMap;
 
 /**
  * @author xavier

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dao;
 
 import java.sql.Timestamp;
@@ -25,7 +26,6 @@ import com.aionemu.gameserver.model.gameobjects.player.PlayerCommonData;
 
 /**
  * @author kosyachok
- * @author FrozenKiller
  */
 public abstract class MailDAO implements IDFactoryAwareDAO {
 
@@ -43,8 +43,6 @@ public abstract class MailDAO implements IDFactoryAwareDAO {
 	public abstract boolean deleteLetter(int letterId);
 
 	public abstract void updateOfflineMailCounter(PlayerCommonData recipientCommonData);
-	
-	public abstract int mailCount(int playerId);
 
-	public abstract int unreadedMails(int playerId);
+	public abstract boolean haveUnread(int playerId);
 }

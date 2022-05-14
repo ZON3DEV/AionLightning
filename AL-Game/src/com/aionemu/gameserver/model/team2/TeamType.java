@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2;
 
 /**
@@ -21,13 +22,7 @@ package com.aionemu.gameserver.model.team2;
  */
 public enum TeamType {
 
-	GROUP(0x3F, 0),
-	AUTO_GROUP(0x02, 1),
-	ALLIANCE(0x3F, 0),
-	ALLIANCE_DEFENCE(0x3F, 4),
-	ALLIANCE_OFFENCE(0x02, 3);
-	// TODO UPDATE OR ADD NEW F6
-
+	GROUP(0x3F, 0), AUTO_GROUP(0x02, 1), ALLIANCE(0x3F, 0), ALLIANCE_DEFENCE(0x3F, 4), ALLIANCE_OFFENCE(0x02, 3);
 	private int type;
 	private int subType;
 

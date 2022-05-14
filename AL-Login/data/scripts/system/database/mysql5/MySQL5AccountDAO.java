@@ -68,8 +68,6 @@ public class MySQL5AccountDAO extends AccountDAO {
 				account.setLastIp(rs.getString("last_ip"));
 				account.setLastMac(rs.getString("last_mac"));
 				account.setIpForce(rs.getString("ip_force"));
-				account.setReturn(rs.getByte("return_account"));
-				account.setReturnEnd(rs.getTimestamp("return_end"));
 			}
 		}
 		catch (Exception e) {
@@ -105,8 +103,6 @@ public class MySQL5AccountDAO extends AccountDAO {
 				account.setLastIp(rs.getString("last_ip"));
 				account.setLastMac(rs.getString("last_mac"));
 				account.setIpForce(rs.getString("ip_force"));
-				account.setReturn(rs.getByte("return_account"));
-				account.setReturnEnd(rs.getTimestamp("return_end"));
 			}
 		}
 		catch (Exception e) {
@@ -212,7 +208,7 @@ public class MySQL5AccountDAO extends AccountDAO {
 	public boolean updateAccount(Account account) {
 		int result = 0;
 		PreparedStatement st = DB
-			.prepareStatement("UPDATE account_data SET `name` = ?, `password` = ?, access_level = ?, membership = ?, last_server = ?, last_ip = ?, last_mac = ?, ip_force = ?, return_account = ?, return_end = ? WHERE `id` = ?");
+			.prepareStatement("UPDATE account_data SET `name` = ?, `password` = ?, access_level = ?, membership = ?, last_server = ?, last_ip = ?, last_mac = ?, ip_force = ? WHERE `id` = ?");
 
 		try {
 			st.setString(1, account.getName());
@@ -223,9 +219,7 @@ public class MySQL5AccountDAO extends AccountDAO {
 			st.setString(6, account.getLastIp());
 			st.setString(7, account.getLastMac());
 			st.setString(8, account.getIpForce());
-			st.setByte(9, account.getReturn());
-			st.setTimestamp(10, account.getReturnEnd());
-			st.setInt(11, account.getId());
+			st.setInt(9, account.getId());
 			st.executeUpdate();
 		}
 		catch (SQLException e) {

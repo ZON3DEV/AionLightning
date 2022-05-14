@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -74,8 +75,7 @@ public class ItemUseLimits {
 
 		try {
 			return ZoneName.get(this.usearea);
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			return null;
 		}
 	}
@@ -104,7 +104,7 @@ public class ItemUseLimits {
 	}
 
 	public boolean verifyRank(int rank) {
-		return minRank <= rank && maxRank >= rank;
+		return (minRank <= rank) && (maxRank >= rank);
 	}
 
 	public int getGuildLevelPermitted() {

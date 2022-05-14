@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.skill;
 
 import java.util.ArrayList;
@@ -21,15 +22,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.model.templates.HiddenStigmasTemplate;
 import com.aionemu.gameserver.model.templates.item.Stigma.StigmaSkill;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SKILL_LIST;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.services.SkillLearnService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
@@ -37,12 +33,13 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  */
 public final class PlayerSkillList implements SkillList<Player> {
 
+	private final Map<Integer, PlayerSkillEntry> skills;
 	private final Map<Integer, PlayerSkillEntry> basicSkills;
 	private final Map<Integer, PlayerSkillEntry> stigmaSkills;
-
 	private final List<PlayerSkillEntry> deletedSkills;
 
 	public PlayerSkillList() {
+		this.skills = new HashMap<Integer, PlayerSkillEntry>();
 		this.basicSkills = new HashMap<Integer, PlayerSkillEntry>(0);
 		this.stigmaSkills = new HashMap<Integer, PlayerSkillEntry>(0);
 		this.deletedSkills = new ArrayList<PlayerSkillEntry>(0);
@@ -51,10 +48,11 @@ public final class PlayerSkillList implements SkillList<Player> {
 	public PlayerSkillList(List<PlayerSkillEntry> skills) {
 		this();
 		for (PlayerSkillEntry entry : skills) {
-			if (entry.isStigma() || entry.isLinked())
+			if (entry.isStigma()) {
 				stigmaSkills.put(entry.getSkillId(), entry);
-			else
+			} else {
 				basicSkills.put(entry.getSkillId(), entry);
+			}
 		}
 	}
 
@@ -76,93 +74,24 @@ public final class PlayerSkillList implements SkillList<Player> {
 		return stigmaSkills.values().toArray(new PlayerSkillEntry[stigmaSkills.size()]);
 	}
 
-	public PlayerSkillEntry getStigmaSkillEntry(int skillId) {
-		return stigmaSkills.get(skillId);
-	}
-
-	public boolean isHaveHiddenStigma(Player player) {
-		for (HiddenStigmasTemplate hst : DataManager.HIDDEN_STIGMA_DATA.getHiddenStigmasByClass()) {
-			if (hst.getClassname().equals(player.getPlayerClass().name())) {
-				for (PlayerSkillEntry pse : getStigmaSkills())
-					for (HiddenStigmasTemplate.HiddenStigmaTemplate oneStigma : hst.getHiddenStigmas())
-						if (oneStigma.getId().equals(pse.getSkillTemplate().getStack()))
-							return true;
-				return false;
-			}
-		}
-		return false;
-	}
-
-	public int getMaxAvailHiddenStigmaLvl() {
-		int lvl = Integer.MAX_VALUE;
-		for (PlayerSkillEntry playerSkillEntry : getStigmaSkills()) {
-			if (playerSkillEntry.getSkillTemplate().getLvl() < lvl)
-				lvl = playerSkillEntry.getSkillTemplate().getLvl();
-		}
-		return lvl < Integer.MAX_VALUE ? lvl : 1;
-	}
-
-	public void deleteHiddenStigmaSilent(Player player) {
-		deleteHiddenStigmaAct(player, true);
-	}
-
-	public void deleteHiddenStigma(Player player) {
-		deleteHiddenStigmaAct(player, false);
-	}
-
-	private void deleteHiddenStigmaAct(Player player, boolean silent) {
-		for (HiddenStigmasTemplate hst : DataManager.HIDDEN_STIGMA_DATA.getHiddenStigmasByClass()) {
-			if (hst.getClassname().equals(player.getPlayerClass().name())) {
-				for (PlayerSkillEntry pse : getStigmaSkills()) {
-					for (HiddenStigmasTemplate.HiddenStigmaTemplate oneStigma : hst.getHiddenStigmas()) {
-						if (oneStigma.getId().equals(pse.getSkillTemplate().getStack())) {
-							int skillLvl = pse.getSkillLevel();
-							SkillLearnService.removeLinkedSkill(player, pse.getSkillId());
-							if (!silent)
-								PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_STIGMA_DELETE_HIDDEN_SKILL(new DescriptionId(DataManager.SKILL_DATA.getSkillTemplate(pse.getSkillId()).getNameId()), skillLvl));
-							player.getEffectController().removeEffect(pse.getSkillId());
-							return;
-						}
-					}
-				}
-				return;
-			}
-		}
-	}
-
 	public PlayerSkillEntry[] getDeletedSkills() {
 		return deletedSkills.toArray(new PlayerSkillEntry[deletedSkills.size()]);
 	}
 
 	public PlayerSkillEntry getSkillEntry(int skillId) {
-		if (basicSkills.containsKey(skillId))
+		if (basicSkills.containsKey(skillId)) {
 			return basicSkills.get(skillId);
+		}
 		return stigmaSkills.get(skillId);
 	}
 
 	@Override
 	public boolean addSkill(Player player, int skillId, int skillLevel) {
-		return addSkill(player, skillId, skillLevel, false, false, PersistentState.NEW);
-	}
-
-	public boolean addSkillWithoutSave(Player player, int skillId, int skillLevel) {
-		return addSkill(player, skillId, skillLevel, false, false, PersistentState.NOACTION);
+		return addSkill(player, skillId, skillLevel, false, PersistentState.NEW);
 	}
 
 	public boolean addStigmaSkill(Player player, int skillId, int skillLevel) {
-		return addSkill(player, skillId, skillLevel, true, false, PersistentState.NEW);
-	}
-
-	public boolean addTransformationSkill(Player player, int skillId, int skillLevel) {
-		return addSkill(player, skillId, skillLevel, false, false, PersistentState.NOACTION);
-	}
-
-	private boolean addSkill(Player player, int skillId, int skillLevel, boolean isStigma, boolean isLinked, PersistentState state) {
-		return addSkillAct(player, skillId, skillLevel, isStigma, isLinked, state, false);
-	}
-
-	public boolean addGMSkill(Player player, int skillId, int skillLevel) {
-		return addSkillAct(player, skillId, skillLevel, true, false, PersistentState.NOACTION, true);
+		return addSkill(player, skillId, skillLevel, true, PersistentState.NEW);
 	}
 
 	/**
@@ -175,12 +104,12 @@ public final class PlayerSkillList implements SkillList<Player> {
 	 * @return
 	 */
 	public boolean addAbyssSkill(Player player, int skillId, int skillLevel) {
-		return addSkill(player, skillId, skillLevel, false, false, PersistentState.NOACTION);
+		return addSkill(player, skillId, skillLevel, false, PersistentState.NOACTION);
 	}
 
 	public void addStigmaSkill(Player player, List<StigmaSkill> skills, boolean equipedByNpc) {
 		for (StigmaSkill sSkill : skills) {
-			PlayerSkillEntry skill = new PlayerSkillEntry(sSkill.getSkillId(), true, false, sSkill.getSkillLvl(), PersistentState.NOACTION);
+			PlayerSkillEntry skill = new PlayerSkillEntry(sSkill.getSkillId(), true, sSkill.getSkillLvl(), PersistentState.NOACTION);
 			this.stigmaSkills.put(sSkill.getSkillId(), skill);
 			if (equipedByNpc) {
 				PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(skill, 1300401, false));
@@ -188,47 +117,33 @@ public final class PlayerSkillList implements SkillList<Player> {
 		}
 	}
 
-	public void addStigmaSkill(Player player, int skillId, int skillLevel, boolean withMsg, boolean equipedByNpc) {
-		PlayerSkillEntry skill = new PlayerSkillEntry(skillId, true, false, skillLevel, PersistentState.NOACTION);
-		this.stigmaSkills.put(skillId, skill);
+	public void addStigmaSkill(Player player, int skillId, int skillLevel, boolean equipedByNpc) {
+		PlayerSkillEntry skill = new PlayerSkillEntry(skillId, true, skillLevel, PersistentState.NOACTION);
+		skills.put(skillId, skill);
 		if (equipedByNpc) {
-			PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(skill, withMsg ? 1300401 : 0, false));
+			PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(skill, 1300401, false));
 		}
 	}
 
-	public void addHiddenStigmaSkill(Player player, int skillId, int skillLvl) {
-		PlayerSkillEntry skill = new PlayerSkillEntry(skillId, false, true, skillLvl, PersistentState.NOACTION);
-		this.stigmaSkills.put(skillId, skill);
-		PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(player, skill));
-		PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_STIGMA_GET_HIDDEN_SKILL(new DescriptionId(DataManager.SKILL_DATA.getSkillTemplate(skill.getSkillId()).getNameId()), skillLvl));
-	}
-
-	private synchronized boolean addSkillAct(Player player, int skillId, int skillLevel, boolean isStigma, boolean isLinked, PersistentState state, boolean isGMSkill) {
+	private synchronized boolean addSkill(Player player, int skillId, int skillLevel, boolean isStigma, PersistentState state) {
 		PlayerSkillEntry existingSkill = isStigma ? stigmaSkills.get(skillId) : basicSkills.get(skillId);
 
 		boolean isNew = false;
 		if (existingSkill != null) {
-			// if (existingSkill.getSkillLevel() >= skillLevel) {
-			// return false;
-			// }
+			if (existingSkill.getSkillLevel() >= skillLevel) {
+				return false;
+			}
 			existingSkill.setSkillLvl(skillLevel);
-		}
-		else {
+		} else {
 			if (isStigma) {
-				stigmaSkills.put(skillId, new PlayerSkillEntry(skillId, true, false, skillLevel, state));
-			}
-			else if (isLinked) {
-				stigmaSkills.put(skillId, new PlayerSkillEntry(skillId, false, true, skillLevel, state));
-			}
-			else {
-				basicSkills.put(skillId, new PlayerSkillEntry(skillId, false, false, skillLevel, state));
+				stigmaSkills.put(skillId, new PlayerSkillEntry(skillId, true, skillLevel, state));
+			} else {
+				basicSkills.put(skillId, new PlayerSkillEntry(skillId, false, skillLevel, state));
 				isNew = true;
 			}
 		}
 		if (player.isSpawned()) {
-			if (!isStigma || isGMSkill) {
-				sendMessage(player, skillId, isNew);
-			}
+			sendMessage(player, skillId, isNew);
 		}
 		return true;
 	}
@@ -246,13 +161,6 @@ public final class PlayerSkillList implements SkillList<Player> {
 		if (maxDiff < SkillLvlDiff) {
 			return false;
 		}
-
-		if (skillEntry.getSkillId() == 40011) { // Magic Morph
-			if (skillEntry.getSkillLevel() == 300) {
-				return false;
-			}
-		}
-
 		switch (skillEntry.getSkillId()) {
 			case 30001:
 				if (skillEntry.getSkillLevel() == 49) {
@@ -261,7 +169,7 @@ public final class PlayerSkillList implements SkillList<Player> {
 			case 30002:
 			case 30003:
 				if (skillEntry.getSkillLevel() == 449) {
-					return false;
+					break;
 				}
 			case 40001:
 			case 40002:
@@ -282,7 +190,7 @@ public final class PlayerSkillList implements SkillList<Player> {
 				}
 				player.getRecipeList().autoLearnRecipe(player, skillId, skillEntry.getSkillLevel());
 		}
-		boolean updateSkill = skillEntry.getSkillId() == 40011 ? skillEntry.addMagicCraftSkillXp(player, xpReward) : skillEntry.addSkillXp(player, xpReward);
+		boolean updateSkill = skillEntry.addSkillXp(player, xpReward);
 		if (updateSkill) {
 			sendMessage(player, skillId, false);
 		}
@@ -296,16 +204,18 @@ public final class PlayerSkillList implements SkillList<Player> {
 
 	@Override
 	public int getSkillLevel(int skillId) {
-		if (basicSkills.containsKey(skillId))
+		if (basicSkills.containsKey(skillId)) {
 			return basicSkills.get(skillId).getSkillLevel();
+		}
 		return stigmaSkills.get(skillId).getSkillLevel();
 	}
 
 	@Override
 	public synchronized boolean removeSkill(int skillId) {
 		PlayerSkillEntry entry = basicSkills.get(skillId);
-		if (entry == null)
+		if (entry == null) {
 			entry = stigmaSkills.get(skillId);
+		}
 		if (entry != null) {
 			entry.setPersistentState(PersistentState.DELETED);
 			deletedSkills.add(entry);
@@ -343,16 +253,10 @@ public final class PlayerSkillList implements SkillList<Player> {
 			case 40008:
 			case 40009:
 			case 40010:
-			case 40011:
 				PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(player.getSkillList().getSkillEntry(skillId), 1330053, false));
 				break;
 			default:
-				if (player.getSkillList().getSkillEntry(skillId).getSkillLevel() > 1) {
-					PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(player.getSkillList().getSkillEntry(skillId), 0, isNew));
-				}
-				else {
-					PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(player.getSkillList().getSkillEntry(skillId), 1300050, isNew));
-				}
+				PacketSendUtility.sendPacket(player, new SM_SKILL_LIST(player.getSkillList().getSkillEntry(skillId), 1300050, isNew));
 		}
 	}
 }

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world.geo;
 
 import com.aionemu.gameserver.geoEngine.math.Vector3f;
@@ -40,7 +41,8 @@ public class DummyGeoMap extends GeoMap {
 	}
 
 	@Override
-	public Vector3f getClosestCollision(float x, float y, float z, float targetX, float targetY, float targetZ, boolean changeDirction, boolean fly, int instanceId, byte intentions) {
+	public Vector3f getClosestCollision(float x, float y, float z, float targetX, float targetY, float targetZ, boolean changeDirction, boolean fly,
+			int instanceId, byte intentions) {
 		return new Vector3f(targetX, targetY, targetZ);
 	}
 

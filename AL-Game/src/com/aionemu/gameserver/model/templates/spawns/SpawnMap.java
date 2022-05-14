@@ -14,22 +14,17 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.spawns;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
 import com.aionemu.gameserver.model.templates.spawns.basespawns.BaseSpawn;
-import com.aionemu.gameserver.model.templates.spawns.dynamicportalspawns.DynamicPortalSpawn;
 import com.aionemu.gameserver.model.templates.spawns.riftspawns.RiftSpawn;
 import com.aionemu.gameserver.model.templates.spawns.siegespawns.SiegeSpawn;
 import com.aionemu.gameserver.model.templates.spawns.vortexspawns.VortexSpawn;
+
+import javax.xml.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author xTz
@@ -48,9 +43,6 @@ public class SpawnMap {
 	private List<SiegeSpawn> siegeSpawns;
 	@XmlElement(name = "vortex_spawn")
 	private List<VortexSpawn> vortexSpawns;
-	@XmlElement(name = "dynamic_portal_spawn")
-	private List<DynamicPortalSpawn> dynamicPortalSpawns;
-
 	@XmlAttribute(name = "map_id")
 	private int mapId;
 
@@ -122,16 +114,5 @@ public class SpawnMap {
 
 	public void addVortexSpawns(VortexSpawn spawns) {
 		getVortexSpawns().add(spawns);
-	}
-
-	public List<DynamicPortalSpawn> getDynamicPortalSpawns() {
-		if (dynamicPortalSpawns == null) {
-			dynamicPortalSpawns = new ArrayList<DynamicPortalSpawn>();
-		}
-		return dynamicPortalSpawns;
-	}
-
-	public void addDynamicPortalSpawns(DynamicPortalSpawn spawns) {
-		getDynamicPortalSpawns().add(spawns);
 	}
 }

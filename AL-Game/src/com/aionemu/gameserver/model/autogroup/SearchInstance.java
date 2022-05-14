@@ -14,19 +14,17 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.autogroup;
 
-import static ch.lambdaj.Lambda.extract;
-import static ch.lambdaj.Lambda.on;
-
+import static ch.lambdaj.Lambda.*;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import java.util.Collection;
 import java.util.List;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-
 /**
+ *
  * @author xTz
- * @author GiGatR00n v4.7.5.x
  */
 public class SearchInstance {
 
@@ -60,42 +58,18 @@ public class SearchInstance {
 	}
 
 	public boolean isDredgion() {
-		return instanceMaskId == 1 || instanceMaskId == 2 || instanceMaskId == 3 || instanceMaskId == 121;
+		return instanceMaskId == 1 || instanceMaskId == 2 || instanceMaskId == 3;
 	}
 
 	public boolean isKamar() {
-		return instanceMaskId == 107;
+		return this.instanceMaskId == 107;
 	}
 
-	public boolean isJormungand() {
-		return instanceMaskId == 108;
+	public boolean isOphidan() {
+		return this.instanceMaskId == 108;
 	}
 
 	public boolean isBastion() {
 		return instanceMaskId == 109;
-	}
-
-	public boolean isRunatorium() {
-		return instanceMaskId == 111;
-	}
-
-	public boolean isBalaurMarching() {
-		return instanceMaskId == 122;
-	}
-
-	public boolean isRunatoriumRuins() {
-		return instanceMaskId == 123;
-	}
-
-	public boolean isGoldenCrusible() {
-		return instanceMaskId == 125;
-	}
-
-	public boolean isSanctumBattlefield() {
-		return instanceMaskId == 416;
-	}
-
-	public boolean isPandaemoniumBattlefield() {
-		return instanceMaskId == 417;
 	}
 }

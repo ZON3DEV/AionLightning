@@ -14,10 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects;
 
 import java.util.List;
 import java.util.Set;
+
+import javolution.util.FastList;
+import javolution.util.FastSet;
 
 import com.aionemu.gameserver.controllers.NpcController;
 import com.aionemu.gameserver.model.Race;
@@ -26,14 +30,13 @@ import com.aionemu.gameserver.model.team.legion.Legion;
 import com.aionemu.gameserver.model.templates.npc.NpcTemplate;
 import com.aionemu.gameserver.model.templates.spawns.SpawnTemplate;
 import com.aionemu.gameserver.model.templates.stats.KiskStatsTemplate;
+import com.aionemu.gameserver.model.templates.zone.ZoneType;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_KISK_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.services.SerialKillerService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.knownlist.Visitor;
-
-import javolution.util.FastList;
-import javolution.util.FastSet;
 
 /**
  * @author Sarynth, nrg
@@ -80,12 +83,12 @@ public class Kisk extends SummonedObject<Player> {
 	 */
 	@Override
 	public boolean isEnemyFrom(Player player) {
-		// int worldId = getPosition().getMapId();
-		// if (worldId == 600020000 || worldId == 600030000) {
-		// if (!isInsideZoneType(ZoneType.PVP)) {
-		// return false;
-		// }
-		// }
+		int worldId = getPosition().getMapId();
+		if (worldId == 600020000 || worldId == 600030000) {
+			if (!isInsideZoneType(ZoneType.PVP)) {
+				return false;
+			}
+		}
 		return player.getRace() != this.ownerRace;
 	}
 
@@ -189,7 +192,8 @@ public class Kisk extends SummonedObject<Player> {
 					}
 					break;
 				case 5: // Alliance
-					if (!player.isInTeam() || (player.isInAlliance2() && !player.getPlayerAlliance2().hasMember(getCreatorId())) || (player.isInGroup2() && !player.getPlayerGroup2().hasMember(getCreatorId()))) {
+					if (!player.isInTeam() || (player.isInAlliance2() && !player.getPlayerAlliance2().hasMember(getCreatorId()))
+							|| (player.isInGroup2() && !player.getPlayerGroup2().hasMember(getCreatorId()))) {
 						return false;
 					}
 					break;
@@ -197,6 +201,11 @@ public class Kisk extends SummonedObject<Player> {
 				default:
 					return false;
 			}
+		}
+
+		if (SerialKillerService.getInstance().isRestrictDynamicBindstone(player)) {
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_CANNOT_REGISTER_BINDSTONE_NOT_BINDSTONE);
+			return false;
 		}
 
 		if (this.getCurrentMemberCount() >= getMaxMembers()) {
@@ -212,8 +221,7 @@ public class Kisk extends SummonedObject<Player> {
 	public synchronized void addPlayer(Player player) {
 		if (kiskMemberIds.add(player.getObjectId())) {
 			this.broadcastKiskUpdate();
-		}
-		else {
+		} else {
 			PacketSendUtility.sendPacket(player, new SM_KISK_UPDATE(this));
 		}
 		player.setKisk(this);
@@ -233,7 +241,8 @@ public class Kisk extends SummonedObject<Player> {
 	 * Sends SM_KISK_UPDATE to each member
 	 */
 	private void broadcastKiskUpdate() {
-		// on all members, but not the ones in knownlist, they will receive the update in the next step
+		// on all members, but not the ones in knownlist, they will receive the
+		// update in the next step
 		for (Player member : this.getCurrentMemberList()) {
 			if (!this.getKnownList().knowns(member)) {
 				PacketSendUtility.sendPacket(member, new SM_KISK_UPDATE(this));
@@ -243,7 +252,6 @@ public class Kisk extends SummonedObject<Player> {
 		final Kisk kisk = this;
 		// all players having the same race in knownlist
 		getKnownList().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player object) {
 				// Logic to prevent enemy race from knowing kisk information.
@@ -269,7 +277,7 @@ public class Kisk extends SummonedObject<Player> {
 	 * @param player
 	 */
 	public void resurrectionUsed() {
-		remainingResurrections--;
+		remainingResurrections -= 1;
 		broadcastKiskUpdate();
 		if (remainingResurrections <= 0) {
 			this.getController().onDelete();

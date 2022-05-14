@@ -14,22 +14,21 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
 
+import com.aionemu.gameserver.model.templates.cosmeticitems.CosmeticItemTemplate;
 import java.util.List;
 import java.util.Map;
-
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
-import com.aionemu.gameserver.model.templates.cosmeticitems.CosmeticItemTemplate;
-
 import javolution.util.FastMap;
 
 /**
+ *
  * @author xTz
  */
 @XmlRootElement(name = "cosmetic_items")

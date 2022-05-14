@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.task;
 
 import com.aionemu.gameserver.ai2.event.AIEventType;
@@ -109,7 +110,7 @@ final class TargetDestinationChecker extends DestinationChecker {
 
 	@Override
 	boolean check() {
-		return MathUtil.isIn3dRange(target, follower, 10);
+		return MathUtil.isIn3dRange(target, follower, 3);
 	}
 }
 
@@ -134,7 +135,7 @@ final class CoordinateDestinationChecker extends DestinationChecker {
 
 	@Override
 	boolean check() {
-		return MathUtil.isNearCoordinates(follower, x, y, z, 10);
+		return MathUtil.isNearCoordinates(follower, x, y, z, 3);
 	}
 }
 
@@ -155,16 +156,16 @@ final class ZoneChecker extends DestinationChecker {
 
 final class ZoneChecker2 extends DestinationChecker {
 
-	private final ZoneName zone1, zone2;
+   private final ZoneName zone1, zone2;
 
-	ZoneChecker2(Creature follower, ZoneName zone1, ZoneName zone2) {
-		this.follower = follower;
-		this.zone1 = zone1;
-		this.zone2 = zone2;
-	}
+   ZoneChecker2(Creature follower, ZoneName zone1, ZoneName zone2) {
+      this.follower = follower;
+      this.zone1 = zone1;
+      this.zone2 = zone2;
+   }
 
-	@Override
-	boolean check() {
-		return follower.isInsideZone(zone1) || follower.isInsideZone(zone2);
-	}
+   @Override
+   boolean check() {
+      return follower.isInsideZone(zone1) || follower.isInsideZone(zone2);
+   }
 }

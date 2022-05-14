@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.services.vortexservice;
 
-import java.util.concurrent.atomic.AtomicBoolean;
+package com.aionemu.gameserver.services.vortexservice;
 
 import com.aionemu.commons.callbacks.EnhancedObject;
 import com.aionemu.gameserver.ai2.AbstractAI;
@@ -26,7 +25,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.vortex.VortexLocation;
 import com.aionemu.gameserver.model.vortex.VortexStateType;
 import com.aionemu.gameserver.services.VortexService;
-
+import java.util.concurrent.atomic.AtomicBoolean;
 import javolution.util.FastMap;
 
 /**
@@ -68,8 +67,7 @@ public abstract class DimensionalVortex<VL extends VortexLocation> {
 		synchronized (this) {
 			if (started) {
 				doubleStart = true;
-			}
-			else {
+			} else {
 				started = true;
 			}
 		}

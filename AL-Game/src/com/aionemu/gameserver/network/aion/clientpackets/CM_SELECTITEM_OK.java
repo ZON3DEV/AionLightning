@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -27,21 +28,12 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SELECT_ITEM_ADD;
 import com.aionemu.gameserver.services.item.ItemService;
 
-/**
- * @author Alcapwnd
- */
 public class CM_SELECTITEM_OK extends AionClientPacket {
-
 	private int uniqueItemId;
 	private int index;
 	@SuppressWarnings("unused")
 	private int unk;
 
-	/**
-	 * @param opcode
-	 * @param state
-	 * @param restStates
-	 */
 	public CM_SELECTITEM_OK(int opcode, AionConnection.State state, AionConnection.State... restStates) {
 		super(opcode, state, restStates);
 	}
@@ -51,25 +43,22 @@ public class CM_SELECTITEM_OK extends AionClientPacket {
 		this.uniqueItemId = readD();
 		this.unk = readD();
 		this.index = readC();
-
 	}
 
 	@Override
 	protected void runImpl() {
-		Player player = getConnection().getActivePlayer();
+		Player player = ((AionConnection) getConnection()).getActivePlayer();
 		Item item = player.getInventory().getItemByObjId(this.uniqueItemId);
 		if (item == null) {
 			return;
 		}
-		sendPacket(new SM_ITEM_USAGE_ANIMATION(player.getObjectId().intValue(), player.getObjectId().intValue(), this.uniqueItemId, item.getItemId(), 0, 1));
+		sendPacket(new SM_ITEM_USAGE_ANIMATION(player.getObjectId().intValue(), player.getObjectId().intValue(), this.uniqueItemId, item.getItemId(), 0, 1, 0));
 		boolean delete = player.getInventory().decreaseByObjectId(this.uniqueItemId, 1L);
 		if (delete) {
-			SelectItems selectitem = DataManager.DECOMPOSABLE_SELECT_ITEM_DATA.getSelectItem(player.getPlayerClass(), player.getRace(), item.getItemId());
-			SelectItem st = selectitem.getItems().get(this.index);
+			SelectItems selectitem = DataManager.DECOMPOSABLE_SELECT_ITEM_DATA.getSelectItem(player.getPlayerClass(), item.getItemId());
+			SelectItem st = (SelectItem) selectitem.getItems().get(this.index);
 			ItemService.addItem(player, st.getSelectItemId(), st.getCount());
-			sendPacket(new SM_SELECT_ITEM_ADD(this.uniqueItemId, 0));
+			sendPacket(new SM_SELECT_ITEM_ADD(this.uniqueItemId, this.index));
 		}
-
 	}
-
 }

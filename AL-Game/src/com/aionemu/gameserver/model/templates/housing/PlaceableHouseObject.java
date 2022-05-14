@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.housing;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -27,7 +28,8 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PlaceableHouseObject")
-@XmlSeeAlso({ HousingJukeBox.class, HousingPicture.class, HousingPostbox.class, HousingChair.class, HousingStorage.class, HousingNpc.class, HousingMoveableItem.class, HousingUseableItem.class, HousingPassiveItem.class, HousingEmblem.class })
+@XmlSeeAlso({ HousingJukeBox.class, HousingPicture.class, HousingPostbox.class, HousingChair.class, HousingStorage.class, HousingNpc.class,
+		HousingMoveableItem.class, HousingUseableItem.class, HousingPassiveItem.class, HousingEmblem.class })
 public abstract class PlaceableHouseObject extends AbstractHouseObject {
 
 	@XmlAttribute(name = "use_days")
@@ -53,7 +55,7 @@ public abstract class PlaceableHouseObject extends AbstractHouseObject {
 
 	/**
 	 * Where the object is allowed to be placed on?
-	 * <p/>
+	 * <p>
 	 * <tt>TODO: check if it is needed and not handled by the client</tt>
 	 *
 	 * @return {@link LimitType.NONE} if no restriction
@@ -67,7 +69,7 @@ public abstract class PlaceableHouseObject extends AbstractHouseObject {
 
 	/**
 	 * How the object is allowed to be placed (stacks, ground, wall) ?
-	 * <p/>
+	 * <p>
 	 * <tt>TODO: check if it is needed and not handled by the client</tt>
 	 *
 	 * @return possible object is {@link PlaceLocation }
@@ -78,7 +80,7 @@ public abstract class PlaceableHouseObject extends AbstractHouseObject {
 
 	/**
 	 * Environment where the object is allowed to be placed (interior, exterior)
-	 * <p/>
+	 * <p>
 	 * <tt>TODO: check if it is needed and not handled by the client</tt>
 	 *
 	 * @return possible object is {@link PlaceArea }

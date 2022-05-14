@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dao;
 
 import java.util.ArrayList;
@@ -34,7 +35,8 @@ public abstract class TaskFromDBDAO implements DAO {
 	public abstract ArrayList<TaskFromDBTrigger> getAllTasks();
 
 	/**
-	 * Returns class name that will be uses as unique identifier for all DAO classes
+	 * Returns class name that will be uses as unique identifier for all DAO
+	 * classes
 	 *
 	 * @return class name
 	 */

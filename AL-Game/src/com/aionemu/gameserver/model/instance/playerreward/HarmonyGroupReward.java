@@ -14,13 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.instance.playerreward;
 
+import com.aionemu.gameserver.model.autogroup.AGPlayer;
 import java.util.List;
 
-import com.aionemu.gameserver.model.autogroup.AGPlayer;
-
 /**
+ *
  * @author xTz
  */
 public class HarmonyGroupReward extends PvPArenaPlayerReward {

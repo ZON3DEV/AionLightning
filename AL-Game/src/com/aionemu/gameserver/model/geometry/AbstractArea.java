@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.geometry;
 
 import com.aionemu.gameserver.model.templates.zone.Point2D;
@@ -22,7 +23,8 @@ import com.aionemu.gameserver.world.zone.ZoneName;
 /**
  * Class with basic method implementation for ares.<br>
  * If possible it should be subclassed. <br>
- * In other case {@link com.aionemu.gameserver.model.geometry.Area} should be implemented directly
+ * In other case {@link com.aionemu.gameserver.model.geometry.Area} should be
+ * implemented directly
  */
 public abstract class AbstractArea implements Area {
 
@@ -138,11 +140,9 @@ public abstract class AbstractArea implements Area {
 
 		if (isInsideZ(z)) {
 			zCoord = z;
-		}
-		else if (z < getMinZ()) {
+		} else if (z < getMinZ()) {
 			zCoord = getMinZ();
-		}
-		else {
+		} else {
 			zCoord = getMaxZ();
 		}
 

@@ -14,9 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects;
 
 import java.sql.Timestamp;
+import com.aionemu.gameserver.model.gameobjects.LetterType;
 
 /**
  * @author kosyachok
@@ -46,15 +48,11 @@ public class Letter extends AionObject {
 	 * @param timeStamp
 	 *            new letter constructor
 	 */
-	public Letter(int objId, int recipientId, Item attachedItem, long attachedKinahCount, String title, String message, String senderName, Timestamp timeStamp, boolean unread, LetterType letterType) {
+	public Letter(int objId, int recipientId, Item attachedItem, long attachedKinahCount, String title, String message, String senderName, Timestamp timeStamp,
+			boolean unread, LetterType letterType) {
 		super(objId);
 
-		if (letterType == LetterType.EXPRESS || letterType == LetterType.BLACKCLOUD) {
-			this.express = true;
-		}
-		else {
-			this.express = false;
-		}
+		this.express = letterType == LetterType.EXPRESS || letterType == LetterType.BLACKCLOUD;
 
 		this.recipientId = recipientId;
 		this.attachedItem = attachedItem;
@@ -121,12 +119,7 @@ public class Letter extends AionObject {
 
 	public void setLetterType(LetterType letterType) {
 		this.letterType = letterType;
-		if (letterType == LetterType.EXPRESS || letterType == LetterType.BLACKCLOUD) {
-			this.express = true;
-		}
-		else {
-			this.express = false;
-		}
+		this.express = letterType == LetterType.EXPRESS || letterType == LetterType.BLACKCLOUD;
 	}
 
 	public PersistentState getLetterPersistentState() {

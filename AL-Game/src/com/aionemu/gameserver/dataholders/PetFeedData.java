@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
 
 import java.util.HashMap;
@@ -65,6 +66,7 @@ public class PetFeedData {
 	}
 
 	public PetFlavour[] getPetFlavours() {
-		return petFlavoursById.values().toArray(new PetFlavour[0]);
+		java.util.Collection<PetFlavour> var = petFlavoursById.values();
+		return var.toArray(new PetFlavour[var.size()]);
 	}
 }

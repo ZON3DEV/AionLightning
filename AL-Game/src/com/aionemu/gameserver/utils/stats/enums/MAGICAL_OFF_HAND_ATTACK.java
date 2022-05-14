@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.stats.enums;
 
 /**
@@ -37,7 +38,6 @@ public enum MAGICAL_OFF_HAND_ATTACK {
 	RIDER(19),
 	GUNNER(19),
 	ARTIST(0),
-	PAINTER(0),
 	BARD(0);
 
 	private int value;

@@ -14,10 +14,31 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
+/*
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA  02110-1301, USA.
+ *
+ * http://www.gnu.org/copyleft/gpl.html
+ */
 package com.aionemu.gameserver.taskmanager.tasks;
 
 import java.util.Collection;
 import java.util.Map;
+
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -25,8 +46,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.taskmanager.AbstractPeriodicTaskManager;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
-
-import javolution.util.FastMap;
 
 /**
  * @author Mr. Poke
@@ -52,8 +71,7 @@ public class TemporaryTradeTimeTask extends AbstractPeriodicTaskManager {
 		try {
 			items.put(item, players);
 			itemById.put(item.getObjectId(), item);
-		}
-		finally {
+		} finally {
 			writeUnlock();
 		}
 	}
@@ -70,8 +88,7 @@ public class TemporaryTradeTimeTask extends AbstractPeriodicTaskManager {
 		readLock();
 		try {
 			return items.containsKey(item);
-		}
-		finally {
+		} finally {
 			readUnlock();
 		}
 	}
@@ -80,8 +97,7 @@ public class TemporaryTradeTimeTask extends AbstractPeriodicTaskManager {
 		readLock();
 		try {
 			return itemById.get(objectId);
-		}
-		finally {
+		} finally {
 			readUnlock();
 		}
 	}
@@ -100,8 +116,7 @@ public class TemporaryTradeTimeTask extends AbstractPeriodicTaskManager {
 							PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_END_OF_EXCHANGE_TIME(item.getNameId(), time));
 						}
 					}
-				}
-				else if (time <= 0) {
+				} else if (time <= 0) {
 					for (int playerId : entry.getValue()) {
 						Player player = World.getInstance().findPlayer(playerId);
 						if (player != null) {
@@ -113,8 +128,7 @@ public class TemporaryTradeTimeTask extends AbstractPeriodicTaskManager {
 					itemById.remove(item.getObjectId());
 				}
 			}
-		}
-		finally {
+		} finally {
 			writeUnlock();
 		}
 	}

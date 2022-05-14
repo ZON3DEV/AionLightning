@@ -14,12 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.utils.chathandlers;
 
-import java.lang.reflect.Modifier;
+package com.aionemu.gameserver.utils.chathandlers;
 
 import com.aionemu.commons.scripting.classlistener.ClassListener;
 import com.aionemu.commons.utils.ClassUtils;
+
+import java.lang.reflect.Modifier;
 
 /**
  * Created on: 12.09.2009 14:13:24
@@ -40,15 +41,13 @@ public class ChatCommandsLoader implements ClassListener {
 			if (!isValidClass(c)) {
 				continue;
 			}
-			Class<?> tmp = c;
+			Class<?> tmp = (Class<?>) c;
 			if (tmp != null) {
 				try {
 					processor.registerCommand((ChatCommand) tmp.newInstance());
-				}
-				catch (InstantiationException e) {
+				} catch (InstantiationException e) {
 					e.printStackTrace();
-				}
-				catch (IllegalAccessException e) {
+				} catch (IllegalAccessException e) {
 					e.printStackTrace();
 				}
 			}
@@ -58,22 +57,21 @@ public class ChatCommandsLoader implements ClassListener {
 
 	@Override
 	public void preUnload(Class<?>[] classes) {
+
 	}
 
 	public boolean isValidClass(Class<?> clazz) {
 		final int modifiers = clazz.getModifiers();
 
-		if (Modifier.isAbstract(modifiers) || Modifier.isInterface(modifiers)) {
+		if (Modifier.isAbstract(modifiers) || Modifier.isInterface(modifiers))
 			return false;
-		}
 
-		if (!Modifier.isPublic(modifiers)) {
+		if (!Modifier.isPublic(modifiers))
 			return false;
-		}
 
-		if (!ClassUtils.isSubclass(clazz, AdminCommand.class) && !ClassUtils.isSubclass(clazz, PlayerCommand.class) && !ClassUtils.isSubclass(clazz, WeddingCommand.class)) {
+		if (!ClassUtils.isSubclass(clazz, AdminCommand.class) && !ClassUtils.isSubclass(clazz, PlayerCommand.class)
+				&& !ClassUtils.isSubclass(clazz, WeddingCommand.class))
 			return false;
-		}
 		return true;
 	}
 }

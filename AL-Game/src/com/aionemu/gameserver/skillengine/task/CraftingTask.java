@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.task;
 
 import com.aionemu.commons.utils.Rnd;
@@ -36,7 +37,6 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
  * @author synchro2
  * @author Antraxx
  * @author Kamikaze
- * @Reworked Kill3r
  */
 public class CraftingTask extends AbstractCraftTask {
 
@@ -81,11 +81,10 @@ public class CraftingTask extends AbstractCraftTask {
 	 */
 	@Override
 	protected void analyzeInteraction() {
-		int critVal = Rnd.get(55000) / (skillLvlDiff + 1);
+		int critVal = (int) (Rnd.get(55000) / (skillLvlDiff + 1));
 		if (critVal < CraftConfig.CRAFT_CHANCE_BLUECRIT) {
 			critType = CraftCritType.BLUE;
-		}
-		else if ((critVal < CraftConfig.CRAFT_CHANCE_INSTANT) && (this.itemQuality.getQualityId() < ItemQuality.EPIC.getQualityId())) {
+		} else if ((critVal < CraftConfig.CRAFT_CHANCE_INSTANT) && (this.itemQuality.getQualityId() < ItemQuality.EPIC.getQualityId())) {
 			critType = CraftCritType.INSTANT;
 			currentSuccessValue = maxSuccessValue;
 			return;
@@ -101,15 +100,13 @@ public class CraftingTask extends AbstractCraftTask {
 		mod -= (double) this.itemQuality.getQualityId() / 2;
 		if (mod < 0) {
 			currentFailureValue -= (int) mod;
-		}
-		else {
+		} else {
 			currentSuccessValue += (int) mod;
 		}
 
 		if (currentSuccessValue >= maxSuccessValue) {
 			currentSuccessValue = maxSuccessValue;
-		}
-		else if (currentFailureValue >= maxFailureValue) {
+		} else if (currentFailureValue >= maxFailureValue) {
 			currentFailureValue = maxFailureValue;
 		}
 	}
@@ -123,22 +120,13 @@ public class CraftingTask extends AbstractCraftTask {
 	@Override
 	protected boolean onSuccessFinish() {
 		if (this.checkCrit() && recipeTemplate.getComboProduct(critCount) != null) {
-			if (purpleCrit) {
-				critCount++;
-			}
 			craftSetup();
 			PacketSendUtility.sendPacket(requestor, new SM_CRAFT_UPDATE(recipeTemplate.getSkillid(), itemTemplateReal, maxSuccessValue, maxFailureValue, 3));
 			return false;
-		}
-		else {
-			if (critCount > 0 && this.checkCrit()) {
-				PacketSendUtility.broadcastPacket(requestor, new SM_CRAFT_ANIMATION(requestor.getObjectId(), responder.getObjectId(), 0, 2), true);
-				PacketSendUtility.sendPacket(requestor, new SM_CRAFT_UPDATE(recipeTemplate.getSkillid(), itemTemplateReal, currentSuccessValue, currentFailureValue, 5));
-				CraftService.finishCrafting(requestor, recipeTemplate, critCount, bonus);
-				return true;
-			}
+		} else {
 			PacketSendUtility.broadcastPacket(requestor, new SM_CRAFT_ANIMATION(requestor.getObjectId(), responder.getObjectId(), 0, 2), true);
-			PacketSendUtility.sendPacket(requestor, new SM_CRAFT_UPDATE(recipeTemplate.getSkillid(), itemTemplateReal, currentSuccessValue, currentFailureValue, 5));
+			PacketSendUtility
+					.sendPacket(requestor, new SM_CRAFT_UPDATE(recipeTemplate.getSkillid(), itemTemplate, currentSuccessValue, currentFailureValue, 5));
 			CraftService.finishCrafting(requestor, recipeTemplate, critCount, bonus);
 			return true;
 		}
@@ -146,10 +134,8 @@ public class CraftingTask extends AbstractCraftTask {
 
 	@Override
 	protected void sendInteractionUpdate() {
-		PacketSendUtility.sendPacket(requestor, new SM_CRAFT_UPDATE(recipeTemplate.getSkillid(), itemTemplate, currentSuccessValue, currentFailureValue, this.critType.getPacketId()));
-		if (this.critType == CraftCritType.PURPLE) {
-			this.critType = CraftCritType.NONE;
-		}
+		PacketSendUtility.sendPacket(requestor, new SM_CRAFT_UPDATE(recipeTemplate.getSkillid(), itemTemplate, currentSuccessValue, currentFailureValue,
+				this.critType.getPacketId()));
 	}
 
 	@Override
@@ -182,9 +168,6 @@ public class CraftingTask extends AbstractCraftTask {
 				if (house != null) {
 					switch (house.getHouseType()) {
 						case ESTATE:
-						case MANSION:
-						case HOUSE:
-						case STUDIO:
 						case PALACE:
 							chance += 5;
 							break;
@@ -197,16 +180,14 @@ public class CraftingTask extends AbstractCraftTask {
 				critCount++;
 				crit = true;
 			}
-			// Only Double Proc happens , if maxCritCount is 2.
-			if ((critCount > 0 && critCount <= maxCritCount && maxCritCount != 1) && (Rnd.get(100) < chance)) {
-				purpleCrit = true;
-			}
 		}
 
 		PacketSendUtility.sendPacket(requestor, new SM_CRAFT_UPDATE(recipeTemplate.getSkillid(), itemTemplate, maxSuccessValue, maxFailureValue, 0));
 		this.onInteraction();
-		PacketSendUtility.broadcastPacket(requestor, new SM_CRAFT_ANIMATION(requestor.getObjectId(), responder.getObjectId(), recipeTemplate.getSkillid(), 0), true);
-		PacketSendUtility.broadcastPacket(requestor, new SM_CRAFT_ANIMATION(requestor.getObjectId(), responder.getObjectId(), recipeTemplate.getSkillid(), 1), true);
+		PacketSendUtility.broadcastPacket(requestor, new SM_CRAFT_ANIMATION(requestor.getObjectId(), responder.getObjectId(), recipeTemplate.getSkillid(), 0),
+				true);
+		PacketSendUtility.broadcastPacket(requestor, new SM_CRAFT_ANIMATION(requestor.getObjectId(), responder.getObjectId(), recipeTemplate.getSkillid(), 1),
+				true);
 	}
 
 	@Override
@@ -226,11 +207,6 @@ public class CraftingTask extends AbstractCraftTask {
 	private boolean checkCrit() {
 		if (crit) {
 			crit = false;
-			this.itemTemplateReal = DataManager.ITEM_DATA.getItemTemplate(recipeTemplate.getComboProduct(critCount));
-			return true;
-		}
-		if (purpleCrit) {
-			purpleCrit = false;
 			this.itemTemplateReal = DataManager.ITEM_DATA.getItemTemplate(recipeTemplate.getComboProduct(critCount));
 			return true;
 		}

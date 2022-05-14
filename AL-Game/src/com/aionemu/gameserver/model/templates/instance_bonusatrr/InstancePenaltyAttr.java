@@ -14,17 +14,18 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.instance_bonusatrr;
 
+import com.aionemu.gameserver.model.stats.container.StatEnum;
+import com.aionemu.gameserver.skillengine.change.Func;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.stats.container.StatEnum;
-import com.aionemu.gameserver.skillengine.change.Func;
-
 /**
+ *
  * @author xTz
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -42,6 +43,7 @@ public class InstancePenaltyAttr {
 	 * Gets the value of the stat property.
 	 *
 	 * @return possible object is {@link StatEnum }
+	 *
 	 */
 	public StatEnum getStat() {
 		return stat;
@@ -52,6 +54,7 @@ public class InstancePenaltyAttr {
 	 *
 	 * @param value
 	 *            allowed object is {@link StatEnum }
+	 *
 	 */
 	public void setStat(StatEnum value) {
 		this.stat = value;
@@ -61,6 +64,7 @@ public class InstancePenaltyAttr {
 	 * Gets the value of the func property.
 	 *
 	 * @return possible object is {@link Func }
+	 *
 	 */
 	public Func getFunc() {
 		return func;
@@ -71,6 +75,7 @@ public class InstancePenaltyAttr {
 	 *
 	 * @param value
 	 *            allowed object is {@link Func }
+	 *
 	 */
 	public void setFunc(Func value) {
 		this.func = value;
@@ -78,6 +83,7 @@ public class InstancePenaltyAttr {
 
 	/**
 	 * Gets the value of the value property.
+	 *
 	 */
 	public int getValue() {
 		return value;
@@ -85,6 +91,7 @@ public class InstancePenaltyAttr {
 
 	/**
 	 * Sets the value of the value property.
+	 *
 	 */
 	public void setValue(int value) {
 		this.value = value;

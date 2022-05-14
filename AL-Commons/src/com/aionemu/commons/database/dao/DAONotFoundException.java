@@ -15,11 +15,11 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.database.dao;
 
 /**
- * This class represents exception that is thrown if DAO implementation was not
- * foud
+ * This class represents exception that is thrown if DAO implementation was not foud
  * 
  * @author SoulKeeper
  */

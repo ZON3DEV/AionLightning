@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.siegelocation;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -34,6 +35,8 @@ public class SiegeReward {
 	protected int itemId;
 	@XmlAttribute(name = "m_count")
 	protected int mCount;
+	@XmlAttribute(name = "gp_count")
+	protected int gpCount;
 
 	public int getTop() {
 		return top;
@@ -45,5 +48,9 @@ public class SiegeReward {
 
 	public int getCount() {
 		return mCount;
+	}
+
+	public int getGpCount() {
+		return gpCount;
 	}
 }

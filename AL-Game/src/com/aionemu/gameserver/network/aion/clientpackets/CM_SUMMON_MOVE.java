@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.controllers.movement.MovementMask;
@@ -62,13 +63,13 @@ public class CM_SUMMON_MOVE extends AionClientPacket {
 		if ((type & MovementMask.STARTMOVE) == MovementMask.STARTMOVE) {
 			if ((type & MovementMask.MOUSE) == 0) {
 				/*
-				 * [xTz] in packet is missed this for type 0xC0 vectorX = readF(); vectorY = readF(); vectorZ = readF();
+				 * [xTz] in packet is missed this for type 0xC0 vectorX =
+				 * readF(); vectorY = readF(); vectorZ = readF();
 				 */
 				x2 = vectorX + x;
 				y2 = vectorY + y;
 				z2 = vectorZ + z;
-			}
-			else {
+			} else {
 				x2 = readF();
 				y2 = readF();
 				z2 = readF();
@@ -105,8 +106,7 @@ public class CM_SUMMON_MOVE extends AionClientPacket {
 
 		if (type == 0) {
 			summon.getController().onStopMove();
-		}
-		else if ((type & MovementMask.STARTMOVE) == MovementMask.STARTMOVE) {
+		} else if ((type & MovementMask.STARTMOVE) == MovementMask.STARTMOVE) {
 			if ((type & MovementMask.MOUSE) == 0) {
 				m.vectorX = vectorX;
 				m.vectorY = vectorY;
@@ -114,8 +114,7 @@ public class CM_SUMMON_MOVE extends AionClientPacket {
 			}
 			summon.getMoveController().setNewDirection(x2, y2, z2, heading);
 			summon.getController().onStartMove();
-		}
-		else {
+		} else {
 			summon.getController().onMove();
 		}
 

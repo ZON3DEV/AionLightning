@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<npc_skill_templates>
+    <npcskills npcid="210391">
+        <npcskill minhp="0" maxhp="39" abouthp="true" skilllevel="1" skillid="16546"/>
+    </npcskills>
+    <npcskills npcid="210392">
+        <npcskill minhp="0" maxhp="40" abouthp="true" skilllevel="1" skillid="16546"/>
+    </npcskills>
+    <npcskills npcid="210393">
+        <npcskill minhp="0" maxhp="100" abouthp="true" skilllevel="1" skillid="16516"/>
+    </npcskills>
+    <npcskills npcid="216092">
+        <npcskill minhp="0" maxhp="87" abouthp="true" skilllevel="42" skillid="17291"/>
+    </npcskills>
+    <npcskills npcid="216093">
+        <npcskill minhp="0" maxhp="100" abouthp="true" skilllevel="42" skillid="17291"/>
+    </npcskills>
+    <npcskills npcid="216682">
+        <npcskill minhp="0" maxhp="100" abouthp="true" skilllevel="42" skillid="17291"/>
+    </npcskills>
+    <npcskills npcid="216683">
+        <npcskill minhp="0" maxhp="100" abouthp="true" skilllevel="42" skillid="17291"/>
+    </npcskills>
+    <npcskills npcid="216684">
+        <npcskill minhp="0" maxhp="100" abouthp="true" skilllevel="42" skillid="17065"/>
+    </npcskills>
+    <npcskills npcid="216685">
+        <npcskill minhp="0" maxhp="100" abouthp="true" skilllevel="42" skillid="17083"/>
+    </npcskills>
+    <npcskills npcid="749072">
+        <npcskill minhp="0" maxhp="100" abouthp="true" skilllevel="7" skillid="17512"/>
+    </npcskills>
+    <npcskills npcid="749099">
+        <npcskill minhp="0" maxhp="63" abouthp="true" skilllevel="3" skillid="17590"/>
+    </npcskills>
+    <npcskills npcid="749216">
+        <npcskill minhp="0" maxhp="100" abouthp="true" skilllevel="1" skillid="19487"/>
+    </npcskills>
+</npc_skill_templates>

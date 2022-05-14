@@ -14,20 +14,21 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.house;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.aionemu.gameserver.model.house;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.PlayerRegisteredItemsDAO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javolution.util.FastList;
+import javolution.util.FastMap;
+
 import com.aionemu.gameserver.model.gameobjects.HouseDecoration;
 import com.aionemu.gameserver.model.gameobjects.HouseObject;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.templates.housing.PartType;
-
-import javolution.util.FastList;
-import javolution.util.FastMap;
 
 /**
  * @author Rolandas
@@ -111,8 +112,7 @@ public class HouseRegistry {
 		HouseObject<?> oldObject = objects.get(itemObjId);
 		if (oldObject.getPersistentState() == PersistentState.NEW) {
 			discardObject(itemObjId);
-		}
-		else {
+		} else {
 			oldObject.setPersistentState(PersistentState.DELETED);
 		}
 		setPersistentState(PersistentState.UPDATE_REQUIRED);
@@ -259,8 +259,7 @@ public class HouseRegistry {
 						decor.setFloor(-1);
 						if (decor.getPersistentState() == PersistentState.NEW) {
 							discardPart(decor);
-						}
-						else {
+						} else {
 							decor.setPersistentState(PersistentState.DELETED);
 						}
 					}
@@ -277,15 +276,13 @@ public class HouseRegistry {
 					decor.setUsed(true);
 					decor.setFloor(floor);
 					defaultDecor.setUsed(false);
-				}
-				else {
+				} else {
 					if (decor.isUsed() && !decorationUse.equals(decor) && decor.getFloor() == floor) {
 						decor.setUsed(false);
 						decor.setFloor(-1);
 						if (decor.getPersistentState() == PersistentState.NEW) {
 							discardPart(decor);
-						}
-						else {
+						} else {
 							decor.setPersistentState(PersistentState.DELETED);
 						}
 					}
@@ -323,8 +320,7 @@ public class HouseRegistry {
 	public void despawnObjects() {
 		if (getSpawnedObjects().isEmpty()) {
 			DAOManager.getDAO(PlayerRegisteredItemsDAO.class).resetRegistry(owner.getOwnerId());
-		}
-		else {
+		} else {
 			despawnObjects(true);
 		}
 	}

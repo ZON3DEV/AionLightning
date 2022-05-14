@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.model;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -21,16 +22,13 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * @author Cheatkiller
+ *
  */
 @XmlType(name = "StigmaType")
 @XmlEnum
 public enum StigmaType {
 
-	NONE(0),
-	BASIC(1),
-	ADVANCED(2),
-	MAJOR(3);
-
+	NONE(0), BASIC(1), ADVANCED(2);
 	private int id;
 
 	private StigmaType(int id) {

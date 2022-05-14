@@ -14,17 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.taskmanager.fromdb.handler;
 
 /**
+ *
  * @author nrg
  */
 public enum TaskFromDBHandlerHolder {
 
-	SHUTDOWN(ShutdownHandler.class),
-	FATIGUE(FatigueHandler.class),
-	RESTART(RestartHandler.class);
-
+	SHUTDOWN(ShutdownHandler.class), RESTART(RestartHandler.class);
 	private Class<? extends TaskFromDBHandler> taskClass;
 
 	private TaskFromDBHandlerHolder(Class<? extends TaskFromDBHandler> taskClass) {

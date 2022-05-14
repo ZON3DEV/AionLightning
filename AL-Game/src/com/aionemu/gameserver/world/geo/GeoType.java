@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world.geo;
 
 /**
@@ -21,6 +22,5 @@ package com.aionemu.gameserver.world.geo;
  */
 public enum GeoType {
 
-	GEO_MESHES,
-	NO_GEO
+	GEO_MESHES, NO_GEO
 }

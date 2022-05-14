@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.challenge;
 
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
@@ -21,6 +22,7 @@ import com.aionemu.gameserver.model.templates.challenge.ChallengeQuestTemplate;
 
 /**
  * @author ViAl
+ *
  */
 public class ChallengeQuest {
 

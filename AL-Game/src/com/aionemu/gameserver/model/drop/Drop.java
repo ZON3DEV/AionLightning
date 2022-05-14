@@ -14,20 +14,23 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.drop;
 
 import java.nio.ByteBuffer;
-import java.util.Collection;
 import java.util.Set;
 
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.dataholders.DataManager;
+import com.aionemu.gameserver.dataholders.ItemData;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
+import java.util.Collection;
 
 /**
  * @author MrPoke
+ *
  */
 public class Drop implements DropCalculator {
 
@@ -48,18 +51,18 @@ public class Drop implements DropCalculator {
 		template = DataManager.ITEM_DATA.getItemTemplate(itemId);
 	}
 
-	public Drop(int itemId, int minAmount, int maxAmount, float chance, boolean noReduce, boolean eachMember) {
-		this.itemId = itemId;
-		this.minAmount = minAmount;
-		this.maxAmount = maxAmount;
-		this.chance = chance;
-		this.noReduce = noReduce;
-		this.eachMember = eachMember;
-	}
+  	public Drop(int itemId, int minAmount, int maxAmount, float chance, boolean noReduce, boolean eachMember) {
+    	this.itemId = itemId;
+    	this.minAmount = minAmount;
+    	this.maxAmount = maxAmount;
+    	this.chance = chance;
+    	this.noReduce = noReduce;
+    	this.eachMember = eachMember;
+  	}
 
 	/**
-	 *
-	 */
+     *
+     */
 	public Drop() {
 	}
 
@@ -69,6 +72,7 @@ public class Drop implements DropCalculator {
 
 	/**
 	 * Gets the value of the itemId property.
+	 *
 	 */
 	public int getItemId() {
 		return itemId;
@@ -76,6 +80,7 @@ public class Drop implements DropCalculator {
 
 	/**
 	 * Gets the value of the minAmount property.
+	 *
 	 */
 	public int getMinAmount() {
 		return minAmount;
@@ -83,6 +88,7 @@ public class Drop implements DropCalculator {
 
 	/**
 	 * Gets the value of the maxAmount property.
+	 *
 	 */
 	public int getMaxAmount() {
 		return maxAmount;
@@ -90,6 +96,7 @@ public class Drop implements DropCalculator {
 
 	/**
 	 * Gets the value of the chance property.
+	 *
 	 */
 	public float getChance() {
 		return chance;
@@ -120,8 +127,7 @@ public class Drop implements DropCalculator {
 					dropitem.isDistributeItem(true);
 					result.add(dropitem);
 				}
-			}
-			else {
+			} else {
 				DropItem dropitem = new DropItem(this);
 				dropitem.calculateCount();
 				dropitem.setIndex(index++);
@@ -137,13 +143,14 @@ public class Drop implements DropCalculator {
 		drop.chance = buffer.getFloat();
 		drop.minAmount = buffer.getInt();
 		drop.maxAmount = buffer.getInt();
-		drop.noReduce = buffer.get() == 1 ? true : false;
-		drop.eachMember = buffer.get() == 1 ? true : false;
+		drop.noReduce = buffer.get() == 1;
+		drop.eachMember = buffer.get() == 1;
 		return drop;
 	}
 
 	@Override
 	public String toString() {
-		return "Drop [itemId=" + itemId + ", minAmount=" + minAmount + ", maxAmount=" + maxAmount + ", chance=" + chance + ", noReduce=" + noReduce + ", eachMember=" + eachMember + "]";
+		return "Drop [itemId=" + itemId + ", minAmount=" + minAmount + ", maxAmount=" + maxAmount + ", chance=" + chance + ", noReduce=" + noReduce
+				+ ", eachMember=" + eachMember + "]";
 	}
 }

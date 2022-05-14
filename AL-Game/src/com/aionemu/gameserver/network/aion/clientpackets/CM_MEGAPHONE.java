@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.clientpackets;
 
-import java.util.Iterator;
+package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -26,15 +25,16 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_MEGAPHONE;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 
+import java.util.Iterator;
 /**
- * @author Alcapwnd
+ * @author xXMashUpXx
  * @rework Ever'
  */
 public class CM_MEGAPHONE extends AionClientPacket {
 
 	private String chatMessage;
 	private int itemObjectId;
-	private boolean isAll = false;
+    private boolean isAll = false;
 
 	public CM_MEGAPHONE(int opcode, State state, State... restStates) {
 		super(opcode, state, restStates);
@@ -48,35 +48,31 @@ public class CM_MEGAPHONE extends AionClientPacket {
 
 	@Override
 	protected void runImpl() {
-		final Player activePlayer = getConnection().getActivePlayer();
-		if (activePlayer == null) {
-			return;
-		}
+        final Player activePlayer = getConnection().getActivePlayer();
+        if (activePlayer == null) {
+            return;
+        }
 
-		Item item = activePlayer.getInventory().getItemByObjId(itemObjectId);
+        Item item = activePlayer.getInventory().getItemByObjId(itemObjectId);
 
-		if (item == null) {
-			return;
-        } 
-		if ((item.getItemId() >= 188910000) && (item.getItemId() <= 188910009)) {
+        if (item == null) {
+            return;
+        }
+        if ((item.getItemId() >= 188930000) && (item.getItemId() <= 188930008)) {
             this.isAll = true;
-        } 
-		if ((item.getItemId() >= 188930000) && (item.getItemId() <= 188930008)) {
-			this.isAll = true;
-		}
-		boolean deleteItem = activePlayer.getInventory().decreaseByObjectId(this.itemObjectId, 1);
-		if (!deleteItem) {
-			return;
-		}
-		Iterator<Player> players = World.getInstance().getPlayersIterator();
-		while (players.hasNext()) {
-			Player p = players.next();
-			if (this.isAll) {
-				PacketSendUtility.sendPacket(p, new SM_MEGAPHONE(activePlayer, this.chatMessage, item.getItemId(), this.isAll));
-			}
-			else if (activePlayer.getRace() == p.getRace()) {
-				PacketSendUtility.sendPacket(p, new SM_MEGAPHONE(activePlayer, this.chatMessage, item.getItemId(), this.isAll));
-			}
-		}
-	}
+        }
+        boolean deleteItem = activePlayer.getInventory().decreaseByObjectId(this.itemObjectId, 1);
+        if (!deleteItem) {
+            return;
+        }
+        Iterator<Player> players = World.getInstance().getPlayersIterator();
+        while (players.hasNext()) {
+            Player p = (Player) players.next();
+            if (this.isAll) {
+                PacketSendUtility.sendPacket(p, new SM_MEGAPHONE(activePlayer, this.chatMessage, item.getItemId(), this.isAll));
+            } else if (activePlayer.getRace() == p.getRace()) {
+                PacketSendUtility.sendPacket(p, new SM_MEGAPHONE(activePlayer, this.chatMessage, item.getItemId(), this.isAll));
+            }
+        }
+    }
 }

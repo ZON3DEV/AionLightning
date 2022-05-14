@@ -14,7 +14,17 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils;
+
+import com.aionemu.commons.network.util.ThreadUncaughtExceptionHandler;
+import com.aionemu.commons.utils.concurrent.AionRejectedExecutionHandler;
+import com.aionemu.commons.utils.concurrent.PriorityThreadFactory;
+import com.aionemu.commons.utils.concurrent.RunnableWrapper;
+import com.aionemu.commons.utils.internal.chmv8.ForkJoinPool;
+import com.aionemu.gameserver.configs.main.ThreadConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,16 +35,6 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.aionemu.commons.network.util.ThreadUncaughtExceptionHandler;
-import com.aionemu.commons.utils.concurrent.AionRejectedExecutionHandler;
-import com.aionemu.commons.utils.concurrent.PriorityThreadFactory;
-import com.aionemu.commons.utils.concurrent.RunnableWrapper;
-import com.aionemu.commons.utils.internal.chmv8.ForkJoinPool;
-import com.aionemu.gameserver.configs.main.ThreadConfig;
 
 /**
  * @author -Nemesiss-, NB4L1, MrPoke, lord_rex
@@ -52,7 +52,8 @@ public final class ThreadPoolManager {
 	private ThreadPoolManager() {
 		final int instantPoolSize = Math.max(1, ThreadConfig.BASE_THREAD_POOL_SIZE) * Runtime.getRuntime().availableProcessors();
 
-		instantPool = new ThreadPoolExecutor(instantPoolSize, instantPoolSize, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(100000), new PriorityThreadFactory("InstantPool", ThreadConfig.USE_PRIORITIES ? 7 : Thread.NORM_PRIORITY));
+		instantPool = new ThreadPoolExecutor(instantPoolSize, instantPoolSize, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(100000),
+				new PriorityThreadFactory("InstantPool", ThreadConfig.USE_PRIORITIES ? 7 : Thread.NORM_PRIORITY));
 		instantPool.setRejectedExecutionHandler(new AionRejectedExecutionHandler());
 		instantPool.prestartAllCoreThreads();
 
@@ -69,7 +70,6 @@ public final class ThreadPoolManager {
 		forkJoinThreadFactory.setDefaultPool(workStealingPool);
 
 		Thread maintainThread = new Thread(new Runnable() {
-
 			@Override
 			public void run() {
 				purge();
@@ -79,7 +79,8 @@ public final class ThreadPoolManager {
 		maintainThread.setDaemon(true);
 		scheduleAtFixedRate(maintainThread, 150000, 150000);
 
-		log.info("ThreadPoolManager: Initialized with " + scheduledPool.getPoolSize() + " scheduler, " + instantPool.getPoolSize() + " instant, " + longRunningPool.getPoolSize() + " long running, and forking " + workStealingPool.getPoolSize() + " thread(s).");
+		log.info("ThreadPoolManager: Initialized with " + scheduledPool.getPoolSize() + " scheduler, " + instantPool.getPoolSize() + " instant, "
+				+ longRunningPool.getPoolSize() + " long running, and forking " + workStealingPool.getPoolSize() + " thread(s).");
 	}
 
 	private long validate(long delay) {
@@ -175,8 +176,7 @@ public final class ThreadPoolManager {
 			scheduledPool.setContinueExistingPeriodicTasksAfterShutdownPolicy(false);
 
 			success |= awaitTermination(10000);
-		}
-		catch (InterruptedException e) {
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 

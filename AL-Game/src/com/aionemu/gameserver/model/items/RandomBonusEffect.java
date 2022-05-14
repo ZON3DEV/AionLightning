@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.items;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -23,14 +24,15 @@ import com.aionemu.gameserver.model.templates.item.bonuses.StatBonusType;
 import com.aionemu.gameserver.model.templates.stats.ModifiersTemplate;
 
 /**
+ *
  * @author xTz
  */
 public class RandomBonusEffect implements StatOwner {
 
 	private final ModifiersTemplate template;
 
-	public RandomBonusEffect(StatBonusType type, int polishSetId, int polishNumber) {
-		template = DataManager.ITEM_RANDOM_BONUSES.getTemplate(type, polishSetId, polishNumber);
+	public RandomBonusEffect(StatBonusType type, int polishId, int polishNumber) {
+		template = DataManager.ITEM_RANDOM_BONUSES.getTemplate(type, polishId, polishNumber);
 	}
 
 	public void applyEffect(Player player) {

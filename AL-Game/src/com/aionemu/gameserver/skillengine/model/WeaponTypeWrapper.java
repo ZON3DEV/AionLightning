@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.model;
 
 import com.aionemu.gameserver.model.templates.item.WeaponType;
@@ -21,6 +22,7 @@ import com.aionemu.gameserver.services.MotionLoggingService;
 
 /**
  * @author kecimis
+ *
  */
 public class WeaponTypeWrapper implements Comparable<WeaponTypeWrapper> {
 
@@ -49,8 +51,7 @@ public class WeaponTypeWrapper implements Comparable<WeaponTypeWrapper> {
 					this.mainHand = mainHand;
 					this.offHand = null;
 			}
-		}
-		else {
+		} else {
 			this.mainHand = mainHand;
 			this.offHand = offHand;
 		}
@@ -58,6 +59,7 @@ public class WeaponTypeWrapper implements Comparable<WeaponTypeWrapper> {
 
 	/*
 	 * (non-Javadoc)
+	 *
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -86,11 +88,13 @@ public class WeaponTypeWrapper implements Comparable<WeaponTypeWrapper> {
 
 	@Override
 	public String toString() {
-		return "mainHandType=\"" + (mainHand != null ? mainHand.toString() : "null") + "\"" + " offHandType=\"" + (offHand != null ? offHand.toString() : "null");
+		return "mainHandType=\"" + (mainHand != null ? mainHand.toString() : "null") + "\"" + " offHandType=\""
+				+ (offHand != null ? offHand.toString() : "null");
 	}
 
 	/*
 	 * (non-Javadoc)
+	 *
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -107,17 +111,13 @@ public class WeaponTypeWrapper implements Comparable<WeaponTypeWrapper> {
 	public int compareTo(WeaponTypeWrapper o) {
 		if (mainHand == null || o.getMainHand() == null) {
 			return 0;
-		}
-		else if (offHand != null && o.getOffHand() != null) {
+		} else if (offHand != null && o.getOffHand() != null) {
 			return 0;
-		}
-		else if (offHand != null && o.getOffHand() == null) {
+		} else if (offHand != null && o.getOffHand() == null) {
 			return 1;
-		}
-		else if (offHand == null && o.getOffHand() != null) {
+		} else if (offHand == null && o.getOffHand() != null) {
 			return -1;
-		}
-		else {
+		} else {
 			return mainHand.toString().compareTo(o.getMainHand().toString());
 		}
 	}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="strings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="string" type="ClientString" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ClientString">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+      <xs:element name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="body" type="xs:string" default="" />
+      <xs:element minOccurs="0" name="display_type" type="xs:int" />
+      <xs:element minOccurs="0" name="message_type" type="xs:string" />
+      <xs:element minOccurs="0" name="ment" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

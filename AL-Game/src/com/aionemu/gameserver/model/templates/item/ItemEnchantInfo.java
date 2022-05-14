@@ -23,24 +23,55 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EnchantInfo")
+
 public class ItemEnchantInfo {
 
+	@XmlAttribute(name = "m_slots")
+	private int m_slots;
+	@XmlAttribute(name = "s_slots")
+	private int s_slots;
+	@XmlAttribute(name = "rnd_slots")
+	private int rnd_slots;
+	@XmlAttribute(name = "max_enchant")
+	private int max_enchant;
 	@XmlAttribute(name = "rnd_enchant")
 	private int rnd_enchant;
 	@XmlAttribute(name = "wake_level")
 	private int wake_level;
+	@XmlAttribute(name = "enchant_id")
+	private int enchant_id;
 	@XmlAttribute(name = "waken_id")
 	private int waken_id;
+
+	public int getManastoneSlots() {
+		return this.m_slots;
+	}
+
+	public int getSpecialSlots() {
+		return this.s_slots;
+	}
+
+	public int getOptionSlotBonus() {
+		return this.rnd_slots;
+	}
+
+	public int getMaxEnchantLevel() {
+		return this.max_enchant;
+	}
+
+	public int getRndEnchantLevel() {
+		return this.rnd_enchant;
+	}
 
 	public int getAwakeLevel() {
 		return this.wake_level;
 	}
 
-	public int getAwakenId() {
-		return this.waken_id;
+	public int getEnchantId() {
+		return this.enchant_id;
 	}
 
-	public int getRndEnchantLevel() {
-		return this.rnd_enchant;
+	public int getAwakenId() {
+		return this.waken_id;
 	}
 }

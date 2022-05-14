@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.siege;
 
 import com.aionemu.gameserver.controllers.NpcController;
@@ -64,8 +65,7 @@ public class SiegeNpc extends Npc {
 	public boolean isEnemyFrom(Creature creature) {
 		if (creature instanceof SiegeNpc && this.getSiegeRace() != ((SiegeNpc) creature).getSiegeRace()) {
 			return true;
-		}
-		else {
+		} else {
 			return super.isEnemyFrom(creature);
 		}
 	}

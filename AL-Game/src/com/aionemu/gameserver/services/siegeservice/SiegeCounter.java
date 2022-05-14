@@ -14,14 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.siegeservice;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -30,6 +24,11 @@ import com.aionemu.gameserver.model.siege.SiegeRace;
 import com.aionemu.gameserver.model.team.legion.Legion;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SiegeCounter {
 
@@ -46,12 +45,10 @@ public class SiegeCounter {
 
 		SiegeRace siegeRace;
 		if (creature instanceof Player) {
-			siegeRace = SiegeRace.getByRace(creature.getRace());
-		}
-		else if (creature instanceof SiegeNpc) {
+			siegeRace = SiegeRace.getByRace(((Player) creature).getRace());
+		} else if (creature instanceof SiegeNpc) {
 			siegeRace = ((SiegeNpc) creature).getSiegeRace();
-		}
-		else {
+		} else {
 			log.warn("Please debug me!", new RuntimeException("Damage to Siege boss done by non-SiegeRace creature" + creature));
 			return;
 		}
@@ -82,7 +79,8 @@ public class SiegeCounter {
 	}
 
 	/**
-	 * Returns list of siege race counters sorted by total damage done to siege boss. Sorted in descending order.
+	 * Returns list of siege race counters sorted by total damage done to siege
+	 * boss. Sorted in descending order.
 	 *
 	 * @return all siege race damage counters sorted by descending order
 	 */

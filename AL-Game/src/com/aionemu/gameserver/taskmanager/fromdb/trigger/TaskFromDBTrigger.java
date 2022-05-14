@@ -14,11 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.taskmanager.fromdb.trigger;
 
 import com.aionemu.gameserver.taskmanager.fromdb.handler.TaskFromDBHandler;
 
 /**
+ *
  * @author nrg
  */
 public abstract class TaskFromDBTrigger implements Runnable {

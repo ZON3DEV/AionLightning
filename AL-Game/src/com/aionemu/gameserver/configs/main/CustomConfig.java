@@ -14,27 +14,20 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.main;
 
 import com.aionemu.commons.configuration.Property;
+import com.aionemu.gameserver.model.Race;
 
 public class CustomConfig {
-
 	/**
 	 * Enables challenge tasks
 	 */
+
 	@Property(key = "gameserver.challenge.tasks.enabled", defaultValue = "false")
 	public static boolean CHALLENGE_TASKS_ENABLED;
-	/**
-	 * Enables fatigue system
-	 */
-	@Property(key = "gameserver.fatigue.system.enabled", defaultValue = "false")
-	public static boolean FATIGUE_SYSTEM_ENABLED;
-	/**
-	 * Enables enchant table bonuses
-	 */
-	@Property(key = "gameserver.enchant.bonus.enabled", defaultValue = "false")
-	public static boolean ENABLE_ENCHANT_BONUS;
+
 	/**
 	 * Show premium account details on login
 	 */
@@ -118,6 +111,16 @@ public class CustomConfig {
 	@Property(key = "gameserver.basic.questsize.limit", defaultValue = "40")
 	public static int BASIC_QUEST_SIZE_LIMIT;
 	/**
+	 * Basic Quest limit size
+	 */
+	@Property(key = "gameserver.basic.cubesize.limit", defaultValue = "9")
+	public static int BASIC_CUBE_SIZE_LIMIT;
+	/**
+	 * Npc Cube Expands limit size
+	 */
+	@Property(key = "gameserver.npcexpands.limit", defaultValue = "5")
+	public static int NPC_CUBE_EXPANDS_SIZE_LIMIT;
+	/**
 	 * Enable instances
 	 */
 	@Property(key = "gameserver.instances.enable", defaultValue = "true")
@@ -157,21 +160,25 @@ public class CustomConfig {
 	 */
 	@Property(key = "gameserver.ap.cap.value", defaultValue = "1000000")
 	public static long AP_CAP_VALUE;
+
 	/**
 	 * Enable GP cap
 	 */
 	@Property(key = "gameserver.enable.gp.cap", defaultValue = "false")
 	public static boolean ENABLE_GP_CAP;
+
 	/**
 	 * GP cap value
 	 */
 	@Property(key = "gameserver.gp.cap.value", defaultValue = "1000000")
 	public static long GP_CAP_VALUE;
+
 	/**
 	 * Enable EXP cap
 	 */
 	@Property(key = "gameserver.enable.exp.cap", defaultValue = "false")
 	public static boolean ENABLE_EXP_CAP;
+
 	/**
 	 * EXP cap value
 	 */
@@ -191,43 +198,54 @@ public class CustomConfig {
 	public static int FACTION_USE_PRICE;
 	@Property(key = "gameserver.faction.cmdchannel", defaultValue = "true")
 	public static boolean FACTION_CMD_CHANNEL;
+
 	@Property(key = "gameserver.faction.chatchannels", defaultValue = "false")
 	public static boolean FACTION_CHAT_CHANNEL;
+
 	/**
 	 * Time in milliseconds in which players are limited for killing one player
 	 */
 	@Property(key = "gameserver.pvp.dayduration", defaultValue = "86400000")
 	public static long PVP_DAY_DURATION;
+
 	/**
-	 * Allowed Kills in configuered time for full AP. Move to separate config when more pvp options.
+	 * Allowed Kills in configuered time for full AP. Move to separate config
+	 * when more pvp options.
 	 */
+
 	@Property(key = "gameserver.pvp.maxkills", defaultValue = "5")
 	public static int MAX_DAILY_PVP_KILLS;
+
 	/**
 	 * Add a reward to player for pvp kills
 	 */
+
 	@Property(key = "gameserver.kill.reward.enable", defaultValue = "false")
 	public static boolean ENABLE_KILL_REWARD;
 
-	/**
-	 * Kills needed for item reward
-	 */
-	@Property(key = "gameserver.kills.needed1", defaultValue = "5")
-	public static int KILLS_NEEDED1;
-	@Property(key = "gameserver.kills.needed2", defaultValue = "10")
-	public static int KILLS_NEEDED2;
-	@Property(key = "gameserver.kills.needed3", defaultValue = "15")
-	public static int KILLS_NEEDED3;
+    /**
+     * Kills needed for item reward
+     */
+    @Property(key = "gameserver.kills.needed1", defaultValue = "5")
+    public static int KILLS_NEEDED1;
+    @Property(key = "gameserver.kills.needed2", defaultValue = "10")
+    public static int KILLS_NEEDED2;
+    @Property(key = "gameserver.kills.needed3", defaultValue = "15")
+    public static int KILLS_NEEDED3;
 
 	/**
 	 * Item Rewards
 	 */
+
 	@Property(key = "gameserver.item.reward1", defaultValue = "186000031")
 	public static int REWARD1;
+
 	@Property(key = "gameserver.item.reward2", defaultValue = "186000030")
 	public static int REWARD2;
+
 	@Property(key = "gameserver.item.reward3", defaultValue = "186000096")
 	public static int REWARD3;
+
 	@Property(key = "gameserver.item.reward4", defaultValue = "186000147")
 	public static int REWARD4;
 	/**
@@ -235,39 +253,90 @@ public class CustomConfig {
 	 */
 	@Property(key = "gameserver.dialog.showid", defaultValue = "true")
 	public static boolean ENABLE_SHOW_DIALOGID;
+
 	/**
 	 * Enable one kisk restriction
 	 */
 	@Property(key = "gameserver.kisk.restriction.enable", defaultValue = "true")
 	public static boolean ENABLE_KISK_RESTRICTION;
+
 	/**
 	 * Disputed Land
 	 */
-	@Property(key = "gameserver.dispute.land.enable", defaultValue = "true")
-	public static boolean DISPUTE_LAND_ENABLED;
-	@Property(key = "gameserver.dispute.land.schedule", defaultValue = "0 0 2 ? * *")
-	public static String DISPUTE_LAND_SCHEDULE;
-	@Property(key = "gameserver.dispute.land.duration", defaultValue = "2")
-	public static int DISPUTE_LAND_DURATION;
+
+	@Property(key = "gameserver.dispute.enable", defaultValue = "true")
+	public static boolean DISPUTE_ENABLED;
+
+	@Property(key = "gameserver.dispute.random.chance", defaultValue = "50")
+	public static int DISPUTE_RND_CHANCE;
+
+	@Property(key = "gameserver.dispute.weekend.random.chance", defaultValue = "75")
+	public static int DISPUTE_WEEKEND_RND_CHANCE;
+
+	@Property(key = "gameserver.dispute.random.schedule", defaultValue = "0 0 11 ? * *")
+	public static String DISPUTE_RND_SCHEDULE;
+
+	@Property(key = "gameserver.dispute.random2.schedule", defaultValue = "0 0 21 ? * *")
+	public static String DISPUTE_RND2_SCHEDULE;
+
+	@Property(key = "gameserver.dispute.random3.schedule", defaultValue = "0 0 2 ? * *")
+	public static String DISPUTE_RND3_SCHEDULE;
+
+	@Property(key = "gameserver.dispute.random4.schedule", defaultValue = "0 0 7 ? * *")
+	public static String DISPUTE_RND4_SCHEDULE;
+
+	@Property(key = "gameserver.dispute.fixed.schedule", defaultValue = "0 0 16 ? * *")
+	public static String DISPUTE_FXD_SCHEDULE;
+
 	@Property(key = "gameserver.dispute.time", defaultValue = "5")
 	public static int DISPUTE_LAND_TIME;
+
 	/**
 	 * Rift and Vortex System
 	 */
+
 	@Property(key = "gameserver.rift.enable", defaultValue = "true")
 	public static boolean RIFT_ENABLED;
+
 	@Property(key = "gameserver.rift.duration", defaultValue = "1")
 	public static int RIFT_DURATION;
-	@Property(key = "gameserver.rift.spawnchance", defaultValue = "50")
-	public static int RIFT_SPAWNCHANCE;
+
 	@Property(key = "gameserver.vortex.enable", defaultValue = "true")
 	public static boolean VORTEX_ENABLED;
+
 	@Property(key = "gameserver.vortex.brusthonin.schedule", defaultValue = "0 0 16 ? * SAT")
 	public static String VORTEX_THEOBOMOS_SCHEDULE;
+
 	@Property(key = "gameserver.vortex.theobomos.schedule", defaultValue = "0 0 16 ? * SUN")
 	public static String VORTEX_BRUSTHONIN_SCHEDULE;
+
 	@Property(key = "gameserver.vortex.duration", defaultValue = "1")
 	public static int VORTEX_DURATION;
+
+	/**
+	 * Serial Killer System
+	 */
+	@Property(key = "gameserver.serialkiller.enable", defaultValue = "true")
+	public static boolean SERIALKILLER_ENABLED;
+
+	@Property(key = "gameserver.serialkiller.handledworlds", defaultValue = "")
+	public static String SERIALKILLER_WORLDS = "";
+
+	@Property(key = "gameserver.serialkiller.kills.refresh", defaultValue = "5")
+	public static int SERIALKILLER_REFRESH;
+
+	@Property(key = "gameserver.serialkiller.kills.decrease", defaultValue = "1")
+	public static int SERIALKILLER_DECREASE;
+
+	@Property(key = "gameserver.serialkiller.level.diff", defaultValue = "10")
+	public static int SERIALKILLER_LEVEL_DIFF;
+
+	@Property(key = "gameserver.serialkiller.1st.rank.kills", defaultValue = "25")
+	public static int KILLER_1ST_RANK_KILLS;
+
+	@Property(key = "gameserver.serialkiller.2nd.rank.kills", defaultValue = "50")
+	public static int KILLER_2ND_RANK_KILLS;
+
 	@Property(key = "gameserver.reward.service.enable", defaultValue = "false")
 	public static boolean ENABLE_REWARD_SERVICE;
 	/**
@@ -277,18 +346,6 @@ public class CustomConfig {
 	public static boolean LIMITS_ENABLED;
 	@Property(key = "gameserver.limits.update", defaultValue = "0 0 0 * * ?")
 	public static String LIMITS_UPDATE;
-	@Property(key = "gameserver.sell.limit.kinah", defaultValue = "5300047")
-	public static long SELL_LIMIT_KINAH_LV1_LV30;
-	@Property(key = "gameserver.sell.limit.kinah", defaultValue = "7100047")
-	public static long SELL_LIMIT_KINAH_LV31_LV40;
-	@Property(key = "gameserver.sell.limit.kinah", defaultValue = "12050047")
-	public static long SELL_LIMIT_KINAH_LV41_LV55;
-	@Property(key = "gameserver.sell.limit.kinah", defaultValue = "14600047")
-	public static long SELL_LIMIT_KINAH_LV56_LV60;
-	@Property(key = "gameserver.sell.limit.kinah", defaultValue = "17150047")
-	public static long SELL_LIMIT_KINAH_LV61_LV65;
-	@Property(key = "gameserver.sell.limit.kinah", defaultValue = "21200047")
-	public static long SELL_LIMIT_KINAH_LV66_LV75;
 	@Property(key = "gameserver.chat.text.length", defaultValue = "150")
 	public static int MAX_CHAT_TEXT_LENGHT;
 	@Property(key = "gameserver.abyssxform.afterlogout", defaultValue = "false")
@@ -297,68 +354,16 @@ public class CustomConfig {
 	public static boolean INSTANCE_DUEL_ENABLE;
 	@Property(key = "gameserver.ride.restriction.enable", defaultValue = "true")
 	public static boolean ENABLE_RIDE_RESTRICTION;
+
 	@Property(key = "gameserver.quest.questdatakills", defaultValue = "true")
 	public static boolean QUESTDATA_MONSTER_KILLS;
+
 	@Property(key = "gameserver.commands.admin.dot.enable", defaultValue = "false")
 	public static boolean ENABLE_ADMIN_DOT_COMMANDS;
 
-	/**
-	 * World Channel
-	 */
-	@Property(key = "gameserver.worldchannel.costs", defaultValue = "50000")
-	public static int WORLD_CHANNEL_AP_COSTS;
-
-	/**
-	 * Anti-Zerg system
-	 */
-	@Property(key = "gameserver.antizerg.enable", defaultValue = "false")
-	public static boolean ANTI_ZERG_ENABLED;
-	@Property(key = "gameserver.antizerg.map", defaultValue = "")
-	public static String ANTI_ZERG_MAP;
-	@Property(key = "gameserver.antizerg.playercount", defaultValue = "3")
-	public static int ANTI_ZERG_COUNT;
-
-	/**
-	 * Store Bind Point before Logout
-	 */
-	@Property(key = "gameserver.storebindpoint.enable", defaultValue = "false")
-	public static boolean ENABLE_STORE_BINDPOINT;
-
-	/**
-	 * Custom Delay for Hotspot Teleportation in Milliseconds
-	 */
-	@Property(key = "gameserver.hotspot.teleport.delay", defaultValue = "10000")
-	public static int HOTSPOT_TELEPORT_DELAY;
-
-	/**
-	 * Custom Delay for Hotspot Teleportation Cooldown Time Default: 60 seconds (5.x)
-	 */
-	@Property(key = "gameserver.hotspot.teleport.cooldown.delay", defaultValue = "60")
-	public static int HOTSPOT_TELEPORT_COOLDOWN_DELAY;
-
-	/**
-	 * Allow's you to disable Teleporter and Flight transporter by NpcId
-	 */
-	@Property(key = "gameserver.disable.teleport.npcs", defaultValue = "0")
-	public static String DISABLE_TELEPORTER_NPCS;
-
-	// Illusion Godstones
-	@Property(key = "gameserver.break.illusion.godstones", defaultValue = "1.0")
-	public static float ILLUSION_GODSTONE_BREAK_RATE;
-
-	// Minions
-	@Property(key = "gameserver.max.minion.list", defaultValue = "200")
-	public static int MAX_MINION_LIST;
-
-    @Property(key = "gameserver.combine.minion", defaultValue = "50")
-    public static float COMBINE_MINION;
-
-	// Dynamic Portal
-	@Property(key = "gameserver.dynamic.portal.enable", defaultValue = "true")
-	public static boolean DYNAMIC_PORTAL_ENABLED;
-	@Property(key = "gameserver.dynamic.portal.duration", defaultValue = "1")
-	public static int DYNAMIC_PORTAL_DURATION;
-	// Katalam Portal
-	@Property(key = "gameserver.dynamic.portal.katalam.schedule", defaultValue = "0 0 2 ? * *")
-	public static String DYNAMIC_PORTAL_KATALAM_SCHEDULE;
+    /**
+     * World Channel
+     */
+    @Property(key = "gameserver.worldchannel.costs", defaultValue = "50000")
+    public static int WORLD_CHANNEL_AP_COSTS;
 }

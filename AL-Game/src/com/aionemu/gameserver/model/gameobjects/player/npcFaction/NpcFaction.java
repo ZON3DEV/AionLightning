@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player.npcFaction;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -144,8 +145,7 @@ public class NpcFaction {
 			case DELETED:
 				if (this.persistentState == PersistentState.NEW) {
 					this.persistentState = PersistentState.NOACTION;
-				}
-				else {
+				} else {
 					this.persistentState = PersistentState.DELETED;
 				}
 				break;

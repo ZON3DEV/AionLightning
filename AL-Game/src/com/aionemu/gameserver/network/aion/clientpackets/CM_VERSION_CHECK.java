@@ -14,12 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_AFTER_TIME_CHECK;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_UNK_16A;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_VERSION_CHECK;
 
 /**
@@ -68,7 +67,5 @@ public class CM_VERSION_CHECK extends AionClientPacket {
 	@Override
 	protected void runImpl() {
 		sendPacket(new SM_VERSION_CHECK(version));
-		sendPacket(new SM_AFTER_TIME_CHECK());
-		sendPacket(new SM_UNK_16A()); // TODO
 	}
 }

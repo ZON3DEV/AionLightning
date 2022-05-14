@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.geoEngine.scene;
 
 import com.aionemu.gameserver.geoEngine.bounding.BoundingVolume;
@@ -92,7 +93,8 @@ public class Geometry extends Spatial {
 	}
 
 	/**
-	 * Updates the bounding volume of the mesh. Should be called when the mesh has been modified.
+	 * Updates the bounding volume of the mesh. Should be called when the mesh
+	 * has been modified.
 	 */
 	@Override
 	public void updateModelBound() {

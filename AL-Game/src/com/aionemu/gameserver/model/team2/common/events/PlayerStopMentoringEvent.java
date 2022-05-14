@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.common.events;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -27,7 +28,8 @@ import com.google.common.base.Predicate;
 /**
  * @author ATracer
  */
-public abstract class PlayerStopMentoringEvent<T extends TemporaryPlayerTeam<? extends TeamMember<Player>>> extends AlwaysTrueTeamEvent implements Predicate<Player> {
+public abstract class PlayerStopMentoringEvent<T extends TemporaryPlayerTeam<? extends TeamMember<Player>>> extends AlwaysTrueTeamEvent implements
+		Predicate<Player> {
 
 	protected final T team;
 	protected final Player player;

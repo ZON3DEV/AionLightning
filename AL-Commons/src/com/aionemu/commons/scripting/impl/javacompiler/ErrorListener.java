@@ -15,20 +15,19 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.scripting.impl.javacompiler;
-
-import java.util.Locale;
-
-import javax.tools.Diagnostic;
-import javax.tools.DiagnosticListener;
-import javax.tools.JavaFileObject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.tools.Diagnostic;
+import javax.tools.DiagnosticListener;
+import javax.tools.JavaFileObject;
+import java.util.Locale;
+
 /**
- * This class is simple compiler error listener that forwards errors to log4j
- * logger
+ * This class is simple compiler error listener that forwards errors to log4j logger
  * 
  * @author SoulKeeper
  */
@@ -40,7 +39,7 @@ public class ErrorListener implements DiagnosticListener<JavaFileObject> {
 	 * Reports compilation errors to log4j
 	 * 
 	 * @param diagnostic
-	 *            compiler errors
+	 *          compiler errors
 	 */
 	@Override
 	public void report(Diagnostic<? extends JavaFileObject> diagnostic) {

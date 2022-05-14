@@ -14,23 +14,24 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network;
 
 import java.sql.Timestamp;
 import java.util.Map;
 
+import javolution.util.FastMap;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.loginserver.LoginServer;
 import com.aionemu.gameserver.network.loginserver.serverpackets.SM_MACBAN_CONTROL;
-import com.aionemu.gameserver.world.World;
-
-import javolution.util.FastMap;
 
 /**
- * @author KID,Modifly by Newlives@aioncore 2-2-2015
+ *
+ * @author KID
+ *
  */
 public class BannedMacManager {
 
@@ -44,22 +45,15 @@ public class BannedMacManager {
 	private Map<String, BannedMacEntry> bannedList = new FastMap<String, BannedMacEntry>();
 
 	public final void banAddress(String address, long newTime, String details) {
-		for (Player player : World.getInstance().getAllPlayers()) {
-			if (player.getClientConnection().getMacAddress().equals(address)) {
-				player.getClientConnection().closeNow();
-			}
-		}
 		BannedMacEntry entry;
 		if (bannedList.containsKey(address)) {
 			if (bannedList.get(address).isActiveTill(newTime)) {
 				return;
-			}
-			else {
+			} else {
 				entry = bannedList.get(address);
 				entry.updateTime(newTime);
 			}
-		}
-		else {
+		} else {
 			entry = new BannedMacEntry(address, newTime);
 		}
 
@@ -67,18 +61,17 @@ public class BannedMacManager {
 
 		bannedList.put(address, entry);
 
-		log.info("[BannedMacManager] banned " + address + " to " + entry.getTime().toString() + " for " + details);
+		log.info("banned " + address + " to " + entry.getTime().toString() + " for " + details);
 		LoginServer.getInstance().sendPacket(new SM_MACBAN_CONTROL((byte) 1, address, newTime, details));
 	}
 
 	public final boolean unbanAddress(String address, String details) {
 		if (bannedList.containsKey(address)) {
 			bannedList.remove(address);
-			log.info("[BannedMacManager] unbanned " + address + " for " + details);
+			log.info("unbanned " + address + " for " + details);
 			LoginServer.getInstance().sendPacket(new SM_MACBAN_CONTROL((byte) 0, address, 0, details));
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
@@ -86,8 +79,7 @@ public class BannedMacManager {
 	public final boolean isBanned(String address) {
 		if (bannedList.containsKey(address)) {
 			return this.bannedList.get(address).isActive();
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
@@ -97,6 +89,6 @@ public class BannedMacManager {
 	}
 
 	public void onEnd() {
-		log.info("[BannedMacManager] Loaded " + this.bannedList.size() + " banned mac addresses");
+		log.info("Loaded " + this.bannedList.size() + " banned mac addresses");
 	}
 }

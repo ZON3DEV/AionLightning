@@ -14,10 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network;
 
 /**
- * This Exception will be thrown when <code>Crypt</code> setKey method will be called more than one time.
+ * This Exception will be thrown when <code>Crypt</code> setKey method will be
+ * called more than one time.
  *
  * @author -Nemesiss-
  */
@@ -32,7 +34,8 @@ public class KeyAlreadySetException extends RuntimeException {
 	}
 
 	/**
-	 * Constructs an <code>KeyAlreadySetException</code> with the specified detail message.
+	 * Constructs an <code>KeyAlreadySetException</code> with the specified
+	 * detail message.
 	 *
 	 * @param s
 	 *            the detail message.

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.geoEngine.math;
 
 import java.util.logging.Logger;
@@ -114,7 +115,8 @@ public class Eigen3f {
 	}
 
 	/**
-	 * Scale the matrix so its entries are in [-1,1]. The scaling is applied only when at least one matrix entry has magnitude larger than 1.
+	 * Scale the matrix so its entries are in [-1,1]. The scaling is applied
+	 * only when at least one matrix entry has magnitude larger than 1.
 	 *
 	 * @return the max magnitude in this matrix
 	 */
@@ -187,19 +189,16 @@ public class Eigen3f {
 				p00 *= invLength;
 				p01 *= invLength;
 				vectorU.mult(p01, eigenVectors[index3]).addLocal(vectorV.mult(p00));
-			}
-			else {
+			} else {
 				invLength = FastMath.invSqrt(p11 * p11 + p01 * p01);
 				p11 *= invLength;
 				p01 *= invLength;
 				vectorU.mult(p11, eigenVectors[index3]).addLocal(vectorV.mult(p01));
 			}
-		}
-		else {
+		} else {
 			if (row == 0) {
 				eigenVectors[index3] = vectorV;
-			}
-			else {
+			} else {
 				eigenVectors[index3] = vectorU;
 			}
 		}
@@ -227,19 +226,16 @@ public class Eigen3f {
 				p00 *= invLength;
 				p01 *= invLength;
 				eigenVectors[index1] = vect.mult(p01).add(vectorS.mult(p00));
-			}
-			else {
+			} else {
 				invLength = FastMath.invSqrt(p11 * p11 + p01 * p01);
 				p11 *= invLength;
 				p01 *= invLength;
 				eigenVectors[index1] = vect.mult(p11).add(vectorS.mult(p01));
 			}
-		}
-		else {
+		} else {
 			if (row == 0) {
 				eigenVectors[index1].set(vectorS);
-			}
-			else {
+			} else {
 				eigenVectors[index1].set(vect);
 			}
 		}
@@ -248,14 +244,18 @@ public class Eigen3f {
 	}
 
 	/**
-	 * Check the rank of the given Matrix to determine if it is positive. While doing so, store the max magnitude entry in the given float store and the max row of the matrix in the Vector store.
+	 * Check the rank of the given Matrix to determine if it is positive. While
+	 * doing so, store the max magnitude entry in the given float store and the
+	 * max row of the matrix in the Vector store.
 	 *
 	 * @param matrix
 	 *            the Matrix3f to analyze.
 	 * @param maxMagnitudeStore
-	 *            a float array in which to store (in the 0th position) the max magnitude entry of the matrix.
+	 *            a float array in which to store (in the 0th position) the max
+	 *            magnitude entry of the matrix.
 	 * @param maxRowStore
-	 *            a Vector3f to store the values of the row of the matrix containing the max magnitude entry.
+	 *            a Vector3f to store the values of the row of the matrix
+	 *            containing the max magnitude entry.
 	 * @return true if the given matrix has a non 0 rank.
 	 */
 	private boolean positiveRank(Matrix3f matrix, float[] maxMagnitudeStore, Vector3f maxRowStore) {
@@ -280,12 +280,14 @@ public class Eigen3f {
 	}
 
 	/**
-	 * Generate the base eigen values of the given matrix using double precision math.
+	 * Generate the base eigen values of the given matrix using double precision
+	 * math.
 	 *
 	 * @param mat
 	 *            the Matrix3f to analyze.
 	 * @param rootsStore
-	 *            a double array to store the results in. Must be at least length 3.
+	 *            a double array to store the results in. Must be at least
+	 *            length 3.
 	 */
 	private void computeRoots(Matrix3f mat, double[] rootsStore) {
 		// Convert the unique matrix entries to double precision.
@@ -328,21 +330,18 @@ public class Eigen3f {
 		if (root1 >= root0) {
 			rootsStore[0] = root0;
 			rootsStore[1] = root1;
-		}
-		else {
+		} else {
 			rootsStore[0] = root1;
 			rootsStore[1] = root0;
 		}
 
 		if (root2 >= rootsStore[1]) {
 			rootsStore[2] = root2;
-		}
-		else {
+		} else {
 			rootsStore[2] = rootsStore[1];
 			if (root2 >= rootsStore[0]) {
 				rootsStore[1] = root2;
-			}
-			else {
+			} else {
 				rootsStore[1] = rootsStore[0];
 				rootsStore[0] = root2;
 			}

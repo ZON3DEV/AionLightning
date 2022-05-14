@@ -14,12 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.instance.playerreward;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.instance.InstanceBuff;
 
 /**
+ *
  * @author xTz
  */
 public class PvPArenaPlayerReward extends InstancePlayerReward {
@@ -44,9 +46,6 @@ public class PvPArenaPlayerReward extends InstancePlayerReward {
 	private int mithrilMedal;
 	private int platinumMedal;
 	private int gloriousInsignia;
-	private int basicInfinity;
-	private int rankingInfinity;
-	private int scoreInfinity;
 	private int lifeSerum;
 	private long logoutTime;
 	private boolean isRewarded = false;
@@ -236,31 +235,7 @@ public class PvPArenaPlayerReward extends InstancePlayerReward {
 	public void setLifeSerum(int lifeSerum) {
 		this.lifeSerum = lifeSerum;
 	}
-	
-	public void setBasicInfinity(int basicInfinity) {
-		this.basicInfinity = basicInfinity;
-	}
-	
-	public void setRankingInfinity(int rankingInfinity) {
-		this.rankingInfinity = rankingInfinity;
-	}
-	
-	public void setScoreInfinity(int scoreInfinity) {
-		this.scoreInfinity = scoreInfinity;
-	}
-	
-	public int getBasicInfinity() {
-		return basicInfinity;
-	}
-	
-	public int getRankingInfinity() {
-		return rankingInfinity;
-	}
-	
-	public int getScoreInfinity() {
-		return scoreInfinity;
-	}
-	
+
 	public int getScorePoints() {
 		return timeBonus + getPoints();
 	}

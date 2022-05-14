@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -32,6 +33,7 @@ public class CM_CRAFT extends AionClientPacket {
 	private int targetTemplateId;
 	private int recipeId;
 	private int targetObjId;
+	@SuppressWarnings("unused")
 	private int materialsCount;
 	private int craftType;
 
@@ -53,10 +55,11 @@ public class CM_CRAFT extends AionClientPacket {
 		targetObjId = readD();
 		materialsCount = readH();
 		craftType = readC();
-		for (int i = 0; i < materialsCount; i++) {
-			readD(); // materialId
-			readQ(); // materialCount
-		}
+		// un used
+		// for (int i = 0; i < materialsCount; i++) {
+		// readD(); // materialId
+		// readQ(); // materialCount
+		// }
 	}
 
 	@Override

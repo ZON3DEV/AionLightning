@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers.movement;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -104,7 +105,9 @@ public abstract class PlayableMoveController<T extends Creature> extends Creatur
 		float newZ = (targetDestZ - z) * distFraction + z;
 
 		/*
-		 * if ((movementMask & MovementMask.MOUSE) == 0) { targetDestX = newX + vectorX; targetDestY = newY + vectorY; targetDestZ = newZ + vectorZ; }
+		 * if ((movementMask & MovementMask.MOUSE) == 0) { targetDestX = newX +
+		 * vectorX; targetDestY = newY + vectorY; targetDestZ = newZ + vectorZ;
+		 * }
 		 */
 		World.getInstance().updatePosition(owner, newX, newY, newZ, heading, false);
 		updateLastMove();
@@ -139,12 +142,6 @@ public abstract class PlayableMoveController<T extends Creature> extends Creatur
 				movementHeading = value;
 			}
 		}
-	}
-
-	@Override
-	public void skillMovement() {
-		this.movementMask = MovementMask.IMMEDIATE;
-		PacketSendUtility.broadcastPacketAndReceive(owner, new SM_MOVE(owner));
 	}
 
 	public int getMovementHeading() {

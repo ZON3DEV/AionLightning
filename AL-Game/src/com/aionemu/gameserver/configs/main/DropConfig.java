@@ -14,24 +14,19 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.main;
 
 import com.aionemu.commons.configuration.Property;
 
 /**
  * @author Tiger0319
- * @rework Blackfire
  */
 public class DropConfig {
 
 	/**
-	 * Enable announce when a player get Epic item / Mythic item from chest.
-	 */
-	@Property(key = "gameserver.unique.chest.drop.announce.enable", defaultValue = "false")
-	public static boolean ENABLE_UNIQUE_CHEST_DROP_ANNOUNCE;
-
-	/**
-	 * Disable drop rate reduction based on level diference between players and mobs
+	 * Disable drop rate reduction based on level diference between players and
+	 * mobs
 	 */
 	@Property(key = "gameserver.drop.reduction.disable", defaultValue = "false")
 	public static boolean DISABLE_DROP_REDUCTION;
@@ -45,4 +40,11 @@ public class DropConfig {
 	 */
 	@Property(key = "gameserver.drop.noreduction", defaultValue = "0")
 	public static String DISABLE_DROP_REDUCTION_IN_ZONES;
+
+	/**
+	 * Enable Global Drops Engine
+	 */
+	@Property(key = "gameserver.drop.enable.globaldrops", defaultValue = "false")
+	public static boolean ENABLE_GLOBAL_DROPS;
+
 }

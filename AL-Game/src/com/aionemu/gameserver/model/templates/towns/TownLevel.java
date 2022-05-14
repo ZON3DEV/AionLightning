@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.towns;
 
 import java.util.List;
@@ -26,6 +27,7 @@ import com.aionemu.gameserver.model.templates.spawns.Spawn;
 
 /**
  * @author ViAl
+ *
  */
 @XmlType(name = "town_level")
 public class TownLevel {

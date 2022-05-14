@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -57,14 +58,15 @@ public class CM_GROUP_DISTRIBUTION extends AionClientPacket {
 			case 1:
 				if (player.isInAlliance2()) {
 					PlayerAllianceService.distributeKinahInGroup(player, amount);
-				}
-				else {
+				} else {
 					PlayerGroupService.distributeKinah(player, amount);
 				}
 				break;
 			case 2:
 				PlayerAllianceService.distributeKinah(player, amount);
 				break;
+    		case 3:
+      			PlayerAllianceService.distributeKinahInGroup(player, amount);
 		}
 	}
 }

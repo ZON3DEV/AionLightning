@@ -14,11 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.autogroup;
 
 import java.util.Collections;
 import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -26,6 +26,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * @author MrPoke
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AutoGroup")

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import org.apache.commons.lang.StringUtils;
@@ -55,17 +56,13 @@ public class SM_GROUP_INFO extends AionServerPacket {
 		writeD(lootRules.getHeroicItemAbove());
 		writeD(lootRules.getFabledItemAbove());
 		writeD(lootRules.getEthernalItemAbove());
-		writeD(lootRules.getMythicItemAbove());
-		writeD(lootRules.getAncientItemAbove());
-		writeD(lootRules.getRelicItemAbove());
-		writeD(lootRules.getFinalityItemAbove());
-		// writeD(lootRules.getAutodistribution().getId());
+		writeD(lootRules.getAutodistribution().getId());
 		writeD(2);
 		writeC(0);
-		writeD(type.getType());// Need to update 3F to FF ?
+		writeD(type.getType());
 		writeD(type.getSubType());
-		writeD(0); // unk
-		// writeH(0); // message id
+		writeH(0); // unk
+		writeH(0); // message id
 		writeS(StringUtils.EMPTY); // name
 	}
 }

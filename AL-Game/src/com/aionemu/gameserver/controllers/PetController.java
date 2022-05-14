@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers;
 
 import com.aionemu.commons.database.dao.DAOManager;
@@ -77,16 +78,14 @@ public class PetController extends VisibleObjectController<Pet> {
 
 				if (currentPoints < 9000) {
 					PacketSendUtility.sendPacket(player, new SM_PET(pet, 4, 0));
-				}
-				else {
+				} else {
 					PacketSendUtility.sendPacket(player, new SM_PET(pet, 3, 0));
 					// Save if it reaches 100% after player snuggles the pet, not by the scheduler itself
 					if (!saved) {
 						DAOManager.getDAO(PlayerPetsDAO.class).savePetMoodData(pet.getCommonData());
 					}
 				}
-			}
-			catch (Exception ex) {
+			} catch (Exception ex) {
 				player.getController().cancelTask(TaskId.PET_UPDATE);
 			}
 		}

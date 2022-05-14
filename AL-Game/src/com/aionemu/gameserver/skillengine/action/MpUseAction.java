@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.action;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -47,7 +48,7 @@ public class MpUseAction extends Action {
 		int currentMp = effector.getLifeStats().getCurrentMp();
 		int valueWithDelta = value + delta * skill.getSkillLevel();
 		if (ratio) {
-			valueWithDelta = (skill.getEffector().getLifeStats().getMaxMp() * valueWithDelta) / 100;
+			valueWithDelta = (int) ((skill.getEffector().getLifeStats().getMaxMp() * valueWithDelta) / 100);
 		}
 		int changeMpPercent = skill.getBoostSkillCost();
 		if (changeMpPercent != 0) {

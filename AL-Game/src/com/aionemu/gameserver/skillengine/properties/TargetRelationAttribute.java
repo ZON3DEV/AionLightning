@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.properties;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -26,9 +27,5 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum TargetRelationAttribute {
 
-	NONE,
-	ENEMY,
-	MYPARTY,
-	ALL,
-	FRIEND
+	NONE, ENEMY, MYPARTY, ALL, FRIEND
 }

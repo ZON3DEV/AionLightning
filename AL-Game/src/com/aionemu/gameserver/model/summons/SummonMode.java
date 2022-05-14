@@ -14,19 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.summons;
 
 /**
+ *
  * @author xTz
  */
 public enum SummonMode {
 
-	ATTACK(0),
-	GUARD(1),
-	REST(2),
-	RELEASE(3),
-	UNK(5);
-
+	ATTACK(0), GUARD(1), REST(2), RELEASE(3), UNK(5);
 	private int id;
 
 	private SummonMode(int id) {

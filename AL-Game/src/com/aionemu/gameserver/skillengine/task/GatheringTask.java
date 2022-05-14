@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.task;
 
 import com.aionemu.commons.utils.Rnd;
@@ -75,16 +76,14 @@ public class GatheringTask extends AbstractCraftTask {
 	 */
 	@Override
 	protected void analyzeInteraction() {
-		int critVal = Rnd.get(55000) / (skillLvlDiff + 1);
+		int critVal = (int) (Rnd.get(55000) / (skillLvlDiff + 1));
 		if (critVal < CraftConfig.CRAFT_CHANCE_PURPLECRIT) {
 			critType = CraftCritType.PURPLE;
 			currentSuccessValue = maxSuccessValue;
 			return;
-		}
-		else if (critVal < CraftConfig.CRAFT_CHANCE_BLUECRIT) {
+		} else if (critVal < CraftConfig.CRAFT_CHANCE_BLUECRIT) {
 			critType = CraftCritType.BLUE;
-		}
-		else if (critVal < CraftConfig.CRAFT_CHANCE_INSTANT) {
+		} else if (critVal < CraftConfig.CRAFT_CHANCE_INSTANT) {
 			critType = CraftCritType.INSTANT;
 			currentSuccessValue = maxSuccessValue;
 			return;
@@ -97,25 +96,24 @@ public class GatheringTask extends AbstractCraftTask {
 		}
 
 		double mod = Math.sqrt((double) skillLvlDiff / 450f) * 100f + Rnd.nextGaussian() * 10f;
-		mod -= this.itemQuality.getQualityId();
+		mod -= (double) this.itemQuality.getQualityId();
 		if (mod < 0) {
 			currentFailureValue -= (int) mod;
-		}
-		else {
+		} else {
 			currentSuccessValue += (int) mod;
 		}
 
 		if (currentSuccessValue >= maxSuccessValue) {
 			currentSuccessValue = maxSuccessValue;
-		}
-		else if (currentFailureValue >= maxFailureValue) {
+		} else if (currentFailureValue >= maxFailureValue) {
 			currentFailureValue = maxFailureValue;
 		}
 	}
 
 	@Override
 	protected void sendInteractionUpdate() {
-		PacketSendUtility.sendPacket(requestor, new SM_GATHER_UPDATE(template, material, currentSuccessValue, currentFailureValue, this.critType.getPacketId()));
+		PacketSendUtility
+				.sendPacket(requestor, new SM_GATHER_UPDATE(template, material, currentSuccessValue, currentFailureValue, this.critType.getPacketId()));
 		if (this.critType == CraftCritType.BLUE) {
 			this.critType = CraftCritType.NONE;
 		}
@@ -153,10 +151,7 @@ public class GatheringTask extends AbstractCraftTask {
 		ItemService.addItem(requestor, material.getItemid(), requestor.getRates().getGatheringCountRate());
 		if (requestor.isInInstance()) {
 			requestor.getPosition().getWorldMapInstance().getInstanceHandler().onGather(requestor, (Gatherable) responder);
-        } 
-        else {
-            requestor.getPosition().getWorld().getWorldMap(requestor.getWorldId()).getWorldHandler().onGather(requestor, (Gatherable) responder);
-        }
+		}
 		((Gatherable) responder).getController().rewardPlayer(requestor);
 		return true;
 	}

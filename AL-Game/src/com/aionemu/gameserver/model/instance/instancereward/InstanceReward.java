@@ -14,14 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.instance.instancereward;
 
 import com.aionemu.gameserver.model.instance.InstanceScoreType;
 import com.aionemu.gameserver.model.instance.playerreward.InstancePlayerReward;
-
 import javolution.util.FastList;
 
 /**
+ *
  * @author xTz
  */
 public class InstanceReward<T extends InstancePlayerReward> {

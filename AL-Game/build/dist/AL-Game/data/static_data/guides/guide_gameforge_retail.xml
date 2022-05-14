@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<guides xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="guide.xsd">
+	<!-- Asmodians -->
+	<guide title="adventurers_guide2_asmo" level="2" race="ASMODIANS" rewardCount="1">
+		<message><![CDATA[<BR><BR>
+			Greetings, child. You may not realize this yet, but you
+			are very important to me& and to all Elysea. So I will do
+			my best to help you as you travel these lands. Make
+			your way to Akarios Village. You will find a Bind Point
+			there. And take this with you& it is a gift of sorts for
+			your journey. May Ariel's light protect you...and
+			illuminate your past.
+			<br><br>]]>
+		</message>
+		<select>A disembodied voice?!</select>
+		<survey itemId="164002011" count="50"/>
+	</guide>
+	<guide title="adventurers_guide10_asmo" level="10" race="ASMODIANS" rewardCount="2">
+		<message><![CDATA[<BR><BR>
+			Another lesson learned, another table turned. You have
+			done well, my friend. The Seraphim Lords view you as
+			a beacon of hope for the Elyos people, and watch your
+			every step with an ever-increasing sense of pride.
+			<br><br>
+			Be well, child. Enjoy the gifts you have been blessed
+			with.
+			<br><br>
+			A friend.
+			<br><br>]]>
+		</message>
+		<select>Faith and arms!</select>
+		<survey itemId="164002011" count="50"/>
+		<survey itemId="162002002" count="50"/>
+	</guide>
+	<guide title="adventurers_guide11_asmo" level="11" race="ASMODIANS" rewardCount="1">
+		<message>
+			<![CDATA[<BR><BR>
+			Congratulations!
+			<br><br>]]>
+		</message>
+		<reward_info>Please select your Loot Miol.</reward_info>
+		<select>Blood for blood!</select>
+		<survey itemId="190020030" count="1"/>
+		<survey itemId="190020138" count="1"/>
+		<survey itemId="190020088" count="1"/>
+		<survey itemId="190020082" count="1"/>
+		<survey itemId="190020080" count="1"/>
+		<survey itemId="190020009" count="1"/>
+	</guide>
+	<guide title="adventurers_guide20_asmo" level="20" race="ASMODIANS" rewardCount="3">
+		<message><![CDATA[<BR><BR>
+			Young one, you can link yourself to a new Bind Point at
+			Melponeh's Campsite& not too far from here. It is a
+			perilous journey there, so take this with you. It will help
+			you along your journey.
+			<Br><Br><Br><Br>
+			Be well, child.
+			<br><br>]]>
+		</message>
+		<select>Thank you for your guidance.</select>
+		<survey itemId="164002011" count="100"/>
+		<survey itemId="162002002" count="100"/>
+		<survey itemId="186000007" count="40"/>
+	</guide>
+	<guide title="adventurers_guide30_asmo" level="30" race="ASMODIANS" rewardCount="3">
+		<message><![CDATA[<BR><BR>
+			Another lesson learned, another table turned. You have
+			done well, my friend. The Seraphim Lords view you as
+			a beacon of hope for the Elyos people, and watch your
+			every step with an ever-increasing sense of pride.
+			<br><br>
+			Be well, child. Enjoy the gifts you have been blessed
+			with.
+			<br><br>
+			A friend.
+			<br><br>]]>
+		</message>
+		<select>Faith and arms!</select>
+		<survey itemId="164002011" count="150"/>
+		<survey itemId="162002002" count="100"/>
+		<survey itemId="186000008" count="90"/>
+	</guide>
+	<guide title="adventurers_guide40_asmo" level="40" race="ASMODIANS" rewardCount="3">
+		<message><![CDATA[<BR><BR>
+			Another lesson learned, another table turned. You have
+			done well, my friend. The Seraphim Lords view you as
+			a beacon of hope for the Elyos people, and watch your
+			every step with an ever-increasing sense of pride.
+			<br><br>
+			Be well, child. Enjoy the gifts you have been blessed
+			with.
+			<br><br>
+			A friend.
+			<br><br>]]>
+		</message>
+		<select>Faith and arms!</select>
+		<survey itemId="164002011" count="150"/>
+		<survey itemId="162002002" count="100"/>
+		<survey itemId="186000009" count="150"/>
+	</guide>
+	<guide title="adventurers_guide45_asmo" level="45" race="ASMODIANS" rewardCount="3">
+		<message><![CDATA[<BR><BR>
+			Greetings, youngling. You have come a long way since
+			you first opened your eyes. I speak to you now
+			because I sense you will soon find your way to the
+			Kabarah Strip Mine and the Agaric Spore Road...and
+			one step closer to your truth. Be wary as well as open,
+			child, for you may meet a familiar face on an unfamiliar
+			road.
+			<br><br>
+			Farewell for now.
+			<br><br>]]>
+		</message>
+		<select>I will be wary and open.</select>
+		<survey itemId="164002011" count="150"/>
+		<survey itemId="162002002" count="100"/>
+		<survey itemId="186000010" count="200"/>
+	</guide>
+	<guide title="adventurers_guide50_asmo" level="50" race="ASMODIANS" rewardCount="4">
+		<message><![CDATA[<BR><BR>
+			Another lesson learned, another table turned. You have
+			done well, my friend. The Seraphim Lords view you as
+			a beacon of hope for the Elyos people, and watch your
+			every step with an ever-increasing sense of pride.
+			<br><br>
+			Be well, child. Enjoy the gifts you have been blessed
+			with.
+			<br><br>
+			A friend.
+			<br><br>]]>
+		</message>
+		<select>Faith and arms!</select>
+		<survey itemId="164002011" count="150"/>
+		<survey itemId="162002002" count="100"/>
+		<survey itemId="186000019" count="250"/>
+		<survey itemId="186000076" count="2"/>
+	</guide>
+	<guide title="adventurers_guide55_asmo" level="55" race="ASMODIANS" rewardCount="3">
+		<message><![CDATA[<BR><BR>
+			As you have no doubt guessed by now, I am Pernos. It
+			has been my privilege to help you along the path to
+			your ultimate truth.
+			<Br><Br><Br><Br>
+			I must commend you on your ascension to Daeva,
+			child. You have faced many more perilous quests than
+			most Elyos. But now it is time for you to learn the
+			ancient art of crafting in the Protector's Hall of Sanctum.
+			Those skills will serve you well in your journey.
+			<Br><Br><Br><Br>
+			In honor of your ascension, I bestow upon you this gift.
+			<Br><Br><Br><Br>
+			~Pernos
+			<br><br>]]>
+		</message>
+		<select>Thank you, wise one.</select>
+		<survey itemId="164002011" count="150"/>
+		<survey itemId="162002002" count="100"/>
+		<survey itemId="188051531" count="1"/>
+	</guide>
+	<guide title="adventurers_guide60_asmo" level="60" race="ASMODIANS" rewardCount="3">
+		<message><![CDATA[<BR><BR>
+			Congratulations!
+			<br><br>]]>
+		</message>
+		<select>Faith and arms!</select>
+		<survey itemId="164002011" count="150"/>
+		<survey itemId="162002002" count="100"/>
+		<survey itemId="186000143" count="300"/>
+	</guide>
+	<guide title="adventurers_guide65_asmo" level="65" race="ASMODIANS" rewardCount="3">
+		<message><![CDATA[<BR><BR>
+			Congratulations!
+			<br><br>]]>
+		</message>
+		<select>Faith and arms!</select>
+		<survey itemId="164002111" count="200"/>
+		<survey itemId="162000080" count="200"/>
+		<survey itemId="186000236" count="200"/>
+	</guide>
+	
+	<!-- Elyos -->
+	<guide title="adventurers_guide2_ely" level="2" race="ELYOS" rewardCount="1">
+		<message><![CDATA[<BR><BR>
+			Greetings, child. You may not realize this yet, but you
+			are very important to me& and to all Elysea. So I will do
+			my best to help you as you travel these lands. Make
+			your way to Akarios Village. You will find a Bind Point
+			there. And take this with you& it is a gift of sorts for
+			your journey. May Ariel's light protect you...and
+			illuminate your past.
+			<br><br>]]>
+		</message>
+		<select>A disembodied voice?!</select>
+		<survey itemId="164002011" count="50"/>
+	</guide>
+	<guide title="adventurers_guide10_ely" level="10" race="ELYOS" rewardCount="2">
+		<message><![CDATA[<BR><BR>
+			Another lesson learned, another table turned. You have
+			done well, my friend. The Seraphim Lords view you as
+			a beacon of hope for the Elyos people, and watch your
+			every step with an ever-increasing sense of pride.
+			<br><br>
+			Be well, child. Enjoy the gifts you have been blessed
+			with.
+			<br><br>
+			A friend.
+			<br><br>]]>
+		</message>
+		<select>Faith and arms!</select>
+		<survey itemId="164002011" count="50"/>
+		<survey itemId="162002002" count="50"/>
+	</guide>
+	<guide title="adventurers_guide11_ely" level="11" race="ELYOS" rewardCount="1">
+		<message>
+			<![CDATA[<BR><BR>
+			Congratulations!
+			<br><br>]]>
+		</message>
+		<reward_info>Please select your Loot Miol.</reward_info>
+		<select>Faith and arms!</select>
+		<survey itemId="190020030" count="1"/>
+		<survey itemId="190020138" count="1"/>
+		<survey itemId="190020088" count="1"/>
+		<survey itemId="190020082" count="1"/>
+		<survey itemId="190020080" count="1"/>
+		<survey itemId="190020009" count="1"/>
+	</guide>
+	<guide title="adventurers_guide20_ely" level="20" race="ELYOS" rewardCount="3">
+		<message><![CDATA[<BR><BR>
+			Young one, you can link yourself to a new Bind Point at
+			Melponeh's Campsite& not too far from here. It is a
+			perilous journey there, so take this with you. It will help
+			you along your journey.
+			<Br><Br><Br><Br>
+			Be well, child.
+			<br><br>]]>
+		</message>
+		<select>Thank you for your guidance.</select>
+		<survey itemId="164002011" count="100"/>
+		<survey itemId="162002002" count="100"/>
+		<survey itemId="186000002" count="40"/>
+	</guide>
+	<guide title="adventurers_guide30_ely" level="30" race="ELYOS" rewardCount="3">
+		<message><![CDATA[<BR><BR>
+			Another lesson learned, another table turned. You have
+			done well, my friend. The Seraphim Lords view you as
+			a beacon of hope for the Elyos people, and watch your
+			every step with an ever-increasing sense of pride.
+			<br><br>
+			Be well, child. Enjoy the gifts you have been blessed
+			with.
+			<br><br>
+			A friend.
+			<br><br>]]>
+		</message>
+		<select>Faith and arms!</select>
+		<survey itemId="164002011" count="150"/>
+		<survey itemId="162002002" count="100"/>
+		<survey itemId="186000003" count="90"/>
+	</guide>
+	<guide title="adventurers_guide40_ely" level="40" race="ELYOS" rewardCount="3">
+		<message><![CDATA[<BR><BR>
+			Another lesson learned, another table turned. You have
+			done well, my friend. The Seraphim Lords view you as
+			a beacon of hope for the Elyos people, and watch your
+			every step with an ever-increasing sense of pride.
+			<br><br>
+			Be well, child. Enjoy the gifts you have been blessed
+			with.
+			<br><br>
+			A friend.
+			<br><br>]]>
+		</message>
+		<select>Faith and arms!</select>
+		<survey itemId="164002011" count="150"/>
+		<survey itemId="162002002" count="100"/>
+		<survey itemId="186000004" count="150"/>
+	</guide>
+	<guide title="adventurers_guide45_ely" level="45" race="ELYOS" rewardCount="3">
+		<message><![CDATA[<BR><BR>
+			Greetings, youngling. You have come a long way since
+			you first opened your eyes. I speak to you now
+			because I sense you will soon find your way to the
+			Kabarah Strip Mine and the Agaric Spore Road...and
+			one step closer to your truth. Be wary as well as open,
+			child, for you may meet a familiar face on an unfamiliar
+			road.
+			<br><br>
+			Farewell for now.
+			<br><br>]]>
+		</message>
+		<select>I will be wary and open.</select>
+		<survey itemId="164002011" count="150"/>
+		<survey itemId="162002002" count="100"/>
+		<survey itemId="186000005" count="200"/>
+	</guide>
+	<guide title="adventurers_guide50_ely" level="50" race="ELYOS" rewardCount="4">
+		<message><![CDATA[<BR><BR>
+			Another lesson learned, another table turned. You have
+			done well, my friend. The Seraphim Lords view you as
+			a beacon of hope for the Elyos people, and watch your
+			every step with an ever-increasing sense of pride.
+			<br><br>
+			Be well, child. Enjoy the gifts you have been blessed
+			with.
+			<br><br>
+			A friend.
+			<br><br>]]>
+		</message>
+		<select>Faith and arms!</select>
+		<survey itemId="164002011" count="150"/>
+		<survey itemId="162002002" count="100"/>
+		<survey itemId="186000018" count="250"/>
+		<survey itemId="186000076" count="2"/>
+	</guide>
+	<guide title="adventurers_guide55_ely" level="55" race="ELYOS" rewardCount="3">
+		<message><![CDATA[<BR><BR>
+			As you have no doubt guessed by now, I am Pernos. It
+			has been my privilege to help you along the path to
+			your ultimate truth.
+			<Br><Br><Br><Br>
+			I must commend you on your ascension to Daeva,
+			child. You have faced many more perilous quests than
+			most Elyos. But now it is time for you to learn the
+			ancient art of crafting in the Protector's Hall of Sanctum.
+			Those skills will serve you well in your journey.
+			<Br><Br><Br><Br>
+			In honor of your ascension, I bestow upon you this gift.
+			<Br><Br><Br><Br>
+			~Pernos
+			<br><br>]]>
+		</message>
+		<select>Thank you, wise one.</select>
+		<survey itemId="164002011" count="150"/>
+		<survey itemId="162002002" count="100"/>
+		<survey itemId="188051531" count="1"/>
+	</guide>
+	<guide title="adventurers_guide60_ely" level="60" race="ELYOS" rewardCount="3">
+		<message><![CDATA[<BR><BR>
+			Congratulations!
+			<br><br>]]>
+		</message>
+		<select>Faith and arms!</select>
+		<survey itemId="164002011" count="150"/>
+		<survey itemId="162002002" count="100"/>
+		<survey itemId="186000143" count="300"/>
+	</guide>
+	<guide title="adventurers_guide65_ely" level="65" race="ELYOS" rewardCount="3">
+		<message><![CDATA[<BR><BR>
+			Congratulations!
+			<br><br>]]>
+		</message>
+		<select>Faith and arms!</select>
+		<survey itemId="164002111" count="200"/>
+		<survey itemId="164000113" count="200"/>
+		<survey itemId="186000236" count="200"/>
+	</guide>
+</guides>

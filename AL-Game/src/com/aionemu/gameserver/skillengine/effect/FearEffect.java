@@ -14,14 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
-
-import java.util.concurrent.ScheduledFuture;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
 
 import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.ai2.AIState;
@@ -42,6 +36,12 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.PositionUtil;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.geo.GeoService;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
+import java.util.concurrent.ScheduledFuture;
 
 /**
  * @author Sarynth
@@ -72,7 +72,8 @@ public class FearEffect extends EffectTemplate {
 		effect.setAbnormal(AbnormalState.FEAR.getId());
 		effected.getEffectController().setAbnormal(AbnormalState.FEAR.getId());
 
-		// PacketSendUtility.broadcastPacketAndReceive(effected, new SM_TARGET_IMMOBILIZE(effected));
+		// PacketSendUtility.broadcastPacketAndReceive(effected, new
+		// SM_TARGET_IMMOBILIZE(effected));
 		effected.getController().stopMoving();
 
 		if (effected instanceof Npc) {
@@ -83,11 +84,11 @@ public class FearEffect extends EffectTemplate {
 			effect.setPeriodicTask(fearTask, position);
 		}
 
-		// resistchance of fear effect to damage, if value is lower than 100, fear can be interrupted bz damage
+		// resistchance of fear effect to damage, if value is lower than 100,
+		// fear can be interrupted bz damage
 		// example skillId: 540 Terrible howl
 		if (resistchance < 100) {
 			ActionObserver observer = new ActionObserver(ObserverType.ATTACKED) {
-
 				@Override
 				public void attacked(Creature creature) {
 					if (Rnd.get(0, 100) > resistchance) {
@@ -106,7 +107,8 @@ public class FearEffect extends EffectTemplate {
 
 		// for now we support only players
 		if (GeoDataConfig.FEAR_ENABLE) {
-			effect.getEffected().getMoveController().abortMove();// TODO impl stopMoving?
+			effect.getEffected().getMoveController().abortMove();// TODO impl
+																	// stopMoving?
 		}
 		if (effect.getEffected() instanceof Npc) {
 			((NpcAI2) effect.getEffected().getAi2()).onCreatureEvent(AIEventType.ATTACK, effect.getEffector());
@@ -152,8 +154,7 @@ public class FearEffect extends EffectTemplate {
 				if (effected instanceof Npc) {
 					((Npc) effected).getMoveController().resetMove();
 					((Npc) effected).getMoveController().moveToPoint(closestCollision.getX(), closestCollision.getY(), closestCollision.getZ());
-				}
-				else {
+				} else {
 					effected.getMoveController().setNewDirection(closestCollision.getX(), closestCollision.getY(), closestCollision.getZ(), moveAwayHeading);
 					effected.getMoveController().startMovingToDestination();
 				}

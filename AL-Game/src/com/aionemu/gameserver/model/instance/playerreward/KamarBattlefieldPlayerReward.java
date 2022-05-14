@@ -14,34 +14,28 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.instance.playerreward;
 
-import com.aionemu.gameserver.model.Race;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
+import com.aionemu.gameserver.model.instance.InstanceBuff;
 
 /**
- * @author Alcapwnd
+ * @author Eloann
  */
 public class KamarBattlefieldPlayerReward extends InstancePlayerReward {
 
+	private InstanceBuff boostMorale;
 	private int timeBonus;
 	private long logoutTime;
 	private float timeBonusModifier;
-	private Race race;
-	private int rewardAp;
-	private int rewardGp;
-	private int bonusAp;
-	private int bonusGp;
-	private int reward1;
-	private int reward2;
-	private int bonusReward;
-	private int bonusReward2;
-	private float rewardCount;
 
-	public KamarBattlefieldPlayerReward(Integer object, int timeBonus, Race race) {
+	public KamarBattlefieldPlayerReward(Integer object, int timeBonus, byte buffId) {
 		super(object);
+		super.addPoints(4000);
 		this.timeBonus = timeBonus;
 		timeBonusModifier = ((float) this.timeBonus / (float) 660000);
-		this.race = race;
+		boostMorale = new InstanceBuff(buffId);
 	}
 
 	public float getParticipation() {
@@ -65,79 +59,23 @@ public class KamarBattlefieldPlayerReward extends InstancePlayerReward {
 		timeBonus -= offlineTime * timeBonusModifier;
 	}
 
-	public Race getRace() {
-		return race;
+	public boolean hasBoostMorale() {
+		return boostMorale.hasInstanceBuff();
 	}
 
-	public int getRewardAp() {
-		return rewardAp;
+	public void applyBoostMoraleEffect(Player player) {
+		boostMorale.applyEffect(player, 20000);
 	}
 
-	public int getBonusAp() {
-		return bonusAp;
+	public void endBoostMoraleEffect(Player player) {
+		boostMorale.endEffect(player);
 	}
 
-	public void setBonusAp(int ap) {
-		this.bonusAp = ap;
-	}
-
-	public void setRewardAp(int ap) {
-		this.rewardAp = ap;
-	}
-
-	public int getReward1() {
-		return reward1;
-	}
-
-	public int getReward2() {
-		return reward2;
-	}
-
-	public int getBonusReward() {
-		return bonusReward;
-	}
-
-	public int getRewardCount() {
-		return (int) rewardCount;
-	}
-
-	public void setReward1(int reward) {
-		this.reward1 = reward;
-	}
-
-	public void setReward2(int reward) {
-		this.reward2 = reward;
-	}
-
-	public void setBonusReward(int reward) {
-		this.bonusReward = reward;
-	}
-
-	public void setRewardCount(float rewardCount) {
-		this.rewardCount = rewardCount;
-	}
-
-	public int getRewardGp() {
-		return rewardGp;
-	}
-
-	public void setRewardGp(int rewardGp) {
-		this.rewardGp = rewardGp;
-	}
-
-	public int getBonusGp() {
-		return bonusGp;
-	}
-
-	public void setBonusGp(int bonusGp) {
-		this.bonusGp = bonusGp;
-	}
-
-	public int getBonusReward2() {
-		return bonusReward2;
-	}
-
-	public void setBonusReward2(int bonusReward2) {
-		this.bonusReward2 = bonusReward2;
+	public int getRemaningTime() {
+		int time = boostMorale.getRemaningTime();
+		if (time >= 0 && time < 20) {
+			return 20 - time;
+		}
+		return 0;
 	}
 }

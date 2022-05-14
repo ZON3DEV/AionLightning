@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.slf4j.Logger;
@@ -93,20 +94,16 @@ public class CM_CHAT_MESSAGE_WHISPER extends AionClientPacket {
 
 		if (receiver == null) {
 			sendPacket(SM_SYSTEM_MESSAGE.STR_NO_SUCH_USER(formatname));
-		}
-		else if (!receiver.isWispable()) {
+		} else if (!receiver.isWispable()) {
 			PacketSendUtility.sendMessage(sender, "You can't talk with this gm.");
-		}
-		else if (sender.getLevel() < CustomConfig.LEVEL_TO_WHISPER) {
+		} else if (sender.getLevel() < CustomConfig.LEVEL_TO_WHISPER) {
 			sendPacket(SM_SYSTEM_MESSAGE.STR_CANT_WHISPER_LEVEL(String.valueOf(CustomConfig.LEVEL_TO_WHISPER)));
-		}
-		else if (receiver.getBlockList().contains(sender.getObjectId())) {
+		} else if (receiver.getBlockList().contains(sender.getObjectId())) {
 			sendPacket(SM_SYSTEM_MESSAGE.STR_YOU_EXCLUDED(receiver.getName()));
-		}
-		else if ((!CustomConfig.SPEAKING_BETWEEN_FACTIONS) && (sender.getRace().getRaceId() != receiver.getRace().getRaceId()) && (sender.getAccessLevel() < AdminConfig.GM_LEVEL) && (receiver.getAccessLevel() < AdminConfig.GM_LEVEL)) {
+		} else if ((!CustomConfig.SPEAKING_BETWEEN_FACTIONS) && (sender.getRace().getRaceId() != receiver.getRace().getRaceId())
+				&& (sender.getAccessLevel() < AdminConfig.GM_LEVEL) && (receiver.getAccessLevel() < AdminConfig.GM_LEVEL)) {
 			sendPacket(SM_SYSTEM_MESSAGE.STR_NO_SUCH_USER(formatname));
-		}
-		else {
+		} else {
 			if (RestrictionsManager.canChat(sender)) {
 				PacketSendUtility.sendPacket(receiver, new SM_MESSAGE(sender, NameRestrictionService.filterMessage(message), ChatType.WHISPER));
 			}

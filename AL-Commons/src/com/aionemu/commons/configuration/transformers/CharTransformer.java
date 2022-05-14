@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.configuration.transformers;
 
 import java.lang.reflect.Field;
@@ -23,14 +24,12 @@ import com.aionemu.commons.configuration.PropertyTransformer;
 import com.aionemu.commons.configuration.TransformationException;
 
 /**
- * Transformes string representation of character to character. Character may be
- * represented only by string.
+ * Transformes string representation of character to character. Character may be represented only by string.
  */
 public class CharTransformer implements PropertyTransformer<Character> {
 
 	/**
-	 * Shared instance of this transformer. It's thread-safe so no need of
-	 * multiple instances
+	 * Shared instance of this transformer. It's thread-safe so no need of multiple instances
 	 */
 	public static final CharTransformer SHARED_INSTANCE = new CharTransformer();
 
@@ -38,12 +37,12 @@ public class CharTransformer implements PropertyTransformer<Character> {
 	 * Transforms string to character
 	 * 
 	 * @param value
-	 *            value that will be transformed
+	 *          value that will be transformed
 	 * @param field
-	 *            value will be assigned to this field
+	 *          value will be assigned to this field
 	 * @return Character object that represents transformed string
 	 * @throws TransformationException
-	 *             if something went wrong
+	 *           if something went wrong
 	 */
 	@Override
 	public Character transform(String value, Field field) throws TransformationException {
@@ -54,7 +53,8 @@ public class CharTransformer implements PropertyTransformer<Character> {
 			}
 
 			return chars[0];
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			throw new TransformationException(e);
 		}
 	}

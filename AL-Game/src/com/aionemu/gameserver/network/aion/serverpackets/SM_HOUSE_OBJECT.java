@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.HouseObject;
@@ -48,7 +49,7 @@ public class SM_HOUSE_OBJECT extends AionServerPacket {
 		writeD(house.getAddress().getId()); // if painted 0 ?
 		writeD(house.getOwnerId()); // player which owns house
 		writeD(houseObject.getObjectId()); // <outlet[X]> data in house scripts
-		writeD(houseObject.getObjectId()); // <outDB[X]> data in house scripts (probably DB id), where [X] is number
+        writeD(houseObject.getObjectId()); // <outDB[X]> data in house scripts (probably DB id), where [X] is number
 
 		writeD(templateId);
 		writeF(houseObject.getX());
@@ -59,8 +60,7 @@ public class SM_HOUSE_OBJECT extends AionServerPacket {
 		writeD(player.getHouseObjectCooldownList().getReuseDelay(houseObject.getObjectId()));
 		if (houseObject.getUseSecondsLeft() > 0) {
 			writeD(houseObject.getUseSecondsLeft());
-		}
-		else {
+		} else {
 			writeD(0);
 		}
 
@@ -74,8 +74,7 @@ public class SM_HOUSE_OBJECT extends AionServerPacket {
 			writeC((color & 0xFF0000) >> 16);
 			writeC((color & 0xFF00) >> 8);
 			writeC((color & 0xFF));
-		}
-		else {
+		} else {
 			writeC(0); // Is dyed (False)
 			writeC(0);
 			writeC(0);

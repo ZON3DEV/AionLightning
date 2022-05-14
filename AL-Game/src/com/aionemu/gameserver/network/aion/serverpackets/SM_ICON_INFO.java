@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -35,7 +36,6 @@ public class SM_ICON_INFO extends AionServerPacket {
 	@Override
 	protected void writeImpl(AionConnection con) {
 		writeC(buffId);
-		writeD(7);// Value from PS 5.4
 		writeC(display ? 1 : 0);
 	}
 }

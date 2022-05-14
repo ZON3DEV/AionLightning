@@ -14,17 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.abyss;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.commons.services.CronService;
@@ -34,22 +25,17 @@ import com.aionemu.gameserver.dao.ServerVariablesDAO;
 import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.player.AbyssRank;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.stats.AbyssRankEnum;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.knownlist.Visitor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
- * @author ATracer
- * @author ThunderBolt - GloryPoints
- * @rework Phantom_KNA
- */
+import java.util.*;
+import java.util.Map.Entry;
+
 public class AbyssRankUpdateService {
-
 	private static final Logger log = LoggerFactory.getLogger(AbyssRankUpdateService.class);
-	private static final String GP_UPDATA_TIME = "0 10 2 ? * *";
-	private static final Logger debuglog = LoggerFactory.getLogger("ABYSSRANK_LOG");
 
 	private AbyssRankUpdateService() {
 	}
@@ -58,54 +44,14 @@ public class AbyssRankUpdateService {
 		return SingletonHolder.instance;
 	}
 
-	public void GpointUpdata() {
-		CronService.getInstance().schedule(new Runnable() {
-
-			@Override
-			public void run() {
-				AbyssRankUpdateService.this.loadGpRank();
-			}
-		}, GP_UPDATA_TIME);
-	}
-
-	private void loadGpRank() {
-		List<Integer> rankPlayers = DAOManager.getDAO(AbyssRankDAO.class).RankPlayers(9);
-		reduceGP(rankPlayers);
-	}
-
-	private void reduceGP(List<Integer> rankPlayers) {
-		for (int playerId : rankPlayers) {
-			AbyssRank rank = DAOManager.getDAO(AbyssRankDAO.class).loadAbyssRank(playerId);
-			Player player = World.getInstance().findPlayer(playerId);
-			int lostGp = rank.getRank().getDailyReduceGp();
-			// Only Rank Officer
-			if (rank.getRank().getId() < AbyssRankEnum.STAR1_OFFICER.getId())
-				continue;
-			if (player != null) {
-				PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1402082, new Object[0]));
-				PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1402209, player.getName(), rank.getRank().getDailyReduceGp()));
-				AbyssPointsService.addGp(player, lostGp * -1);
-			}
-			else {
-				int newGP = rank.getGp() - lostGp;
-				if (newGP < 0)
-					newGP = 0;
-				debuglog.info("[GP REWARD LOG] Scheduled delete. Player: " + playerId + ". Last: " + rank.getGp() + ". New: " + newGP);
-				DAOManager.getDAO(AbyssRankDAO.class).updateGloryPoints(playerId, newGP);
-			}
-		}
-	}
-
 	public void scheduleUpdate() {
 		ServerVariablesDAO dao = DAOManager.getDAO(ServerVariablesDAO.class);
 		int nextTime = dao.load("abyssRankUpdate");
 		if (nextTime < System.currentTimeMillis() / 1000) {
 			performUpdate();
 		}
-
-		log.debug("[AbyssRankUpdateService] Starting ranking update task based on cron expression: " + RankingConfig.TOP_RANKING_UPDATE_RULE);
+		log.info("Starting ranking update task based on cron expression: " + RankingConfig.TOP_RANKING_UPDATE_RULE);
 		CronService.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				performUpdate();
@@ -117,42 +63,38 @@ public class AbyssRankUpdateService {
 	 * Perform update of all ranks
 	 */
 	public void performUpdate() {
-		log.debug("[AbyssRankUpdateService] executing rank update");
+		log.info("AbyssRankUpdateService: executing rank update");
 		long startTime = System.currentTimeMillis();
-
 		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player player) {
 				player.getAbyssRank().doUpdate();
 				DAOManager.getDAO(AbyssRankDAO.class).storeAbyssRank(player);
 			}
 		});
-
 		updateLimitedRanks();
 		updateLimitedGpRanks();
 		AbyssRankingCache.getInstance().reloadRankings();
-		log.debug("[AbyssRankUpdateService] execution time: " + (System.currentTimeMillis() - startTime) / 1000);
+		log.info("AbyssRankUpdateService: execution time: " + (System.currentTimeMillis() - startTime) / 1000);
 	}
 
 	/**
 	 * Update player ranks based on quota for all players (online/offline)
 	 */
 	private void updateLimitedRanks() {
-		updateAllRanksForRace(Race.ASMODIANS, AbyssRankEnum.GRADE9_SOLDIER.getRequiredAp(), RankingConfig.TOP_RANKING_MAX_OFFLINE_DAYS);
-		updateAllRanksForRace(Race.ELYOS, AbyssRankEnum.GRADE9_SOLDIER.getRequiredAp(), RankingConfig.TOP_RANKING_MAX_OFFLINE_DAYS);
+		updateAllRanksForRace(Race.ASMODIANS, AbyssRankEnum.GRADE9_SOLDIER.getRequired(), RankingConfig.TOP_RANKING_MAX_OFFLINE_DAYS);
+		updateAllRanksForRace(Race.ELYOS, AbyssRankEnum.GRADE9_SOLDIER.getRequired(), RankingConfig.TOP_RANKING_MAX_OFFLINE_DAYS);
 	}
 
 	private void updateLimitedGpRanks() {
-		updateAllRanksGpForRace(Race.ASMODIANS, AbyssRankEnum.STAR1_OFFICER.getRequiredGp(), RankingConfig.TOP_RANKING_MAX_OFFLINE_DAYS);
-		updateAllRanksGpForRace(Race.ELYOS, AbyssRankEnum.STAR1_OFFICER.getRequiredGp(), RankingConfig.TOP_RANKING_MAX_OFFLINE_DAYS);
+		updateAllRanksGpForRace(Race.ASMODIANS, AbyssRankEnum.STAR1_OFFICER.getRequired(), RankingConfig.TOP_RANKING_MAX_OFFLINE_DAYS);
+		updateAllRanksGpForRace(Race.ELYOS, AbyssRankEnum.STAR1_OFFICER.getRequired(), RankingConfig.TOP_RANKING_MAX_OFFLINE_DAYS);
 	}
 
 	private void updateAllRanksForRace(Race race, int apLimit, int activeAfterDays) {
 		Map<Integer, Integer> playerApMap = DAOManager.getDAO(AbyssRankDAO.class).loadPlayersAp(race, apLimit, activeAfterDays);
 		List<Entry<Integer, Integer>> playerApEntries = new ArrayList<Entry<Integer, Integer>>(playerApMap.entrySet());
 		Collections.sort(playerApEntries, new PlayerApComparator<Integer, Integer>());
-
 		selectRank(AbyssRankEnum.GRADE1_SOLDIER, playerApEntries);
 		selectRank(AbyssRankEnum.GRADE2_SOLDIER, playerApEntries);
 		selectRank(AbyssRankEnum.GRADE3_SOLDIER, playerApEntries);
@@ -162,7 +104,6 @@ public class AbyssRankUpdateService {
 		selectRank(AbyssRankEnum.GRADE7_SOLDIER, playerApEntries);
 		selectRank(AbyssRankEnum.GRADE8_SOLDIER, playerApEntries);
 		selectRank(AbyssRankEnum.GRADE9_SOLDIER, playerApEntries);
-
 		updateToNoQuotaRank(playerApEntries);
 	}
 
@@ -170,7 +111,6 @@ public class AbyssRankUpdateService {
 		Map<Integer, Integer> playerGpMap = DAOManager.getDAO(AbyssRankDAO.class).loadPlayersGp(race, gpLimit, activeAfterDays);
 		List<Entry<Integer, Integer>> playerGpEntries = new ArrayList<Entry<Integer, Integer>>(playerGpMap.entrySet());
 		Collections.sort(playerGpEntries, new PlayerGpComparator<Integer, Integer>());
-
 		selectGpRank(AbyssRankEnum.SUPREME_COMMANDER, playerGpEntries);
 		selectGpRank(AbyssRankEnum.COMMANDER, playerGpEntries);
 		selectGpRank(AbyssRankEnum.GREAT_GENERAL, playerGpEntries);
@@ -180,12 +120,11 @@ public class AbyssRankUpdateService {
 		selectGpRank(AbyssRankEnum.STAR3_OFFICER, playerGpEntries);
 		selectGpRank(AbyssRankEnum.STAR2_OFFICER, playerGpEntries);
 		selectGpRank(AbyssRankEnum.STAR1_OFFICER, playerGpEntries);
-
 		updateToNoQuotaGpRank(playerGpEntries);
 	}
 
 	private void selectRank(AbyssRankEnum rank, List<Entry<Integer, Integer>> playerApEntries) {
-		int quota = rank.getId() < 9 ? (rank.getQuota() - AbyssRankEnum.getRankById(rank.getId() + 1).getQuota()) : rank.getQuota();
+		int quota = rank.getId() < 9 ? rank.getQuota() - AbyssRankEnum.getRankById(rank.getId() + 1).getQuota() : rank.getQuota();
 		for (int i = 0; i < quota; i++) {
 			if (playerApEntries.isEmpty()) {
 				return;
@@ -199,7 +138,7 @@ public class AbyssRankUpdateService {
 			int playerId = playerAp.getKey();
 			int ap = playerAp.getValue();
 			// check if this (and the rest) player has required ap count
-			if (ap < rank.getRequiredAp()) {
+			if (ap < rank.getRequired()) {
 				return;
 			}
 			// remove player and update its rank
@@ -209,7 +148,7 @@ public class AbyssRankUpdateService {
 	}
 
 	private void selectGpRank(AbyssRankEnum rank, List<Entry<Integer, Integer>> playerGpEntries) {
-		int quota = (rank.getId() > 9 && rank.getId() < 18) ? rank.getQuota() - AbyssRankEnum.getRankById(rank.getId() + 1).getQuota() : rank.getQuota();
+		int quota = rank.getId() < 9 ? rank.getQuota() - AbyssRankEnum.getRankById(rank.getId() + 1).getQuota() : rank.getQuota();
 		for (int i = 0; i < quota; i++) {
 			if (playerGpEntries.isEmpty()) {
 				return;
@@ -223,7 +162,7 @@ public class AbyssRankUpdateService {
 			int playerId = playerGp.getKey();
 			int gp = playerGp.getValue();
 			// check if this (and the rest) player has required gp count
-			if (gp < rank.getRequiredGp()) {
+			if (gp < rank.getRequired()) {
 				return;
 			}
 			// remove player and update its rankGp
@@ -254,8 +193,7 @@ public class AbyssRankUpdateService {
 				abyssRank.setRank(newRank);
 				AbyssPointsService.checkRankChanged(onlinePlayer, currentRank, newRank);
 			}
-		}
-		else {
+		} else {
 			DAOManager.getDAO(AbyssRankDAO.class).updateAbyssRank(playerId, newRank);
 		}
 	}
@@ -270,19 +208,16 @@ public class AbyssRankUpdateService {
 				abyssRank.setRank(newRank);
 				AbyssPointsService.checkRankGpChanged(onlinePlayer, currentRank, newRank);
 			}
-		}
-		else {
+		} else {
 			DAOManager.getDAO(AbyssRankDAO.class).updateAbyssRank(playerId, newRank);
 		}
 	}
 
 	private static class SingletonHolder {
-
 		protected static final AbyssRankUpdateService instance = new AbyssRankUpdateService();
 	}
 
 	private static class PlayerApComparator<K, V extends Comparable<V>> implements Comparator<Entry<K, V>> {
-
 		@Override
 		public int compare(Entry<K, V> o1, Entry<K, V> o2) {
 			return -o1.getValue().compareTo(o2.getValue()); // descending order
@@ -290,7 +225,6 @@ public class AbyssRankUpdateService {
 	}
 
 	private static class PlayerGpComparator<K, V extends Comparable<V>> implements Comparator<Entry<K, V>> {
-
 		@Override
 		public int compare(Entry<K, V> o1, Entry<K, V> o2) {
 			return -o1.getValue().compareTo(o2.getValue()); // descending order

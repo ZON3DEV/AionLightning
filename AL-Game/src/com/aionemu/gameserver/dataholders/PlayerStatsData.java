@@ -14,7 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
+
+import gnu.trove.map.hash.TIntObjectHashMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +33,6 @@ import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.stats.CalculatedPlayerStatsTemplate;
 import com.aionemu.gameserver.model.templates.stats.PlayerStatsTemplate;
-
-import gnu.trove.map.hash.TIntObjectHashMap;
 
 /**
  * Created on: 31.07.2009 14:20:03
@@ -58,8 +59,6 @@ public class PlayerStatsData {
 			template.setEvasion(Math.round(template.getEvasion() - template.getEvasion() * agility * 0.003f));
 			template.setBlock(Math.round(template.getBlock() - template.getBlock() * agility * 0.0025f));
 			template.setParry(Math.round(template.getParry() - template.getParry() * agility * 0.0025f));
-			template.setStrikeResist(template.getStrikeResist());
-			template.setSpellResist(template.getSpellResist());
 			playerTemplates.put(code, pt.getTemplate());
 		}
 
@@ -83,7 +82,6 @@ public class PlayerStatsData {
 		playerTemplates.put(makeHash(PlayerClass.ENGINEER, 0), new CalculatedPlayerStatsTemplate(PlayerClass.ENGINEER)); // 4.3
 		playerTemplates.put(makeHash(PlayerClass.GUNNER, 0), new CalculatedPlayerStatsTemplate(PlayerClass.GUNNER)); // 4.3
 		playerTemplates.put(makeHash(PlayerClass.RIDER, 0), new CalculatedPlayerStatsTemplate(PlayerClass.RIDER)); // 4.5
-		playerTemplates.put(makeHash(PlayerClass.PAINTER, 0), new CalculatedPlayerStatsTemplate(PlayerClass.PAINTER)); // 6.x
 		templatesList.clear();
 		templatesList = null;
 	}

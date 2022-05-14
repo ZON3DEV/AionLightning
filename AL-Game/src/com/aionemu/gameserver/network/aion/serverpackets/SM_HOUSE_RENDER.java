@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.HouseDecoration;
@@ -47,7 +48,7 @@ public class SM_HOUSE_RENDER extends AionServerPacket {
 		int playerObjectId = house.getOwnerId();
 		writeD(playerObjectId);
 		writeD(BuildingType.PERSONAL_FIELD.getId());
-		writeC(0); // unk
+		writeC(1); // unk
 
 		writeD(house.getBuilding().getId());
 		writeC(house.getHouseOwnerInfoFlags()); // unk 2 or 3 without owner, 5 or 3 with owner
@@ -107,8 +108,7 @@ public class SM_HOUSE_RENDER extends AionServerPacket {
 			writeC(0);
 			writeC(0);
 			writeD(0);
-		}
-		else {
+		} else {
 			LegionEmblem emblem = member.getLegion().getLegionEmblem();
 			writeC(emblem.getEmblemId());
 			writeC(emblem.getEmblemType().getValue());
@@ -125,8 +125,7 @@ public class SM_HOUSE_RENDER extends AionServerPacket {
 		HouseDecoration deco = house.getRenderPart(partType, floor);
 		if (skipPersonal && isPersonal) {
 			writeD(0);
-		}
-		else {
+		} else {
 			writeD(deco != null ? deco.getTemplate().getId() : 0);
 		}
 	}

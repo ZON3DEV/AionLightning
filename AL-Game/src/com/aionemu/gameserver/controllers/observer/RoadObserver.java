@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers.observer;
 
 import com.aionemu.gameserver.model.Race;
@@ -62,8 +63,7 @@ public class RoadObserver extends ActionObserver {
 				if (distance < road.getTemplate().getRadius()) {
 					passedThrough = true;
 				}
-			}
-			else {
+			} else {
 				if (MathUtil.isIn3dRange(road, player, road.getTemplate().getRadius())) {
 					passedThrough = true;
 				}
@@ -78,13 +78,11 @@ public class RoadObserver extends ActionObserver {
 				if (player.getRace() == Race.ELYOS) {
 					TeleportService2.teleportTo(player, exit.getMap(), exit.getX(), exit.getY(), exit.getZ(), (byte) 0, TeleportAnimation.BEAM_ANIMATION);
 				}
-			}
-			else if (type == WorldType.ASMODAE) {
+			} else if (type == WorldType.ASMODAE) {
 				if (player.getRace() == Race.ASMODIANS) {
 					TeleportService2.teleportTo(player, exit.getMap(), exit.getX(), exit.getY(), exit.getZ(), (byte) 0, TeleportAnimation.BEAM_ANIMATION);
 				}
-			}
-			else {
+			} else {
 				TeleportService2.teleportTo(player, exit.getMap(), exit.getX(), exit.getY(), exit.getZ(), (byte) 0, TeleportAnimation.BEAM_ANIMATION);
 			}
 		}

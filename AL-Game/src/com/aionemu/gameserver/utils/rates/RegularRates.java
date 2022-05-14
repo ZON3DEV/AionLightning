@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.rates;
 
 import com.aionemu.gameserver.configs.main.CraftConfig;
@@ -21,170 +22,124 @@ import com.aionemu.gameserver.configs.main.RateConfig;
 
 /**
  * @author ATracer
- * @author GiGatR00n v4.7.5.x
  */
 public class RegularRates extends Rates {
 
-	int holidayRate = HolidayRates.getHolidayRates(0);
-
 	@Override
 	public float getGroupXpRate() {
-		return RateConfig.GROUPXP_RATE + holidayRate;
+		return RateConfig.GROUPXP_RATE;
 	}
 
 	@Override
 	public float getDropRate() {
-		return RateConfig.DROP_RATE + holidayRate;
+		return RateConfig.DROP_RATE;
 	}
 
 	@Override
 	public float getApNpcRate() {
-		return RateConfig.AP_NPC_RATE + holidayRate;
+		return RateConfig.AP_NPC_RATE;
 	}
 
 	@Override
 	public float getApPlayerGainRate() {
-		return RateConfig.AP_PLAYER_GAIN_RATE + holidayRate;
-	}
-
-	@Override
-	public float getGpPlayerGainRate() {
-		return RateConfig.GP_PLAYER_GAIN_RATE;
+		return RateConfig.AP_PLAYER_GAIN_RATE;
 	}
 
 	@Override
 	public float getXpPlayerGainRate() {
-		return RateConfig.XP_PLAYER_GAIN_RATE + holidayRate;
+		return RateConfig.XP_PLAYER_GAIN_RATE;
 	}
 
 	@Override
 	public float getApPlayerLossRate() {
-		return RateConfig.AP_PLAYER_LOSS_RATE + holidayRate;
-	}
-
-	@Override
-	public float getGpPlayerLossRate() {
-		return RateConfig.GP_PLAYER_LOSS_RATE;
+		return RateConfig.AP_PLAYER_LOSS_RATE;
 	}
 
 	@Override
 	public float getQuestKinahRate() {
-		return RateConfig.QUEST_KINAH_RATE + holidayRate;
+		return RateConfig.QUEST_KINAH_RATE;
 	}
 
 	@Override
 	public float getQuestXpRate() {
-		return RateConfig.QUEST_XP_RATE + holidayRate;
+		return RateConfig.QUEST_XP_RATE;
 	}
 
 	@Override
 	public float getQuestApRate() {
-		return RateConfig.QUEST_AP_RATE + holidayRate;
-	}
-
-	@Override
-	public float getQuestGpRate() {
-		return RateConfig.QUEST_GP_RATE + holidayRate;
-	}
-
-	@Override
-	public float getQuestExpBoostRate() {
-		return RateConfig.QUEST_EXP_BOOST_RATE + holidayRate;
+		return RateConfig.QUEST_AP_RATE;
 	}
 
 	@Override
 	public float getXpRate() {
-		return RateConfig.XP_RATE + holidayRate;
+		return RateConfig.XP_RATE;
 	}
 
-    @Override
-    public float getBookXpRate() {
-        return RateConfig.BOOK_RATE + holidayRate;
-    }
-
 	/*
-	 * (non-Javadoc) @see com.aionemu.gameserver.utils.rates.Rates#getCraftingXPRate()
+	 * (non-Javadoc) @see
+	 * com.aionemu.gameserver.utils.rates.Rates#getCraftingXPRate()
 	 */
 	@Override
 	public float getCraftingXPRate() {
-		return RateConfig.CRAFTING_XP_RATE + holidayRate;
+		return RateConfig.CRAFTING_XP_RATE;
 	}
 
 	/*
-	 * (non-Javadoc) @see com.aionemu.gameserver.utils.rates.Rates#getGatheringXPRate()
+	 * (non-Javadoc) @see
+	 * com.aionemu.gameserver.utils.rates.Rates#getGatheringXPRate()
 	 */
 	@Override
 	public float getGatheringXPRate() {
-		return RateConfig.GATHERING_XP_RATE + holidayRate;
+		return RateConfig.GATHERING_XP_RATE;
 	}
 
 	@Override
 	public int getGatheringCountRate() {
-		return RateConfig.GATHERING_COUNT_RATE + holidayRate;
+		return RateConfig.GATHERING_COUNT_RATE;
 	}
 
 	@Override
 	public float getDpNpcRate() {
-		return RateConfig.DP_NPC_RATE + holidayRate;
+		return RateConfig.DP_NPC_RATE;
 	}
 
 	@Override
 	public float getDpPlayerRate() {
-		return RateConfig.DP_PLAYER_RATE + holidayRate;
+		return RateConfig.DP_PLAYER_RATE;
 	}
 
 	@Override
 	public int getCraftCritRate() {
-		return CraftConfig.CRAFT_CRIT_RATE + holidayRate;
+		return CraftConfig.CRAFT_CRIT_RATE;
 	}
 
 	@Override
 	public int getComboCritRate() {
-		return CraftConfig.CRAFT_COMBO_RATE + holidayRate;
+		return CraftConfig.CRAFT_COMBO_RATE;
 	}
 
 	@Override
 	public float getDisciplineRewardRate() {
-		return RateConfig.PVP_ARENA_DISCIPLINE_REWARD_RATE + holidayRate;
+		return RateConfig.PVP_ARENA_DISCIPLINE_REWARD_RATE;
 	}
 
 	@Override
 	public float getChaosRewardRate() {
-		return RateConfig.PVP_ARENA_CHAOS_REWARD_RATE + holidayRate;
+		return RateConfig.PVP_ARENA_CHAOS_REWARD_RATE;
 	}
 
 	@Override
 	public float getHarmonyRewardRate() {
-		return RateConfig.PVP_ARENA_HARMONY_REWARD_RATE + holidayRate;
+		return RateConfig.PVP_ARENA_HARMONY_REWARD_RATE;
 	}
 
 	@Override
 	public float getGloryRewardRate() {
-		return RateConfig.PVP_ARENA_GLORY_REWARD_RATE + holidayRate;
+		return RateConfig.PVP_ARENA_GLORY_REWARD_RATE;
 	}
 
 	@Override
 	public float getSellLimitRate() {
-		return RateConfig.SELL_LIMIT_RATE + holidayRate;
-	}
-
-	@Override
-	public float getKamarRewardRate() {
-		return RateConfig.KAMAR_REWARD_RATE + holidayRate;
-	}
-
-	@Override
-	public float getRunatoriumBoxRewardRate() {
-		return RateConfig.RUNATORIUM_BOX_REWARD_RATE + holidayRate;
-	}
-
-	@Override
-	public float getJormungandRewardRate() {
-		return RateConfig.REGULAR_JORMUNGAND_REWARD_RATE + holidayRate;
-	}
-
-	@Override
-	public float getSteelWallRewardRate() {
-		return RateConfig.REGULAR_STEELWALL_REWARD_RATE + holidayRate;
+		return RateConfig.SELL_LIMIT_RATE;
 	}
 }

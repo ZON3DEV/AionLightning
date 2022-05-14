@@ -14,9 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import java.util.Map;
+
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.model.gameobjects.Kisk;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -25,8 +28,6 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_LEVEL_UPDATE;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.teleport.TeleportService2;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-
-import javolution.util.FastMap;
 
 /**
  * @author Sarynth, nrg
@@ -55,7 +56,8 @@ public class KiskService {
 			}
 		}
 
-		// send players SET_BIND_POINT and send them die packet again, if they lie dead, but are still not revived
+		// send players SET_BIND_POINT and send them die packet again, if they
+		// lie dead, but are still not revived
 		for (Player member : kisk.getCurrentMemberList()) {
 			member.setKisk(null);
 			PacketSendUtility.sendPacket(member, new SM_BIND_POINT_INFO(0, 0f, 0f, 0f, member));

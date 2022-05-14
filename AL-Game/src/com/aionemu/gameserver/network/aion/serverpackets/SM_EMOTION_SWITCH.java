@@ -14,48 +14,34 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
-import com.aionemu.gameserver.model.EmotionType;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.PacketLoggerService;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
 /**
  * @author Cx3
+ * @category Got sended with every SM_NPC_INFO Packet. It sends the current
+ *           state of npc and emtion type
  */
 public class SM_EMOTION_SWITCH extends AionServerPacket {
 
 	private Creature npc;
-	private Player pl;
-	private int state = 0;
-	private int emotionType = 0;
-	private boolean isPlayer = false;
+	private int state = 0; // Need to figure out if it's can change
+	private int emotionType = 0; // Need to figure out if it's can change
 
-	public SM_EMOTION_SWITCH(Npc npc, int state, EmotionType et) {
+	public SM_EMOTION_SWITCH(Npc npc) {
 		this.npc = npc;
-		this.state = state;
-		this.emotionType = et.getTypeId();
-		this.isPlayer = false;
-	}
-
-	public SM_EMOTION_SWITCH(Player pl, int state, EmotionType et) {
-		this.pl = pl;
-		this.state = state;
-		this.emotionType = et.getTypeId();
-		this.isPlayer = true;
+		this.state = 3;
+		this.emotionType = 13;
 	}
 
 	@Override
 	protected void writeImpl(AionConnection con) {
-		PacketLoggerService.getInstance().logPacketSM(this.getPacketName());
-		if (isPlayer)
-			writeD(pl.getObjectId());
-		else
-			writeD(npc.getObjectId());
+		writeD(npc.getObjectId());
 		writeC(state);
 		writeD(emotionType);
 		writeD(0);

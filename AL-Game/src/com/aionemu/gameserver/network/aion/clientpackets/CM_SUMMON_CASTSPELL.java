@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import org.slf4j.Logger;
@@ -78,16 +79,14 @@ public class CM_SUMMON_CASTSPELL extends AionClientPacket {
 			if (obj instanceof Creature) {
 				target = (Creature) obj;
 			}
-		}
-		else {
+		} else {
 			target = summon;
 		}
 
 		if (target != null) {
 			player.setNextSummonSkillUse(currentTime + 1100);
 			summon.getController().useSkill(skillId, target);
-		}
-		else {
+		} else {
 			log.warn("summon castspell on a wrong target on " + player.getName());
 		}
 	}

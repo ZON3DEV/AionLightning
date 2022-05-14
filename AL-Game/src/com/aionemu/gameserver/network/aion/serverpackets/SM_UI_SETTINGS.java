@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -40,11 +41,11 @@ public class SM_UI_SETTINGS extends AionServerPacket {
 	 */
 	@Override
 	protected void writeImpl(AionConnection con) {
-		writeC(type);
-		writeH(0x1C00);
+		writeH(type);
+		writeC(28);
 		writeB(data);
-		if (0x1C00 > data.length) {
-			writeB(new byte[0x1C00 - data.length]);
+		if (7168 > data.length) {
+			writeB(new byte[7168 - data.length]);
 		}
 	}
 }

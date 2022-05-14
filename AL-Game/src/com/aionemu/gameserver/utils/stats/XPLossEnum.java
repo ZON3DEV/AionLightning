@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.stats;
 
 /**
@@ -27,10 +28,7 @@ public enum XPLossEnum {
 	LEVEL_50(50, 0.25),
 	LEVEL_55(55, 0.25),
 	LEVEL_60(60, 0.25),
-	LEVEL_65(65, 0.25),
-	LEVEL_70(70, 0.25),
-	LEVEL_75(75, 0.25),
-	LEVEL_80(80, 0.25);
+	LEVEL_65(65, 0.25);
 
 	private int level;
 	private double param;

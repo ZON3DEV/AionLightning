@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.network;
 
 import java.io.IOException;
@@ -22,8 +23,7 @@ import java.nio.channels.SelectionKey;
 import java.util.Iterator;
 
 /**
- * This is implementation of <code>Dispatcher</code> that may only accept
- * connections.
+ * This is implementation of <code>Dispatcher</code> that may only accept connections.
  * 
  * @author -Nemesiss-
  * @see com.aionemu.commons.network.Dispatcher
@@ -61,11 +61,10 @@ public class AcceptDispatcherImpl extends Dispatcher {
 	}
 
 	/**
-	 * This method should never be called on this implementation of
-	 * <code>Dispatcher</code>
+	 * This method should never be called on this implementation of <code>Dispatcher</code>
 	 * 
 	 * @throws UnsupportedOperationException
-	 *             always!
+	 *           always!
 	 * @see com.aionemu.commons.network.Dispatcher#closeConnection(com.aionemu.commons.network.AConnection)
 	 */
 	@Override

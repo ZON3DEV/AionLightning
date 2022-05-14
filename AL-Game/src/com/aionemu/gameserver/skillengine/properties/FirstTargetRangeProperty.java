@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.properties;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -49,7 +50,7 @@ public class FirstTargetRangeProperty {
 
 		// Add Weapon Range to distance
 		if (properties.isAddWeaponRange()) {
-			firstTargetRange += skill.getEffector().getGameStats().getAttackRange().getCurrent() / 1000f;
+			firstTargetRange += (float) skill.getEffector().getGameStats().getAttackRange().getCurrent() / 1000f;
 		}
 
 		// on end cast check add revision distance value
@@ -57,7 +58,7 @@ public class FirstTargetRangeProperty {
 			firstTargetRange += properties.getRevisionDistance();
 		}
 
-		if (firstTarget.getObjectId() == effector.getObjectId()) {
+		if (firstTarget.getObjectId().equals(effector.getObjectId())) {
 			return true;
 		}
 

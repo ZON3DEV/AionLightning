@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import java.util.Collection;
@@ -22,11 +23,13 @@ import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.Pet;
 import com.aionemu.gameserver.model.gameobjects.PetAction;
 import com.aionemu.gameserver.model.gameobjects.player.PetCommonData;
+import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.pet.PetDopingEntry;
 import com.aionemu.gameserver.model.templates.pet.PetFunctionType;
 import com.aionemu.gameserver.model.templates.pet.PetTemplate;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
  * @author M@xx, xTz, Rolandas
@@ -87,12 +90,6 @@ public class SM_PET extends AionServerPacket {
 		dopeSlot = slot;
 	}
 
-	public SM_PET(boolean isBuffing, int what, int wahtwaht) {
-		this.actionId = 13;
-		this.isActing = isBuffing;
-		this.subType = 5;
-	}
-
 	/**
 	 * For mood only
 	 *
@@ -130,6 +127,7 @@ public class SM_PET extends AionServerPacket {
 
 	@Override
 	protected void writeImpl(AionConnection con) {
+		Player player = con.getActivePlayer();
 		PetTemplate petTemplate = null;
 		writeH(actionId);
 		switch (actionId) {
@@ -146,7 +144,7 @@ public class SM_PET extends AionServerPacket {
 					writeD(petCommonData.getMasterObjectId());
 					writeD(0);
 					writeD(0);
-					writeD(petCommonData.getBirthday());
+					writeD((int) petCommonData.getBirthday());
 					writeD(expireTime != 0 ? expireTime - (int) (System.currentTimeMillis() / 1000) : 0); // accompanying time
 
 					int specialtyCount = 0;
@@ -157,14 +155,6 @@ public class SM_PET extends AionServerPacket {
 					if (petTemplate.ContainsFunction(PetFunctionType.LOOT)) {
 						writeH(PetFunctionType.LOOT.getId());
 						writeC(0);
-						specialtyCount++;
-					}
-					if (petTemplate.ContainsFunction(PetFunctionType.BUFF)) {
-						writeH(PetFunctionType.BUFF.getId());
-						specialtyCount++;
-					}
-					if (petTemplate.ContainsFunction(PetFunctionType.MERCHANT)) {
-						writeH(PetFunctionType.MERCHANT.getId());
 						specialtyCount++;
 					}
 					if (petTemplate.ContainsFunction(PetFunctionType.DOPING)) {
@@ -178,8 +168,7 @@ public class SM_PET extends AionServerPacket {
 							writeQ(0);
 							writeQ(0);
 							writeQ(0);
-						}
-						else {
+						} else {
 							writeD(scrollBag[0]); // Scroll 1
 							writeD(scrollBag.length > 1 ? scrollBag[1] : 0); // Scroll 2
 							writeD(scrollBag.length > 2 ? scrollBag[2] : 0); // Scroll 3 - no pet supports it yet
@@ -200,8 +189,7 @@ public class SM_PET extends AionServerPacket {
 					if (specialtyCount == 0) {
 						writeH(PetFunctionType.NONE.getId());
 						writeH(PetFunctionType.NONE.getId());
-					}
-					else if (specialtyCount == 1) {
+					} else if (specialtyCount == 1) {
 						writeH(PetFunctionType.NONE.getId());
 					}
 
@@ -225,7 +213,7 @@ public class SM_PET extends AionServerPacket {
 				writeD(0);
 				writeD(0);
 				writeD(commonData.getBirthday());
-				writeD(commonData.getExpireTime() != 0 ? commonData.getExpireTime() - (int) (System.currentTimeMillis() / 1000) : 0); // accompanying time
+                writeD(commonData.getExpireTime() != 0 ? commonData.getExpireTime() - (int) (System.currentTimeMillis() / 1000) : 0); // accompanying time
 				petTemplate = DataManager.PET_DATA.getPetTemplate(commonData.getPetId());
 				int specialtyCount = 0;
 				if (petTemplate.ContainsFunction(PetFunctionType.WAREHOUSE)) {
@@ -254,8 +242,7 @@ public class SM_PET extends AionServerPacket {
 				if (specialtyCount == 0) {
 					writeH(PetFunctionType.NONE.getId());
 					writeH(PetFunctionType.NONE.getId());
-				}
-				else if (specialtyCount == 1) {
+				} else if (specialtyCount == 1) {
 					writeH(PetFunctionType.NONE.getId());
 				}
 
@@ -292,8 +279,7 @@ public class SM_PET extends AionServerPacket {
 					writeF(pet.getMaster().getZ());
 
 					writeC(pet.getMaster().getHeading());
-				}
-				else {
+				} else {
 					writeF(pet.getPosition().getX());
 					writeF(pet.getPosition().getY());
 					writeF(pet.getPosition().getZ());
@@ -372,8 +358,7 @@ public class SM_PET extends AionServerPacket {
 						// desynced feedback data, need to send delta in percents
 						if (commonData.getLastSentPoints() < commonData.getMoodPoints(true)) {
 							writeD(commonData.getMoodPoints(true) - commonData.getLastSentPoints());
-						}
-						else {
+						} else {
 							writeD(0);
 							commonData.setLastSentPoints(commonData.getMoodPoints(true));
 						}
@@ -418,25 +403,16 @@ public class SM_PET extends AionServerPacket {
 							writeD(itemObjectId);
 							break;
 					}
-				}
-				else if (subType == 3) {
+				} else if (subType == 3) {
 					// looting NPC
 					if (lootNpcId > 0) {
 						writeC(isActing ? 1 : 2); // 0x02 display looted msg.
 						writeD(lootNpcId);
-					}
-					else {
+					} else {
 						// loot function activation
 						writeC(0);
 						writeC(isActing ? 1 : 0);
 					}
-				}
-				else if (subType == 4) {
-					writeC(0);
-					writeC(isActing ? 1 : 0);
-				}
-				else if (subType == 5) {
-					writeC(isActing ? 0 : 1);
 				}
 				break;
 			default:

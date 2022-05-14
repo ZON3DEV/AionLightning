@@ -15,22 +15,24 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.utils.concurrent;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 
-import org.slf4j.Logger;
+import javolution.text.TextBuilder;
+
 import org.slf4j.LoggerFactory;
 
-import com.aionemu.commons.configs.CommonsConfig;
+import org.slf4j.Logger;
 
-import javolution.text.TextBuilder;
+import com.aionemu.commons.configs.CommonsConfig;
 
 /**
  * @author NB4L1
  */
-public class ExecuteWrapper implements Executor {
+public class ExecuteWrapper implements Executor{
 
 	private static final Logger log = LoggerFactory.getLogger(ExecuteWrapper.class);
 
@@ -44,9 +46,11 @@ public class ExecuteWrapper implements Executor {
 
 		try {
 			runnable.run();
-		} catch (Throwable t) {
+		}
+		catch (Throwable t) {
 			log.warn("Exception in a Runnable execution:", t);
-		} finally {
+		}
+		finally {
 
 			long runtimeInNanosec = System.nanoTime() - begin;
 			Class<? extends Runnable> clazz = runnable.getClass();

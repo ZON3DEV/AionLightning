@@ -14,11 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.stats.listeners;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+package com.aionemu.gameserver.model.stats.listeners;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -36,12 +33,14 @@ import com.aionemu.gameserver.model.templates.item.WeaponType;
 import com.aionemu.gameserver.model.templates.itemset.FullBonus;
 import com.aionemu.gameserver.model.templates.itemset.ItemSetTemplate;
 import com.aionemu.gameserver.model.templates.itemset.PartBonus;
-import com.aionemu.gameserver.services.enchant.EnchantService;
-import com.aionemu.gameserver.services.SkillLearnService;
-import com.aionemu.gameserver.services.StigmaService;
+import com.aionemu.gameserver.services.EnchantService;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 /**
- * @author xavier modified by Wakizashi rework Phantom_KNA
+ * @author xavier modified by Wakizashi
  */
 public class ItemEquipmentListener {
 
@@ -53,7 +52,7 @@ public class ItemEquipmentListener {
 		owner.getController().cancelUseItem();
 		ItemTemplate itemTemplate = item.getItemTemplate();
 
-		onItemEquipment(item, owner.getGameStats(), owner);
+		onItemEquipment(item, owner.getGameStats());
 
 		// Check if belongs to ItemSet
 		if (itemTemplate.isItemSet()) {
@@ -79,17 +78,7 @@ public class ItemEquipmentListener {
 			owner.getObserveController().addObserver(item.getConditioningInfo());
 			item.getConditioningInfo().setPlayer(owner);
 		}
-		if (item.getAmplificationSkill() > 0) {
-			owner.getSkillList().addSkill(owner, item.getAmplificationSkill(), 1);
-		}
-		if (item.getItemTemplate().isStigma()) {
-			StigmaService.recheckHiddenStigma(owner);
-		}
-		if (item.getItemSkinSkill() > 0) {
-			owner.getSkillList().addSkill(owner, item.getItemSkinSkill(), 1);
-		}
 		EnchantService.onItemEquip(owner, item);
-		EnchantService.getGloryShield(owner);
 	}
 
 	/**
@@ -128,18 +117,6 @@ public class ItemEquipmentListener {
 		if (randomStats != null) {
 			randomStats.onUnEquip(owner);
 		}
-		if (item.isAmplified() && item.getEnchantOrAuthorizeLevel() >= 20) {
-			SkillLearnService.removeSkill(owner, item.getAmplificationSkill());
-		}
-		if (item.getItemTemplate().isStigma()) {
-			StigmaService.recheckHiddenStigma(owner);
-		}
-		if (item.getItemSkinSkill() > 0) {
-			if (owner.getSkillList().isSkillPresent(item.getItemSkinSkill())) {
-				SkillLearnService.removeSkill(owner, item.getItemSkinSkill());
-			}
-		}
-		EnchantService.getGloryShield(owner);
 	}
 
 	/**
@@ -147,7 +124,7 @@ public class ItemEquipmentListener {
 	 * @param slot
 	 * @param cgs
 	 */
-	private static void onItemEquipment(Item item, CreatureGameStats<?> cgs, Player player) {
+	private static void onItemEquipment(Item item, CreatureGameStats<?> cgs) {
 		ItemTemplate itemTemplate = item.getItemTemplate();
 		long slot = item.getEquipmentSlot();
 		List<StatFunction> modifiers = itemTemplate.getModifiers();
@@ -156,7 +133,6 @@ public class ItemEquipmentListener {
 		}
 
 		List<StatFunction> allModifiers = null;
-//		List<StatFunction> decreaseAllModifiers = null;
 
 		if ((slot & ItemSlot.MAIN_OR_SUB.getSlotIdMask()) != 0) {
 			allModifiers = wrapModifiers(item, modifiers);
@@ -173,17 +149,15 @@ public class ItemEquipmentListener {
 				if (weaponStats != null) {
 					int boostMagicalSkill = Math.round(0.1f * weaponStats.getBoostMagicalSkill());
 					int attack = Math.round(0.1f * weaponStats.getMeanDamage());
-					if (weaponType == WeaponType.ORB_2H || weaponType == WeaponType.BOOK_2H || weaponType == WeaponType.GUN_1H || weaponType == WeaponType.CANNON_2H || weaponType == WeaponType.HARP_2H || weaponType == WeaponType.KEYBLADE_2H || weaponType == WeaponType.SPRAY_2H) {
+					if (weaponType == WeaponType.ORB_2H || weaponType == WeaponType.BOOK_2H || weaponType == WeaponType.GUN_1H || weaponType == WeaponType.CANNON_2H || weaponType == WeaponType.HARP_2H || weaponType == WeaponType.KEYBLADE_2H) {
 						allModifiers.add(new StatAddFunction(StatEnum.MAGICAL_ATTACK, attack, false));
 						allModifiers.add(new StatAddFunction(StatEnum.BOOST_MAGICAL_SKILL, boostMagicalSkill, false));
-					}
-					else {
+					} else {
 						allModifiers.add(new StatAddFunction(StatEnum.MAIN_HAND_POWER, attack, false));
 					}
 				}
 			}
-		}
-		else {
+		} else {
 			allModifiers = modifiers;
 		}
 		item.setCurrentModifiers(allModifiers);
@@ -204,10 +178,9 @@ public class ItemEquipmentListener {
 		List<StatFunction> allModifiers = new ArrayList<StatFunction>();
 		for (StatFunction modifier : modifiers) {
 			switch (modifier.getName()) {
-				// why they are removed look at DuplicateStatFunction
+			// why they are removed look at DuplicateStatFunction
 				case ATTACK_SPEED:
 				case PVP_ATTACK_RATIO:
-				case PVP_DEFEND_RATIO:
 				case BOOST_CASTING_TIME:
 					continue;
 				default:
@@ -227,16 +200,10 @@ public class ItemEquipmentListener {
 			return;
 		}
 
+		// TODO quite
+		player.getGameStats().endEffect(itemSetTemplate);
 		// 1.- Check equipment for items already equip with this itemSetTemplate id
 		int itemSetPartsEquipped = player.getEquipment().itemSetPartsEquipped(itemSetTemplate.getId());
-
-		if (itemSetTemplate.getFullbonus() != null) {
-			if (itemSetPartsEquipped > itemSetTemplate.getFullbonus().getCount()) { // DO NOT REMOVE
-				return;
-			}
-		}
-
-		player.getGameStats().endEffect(itemSetTemplate);
 
 		// If main hand and off hand is same , no bonus
 		int mainHandItemId = 0;
@@ -256,13 +223,10 @@ public class ItemEquipmentListener {
 				if (itempartbonus.getCount() <= itemSetPartsEquipped) {
 					player.getGameStats().addEffect(itemSetTemplate, itempartbonus.getModifiers());
 				}
-			}
-			else if (!isWeapon) {
+			} else if (!isWeapon) {
 				// If the partbonus was not applied before, do it now
 				if (itempartbonus.getCount() <= itemSetPartsEquipped) {
-					if (itempartbonus.getModifiers() != null) {
-						player.getGameStats().addEffect(itemSetTemplate, itempartbonus.getModifiers());
-					}
+					player.getGameStats().addEffect(itemSetTemplate, itempartbonus.getModifiers());
 				}
 			}
 		}
@@ -270,8 +234,7 @@ public class ItemEquipmentListener {
 		// 3.- Finally check if all items are applied and set the full bonus if not already applied
 		FullBonus fullbonus = itemSetTemplate.getFullbonus();
 		if (fullbonus != null && itemSetPartsEquipped == fullbonus.getCount()) {
-			// Add the full bonus with index = total parts + 1 to avoid confusion with part bonus equal to number of
-			// objects
+			// Add the full bonus with index = total parts + 1 to avoid confusion with part bonus equal to number of objects
 			player.getGameStats().addEffect(itemSetTemplate, fullbonus.getModifiers());
 		}
 	}
@@ -343,13 +306,5 @@ public class ItemEquipmentListener {
 		if (item.getGodStone() != null) {
 			item.getGodStone().onUnEquip(player);
 		}
-	}
-
-	public static void addIdianBonusStats(Item item, List<StatFunction> modifiers, CreatureGameStats<?> cgs) {
-		cgs.addEffect(item, modifiers);
-	}
-
-	public static void removeIdianBonusStats(Item item, CreatureGameStats<?> cgs) {
-		cgs.endEffect(item);
 	}
 }

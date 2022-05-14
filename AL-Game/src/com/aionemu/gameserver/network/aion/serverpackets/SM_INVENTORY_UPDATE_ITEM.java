@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
@@ -28,7 +29,6 @@ import com.aionemu.gameserver.services.item.ItemPacketService.ItemUpdateType;
 /**
  * @author ATracer
  * @author -Nemesiss-
- * @update FrozenKiller
  */
 public class SM_INVENTORY_UPDATE_ITEM extends AionServerPacket {
 
@@ -51,7 +51,7 @@ public class SM_INVENTORY_UPDATE_ITEM extends AionServerPacket {
 		ItemTemplate itemTemplate = item.getItemTemplate();
 
 		writeD(item.getObjectId());
-		writeNameId(itemTemplate.getNameId()); // Includes writeH(0x24) + writeD(itemNameId) + writeH(0x00);
+		writeNameId(itemTemplate.getNameId());
 
 		ItemInfoBlob itemInfoBlob;
 		switch (updateType) {

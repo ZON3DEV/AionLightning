@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.spawns;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -31,10 +32,10 @@ import com.aionemu.gameserver.utils.gametime.GameTimeManager;
 @XmlType(name = "TemporarySpawn")
 public class TemporarySpawn {
 
-	@XmlAttribute(name = "spawn_time") // *.*.* hour.day.month (* == all)
-	private String spawnTime;
-	@XmlAttribute(name = "despawn_time") // *.*.* hour.day.month (* == all)
-	private String despawnTime;
+    @XmlAttribute(name = "spawn_time") // *.*.*  hour.day.month (* == all)
+    private String spawnTime;
+    @XmlAttribute(name = "despawn_time") // *.*.*  hour.day.month (* == all)
+    private String despawnTime;
 
 	public String getSpawnTime() {
 		return spawnTime;
@@ -130,8 +131,7 @@ public class TemporarySpawn {
 			if (!(curentTime >= spawnTime && curentTime <= despawnTime)) {
 				return false;
 			}
-		}
-		else if (spawnTime > despawnTime) {
+		} else if (spawnTime > despawnTime) {
 			if (!(curentTime >= spawnTime || curentTime <= despawnTime)) {
 				return false;
 			}
@@ -144,8 +144,7 @@ public class TemporarySpawn {
 			if (!(curentTime >= spawnTime && curentTime < despawnTime)) {
 				return false;
 			}
-		}
-		else if (spawnTime > despawnTime) {
+		} else if (spawnTime > despawnTime) {
 			if (!(curentTime >= spawnTime || curentTime < despawnTime)) {
 				return false;
 			}

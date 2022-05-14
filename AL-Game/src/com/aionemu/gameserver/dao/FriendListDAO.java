@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dao;
 
 import com.aionemu.commons.database.dao.DAO;
@@ -66,15 +67,4 @@ public abstract class FriendListDAO implements DAO {
 	 * @return Success
 	 */
 	public abstract boolean delFriends(final int playerOid, final int friendOid);
-
-	/**
-	 * Set Note for friends
-	 *
-	 * @param player
-	 *            Player whos is set
-	 * @param friendName
-	 *            Name of friend to set
-	 * @return Success
-	 */
-	public abstract void setFriendNote(final int playerId, final int friendId, final String notice);
 }

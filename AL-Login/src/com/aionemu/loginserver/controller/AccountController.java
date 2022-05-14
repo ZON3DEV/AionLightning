@@ -18,7 +18,6 @@
 
 package com.aionemu.loginserver.controller;
 
-import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -105,13 +104,12 @@ public class AccountController {
             getAccountDAO().updateLastServer(acc.getId(), acc.getLastServer());
 
             long toll = DAOManager.getDAO(PremiumDAO.class).getPoints(acc.getId());
-            long luna = DAOManager.getDAO(PremiumDAO.class).getLuna(acc.getId());
             /**
              * Send response to GameServer
              */
-            gsConnection.sendPacket(new SM_ACCOUNT_AUTH_RESPONSE(key.accountId, true, acc.getName(), acc.getAccessLevel(), acc.getMembership(), toll, luna, acc.getReturn()));
+            gsConnection.sendPacket(new SM_ACCOUNT_AUTH_RESPONSE(key.accountId, true, acc.getName(), acc.getAccessLevel(), acc.getMembership(), toll));
         } else {
-            gsConnection.sendPacket(new SM_ACCOUNT_AUTH_RESPONSE(key.accountId, false, null, (byte) 0, (byte) 0, 0, 0, (byte)0));
+            gsConnection.sendPacket(new SM_ACCOUNT_AUTH_RESPONSE(key.accountId, false, null, (byte) 0, (byte) 0, 0));
         }
     }
 
@@ -232,7 +230,7 @@ public class AccountController {
         // if everything was OK
         getAccountDAO().updateLastIp(account.getId(), connection.getIP());
         // last mac is updated after receiving packet from gameserver
-        getAccountDAO().updateMembership(account.getId());
+        // getAccountDAO().updateMembership(account.getId());
 
         return AionAuthResponse.AUTHED;
     }
@@ -308,8 +306,6 @@ public class AccountController {
         account.setAccessLevel((byte) 0);
         account.setMembership((byte) 0);
         account.setActivated((byte) 1);
-        account.setReturn((byte)0);
-        account.setReturnEnd(new Timestamp(System.currentTimeMillis()));
 
         if (getAccountDAO().insertAccount(account)) {
             return account;

@@ -14,10 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.world.geo;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.aionemu.gameserver.world.geo;
 
 import com.aionemu.gameserver.configs.main.GeoDataConfig;
 import com.aionemu.gameserver.geoEngine.collision.CollisionResults;
@@ -25,6 +23,8 @@ import com.aionemu.gameserver.geoEngine.math.Vector3f;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.utils.MathUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author ATracer
@@ -87,9 +87,9 @@ public class GeoService {
 		float newZ = geoData.getMap(worldId).getZ(x, y, z, instanceId);
 		if (!GeoDataConfig.GEO_ENABLE) {
 			newZ += defaultUp;
-		} /*
-			 * else { newZ += 0.5f; }
-			 */
+		}/*
+		 * else { newZ += 0.5f; }
+		 */
 
 		return newZ;
 	}
@@ -109,7 +109,8 @@ public class GeoService {
 	}
 
 	public CollisionResults getCollisions(VisibleObject object, float x, float y, float z, boolean changeDirection, byte intentions) {
-		return geoData.getMap(object.getWorldId()).getCollisions(object.getX(), object.getY(), object.getZ(), x, y, z, changeDirection, false, object.getInstanceId(), intentions);
+		return geoData.getMap(object.getWorldId()).getCollisions(object.getX(), object.getY(), object.getZ(), x, y, z, changeDirection, false,
+				object.getInstanceId(), intentions);
 	}
 
 	/**
@@ -125,7 +126,9 @@ public class GeoService {
 		if (limit <= 0) {
 			return true;
 		}
-		return geoData.getMap(object.getWorldId()).canSee(object.getX(), object.getY(), object.getZ() + object.getObjectTemplate().getBoundRadius().getUpper() / 2, target.getX(), target.getY(), target.getZ() + target.getObjectTemplate().getBoundRadius().getUpper() / 2, limit, object.getInstanceId());
+		return geoData.getMap(object.getWorldId()).canSee(object.getX(), object.getY(),
+				object.getZ() + object.getObjectTemplate().getBoundRadius().getUpper() / 2, target.getX(), target.getY(),
+				target.getZ() + target.getObjectTemplate().getBoundRadius().getUpper() / 2, limit, object.getInstanceId());
 	}
 
 	public boolean canSee(int worldId, float x, float y, float z, float x1, float y1, float z1, float limit, int instanceId) {
@@ -137,7 +140,8 @@ public class GeoService {
 	}
 
 	public Vector3f getClosestCollision(Creature object, float x, float y, float z, boolean changeDirection, byte intentions) {
-		return geoData.getMap(object.getWorldId()).getClosestCollision(object.getX(), object.getY(), object.getZ(), x, y, z, changeDirection, object.isInFlyingState(), object.getInstanceId(), intentions);
+		return geoData.getMap(object.getWorldId()).getClosestCollision(object.getX(), object.getY(), object.getZ(), x, y, z, changeDirection,
+				object.isInFlyingState(), object.getInstanceId(), intentions);
 	}
 
 	public GeoType getConfiguredGeoType() {
@@ -145,6 +149,31 @@ public class GeoService {
 			return GeoType.GEO_MESHES;
 		}
 		return GeoType.NO_GEO;
+	}
+
+	public boolean isInBounds(Creature creature) {
+		return isInBounds(creature.getWorldId(), creature.getX(), creature.getY(), creature.getZ());
+	}
+
+	public boolean isInBounds(int worldId, float x, float y, float z) {
+		if (x < 0 || y < 0 || z < 0) {
+			return false;
+		}
+
+		if (Float.isNaN(x) || Float.isNaN(y) || Float.isNaN(z)) {
+			return false;
+		}
+
+		int worldSize = getWorldSize(worldId);
+		if (x > worldSize || y > worldSize || z > 4000) {
+			return false;
+		}
+
+		return true;
+	}
+
+	public int getWorldSize(int worldId) {
+		return 3072;
 	}
 
 	public static final GeoService getInstance() {

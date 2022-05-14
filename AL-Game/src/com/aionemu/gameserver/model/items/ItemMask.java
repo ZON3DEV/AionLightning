@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.items;
 
 //added by Blackhive original credits to xTr 2.0.0.5 mod by Tomate
@@ -37,5 +38,5 @@ public class ItemMask {
 	public static final int DYEABLE = (1 << 15);
 	public static final int CAN_AP_EXTRACT = (1 << 16);
 	public static final int CAN_POLISH = (1 << 17);
-	public static final int CAN_AMPLIFICATION = (1 << 18);
+	public static final int CAN_AUTHORIZE = (1 << 18);
 }

@@ -14,41 +14,18 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.gameobjects.player.Player;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_TRANSFORM;
-import com.aionemu.gameserver.skillengine.model.Effect;
-import com.aionemu.gameserver.skillengine.model.SkillMoveType;
-import com.aionemu.gameserver.skillengine.model.SpellStatus;
-import com.aionemu.gameserver.utils.PacketSendUtility;
-
 /**
  * @author kecimis
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EvadeEffect")
 public class EvadeEffect extends DispelEffect {
-
-	@Override
-	public void calculate(Effect effect) {
-		Player effector = (Player) effect.getEffector();
-		effect.setSkillMoveType(SkillMoveType.MOVEBEHIND);
-		if (effect.getEffected().getState() == 3) {
-			super.calculate(effect, null, null);
-		}
-		else {
-			super.calculate(effect, null, SpellStatus.CLOSEAERIAL);
-		}
-        if (effector.isFlying()) {
-            effector.setFlyState(0);
-        }
-        effector.getEffectController().updatePlayerEffectIcons();
-        PacketSendUtility.broadcastPacketAndReceive(effector, new SM_TRANSFORM(effector, true));
-        PacketSendUtility.broadcastPacketAndReceive(effector, new SM_TRANSFORM(effector, effector.getTransformedModelId(), true, effector.getTransformedItemId(), effector.getTransformedSkillId()));
-	}
 }

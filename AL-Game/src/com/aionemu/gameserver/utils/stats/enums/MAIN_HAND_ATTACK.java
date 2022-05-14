@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.stats.enums;
 
 /**
@@ -33,12 +34,11 @@ public enum MAIN_HAND_ATTACK {
 	PRIEST(17),
 	CLERIC(19),
 	CHANTER(19),
-	ENGINEER(18),
+	ENGINEER(19),
 	RIDER(19),
-	GUNNER(18),
-	ARTIST(16),
-	PAINTER(16),
-	BARD(16);
+	GUNNER(19),
+	ARTIST(19),
+	BARD(19);
 
 	private int value;
 

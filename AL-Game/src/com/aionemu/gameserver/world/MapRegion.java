@@ -14,20 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeSet;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import org.apache.commons.lang.ArrayUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.gameserver.ai2.event.AIEventType;
 import com.aionemu.gameserver.configs.administration.DeveloperConfig;
@@ -42,9 +30,15 @@ import com.aionemu.gameserver.model.templates.zone.ZoneClassName;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 import com.aionemu.gameserver.world.zone.ZoneName;
-
 import javolution.util.FastMap;
 import javolution.util.FastMap.Entry;
+import org.apache.commons.lang.ArrayUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Just some part of map.
@@ -102,7 +96,8 @@ public class MapRegion {
 	}
 
 	/**
-	 * Return an instance of {@link World}, which keeps map, to which belongs this region
+	 * Return an instance of {@link World}, which keeps map, to which belongs
+	 * this region
 	 */
 	public World getWorld() {
 		return getParent().getWorld();
@@ -171,8 +166,7 @@ public class MapRegion {
 		if (objects.put(object.getObjectId(), object) == null) {
 			if (object instanceof Player) {
 				checkActiveness(playerCount.incrementAndGet() > 0);
-			}
-			else if (DeveloperConfig.SPAWN_CHECK) {
+			} else if (DeveloperConfig.SPAWN_CHECK) {
 				Iterator<TreeSet<ZoneInstance>> zoneIter = zoneMap.values().iterator();
 				while (zoneIter.hasNext()) {
 					TreeSet<ZoneInstance> zones = zoneIter.next();
@@ -206,15 +200,13 @@ public class MapRegion {
 	final void checkActiveness(boolean active) {
 		if (active && regionActive.compareAndSet(false, true)) {
 			startActivation();
-		}
-		else if (!active) {
+		} else if (!active) {
 			startDeactivation();
 		}
 	}
 
 	final void startActivation() {
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				log.debug("Activating in map {} region {}", getMapId(), regionId);
@@ -228,7 +220,6 @@ public class MapRegion {
 
 	final void startDeactivation() {
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				log.debug("Deactivating in map {} region {}", getMapId(), regionId);
@@ -270,7 +261,7 @@ public class MapRegion {
 	 */
 	private void deactivateObjects() {
 		for (VisibleObject visObject : objects.values()) {
-			if (visObject instanceof Creature && !(SiegeConfig.BALAUR_AUTO_ASSAULT && visObject instanceof SiegeNpc) && !((Creature) visObject).isFlag() && !((Creature) visObject).isRaidMonster()) {
+			if (visObject instanceof Creature && !(SiegeConfig.BALAUR_AUTO_ASSAULT && visObject instanceof SiegeNpc) && !((Creature) visObject).isFlag()) {
 				Creature creature = (Creature) visObject;
 				creature.getAi2().onGeneralEvent(AIEventType.DEACTIVATE);
 			}
@@ -368,7 +359,8 @@ public class MapRegion {
 	}
 
 	/**
-	 * Item use zones always have the same names instances, while we have unique names; Thus, a special check for item use.
+	 * Item use zones always have the same names instances, while we have unique
+	 * names; Thus, a special check for item use.
 	 *
 	 * @param zoneName
 	 * @param creature

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -52,8 +53,7 @@ public class CM_HOUSE_KICK extends AionClientPacket {
 		}
 		if (option == 1) {
 			house.getController().kickVisitors(player, false, false);
-		}
-		else if (option == 2) {
+		} else if (option == 2) {
 			house.getController().kickVisitors(player, true, false);
 		}
 	}

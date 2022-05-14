@@ -14,38 +14,35 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.serverpackets;
 
-import java.util.List;
+package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.controllers.attack.AttackResult;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+import java.util.List;
 
 /**
  * @author -Nemesiss-, Sweetkr
- * @author GiGatR00n v4.7.5.x
  */
 public class SM_ATTACK extends AionServerPacket {
 
-	private int attackNo;
+	private int attackno;
 	private int time;
 	private int type;
-	private int SimpleAttackType;
 	private List<AttackResult> attackList;
 	private Creature attacker;
 	private Creature target;
 
-	public SM_ATTACK(Creature attacker, Creature target, int attackNo, int time, int type, List<AttackResult> attackList) {
+	public SM_ATTACK(Creature attacker, Creature target, int attackno, int time, int type, List<AttackResult> attackList) {
 		this.attacker = attacker;
 		this.target = target;
-		this.attackNo = attackNo;// empty
+		this.attackno = attackno;// empty
 		this.time = time;// empty
 		this.type = type;// empty
 		this.attackList = attackList;
-		this.SimpleAttackType = attacker.getController().getSimpleAttackType();
 	}
 
 	/**
@@ -54,9 +51,9 @@ public class SM_ATTACK extends AionServerPacket {
 	@Override
 	protected void writeImpl(AionConnection con) {
 		writeD(attacker.getObjectId());
-		writeC(attackNo); // Attack Number e.g. 1, 2, 3, 5, ..., Max_Integer_Value
+		writeC(attackno); // unknown
 		writeH(time); // unknown
-		writeC((byte) SimpleAttackType);// 0=Ground Attacks | 1=Air Attacks (v4.7.5.17)
+		writeC(0);
 		writeC(type); // 0, 1, 2
 		writeD(target.getObjectId());
 
@@ -72,51 +69,57 @@ public class SM_ATTACK extends AionServerPacket {
 		switch (attackList.get(0).getAttackStatus().getId()) // Counter skills
 		{
 			case 196: // case CRITICAL_BLOCK 4.5
+				// case -60: // case CRITICAL_BLOCK old 4.0
 			case 4: // case BLOCK
-			case 5:
-			case 213:
-				writeD(32);
+				writeH(32);
 				break;
 			case 194: // case CRITICAL_PARRY 4.5
+				// case -62: // case CRITICAL_PARRY old 4.0
 			case 2: // case PARRY
-			case 3:
-			case 211:
-				writeD(64);
+				writeH(64);
 				break;
 			case 192: // case CRITICAL_DODGE 4.5
+				// case -64: // case CRITICAL_DODGE old 4.0
 			case 0: // case DODGE
-			case 1:
-			case 209:
-				writeD(128);
+				writeH(128);
 				break;
 			case 198: // case CRITICAL_RESIST 4.5
+				// case -58: // case PHYSICAL_CRITICAL_RESIST old 4.0
 			case 6: // case RESIST
-			case 7:
-			case 215:
-				writeD(256); // need more info becuz sometimes 0
+				writeH(256); // need more info becuz sometimes 0
 				break;
 			default:
-				writeD(0);
+				writeH(0);
 				break;
 		}
-
-		// setting counter skill from packet to have the best synchronization of time with client
+		// setting counter skill from packet to have the best synchronization of
+		// time with client
 		if (target instanceof Player) {
 			if (attackList.get(0).getAttackStatus().isCounterSkill()) {
 				((Player) target).setLastCounterSkill(attackList.get(0).getAttackStatus());
 			}
 		}
 
+		writeH(0);
+
+		// TODO! those 2h (== d) up is some kind of very weird flag...
+		// writeD(attackFlag);
+		/*
+		 * if(attackFlag & 0x10A0F != 0) { writeF(0); writeF(0); writeF(0); }
+		 * if(attackFlag & 0x10010 != 0) { writeC(0); } if(attackFlag & 0x10000
+		 * != 0) { writeD(0); writeD(0); }
+		 */
 		writeC(attackList.size());
 		for (AttackResult attack : attackList) {
 			writeD(attack.getDamage());
 			writeC(attack.getAttackStatus().getId());
+
 			byte shieldType = (byte) attack.getShieldType();
 			writeC(shieldType);
-			writeB(new byte[16]); // TODO
 
 			/**
-			 * shield Type: 1: reflector 2: normal shield 8: protect effect (ex. skillId: 417 Bodyguard) TODO find out 4
+			 * shield Type: 1: reflector 2: normal shield 8: protect effect (ex.
+			 * skillId: 417 Bodyguard) TODO find out 4
 			 */
 			switch (shieldType) {
 				case 0:
@@ -124,31 +127,21 @@ public class SM_ATTACK extends AionServerPacket {
 					break;
 				case 8:
 				case 10:
-					writeD(attack.getProtectorId());
-					writeD(attack.getProtectedDamage());
-					writeD(attack.getProtectedSkillId());
-					break;
-				case 16:
-					writeD(0);
-					writeD(0);
-					writeD(0);
-					writeD(0);
-					writeD(0);
-					writeD(attack.getShieldMp());
-					writeD(attack.getReflectedSkillId());
+					writeD(attack.getProtectorId()); // protectorId
+					writeD(attack.getProtectedDamage()); // protected damage
+					writeD(attack.getProtectedSkillId()); // skillId
 					break;
 				default:
-					System.out.println("Default Called: ");
-					writeD(attack.getProtectorId());
-					writeD(attack.getProtectedDamage());
-					writeD(attack.getProtectedSkillId());
-					writeD(attack.getReflectedDamage());
-					writeD(attack.getReflectedSkillId());
-					writeD(0);
-					writeD(0);
+					writeD(attack.getProtectorId()); // protectorId
+					writeD(attack.getProtectedDamage()); // protected damage
+					writeD(attack.getProtectedSkillId()); // skillId
+					writeD(attack.getReflectedDamage()); // reflect damage
+					writeD(attack.getReflectedSkillId()); // skill id
+					writeD(0); // unk
+					writeD(0); // unk
 					break;
 			}
 		}
-		writeC(0);// list size
+		writeC(0);
 	}
 }

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.iteminfo;
 
 import java.nio.ByteBuffer;
@@ -23,7 +24,8 @@ import com.aionemu.gameserver.model.items.ItemSlot;
 import com.aionemu.gameserver.network.aion.iteminfo.ItemInfoBlob.ItemBlobType;
 
 /**
- * This blob is sent for clothes. It keeps info about slots that cloth can be equipped to.
+ * This blob is sent for clothes. It keeps info about slots that cloth can be
+ * equipped to.
  *
  * @author -Nemesiss-
  * @modified Rolandas

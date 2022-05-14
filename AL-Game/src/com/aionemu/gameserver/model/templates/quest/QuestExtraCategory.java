@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.quest;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -30,5 +31,5 @@ public enum QuestExtraCategory {
 	COIN_QUEST,
 	DRACONIC_RECIPE_QUEST, // not use 3.9
 	DEVANION_QUEST,
-	GOLD_QUEST;
+	GOLD_QUEST
 }

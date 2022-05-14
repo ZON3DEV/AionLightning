@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model;
 
 /**
@@ -21,10 +22,7 @@ package com.aionemu.gameserver.model;
  */
 public enum PetitionStatus {
 
-	PENDING(0),
-	IN_PROGRESS(1),
-	REPLIED(2);
-
+	PENDING(0), IN_PROGRESS(1), REPLIED(2);
 	private int element;
 
 	private PetitionStatus(int id) {

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -26,33 +27,31 @@ import com.aionemu.gameserver.services.FastTrackService;
  */
 public class CM_FAST_TRACK extends AionClientPacket {
 
-	private int action;
+    private int action;
 
-	public CM_FAST_TRACK(int opcode, State state, State... states) {
-		super(opcode, state, states);
-	}
+    public CM_FAST_TRACK(int opcode, State state, State... states) {
+        super(opcode, state, states);
+    }
 
-	@Override
-	protected void readImpl() {
-		action = readH();
-		readH();// unk
-		readD();// unk
-		readD();// unk
-		readD();// unk
-	}
+    @Override
+    protected void readImpl() {
+        action = readH();
+        readH();//unk
+        readD();//unk
+        readD();//unk
+        readD();//unk
+    }
 
-	@Override
-	protected void runImpl() {
-		Player requested = getConnection().getActivePlayer();
-		if (requested == null)
-			return;
-		switch (action) {
-			case 1:
-				FastTrackService.getInstance().handleMoveThere(requested);
-				break;
-			case 2:
-				FastTrackService.getInstance().handleMoveBack(requested);
-				break;
-		}
-	}
+    @Override
+    protected void runImpl() {
+        Player requested = getConnection().getActivePlayer();
+        switch (action) {
+            case 1:
+                FastTrackService.getInstance().handleMoveThere(requested);
+                break;
+            case 2:
+                FastTrackService.getInstance().handleMoveBack(requested);
+                break;
+        }
+    }
 }

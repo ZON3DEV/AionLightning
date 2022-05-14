@@ -14,35 +14,44 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
-import com.aionemu.gameserver.model.account.Account;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SECURITY_TOKEN;
-import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.services.player.PlayerSecurityTokenService;
 
 /**
- * @author Falke_34, CoolyT
+ * @author xXMashUpXx
  */
 public class CM_SECURITY_TOKEN extends AionClientPacket {
 
+	/**
+	 * @param opcode
+	 * @param state
+	 * @param restStates
+	 */
 	public CM_SECURITY_TOKEN(int opcode, State state, State... restStates) {
 		super(opcode, state, restStates);
 	}
 
 	@Override
 	protected void readImpl() {
-		// empty
 	}
 
 	@Override
 	protected void runImpl() {
-		Player player = getConnection().getActivePlayer();
-		Account acc = getConnection().getAccount();
-		if (acc.getSecurityToken() == null || acc.getSecurityToken().isEmpty())
+		Player player = this.getConnection().getActivePlayer();
+		if (player == null) {
 			return;
-		PacketSendUtility.sendPacket(player, new SM_SECURITY_TOKEN(acc.getSecurityToken()));
+		}
+
+		if (!"".equals(player.getPlayerAccount().getSecurityToken())) {
+			PlayerSecurityTokenService.getInstance().sendToken(player, player.getPlayerAccount().getSecurityToken());
+		} else {
+			PlayerSecurityTokenService.getInstance().generateToken(player);
+		}
+
 	}
 }

@@ -15,18 +15,18 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.scripting.classlistener;
+
+import com.aionemu.commons.scripting.metadata.OnClassLoad;
+import com.aionemu.commons.scripting.metadata.OnClassUnload;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.aionemu.commons.scripting.metadata.OnClassLoad;
-import com.aionemu.commons.scripting.metadata.OnClassUnload;
 
 /**
  * @author SoulKeeper
@@ -53,13 +53,12 @@ public class OnClassLoadUnloadListener implements ClassListener {
 	}
 
 	/**
-	 * Actually invokes method where given annotation class is present. Only
-	 * static methods can be invoked
+	 * Actually invokes method where given annotation class is present. Only static methods can be invoked
 	 * 
 	 * @param methods
-	 *            Methods to scan for annotations
+	 *          Methods to scan for annotations
 	 * @param annotationClass
-	 *            class of annotation to search for
+	 *          class of annotation to search for
 	 */
 	protected final void doMethodInvoke(Method[] methods, Class<? extends Annotation> annotationClass) {
 		for (Method m : methods) {
@@ -72,9 +71,11 @@ public class OnClassLoadUnloadListener implements ClassListener {
 			if (m.getAnnotation(annotationClass) != null) {
 				try {
 					m.invoke(null);
-				} catch (IllegalAccessException e) {
+				}
+				catch (IllegalAccessException e) {
 					log.error("Can't access method " + m.getName() + " of class " + m.getDeclaringClass().getName(), e);
-				} catch (InvocationTargetException e) {
+				}
+				catch (InvocationTargetException e) {
 					log.error("Can't invoke method " + m.getName() + " of class " + m.getDeclaringClass().getName(), e);
 				}
 			}

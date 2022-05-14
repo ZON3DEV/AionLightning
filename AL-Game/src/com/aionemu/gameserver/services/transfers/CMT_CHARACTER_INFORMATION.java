@@ -14,9 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.transfers;
 
 import java.util.List;
+
+import javolution.util.FastList;
 
 import org.slf4j.Logger;
 
@@ -64,8 +67,6 @@ import com.aionemu.gameserver.utils.idfactory.IDFactory;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.WorldPosition;
 
-import javolution.util.FastList;
-
 /**
  * @author KID
  */
@@ -93,7 +94,8 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 		playerCommonData.setGender(readD() == 0 ? Gender.MALE : Gender.FEMALE);
 		playerCommonData.setTitleId(readD());
 		playerCommonData.setDp(readD());
-		playerCommonData.setCubeExpands(readD());
+		playerCommonData.setQuestExpands(readD());
+		playerCommonData.setNpcExpands(readD());
 		playerCommonData.setAdvancedStigmaSlotSize(readD());
 		playerCommonData.setWarehouseSize(readD());
 
@@ -142,7 +144,7 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 		playerAppearance.setHips(readC());
 		playerAppearance.setArmThickness(readC());
 		playerAppearance.setHandSize(readC());
-		playerAppearance.setLegThickness(readC());
+		playerAppearance.setLegThicnkess(readC());
 		playerAppearance.setFootSize(readC());
 		playerAppearance.setFacialRate(readC());
 		playerAppearance.setArmLength(readC());
@@ -207,21 +209,7 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 			int bonusNum = readD();
 			int randomNum = readD();
 			int packNum = readD();
-			int authorizeNum = readD();
 			boolean itemPacked = readD() == 1;
-			boolean itemAmplified = readD() == 1;
-			int buffSkill = readH();
-			int requireLevel = readD();
-			boolean isEnhance = readD() == 1;
-			int enhanceSkillId = readD();
-			int enhanceSkillEnchant = readD();
-			int unSeal = readD();
-			int skinSkill = readD();
-			int grindSocket = readD();
-			int grindColor = readD();
-			long grindStone = readD();
-			int grindSlot = readD();
-			boolean contaminated = readD() == 1;
 
 			if (PlayerTransferConfig.ALLOW_INV) {
 				ItemTemplate template = DataManager.ITEM_DATA.getItemTemplate(itemId);
@@ -237,7 +225,9 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 				int newId = IDFactory.getInstance().nextId();
 				// bonus probably is lost, don't know [RR]
 				// dye expiration is lost
-				Item item = new Item(newId, itemId, itemCnt, itemColor, colorExpires, itemCreator, itemExpireTime, itemActivationCnt, itemEquipped, itemSoulBound, equipSlot, location, enchant, skinId, fusionId, optSocket, optFusion, charge, bonusNum, randomNum, packNum, authorizeNum, itemPacked, itemAmplified, buffSkill, requireLevel, false, isEnhance, enhanceSkillId, enhanceSkillEnchant, unSeal, skinSkill, grindSocket, grindColor, grindStone, grindSlot, contaminated);
+				Item item = new Item(newId, itemId, itemCnt, itemColor, colorExpires, itemCreator, itemExpireTime, itemActivationCnt, itemEquipped,
+						itemSoulBound, equipSlot, location, enchant, skinId, fusionId, optSocket, optFusion, charge, bonusNum, randomNum, packNum, itemPacked,
+						0);
 				if (manastones.size() > 0) {
 					for (int[] stone : manastones) {
 						ItemSocketService.addManaStone(item, stone[0], stone[1]);
@@ -252,7 +242,10 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 					item.addGodStone(godstone);
 				}
 
-				String itemTxt = "(cube)#itemId=" + itemId + "; objectIdChange[" + objIdOld + "->" + newId + "] " + item.getItemCount() + ";" + item.getItemColor() + ";" + item.getItemCreator() + ";" + item.getExpireTime() + ";" + item.getActivationCount() + ";" + item.getEnchantOrAuthorizeLevel() + ";" + item.getItemSkinTemplate().getTemplateId() + ";" + item.getFusionedItemTemplate() + ";" + item.getOptionalSocket() + ";" + item.getOptionalFusionSocket() + ";" + item.getChargePoints();
+				String itemTxt = "(cube)#itemId=" + itemId + "; objectIdChange[" + objIdOld + "->" + newId + "] " + item.getItemCount() + ";"
+						+ item.getItemColor() + ";" + item.getItemCreator() + ";" + item.getExpireTime() + ";" + item.getActivationCount() + ";"
+						+ item.getEnchantLevel() + ";" + item.getItemSkinTemplate().getTemplateId() + ";" + item.getFusionedItemTemplate() + ";"
+						+ item.getOptionalSocket() + ";" + item.getOptionalFusionSocket() + ";" + item.getChargePoints();
 				itemOut.add(itemTxt);
 				item.setPersistentState(PersistentState.NEW);
 				player.getInventory().add(item);
@@ -297,21 +290,7 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 			int bonusNum = readD();
 			int randomNum = readD();
 			int packNum = readD();
-			int authorizeNum = readD();
 			boolean itemPacked = readD() == 1;
-			boolean itemAmplified = readD() == 1;
-			int buffSkill = readH();
-			int requireLevel = readD();
-			boolean isEnhance = readD() == 1;
-			int enhanceSkillId = readD();
-			int enhanceSkillEnchant = readD();
-			int unSeal = readD();
-			int skinSkill = readD();
-			int grindSocket = readD();
-			int grindColor = readD();
-			long grindStone = readD();
-			int grindSlot = readD();
-			boolean contaminated = readD() == 1;
 
 			if (PlayerTransferConfig.ALLOW_WAREHOUSE) {
 				ItemTemplate template = DataManager.ITEM_DATA.getItemTemplate(itemId);
@@ -327,7 +306,9 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 				int newId = IDFactory.getInstance().nextId();
 				// bonus probably is lost, don't know [RR]
 				// dye expiration is lost
-				Item item = new Item(newId, itemId, itemCnt, itemColor, colorExpires, itemCreator, itemExpireTime, itemActivationCnt, itemEquipped, itemSoulBound, equipSlot, location, enchant, skinId, fusionId, optSocket, optFusion, charge, bonusNum, randomNum, packNum, authorizeNum, itemPacked, itemAmplified, buffSkill, requireLevel, false, isEnhance, enhanceSkillId, enhanceSkillEnchant, unSeal, skinSkill, grindSocket, grindColor, grindStone, grindSlot, contaminated);
+				Item item = new Item(newId, itemId, itemCnt, itemColor, colorExpires, itemCreator, itemExpireTime, itemActivationCnt, itemEquipped,
+						itemSoulBound, equipSlot, location, enchant, skinId, fusionId, optSocket, optFusion, charge, bonusNum, randomNum, packNum, itemPacked,
+						0);
 				if (manastones.size() > 0) {
 					for (int[] stone : manastones) {
 						ItemSocketService.addManaStone(item, stone[0], stone[1]);
@@ -342,7 +323,10 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 					item.addGodStone(godstone);
 				}
 
-				String itemTxt = "(warehouse)#itemId=" + itemId + "; objectIdChange[" + objIdOld + "->" + newId + "] " + item.getItemCount() + ";" + item.getItemColor() + ";" + item.getItemCreator() + ";" + item.getExpireTime() + ";" + item.getActivationCount() + ";" + item.getEnchantOrAuthorizeLevel() + ";" + item.getItemSkinTemplate().getTemplateId() + ";" + item.getFusionedItemTemplate() + ";" + item.getOptionalSocket() + ";" + item.getOptionalFusionSocket() + ";" + item.getChargePoints();
+				String itemTxt = "(warehouse)#itemId=" + itemId + "; objectIdChange[" + objIdOld + "->" + newId + "] " + item.getItemCount() + ";"
+						+ item.getItemColor() + ";" + item.getItemCreator() + ";" + item.getExpireTime() + ";" + item.getActivationCount() + ";"
+						+ item.getEnchantLevel() + ";" + item.getItemSkinTemplate().getTemplateId() + ";" + item.getFusionedItemTemplate() + ";"
+						+ item.getOptionalSocket() + ";" + item.getOptionalFusionSocket() + ";" + item.getChargePoints();
 				itemOut.add(itemTxt);
 				item.setPersistentState(PersistentState.NEW);
 				player.getWarehouse().add(item);
@@ -361,8 +345,7 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 		for (int a = 0; a < cnt; a++) { // emotes
 			if (PlayerTransferConfig.ALLOW_EMOTIONS) {
 				player.getEmotions().add(readD(), readD(), true);
-			}
-			else {
+			} else {
 				readQ();
 			}
 		}
@@ -373,8 +356,7 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 		for (int i = 0; i < cnt; i++) { // motions
 			if (PlayerTransferConfig.ALLOW_MOTIONS) {
 				player.getMotions().add(new Motion(readD(), readD(), readC() == 1), true);
-			}
-			else {
+			} else {
 				readB(9);
 			}
 		}
@@ -385,8 +367,7 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 		for (int a = 0; a < cnt; a++) { // macros
 			if (PlayerTransferConfig.ALLOW_MACRO) {
 				PlayerService.addMacro(player, readD(), readS());
-			}
-			else {
+			} else {
 				readD();
 				readS();
 			}
@@ -398,8 +379,7 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 		for (int a = 0; a < cnt; a++) { // npc factions
 			if (PlayerTransferConfig.ALLOW_NPCFACTIONS) {
 				player.getNpcFactions().addNpcFaction(new NpcFaction(readD(), readD(), readD() == 1, ENpcFactionQuestState.valueOf(readS()), readD()));
-			}
-			else {
+			} else {
 				readB(12);
 				readS();
 				readD();
@@ -420,8 +400,7 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 					bday = System.currentTimeMillis();
 				}
 				player.getPetList().addPet(player, petId, decorationId, bday, readS(), 0);
-			}
-			else {
+			} else {
 				readB(16);
 				readS();
 			}
@@ -433,8 +412,7 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 		for (int a = 0; a < cnt; a++) { // recipes
 			if (PlayerTransferConfig.ALLOW_RECIPES) {
 				player.getRecipeList().addRecipe(player.getObjectId(), readD());
-			}
-			else {
+			} else {
 				readD();
 			}
 		}
@@ -456,8 +434,7 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 				if (temp.isPassive()) {
 					player.getSkillList().addSkill(player, skillId, skillLvl);
 				}
-			}
-			else {
+			} else {
 				player.getSkillList().addSkill(player, skillId, skillLvl);
 			}
 		}
@@ -468,8 +445,7 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 		for (int a = 0; a < cnt; a++) { // titles
 			if (PlayerTransferConfig.ALLOW_TITLES) {
 				player.getTitleList().addEntry(readD(), readD());
-			}
-			else {
+			} else {
 				readB(8);
 			}
 		}
@@ -492,8 +468,11 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 				break;
 		}
 
-		player.setBindPoint(new BindPointPosition(Integer.parseInt(posBind[0]), Float.parseFloat(posBind[1]), Float.parseFloat(posBind[2]), Float.parseFloat(posBind[3]), Byte.parseByte(posBind[4])));
-		DAOManager.getDAO(PlayerBindPointDAO.class).store(player);
+		if (posBind != null) {
+			player.setBindPoint(new BindPointPosition(Integer.parseInt(posBind[0]), Float.parseFloat(posBind[1]), Float.parseFloat(posBind[2]), Float
+					.parseFloat(posBind[3]), Byte.parseByte(posBind[4])));
+			DAOManager.getDAO(PlayerBindPointDAO.class).store(player);
+		}
 
 		int uilen = readD(), shortlen = readD();
 		byte[] ui = readB(uilen), sc = readB(shortlen);
@@ -505,9 +484,10 @@ public class CMT_CHARACTER_INFORMATION extends AionClientPacket {
 		for (int a = 0; a < cnt; a++) { // quests
 			int questId = readD();
 			if (PlayerTransferConfig.ALLOW_QUESTS) {
-				player.getQuestStateList().addQuest(questId, new QuestState(questId, QuestStatus.valueOf(readS()), readD(), readD(), null, readD(), null)); // TODO null timestamp
-			}
-			else {
+				player.getQuestStateList().addQuest(questId, new QuestState(questId, QuestStatus.valueOf(readS()), readD(), readD(), null, readD(), null)); // TODO
+																																							// null
+																																							// timestamp
+			} else {
 				readS();
 				readB(12);
 			}

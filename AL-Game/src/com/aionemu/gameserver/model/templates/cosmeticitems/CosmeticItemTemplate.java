@@ -14,17 +14,18 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.cosmeticitems;
 
+import com.aionemu.gameserver.model.Race;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-import com.aionemu.gameserver.model.Race;
-
 /**
+ *
  * @author xTz
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -84,8 +85,6 @@ public class CosmeticItemTemplate {
 		private int lipColor;
 		@XmlElement(name = "eye_color")
 		private int eyeColor;
-		@XmlElement(name = "eye_color2")
-		private int eyeColor2;
 		@XmlElement(name = "skin_color")
 		private int skinColor;
 
@@ -111,10 +110,6 @@ public class CosmeticItemTemplate {
 
 		public int getEyeColor() {
 			return eyeColor;
-		}
-
-		public int getEyeColor2() {
-			return eyeColor2;
 		}
 
 		public int getSkinColor() {

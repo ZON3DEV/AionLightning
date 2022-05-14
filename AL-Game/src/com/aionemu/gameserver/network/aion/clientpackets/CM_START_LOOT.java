@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -46,7 +47,7 @@ public class CM_START_LOOT extends AionClientPacket {
 	 */
 	@Override
 	protected void readImpl() {
-		targetObjectId = readD();
+		targetObjectId = readD();// empty
 		action = readC();
 	}
 
@@ -57,10 +58,11 @@ public class CM_START_LOOT extends AionClientPacket {
 	protected void runImpl() {
 		Player player = getConnection().getActivePlayer();
 
-		if (action == 0) { // open
+		if (action == 0) // open
+		{
 			DropService.getInstance().requestDropList(player, targetObjectId);
-		}
-		else if (action == 1) { // close
+		} else if (action == 1) // close
+		{
 			DropService.getInstance().closeDropList(player, targetObjectId);
 		}
 	}

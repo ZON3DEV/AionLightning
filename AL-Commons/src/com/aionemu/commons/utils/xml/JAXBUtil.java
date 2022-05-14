@@ -15,19 +15,19 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.utils.xml;
 
-import java.io.StringReader;
-import java.io.StringWriter;
-import java.net.URL;
+import org.w3c.dom.Document;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.validation.Schema;
-
-import org.w3c.dom.Document;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.net.URL;
 
 public class JAXBUtil {
 

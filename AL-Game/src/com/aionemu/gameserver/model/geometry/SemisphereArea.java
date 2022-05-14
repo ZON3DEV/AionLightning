@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.geometry;
 
 import com.aionemu.gameserver.utils.MathUtil;
@@ -21,6 +22,7 @@ import com.aionemu.gameserver.world.zone.ZoneName;
 
 /**
  * @author Rolandas
+ *
  */
 public class SemisphereArea extends SphereArea {
 
@@ -69,9 +71,6 @@ public class SemisphereArea extends SphereArea {
 
 	@Override
 	public boolean intersectsRectangle(RectangleArea area) {
-		if ((area.getMaxZ() >= z || z <= area.getMinZ()) && area.getDistance3D(x, y, z) <= r) {
-			return true;
-		}
-		return false;
+		return (area.getMaxZ() >= z || z <= area.getMinZ()) && area.getDistance3D(x, y, z) <= r;
 	}
 }

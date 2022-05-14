@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers.attack;
 
 /**
@@ -21,11 +22,7 @@ package com.aionemu.gameserver.controllers.attack;
  */
 public enum CounterSkillStatus {
 
-	BLOCK(32),
-	PARRY(64),
-	DODGE(128),
-	RESIST(256);
-
+	BLOCK(32), PARRY(64), DODGE(128), RESIST(256);
 	private final int type;
 
 	private CounterSkillStatus(int type) {

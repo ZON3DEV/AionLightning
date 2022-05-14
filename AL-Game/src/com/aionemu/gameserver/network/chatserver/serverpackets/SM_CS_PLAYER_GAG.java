@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.chatserver.serverpackets;
 
 import com.aionemu.gameserver.network.chatserver.ChatServerConnection;
@@ -21,6 +22,7 @@ import com.aionemu.gameserver.network.chatserver.CsServerPacket;
 
 /**
  * @author ViAl
+ *
  */
 public class SM_CS_PLAYER_GAG extends CsServerPacket {
 

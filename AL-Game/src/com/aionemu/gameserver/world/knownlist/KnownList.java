@@ -14,14 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world.knownlist;
-
-import java.util.Collections;
-import java.util.Map;
-import java.util.concurrent.locks.ReentrantLock;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.gameserver.configs.main.SecurityConfig;
 import com.aionemu.gameserver.model.gameobjects.AionObject;
@@ -31,8 +25,12 @@ import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.world.MapRegion;
-
+import java.util.Collections;
+import java.util.Map;
+import java.util.concurrent.locks.ReentrantLock;
 import javolution.util.FastMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * KnownList.
@@ -81,8 +79,7 @@ public class KnownList {
 		try {
 			forgetObjects();
 			findVisibleObjects();
-		}
-		finally {
+		} finally {
 			lock.unlock();
 		}
 	}
@@ -152,8 +149,7 @@ public class KnownList {
 				}
 				owner.getController().see(object);
 			}
-		}
-		else if (visualObjects.put(object.getObjectId(), object) == null) {
+		} else if (visualObjects.put(object.getObjectId(), object) == null) {
 			owner.getController().see(object);
 		}
 	}
@@ -236,7 +232,8 @@ public class KnownList {
 	}
 
 	/**
-	 * Whether knownlist owner aware of found object (should be kept in knownlist)
+	 * Whether knownlist owner aware of found object (should be kept in
+	 * knownlist)
 	 *
 	 * @param newObject
 	 * @return
@@ -255,7 +252,8 @@ public class KnownList {
 	}
 
 	/**
-	 * Check can be overriden if new object has different known range and that value should be used
+	 * Check can be overriden if new object has different known range and that
+	 * value should be used
 	 *
 	 * @param newObject
 	 * @return
@@ -280,8 +278,7 @@ public class KnownList {
 					visitor.visit((Npc) newObject);
 				}
 			}
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			// log.error("Exception when running visitor on all npcs" + ex);
 		}
 		return counter;
@@ -303,8 +300,7 @@ public class KnownList {
 					visitor.visit((Npc) newObject, owner);
 				}
 			}
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			// log.error("Exception when running visitor on all npcs" + ex);
 		}
 		return counter;
@@ -321,8 +317,7 @@ public class KnownList {
 					visitor.visit(player);
 				}
 			}
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			// log.error("Exception when running visitor on all players" + ex);
 		}
 	}
@@ -335,8 +330,7 @@ public class KnownList {
 					visitor.visit(newObject);
 				}
 			}
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			// log.error("Exception when running visitor on all objects" + ex);
 		}
 	}

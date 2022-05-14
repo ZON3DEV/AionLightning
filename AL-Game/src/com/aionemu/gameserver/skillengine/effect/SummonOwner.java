@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlEnum;
@@ -24,8 +25,5 @@ import javax.xml.bind.annotation.XmlEnum;
 @XmlEnum
 public enum SummonOwner {
 
-	PRIVATE,
-	GROUP,
-	LEGION,
-	ALLIANCE
+	PRIVATE, GROUP, LEGION, ALLIANCE
 }

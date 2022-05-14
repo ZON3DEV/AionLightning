@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import java.util.HashMap;
@@ -53,8 +54,7 @@ public class SkillCooltimeResetEffect extends EffectTemplate {
 			if (delta > 0) // TODO: Percent of remaining CD or original cd?
 			{
 				delay -= delay * (delta / 100);
-			}
-			else {
+			} else {
 				delay -= value;
 			}
 

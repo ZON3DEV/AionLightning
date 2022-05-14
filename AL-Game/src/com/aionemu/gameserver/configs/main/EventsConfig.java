@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.main;
 
 import com.aionemu.commons.configuration.Property;
@@ -30,7 +31,8 @@ public class EventsConfig {
 	public static boolean EVENT_ENABLED;
 
 	/**
-	 * Enable the Server Event Decorations 00 = no decoration/also means normal usage of event service 01 = christmas 02 = halloween 03 = braxcafe 04 = valentine
+	 * Enable the Server Event Decorations 00 = no decoration 01 = christmas 02
+	 * = halloween 03 = braxcafe 04 = valentine
 	 */
 	@Property(key = "gameserver.enable.decor", defaultValue = "0")
 	public static int ENABLE_DECOR;
@@ -50,9 +52,9 @@ public class EventsConfig {
 	/**
 	 * Event Reward Values
 	 */
-	@Property(key = "gameserver.event.item.elyos", defaultValue = "162002024")
+	@Property(key = "gameserver.event.item.elyos", defaultValue = "141000001")
 	public static int EVENT_ITEM_ELYOS;
-	@Property(key = "gameserver.event.item.asmo", defaultValue = "162002024")
+	@Property(key = "gameserver.event.item.asmo", defaultValue = "141000001")
 	public static int EVENT_ITEM_ASMO;
 	@Property(key = "gameserver.events.givejuice", defaultValue = "160009017")
 	public static int EVENT_GIVEJUICE;
@@ -62,36 +64,15 @@ public class EventsConfig {
 	public static int EVENT_ITEM_COUNT;
 	@Property(key = "gameserver.event.service.enable", defaultValue = "false")
 	public static boolean ENABLE_EVENT_SERVICE;
-	/**
-	 * Arcade Event
-	 */
-	@Property(key = "gameserver.event.arcade.enable", defaultValue = "false")
-	public static boolean ENABLE_EVENT_ARCADE;
-
-	@Property(key = "gameserver.event.arcade.chance", defaultValue = "70")
-	public static int EVENT_ARCADE_CHANCE;
-
-	@Property(key = "gameserver.event.arcade.onlyFrenzyRewardChance", defaultValue = "50")
-	public static int EVENT_ARCADE_FRENZYITEM_CHANCE;
-
-	@Property(key = "gameserver.event.arcade.frenzy_time", defaultValue = "90")
-	public static int EVENT_ARCADE_FRENZY_TIME;
-	
-	@Property(key = "gameserver.event.enable.boost.events", defaultValue = "true")
-	public static boolean ENABLE_BOOST_EVENTS;
-	
-	@Property(key = "gameserver.event.shugoSweep.board", defaultValue = "1")
-	public static int EVENT_SHUGOSWEEP_BOARD;
-	
-	@Property(key = "gameserver.event.shugoSweep.freeDice", defaultValue = "5")
-	public static int EVENT_SHUGOSWEEP_FREEDICE;
-	
-	@Property(key = "gameserver.event.youtube_video", defaultValue = "https://www.youtube.com/embed/0_OzU6GVGLw")
-	public static String EVENT_YOUTUBE_VIDEO;
-
-	@Property(key = "gameserver.atreian.passport.enable", defaultValue = "0")
-	public static int ENABLE_ATREIAN_PASSPORT;
-
-	@Property(key = "gameserver.atreian.passport.id", defaultValue = "11")
-	public static int ATREIAN_PASSPORT_ID;
+    /**
+     * Live Party Concert Hall
+     */
+    @Property(key = "gameserver.liveparty.enabled", defaultValue = "false")
+    public static boolean LIVE_PARTY_ENABLE;
+    @Property(key = "gameserver.liveparty.schedule", defaultValue = "0 0 20 ? * TUE")
+    public static String LIVE_PARTY_SPAWN_SCHEDULE;
+    @Property(key = "gameserver.liveparty.allrace", defaultValue = "ALL")
+    public static String LIVE_PARTY_RACE_ALL;
+    @Property(key = "gameserver.liveparty.max", defaultValue = "100")
+    public static int LIVE_PARTY_MAX_PLAYERS;
 }

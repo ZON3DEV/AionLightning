@@ -14,13 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.ai2.follow;
 
-import java.util.concurrent.Future;
+package com.aionemu.gameserver.ai2.follow;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Summon;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
+
+import java.util.concurrent.Future;
 
 /**
  * @author xTz

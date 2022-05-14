@@ -14,41 +14,23 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Nullable;
-
-import org.quartz.JobDetail;
-import org.quartz.Trigger;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.commons.services.CronService;
-import com.aionemu.gameserver.GameServer;
+import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.configs.main.SiegeConfig;
 import com.aionemu.gameserver.configs.schedule.SiegeSchedule;
 import com.aionemu.gameserver.dao.SiegeDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.DescriptionId;
+import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.gameobjects.Npc;
+import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.siege.SiegeNpc;
-import com.aionemu.gameserver.model.siege.ArtifactLocation;
-import com.aionemu.gameserver.model.siege.FortressLocation;
-import com.aionemu.gameserver.model.siege.Influence;
-import com.aionemu.gameserver.model.siege.SiegeLocation;
-import com.aionemu.gameserver.model.siege.SiegeModType;
-import com.aionemu.gameserver.model.siege.SiegeRace;
-import com.aionemu.gameserver.model.siege.SourceLocation;
+import com.aionemu.gameserver.model.siege.*;
 import com.aionemu.gameserver.model.stats.container.NpcLifeStats;
 import com.aionemu.gameserver.model.templates.npc.NpcRating;
 import com.aionemu.gameserver.model.templates.npc.NpcTemplate;
@@ -56,33 +38,36 @@ import com.aionemu.gameserver.model.templates.spawns.SpawnGroup2;
 import com.aionemu.gameserver.model.templates.spawns.SpawnTemplate;
 import com.aionemu.gameserver.model.templates.spawns.siegespawns.SiegeSpawnTemplate;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_ABYSS_ARTIFACT_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_FORTRESS_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_FORTRESS_STATUS;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_INFLUENCE_RATIO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SHIELD_EFFECT;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SIEGE_LOCATION_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_UNK_127;
-import com.aionemu.gameserver.services.siegeservice.ArtifactSiege;
-import com.aionemu.gameserver.services.siegeservice.FortressSiege;
-import com.aionemu.gameserver.services.siegeservice.Siege;
-import com.aionemu.gameserver.services.siegeservice.SiegeException;
-import com.aionemu.gameserver.services.siegeservice.SiegeStartRunnable;
+import com.aionemu.gameserver.network.aion.serverpackets.*;
+import com.aionemu.gameserver.services.siegeservice.*;
+import com.aionemu.gameserver.services.teleport.TeleportService2;
 import com.aionemu.gameserver.skillengine.SkillEngine;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
+import com.aionemu.gameserver.world.WorldPosition;
+import com.aionemu.gameserver.world.WorldType;
 import com.aionemu.gameserver.world.knownlist.Visitor;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
+import java.util.*;
+
+import javax.annotation.Nullable;
+
 import javolution.util.FastMap;
 
+import org.quartz.JobDetail;
+import org.quartz.Trigger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
- * 3.0 siege update (https://docs.google.com/document/d/1HVOw8-w9AlRp4ci0ei4iAzNaSKzAHj_xORu-qIQJFmc/edit#)
+ * 3.0 siege update
+ * (https://docs.google.com/document/d/1HVOw8-w9AlRp4ci0ei4iAzNaSKzAHj_xORu
+ * -qIQJFmc/edit#)
  *
  * @author SoulKeeper, Source
  */
@@ -93,15 +78,30 @@ public class SiegeService {
 	 */
 	private static final Logger log = LoggerFactory.getLogger("SIEGE_LOG");
 	/**
-	 * We should broadcast fortress status every hour Actually only influence packet must be sent, but that doesn't matter
+	 * Balaurea race protector spawn schedule.
+	 */
+	private static final String RACE_PROTECTOR_SPAWN_SCHEDULE = SiegeConfig.RACE_PROTECTOR_SPAWN_SCHEDULE;
+	/**
+	 * Balaurea race protector spawn schedule.
+	 */
+	private static final String BERSERKER_SUNAYAKA_SPAWN_SCHEDULE = SiegeConfig.BERSERKER_SUNAYAKA_SPAWN_SCHEDULE;
+	/**
+	 * Balaurea race protector spawn schedule.
+	 */
+	private static final String MOLTENUS_SPAWN_SCHEDULE = SiegeConfig.MOLTENUS_SPAWN_SCHEDULE;
+	/**
+	 * We should broadcast fortress status every hour Actually only influence
+	 * packet must be sent, but that doesn't matter
 	 */
 	private static final String SIEGE_LOCATION_STATUS_BROADCAST_SCHEDULE = "0 0 * ? * *";
 	/**
-	 * Singleton that is loaded on the class initialization. Guys, we really do not SingletonHolder classes
+	 * Singleton that is loaded on the class initialization. Guys, we really do
+	 * not SingletonHolder classes
 	 */
 	private static final SiegeService instance = new SiegeService();
 	/**
-	 * Map that holds fortressId to Siege. We can easily know what fortresses is under siege ATM :)
+	 * Map that holds fortressId to Siege. We can easily know what fortresses is
+	 * under siege ATM :)
 	 */
 	private final Map<Integer, Siege<?>> activeSieges = new FastMap<Integer, Siege<?>>().shared();
 	/**
@@ -109,6 +109,16 @@ public class SiegeService {
 	 * And maybe other useful information (in future).
 	 */
 	private SiegeSchedule siegeSchedule;
+	/**
+	 * Tiamaranta's eye infiltration route status cl - Western Tiamaranta's Eye
+	 * Entrance (Center left) cr - Eastern Tiamaranta's Eye Entrance (Center
+	 * right) tl - Eye Abyss Gate Elyos (Top left) tr - Eye Abyss Gate Asmodians
+	 * (Top rigft)
+	 */
+	private boolean cl, cr, tl, tr;
+	private FastMap<Integer, VisibleObject> tiamarantaPortals = new FastMap<Integer, VisibleObject>();
+	private FastMap<Integer, VisibleObject> tiamarantaEyeBoss = new FastMap<Integer, VisibleObject>();
+	private FastMap<Integer, VisibleObject> moltenusAbyssBoss = new FastMap<Integer, VisibleObject>();
 	// Player list on RVR Event.
 	private List<Player> rvrPlayersOnEvent = new ArrayList<Player>();
 
@@ -123,6 +133,8 @@ public class SiegeService {
 
 	private Map<Integer, ArtifactLocation> artifacts;
 	private Map<Integer, FortressLocation> fortresses;
+	private Map<Integer, OutpostLocation> outposts;
+	private Map<Integer, SourceLocation> sources;
 	private Map<Integer, SiegeLocation> locations;
 
 	/**
@@ -130,33 +142,35 @@ public class SiegeService {
 	 */
 	public void initSiegeLocations() {
 		if (SiegeConfig.SIEGE_ENABLED) {
+			log.info("Initializing sieges...");
 
 			if (siegeSchedule != null) {
-				log.error("[SiegeService] SiegeService should not be initialized two times!");
+				log.error("SiegeService should not be initialized two times!");
 				return;
 			}
 
 			// initialize current siege locations
 			artifacts = DataManager.SIEGE_LOCATION_DATA.getArtifacts();
 			fortresses = DataManager.SIEGE_LOCATION_DATA.getFortress();
+			outposts = DataManager.SIEGE_LOCATION_DATA.getOutpost();
+			sources = DataManager.SIEGE_LOCATION_DATA.getSource();
 			locations = DataManager.SIEGE_LOCATION_DATA.getSiegeLocations();
 			DAOManager.getDAO(SiegeDAO.class).loadSiegeLocations(locations);
-			log.info("[SiegeService] Loaded " + locations.size() + " siege locations");
-		}
-		else {
+		} else {
 			artifacts = Collections.emptyMap();
 			fortresses = Collections.emptyMap();
+			outposts = Collections.emptyMap();
+			sources = Collections.emptyMap();
 			locations = Collections.emptyMap();
 			log.info("Sieges are disabled in config.");
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	public void initSieges() {
 		if (!SiegeConfig.SIEGE_ENABLED) {
 			return;
 		}
-
-		GameServer.log.info("[SiegeService] started ...");
 
 		// despawn all NPCs spawned by spawn engine.
 		// Siege spawns should be controlled by siege service
@@ -167,6 +181,18 @@ public class SiegeService {
 		// spawn fortress common npcs
 		for (FortressLocation f : getFortresses().values()) {
 			spawnNpcs(f.getLocationId(), f.getRace(), SiegeModType.PEACE);
+		}
+
+		// spawn fortress common npcs
+		for (SourceLocation s : getSources().values()) {
+			spawnNpcs(s.getLocationId(), s.getRace(), SiegeModType.PEACE);
+		}
+
+		// spawn outpost protectors...
+		for (OutpostLocation o : getOutposts().values()) {
+			if (SiegeRace.BALAUR != o.getRace() && o.getLocationRace() != o.getRace()) {
+				spawnNpcs(o.getLocationId(), o.getRace(), SiegeModType.PEACE);
+			}
 		}
 
 		// spawn artifacts
@@ -181,18 +207,134 @@ public class SiegeService {
 		for (final SiegeSchedule.Fortress f : siegeSchedule.getFortressesList()) {
 			for (String siegeTime : f.getSiegeTimes()) {
 				CronService.getInstance().schedule(new SiegeStartRunnable(f.getId()), siegeTime);
-				log.debug("[SiegeService] Scheduled siege of fortressID " + f.getId() + " based on cron expression: " + siegeTime);
+				log.debug("Scheduled siege of fortressID " + f.getId() + " based on cron expression: " + siegeTime);
 			}
 		}
+
+		// Schedule sources sieges preparation start
+		for (final SiegeSchedule.Source s : siegeSchedule.getSourcesList()) {
+			for (String siegeTime : s.getSiegeTimes()) {
+				CronService.getInstance().schedule(new SiegeStartRunnable(s.getId()), siegeTime);
+				log.debug("Scheduled siege of sourceID " + s.getId() + " based on cron expression: " + siegeTime);
+			}
+		}
+
+		// Sync Tiamaranta's eye infiltration route status
+		updateTiamarantaRiftsStatus(false, true);
+
+		// Tiamatanta Sunayaka start...
+		CronService.getInstance().schedule(new Runnable() {
+			@Override
+			public void run() {
+				// Only if Elyos and Asmodians each control two Hearts
+				Calendar calendar = Calendar.getInstance();
+				int bossId = calendar.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY ? 218553 : 219312;
+				if (cl && cr) {
+					if (tiamarantaEyeBoss.containsKey(bossId) && tiamarantaEyeBoss.get(bossId).isSpawned()) {
+						log.warn("Sunayaka was already spawned...");
+					} else {
+						// TODO: move to datapack
+						tiamarantaEyeBoss.put(bossId,
+								SpawnEngine.spawnObject(SpawnEngine.addNewSingleTimeSpawn(600040000, bossId, 759.0958f, 765.6816f, 1226.5004f, (byte) 0), 1));
+						tiamarantaEyeBoss.put(283074,
+								SpawnEngine.spawnObject(SpawnEngine.addNewSingleTimeSpawn(600040000, 283074, 754.84625f, 819.98828f, 1223.957f, (byte) 0), 1));
+						tiamarantaEyeBoss.put(283076,
+								SpawnEngine.spawnObject(SpawnEngine.addNewSingleTimeSpawn(600040000, 283076, 754.90234f, 712.99042f, 1223.957f, (byte) 0), 1));
+					}
+					// Berserker is despawned after 1 hr
+					ThreadPoolManager.getInstance().schedule(new Runnable() {
+						@Override
+						public void run() {
+							for (VisibleObject vo : tiamarantaEyeBoss.values()) {
+								if (vo != null) {
+									Npc npc = (Npc) vo;
+									if (!npc.getLifeStats().isAlreadyDead()) {
+										npc.getController().onDelete();
+									}
+								}
+								tiamarantaEyeBoss.clear();
+							}
+						}
+					}, 3600 * 1000);
+				}
+			}
+		}, BERSERKER_SUNAYAKA_SPAWN_SCHEDULE);
+
+		// Abyss Moltenus start...
+		CronService.getInstance().schedule(new Runnable() {
+			@Override
+			public void run() {
+				if (moltenusAbyssBoss.containsKey(251045) && moltenusAbyssBoss.get(251045).isSpawned()) {
+					log.warn("Moltenus was already spawned...");
+				} else {
+					int randomPos = Rnd.get(1, 3);
+					switch (randomPos) {
+						case 1:
+							moltenusAbyssBoss.put(251045,
+									SpawnEngine.spawnObject(SpawnEngine.addNewSingleTimeSpawn(400010000, 251045, 2464.9199f, 1689f, 2882.221f, (byte) 0), 1));
+							break;
+						case 2:
+							moltenusAbyssBoss.put(251045, SpawnEngine.spawnObject(
+									SpawnEngine.addNewSingleTimeSpawn(400010000, 251045, 2263.4812f, 2587.1633f, 2879.5447f, (byte) 0), 1));
+							break;
+						case 3:
+							moltenusAbyssBoss.put(251045,
+									SpawnEngine.spawnObject(SpawnEngine.addNewSingleTimeSpawn(400010000, 251045, 1692.96f, 1809.04f, 2886.027f, (byte) 0), 1));
+							break;
+					}
+					log.info("Moltenus spawned in the Abyss");
+					World.getInstance().doOnAllPlayers(new Visitor<Player>() {
+						@Override
+						public void visit(Player player) {
+							PacketSendUtility.sendBrightYellowMessage(player, "Menotios: Fragment of the anger has been sighted in the Abyss");
+						}
+					});
+					// Moltenus despawned after 1 hr if not killed
+					ThreadPoolManager.getInstance().schedule(new Runnable() {
+						@Override
+						public void run() {
+							for (VisibleObject vo : moltenusAbyssBoss.values()) {
+								if (vo != null) {
+									Npc npc = (Npc) vo;
+									if (!npc.getLifeStats().isAlreadyDead()) {
+										npc.getController().onDelete();
+									}
+								}
+								moltenusAbyssBoss.clear();
+								log.info("Moltenus dissapeared");
+								World.getInstance().doOnAllPlayers(new Visitor<Player>() {
+									@Override
+									public void visit(Player player) {
+										PacketSendUtility.sendBrightYellowMessage(player, "Menotios: Fragment of anger gone");
+									}
+								});
+							}
+						}
+					}, 3600 * 1000);
+				}
+			}
+		}, MOLTENUS_SPAWN_SCHEDULE);
+
+		// Outpost siege start...
+		CronService.getInstance().schedule(new Runnable() {
+			@Override
+			public void run() {
+				// spawn outpost protectors...
+				for (OutpostLocation o : getOutposts().values()) {
+					if (o.isSiegeAllowed()) {
+						startSiege(o.getLocationId());
+					}
+				}
+			}
+		}, RACE_PROTECTOR_SPAWN_SCHEDULE);
 
 		// Start siege of artifacts
 		for (ArtifactLocation artifact : artifacts.values()) {
 			if (artifact.isStandAlone()) {
-				log.debug("[SiegeService] Starting siege of artifact #" + artifact.getLocationId());
+				log.debug("Starting siege of artifact #" + artifact.getLocationId());
 				startSiege(artifact.getLocationId());
-			}
-			else {
-				log.debug("[SiegeService] Artifact #" + artifact.getLocationId() + " siege was not started, it belongs to fortress");
+			} else {
+				log.debug("Artifact #" + artifact.getLocationId() + " siege was not started, it belongs to fortress");
 			}
 		}
 
@@ -202,12 +344,10 @@ public class SiegeService {
 
 		// Schedule siege status broadcast (every hour)
 		CronService.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				updateFortressNextState();
 				World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 					@Override
 					public void visit(Player player) {
 						for (FortressLocation fortress : getFortresses().values()) {
@@ -223,21 +363,114 @@ public class SiegeService {
 				});
 			}
 		}, SIEGE_LOCATION_STATUS_BROADCAST_SCHEDULE);
-		log.debug("[SiegeService] Broadcasting Siege Location status based on expression: " + SIEGE_LOCATION_STATUS_BROADCAST_SCHEDULE);
+		log.debug("Broadcasting Siege Location status based on expression: " + SIEGE_LOCATION_STATUS_BROADCAST_SCHEDULE);
 	}
 
 	public void checkSiegeStart(final int locationId) {
-		startSiege(locationId);
+		if (getSource(locationId) == null) {
+			startSiege(locationId);
+		} // instead of four using one bcoz same start time
+		else if (locationId == 4011) {
+			startPreparations();
+		}
+	}
+
+	public void startPreparations() {
+		log.debug("Starting preparations of all source locations");
+
+		// Set siege start timer..
+		ThreadPoolManager.getInstance().schedule(new Runnable() {
+			@Override
+			public void run() {
+				// Remove players from Tiamaranta's Eye
+				World.getInstance().getWorldMap(600040000).getMainWorldMapInstance().doOnAllPlayers(new Visitor<Player>() {
+					@Override
+					public void visit(Player player) {
+						TeleportService2.moveToBindLocation(player, true);
+					}
+				});
+
+				// Start siege warfare
+				for (SourceLocation source : getSources().values()) {
+					startSiege(source.getLocationId());
+				}
+			}
+		}, 300 * 1000);
+
+		// 10 sec after start all players moved out and send SM_SHIELD_EFFECT &
+		// 2nd SM_SIEGE_LOCATION_STATE
+		ThreadPoolManager.getInstance().schedule(new Runnable() {
+			@Override
+			public void run() {
+				for (SourceLocation source : getSources().values()) {
+					source.clearLocation();
+				}
+
+				World.getInstance().getWorldMap(600030000).getMainWorldMapInstance().doOnAllPlayers(new Visitor<Player>() {
+					@Override
+					public void visit(Player player) {
+						for (SourceLocation source : getSources().values()) {
+							PacketSendUtility.sendPacket(player, new SM_SHIELD_EFFECT(source.getLocationId()));
+						}
+
+						for (SourceLocation source : getSources().values()) {
+							PacketSendUtility.sendPacket(player, new SM_SIEGE_LOCATION_STATE(source.getLocationId(), 2));
+						}
+					}
+				});
+			}
+		}, 310 * 1000);
+
+		for (final SourceLocation source : getSources().values()) {
+			source.setPreparation(true);
+
+			if (!source.getRace().equals(SiegeRace.BALAUR)) {
+				// Despawn old npc
+				deSpawnNpcs(source.getLocationId());
+
+				// Store old owner for msg
+				final int oldOwnerRaceId = source.getRace().getRaceId();
+				final int legionId = source.getLegionId();
+				final String legionName = legionId != 0 ? LegionService.getInstance().getLegion(legionId).getLegionName() : "";
+				final DescriptionId sourceNameId = new DescriptionId(source.getTemplate().getNameId());
+
+				// Reset owner
+				source.setRace(SiegeRace.BALAUR);
+				source.setLegionId(0);
+
+				// On start preparations msg
+				World.getInstance().doOnAllPlayers(new Visitor<Player>() {
+					@Override
+					public void visit(Player player) {
+						if (legionId != 0 && player.getRace().getRaceId() == oldOwnerRaceId) {
+							PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1301037, legionName, sourceNameId));
+						}
+
+						PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1301039, source.getRace().getDescriptionId(), sourceNameId));
+
+						PacketSendUtility.sendPacket(player, new SM_SIEGE_LOCATION_INFO(source));
+					}
+				});
+
+				// Spawn new npc
+				spawnNpcs(source.getLocationId(), SiegeRace.BALAUR, SiegeModType.PEACE);
+
+				DAOManager.getDAO(SiegeDAO.class).updateSiegeLocation(source);
+			}
+		}
+
+		// Reset Tiamaranta's eye infiltration route status
+		updateTiamarantaRiftsStatus(true, false);
 	}
 
 	public void startSiege(final int siegeLocationId) {
-		log.debug("[SiegeService] Starting siege of siege location: " + siegeLocationId);
+		log.debug("Starting siege of siege location: " + siegeLocationId);
 
 		// Siege should not be started two times. Never.
 		Siege<?> siege;
 		synchronized (this) {
 			if (activeSieges.containsKey(siegeLocationId)) {
-				log.error("[SiegeService] Attempt to start siege twice for siege location: " + siegeLocationId);
+				log.error("Attempt to start siege twice for siege location: " + siegeLocationId);
 				return;
 			}
 			siege = newSiege(siegeLocationId);
@@ -254,7 +487,6 @@ public class SiegeService {
 
 		// schedule siege end
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				stopSiege(siegeLocationId);
@@ -263,21 +495,23 @@ public class SiegeService {
 	}
 
 	public void stopSiege(int siegeLocationId) {
-		log.debug("[SiegeService] Stopping siege of siege location: " + siegeLocationId);
+		log.debug("Stopping siege of siege location: " + siegeLocationId);
 
 		// Just a check here...
 		// If fortresses was captured in 99% the siege timer will return here
 		// without concurrent race
 		if (!isSiegeInProgress(siegeLocationId)) {
-			log.debug("[SiegeService] Siege of siege location " + siegeLocationId + " is not in progress, it was captured earlier?");
+			log.debug("Siege of siege location " + siegeLocationId + " is not in progress, it was captured earlier?");
 			return;
 		}
 
 		// We need synchronization here for that 1% of cases :)
-		// It may happen that fortresses siege is stopping in the same time by 2 different threads
+		// It may happen that fortresses siege is stopping in the same time by 2
+		// different threads
 		// 1 is for killing the boss
 		// 2 is for the schedule
-		// it might happen that siege will be stopping by other thread, but in such case siege object will be null
+		// it might happen that siege will be stopping by other thread, but in
+		// such case siege object will be null
 		Siege<?> siege;
 		synchronized (this) {
 			siege = activeSieges.remove(siegeLocationId);
@@ -303,7 +537,6 @@ public class SiegeService {
 		// filter fortress siege start runnables
 		Map<Runnable, JobDetail> siegeStartRunables = CronService.getInstance().getRunnables();
 		siegeStartRunables = Maps.filterKeys(siegeStartRunables, new Predicate<Runnable>() {
-
 			@Override
 			public boolean apply(@Nullable Runnable runnable) {
 				return runnable instanceof SiegeStartRunnable;
@@ -355,8 +588,7 @@ public class SiegeService {
 
 			if (currentHourPlus1.getTimeInMillis() == siegeStartHour.getTimeInMillis() || siegeCalendar.getTimeInMillis() > currentHourPlus1.getTimeInMillis()) {
 				fortress.setNextState(SiegeLocation.STATE_VULNERABLE);
-			}
-			else {
+			} else {
 				fortress.setNextState(SiegeLocation.STATE_INVULNERABLE);
 			}
 		}
@@ -383,20 +615,24 @@ public class SiegeService {
 	 */
 	public int getRemainingSiegeTimeInSeconds(int siegeLocationId) {
 		Siege<?> siege = getSiege(siegeLocationId);
-		if (siege == null || siege.isFinished())
+		if (siege == null || siege.isFinished()) {
 			return 0;
+		}
 
-		if (!siege.isStarted())
+		if (!siege.isStarted()) {
 			return siege.getSiegeLocation().getSiegeDuration();
+		}
+
 		// endless siege
-		if (siege.getSiegeLocation().getSiegeDuration() == -1)
+		if (siege.getSiegeLocation().getSiegeDuration() == -1) {
 			return -1;
+		}
 
 		Calendar calendar = Calendar.getInstance();
 		calendar.add(Calendar.SECOND, siege.getSiegeLocation().getSiegeDuration());
 
 		int result = (int) ((calendar.getTimeInMillis() - System.currentTimeMillis()) / 1000);
-		return (result > 0) ? result : 0;
+		return result > 0 ? result : 0;
 	}
 
 	public Siege<?> getSiege(SiegeLocation loc) {
@@ -409,6 +645,22 @@ public class SiegeService {
 
 	public boolean isSiegeInProgress(int fortressId) {
 		return activeSieges.containsKey(fortressId);
+	}
+
+	public Map<Integer, OutpostLocation> getOutposts() {
+		return outposts;
+	}
+
+	public OutpostLocation getOutpost(int id) {
+		return outposts.get(id);
+	}
+
+	public Map<Integer, SourceLocation> getSources() {
+		return sources;
+	}
+
+	public SourceLocation getSource(int id) {
+		return sources.get(id);
 	}
 
 	public Map<Integer, FortressLocation> getFortresses() {
@@ -429,7 +681,6 @@ public class SiegeService {
 
 	public Map<Integer, ArtifactLocation> getStandaloneArtifacts() {
 		return Maps.filterValues(artifacts, new Predicate<ArtifactLocation>() {
-
 			@Override
 			public boolean apply(@Nullable ArtifactLocation input) {
 				return input != null && input.isStandAlone();
@@ -439,7 +690,6 @@ public class SiegeService {
 
 	public Map<Integer, ArtifactLocation> getFortressArtifacts() {
 		return Maps.filterValues(artifacts, new Predicate<ArtifactLocation>() {
-
 			@Override
 			public boolean apply(@Nullable ArtifactLocation input) {
 				return input != null && input.getOwningFortress() != null;
@@ -469,12 +719,14 @@ public class SiegeService {
 	protected Siege<?> newSiege(int siegeLocationId) {
 		if (fortresses.containsKey(siegeLocationId)) {
 			return new FortressSiege(fortresses.get(siegeLocationId));
-		}
-		else if (artifacts.containsKey(siegeLocationId)) {
+		} else if (sources.containsKey(siegeLocationId)) {
+			return new SourceSiege(sources.get(siegeLocationId));
+		} else if (outposts.containsKey(siegeLocationId)) {
+			return new OutpostSiege(outposts.get(siegeLocationId));
+		} else if (artifacts.containsKey(siegeLocationId)) {
 			return new ArtifactSiege(artifacts.get(siegeLocationId));
-		}
-		else {
-			throw new SiegeException("[SiegeService] Unknown siege handler for siege location: " + siegeLocationId);
+		} else {
+			throw new SiegeException("Unknown siege handler for siege location: " + siegeLocationId);
 		}
 	}
 
@@ -485,6 +737,133 @@ public class SiegeService {
 				break;
 			}
 		}
+	}
+
+	@SuppressWarnings("deprecation")
+	public void updateOutpostStatusByFortress(FortressLocation fortress) {
+		for (OutpostLocation outpost : getOutposts().values()) {
+
+			if (!outpost.getFortressDependency().contains(fortress.getLocationId())) {
+				continue;
+			}
+
+			SiegeRace newFortressRace, newOutpostRace;
+
+			if (!outpost.isRouteSpawned()) {
+				// Check if all fortresses are captured by the same owner
+				// If not - common fortress race is balaur
+				newFortressRace = fortress.getRace();
+				for (Integer fortressId : outpost.getFortressDependency()) {
+					SiegeRace sr = getFortresses().get(fortressId).getRace();
+					if (newFortressRace != sr) {
+						newFortressRace = SiegeRace.BALAUR;
+						break;
+					}
+				}
+			} else {
+				newFortressRace = outpost.getLocationRace();
+			}
+
+			if (SiegeRace.BALAUR == newFortressRace) {
+				// In case of balaur fortress ownership
+				// oupost also belongs to balaur
+				newOutpostRace = SiegeRace.BALAUR;
+			} else {
+				// if fortress owner is non-balaur
+				// then outpost owner is opposite to fortress owner
+				// Example: if fortresses are captured by Elyos, then outpost
+				// should be captured by Asmo
+				newOutpostRace = newFortressRace == SiegeRace.ELYOS ? SiegeRace.ASMODIANS : SiegeRace.ELYOS;
+			}
+
+			// update outpost race status
+			if (outpost.getRace() != newOutpostRace) {
+				stopSiege(outpost.getLocationId());
+				deSpawnNpcs(outpost.getLocationId());
+
+				// update outpost race and store in db
+				outpost.setRace(newOutpostRace);
+				DAOManager.getDAO(SiegeDAO.class).updateSiegeLocation(outpost);
+
+				// broadcast to all new Silentera infiltration route state
+				broadcastStatusAndUpdate(outpost, outpost.isSilenteraAllowed());
+
+				// spawn NPC's or sieges
+				if (SiegeRace.BALAUR != outpost.getRace()) {
+					if (outpost.isSiegeAllowed()) {
+						startSiege(outpost.getLocationId());
+					} else {
+						spawnNpcs(outpost.getLocationId(), outpost.getRace(), SiegeModType.PEACE);
+					}
+				}
+			}
+		}
+	}
+
+	public void updateTiamarantaRiftsStatus(boolean isPreparation, boolean isSync) {
+		int sourceState = 0;
+		int aSources = 0;
+		int eSources = 0;
+
+		// on prepar no need to chk sources.. all transfer to balaurs
+		if (isPreparation) {
+			broadcastStatusAndUpdate(aSources, eSources, isPreparation, isSync);
+		} else {
+			// Chk owner and current state
+			for (SourceLocation source : getSources().values()) {
+				sourceState += source.isVulnerable() ? 0 : 1;
+				if (source.getRace().equals(SiegeRace.ASMODIANS)) {
+					aSources++;
+				} else if (source.getRace().equals(SiegeRace.ELYOS)) {
+					eSources++;
+				}
+			}
+
+			// sourceState(4) - all sieges over or not started
+			if (sourceState == 4) {
+				broadcastStatusAndUpdate(aSources, eSources, isPreparation, isSync);
+			}
+		}
+	}
+
+	private void spawnTiamarantaPortels(boolean cl, boolean cr, boolean tl, boolean tr) {
+		SpawnTemplate template;
+		// TODO: move to datapack
+		if (cl) {
+			template = SpawnEngine.addNewSingleTimeSpawn(600030000, 701286, 1524.450f, 1250.425f, 247.048f, (byte) 60);
+			template.setStaticId(1594);
+			tiamarantaPortals.put(701286, SpawnEngine.spawnObject(template, 1));
+		}
+		if (cr) {
+			template = SpawnEngine.addNewSingleTimeSpawn(600030000, 701287, 1526.465f, 1784.999f, 250.436f, (byte) 60);
+			template.setStaticId(2282);
+			tiamarantaPortals.put(701287, SpawnEngine.spawnObject(template, 1));
+		}
+		if (tl) {
+			template = SpawnEngine.addNewSingleTimeSpawn(600030000, 701288, 116.665f, 1543.754f, 295.997f, (byte) 0);
+			template.setStaticId(681);
+			tiamarantaPortals.put(701288, SpawnEngine.spawnObject(template, 1));
+		}
+		if (tr) {
+			template = SpawnEngine.addNewSingleTimeSpawn(600030000, 701289, 117.260f, 1929.155f, 295.691f, (byte) 0);
+			template.setStaticId(680);
+			tiamarantaPortals.put(701289, SpawnEngine.spawnObject(template, 1));
+		}
+	}
+
+	private void deSpawnTiamarantaPortals() {
+		for (VisibleObject portal : tiamarantaPortals.values()) {
+			portal.getController().onDelete();
+		}
+		cl = cr = tl = tr = false;
+
+		// If Sunayaka is still alive we probably must remove him
+		for (VisibleObject boss : tiamarantaEyeBoss.values()) {
+			boss.getController().onDelete();
+		}
+
+		tiamarantaPortals.clear();
+		tiamarantaEyeBoss.clear();
 	}
 
 	public void spawnNpcs(int siegeLocationId, SiegeRace race, SiegeModType type) {
@@ -509,13 +888,6 @@ public class SiegeService {
 				}
 			}
 		}
-		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
-			@Override
-			public void visit(Player player) {
-				player.getController().updateNearbyQuests();
-			}
-		});
 	}
 
 	public void deSpawnNpcs(int siegeLocationId) {
@@ -531,8 +903,7 @@ public class SiegeService {
 			if (fort != null) {
 				if (fort.isVulnerable()) {
 					return true;
-				}
-				else if (fort.getNextState() == 1) {
+				} else if (fort.getNextState() == 1) {
 					return npc.getSpawn().getRespawnTime() >= getSecondsBeforeHourEnd();
 				}
 			}
@@ -551,7 +922,6 @@ public class SiegeService {
 
 	public void broadcast(final AionServerPacket pkt1, final AionServerPacket pkt2) {
 		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player player) {
 				fortressBuffRemove(player);
@@ -568,13 +938,13 @@ public class SiegeService {
 
 	public void broadcastUpdate(SiegeLocation loc, DescriptionId nameId) {
 		SM_SIEGE_LOCATION_INFO pkt = new SM_SIEGE_LOCATION_INFO(loc);
-		SM_SYSTEM_MESSAGE info = loc.getLegionId() == 0 ? new SM_SYSTEM_MESSAGE(1301039, loc.getRace().getDescriptionId(), nameId) : new SM_SYSTEM_MESSAGE(1301038, LegionService.getInstance().getLegion(loc.getLegionId()).getLegionName(), nameId);
+		SM_SYSTEM_MESSAGE info = loc.getLegionId() == 0 ? new SM_SYSTEM_MESSAGE(1301039, loc.getRace().getDescriptionId(), nameId) : new SM_SYSTEM_MESSAGE(
+				1301038, LegionService.getInstance().getLegion(loc.getLegionId()).getLegionName(), nameId);
 		broadcast(pkt, info, loc.getRace());
 	}
 
 	private void broadcast(final AionServerPacket pkt, final AionServerPacket info, final SiegeRace race) {
 		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player player) {
 				fortressBuffRemove(player);
@@ -587,22 +957,100 @@ public class SiegeService {
 		});
 	}
 
+	public void broadcastStatusAndUpdate(OutpostLocation outpost, boolean oldSilentraState) {
+		SM_SYSTEM_MESSAGE info = null;
+		if (oldSilentraState != outpost.isSilenteraAllowed()) {
+			if (outpost.isSilenteraAllowed()) {
+				info = outpost.getLocationId() == 2111 ? SM_SYSTEM_MESSAGE.STR_FIELDABYSS_LIGHTUNDERPASS_SPAWN
+						: SM_SYSTEM_MESSAGE.STR_FIELDABYSS_DARKUNDERPASS_SPAWN;
+			} else {
+				info = outpost.getLocationId() == 2111 ? SM_SYSTEM_MESSAGE.STR_FIELDABYSS_LIGHTUNDERPASS_DESPAWN
+						: SM_SYSTEM_MESSAGE.STR_FIELDABYSS_DARKUNDERPASS_DESPAWN;
+			}
+		}
+
+		broadcast(new SM_RIFT_ANNOUNCE(getOutpost(3111).isSilenteraAllowed(), getOutpost(2111).isSilenteraAllowed()), info);
+	}
+
+	public void broadcastStatusAndUpdate(int aSources, int eSources, boolean isPreparation, boolean isSync) {
+		deSpawnTiamarantaPortals();
+		cl = eSources > 1;
+		cr = aSources > 1;
+
+		if (isSync) {
+			spawnTiamarantaPortels(cl, cr, tl = cl, tr = cr);
+		} else if (!isPreparation && (cl || cr)) {
+			ThreadPoolManager.getInstance().schedule(new Runnable() {
+				@Override
+				public void run() {
+					// Chk is already spawned (if sync or something)
+					if (!tl || !tr) {
+						spawnTiamarantaPortels(false, false, tl = cl, tr = cr);
+						broadcast(new SM_RIFT_ANNOUNCE(cl, cr, tl, tr), null);
+					}
+				}
+			}, 5400000); // 5400000 -> 1h 30m
+			spawnTiamarantaPortels(cl, cr, false, false);
+		}
+
+		broadcast(new SM_RIFT_ANNOUNCE(cl, cr, tl, tr), null);
+	}
+
+	private void broadcast(final SM_RIFT_ANNOUNCE rift, final SM_SYSTEM_MESSAGE info) {
+		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
+			@Override
+			public void visit(Player player) {
+				PacketSendUtility.sendPacket(player, rift);
+				if (info != null && player.getWorldType().equals(WorldType.BALAUREA)) {
+					PacketSendUtility.sendPacket(player, info);
+				}
+			}
+		});
+	}
+
+	public boolean validateLoginZone(Player player) {
+		if (player.getWorldId() == 600040000) {
+			// If player can't get into the eye and sources not in preparation
+			// mode.. move to bind
+			return !(player.getRace() == Race.ELYOS ? !cl : !cr && !getSource(4011).isPreparations());
+		}
+
+		for (FortressLocation fortress : getFortresses().values()) {
+			if (fortress.isInActiveSiegeZone(player) && fortress.isEnemy(player)) {
+				return false;
+			}
+		}
+
+		for (SourceLocation source : getSources().values()) {
+			if (source.isInActiveSiegeZone(player)) {
+				WorldPosition pos = source.getEntryPosition();
+				World.getInstance().setPosition(player, pos.getMapId(), pos.getX(), pos.getY(), pos.getZ(), pos.getHeading());
+				return true;
+			}
+		}
+		return true;
+	}
+
 	public void onPlayerLogin(final Player player) {
 		// not on login
-		// PacketSendUtility.sendPacket(player, new SM_ABYSS_ARTIFACT_INFO(getSiegeLocations().values()));
-		// PacketSendUtility.sendPacket(player, new SM_ABYSS_ARTIFACT_INFO2(getSiegeLocations().values()));
+		// PacketSendUtility.sendPacket(player, new
+		// SM_ABYSS_ARTIFACT_INFO(getSiegeLocations().values()));
+		// PacketSendUtility.sendPacket(player, new
+		// SM_ABYSS_ARTIFACT_INFO2(getSiegeLocations().values()));
 
 		// Chk login when teleporter is dead
 		// for (FortressLocation loc : getFortresses().values()) {
 		// // remove teleportation to dead teleporters
 		// if (!loc.isCanTeleport(player))
-		// PacketSendUtility.sendPacket(player, new SM_FORTRESS_INFO(loc.getLocationId(), false));
+		// PacketSendUtility.sendPacket(player, new
+		// SM_FORTRESS_INFO(loc.getLocationId(), false));
 		// }
 		// First part will be sent to all
 		if (SiegeConfig.SIEGE_ENABLED) {
 			PacketSendUtility.sendPacket(player, new SM_INFLUENCE_RATIO());
 			PacketSendUtility.sendPacket(player, new SM_SIEGE_LOCATION_INFO());
-			PacketSendUtility.sendPacket(player, new SM_UNK_127());
+			PacketSendUtility.sendPacket(player, new SM_RIFT_ANNOUNCE(getOutpost(3111).isSilenteraAllowed(), getOutpost(2111).isSilenteraAllowed()));
+			PacketSendUtility.sendPacket(player, new SM_RIFT_ANNOUNCE(cl, cr, tl, tr));
 		}
 	}
 
@@ -627,101 +1075,11 @@ public class SiegeService {
 		PacketSendUtility.sendPacket(player, new SM_ABYSS_ARTIFACT_INFO(worldArtifacts.values()));
 	}
 
-	public void fortressBuffApply(Player player) {
-		if (player.isInSiegeWorld()) {
-			SiegeLocation location7011 = getSiegeLocation(7011);
-			SiegeLocation location10111 = getSiegeLocation(10111);
-			SiegeLocation location10211 = getSiegeLocation(10211);
-			SiegeLocation location10311 = getSiegeLocation(10311);
-			SiegeLocation location10411 = getSiegeLocation(10411);
-			if (player.getWorldId() == 400020000) {
-				if (location10111.getRace() == SiegeRace.getByRace(player.getRace())) {
-					// Gab01's Commendation
-					SkillEngine.getInstance().applyEffectDirectly(12160, player, player, 0);
-				}
-				else if (location10111.getRace() != SiegeRace.getByRace(player.getRace()) && location10111.getRace() != SiegeRace.BALAUR) {
-					// Gab01's Encouragement
-					SkillEngine.getInstance().applyEffectDirectly(12161, player, player, 0);
-				}
-			}
-			else if (player.getWorldId() == 400040000) {
-				if (location10211.getRace() == SiegeRace.getByRace(player.getRace())) {
-					// Gab02's Commendation
-					SkillEngine.getInstance().applyEffectDirectly(12162, player, player, 0);
-				}
-				else if (location10211.getRace() != SiegeRace.getByRace(player.getRace()) && location10211.getRace() != SiegeRace.BALAUR) {
-					// Gab02's Encouragement
-					SkillEngine.getInstance().applyEffectDirectly(12163, player, player, 0);
-				}
-			}
-			else if (player.getWorldId() == 400050000) {
-				if (location10311.getRace() == SiegeRace.getByRace(player.getRace())) {
-					// Gab03's Commendation
-					SkillEngine.getInstance().applyEffectDirectly(12164, player, player, 0);
-				}
-				else if (location10311.getRace() != SiegeRace.getByRace(player.getRace()) && location10311.getRace() != SiegeRace.BALAUR) {
-					// Gab03's Encouragement
-					SkillEngine.getInstance().applyEffectDirectly(12165, player, player, 0);
-				}
-			}
-			else if (player.getWorldId() == 400060000) {
-				if (location10411.getRace() == SiegeRace.getByRace(player.getRace())) {
-					// Gab04's Commendation
-					SkillEngine.getInstance().applyEffectDirectly(12166, player, player, 0);
-				}
-				else if (location10411.getRace() != SiegeRace.getByRace(player.getRace()) && location10411.getRace() != SiegeRace.BALAUR) {
-					// Gab04's Encouragement
-					SkillEngine.getInstance().applyEffectDirectly(12167, player, player, 0);
-				}
-			}
-			else if (player.getWorldId() == 600090000) {
-				if (location7011.getRace() == SiegeRace.getByRace(player.getRace())) {
-					// Kaldor's Commendation
-					SkillEngine.getInstance().applyEffectDirectly(12168, player, player, 0);
-				}
-				else if (location7011.getRace() != SiegeRace.getByRace(player.getRace()) && location7011.getRace() != SiegeRace.BALAUR) {
-					// Kaldor's Encouragement
-					SkillEngine.getInstance().applyEffectDirectly(12169, player, player, 0);
-				}
-			}
-		}
-	}
-
-	public void fortressBuffRemove(Player player) {
-		if (player.getEffectController().hasAbnormalEffect(12161)) {
-			player.getEffectController().removeEffect(12161);
-		}
-		else if (player.getEffectController().hasAbnormalEffect(12162)) {
-			player.getEffectController().removeEffect(12163);
-		}
-		else if (player.getEffectController().hasAbnormalEffect(12163)) {
-			player.getEffectController().removeEffect(12163);
-		}
-		else if (player.getEffectController().hasAbnormalEffect(12164)) {
-			player.getEffectController().removeEffect(12164);
-		}
-		else if (player.getEffectController().hasAbnormalEffect(12165)) {
-			player.getEffectController().removeEffect(12165);
-		}
-		else if (player.getEffectController().hasAbnormalEffect(12166)) {
-			player.getEffectController().removeEffect(12166);
-		}
-		else if (player.getEffectController().hasAbnormalEffect(12167)) {
-			player.getEffectController().removeEffect(12167);
-		}
-		else if (player.getEffectController().hasAbnormalEffect(12168)) {
-			player.getEffectController().removeEffect(12168);
-		}
-		else if (player.getEffectController().hasAbnormalEffect(12169)) {
-			player.getEffectController().removeEffect(12169);
-		}
-	}
-
 	public int getFortressId(int locId) {
 		switch (locId) {
-            case 49:
-            case 61:
-                return 1011; // Divine Fortress
+			case 49:
+			case 61:
+				return 1011; // Divine Fortress
 			case 36:
 			case 54:
 				return 1131; // Siel's Western Fortress
@@ -731,6 +1089,9 @@ public class SiegeService {
 			case 39:
 			case 56:
 				return 1141; // Sulfur Archipelago
+			case 44:
+			case 62:
+				return 1211; // Roah Fortress
 			case 45:
 			case 57:
 			case 72:
@@ -746,18 +1107,23 @@ public class SiegeService {
 			case 74:
 			case 77:
 				return 1241; // Miren Fortress
-
-			case 102:
-				return 7011; // Anoha Fortress
-
-			case 103:
-				return 10111; // Belus Fortress
-			case 104:
-				return 10211; // Aspida Fortress
-			case 105:
-				return 10311; // Atanaos Fortress
-			case 106:
-				return 10411; // Disillon Fortress
+			case 48:
+			case 60:
+				return 1251; // Asteria Fortress
+			case 90:
+				return 2011; // Temple of Scales
+			case 91:
+				return 2021; // Altar of Avarice
+			case 93:
+				return 3011; // Vorgaltem Citadel
+			case 94:
+				return 3021; // Crimson Temple
+			case 99:
+				return 5011; // Sillus Fortress
+			case 100:
+				return 6011; // Silona Fortress
+			case 101:
+				return 6021; // Pradeth Fortress
 		}
 		return 0;
 	}
@@ -777,5 +1143,66 @@ public class SiegeService {
 	// clear RVR event players list
 	public void clearRvrPlayersOnEvent() {
 		rvrPlayersOnEvent = new ArrayList<Player>();
+	}
+
+	public void fortressBuffApply(Player player) {
+		if (player.getWorldId() == 600050000 || player.getWorldId() == 600060000) {
+			SiegeLocation location5011 = getSiegeLocation(5011);
+			SiegeLocation location6011 = getSiegeLocation(6011);
+			SiegeLocation location6021 = getSiegeLocation(6021);
+			if (player.getWorldId() == 600050000) {
+				if (location5011.getRace() == SiegeRace.getByRace(player.getRace())) {
+					// Sillus' Commendation
+					SkillEngine.getInstance().applyEffectDirectly(12135, player, player, 0);
+				} else if (location5011.getRace() != SiegeRace.getByRace(player.getRace()) && location5011.getRace() != SiegeRace.BALAUR) {
+					// Sillus' Encouragement
+					SkillEngine.getInstance().applyEffectDirectly(12136, player, player, 0);
+				}
+			} else if (player.getWorldId() == 600060000) {
+				if (location6011.getRace() == SiegeRace.getByRace(player.getRace())) {
+					// Silona's Commendation
+					SkillEngine.getInstance().applyEffectDirectly(12137, player, player, 0);
+				} else if (location6011.getRace() != SiegeRace.getByRace(player.getRace()) && location6011.getRace() != SiegeRace.BALAUR) {
+					// Silona's Encouragement
+					SkillEngine.getInstance().applyEffectDirectly(12138, player, player, 0);
+				}
+
+				if (location6021.getRace() == SiegeRace.getByRace(player.getRace())) {
+					// Pradeth's Commendation
+					SkillEngine.getInstance().applyEffectDirectly(12139, player, player, 0);
+				} else if (location6021.getRace() != SiegeRace.getByRace(player.getRace()) && location6021.getRace() != SiegeRace.BALAUR) {
+					// Pradeth's Encouragement
+					SkillEngine.getInstance().applyEffectDirectly(12140, player, player, 0);
+				}
+			}
+		}
+	}
+
+	public void fortressBuffRemove(Player player) {
+		if (player.getEffectController().hasAbnormalEffect(12135)) {
+			player.getEffectController().removeEffect(12135);
+		} else if (player.getEffectController().hasAbnormalEffect(12136)) {
+			player.getEffectController().removeEffect(12136);
+		} else if (player.getEffectController().hasAbnormalEffect(12137)) {
+			player.getEffectController().removeEffect(12137);
+			player.getEffectController().removeEffect(12138);
+			player.getEffectController().removeEffect(12139);
+			player.getEffectController().removeEffect(12140);
+		} else if (player.getEffectController().hasAbnormalEffect(12138)) {
+			player.getEffectController().removeEffect(12137);
+			player.getEffectController().removeEffect(12138);
+			player.getEffectController().removeEffect(12139);
+			player.getEffectController().removeEffect(12140);
+		} else if (player.getEffectController().hasAbnormalEffect(12139)) {
+			player.getEffectController().removeEffect(12137);
+			player.getEffectController().removeEffect(12138);
+			player.getEffectController().removeEffect(12139);
+			player.getEffectController().removeEffect(12140);
+		} else if (player.getEffectController().hasAbnormalEffect(12140)) {
+			player.getEffectController().removeEffect(12137);
+			player.getEffectController().removeEffect(12138);
+			player.getEffectController().removeEffect(12139);
+			player.getEffectController().removeEffect(12140);
+		}
 	}
 }

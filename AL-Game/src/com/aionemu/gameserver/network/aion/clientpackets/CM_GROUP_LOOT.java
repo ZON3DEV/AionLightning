@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -42,6 +43,8 @@ public class CM_GROUP_LOOT extends AionClientPacket {
 	private long bid;
 	@SuppressWarnings("unused")
 	private int unk4;
+	@SuppressWarnings("unused")
+	private int unk5;
 
 	public CM_GROUP_LOOT(int opcode, State state, State... restStates) {
 		super(opcode, state, restStates);
@@ -56,6 +59,7 @@ public class CM_GROUP_LOOT extends AionClientPacket {
 		unk2 = readC();
 		unk3 = readC(); // 3.0
 		unk4 = readC(); // 3.5
+		unk4 = readC(); // 4.6
 		npcId = readD();
 		distributionId = readC();// 2: Roll 3: Bid
 		roll = readD();// 0: Never Rolled 1: Rolled

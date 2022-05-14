@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.group.events;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -51,8 +52,7 @@ public class PlayerDisconnectedEvent implements Predicate<Player>, TeamEvent {
 	public void handleEvent() {
 		if (group.onlineMembers() <= 1) {
 			PlayerGroupService.disband(group);
-		}
-		else {
+		} else {
 			if (player.equals(group.getLeader().getObject())) {
 				group.onEvent(new ChangeGroupLeaderEvent(group));
 			}

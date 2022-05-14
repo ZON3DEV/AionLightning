@@ -15,8 +15,13 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.utils.internal.chmv8;
 
+/**
+ * @author Rolandas
+ */
+import com.aionemu.commons.utils.SystemPropertyUtil;
 import java.lang.reflect.Field;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
@@ -27,18 +32,11 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Pattern;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author Rolandas
- */
-import com.aionemu.commons.utils.SystemPropertyUtil;
-
-/**
- * Utility that detects various properties specific to the current runtime
- * environment, such as Java version and the availability of the
+ * Utility that detects various properties specific to the current runtime environment, such as Java version and the availability of the
  * {@code sun.misc.Unsafe} object.
  */
 public final class PlatformDependent {
@@ -54,8 +52,8 @@ public final class PlatformDependent {
 		Logger logger = LoggerFactory.getLogger(PlatformDependent.class);
 		if (!hasUnsafe()) {
 			logger.warn("Your platform does not provide complete low-level API for accessing direct buffers reliably. "
-					+ "Unless explicitly requested, heap buffer will always be preferred "
-					+ "to avoid potential risk of getting OutOfMemoryError.");
+							+ "Unless explicitly requested, heap buffer will always be preferred "
+							+ "to avoid potential risk of getting OutOfMemoryError.");
 		}
 	}
 
@@ -67,8 +65,7 @@ public final class PlatformDependent {
 	}
 
 	/**
-	 * Return {@code true} if the current user is root. Note that this method
-	 * returns {@code false} if on Windows.
+	 * Return {@code true} if the current user is root. Note that this method returns {@code false} if on Windows.
 	 */
 	public static boolean isRoot() {
 		return IS_ROOT;
@@ -82,8 +79,7 @@ public final class PlatformDependent {
 	}
 
 	/**
-	 * Return {@code true} if {@code sun.misc.Unsafe} was found on the classpath
-	 * and can be used for acclerated direct memory access.
+	 * Return {@code true} if {@code sun.misc.Unsafe} was found on the classpath and can be used for acclerated direct memory access.
 	 */
 	public static boolean hasUnsafe() {
 		return HAS_UNSAFE;
@@ -95,7 +91,8 @@ public final class PlatformDependent {
 	public static void throwException(Throwable t) {
 		if (hasUnsafe()) {
 			PlatformDependent0.throwException(t);
-		} else {
+		}
+		else {
 			PlatformDependent.<RuntimeException>throwException0(t);
 		}
 	}
@@ -106,70 +103,69 @@ public final class PlatformDependent {
 	}
 
 	/**
-	 * Creates a new fastest {@link ConcurrentMap} implementation for the
-	 * current platform.
+	 * Creates a new fastest {@link ConcurrentMap} implementation for the current platform.
 	 */
 	public static <K, V> ConcurrentMap<K, V> newConcurrentHashMap() {
 		if (CAN_USE_CHM_V8) {
 			return new ConcurrentHashMapV8<K, V>();
-		} else {
+		}
+		else {
 			return new ConcurrentHashMap<K, V>();
 		}
 	}
 
 	/**
-	 * Creates a new fastest {@link ConcurrentMap} implementation for the
-	 * current platform.
+	 * Creates a new fastest {@link ConcurrentMap} implementation for the current platform.
 	 */
 	public static <K, V> ConcurrentMap<K, V> newConcurrentHashMap(int initialCapacity) {
 		if (CAN_USE_CHM_V8) {
 			return new ConcurrentHashMapV8<K, V>(initialCapacity);
-		} else {
+		}
+		else {
 			return new ConcurrentHashMap<K, V>(initialCapacity);
 		}
 	}
 
 	/**
-	 * Creates a new fastest {@link ConcurrentMap} implementation for the
-	 * current platform.
+	 * Creates a new fastest {@link ConcurrentMap} implementation for the current platform.
 	 */
 	public static <K, V> ConcurrentMap<K, V> newConcurrentHashMap(int initialCapacity, float loadFactor) {
 		if (CAN_USE_CHM_V8) {
 			return new ConcurrentHashMapV8<K, V>(initialCapacity, loadFactor);
-		} else {
+		}
+		else {
 			return new ConcurrentHashMap<K, V>(initialCapacity, loadFactor);
 		}
 	}
 
 	/**
-	 * Creates a new fastest {@link ConcurrentMap} implementation for the
-	 * current platform.
+	 * Creates a new fastest {@link ConcurrentMap} implementation for the current platform.
 	 */
-	public static <K, V> ConcurrentMap<K, V> newConcurrentHashMap(int initialCapacity, float loadFactor,
-			int concurrencyLevel) {
+	public static <K, V> ConcurrentMap<K, V> newConcurrentHashMap(
+					int initialCapacity, float loadFactor, int concurrencyLevel) {
 		if (CAN_USE_CHM_V8) {
 			return new ConcurrentHashMapV8<K, V>(initialCapacity, loadFactor, concurrencyLevel);
-		} else {
+		}
+		else {
 			return new ConcurrentHashMap<K, V>(initialCapacity, loadFactor, concurrencyLevel);
 		}
 	}
 
 	/**
-	 * Creates a new fastest {@link ConcurrentMap} implementation for the
-	 * current platform.
+	 * Creates a new fastest {@link ConcurrentMap} implementation for the current platform.
 	 */
 	public static <K, V> ConcurrentMap<K, V> newConcurrentHashMap(Map<? extends K, ? extends V> map) {
 		if (CAN_USE_CHM_V8) {
 			return new ConcurrentHashMapV8<K, V>(map);
-		} else {
+		}
+		else {
 			return new ConcurrentHashMap<K, V>(map);
 		}
 	}
 
 	/**
-	 * Try to deallocate the specified direct {@link ByteBuffer}. Please note
-	 * this method does nothing if the current platform does not support this
-	 * operation or the specified buffer is not a direct buffer.
+	 * Try to deallocate the specified direct {@link ByteBuffer}. Please note this method does nothing if the current platform does not
+	 * support this operation or the specified buffer is not a direct buffer.
 	 */
 	public static void freeDirectBuffer(ByteBuffer buffer) {
 		if (buffer.isDirect()) {
@@ -253,10 +249,10 @@ public final class PlatformDependent {
 					ss.bind(new InetSocketAddress(i));
 					root = true;
 					break;
-				} catch (Exception e) {
+				}
+				catch (Exception e) {
 					// Failed to bind.
-					// Check the error message so that we don't always need to
-					// bind 1023 times.
+					// Check the error message so that we don't always need to bind 1023 times.
 					String message = e.getMessage();
 					if (message == null) {
 						message = "";
@@ -265,11 +261,13 @@ public final class PlatformDependent {
 					if (PERMISSION_DENIED.matcher(message).matches()) {
 						break;
 					}
-				} finally {
+				}
+				finally {
 					if (ss != null) {
 						try {
 							ss.close();
-						} catch (Exception e) {
+						}
+						catch (Exception e) {
 							// Ignore.
 						}
 					}
@@ -283,14 +281,16 @@ public final class PlatformDependent {
 		try {
 			Class.forName("java.time.Clock", false, Object.class.getClassLoader());
 			return 8;
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			// Ignore
 		}
 
 		try {
 			Class.forName("java.util.concurrent.LinkedTransferQueue", false, BlockingQueue.class.getClassLoader());
 			return 7;
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			// Ignore
 		}
 
@@ -300,7 +300,8 @@ public final class PlatformDependent {
 	private static boolean hasUnsafe0() {
 		try {
 			return PlatformDependent0.hasUnsafe();
-		} catch (Throwable t) {
+		}
+		catch (Throwable t) {
 			return false;
 		}
 	}

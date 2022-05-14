@@ -15,12 +15,12 @@ ECHO.
 SET /P OPTION=Type your option and press ENTER: 
 IF %OPTION% == 1 (
 SET MODE=DEVELOPMENT
-SET JAVA_OPTS=-Xms256m -Xmx512m -Xdebug -Xrunjdwp:transport=dt_socket,address=8997,server=y,suspend=n -ea
+SET JAVA_OPTS=-Xms128m -Xmx128m -Xdebug -Xrunjdwp:transport=dt_socket,address=8997,server=y,suspend=n -ea
 CALL StartCS.bat
 )
 IF %OPTION% == 2 (
 SET MODE=PRODUCTION
-SET JAVA_OPTS=-Xms512m -Xmx1024m -client
+SET JAVA_OPTS=-Xms64m -Xmx64m -server
 CALL StartCS.bat
 )
 IF %OPTION% == 3 (

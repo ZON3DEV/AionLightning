@@ -14,12 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.questEngine.handlers.template;
 
 import java.util.Iterator;
-
 import com.aionemu.gameserver.dataholders.DataManager;
-import com.aionemu.gameserver.model.DialogAction;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.QuestTemplate;
 import com.aionemu.gameserver.model.templates.quest.CollectItem;
@@ -29,6 +28,7 @@ import com.aionemu.gameserver.model.templates.quest.QuestWorkItems;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DIALOG_WINDOW;
 import com.aionemu.gameserver.questEngine.handlers.QuestHandler;
 import com.aionemu.gameserver.questEngine.handlers.models.WorkOrdersData;
+import com.aionemu.gameserver.model.DialogAction;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
@@ -84,15 +84,10 @@ public class WorkOrders extends QuestHandler {
 							}
 						}
 					}
-					case CRAFT: {
-						PacketSendUtility.sendPacket(player, new SM_DIALOG_WINDOW(env.getVisibleObject().getObjectId(), 28));
-						return true;
-					}
 					default:
 						break;
 				}
-			}
-			else if (qs.getStatus() == QuestStatus.START) {
+			} else if (qs.getStatus() == QuestStatus.START) {
 				if (env.getDialog() == DialogAction.QUEST_SELECT) {
 					int var = qs.getQuestVarById(0);
 					if (QuestService.collectItemCheck(env, false)) {
@@ -110,13 +105,11 @@ public class WorkOrders extends QuestHandler {
 							}
 						}
 						return sendQuestDialog(env, 5);
-					}
-					else {
+					} else {
 						return sendQuestSelectionDialog(env);
 					}
 				}
-			}
-			else if (qs.getStatus() == QuestStatus.REWARD) {
+			} else if (qs.getStatus() == QuestStatus.REWARD) {
 				QuestTemplate template = DataManager.QUEST_DATA.getQuestById(workOrdersData.getId());
 				CollectItems collectItems = template.getCollectItems();
 				long count = 0;
@@ -131,8 +124,7 @@ public class WorkOrders extends QuestHandler {
 					QuestService.finishQuest(env, 0);
 					env.setQuestId(workOrdersData.getId());
 					return sendQuestDialog(env, 1008);
-				}
-				else {
+				} else {
 					return sendQuestEndDialog(env);
 				}
 			}

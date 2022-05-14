@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.challenge;
 
 import java.util.List;
@@ -67,11 +68,11 @@ public class ChallengeTaskTemplate {
 	}
 
 	public boolean isRepeatable() {
-		return this.repeat != null && this.repeat == true;
+		return this.repeat != null && this.repeat;
 	}
 
 	public boolean isTownResidence() {
-		return this.townResidence != null && this.townResidence == true;
+		return this.townResidence != null && this.townResidence;
 	}
 
 	public Integer getNameId() {

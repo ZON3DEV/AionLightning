@@ -14,10 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world.exceptions;
 
 /**
- * This exception will be thrown when object without set position will be spawned or despawned. This exception indicating error when coder forget to set position but is spawning or despawning object.
+ * This exception will be thrown when object without set position will be
+ * spawned or despawned. This exception indicating error when coder forget to
+ * set position but is spawning or despawning object.
  *
  * @author -Nemesiss-
  */
@@ -25,14 +28,16 @@ package com.aionemu.gameserver.world.exceptions;
 public class NotSetPositionException extends RuntimeException {
 
 	/**
-	 * Constructs an <code>NotSetPositionException</code> with no detail message.
+	 * Constructs an <code>NotSetPositionException</code> with no detail
+	 * message.
 	 */
 	public NotSetPositionException() {
 		super();
 	}
 
 	/**
-	 * Constructs an <code>NotSetPositionException</code> with the specified detail message.
+	 * Constructs an <code>NotSetPositionException</code> with the specified
+	 * detail message.
 	 *
 	 * @param s
 	 *            the detail message.

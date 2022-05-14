@@ -14,10 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.taskmanager.fromdb;
 
 import java.util.ArrayList;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,9 +48,8 @@ public class TaskFromDBManager {
 		for (TaskFromDBTrigger trigger : tasksList) {
 			if (trigger.isValid()) {
 				trigger.initTrigger();
-			}
-			else {
-				log.error("Cannot load task from db with ID: " + trigger.getTaskId());
+			} else {
+				log.error("Invalid task from db with ID: " + trigger.getTaskId());
 			}
 		}
 	}

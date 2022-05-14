@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.gametime;
 
 import java.security.InvalidParameterException;
@@ -60,13 +61,11 @@ public class GameTime implements Cloneable {
 		}
 	}
 
-	;
-
 	/**
-	 * Constructs a GameTime with the given time in minutes since midnight 01.01.0000
+	 * Constructs a GameTime with the given time in minutes since midnight
+	 * 01.01.0000
 	 *
-	 * @param time
-	 *            Minutes since midnight 01.01.0000
+     * @param time Minutes since midnight 01.01.0000
 	 */
 	public GameTime(int time) {
 		if (time < 0) {
@@ -124,14 +123,11 @@ public class GameTime implements Cloneable {
 		int hour = getHour();
 		if (hour > 21 || hour < 4) {
 			dayTime = DayTime.NIGHT;
-		}
-		else if (hour > 16) {
+		} else if (hour > 16) {
 			dayTime = DayTime.EVENING;
-		}
-		else if (hour > 8) {
+		} else if (hour > 8) {
 			dayTime = DayTime.AFTERNOON;
-		}
-		else {
+		} else {
 			dayTime = DayTime.MORNING;
 		}
 	}
@@ -168,12 +164,10 @@ public class GameTime implements Cloneable {
 			if ((minutesInYear - getProperMinutesInMonth(m)) > 0) {
 				minutesInYear = minutesInYear - getProperMinutesInMonth(m);
 				answer = answer + 1;
-			}
-			else if ((minutesInYear - getProperMinutesInMonth(m)) == 0) {
+			} else if ((minutesInYear - getProperMinutesInMonth(m)) == 0) {
 				answer = answer + 1;
 				break;
-			}
-			else {
+			} else {
 				break;
 			}
 		}
@@ -191,11 +185,9 @@ public class GameTime implements Cloneable {
 		for (Monthes m : Monthes.values()) {
 			if ((minutesInYear - getProperMinutesInMonth(m)) > 0) {
 				minutesInYear = minutesInYear - getProperMinutesInMonth(m);
-			}
-			else if ((minutesInYear - getProperMinutesInMonth(m)) == 0) {
+			} else if ((minutesInYear - getProperMinutesInMonth(m)) == 0) {
 				break;
-			}
-			else {
+			} else {
 				answer = minutesInYear / MINUTES_IN_DAY + 1;
 				break;
 			}
@@ -240,9 +232,8 @@ public class GameTime implements Cloneable {
 	/**
 	 * Subtract the given game time from this game time
 	 *
-	 * @param game
-	 *            time to subtract
-	 * @return new game time
+     * @param game time to subtract
+     * @return new game time
 	 */
 	public GameTime minus(GameTime gt) {
 		return new GameTime(this.getTime() - gt.getTime());
@@ -251,9 +242,8 @@ public class GameTime implements Cloneable {
 	/**
 	 * Add the given game time to this game time
 	 *
-	 * @param game
-	 *            time to add
-	 * @return new game time
+     * @param game time to add
+     * @return new game time
 	 */
 	public GameTime plus(GameTime gt) {
 		return new GameTime(this.getTime() + gt.getTime());
@@ -282,8 +272,7 @@ public class GameTime implements Cloneable {
 	/**
 	 * Compare two game times
 	 *
-	 * @param GameTime
-	 *            object
+     * @param GameTime object
 	 * @return true or false
 	 * @author vlog
 	 */

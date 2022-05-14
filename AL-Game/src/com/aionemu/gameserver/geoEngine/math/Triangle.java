@@ -14,15 +14,17 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.geoEngine.math;
 
 import com.aionemu.gameserver.configs.main.GeoDataConfig;
-
 import javolution.context.ObjectFactory;
 import javolution.lang.Reusable;
 
 /**
- * <code>Triangle</code> defines a object for containing triangle information. The triangle is defined by a collection of three <code>Vector3f</code> objects.
+ * <code>Triangle</code> defines a object for containing triangle information.
+ * The triangle is defined by a collection of three <code>Vector3f</code>
+ * objects.
  *
  * @author Mark Powell
  * @author Joshua Slack
@@ -31,7 +33,6 @@ public class Triangle extends AbstractTriangle implements Reusable {
 
 	@SuppressWarnings("rawtypes")
 	private static final ObjectFactory FACTORY = new ObjectFactory() {
-
 		@Override
 		public Object create() {
 			return new Triangle();
@@ -49,8 +50,10 @@ public class Triangle extends AbstractTriangle implements Reusable {
 	}
 
 	/**
-	 * Constructor instantiates a new <Code>Triangle</code> object with the supplied vectors as the points. It is recommended that the vertices be supplied in a counter clockwise winding to support
-	 * normals for a right handed coordinate system.
+	 * Constructor instantiates a new <Code>Triangle</code> object with the
+	 * supplied vectors as the points. It is recommended that the vertices be
+	 * supplied in a counter clockwise winding to support normals for a right
+	 * handed coordinate system.
 	 *
 	 * @param p1
 	 *            the first point of the triangle.
@@ -66,7 +69,8 @@ public class Triangle extends AbstractTriangle implements Reusable {
 	}
 
 	/**
-	 * <code>get</code> retrieves a point on the triangle denoted by the index supplied.
+	 * <code>get</code> retrieves a point on the triangle denoted by the index
+	 * supplied.
 	 *
 	 * @param i
 	 *            the index of the point.
@@ -101,7 +105,8 @@ public class Triangle extends AbstractTriangle implements Reusable {
 	}
 
 	/**
-	 * <code>set</code> sets one of the triangles points to that specified as a parameter.
+	 * <code>set</code> sets one of the triangles points to that specified as a
+	 * parameter.
 	 *
 	 * @param i
 	 *            the index to place the point.
@@ -123,7 +128,8 @@ public class Triangle extends AbstractTriangle implements Reusable {
 	}
 
 	/**
-	 * <code>set</code> sets one of the triangles points to that specified as a parameter.
+	 * <code>set</code> sets one of the triangles points to that specified as a
+	 * parameter.
 	 *
 	 * @param i
 	 *            the index to place the point.
@@ -169,8 +175,7 @@ public class Triangle extends AbstractTriangle implements Reusable {
 	public void calculateCenter() {
 		if (center == null) {
 			center = new Vector3f(pointa);
-		}
-		else {
+		} else {
 			center.set(pointa);
 		}
 		center.addLocal(pointb).addLocal(pointc).multLocal(FastMath.ONE_THIRD);
@@ -182,8 +187,7 @@ public class Triangle extends AbstractTriangle implements Reusable {
 	public void calculateNormal() {
 		if (normal == null) {
 			normal = new Vector3f(pointb);
-		}
-		else {
+		} else {
 			normal.set(pointb);
 		}
 		normal.subtractLocal(pointa).crossLocal(pointc.x - pointa.x, pointc.y - pointa.y, pointc.z - pointa.z);
@@ -191,7 +195,8 @@ public class Triangle extends AbstractTriangle implements Reusable {
 	}
 
 	/**
-	 * obtains the center point of this triangle (average of the three triangles)
+	 * obtains the center point of this triangle (average of the three
+	 * triangles)
 	 *
 	 * @return the center point.
 	 */
@@ -213,7 +218,8 @@ public class Triangle extends AbstractTriangle implements Reusable {
 	}
 
 	/**
-	 * obtains the unit length normal vector of this triangle, if set or calculated
+	 * obtains the unit length normal vector of this triangle, if set or
+	 * calculated
 	 *
 	 * @return the normal vector
 	 */
@@ -254,7 +260,8 @@ public class Triangle extends AbstractTriangle implements Reusable {
 	}
 
 	/**
-	 * obtains an index that this triangle represents if it is contained in a OBBTree.
+	 * obtains an index that this triangle represents if it is contained in a
+	 * OBBTree.
 	 *
 	 * @return the index in an OBBtree
 	 */
@@ -263,7 +270,8 @@ public class Triangle extends AbstractTriangle implements Reusable {
 	}
 
 	/**
-	 * sets an index that this triangle represents if it is contained in a OBBTree.
+	 * sets an index that this triangle represents if it is contained in a
+	 * OBBTree.
 	 *
 	 * @param index
 	 *            the index in an OBBtree
@@ -275,8 +283,7 @@ public class Triangle extends AbstractTriangle implements Reusable {
 	public static Vector3f computeTriangleNormal(Vector3f v1, Vector3f v2, Vector3f v3, Vector3f store) {
 		if (store == null) {
 			store = new Vector3f(v2);
-		}
-		else {
+		} else {
 			store.set(v2);
 		}
 
@@ -296,14 +303,14 @@ public class Triangle extends AbstractTriangle implements Reusable {
 			t.pointb = pointb.clone();
 			t.pointc = pointc.clone();
 			return t;
-		}
-		catch (CloneNotSupportedException e) {
+		} catch (CloneNotSupportedException e) {
 			throw new AssertionError();
 		}
 	}
 
 	/*
 	 * (non-Javadoc)
+	 *
 	 * @see javolution.lang.Reusable#reset()
 	 */
 	@Override
@@ -318,28 +325,30 @@ public class Triangle extends AbstractTriangle implements Reusable {
 	}
 
 	/**
-	 * Returns a new, preallocated or {@link #recycle recycled} text builder (on the stack when executing in a {@link javolution.context.StackContext StackContext}).
+	 * Returns a new, preallocated or {@link #recycle recycled} text builder (on
+	 * the stack when executing in a {@link javolution.context.StackContext
+	 * StackContext}).
 	 *
 	 * @return a new, preallocated or recycled text builder instance.
 	 */
 	public static Triangle newInstance() {
 		if (GeoDataConfig.GEO_OBJECT_FACTORY_ENABLE) {
 			return (Triangle) FACTORY.object();
-		}
-		else {
+		} else {
 			return new Triangle();
 		}
 	}
 
 	/**
-	 * Recycles a text builder {@link #newInstance() instance} immediately (on the stack when executing in a {@link javolution.context.StackContext StackContext}).
+	 * Recycles a text builder {@link #newInstance() instance} immediately (on
+	 * the stack when executing in a {@link javolution.context.StackContext
+	 * StackContext}).
 	 */
 	@SuppressWarnings("unchecked")
 	public static void recycle(Triangle instance) {
 		if (GeoDataConfig.GEO_OBJECT_FACTORY_ENABLE) {
 			FACTORY.recycle(instance);
-		}
-		else {
+		} else {
 			instance = null;
 		}
 	}

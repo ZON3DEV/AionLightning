@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.pet;
 
 /**
@@ -27,8 +28,6 @@ public enum PetFunctionType {
 	LOOT(3, 8),
 	APPEARANCE(1),
 	NONE(4, true),
-	BUFF(5),
-	MERCHANT(6),
 	// non writable to packets
 	BAG(-1),
 	WING(-2);

@@ -14,14 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network;
 
+import com.aionemu.commons.utils.Rnd;
 import java.nio.ByteBuffer;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.aionemu.commons.utils.Rnd;
 
 /**
  * Crypt will encrypt server packet and decrypt client packet.
@@ -36,7 +35,7 @@ public class Crypt {
 	/**
 	 * Second byte of server packet must be equal to this
 	 */
-	public final static byte staticServerPacketCode = 0x56; // 7.5
+	public final static byte staticServerPacketCode = 0x43;
 	/**
 	 * Crypt is enabled after first server packet was send.
 	 */
@@ -44,10 +43,13 @@ public class Crypt {
 	private EncryptionKeyPair packetKey = null;
 
 	/**
-	 * Enable crypt key - generate random key that will be used to encrypt second server packet [first one is unencrypted] and decrypt client packets. This method is called from SM_KEY server packet,
-	 * that packet sends key to aion client.
+	 * Enable crypt key - generate random key that will be used to encrypt
+	 * second server packet [first one is unencrypted] and decrypt client
+	 * packets. This method is called from SM_KEY server packet, that packet
+	 * sends key to aion client.
 	 *
-	 * @return "false key" that should by used by aion client to encrypt/decrypt packets.
+	 * @return "false key" that should by used by aion client to encrypt/decrypt
+	 *         packets.
 	 */
 	public final int enableKey() {
 		if (packetKey != null) {
@@ -66,7 +68,7 @@ public class Crypt {
 		/**
 		 * false key that will be sent to aion client in SM_KEY packet
 		 */
-		return (key ^ 0xCD92E4D9) + 0x3FF2CCDF; // 7.x
+		return (key ^ 0xCD92E4DD) + 0x3FF2CCCF;
 	}
 
 	/**
@@ -109,6 +111,6 @@ public class Crypt {
 	 * @return obfuscated opcodec
 	 */
 	public static final int encodeOpcodec(int op) {
-		return (op + 0xD8) ^ 0xD9; // 7.5
+		return (op + 0xCC) ^ 0xDD;
 	}
 }

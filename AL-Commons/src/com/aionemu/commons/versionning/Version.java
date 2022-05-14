@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.versionning;
 
 import java.io.File;
@@ -25,8 +26,9 @@ import java.util.jar.Attributes;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import org.slf4j.Logger;
 
 /**
  * @author lord_rex
@@ -39,8 +41,7 @@ public class Version {
 	private String branch;
 	private String commitTime;
 
-	public Version() {
-	}
+	public Version() {}
 
 	public Version(Class<?> c) {
 		loadInformation(c);
@@ -58,10 +59,11 @@ public class Version {
 			this.date = getAttribute("Date", attrs);
 			this.branch = getAttribute("Branch", attrs);
 			this.commitTime = getAttribute("CommitTime", attrs);
-		} catch (IOException e) {
-			log.error("Unable to get Soft information\nFile name '"
-					+ (jarName == null ? "null" : jarName.getAbsolutePath()) + "' isn't a valid jar", e);
-		} finally {
+		}
+		catch (IOException e) {
+			log.error("Unable to get Soft information\nFile name '" + (jarName == null ? "null" : jarName.getAbsolutePath()) + "' isn't a valid jar", e);
+		}
+		finally {
 			if (jarFile != null) {
 				try {
 					jarFile.close();
@@ -87,15 +89,12 @@ public class Version {
 			OutputStream fos = new FileOutputStream(fileToWrite);
 			manifest.write(fos);
 			fos.close();
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			log.error("Error, " + e);
 		} finally {
 			if (jarFile != null) {
-				try {
-					jarFile.close();
-				} catch (IOException e) {
-					log.error("cannot close jar file " + jarName, e);
-				}
+				try { jarFile.close(); } catch (IOException e) { log.error("cannot close jar file " + jarName, e); }
 			}
 		}
 	}

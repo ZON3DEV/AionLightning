@@ -14,22 +14,17 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.walker;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.spawnengine.WalkerGroupType;
+
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author KKnD
@@ -61,7 +56,7 @@ public class WalkerTemplate {
 	}
 
 	void beforeMarshal(Marshaller marshaller) {
-		if (isReversed == false) {
+        if (isReversed == false) {
 			isReversed = null;
 		}
 		if (formation == WalkerGroupType.POINT) {
@@ -100,16 +95,14 @@ public class WalkerTemplate {
 			formation = WalkerGroupType.SQUARE;
 			rows = new int[1];
 			rows[0] = 2;
-		}
-		else if (formation == WalkerGroupType.SQUARE) {
+		} else if (formation == WalkerGroupType.SQUARE) {
 			if (rowValues != null) {
 				String[] values = rowValues.split(",");
 				rows = new int[values.length];
 				for (int i = 0; i < values.length; i++) {
 					rows[i] = Integer.parseInt(values[i]);
 				}
-			}
-			else {
+			} else {
 				formation = WalkerGroupType.POINT;
 			}
 		}
@@ -161,13 +154,5 @@ public class WalkerTemplate {
 	 */
 	public int[] getRows() {
 		return rows;
-	}
-
-	public void clear() {
-		routeStepList.clear();
-	}
-
-	public void addRouteStep(RouteStep step) {
-		routeStepList.add(step);
 	}
 }

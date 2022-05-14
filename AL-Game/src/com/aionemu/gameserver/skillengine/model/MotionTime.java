@@ -14,12 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.Race;
@@ -113,15 +111,13 @@ public class MotionTime {
 			case ASMODIANS:
 				if (gender == Gender.MALE) {
 					return this.getAm();
-				}
-				else {
+				} else {
 					return this.getAf();
 				}
 			case ELYOS:
 				if (gender == Gender.MALE) {
 					return this.getEm();
-				}
-				else {
+				} else {
 					return this.getEf();
 				}
 			default:
@@ -138,15 +134,13 @@ public class MotionTime {
 			case ASMODIANS:
 				if (gender == Gender.MALE) {
 					return this.getAm().getTimeForWeapon(weapon);
-				}
-				else {
+				} else {
 					return this.getAf().getTimeForWeapon(weapon);
 				}
 			case ELYOS:
 				if (gender == Gender.MALE) {
 					return this.getEm().getTimeForWeapon(weapon);
-				}
-				else {
+				} else {
 					return this.getEf().getTimeForWeapon(weapon);
 				}
 			default:

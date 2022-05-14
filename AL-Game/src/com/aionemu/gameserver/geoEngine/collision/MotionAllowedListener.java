@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.geoEngine.collision;
 
 import com.aionemu.gameserver.geoEngine.math.Vector3f;
@@ -21,7 +22,8 @@ import com.aionemu.gameserver.geoEngine.math.Vector3f;
 public interface MotionAllowedListener {
 
 	/**
-	 * Check if motion allowed. Modify position and velocity vectors appropriately if not allowed..
+	 * Check if motion allowed. Modify position and velocity vectors
+	 * appropriately if not allowed..
 	 *
 	 * @param position
 	 * @param velocity

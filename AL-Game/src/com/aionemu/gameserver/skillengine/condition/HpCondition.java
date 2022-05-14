@@ -14,15 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.condition;
 
+import com.aionemu.gameserver.model.gameobjects.SummonedObject;
+import com.aionemu.gameserver.skillengine.model.Skill;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
-
-import com.aionemu.gameserver.model.gameobjects.SummonedObject;
-import com.aionemu.gameserver.skillengine.model.Skill;
 
 /**
  * @author Tomate

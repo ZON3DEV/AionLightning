@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.pet;
 
 import java.util.ArrayList;
@@ -69,8 +70,7 @@ public class PetTemplate {
 				List<PetFunction> result = new ArrayList<PetFunction>();
 				result.add(PetFunction.CreateEmpty());
 				petFunctions = result;
-			}
-			else {
+			} else {
 				for (PetFunction func : petFunctions) {
 					if (func.getPetFunctionType().isPlayerFunction()) {
 						hasPlayerFuncs = true;

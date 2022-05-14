@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item.actions;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -56,8 +57,7 @@ public class DyeAction extends AbstractItemAction implements IHouseObjectDyeActi
 	private int getColorBGRA() {
 		if (color.equals("no")) {
 			return 0;
-		}
-		else {
+		} else {
 			int rgb = Integer.parseInt(color, 16);
 			return 0xFF | ((rgb & 0xFF) << 24) | ((rgb & 0xFF00) << 8) | ((rgb & 0xFF0000) >>> 8);
 		}
@@ -72,8 +72,7 @@ public class DyeAction extends AbstractItemAction implements IHouseObjectDyeActi
 			if (getColorBGRA() == 0) {
 				targetItem.setItemColor(0);
 				targetItem.setColorExpireTime(0);
-			}
-			else {
+			} else {
 				targetItem.setItemColor(parentItem.getItemTemplate().getTemplateId());
 				if (minutes != null) {
 					targetItem.setColorExpireTime((int) (System.currentTimeMillis() / 1000 + minutes * 60));
@@ -82,7 +81,8 @@ public class DyeAction extends AbstractItemAction implements IHouseObjectDyeActi
 
 			// item is equipped, so need broadcast packet
 			if (player.getEquipment().getEquippedItemByObjId(targetItem.getObjectId()) != null) {
-				PacketSendUtility.broadcastPacket(player, new SM_UPDATE_PLAYER_APPEARANCE(player.getObjectId(), player.getEquipment().getEquippedForApparence()), true);
+				PacketSendUtility.broadcastPacket(player,
+						new SM_UPDATE_PLAYER_APPEARANCE(player.getObjectId(), player.getEquipment().getEquippedForApparence()), true);
 				player.getEquipment().setPersistentState(PersistentState.UPDATE_REQUIRED);
 			} // item is not equipped
 			else {
@@ -121,8 +121,7 @@ public class DyeAction extends AbstractItemAction implements IHouseObjectDyeActi
 		}
 		if (color.equals("no")) {
 			targetHouseObject.setColor(null);
-		}
-		else {
+		} else {
 			targetHouseObject.setColor(Integer.parseInt(color, 16));
 		}
 		float x = targetHouseObject.getX();
@@ -135,8 +134,7 @@ public class DyeAction extends AbstractItemAction implements IHouseObjectDyeActi
 		int objectName = targetHouseObject.getObjectTemplate().getNameId();
 		if (color.equals("no")) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_ITEM_PAINT_REMOVE_SUCCEED(objectName));
-		}
-		else {
+		} else {
 			int paintName = parentItem.getItemTemplate().getNameId();
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_ITEM_PAINT_SUCCEED(objectName, paintName));
 		}

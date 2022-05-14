@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.item;
 
 import static com.aionemu.gameserver.services.item.ItemPacketService.sendItemDeletePacket;
@@ -25,11 +26,9 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.storage.IStorage;
-import com.aionemu.gameserver.model.items.storage.ItemStorage;
 import com.aionemu.gameserver.model.items.storage.StorageType;
 import com.aionemu.gameserver.services.ExchangeService;
 import com.aionemu.gameserver.services.LegionService;
-import com.aionemu.gameserver.services.item.ItemPacketService.ItemAddType;
 import com.aionemu.gameserver.services.item.ItemPacketService.ItemDeleteType;
 
 /**
@@ -56,8 +55,10 @@ public class ItemMoveService {
 			return;
 		}
 
-		if (sourceStorageType != destinationStorageType && (ItemRestrictionService.isItemRestrictedTo(player, item, destinationStorageType) || ItemRestrictionService.isItemRestrictedFrom(player, item, sourceStorageType))) {
-			sendStorageUpdatePacket(player, StorageType.getStorageTypeById(sourceStorageType), item, ItemAddType.ALL_SLOT);
+		if (sourceStorageType != destinationStorageType
+				&& (ItemRestrictionService.isItemRestrictedTo(player, item, destinationStorageType) || ItemRestrictionService.isItemRestrictedFrom(player,
+						item, sourceStorageType))) {
+			sendStorageUpdatePacket(player, StorageType.getStorageTypeById(sourceStorageType), item);
 			return;
 		}
 		IStorage targetStorage = player.getStorage(destinationStorageType);
@@ -78,7 +79,7 @@ public class ItemMoveService {
 		if (!targetStorage.isFull() && item.getItemCount() > 0) {
 			sourceStorage.remove(item);
 			sendItemDeletePacket(player, StorageType.getStorageTypeById(sourceStorageType), item, ItemDeleteType.MOVE);
-			item.setEquipmentSlot(sourceStorageType == destinationStorageType ? slot : ItemStorage.FIRST_AVAILABLE_SLOT);
+			item.setEquipmentSlot(slot);
 			targetStorage.add(item);
 		}
 	}
@@ -97,11 +98,21 @@ public class ItemMoveService {
 	public static void switchItemsInStorages(Player player, byte sourceStorageType, int sourceItemObjId, byte replaceStorageType, int replaceItemObjId) {
 		IStorage sourceStorage = player.getStorage(sourceStorageType);
 		IStorage replaceStorage = player.getStorage(replaceStorageType);
+		// ItemTemplate template =
+		// DataManager.ITEM_DATA.getItemTemplate(sourceItemObjId);
 
 		Item sourceItem = sourceStorage.getItemByObjId(sourceItemObjId);
 		if (sourceItem == null) {
 			return;
 		}
+		/*
+		 * log.info("Switch en cours  : " + template.getWeaponType() + " " +
+		 * sourceStorageType + " " + sourceItemObjId + " " + replaceStorageType
+		 * + " " + replaceItemObjId); if (template.getWeaponType() ==
+		 * WeaponType.KEYBLADE_2H) { if (player.isRobotForm()) {
+		 * PacketSendUtility.broadcastPacket(player, new SM_RIDE_ROBOT(player,
+		 * 0), true); player.setRobotForm(false); } }
+		 */
 
 		Item replaceItem = replaceStorage.getItemByObjId(replaceItemObjId);
 		if (replaceItem == null) {
@@ -109,7 +120,10 @@ public class ItemMoveService {
 		}
 
 		// restrictions checks
-		if (ItemRestrictionService.isItemRestrictedFrom(player, sourceItem, sourceStorageType) || ItemRestrictionService.isItemRestrictedFrom(player, replaceItem, replaceStorageType) || ItemRestrictionService.isItemRestrictedTo(player, sourceItem, replaceStorageType) || ItemRestrictionService.isItemRestrictedTo(player, replaceItem, sourceStorageType)) {
+		if (ItemRestrictionService.isItemRestrictedFrom(player, sourceItem, sourceStorageType)
+				|| ItemRestrictionService.isItemRestrictedFrom(player, replaceItem, replaceStorageType)
+				|| ItemRestrictionService.isItemRestrictedTo(player, sourceItem, replaceStorageType)
+				|| ItemRestrictionService.isItemRestrictedTo(player, replaceItem, sourceStorageType)) {
 			return;
 		}
 

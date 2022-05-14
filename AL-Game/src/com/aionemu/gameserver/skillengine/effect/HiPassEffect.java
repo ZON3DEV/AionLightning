@@ -14,11 +14,12 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import com.aionemu.gameserver.skillengine.model.Effect;
 
-public class HiPassEffect extends BuffEffect {
+public class HiPassEffect extends BufEffect {
 
 	@Override
 	public void calculate(Effect effect) {

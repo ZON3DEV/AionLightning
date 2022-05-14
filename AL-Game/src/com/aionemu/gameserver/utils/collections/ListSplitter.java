@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.collections;
 
 import java.lang.reflect.Array;
@@ -22,6 +23,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
+ *
  * @author xTz
  */
 public class ListSplitter<T> {
@@ -59,6 +61,10 @@ public class ListSplitter<T> {
 
 	public int size() {
 		return length;
+	}
+
+	public boolean isFirst() {
+		return curentIndex <= splitCount;
 	}
 
 	public boolean isLast() {

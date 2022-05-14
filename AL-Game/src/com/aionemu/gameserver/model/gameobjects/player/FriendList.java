@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player;
 
 import java.util.Collection;
@@ -28,7 +29,6 @@ import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.configs.main.MembershipConfig;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_FRIEND_NOTIFY;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_FRIEND_UPDATE;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 
 /**
  * Represents a player's Friend list
@@ -138,7 +138,8 @@ public class FriendList implements Iterable<Friend> {
 	}
 
 	public boolean isFull() {
-		int MAX_FRIENDS = player.havePermission(MembershipConfig.ADVANCED_FRIENDLIST_ENABLE) ? MembershipConfig.ADVANCED_FRIENDLIST_SIZE : CustomConfig.FRIENDLIST_SIZE;
+		int MAX_FRIENDS = player.havePermission(MembershipConfig.ADVANCED_FRIENDLIST_ENABLE) ? MembershipConfig.ADVANCED_FRIENDLIST_SIZE
+				: CustomConfig.FRIENDLIST_SIZE;
 		return getSize() >= MAX_FRIENDS;
 	}
 
@@ -182,9 +183,7 @@ public class FriendList implements Iterable<Friend> {
 				if (previousStatus == Status.OFFLINE) {
 					// Show LOGIN message
 					friendPlayer.getClientConnection().sendPacket(new SM_FRIEND_NOTIFY(SM_FRIEND_NOTIFY.LOGIN, player.getName()));
-					friendPlayer.getClientConnection().sendPacket(new SM_SYSTEM_MESSAGE(1300890, player.getName()));
-				}
-				else if (status == Status.OFFLINE) {
+				} else if (status == Status.OFFLINE) {
 					// Show LOGOUT message
 					friendPlayer.getClientConnection().sendPacket(new SM_FRIEND_NOTIFY(SM_FRIEND_NOTIFY.LOGOUT, player.getName()));
 				}
@@ -223,7 +222,6 @@ public class FriendList implements Iterable<Friend> {
 		 * User is away or busy
 		 */
 		AWAY((byte) 3);
-
 		byte value;
 
 		private Status(byte value) {

@@ -14,14 +14,9 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.instance;
 
-import java.util.Iterator;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.aionemu.commons.network.util.ThreadPoolManager;
 import com.aionemu.commons.services.CronService;
 import com.aionemu.gameserver.configs.main.AutoGroupConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -29,84 +24,41 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_AUTO_GROUP;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.services.AutoGroupService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
-
+import java.util.Iterator;
 import javolution.util.FastList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * @author GiGatR00n v4.7.5.x
+ * @author Eloann
+ * @based on DredgionService (
+ * @author xTz)
  */
 public class KamarBattlefieldService {
 
-	/*
-	 * Used to logs information.
-	 */
 	private static final Logger log = LoggerFactory.getLogger(KamarBattlefieldService.class);
-
-	/**
-	 * Entry Level: 66-75
-	 */
-	public static final byte minlevel = 66, maxlevel = 76;
-
-	// Determines whether users can still register for running instance?
 	private boolean registerAvailable;
+	private FastList<Integer> playersWithCooldown = new FastList<Integer>();
+	public static int minLevel = 60, capLevel = 66;
+	public static byte maskId = 107;
 
-	// Determines whether the given player is already registered for instance?
-	private final FastList<Integer> playersWithCooldown = FastList.newInstance();
-
-	// MaskId for Kamar Battlefield Instance.
-	public static final int maskId = 107;
-
-	public static final int InstanceMapId = 301120000;
-
-	/**
-	 * instantiate class
-	 */
-	private static class SingletonHolder {
-
-		protected static final KamarBattlefieldService instance = new KamarBattlefieldService();
-	}
-
-	public static KamarBattlefieldService getInstance() {
-		return SingletonHolder.instance;
-	}
-
-	/**
-	 * Schedules the Kamar Battlefield Instance to be launched at the specified Cron-Time.
-	 */
 	public void start() {
 		String[] times = AutoGroupConfig.KAMAR_TIMES.split("\\|");
 		for (String cron : times) {
 			CronService.getInstance().schedule(new Runnable() {
-
 				@Override
 				public void run() {
-					startRegistration();
+					startKamarRegistration();
 				}
 			}, cron);
-			log.info("Scheduled Kamar Battlefield: based on cron expression: " + cron + " Duration: " + AutoGroupConfig.KAMAR_TIMER + " in minutes");
+			log.info("Scheduled KamarBattlefield: based on cron expression: " + cron + " Duration: " + AutoGroupConfig.KAMAR_TIMER + " in minutes");
 		}
 	}
 
-	private void startRegistration() {
-		registerAvailable = true;
-		ScheduleUnregistration();
-		Iterator<Player> iter = World.getInstance().getPlayersIterator();
-		while (iter.hasNext()) {
-			Player player = iter.next();
-			if (player.getLevel() > minlevel && player.getLevel() < maxlevel) {
-				if (!isInInstance(player)) {
-					PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(maskId, SM_AUTO_GROUP.wnd_EntryIcon));
-					// You can now participate in the Kamar Battlefield battle.
-					PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_INSTANCE_OPEN_IDKAMAR);
-				}
-			}
-		}
-	}
-
-	private void ScheduleUnregistration() {
+	private void startUregisterKamarTask() {
 		ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				registerAvailable = false;
@@ -115,7 +67,7 @@ public class KamarBattlefieldService {
 				Iterator<Player> iter = World.getInstance().getPlayersIterator();
 				while (iter.hasNext()) {
 					Player player = iter.next();
-					if (player.getLevel() > minlevel) {
+					if (player.getLevel() > minLevel) {
 						PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(maskId, SM_AUTO_GROUP.wnd_EntryIcon, true));
 					}
 				}
@@ -123,37 +75,43 @@ public class KamarBattlefieldService {
 		}, AutoGroupConfig.KAMAR_TIMER * 60 * 1000);
 	}
 
-	public byte getMinLevel() {
-		return minlevel;
-	}
-
-	public byte getMaxLevel() {
-		return maxlevel;
+	private void startKamarRegistration() {
+		this.registerAvailable = true;
+		startUregisterKamarTask();
+		Iterator<Player> iter = World.getInstance().getPlayersIterator();
+		while (iter.hasNext()) {
+			Player player = iter.next();
+			if (player.getLevel() > minLevel && player.getLevel() < capLevel) {
+				PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(maskId, SM_AUTO_GROUP.wnd_EntryIcon));
+				PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_MSG_INSTANCE_OPEN_IDKAMAR);
+			}
+		}
 	}
 
 	public boolean isKamarAvailable() {
-		return registerAvailable;
+		return this.registerAvailable;
 	}
 
 	public void addCoolDown(Player player) {
-		playersWithCooldown.add(player.getObjectId());
+		this.playersWithCooldown.add(player.getObjectId());
 	}
 
 	public boolean hasCoolDown(Player player) {
-		return playersWithCooldown.contains(player.getObjectId());
+		return this.playersWithCooldown.contains(player.getObjectId());
 	}
 
 	public void showWindow(Player player, byte instanceMaskId) {
-		if (!playersWithCooldown.contains(player.getObjectId())) {
+		if (!this.playersWithCooldown.contains(player.getObjectId())) {
 			PacketSendUtility.sendPacket(player, new SM_AUTO_GROUP(instanceMaskId));
 		}
 	}
 
-	private boolean isInInstance(Player player) {
-		return player.isInInstance();
+	private static class SingletonHolder {
+
+		protected static final KamarBattlefieldService instance = new KamarBattlefieldService();
 	}
 
-	public boolean canPlayerJoin(Player player) {
-		return registerAvailable && player.getLevel() > minlevel && player.getLevel() < maxlevel && !hasCoolDown(player) && !isInInstance(player);
+	public static KamarBattlefieldService getInstance() {
+		return SingletonHolder.instance;
 	}
 }

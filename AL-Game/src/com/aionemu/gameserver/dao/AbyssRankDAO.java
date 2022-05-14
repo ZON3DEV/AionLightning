@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dao;
 
 import java.util.ArrayList;
@@ -29,7 +30,6 @@ import com.aionemu.gameserver.utils.stats.AbyssRankEnum;
 
 /**
  * @author ATracer
- * @rework Phantom_KNA
  */
 public abstract class AbyssRankDAO implements DAO {
 
@@ -37,10 +37,6 @@ public abstract class AbyssRankDAO implements DAO {
 	public final String getClassName() {
 		return AbyssRankDAO.class.getName();
 	}
-
-	public abstract List<Integer> RankPlayers(final int rank); // DailyReduceGp
-
-	public abstract void updateGloryPoints(final int playerId, final int gp); // DailyReduceGp
 
 	public abstract void loadAbyssRank(Player player);
 
@@ -59,4 +55,6 @@ public abstract class AbyssRankDAO implements DAO {
 	public abstract void updateAbyssRank(int playerId, AbyssRankEnum rankEnum);
 
 	public abstract void updateRankList(final int maxOfflineDays);
+
+	public abstract void removePlayer(List<Player> listP);
 }

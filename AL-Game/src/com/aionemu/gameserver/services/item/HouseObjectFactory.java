@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.item;
 
 import org.apache.commons.lang.IncompleteArgumentException;
@@ -58,29 +59,21 @@ public final class HouseObjectFactory {
 		PlaceableHouseObject template = DataManager.HOUSING_OBJECT_DATA.getTemplateById(objectTemplateId);
 		if (template instanceof HousingChair) {
 			return new ChairObject(house, objectId, template.getTemplateId());
-		}
-		else if (template instanceof HousingJukeBox) {
+		} else if (template instanceof HousingJukeBox) {
 			return new JukeBoxObject(house, objectId, template.getTemplateId());
-		}
-		else if (template instanceof HousingMoveableItem) {
+		} else if (template instanceof HousingMoveableItem) {
 			return new MoveableObject(house, objectId, template.getTemplateId());
-		}
-		else if (template instanceof HousingNpc) {
+		} else if (template instanceof HousingNpc) {
 			return new NpcObject(house, objectId, template.getTemplateId());
-		}
-		else if (template instanceof HousingPicture) {
+		} else if (template instanceof HousingPicture) {
 			return new PictureObject(house, objectId, template.getTemplateId());
-		}
-		else if (template instanceof HousingPostbox) {
+		} else if (template instanceof HousingPostbox) {
 			return new PostboxObject(house, objectId, template.getTemplateId());
-		}
-		else if (template instanceof HousingStorage) {
+		} else if (template instanceof HousingStorage) {
 			return new StorageObject(house, objectId, template.getTemplateId());
-		}
-		else if (template instanceof HousingUseableItem) {
+		} else if (template instanceof HousingUseableItem) {
 			return new UseableItemObject(house, objectId, template.getTemplateId());
-		}
-		else if (template instanceof HousingEmblem) {
+		} else if (template instanceof HousingEmblem) {
 			return new EmblemObject(house, objectId, template.getTemplateId());
 		}
 		return new PassiveObject(house, objectId, template.getTemplateId());

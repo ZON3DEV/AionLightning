@@ -14,22 +14,21 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.ai2;
+
+import com.aionemu.gameserver.ai2.event.AIEventType;
 
 import java.util.Arrays;
 import java.util.EnumSet;
-
-import com.aionemu.gameserver.ai2.event.AIEventType;
 
 /**
  * @author ATracer
  */
 public enum StateEvents {
 
-	CREATED_EVENTS(AIEventType.SPAWNED),
-	DESPAWN_EVENTS(AIEventType.RESPAWNED, AIEventType.SPAWNED, AIEventType.DIED),
-	DEAD_EVENTS(AIEventType.DESPAWNED, AIEventType.DROP_REGISTERED);
-
+	CREATED_EVENTS(AIEventType.SPAWNED), DESPAWN_EVENTS(AIEventType.RESPAWNED, AIEventType.SPAWNED), DEAD_EVENTS(AIEventType.DESPAWNED,
+			AIEventType.DROP_REGISTERED);
 	private EnumSet<AIEventType> events;
 
 	private StateEvents(AIEventType... aiEventTypes) {

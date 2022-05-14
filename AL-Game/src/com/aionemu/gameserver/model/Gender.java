@@ -14,12 +14,14 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model;
 
 import javax.xml.bind.annotation.XmlEnum;
 
 /**
- * Creature gender. Typically there are males and females. But who knows, maybe NC can invent something new ;)
+ * Creature gender. Typically there are males and females. But who knows, maybe
+ * NC can invent something new ;)
  *
  * @author SoulKeeper
  */
@@ -33,12 +35,7 @@ public enum Gender {
 	/**
 	 * Females
 	 */
-	FEMALE(1),
-	/**
-	 * Dummy for create
-	 */
-	DUMMY(8);
-
+	FEMALE(1);
 	/**
 	 * id of gender
 	 */
@@ -68,7 +65,9 @@ public enum Gender {
 	 *
 	 * @param genderId
 	 *            - id of player gender
-	 * @return Gender objects that matches the given genderId. If there isn't any objects that matches given id, then <b>IllegalArgumentException</b> is being thrown.
+	 * @return Gender objects that matches the given genderId. If there isn't
+	 *         any objects that matches given id, then
+	 *         <b>IllegalArgumentException</b> is being thrown.
 	 */
 	public static Gender getGenderById(int genderId) {
 		for (Gender gender : values()) {

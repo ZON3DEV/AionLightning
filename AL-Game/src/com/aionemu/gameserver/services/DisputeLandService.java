@@ -14,9 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import com.aionemu.commons.services.CronService;
+import com.aionemu.commons.utils.Rnd;
 import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DISPUTE_LAND;
@@ -25,7 +27,7 @@ import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.knownlist.Visitor;
 import com.aionemu.gameserver.world.zone.ZoneAttributes;
-
+import java.util.Calendar;
 import javolution.util.FastList;
 
 /**
@@ -36,6 +38,22 @@ public class DisputeLandService {
 
 	private boolean active;
 	private FastList<Integer> worlds = new FastList<Integer>();
+	private static/* final */int chance;// = CustomConfig.DISPUTE_RND_CHANCE;
+	private static final String rnd = CustomConfig.DISPUTE_RND_SCHEDULE; // 11h
+																			// to
+																			// 16h
+	private static final String rnd2 = CustomConfig.DISPUTE_RND2_SCHEDULE; // 21h
+																			// to
+																			// 2h
+	private static final String rnd3 = CustomConfig.DISPUTE_RND3_SCHEDULE; // 2h
+																			// to
+																			// 7h
+	private static final String rnd4 = CustomConfig.DISPUTE_RND4_SCHEDULE; // 7h
+																			// to
+																			// 11h
+	private static final String fxd = CustomConfig.DISPUTE_FXD_SCHEDULE; // 16h
+																			// to
+																			// 21h
 
 	private DisputeLandService() {
 	}
@@ -44,44 +62,112 @@ public class DisputeLandService {
 		return DisputeLandServiceHolder.INSTANCE;
 	}
 
-	public void initDisputeLand() {
-		if (CustomConfig.DISPUTE_LAND_ENABLED) {
-			CronService.getInstance().schedule(new Runnable() {
+	public void init() {
+		if (!CustomConfig.DISPUTE_ENABLED) {
+			return;
+		}
 
-				@Override
-				public void run() {
-					if (isActive()) {
+		Calendar calendar = Calendar.getInstance();
+		if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+			chance = CustomConfig.DISPUTE_WEEKEND_RND_CHANCE; // 75%
+		} else {
+			chance = CustomConfig.DISPUTE_RND_CHANCE; // 50%
+		}
+
+		// Dispute worldId's
+		// worlds.add(600020000); // Sarpan
+		worlds.add(600020001);
+		worlds.add(600030000); // Tiamaranta
+
+		CronService.getInstance().schedule(new Runnable() { // 11h to 16h
+					@Override
+					public void run() {
+						setActive(chance > Rnd.get(100));
+
+						if (isActive()) {
+							ThreadPoolManager.getInstance().schedule(new Runnable() {
+								@Override
+								public void run() {
+									setActive(false);
+								}
+							}, CustomConfig.DISPUTE_LAND_TIME * 3600 * 1000);// 5
+																				// hours
+						}
+					}
+				}, rnd);
+
+		CronService.getInstance().schedule(new Runnable() { // 21h to 2h
+					@Override
+					public void run() {
+						setActive(chance > Rnd.get(100));
+
+						if (isActive()) {
+							ThreadPoolManager.getInstance().schedule(new Runnable() {
+								@Override
+								public void run() {
+									setActive(false);
+								}
+							}, CustomConfig.DISPUTE_LAND_TIME * 3600 * 1000); // 5
+																				// hours
+						}
+					}
+				}, rnd2);
+
+		CronService.getInstance().schedule(new Runnable() { // 2h to 7h
+					@Override
+					public void run() {
+						setActive(chance > Rnd.get(100));
+
+						if (isActive()) {
+							ThreadPoolManager.getInstance().schedule(new Runnable() {
+								@Override
+								public void run() {
+									setActive(false);
+								}
+							}, CustomConfig.DISPUTE_LAND_TIME * 3600 * 1000); // 5
+																				// hours
+						}
+					}
+				}, rnd3);
+
+		CronService.getInstance().schedule(new Runnable() { // 7h to 11h
+					@Override
+					public void run() {
+						setActive(chance > Rnd.get(100));
+
+						if (isActive()) {
+							ThreadPoolManager.getInstance().schedule(new Runnable() {
+								@Override
+								public void run() {
+									setActive(false);
+								}
+							}, CustomConfig.DISPUTE_LAND_TIME * 3600 * 1000); // 5
+																				// hours
+						}
+					}
+				}, rnd4);
+
+		CronService.getInstance().schedule(new Runnable() { // 16h to 21h Always
+					@Override
+					public void run() {
+						setActive(true);
+
 						ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 							@Override
 							public void run() {
 								setActive(false);
 							}
-						}, CustomConfig.DISPUTE_LAND_TIME * 3600 * 1000);// 5 hours
+						}, CustomConfig.DISPUTE_LAND_TIME * 3600 * 1000); // 5
+																			// hours
 					}
-				}
-			}, CustomConfig.DISPUTE_LAND_SCHEDULE);
-		}
-		worlds.add(210020000); // Eltnen.
-		worlds.add(210040000); // Heiron.
-		worlds.add(210050000); // Inggison.
-		worlds.add(210060000); // Theobomos.
-		worlds.add(220020000); // Morheim.
-		worlds.add(220040000); // Beluslan.
-		worlds.add(220050000); // Brusthonin.
-		worlds.add(220070000); // Gelkmaros.
-		// 4.7
-		worlds.add(600090000); // Kaldor.
-		worlds.add(600100000); // Levinshor.
-		// 4.8
-		worlds.add(210070000); // Cygnea.
-		worlds.add(220080000); // Enshar.
-		// 5.0
-		worlds.add(210100000); // Iluma.
-		worlds.add(220110000); // Norsvold.
+				}, fxd);
 	}
 
 	public boolean isActive() {
+		if (!CustomConfig.DISPUTE_ENABLED) {
+			return false;
+		}
+
 		return active;
 	}
 
@@ -93,26 +179,13 @@ public class DisputeLandService {
 
 	private void syncState() {
 		for (int world : worlds) {
-			if (world == 210020000 || // Eltnen.
-				world == 210040000 || // Heiron.
-				world == 210050000 || // Inggison.
-				world == 210060000 || // Theobomos.
-				world == 210070000 || // Cygnea.
-				world == 220020000 || // Morheim.
-				world == 220040000 || // Beluslan.
-				world == 220050000 || // Brusthonin.
-				world == 220070000 || // Gelkmaros.
-				world == 220080000 || // Enshar.
-				world == 210100000 || // Iluma.
-				world == 220110000 || // Norsvold.
-				world == 600090000 || // Kaldor.
-				world == 600100000) { // Levinshor.
+			if (world == 600020001) {
 				continue;
 			}
+
 			if (active) {
 				World.getInstance().getWorldMap(world).setWorldOption(ZoneAttributes.PVP_ENABLED);
-			}
-			else {
+			} else {
 				World.getInstance().getWorldMap(world).removeWorldOption(ZoneAttributes.PVP_ENABLED);
 			}
 		}
@@ -124,7 +197,6 @@ public class DisputeLandService {
 
 	private void broadcast() {
 		World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player player) {
 				broadcast(player);
@@ -133,6 +205,10 @@ public class DisputeLandService {
 	}
 
 	public void onLogin(Player player) {
+		if (!CustomConfig.DISPUTE_ENABLED) {
+			return;
+		}
+
 		broadcast(player);
 	}
 

@@ -14,7 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
+
+import gnu.trove.map.hash.TIntObjectHashMap;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,8 +30,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
-
-import gnu.trove.map.hash.TIntObjectHashMap;
 
 /**
  * @author ATracer
@@ -84,7 +85,8 @@ public class SkillData {
 	}
 
 	/**
-	 * This method creates a HashMap with all skills assigned to their representative cooldownIds
+	 * This method creates a HashMap with all skills assigned to their
+	 * representative cooldownIds
 	 */
 	public void initializeCooldownGroups() {
 		cooldownGroups = new HashMap<Integer, ArrayList<Integer>>();
@@ -108,9 +110,5 @@ public class SkillData {
 			initializeCooldownGroups();
 		}
 		return cooldownGroups.get(cooldownId);
-	}
-
-	public TIntObjectHashMap<SkillTemplate> getSkillData() {
-		return skillData;
 	}
 }

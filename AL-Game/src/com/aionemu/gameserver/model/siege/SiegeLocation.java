@@ -14,13 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.siege;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -29,8 +24,11 @@ import com.aionemu.gameserver.world.knownlist.Visitor;
 import com.aionemu.gameserver.world.zone.SiegeZoneInstance;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
 import com.aionemu.gameserver.world.zone.handler.ZoneHandler;
-
+import java.util.ArrayList;
+import java.util.List;
 import javolution.util.FastMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Sarynth, Source, Wakizashi
@@ -45,7 +43,6 @@ public class SiegeLocation implements ZoneHandler {
 	 */
 	protected SiegeLocationTemplate template;
 	protected int locationId;
-	protected int occupyCount;
 	protected SiegeType type;
 	protected int worldId;
 	protected SiegeRace siegeRace = SiegeRace.BALAUR;
@@ -61,10 +58,6 @@ public class SiegeLocation implements ZoneHandler {
 	protected int influenceValue;
 	private FastMap<Integer, Creature> creatures = new FastMap<Integer, Creature>();
 	private FastMap<Integer, Player> players = new FastMap<Integer, Player>();
-	protected int buffId;
-	protected int buffIdA;
-	protected int buffIdE;
-	protected int baseId;
 
 	public SiegeLocation() {
 	}
@@ -77,7 +70,6 @@ public class SiegeLocation implements ZoneHandler {
 		this.siegeDuration = template.getSiegeDuration();
 		this.zone = new ArrayList<SiegeZoneInstance>();
 		this.influenceValue = template.getInfluenceValue();
-		this.occupyCount = template.getOccupyCount();
 	}
 
 	public SiegeLocationTemplate getTemplate() {
@@ -119,14 +111,6 @@ public class SiegeLocation implements ZoneHandler {
 
 	public void setLegionId(int legionId) {
 		this.legionId = legionId;
-	}
-
-	public int getOccupyCount() {
-		return this.occupyCount;
-	}
-
-	public void setOccupyCount(int occupyCount) {
-		this.occupyCount = occupyCount;
 	}
 
 	/**
@@ -233,11 +217,8 @@ public class SiegeLocation implements ZoneHandler {
 	}
 
 	public boolean isInActiveSiegeZone(Player player) {
-		if (isVulnerable() && isInsideLocation(player)) {
-			return true;
-		}
+		return isVulnerable() && isInsideLocation(player);
 
-		return false;
 	}
 
 	public void clearLocation() {
@@ -269,8 +250,7 @@ public class SiegeLocation implements ZoneHandler {
 					visitor.visit(player);
 				}
 			}
-		}
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			log.error("Exception when running visitor on all players" + ex);
 		}
 	}
@@ -287,21 +267,5 @@ public class SiegeLocation implements ZoneHandler {
 	 */
 	public FastMap<Integer, Player> getPlayers() {
 		return players;
-	}
-
-	public int getBuffId() {
-		return buffId = template.getBuffId();
-	}
-
-	public int getBuffIdA() {
-		return buffIdA = template.getBuffIdA();
-	}
-
-	public int getBuffIdE() {
-		return buffIdE = template.getBuffIdE();
-	}
-
-	public int getBaseId() {
-		return baseId = template.getBaseId();
 	}
 }

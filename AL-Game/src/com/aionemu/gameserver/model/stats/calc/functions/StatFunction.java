@@ -31,9 +31,6 @@ import com.aionemu.gameserver.model.stats.calc.StatOwner;
 import com.aionemu.gameserver.model.stats.container.StatEnum;
 import com.aionemu.gameserver.skillengine.condition.Conditions;
 
-/**
- * @author ATracer
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SimpleModifier")
 public class StatFunction implements IStatFunction {
@@ -44,13 +41,9 @@ public class StatFunction implements IStatFunction {
 	private boolean bonus;
 	@XmlAttribute
 	protected int value;
-    @XmlAttribute(name = "class_type")
-    protected String classType;
 	@XmlElement(name = "conditions")
 	private Conditions conditions;
-
-	public StatFunction() {
-	}
+	private int rndNumber;
 
 	public StatFunction(StatEnum stat, int value, boolean bonus) {
 		this.stat = stat;
@@ -62,14 +55,10 @@ public class StatFunction implements IStatFunction {
 	public int compareTo(IStatFunction o) {
 		int result = getPriority() - o.getPriority();
 		if (result == 0) {
-			return this.hashCode() - o.hashCode();
+			return hashCode() - o.hashCode();
 		}
 		return result;
 	}
-
-    public String getClassType() {
-        return this.classType;
-    }
 
 	@Override
 	public StatOwner getOwner() {
@@ -78,36 +67,32 @@ public class StatFunction implements IStatFunction {
 
 	@Override
 	public final StatEnum getName() {
-		return stat;
+		return this.stat;
 	}
 
 	@Override
 	public final boolean isBonus() {
-		return bonus;
+		return this.bonus;
 	}
 
 	@Override
 	public int getPriority() {
-		return 0x10;
+		return 16;
 	}
 
 	@Override
 	public int getValue() {
-		return value;
+		return this.value;
 	}
 
 	@Override
 	public boolean validate(Stat2 stat, IStatFunction statFunction) {
-		return conditions != null ? conditions.validate(stat, statFunction) : true;
-	}
-
-	@Override
-	public void apply(Stat2 stat) {
+		return this.conditions != null ? this.conditions.validate(stat, statFunction) : true;
 	}
 
 	@Override
 	public String toString() {
-		return this.getClass().getName() + " [stat=" + stat + ", bonus=" + bonus + ", value=" + value + ", priority=" + getPriority() + "]";
+		return "stat=" + stat + ", bonus=" + bonus + ", value=" + value + ", priority=" + getPriority();
 	}
 
 	public StatFunction withConditions(Conditions conditions) {
@@ -117,74 +102,68 @@ public class StatFunction implements IStatFunction {
 
 	@Override
 	public boolean hasConditions() {
-		return conditions != null;
+		return this.conditions != null;
 	}
 
-	/**
-	 * Creates a final list of modifiers combining bonuses with random bonuses
-	 * 
-	 * @param modifiers
-	 *            - can be null if do not exist
-	 * @param rndBonuses
-	 *            - can be null if do not exist
-	 * @return a list of modifiers, empty if none
-	 */
 	public static List<StatFunction> mergeRandomBonuses(List<StatFunction> modifiers, List<StatFunction> rndBonuses) {
-		if (modifiers == null)
+		if (modifiers == null) {
 			modifiers = new ArrayList<StatFunction>();
-
-		if (rndBonuses == null)
+		}
+		if (rndBonuses == null) {
 			return modifiers;
-
+		}
 		List<StatFunction> allModifiers = new ArrayList<StatFunction>();
 		EnumSet<StatEnum> rndNames = EnumSet.noneOf(StatEnum.class);
-
-		for (IStatFunction func : rndBonuses)
+		for (IStatFunction func : rndBonuses) {
 			rndNames.add(func.getName());
-
-		// add values to original stats
+		}
 		for (StatFunction modifier : modifiers) {
-			if (!rndNames.contains(modifier.getName()) || !modifier.isBonus() || modifier.hasConditions()) {
+			if ((!rndNames.contains(modifier.getName())) || (!modifier.isBonus()) || (modifier.hasConditions())) {
 				allModifiers.add(modifier);
-				continue;
-			}
-
-			IStatFunction rndBonus = null;
-			for (IStatFunction func : rndBonuses) {
-				if (func.getName() == modifier.getName()) {
-					rndBonus = func;
-					rndNames.remove(func.getName());
-					break;
+			} else {
+				IStatFunction rndBonus = null;
+				for (IStatFunction func : rndBonuses) {
+					if (func.getName() == modifier.getName()) {
+						rndBonus = func;
+						rndNames.remove(func.getName());
+						break;
+					}
+				}
+				int finalValue = modifier.getValue() + (rndBonus == null ? 0 : rndBonus.getValue());
+				if ((modifier instanceof StatAddFunction)) {
+					if (finalValue != 0) {
+						allModifiers.add(new StatAddFunction(modifier.getName(), finalValue, true));
+					}
+				} else if ((modifier instanceof StatRateFunction)) {
+					if (finalValue != 0) {
+						allModifiers.add(new StatRateFunction(modifier.getName(), finalValue, true));
+					}
+				} else {
+					allModifiers.add(modifier);
 				}
 			}
-
-			int finalValue = modifier.getValue() + rndBonus.getValue();
-
-			if (modifier instanceof StatAddFunction) {
-				if (finalValue != 0)
-					allModifiers.add(new StatAddFunction(modifier.getName(), finalValue, true));
-			}
-			else if (modifier instanceof StatRateFunction) {
-				if (finalValue != 0)
-					allModifiers.add(new StatRateFunction(modifier.getName(), finalValue, true));
-			}
-			else
-				allModifiers.add(modifier);
 		}
-
-		// add new stat values
 		for (StatFunction modifier : rndBonuses) {
-			if (rndNames.contains(modifier.getName()))
+			if (rndNames.contains(modifier.getName())) {
 				allModifiers.add(modifier);
+			}
 		}
-
 		return allModifiers;
 	}
 
-	@Override
 	public int getRandomNumber() {
-		// TODO Auto-generated method stub
-		return 0;
+		return rndNumber;
+	}
+
+	public void setRandomNumber(int rndNumber) {
+		this.rndNumber = rndNumber;
+	}
+
+	public StatFunction() {
+	}
+
+	@Override
+	public void apply(Stat2 stat) {
 	}
 
 }

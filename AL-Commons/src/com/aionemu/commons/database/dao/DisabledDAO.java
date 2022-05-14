@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.database.dao;
 
 import java.lang.annotation.Documented;
@@ -24,8 +25,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Marker annotation that is used to mark disabled DAO's so they will be ignored
- * by {@link DAOLoader}
+ * Marker annotation that is used to mark disabled DAO's so they will be ignored by {@link DAOLoader}
  * 
  * @author SoulKeeper
  */

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.alliance.events;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -57,8 +58,7 @@ public class PlayerDisconnectedEvent implements TeamEvent, Predicate<PlayerAllia
 		alliance.apply(this);
 		if (alliance.onlineMembers() <= 1) {
 			PlayerAllianceService.disband(alliance);
-		}
-		else {
+		} else {
 			if (disconnected.equals(alliance.getLeader().getObject())) {
 				alliance.onEvent(new ChangeAllianceLeaderEvent(alliance));
 			}

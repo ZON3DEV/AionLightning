@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.items.storage;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
@@ -46,8 +47,7 @@ public class PlayerStorage extends Storage {
 	public void onLoadHandler(Item item) {
 		if (item.isEquipped()) {
 			actor.getEquipment().onLoadHandler(item);
-		}
-		else {
+		} else {
 			super.onLoadHandler(item);
 		}
 	}

@@ -14,27 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.ai2;
-
-import static ch.lambdaj.Lambda.join;
-import static ch.lambdaj.Lambda.on;
-import static ch.lambdaj.Lambda.selectDistinct;
-import static ch.lambdaj.collection.LambdaCollections.with;
-
-import java.io.File;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.CountDownLatch;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.scripting.classlistener.AggregatedClassListener;
 import com.aionemu.commons.scripting.classlistener.OnClassLoadUnloadListener;
 import com.aionemu.commons.scripting.classlistener.ScheduledTaskClassListener;
 import com.aionemu.commons.scripting.scriptmanager.ScriptManager;
-import com.aionemu.gameserver.GameServer;
 import com.aionemu.gameserver.GameServerError;
 import com.aionemu.gameserver.configs.main.AIConfig;
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -42,6 +28,17 @@ import com.aionemu.gameserver.model.GameEngine;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.templates.npc.NpcTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.File;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.CountDownLatch;
+
+import static ch.lambdaj.Lambda.*;
+import static ch.lambdaj.collection.LambdaCollections.with;
 
 /**
  * @author ATracer
@@ -55,7 +52,7 @@ public class AI2Engine implements GameEngine {
 
 	@Override
 	public void load(CountDownLatch progressLatch) {
-		log.info("[AIEngine] engine load started");
+		log.info("AI2 engine load started");
 		scriptManager = new ScriptManager();
 
 		AggregatedClassListener acl = new AggregatedClassListener();
@@ -66,13 +63,11 @@ public class AI2Engine implements GameEngine {
 
 		try {
 			scriptManager.load(INSTANCE_DESCRIPTOR_FILE);
-			GameServer.log.info("[AIEngine] Loaded " + aiMap.size() + " ai handlers.");
+			log.info("Loaded " + aiMap.size() + " ai handlers.");
 			validateScripts();
-		}
-		catch (Exception e) {
-			throw new GameServerError("[AIEngine] Can't initialize ai handlers.", e);
-		}
-		finally {
+		} catch (Exception e) {
+			throw new GameServerError("Can't initialize ai handlers.", e);
+		} finally {
 			if (progressLatch != null) {
 				progressLatch.countDown();
 			}
@@ -81,11 +76,11 @@ public class AI2Engine implements GameEngine {
 
 	@Override
 	public void shutdown() {
-		log.info("[AIEngine] engine shutdown started");
+		log.info("AI2 engine shutdown started");
 		scriptManager.shutdown();
 		scriptManager = null;
 		aiMap.clear();
-		log.info("[AIEngine] engine shutdown complete");
+		log.info("AI2 engine shutdown complete");
 	}
 
 	public void registerAI(Class<? extends AbstractAI> class1) {
@@ -104,9 +99,8 @@ public class AI2Engine implements GameEngine {
 			if (AIConfig.ONCREATE_DEBUG) {
 				aiInstance.setLogging(true);
 			}
-		}
-		catch (Exception e) {
-			log.error("[AIEngine] AI factory error: " + name, e);
+		} catch (Exception e) {
+			log.error("[AI2] AI factory error: " + name, e);
 		}
 		return aiInstance;
 	}
@@ -123,7 +117,7 @@ public class AI2Engine implements GameEngine {
 		Collection<String> npcAINames = selectDistinct(with(DataManager.NPC_DATA.getNpcData().valueCollection()).extract(on(NpcTemplate.class).getAi()));
 		npcAINames.removeAll(aiMap.keySet());
 		if (npcAINames.size() > 0) {
-			log.warn("[AIEngine] Bad AI names: " + join(npcAINames));
+			log.warn("Bad AI names: " + join(npcAINames));
 		}
 	}
 

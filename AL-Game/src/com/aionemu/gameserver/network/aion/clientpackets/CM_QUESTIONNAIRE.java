@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import java.util.ArrayList;
@@ -33,8 +34,6 @@ public class CM_QUESTIONNAIRE extends AionClientPacket {
 	private int itemId;
 	private int itemSize;
 	private List<Integer> items;
-	@SuppressWarnings("unused")
-	private String stringItemsId;
 
 	public CM_QUESTIONNAIRE(int opcode, State state, State... restStates) {
 		super(opcode, state, restStates);
@@ -42,6 +41,7 @@ public class CM_QUESTIONNAIRE extends AionClientPacket {
 
 	/*
 	 * (non-Javadoc)
+	 *
 	 * @see com.aionemu.commons.network.packet.BaseClientPacket#readImpl()
 	 */
 	@Override
@@ -53,18 +53,17 @@ public class CM_QUESTIONNAIRE extends AionClientPacket {
 			itemId = readD();
 			items.add(itemId);
 		}
-		stringItemsId = readS();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see com.aionemu.commons.network.packet.BaseClientPacket#runImpl()
-	 */
-	@Override
-	protected void runImpl() {
-		if (objectId > 0) {
-			Player player = getConnection().getActivePlayer();
-			HTMLService.getReward(player, objectId, items);
-		}
-	}
+    /*
+     * (non-Javadoc)
+     * @see com.aionemu.commons.network.packet.BaseClientPacket#runImpl()
+     */
+    @Override
+    protected void runImpl() {
+        if (objectId > 0) {
+            Player player = getConnection().getActivePlayer();
+            HTMLService.getReward(player, objectId, items);
+        }
+    }
 }

@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.network;
 
 import java.io.IOException;
@@ -26,9 +27,8 @@ import java.nio.channels.SocketChannel;
 import com.aionemu.commons.options.Assertion;
 
 /**
- * Class that represent Connection with server socket. Connection is created by
- * <code>ConnectionFactory</code> and attached to <code>SelectionKey</code> key.
- * Selection key is registered to one of Dispatchers <code>Selector</code> to
+ * Class that represent Connection with server socket. Connection is created by <code>ConnectionFactory</code> and
+ * attached to <code>SelectionKey</code> key. Selection key is registered to one of Dispatchers <code>Selector</code> to
  * handle io read and write.
  * 
  * @author -Nemesiss-
@@ -40,8 +40,7 @@ public abstract class AConnection {
 	 */
 	private final SocketChannel socketChannel;
 	/**
-	 * Dispatcher [AcceptReadWriteDispatcherImpl] to witch this connection
-	 * SelectionKey is registered.
+	 * Dispatcher [AcceptReadWriteDispatcherImpl] to witch this connection SelectionKey is registered.
 	 */
 	private final Dispatcher dispatcher;
 	/**
@@ -49,13 +48,11 @@ public abstract class AConnection {
 	 */
 	private SelectionKey key;
 	/**
-	 * True if this connection should be closed after sending last server
-	 * packet.
+	 * True if this connection should be closed after sending last server packet.
 	 */
 	protected boolean pendingClose;
 	/**
-	 * True if OnDisconnect() method should be called immediately after this
-	 * connection was closed.
+	 * True if OnDisconnect() method should be called immediately after this connection was closed.
 	 */
 	protected boolean isForcedClosing;
 	/**
@@ -76,8 +73,7 @@ public abstract class AConnection {
 	public final ByteBuffer readBuffer;
 
 	/**
-	 * Caching ip address to make sure that {@link #getIP()} method works even
-	 * after disconnection
+	 * Caching ip address to make sure that {@link #getIP()} method works even after disconnection
 	 */
 	private final String ip;
 
@@ -106,8 +102,7 @@ public abstract class AConnection {
 	}
 
 	/**
-	 * Set selection key - result of registration this AConnection socketChannel
-	 * to one of dispatchers.
+	 * Set selection key - result of registration this AConnection socketChannel to one of dispatchers.
 	 * 
 	 * @param key
 	 */
@@ -140,12 +135,12 @@ public abstract class AConnection {
 	}
 
 	/**
-	 * Connection will be closed at some time [by Dispatcher Thread], after that
-	 * onDisconnect() method will be called to clear all other things.
+	 * Connection will be closed at some time [by Dispatcher Thread], after that onDisconnect() method will be called to
+	 * clear all other things.
 	 * 
 	 * @param forced
-	 *            is just hint that getDisconnectionDelay() should return 0 so
-	 *            OnDisconnect() method will be called without any delay.
+	 *          is just hint that getDisconnectionDelay() should return 0 so OnDisconnect() method will be called without
+	 *          any delay.
 	 */
 	public final void close(boolean forced) {
 		synchronized (guard) {
@@ -158,16 +153,14 @@ public abstract class AConnection {
 	}
 
 	/**
-	 * This will only close the connection without taking care of the rest. May
-	 * be called only by Dispatcher Thread. Returns true if connection was not
-	 * closed before.
+	 * This will only close the connection without taking care of the rest. May be called only by Dispatcher Thread.
+	 * Returns true if connection was not closed before.
 	 * 
 	 * @return true if connection was not closed before.
 	 */
 	final boolean onlyClose() {
 		/**
-		 * Test if this build should use assertion. If NetworkAssertion == false
-		 * javac will remove this code block
+		 * Test if this build should use assertion. If NetworkAssertion == false javac will remove this code block
 		 */
 		if (Assertion.NetworkAssertion)
 			assert Thread.currentThread() == dispatcher;
@@ -182,7 +175,8 @@ public abstract class AConnection {
 					key.cancel();
 				}
 				closed = true;
-			} catch (IOException ignored) {
+			}
+			catch (IOException ignored) {
 			}
 		}
 		return true;
@@ -210,8 +204,7 @@ public abstract class AConnection {
 	}
 
 	/**
-	 * Used only for PacketProcessor synchronization purpose. Return true if
-	 * locked successful - if wasn't locked before.
+	 * Used only for PacketProcessor synchronization purpose. Return true if locked successful - if wasn't locked before.
 	 * 
 	 * @return locked
 	 */
@@ -222,8 +215,7 @@ public abstract class AConnection {
 	}
 
 	/**
-	 * Used only for PacketProcessor synchronization purpose. Unlock this
-	 * connection.
+	 * Used only for PacketProcessor synchronization purpose. Unlock this connection.
 	 */
 	void unlockConnection() {
 		locked = false;
@@ -231,44 +223,39 @@ public abstract class AConnection {
 
 	/**
 	 * @param data
-	 * @return True if data was processed correctly, False if some error
-	 *         occurred and connection should be closed NOW.
+	 * @return True if data was processed correctly, False if some error occurred and connection should be closed NOW.
 	 */
 	abstract protected boolean processData(ByteBuffer data);
 
 	/**
-	 * This method will be called by Dispatcher, and will be repeated till
-	 * return false.
+	 * This method will be called by Dispatcher, and will be repeated till return false.
 	 * 
 	 * @param data
-	 * @return True if data was written to buffer, False indicating that there
-	 *         are not any more data to write.
+	 * @return True if data was written to buffer, False indicating that there are not any more data to write.
 	 */
 	abstract protected boolean writeData(ByteBuffer data);
 
 	/**
-	 * Called when AConnection object is fully initialized and ready to process
-	 * and send packets. It may be used as hook for sending first packet etc.
+	 * Called when AConnection object is fully initialized and ready to process and send packets. It may be used as hook
+	 * for sending first packet etc.
 	 */
 	abstract protected void initialized();
 
 	/**
-	 * This method is called by Dispatcher when connection is ready to be
-	 * closed.
+	 * This method is called by Dispatcher when connection is ready to be closed.
 	 * 
 	 * @return time in ms after witch onDisconnect() method will be called.
 	 */
 	abstract protected long getDisconnectionDelay();
 
 	/**
-	 * This method is called by Dispatcher to inform that this connection was
-	 * closed and should be cleared. This method is called only once.
+	 * This method is called by Dispatcher to inform that this connection was closed and should be cleared. This method is
+	 * called only once.
 	 */
 	abstract protected void onDisconnect();
 
 	/**
-	 * This method is called by NioServer to inform that NioServer is shouting
-	 * down. This method is called only once.
+	 * This method is called by NioServer to inform that NioServer is shouting down. This method is called only once.
 	 */
 	abstract protected void onServerClose();
 }

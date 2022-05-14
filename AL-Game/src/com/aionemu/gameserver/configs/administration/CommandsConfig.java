@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.administration;
 
 import com.aionemu.commons.configuration.Property;
@@ -25,14 +26,10 @@ public class CommandsConfig {
 
 	@Property(key = "add", defaultValue = "1")
 	public static int ADD;
-	@Property(key = "addcraft", defaultValue = "3")
-	public static int ADDCRAFT;
 	@Property(key = "adddrop", defaultValue = "1")
 	public static int ADDDROP;
 	@Property(key = "addexp", defaultValue = "1")
 	public static int ADDEXP;
-	@Property(key = "addcp", defaultValue = "3")
-	public static int ADDCP;
 	@Property(key = "addset", defaultValue = "3")
 	public static int ADDSET;
 	@Property(key = "addskill", defaultValue = "3")
@@ -53,22 +50,20 @@ public class CommandsConfig {
 	public static int ANNONCEFACTION;
 	@Property(key = "appearance", defaultValue = "3")
 	public static int APPEARANCE;
+	@Property(key = "attrbonus", defaultValue = "3")
+	public static int ATTRBONUS;
 	@Property(key = "ban", defaultValue = "3")
 	public static int BAN;
 	@Property(key = "banchar", defaultValue = "3")
 	public static int BANCHAR;
 	@Property(key = "banip", defaultValue = "3")
 	public static int BANIP;
-	@Property(key = "banhdd", defaultValue = "3")
-	public static int BANHDD;
 	@Property(key = "banmac", defaultValue = "3")
 	public static int BANMAC;
 	@Property(key = "base", defaultValue = "3")
 	public static int BASE;
 	@Property(key = "bk", defaultValue = "3")
 	public static int BK;
-	@Property(key = "clean", defaultValue = "3")
-	public static int CLEAN_INVENTORY;
 	@Property(key = "channel", defaultValue = "3")
 	public static int CHANNEL;
 	@Property(key = "collide", defaultValue = "3")
@@ -84,6 +79,8 @@ public class CommandsConfig {
 	@Property(key = "delskill", defaultValue = "3")
 	public static int DELSKILL;
 	@Property(key = "dispel", defaultValue = "3")
+	public static int DROPINFO;
+	@Property(key = "dropinfo", defaultValue = "3")
 	public static int DISPELL;
 	@Property(key = "enemy", defaultValue = "3")
 	public static int ENEMY;
@@ -91,10 +88,6 @@ public class CommandsConfig {
 	public static int EQUIP;
 	@Property(key = "fixpath", defaultValue = "3")
 	public static int FIXPATH;
-	@Property(key = "fixz", defaultValue = "3")
-	public static int FIXZ;
-	@Property(key = "fixh", defaultValue = "3")
-	public static int FIXH;
 	@Property(key = "fsc", defaultValue = "3")
 	public static int FSC;
 	@Property(key = "gp", defaultValue = "3")
@@ -115,12 +108,8 @@ public class CommandsConfig {
 	public static int HEAL;
 	@Property(key = "html", defaultValue = "3")
 	public static int HTML;
-	@Property(key = "id", defaultValue = "3")
-	public static int ID;
 	@Property(key = "info", defaultValue = "3")
 	public static int INFO;
-	@Property(key = "inventory", defaultValue = "3")
-	public static int Inventory;
 	@Property(key = "invis", defaultValue = "3")
 	public static int INVIS;
 	@Property(key = "invul", defaultValue = "3")
@@ -157,8 +146,6 @@ public class CommandsConfig {
 	public static int MOVETOPLAYER;
 	@Property(key = "movie", defaultValue = "1")
 	public static int MOVIE;
-	@Property(key = "netban", defaultValue = "1")
-	public static int NETBAN;
 	@Property(key = "neutral", defaultValue = "1")
 	public static int NEUTRAL;
 	@Property(key = "notice", defaultValue = "1")
@@ -199,8 +186,6 @@ public class CommandsConfig {
 	public static int RING;
 	@Property(key = "rprison", defaultValue = "1")
 	public static int RPRISON;
-	@Property(key = "rvr", defaultValue = "3")
-	public static int RVR;
 	@Property(key = "say", defaultValue = "1")
 	public static int SAY;
 	@Property(key = "see", defaultValue = "1")
@@ -215,8 +200,6 @@ public class CommandsConfig {
 	public static int SIEGE;
 	@Property(key = "spawn", defaultValue = "1")
 	public static int SPAWN;
-	@Property(key = "spawnfix", defaultValue = "4")
-	public static int SPAWNFIX;
 	@Property(key = "spawnu", defaultValue = "1")
 	public static int SPAWNU;
 	@Property(key = "speed", defaultValue = "1")
@@ -229,8 +212,6 @@ public class CommandsConfig {
 	public static int STOKEN;
 	@Property(key = "sprison", defaultValue = "1")
 	public static int SPRISON;
-	@Property(key = "svs", defaultValue = "3")
-	public static int SVS;
 	@Property(key = "sys", defaultValue = "4")
 	public static int SYS;
 	@Property(key = "sysmail", defaultValue = "1")
@@ -239,16 +220,10 @@ public class CommandsConfig {
 	public static int TELEPORTATION;
 	@Property(key = "time", defaultValue = "1")
 	public static int TIME;
-	@Property(key = "tvt2", defaultValue = "1")
-	public static int TVT2;
 	@Property(key = "unban", defaultValue = "4")
 	public static int UNBAN;
 	@Property(key = "unbanchar", defaultValue = "4")
 	public static int UNBANCHAR;
-	@Property(key = "unbanhdd", defaultValue = "4")
-	public static int UNBANHDD;
-	@Property(key = "unbannet", defaultValue = "4")
-	public static int UNBANNET;
 	@Property(key = "unbanip", defaultValue = "4")
 	public static int UNBANIP;
 	@Property(key = "ungag", defaultValue = "1")
@@ -278,8 +253,6 @@ public class CommandsConfig {
 	public static int CUBE;
 	@Property(key = "divorce", defaultValue = "0")
 	public static int DIVORCE;
-	@Property(key = "drop", defaultValue = "0")
-	public static int DROP;
 	@Property(key = "dye", defaultValue = "1")
 	public static int DYE;
 	@Property(key = "enchant", defaultValue = "1")
@@ -288,8 +261,6 @@ public class CommandsConfig {
 	public static int EXCHANGE;
 	@Property(key = "eye", defaultValue = "1")
 	public static int EYE;
-	@Property(key = "ffa", defaultValue = "0")
-	public static int FFA;
 	@Property(key = "goevent", defaultValue = "0")
 	public static int GOEVENT;
 	@Property(key = "gmlist", defaultValue = "0")
@@ -328,8 +299,6 @@ public class CommandsConfig {
 	public static int TOLL;
 	@Property(key = "transfer", defaultValue = "0")
 	public static int TRANSFER;
-	@Property(key = "tvt", defaultValue = "0")
-	public static int TVT;
 	@Property(key = "userinfo", defaultValue = "0")
 	public static int USERINFO;
 	@Property(key = "unstuck", defaultValue = "0")

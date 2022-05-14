@@ -14,20 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.main;
 
 import com.aionemu.commons.configuration.Property;
 
-/**
- * @author GiGatR00n v4.7.5.x
- * @reworked Kill3r
- */
 public class MembershipConfig {
 
-	@Property(key = "gameserver.membership.additional.chest.drop", defaultValue = "false")
-	public static boolean ADD_CHEST_DROP;
-	@Property(key = "gameserver.membership.additional.chest.drop.announce", defaultValue = "false")
-	public static boolean ADD_CHEST_DROP_ANNOUNCE;
 	@Property(key = "gameserver.instances.title.requirement", defaultValue = "10")
 	public static byte INSTANCES_TITLE_REQ;
 	@Property(key = "gameserver.instances.race.requirement", defaultValue = "10")
@@ -40,8 +33,10 @@ public class MembershipConfig {
 	public static byte INSTANCES_QUEST_REQ;
 	@Property(key = "gameserver.instances.cooldown", defaultValue = "10")
 	public static byte INSTANCES_COOLDOWN;
+
 	@Property(key = "gameserver.instances.item.requirement", defaultValue = "10")
 	public static byte INSTANCES_ITEM_REQ;
+
 	@Property(key = "gameserver.store.wh.all", defaultValue = "10")
 	public static byte STORE_WH_ALL;
 	@Property(key = "gameserver.store.accountwh.all", defaultValue = "10")
@@ -86,16 +81,6 @@ public class MembershipConfig {
 	public static String TAG_PREMIUM;
 
 	/**
-	 * Membership Welcome Messages (Regular, Premium, VIP)
-	 */
-	@Property(key = "gameserver.membership.welcome.message.regular", defaultValue = "Welcome to %s server.\nYour SERVER RATES:\nExp Rate: %d\nQuest Rate: %d\nDrop Rate: %d\n")
-	public static String WELCOME_REGULAR;
-	@Property(key = "gameserver.membership.welcome.message.premium", defaultValue = " Welcome to %s server.\nYour SERVER RATES:\nExp Rate: %d\nQuest Rate: %d\nDrop Rate: %d\n")
-	public static String WELCOME_PREMIUM;
-	@Property(key = "gameserver.membership.welcome.message.vip", defaultValue = " Welcome to %s server.\nYour SERVER RATES:\nExp Rate: %d\nQuest Rate: %d\nDrop Rate: %d\n")
-	public static String WELCOME_VIP;
-
-	/**
 	 * Online Bonus
 	 */
 	@Property(key = "gameserver.onlinebonus.enable", defaultValue = "true")
@@ -106,11 +91,22 @@ public class MembershipConfig {
 	public static int ONLINE_BONUS_COUNT;
 	@Property(key = "gameserver.onlinebonus.time", defaultValue = "60")
 	public static int ONLINE_BONUS_TIME;
-
-	@Property(key = "gameserver.onlinebonus.abyss.reward", defaultValue = "false")
-	public static boolean ONLINE_BONUS_ABYSS_ENABLE;
-	@Property(key = "gameserver.onlinebonus.ap", defaultValue = "5000")
-	public static int ONLINE_BONUS_AP;
-	@Property(key = "gameserver.onlinebonus.gp", defaultValue = "50")
-	public static int ONLINE_BONUS_GP;
+	/**
+	 * AP Online Bonus
+	 */
+	@Property(key = "gameserver.ap.onlinebonus.enable", defaultValue = "true")
+	public static boolean AP_ONLINE_BONUS_ENABLE;
+	@Property(key = "gameserver.ap.onlinebonus.time", defaultValue = "60")
+	public static int AP_ONLINE_BONUS_TIME;
+	@Property(key = "gameserver.ap.onlinebonus.count", defaultValue = "1000")
+	public static int AP_ONLINE_BONUS_COUNT;
+	/**
+	 * Toll Online Bonus
+	 */
+	@Property(key = "gameserver.toll.onlinebonus.enable", defaultValue = "true")
+	public static boolean TOLL_ONLINE_BONUS_ENABLE;
+	@Property(key = "gameserver.toll.onlinebonus.time", defaultValue = "60")
+	public static int TOLL_ONLINE_BONUS_TIME;
+	@Property(key = "gameserver.toll.onlinebonus.count", defaultValue = "1000")
+	public static int TOLL_ONLINE_BONUS_COUNT;
 }

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -39,6 +40,5 @@ public class SM_LOOT_STATUS extends AionServerPacket {
 	protected void writeImpl(AionConnection con) {
 		writeD(targetObjectId);
 		writeC(state);
-		writeD(0);
 	}
 }

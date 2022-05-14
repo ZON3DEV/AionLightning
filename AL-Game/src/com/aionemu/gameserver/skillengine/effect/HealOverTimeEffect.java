@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,19 +52,17 @@ public abstract class HealOverTimeEffect extends AbstractOverTimeEffect {
 		int possibleHealValue = 0;
 		if (percent) {
 			possibleHealValue = maxCurValue * valueWithDelta / 100;
-		}
-		else {
+		} else {
 			possibleHealValue = valueWithDelta;
 		}
 
 		int finalHeal = possibleHealValue;
 
 		if (healType == HealType.HP) {
-			int baseHeal = possibleHealValue;
 			if (effect.getItemTemplate() == null) {
 				int boostHealAdd = effector.getGameStats().getStat(StatEnum.HEAL_BOOST, 0).getCurrent();
 				// Apply percent Heal Boost bonus (ex. Passive skills)
-				int boostHeal = (effector.getGameStats().getStat(StatEnum.HEAL_BOOST, baseHeal).getCurrent() - boostHealAdd);
+				int boostHeal = (effector.getGameStats().getStat(StatEnum.HEAL_BOOST, possibleHealValue).getCurrent() - boostHealAdd);
 				// Apply Add Heal Boost bonus (ex. Skills like Benevolence)
 				if (boostHealAdd > 0) {
 					boostHeal += boostHeal * boostHealAdd / 1000;

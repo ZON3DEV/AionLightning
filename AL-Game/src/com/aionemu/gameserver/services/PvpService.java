@@ -14,15 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.configs.main.GroupConfig;
@@ -30,28 +31,20 @@ import com.aionemu.gameserver.configs.main.LoggingConfig;
 import com.aionemu.gameserver.configs.main.PunishmentConfig;
 import com.aionemu.gameserver.controllers.attack.AggroInfo;
 import com.aionemu.gameserver.controllers.attack.KillList;
-import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.player.RewardType;
 import com.aionemu.gameserver.model.team2.alliance.PlayerAlliance;
 import com.aionemu.gameserver.model.team2.group.PlayerGroup;
-import com.aionemu.gameserver.model.templates.achievement.AchievementActionType;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
 import com.aionemu.gameserver.questEngine.QuestEngine;
 import com.aionemu.gameserver.questEngine.model.QuestEnv;
 import com.aionemu.gameserver.services.abyss.AbyssPointsService;
-import com.aionemu.gameserver.services.conquerer_protector.ConquerorsService;
 import com.aionemu.gameserver.services.item.ItemService;
-import com.aionemu.gameserver.services.player.AchievementService;
-import com.aionemu.gameserver.skillengine.effect.AbnormalState;
+import com.aionemu.gameserver.utils.audit.AuditLogger;
 import com.aionemu.gameserver.utils.MathUtil;
 import com.aionemu.gameserver.utils.PacketSendUtility;
-import com.aionemu.gameserver.utils.ThreadPoolManager;
-import com.aionemu.gameserver.utils.audit.AuditLogger;
 import com.aionemu.gameserver.utils.stats.AbyssRankEnum;
 import com.aionemu.gameserver.utils.stats.StatFunctions;
-
-import javolution.util.FastMap;
 
 /**
  * @author Sarynth
@@ -65,10 +58,9 @@ public class PvpService {
 	}
 
 	private FastMap<Integer, KillList> pvpKillLists;
-	private ArrayList<String> antiZergMap;
 
 	private PvpService() {
-		pvpKillLists = new FastMap<>();
+		pvpKillLists = new FastMap<Integer, KillList>();
 	}
 
 	/**
@@ -96,7 +88,7 @@ public class PvpService {
 			pvpKillLists.put(winnerId, winnerKillList);
 		}
 		winnerKillList.addKillFor(victimId);
-	}
+    }
 
 	/**
 	 * @param victim
@@ -109,31 +101,34 @@ public class PvpService {
 
 		if (totalDamage == 0 || winner == null || winner.getRace() == victim.getRace()) {
 			return;
-		}
+        }
 
-		// Add Player Kill to record.
-		if (this.getKillsFor(winner.getObjectId(), victim.getObjectId()) < CustomConfig.MAX_DAILY_PVP_KILLS) {
-			winner.getAbyssRank().setAllKill();
-			int kills = winner.getAbyssRank().getAllKill();
-			// Pvp Kill Reward.
-			if (CustomConfig.ENABLE_KILL_REWARD) {
-				if (kills % CustomConfig.KILLS_NEEDED1 == 1) {
-					ItemService.addItem(winner, CustomConfig.REWARD1, 1);
-					PacketSendUtility.sendMessage(winner, "Congratulations, you have won " + "[item: " + CustomConfig.REWARD1 + "] for having killed " + CustomConfig.KILLS_NEEDED1 + " players !");
-					log.info("[REWARD] Player [" + winner.getName() + "] win 2 [" + CustomConfig.REWARD1 + "]");
-				}
-				if (kills % CustomConfig.KILLS_NEEDED2 == 3) {
-					ItemService.addItem(winner, CustomConfig.REWARD2, 1);
-					PacketSendUtility.sendMessage(winner, "Congratulations, you have won " + "[item: " + CustomConfig.REWARD2 + "] for having killed " + CustomConfig.KILLS_NEEDED2 + " players !");
-					log.info("[REWARD] Player [" + winner.getName() + "] win 4 [" + CustomConfig.REWARD2 + "]");
-				}
-				if (kills % CustomConfig.KILLS_NEEDED3 == 5) {
-					ItemService.addItem(winner, CustomConfig.REWARD3, 1);
-					PacketSendUtility.sendMessage(winner, "Congratulations, you have won " + "[item: " + CustomConfig.REWARD3 + "] for having killed " + CustomConfig.KILLS_NEEDED3 + " players !");
-					log.info("[REWARD] Player [" + winner.getName() + "] win 6 [" + CustomConfig.REWARD3 + "]");
-				}
-			}
-		}
+        // Add Player Kill to record.
+        if (this.getKillsFor(winner.getObjectId(), victim.getObjectId()) < CustomConfig.MAX_DAILY_PVP_KILLS) {
+            winner.getAbyssRank().setAllKill();
+            int kills = winner.getAbyssRank().getAllKill();
+            // Pvp Kill Reward.
+            if (CustomConfig.ENABLE_KILL_REWARD) {
+                if (kills % CustomConfig.KILLS_NEEDED1 == 1) {
+                    ItemService.addItem(winner, CustomConfig.REWARD1, 1);
+                    PacketSendUtility.sendMessage(winner, "Congratulations, you have won " + "[item: " + CustomConfig.REWARD1
+                            + "] for having killed " + CustomConfig.KILLS_NEEDED1 + " players !");
+                    log.info("[REWARD] Player [" + winner.getName() + "] win 2 [" + CustomConfig.REWARD1 + "]");
+                }
+                if (kills % CustomConfig.KILLS_NEEDED2 == 3) {
+                    ItemService.addItem(winner, CustomConfig.REWARD2, 1);
+                    PacketSendUtility.sendMessage(winner, "Congratulations, you have won " + "[item: " + CustomConfig.REWARD2
+                            + "] for having killed " + CustomConfig.KILLS_NEEDED2 + " players !");
+                    log.info("[REWARD] Player [" + winner.getName() + "] win 4 [" + CustomConfig.REWARD2 + "]");
+                }
+                if (kills % CustomConfig.KILLS_NEEDED3 == 5) {
+                    ItemService.addItem(winner, CustomConfig.REWARD3, 1);
+                    PacketSendUtility.sendMessage(winner, "Congratulations, you have won " + "[item: " + CustomConfig.REWARD3
+                            + "] for having killed " + CustomConfig.KILLS_NEEDED3 + " players !");
+                    log.info("[REWARD] Player [" + winner.getName() + "] win 6 [" + CustomConfig.REWARD3 + "]");
+                }
+            }
+        }
 
 		// Announce that player has died.
 		PacketSendUtility.broadcastPacketAndReceive(victim, SM_SYSTEM_MESSAGE.STR_MSG_COMBAT_FRIENDLY_DEATH_TO_B(victim.getName(), winner.getName()));
@@ -157,21 +152,21 @@ public class PvpService {
 			String mac1 = winner.getClientConnection().getMacAddress();
 			String ip2 = victim.getClientConnection().getIP();
 			String mac2 = victim.getClientConnection().getMacAddress();
-			if ((mac1 != null) && (mac2 != null) && winner.getAccessLevel() < 3 && victim.getAccessLevel() < 3) {
+			if ((mac1 != null) && (mac2 != null)) {
 				if ((ip1.equalsIgnoreCase(ip2)) && (mac1.equalsIgnoreCase(mac2))) {
-					AuditLogger.info(winner, "Power Leveling : " + winner.getName() + " with " + victim.getName() + ", They have the sames ip=" + ip1 + " and mac=" + mac1 + ".");
+                    AuditLogger.info(winner, "Power Leveling : " + winner.getName() + " with " + victim.getName() + ", They have the sames ip=" + ip1 + " and mac=" + mac1 + ".");
 					if (reduceap > 0) {
 						int win_ap = winner.getAbyssRank().getAp() * reduceap / 100;
 						int vic_ap = victim.getAbyssRank().getAp() * reduceap / 100;
 						AbyssPointsService.addAp(winner, -win_ap);
 						AbyssPointsService.addAp(victim, -vic_ap);
-						PacketSendUtility.sendMessage(winner, "[PL-AP] You lost " + reduceap + "% of your total ap");
-						PacketSendUtility.sendMessage(victim, "[PL-AP] You lost " + reduceap + "% of your total ap");
+						PacketSendUtility.sendMessage(winner, "[PL-AP] Báº¡n bá»‹ thiá»‡t háº¡i " + reduceap + "% trong tá»•ng sá»‘ AP cá»§a báº¡n.");
+						PacketSendUtility.sendMessage(victim, "[PL-AP] Báº¡n bá»‹ thiá»‡t háº¡i " + reduceap + "% trong tá»•ng sá»‘ AP cá»§a báº¡n.");
 					}
 					return;
 				}
 				if (ip1.equalsIgnoreCase(ip2)) {
-					AuditLogger.info(winner, "Possible Power Leveling : " + winner.getName() + " with " + victim.getName() + ", They have the sames ip=" + ip1 + ".");
+                    AuditLogger.info(winner, "Possible Power Leveling : " + winner.getName() + " with " + victim.getName() + ", They have the sames ip=" + ip1 + ".");
 					AuditLogger.info(winner, "Check if " + winner.getName() + " and " + victim.getName() + " are Brothers-Sisters-Lovers-dogs-cats...");
 				}
 			}
@@ -187,27 +182,26 @@ public class PvpService {
 			success = false;
 			if (aggro.getAttacker() instanceof Player) {
 				success = rewardPlayer(victim, totalDamage, aggro);
-			}
-			else if (aggro.getAttacker() instanceof PlayerGroup) {
+			} else if (aggro.getAttacker() instanceof PlayerGroup) {
 				success = rewardPlayerGroup(victim, totalDamage, aggro);
-			}
-			else if (aggro.getAttacker() instanceof PlayerAlliance) {
+			} else if (aggro.getAttacker() instanceof PlayerAlliance) {
 				success = rewardPlayerAlliance(victim, totalDamage, aggro);
 			}
 
-			// Add damage last, so we don't include damage from same race. (Duels, Arena)
+            // Add damage last, so we don't include damage from same race. (Duels, Arena)
 			if (success) {
 				playerDamage += aggro.getDamage();
 			}
 		}
-		ConquerorsService.getInstance().onKill(winner, victim);
+
+		SerialKillerService.getInstance().updateRank(winner, victim);
 
 		// notify Quest engine for winner + his group
 		notifyKillQuests(winner, victim);
 
 		// Apply lost AP to defeated player
 		final int apLost = StatFunctions.calculatePvPApLost(victim, winner);
-		final int apActuallyLost = apLost * playerDamage / totalDamage;
+		final int apActuallyLost = (int) (apLost * playerDamage / totalDamage);
 
 		if (apActuallyLost > 0) {
 			AbyssPointsService.addAp(victim, -apActuallyLost);
@@ -230,7 +224,7 @@ public class PvpService {
 		}
 
 		// Find group members in range
-		List<Player> players = new ArrayList<>();
+		List<Player> players = new ArrayList<Player>();
 
 		// Find highest rank and level in local group
 		int maxRank = AbyssRankEnum.GRADE9_SOLDIER.getId();
@@ -247,28 +241,6 @@ public class PvpService {
 					if (member.getAbyssRank().getRank().getId() > maxRank) {
 						maxRank = member.getAbyssRank().getRank().getId();
 					}
-				}
-
-				if (Zerg(member, victim) > CustomConfig.ANTI_ZERG_COUNT && !victim.isInGroup2()) {
-					PlayerGroup grp = member.getPlayerGroup2();
-					for (final Player members : grp.getMembers()) {
-						PacketSendUtility.sendWhiteMessageOnCenter(members, "Zerg system : No AP won ! Do not be more than " + CustomConfig.ANTI_ZERG_COUNT + " of the same person!");
-						members.getEffectController().setAbnormal(AbnormalState.SLEEP.getId());
-						members.getEffectController().updatePlayerEffectIcons();
-						members.getEffectController().broadCastEffects();
-						ThreadPoolManager.getInstance().schedule(new Runnable() {
-
-							@Override
-							public void run() {
-								members.getEffectController().unsetAbnormal(AbnormalState.SLEEP.getId());
-								members.getEffectController().updatePlayerEffectIcons();
-								members.getEffectController().broadCastEffects();
-							}
-
-						}, 13 * 1000);
-
-					}
-					return false;
 				}
 			}
 		}
@@ -304,15 +276,13 @@ public class PvpService {
 			}
 			Player partner = member.findPartner();
 			if (member.isMarried() && member.getPlayerGroup2().getMembers() == partner && member.getPlayerGroup2().getMembers().size() == 2) {
-				AbyssPointsService.addAp(member, victim, memberApGain + (memberApGain * 20 / 100)); // 20% more AP for weddings
-			}
-			else {
+                AbyssPointsService.addAp(member, victim, memberApGain + (memberApGain * 20 / 100)); //20% more AP for weddings
+			} else {
 				AbyssPointsService.addAp(member, victim, memberApGain);
 			}
 			member.getCommonData().addExp(memberXpGain, RewardType.PVP_KILL, victim.getName());
+            member.getCommonData().addEventExp(memberXpGain);
 			member.getCommonData().addDp(memberDpGain);
-			AchievementService.getInstance().onUpdateAchievementAction(member, 0, 1, AchievementActionType.PVP);
-
 			this.addKillFor(member.getObjectId(), victim.getObjectId());
 		}
 
@@ -335,7 +305,7 @@ public class PvpService {
 		}
 
 		// Find group members in range
-		List<Player> players = new ArrayList<>();
+		List<Player> players = new ArrayList<Player>();
 
 		// Find highest rank and level in local group
 		int maxRank = AbyssRankEnum.GRADE9_SOLDIER.getId();
@@ -389,8 +359,8 @@ public class PvpService {
 			}
 			AbyssPointsService.addAp(member, victim, memberApGain);
 			member.getCommonData().addExp(memberXpGain, RewardType.PVP_KILL, victim.getName());
+            member.getCommonData().addEventExp(memberXpGain);
 			member.getCommonData().addDp(memberDpGain);
-			AchievementService.getInstance().onUpdateAchievementAction(member, 0, 1, AchievementActionType.PVP);
 
 			this.addKillFor(member.getObjectId(), victim.getObjectId());
 		}
@@ -409,7 +379,7 @@ public class PvpService {
 		Player winner = ((Player) aggro.getAttacker());
 
 		// Don't Reward Player out of range/dead/same faction
-		if (winner.getRace() == victim.getRace() || !MathUtil.isIn3dRange(winner, victim, GroupConfig.GROUP_MAX_DISTANCE) || winner.getLifeStats().isAlreadyDead()) {
+        if (winner.getRace() == victim.getRace() || !MathUtil.isIn3dRange(winner, victim, GroupConfig.GROUP_MAX_DISTANCE) || winner.getLifeStats().isAlreadyDead()) {
 			return false;
 		}
 
@@ -430,8 +400,8 @@ public class PvpService {
 
 		AbyssPointsService.addAp(winner, victim, apPlayerReward);
 		winner.getCommonData().addExp(xpPlayerReward, RewardType.PVP_KILL, victim.getName());
+        winner.getCommonData().addEventExp(xpPlayerReward);
 		winner.getCommonData().addDp(dpPlayerReward);
-		AchievementService.getInstance().onUpdateAchievementAction(winner, 0, 1, AchievementActionType.PVP);
 		this.addKillFor(winner.getObjectId(), victim.getObjectId());
 		return true;
 	}
@@ -441,16 +411,14 @@ public class PvpService {
 			return;
 		}
 
-		List<Player> rewarded = new ArrayList<>();
+		List<Player> rewarded = new ArrayList<Player>();
 		int worldId = victim.getWorldId();
 
 		if (winner.isInGroup2()) {
 			rewarded.addAll(winner.getPlayerGroup2().getOnlineMembers());
-		}
-		else if (winner.isInAlliance2()) {
+		} else if (winner.isInAlliance2()) {
 			rewarded.addAll(winner.getPlayerAllianceGroup2().getOnlineMembers());
-		}
-		else {
+		} else {
 			rewarded.add(winner);
 		}
 
@@ -463,48 +431,6 @@ public class PvpService {
 			QuestEngine.getInstance().onKillRanked(new QuestEnv(victim, p, 0, 0), victim.getAbyssRank().getRank());
 		}
 		rewarded.clear();
-	}
-
-	@SuppressWarnings("unlikely-arg-type")
-	private int Zerg(Player winner, Player victim) {
-		if (!CustomConfig.ANTI_ZERG_ENABLED) {
-			return 0;
-		}
-
-		antiZergMap = null;
-
-		if (!Objects.equals(CustomConfig.ANTI_ZERG_MAP, "")) {
-			try {
-
-				Collections.addAll(antiZergMap, CustomConfig.ANTI_ZERG_MAP.split(","));
-
-				if (!antiZergMap.contains(winner.getWorldId()) && !antiZergMap.contains(victim.getWorldId())) {
-					return 0;
-				}
-
-			}
-			catch (Exception ex) {
-				log.error(ex.getMessage());
-				return 0;
-			}
-		}
-
-		int zergeurs = 0;
-
-		for (AggroInfo ai : victim.getAggroList().getList()) {
-
-			Creature master = ((Creature) ai.getAttacker()).getMaster();
-			if (master instanceof Player) {
-				Player player = (Player) master;
-				if (player.isInGroup2()) {
-					if (player.isInSameTeam(winner)) {
-						zergeurs++;
-					}
-				}
-			}
-
-		}
-		return zergeurs;
 	}
 
 	@SuppressWarnings("synthetic-access")

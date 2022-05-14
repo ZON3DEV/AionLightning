@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item.actions;
 
 import com.aionemu.gameserver.model.gameobjects.HouseObject;
@@ -22,6 +23,7 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
  * @author Rolandas
+ *
  */
 public interface IHouseObjectDyeAction {
 

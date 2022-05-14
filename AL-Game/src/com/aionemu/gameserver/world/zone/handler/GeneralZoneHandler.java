@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world.zone.handler;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
@@ -21,6 +22,7 @@ import com.aionemu.gameserver.world.zone.ZoneInstance;
 
 /**
  * @author MrPoke
+ *
  */
 public class GeneralZoneHandler implements ZoneHandler {
 

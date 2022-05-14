@@ -14,11 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.items.storage;
 
-import java.util.List;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
+package com.aionemu.gameserver.model.items.storage;
 
 import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
@@ -33,8 +30,11 @@ import com.aionemu.gameserver.services.item.ItemPacketService.ItemAddType;
 import com.aionemu.gameserver.services.item.ItemPacketService.ItemDeleteType;
 import com.aionemu.gameserver.services.item.ItemPacketService.ItemUpdateType;
 import com.aionemu.gameserver.services.item.ItemService;
-
 import javolution.util.FastList;
+
+import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * @author KID, ATracer
@@ -77,7 +77,7 @@ public abstract class Storage implements IStorage {
 		return storageType;
 	}
 
-	public void increaseKinah(long amount, Player actor) {
+	void increaseKinah(long amount, Player actor) {
 		increaseKinah(amount, ItemUpdateType.INC_KINAH_COLLECT, actor);
 	}
 
@@ -91,11 +91,12 @@ public abstract class Storage implements IStorage {
 	}
 
 	/**
-	 * Decrease kinah by {@code amount} but check first that its enough in storage
+	 * Decrease kinah by {@code amount} but check first that its enough in
+	 * storage
 	 *
 	 * @return true if decrease was successful
 	 */
-	public boolean tryDecreaseKinah(long amount, Player actor) {
+	boolean tryDecreaseKinah(long amount, Player actor) {
 		if (getKinah() >= amount) {
 			decreaseKinah(amount, actor);
 			return true;
@@ -114,7 +115,7 @@ public abstract class Storage implements IStorage {
 	/**
 	 * just decrease kinah without any checks
 	 */
-	public void decreaseKinah(long amount, Player actor) {
+	void decreaseKinah(long amount, Player actor) {
 		decreaseKinah(amount, ItemUpdateType.DEC_KINAH_BUY, actor);
 	}
 
@@ -157,12 +158,10 @@ public abstract class Storage implements IStorage {
 		if (item.getItemCount() <= 0 && !item.getItemTemplate().isKinah()) {
 			if (questStatus == QuestStatus.NONE) {
 				delete(item, ItemDeleteType.fromUpdateType(updateType), actor);
-			}
-			else {
+			} else {
 				delete(item, ItemDeleteType.fromQuestStatus(questStatus), actor);
 			}
-		}
-		else {
+		} else {
 			ItemPacketService.sendItemPacket(actor, storageType, item, updateType);
 		}
 		setPersistentState(PersistentState.UPDATE_REQUIRED);
@@ -170,8 +169,10 @@ public abstract class Storage implements IStorage {
 	}
 
 	/**
-	 * This method should be called only for new items added to inventory (loading from DB) If item is equiped - will be put to equipment if item is unequiped - will be put to default bag for now
-	 * Kinah is stored separately as it will be used frequently
+	 * This method should be called only for new items added to inventory
+	 * (loading from DB) If item is equiped - will be put to equipment if item
+	 * is unequiped - will be put to default bag for now Kinah is stored
+	 * separately as it will be used frequently
 	 *
 	 * @param item
 	 */
@@ -179,8 +180,7 @@ public abstract class Storage implements IStorage {
 	public void onLoadHandler(Item item) {
 		if (item.getItemTemplate().isKinah()) {
 			kinahItem = item;
-		}
-		else {
+		} else {
 			itemStorage.putItem(item);
 		}
 	}
@@ -192,8 +192,7 @@ public abstract class Storage implements IStorage {
 	Item add(Item item, ItemAddType addType, Player actor) {
 		if (item.getItemTemplate().isKinah()) {
 			this.kinahItem = item;
-		}
-		else if (!itemStorage.putItem(item)) {
+		} else if (!itemStorage.putItem(item)) {
 			return null;
 		}
 		item.setItemLocation(storageType.getId());
@@ -220,8 +219,7 @@ public abstract class Storage implements IStorage {
 	public Item add_CharacterTransfer(Item item) {
 		if (item.getItemTemplate().isKinah()) {
 			this.kinahItem = item;
-		}
-		else if (!itemStorage.putItem(item)) {
+		} else if (!itemStorage.putItem(item)) {
 			return null;
 		}
 		item.setItemLocation(storageType.getId());

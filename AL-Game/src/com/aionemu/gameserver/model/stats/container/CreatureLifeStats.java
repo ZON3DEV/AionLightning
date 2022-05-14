@@ -14,17 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.stats.container;
-
-import java.util.concurrent.Future;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
-import javax.annotation.Nonnull;
-
-import org.apache.commons.lang.NullArgumentException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS;
@@ -33,6 +24,14 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_ATTACK_STATUS.TYPE;
 import com.aionemu.gameserver.services.LifeStatsRestoreService;
 import com.aionemu.gameserver.skillengine.effect.AbnormalState;
 import com.aionemu.gameserver.utils.PacketSendUtility;
+import org.apache.commons.lang.NullArgumentException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.annotation.Nonnull;
+import java.util.concurrent.Future;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author ATracer
@@ -87,7 +86,8 @@ public abstract class CreatureLifeStats<T extends Creature> {
 	}
 
 	/**
-	 * @return the alreadyDead There is no setter method cause life stats should be completely renewed on revive
+	 * @return the alreadyDead There is no setter method cause life stats should
+	 *         be completely renewed on revive
 	 */
 	public boolean isAlreadyDead() {
 		return alreadyDead;
@@ -120,8 +120,7 @@ public abstract class CreatureLifeStats<T extends Creature> {
 				}
 				this.currentHp = newHp;
 			}
-		}
-		finally {
+		} finally {
 			hpLock.unlock();
 		}
 		if (value != 0) {
@@ -149,8 +148,7 @@ public abstract class CreatureLifeStats<T extends Creature> {
 			}
 
 			this.currentMp = newMp;
-		}
-		finally {
+		} finally {
 			mpLock.unlock();
 		}
 		if (value != 0) {
@@ -164,7 +162,7 @@ public abstract class CreatureLifeStats<T extends Creature> {
 		{
 			return;
 		}
-		PacketSendUtility.broadcastPacketAndReceive(owner, new SM_ATTACK_STATUS(owner, owner, type, skillId, value, log));
+		PacketSendUtility.broadcastPacketAndReceive(owner, new SM_ATTACK_STATUS(owner, type, skillId, value, log));
 	}
 
 	/**
@@ -197,8 +195,7 @@ public abstract class CreatureLifeStats<T extends Creature> {
 				this.currentHp = newHp;
 				hpIncreased = true;
 			}
-		}
-		finally {
+		} finally {
 			hpLock.unlock();
 		}
 
@@ -233,8 +230,7 @@ public abstract class CreatureLifeStats<T extends Creature> {
 				this.currentMp = newMp;
 				mpIncreased = true;
 			}
-		}
-		finally {
+		} finally {
 			mpLock.unlock();
 		}
 
@@ -267,8 +263,7 @@ public abstract class CreatureLifeStats<T extends Creature> {
 			if (lifeRestoreTask == null && !alreadyDead) {
 				lifeRestoreTask = LifeStatsRestoreService.getInstance().scheduleRestoreTask(this);
 			}
-		}
-		finally {
+		} finally {
 			restoreLock.unlock();
 		}
 
@@ -284,8 +279,7 @@ public abstract class CreatureLifeStats<T extends Creature> {
 				lifeRestoreTask.cancel(false);
 				lifeRestoreTask = null;
 			}
-		}
-		finally {
+		} finally {
 			restoreLock.unlock();
 		}
 	}
@@ -309,7 +303,9 @@ public abstract class CreatureLifeStats<T extends Creature> {
 	}
 
 	/**
-	 * The purpose of this method is synchronize current HP and MP with updated MAXHP and MAXMP stats This method should be called only on creature load to game or player level up
+	 * The purpose of this method is synchronize current HP and MP with updated
+	 * MAXHP and MAXMP stats This method should be called only on creature load
+	 * to game or player level up
 	 */
 	public void synchronizeWithMaxStats() {
 		int maxHp = getMaxHp();
@@ -323,7 +319,8 @@ public abstract class CreatureLifeStats<T extends Creature> {
 	}
 
 	/**
-	 * The purpose of this method is synchronize current HP and MP with MAXHP and MAXMP when max stats were decreased below current level
+	 * The purpose of this method is synchronize current HP and MP with MAXHP
+	 * and MAXMP when max stats were decreased below current level
 	 */
 	public void updateCurrentStats() {
 		int maxHp = getMaxHp();
@@ -347,8 +344,7 @@ public abstract class CreatureLifeStats<T extends Creature> {
 	public int getHpPercentage() {
 		if ((int) (100f * currentHp / getMaxHp()) == 0 && currentHp > 0) {
 			return 1;
-		}
-		else {
+		} else {
 			return (int) (100f * currentHp / getMaxHp());
 		}
 	}
@@ -396,7 +392,8 @@ public abstract class CreatureLifeStats<T extends Creature> {
 	}
 
 	/**
-	 * This method can be used for Npc's to fully restore its HP and remove dead state of lifestats
+	 * This method can be used for Npc's to fully restore its HP and remove dead
+	 * state of lifestats
 	 *
 	 * @param hpPercent
 	 */
@@ -408,8 +405,7 @@ public abstract class CreatureLifeStats<T extends Creature> {
 			if (this.currentHp > 0) {
 				this.alreadyDead = false;
 			}
-		}
-		finally {
+		} finally {
 			hpLock.unlock();
 		}
 	}
@@ -430,8 +426,7 @@ public abstract class CreatureLifeStats<T extends Creature> {
 			if (this.currentHp < getMaxHp()) {
 				hpNotAtMaxValue = true;
 			}
-		}
-		finally {
+		} finally {
 			hpLock.unlock();
 		}
 		if (hpNotAtMaxValue) {
@@ -449,8 +444,7 @@ public abstract class CreatureLifeStats<T extends Creature> {
 			}
 
 			this.currentMp = newMp;
-		}
-		finally {
+		} finally {
 			mpLock.unlock();
 		}
 		onReduceMp();
@@ -466,8 +460,7 @@ public abstract class CreatureLifeStats<T extends Creature> {
 		mpLock.lock();
 		try {
 			this.currentMp = (int) (mpPercent / 100f * getMaxMp());
-		}
-		finally {
+		} finally {
 			mpLock.unlock();
 		}
 	}

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item.actions;
 
 import javax.xml.bind.annotation.XmlAttribute;
@@ -105,8 +106,7 @@ public class ApExtractAction extends AbstractItemAction {
 			if (inventory.decreaseByObjectId(parentItem.getObjectId(), 1)) {
 				AbyssPointsService.addAp(player, ap);
 			}
-		}
-		else {
+		} else {
 			AuditLogger.info(player, "Possible extract item hack, do not remove item.");
 		}
 	}

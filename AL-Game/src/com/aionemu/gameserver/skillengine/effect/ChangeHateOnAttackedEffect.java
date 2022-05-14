@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -52,7 +53,6 @@ public class ChangeHateOnAttackedEffect extends EffectTemplate {
 		final int finalValue = value1 + value2;
 
 		ActionObserver observer = new ActionObserver(ObserverType.ATTACKED) {
-
 			@Override
 			public void attacked(Creature creature) {
 				if (creature instanceof Npc) {

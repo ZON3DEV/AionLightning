@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import java.util.concurrent.Future;
@@ -53,7 +54,6 @@ public class SummonGroupGateEffect extends SummonEffect {
 		final GroupGate groupgate = VisibleObjectSpawner.spawnGroupGate(spawn, instanceId, effector);
 
 		Future<?> task = ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 

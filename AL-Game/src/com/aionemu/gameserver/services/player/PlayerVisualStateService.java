@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.player;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -26,7 +27,6 @@ public class PlayerVisualStateService {
 
 	public static void hideValidate(final Player hiden) {
 		hiden.getKnownList().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player observer) {
 				boolean canSee = observer.canSee(hiden);
@@ -34,8 +34,7 @@ public class PlayerVisualStateService {
 
 				if (canSee && !isSee) {
 					observer.getKnownList().addVisualObject(hiden);
-				}
-				else if (!canSee && isSee) {
+				} else if (!canSee && isSee) {
 					observer.getKnownList().delVisualObject(hiden, false);
 				}
 			}
@@ -44,7 +43,6 @@ public class PlayerVisualStateService {
 
 	public static void seeValidate(final Player search) {
 		search.getKnownList().doOnAllPlayers(new Visitor<Player>() {
-
 			@Override
 			public void visit(Player hide) {
 				boolean canSee = search.canSee(hide);
@@ -52,8 +50,7 @@ public class PlayerVisualStateService {
 
 				if (canSee && !isSee) {
 					search.getKnownList().addVisualObject(hide);
-				}
-				else if (!canSee && isSee) {
+				} else if (!canSee && isSee) {
 					search.getKnownList().delVisualObject(hide, false);
 				}
 			}

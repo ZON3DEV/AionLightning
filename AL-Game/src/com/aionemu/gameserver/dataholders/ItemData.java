@@ -14,7 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
+
+import gnu.trove.map.hash.TIntObjectHashMap;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -32,17 +35,13 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.items.ItemMask;
+import com.aionemu.gameserver.model.templates.item.ItemCategory;
 import com.aionemu.gameserver.model.templates.item.ItemTemplate;
 import com.aionemu.gameserver.model.templates.restriction.ItemCleanupTemplate;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
-import gnu.trove.map.hash.TIntObjectHashMap;
-
 /**
  * @author Luno
- * @Reworked GiGatR00n (Aion-Core)
- * @Reworked Kill3r (Aion-Core)
- * @Rework FrozenKiller
  */
 @XmlRootElement(name = "item_templates")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -54,11 +53,20 @@ public class ItemData extends ReloadableData {
 	private TIntObjectHashMap<ItemTemplate> items;
 	@XmlTransient
 	Map<Integer, List<ItemTemplate>> manastones = new HashMap<Integer, List<ItemTemplate>>();
+    @XmlTransient
+    private TIntObjectHashMap<ItemTemplate> itemTemplates;
 
 	void afterUnmarshal(Unmarshaller u, Object parent) {
 		items = new TIntObjectHashMap<ItemTemplate>();
 		for (ItemTemplate it : its) {
 			items.put(it.getTemplateId(), it);
+			if (it.getCategory().equals(ItemCategory.MANASTONE)) {
+				int level = it.getLevel();
+				if (!manastones.containsKey(level)) {
+					manastones.put(level, new ArrayList<ItemTemplate>());
+				}
+				manastones.get(level).add(it);
+			}
 		}
 		its = null;
 	}
@@ -91,6 +99,33 @@ public class ItemData extends ReloadableData {
 		return items.get(itemId);
 	}
 
+    /**
+     *
+     * @return itemTemplates
+     */
+    public String getItemDescr(String descr){
+        for(ItemTemplate it : items.valueCollection()){
+            if(descr.equalsIgnoreCase(it.getDescr())){
+                return it.getDescr();
+            }
+        }
+        return "";
+    }
+
+    public int giveItemIdOf(String descr){
+        for(ItemTemplate it : items.valueCollection()){
+            if(descr.equalsIgnoreCase(it.getDescr())){
+                return it.getTemplateId();
+            }
+        }
+        return 0;
+    }
+
+
+    //public TIntObjectHashMap<ItemTemplate> getItemTemplates(String bydesc){
+    //    return items;
+    //}
+
 	/**
 	 * @return items.size()
 	 */
@@ -117,12 +152,10 @@ public class ItemData extends ReloadableData {
 				newTemplates.addAll(data.getData());
 			}
 			DataManager.ITEM_DATA.setData(newTemplates);
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			PacketSendUtility.sendMessage(admin, "Item templates reload failed!");
 			log.error("Item templates reload failed!", e);
-		}
-		finally {
+		} finally {
 			PacketSendUtility.sendMessage(admin, "Item templates reload Success! Total loaded: " + DataManager.ITEM_DATA.size());
 		}
 	}
@@ -137,9 +170,5 @@ public class ItemData extends ReloadableData {
 	protected void setData(List<?> data) {
 		this.its = (List<ItemTemplate>) data;
 		this.afterUnmarshal(null, null);
-	}
-
-	public TIntObjectHashMap<ItemTemplate> getItemData() {
-		return items;
 	}
 }

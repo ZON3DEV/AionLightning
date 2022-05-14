@@ -14,10 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.Kisk;
-import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 
@@ -34,6 +34,7 @@ public class SM_KISK_UPDATE extends AionServerPacket {
 	// 5 ~ alliance
 	// of course, we must programmatically check as well.
 	private int objId;
+  	private int creatorid;
 	private int useMask;
 	private int currentMembers;
 	private int maxMembers;
@@ -42,9 +43,8 @@ public class SM_KISK_UPDATE extends AionServerPacket {
 	private int remainingLifetime;
 
 	public SM_KISK_UPDATE(Kisk kisk) {
-
 		this.objId = kisk.getObjectId();
-
+    	this.creatorid = kisk.getCreatorId();
 		this.useMask = kisk.getUseMask();
 		this.currentMembers = kisk.getCurrentMemberCount();
 		this.maxMembers = kisk.getMaxMembers();
@@ -55,9 +55,8 @@ public class SM_KISK_UPDATE extends AionServerPacket {
 
 	@Override
 	protected void writeImpl(AionConnection con) {
-		Player player = con.getActivePlayer();
 		writeD(objId);
-		writeD(player.getObjectId());
+    	writeD(creatorid);
 		writeD(useMask);
 		writeD(currentMembers);
 		writeD(maxMembers);

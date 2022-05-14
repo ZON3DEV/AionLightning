@@ -14,11 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.geoEngine.collision.bih;
-
-import static java.lang.Math.max;
-
-import java.nio.FloatBuffer;
 
 import com.aionemu.gameserver.geoEngine.bounding.BoundingBox;
 import com.aionemu.gameserver.geoEngine.bounding.BoundingVolume;
@@ -33,6 +30,10 @@ import com.aionemu.gameserver.geoEngine.scene.CollisionData;
 import com.aionemu.gameserver.geoEngine.scene.Mesh;
 import com.aionemu.gameserver.geoEngine.scene.VertexBuffer.Type;
 import com.aionemu.gameserver.geoEngine.scene.mesh.IndexBuffer;
+
+import java.nio.FloatBuffer;
+
+import static java.lang.Math.max;
 
 public class BIHTree implements CollisionData {
 
@@ -148,8 +149,7 @@ public class BIHTree implements CollisionData {
 			if (v1.get(axis) > split) {
 				swapTriangles(pivot, j);
 				--j;
-			}
-			else {
+			} else {
 				++pivot;
 			}
 		}
@@ -167,8 +167,7 @@ public class BIHTree implements CollisionData {
 
 		if (doMin) {
 			min.set(axis, value);
-		}
-		else {
+		} else {
 			max.set(axis, value);
 		}
 
@@ -178,13 +177,13 @@ public class BIHTree implements CollisionData {
 	private float getMinMax(BoundingBox bbox, boolean doMin, int axis) {
 		if (doMin) {
 			return bbox.getMin(null).get(axis);
-		}
-		else {
+		} else {
 			return bbox.getMax(null).get(axis);
 		}
 	}
 
-	// private BIHNode createNode2(int l, int r, BoundingBox nodeBbox, int depth){
+	// private BIHNode createNode2(int l, int r, BoundingBox nodeBbox, int
+	// depth){
 	// if ((r - l) < maxTrisPerNode || depth > 100)
 	// return createLeaf(l, r);
 	//
@@ -276,16 +275,13 @@ public class BIHTree implements CollisionData {
 		if (exteriorExt.x > exteriorExt.y) {
 			if (exteriorExt.x > exteriorExt.z) {
 				axis = 0;
-			}
-			else {
+			} else {
 				axis = 2;
 			}
-		}
-		else {
+		} else {
 			if (exteriorExt.y > exteriorExt.z) {
 				axis = 1;
-			}
-			else {
+			} else {
 				axis = 2;
 			}
 		}
@@ -300,20 +296,19 @@ public class BIHTree implements CollisionData {
 			pivot = (r + l) / 2;
 		}
 
-		// If one of the partitions is empty, continue with recursion: same level but different bbox
+		// If one of the partitions is empty, continue with recursion: same
+		// level but different bbox
 		if (pivot < l) {
 			// Only right
 			BoundingBox rbbox = new BoundingBox(currentBox);
 			setMinMax(rbbox, true, axis, split);
 			return createNode(l, r, rbbox, depth + 1);
-		}
-		else if (pivot > r) {
+		} else if (pivot > r) {
 			// Only left
 			BoundingBox lbbox = new BoundingBox(currentBox);
 			setMinMax(lbbox, false, axis, split);
 			return createNode(l, r, lbbox, depth + 1);
-		}
-		else {
+		} else {
 			// Build the node
 			BIHNode node = new BIHNode(axis);
 
@@ -323,14 +318,16 @@ public class BIHTree implements CollisionData {
 
 			// The left node right border is the plane most right
 			node.setLeftPlane(getMinMax(createBox(l, max(l, pivot - 1)), false, axis));
-			node.setLeftChild(createNode(l, max(l, pivot - 1), lbbox, depth + 1)); // Recursive call
+			node.setLeftChild(createNode(l, max(l, pivot - 1), lbbox, depth + 1)); // Recursive
+																					// call
 
 			// Right Child
 			BoundingBox rbbox = new BoundingBox(currentBox);
 			setMinMax(rbbox, true, axis, split);
 			// The right node left border is the plane most left
 			node.setRightPlane(getMinMax(createBox(pivot, r), true, axis));
-			node.setRightChild(createNode(pivot, r, rbbox, depth + 1)); // Recursive call
+			node.setRightChild(createNode(pivot, r, rbbox, depth + 1)); // Recursive
+																		// call
 
 			return node;
 		}
@@ -381,8 +378,7 @@ public class BIHTree implements CollisionData {
 
 			if (tMax <= 0) {
 				tMax = Float.POSITIVE_INFINITY;
-			}
-			else if (tMin == tMax) {
+			} else if (tMin == tMax) {
 				tMin = 0;
 			}
 
@@ -394,7 +390,8 @@ public class BIHTree implements CollisionData {
 				tMax = Math.min(tMax, r.getLimit());
 			}
 
-			// return root.intersectBrute(r, worldMatrix, this, tMin, tMax, results);
+			// return root.intersectBrute(r, worldMatrix, this, tMin, tMax,
+			// results);
 			return root.intersectWhere(r, worldMatrix, this, tMin, tMax, results);
 		}
 		return 0;
@@ -404,8 +401,7 @@ public class BIHTree implements CollisionData {
 		BoundingBox bbox;
 		if (bv instanceof BoundingBox) {
 			bbox = new BoundingBox((BoundingBox) bv);
-		}
-		else {
+		} else {
 			throw new UnsupportedCollisionException();
 		}
 
@@ -419,12 +415,10 @@ public class BIHTree implements CollisionData {
 		if (other instanceof Ray) {
 			Ray ray = (Ray) other;
 			return collideWithRay(ray, worldMatrix, worldBound, results);
-		}
-		else if (other instanceof BoundingVolume) {
+		} else if (other instanceof BoundingVolume) {
 			BoundingVolume bv = (BoundingVolume) other;
 			return collideWithBoundingVolume(bv, worldMatrix, results);
-		}
-		else {
+		} else {
 			throw new UnsupportedCollisionException();
 		}
 	}

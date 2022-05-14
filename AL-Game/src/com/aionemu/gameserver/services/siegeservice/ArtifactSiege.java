@@ -14,10 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.services.siegeservice;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.aionemu.gameserver.services.siegeservice;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.SiegeDAO;
@@ -29,12 +27,13 @@ import com.aionemu.gameserver.model.siege.SiegeRace;
 import com.aionemu.gameserver.model.team.legion.Legion;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
-import com.aionemu.gameserver.services.BaseService;
 import com.aionemu.gameserver.services.LegionService;
 import com.aionemu.gameserver.services.player.PlayerService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.knownlist.Visitor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author SoulKeeper
@@ -63,8 +62,7 @@ public class ArtifactSiege extends Siege<ArtifactLocation> {
 		// for artifact should be always true
 		if (isBossKilled()) {
 			onCapture();
-		}
-		else {
+		} else {
 			log.error("Artifact siege (artifactId:" + getSiegeLocationId() + ") ended without killing a boss.");
 		}
 
@@ -89,16 +87,15 @@ public class ArtifactSiege extends Siege<ArtifactLocation> {
 
 		// misc stuff to send player system message
 		if (getSiegeLocation().getRace() == SiegeRace.BALAUR) {
-			final AionServerPacket lRacePacket = new SM_SYSTEM_MESSAGE(1320004, getSiegeLocation().getNameAsDescriptionId(), getSiegeLocation().getRace().getDescriptionId());
+			final AionServerPacket lRacePacket = new SM_SYSTEM_MESSAGE(1320004, getSiegeLocation().getNameAsDescriptionId(), getSiegeLocation().getRace()
+					.getDescriptionId());
 			World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 				@Override
 				public void visit(Player object) {
 					PacketSendUtility.sendPacket(object, lRacePacket);
 				}
 			});
-		}
-		else {
+		} else {
 			// Prepare packet data
 			String wPlayerName = "";
 			final Race wRace = wRaceCounter.getSiegeRace() == SiegeRace.ELYOS ? Race.ELYOS : Race.ASMODIANS;
@@ -110,28 +107,17 @@ public class ArtifactSiege extends Siege<ArtifactLocation> {
 			final String winnerName = wLegion != null ? wLegion.getLegionName() : wPlayerName;
 
 			// prepare packets, we can use single packet instance
-			final AionServerPacket wRacePacket = new SM_SYSTEM_MESSAGE(1320002, wRace.getRaceDescriptionId(), winnerName, getSiegeLocation().getNameAsDescriptionId());
+			final AionServerPacket wRacePacket = new SM_SYSTEM_MESSAGE(1320002, wRace.getRaceDescriptionId(), winnerName, getSiegeLocation()
+					.getNameAsDescriptionId());
 			final AionServerPacket lRacePacket = new SM_SYSTEM_MESSAGE(1320004, getSiegeLocation().getNameAsDescriptionId(), wRace.getRaceDescriptionId());
 
 			// send update to players
 			World.getInstance().doOnAllPlayers(new Visitor<Player>() {
-
 				@Override
 				public void visit(Player player) {
 					PacketSendUtility.sendPacket(player, player.getRace().equals(wRace) ? wRacePacket : lRacePacket);
 				}
 			});
-		}
-		if (getSiegeLocation().getLocationId() >= 1511 && getSiegeLocation().getLocationId() <= 1519) {
-			if (getSiegeLocation().getRace() == SiegeRace.BALAUR) {
-				BaseService.getInstance().capture(getSiegeLocation().getBaseId(), Race.NPC);
-			} 
-			if (getSiegeLocation().getRace() == SiegeRace.ASMODIANS) {
-				BaseService.getInstance().capture(getSiegeLocation().getBaseId(), Race.ASMODIANS);
-			} 
-			if (getSiegeLocation().getRace() == SiegeRace.ELYOS) {
-				BaseService.getInstance().capture(getSiegeLocation().getBaseId(), Race.ELYOS);
-			}
 		}
 	}
 

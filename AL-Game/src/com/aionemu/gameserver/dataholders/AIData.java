@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
 
 import java.util.List;
@@ -24,10 +25,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import javolution.util.FastMap;
+
 import com.aionemu.gameserver.model.ai.Ai;
 import com.aionemu.gameserver.model.templates.ai.AITemplate;
-
-import javolution.util.FastMap;
 
 /**
  * @author xTz
@@ -40,10 +41,6 @@ public class AIData {
 	private List<Ai> templates;
 	private FastMap<Integer, AITemplate> aiTemplate = new FastMap<Integer, AITemplate>();
 
-	/**
-	 * @param u
-	 * @param parent
-	 */
 	void afterUnmarshal(Unmarshaller u, Object parent) {
 		aiTemplate.clear();
 		for (Ai template : templates) {

@@ -14,9 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.item;
 
-import java.util.List;
+import com.aionemu.gameserver.model.templates.stats.ModifiersTemplate;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -24,14 +25,11 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.aionemu.gameserver.model.stats.calc.functions.StatFunction;
-import com.aionemu.gameserver.model.templates.stats.ModifiersTemplate;
-
 /**
- * @author Alcapwnd
+ * @author Himiko
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "ItemEnchantBouns")
+@XmlRootElement(name = "ItemEnchantBonus")
 public class ItemEnchantBonus {
 
 	@XmlElement(name = "modifiers", required = false)
@@ -39,8 +37,8 @@ public class ItemEnchantBonus {
 	@XmlAttribute(name = "level")
 	private int level;
 
-	public List<StatFunction> getModifiers() {
-		return this.modifiers.getModifiers();
+	public ModifiersTemplate getModifiers() {
+		return this.modifiers;
 	}
 
 	public int getLevel() {

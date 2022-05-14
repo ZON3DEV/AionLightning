@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world;
 
 import org.slf4j.Logger;
@@ -30,14 +31,6 @@ public class WorldPosition {
 		this.mapId = mapId;
 	}
 
-	public WorldPosition(int mapId, float x, float y, float z, byte h) {
-		this.mapId = mapId;
-		this.x = x;
-		this.y = y;
-		this.z = z;
-		this.heading = h;
-	}
-
 	/**
 	 * Logger
 	 */
@@ -45,7 +38,7 @@ public class WorldPosition {
 	/**
 	 * Map id.
 	 */
-	private int mapId;
+	private final int mapId;
 	/**
 	 * Map Region.
 	 */
@@ -81,14 +74,6 @@ public class WorldPosition {
 			log.warn("WorldPosition has (mapId == 0) " + this.toString());
 		}
 		return mapId;
-	}
-
-	/**
-	 * @param mapId
-	 *            the mapId to set
-	 */
-	public void setMapId(int mapId) {
-		this.mapId = mapId;
 	}
 
 	/**

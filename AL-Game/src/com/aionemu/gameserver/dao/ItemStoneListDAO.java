@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dao;
 
 import java.util.Collection;
@@ -28,7 +29,6 @@ import com.aionemu.gameserver.model.items.ManaStone;
 
 /**
  * @author ATracer modified by Wakizashi
- * @rework FrozenKiller
  */
 public abstract class ItemStoneListDAO implements DAO {
 
@@ -42,7 +42,7 @@ public abstract class ItemStoneListDAO implements DAO {
 
 	public abstract void storeManaStones(Set<ManaStone> manaStones);
 
-	public abstract void storeFusionStones(Set<ManaStone> fusionStones);
+	public abstract void storeFusionStone(Set<ManaStone> fusionStones);
 
 	public abstract void storeIdianStones(IdianStone idianStone);
 

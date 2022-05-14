@@ -14,9 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.spawnengine;
 
 import java.util.HashSet;
+
+import javolution.util.FastList;
+import javolution.util.FastMap;
 
 import com.aionemu.gameserver.model.TaskId;
 import com.aionemu.gameserver.model.gameobjects.Npc;
@@ -24,9 +28,6 @@ import com.aionemu.gameserver.model.gameobjects.VisibleObject;
 import com.aionemu.gameserver.model.templates.spawns.SpawnGroup2;
 import com.aionemu.gameserver.model.templates.spawns.SpawnTemplate;
 import com.aionemu.gameserver.model.templates.spawns.TemporarySpawn;
-
-import javolution.util.FastList;
-import javolution.util.FastMap;
 
 /**
  * @author xTz
@@ -82,8 +83,7 @@ public class TemporarySpawnEngine {
 						}
 					}
 				}
-			}
-			else {
+			} else {
 				for (SpawnTemplate template : spawn.getSpawnTemplates()) {
 					TemporarySpawn temporarySpawn = template.getTemporarySpawn();
 					if ((temporarySpawn.isInSpawnTime() || (startCheck && !template.isNoRespawn() && temporarySpawn.isInSpawnTime()))) {

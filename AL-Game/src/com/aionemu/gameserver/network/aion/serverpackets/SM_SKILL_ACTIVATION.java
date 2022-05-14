@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.network.aion.AionConnection;
@@ -59,6 +60,5 @@ public class SM_SKILL_ACTIVATION extends AionServerPacket {
 		writeH(skillId);
 		writeD(unk);
 		writeC(isActive ? 1 : 0);
-		writeC(0); // 4.8
 	}
 }

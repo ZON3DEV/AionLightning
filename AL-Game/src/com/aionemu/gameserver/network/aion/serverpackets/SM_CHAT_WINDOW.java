@@ -14,20 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.serverpackets;
 
-import java.util.Collection;
+package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.team2.alliance.PlayerAlliance;
 import com.aionemu.gameserver.model.team2.group.PlayerGroup;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+import java.util.Collection;
 
-/**
- * @author ginho1
- * @edit Cheatkiller
- */
 public class SM_CHAT_WINDOW extends AionServerPacket {
 
 	private Player target;
@@ -70,8 +66,7 @@ public class SM_CHAT_WINDOW extends AionServerPacket {
 				for (int i = group.size(); i < 6; i++) {
 					writeC(0);
 				}
-			}
-			else if (target.isInAlliance2()) {
+			} else if (target.isInAlliance2()) {
 				writeC(2); // alliance
 				writeS(target.getName());
 
@@ -96,8 +91,7 @@ public class SM_CHAT_WINDOW extends AionServerPacket {
 				for (int i = alliance.size(); i < 24; i++) {
 					writeC(0);
 				}
-			}
-			else {
+			} else {
 				writeC(4); // no group
 				writeS(target.getName());
 				writeD(0); // no group yet
@@ -105,8 +99,7 @@ public class SM_CHAT_WINDOW extends AionServerPacket {
 				writeC(target.getLevel());
 				writeC(0); // unk
 			}
-		}
-		else {
+		} else {
 			writeC(1);
 			writeS(target.getName());
 			writeS(target.getLegion() != null ? target.getLegion().getLegionName() : "");

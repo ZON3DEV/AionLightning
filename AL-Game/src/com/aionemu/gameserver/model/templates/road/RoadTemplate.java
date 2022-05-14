@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.templates.road;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -76,8 +77,6 @@ public class RoadTemplate {
 
 	public RoadTemplate() {
 	}
-
-	;
 
 	public RoadTemplate(String name, int mapId, Point3D center, Point3D p1, Point3D p2) {
 		this.name = name;

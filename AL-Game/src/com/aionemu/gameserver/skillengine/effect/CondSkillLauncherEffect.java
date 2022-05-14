@@ -14,12 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.skillengine.effect;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
+package com.aionemu.gameserver.skillengine.effect;
 
 import com.aionemu.gameserver.controllers.observer.ActionObserver;
 import com.aionemu.gameserver.controllers.observer.ObserverType;
@@ -28,6 +24,10 @@ import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.skillengine.model.HealType;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * @author Sippolo
@@ -41,7 +41,8 @@ public class CondSkillLauncherEffect extends EffectTemplate {
 	@XmlAttribute
 	protected HealType type;
 
-	// TODO what if you fall? effect is not applied? what if you use skill that consume hp?
+	// TODO what if you fall? effect is not applied? what if you use skill that
+	// consume hp?
 	@Override
 	public void applyEffect(Effect effect) {
 		effect.addToEffectedController();
@@ -57,7 +58,6 @@ public class CondSkillLauncherEffect extends EffectTemplate {
 	@Override
 	public void startEffect(final Effect effect) {
 		ActionObserver observer = new ActionObserver(ObserverType.ATTACKED) {
-
 			@Override
 			public void attacked(Creature creature) {
 				if (!effect.getEffected().getEffectController().hasAbnormalEffect(skillId)) {

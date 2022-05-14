@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import java.util.Collection;
@@ -27,7 +28,6 @@ import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.stats.container.StatEnum;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_MANTRA_EFFECT;
-import com.aionemu.gameserver.services.DuelService;
 import com.aionemu.gameserver.skillengine.model.Effect;
 import com.aionemu.gameserver.skillengine.model.SkillTemplate;
 import com.aionemu.gameserver.utils.MathUtil;
@@ -46,6 +46,7 @@ public class AuraEffect extends EffectTemplate {
 	protected int distance;
 	@XmlAttribute(name = "skill_id")
 	protected int skillId;
+
 	// TODO distancez
 
 	@Override
@@ -66,31 +67,22 @@ public class AuraEffect extends EffectTemplate {
 			return;
 		}
 		if (effector.isInGroup2() || effector.isInAlliance2()) {
-			Collection<Player> onlynePlayers = effector.isInGroup2() ? effector.getPlayerGroup2().getOnlineMembers() : effector.getPlayerAllianceGroup2().getOnlineMembers();
+			Collection<Player> onlynePlayers = effector.isInGroup2() ? effector.getPlayerGroup2().getOnlineMembers() : effector.getPlayerAllianceGroup2()
+					.getOnlineMembers();
 			final int actualRange = (int) (distance * effector.getGameStats().getStat(StatEnum.BOOST_MANTRA_RANGE, 100).getCurrent() / 100f);
 			for (Player player : onlynePlayers) {
 				if (MathUtil.isIn3dRange(effector, player, actualRange)) {
-					if (!DuelService.getInstance().isDueling(player.getObjectId()) && player != effector) {
-						applyAuraTo(player, effect);
-					}
-					if (DuelService.getInstance().isDueling(effector.getObjectId()) && DuelService.getInstance().isDueling(player.getObjectId())) {
-						applyAuraTo(effector, effect);
-					}
-					else {
-						applyAuraTo(effector, effect);
-					}
+					applyAuraTo(player, effect);
 				}
 			}
-		}
-		else {
+		} else {
 			applyAuraTo(effector, effect);
 		}
 		PacketSendUtility.broadcastPacket(effector, new SM_MANTRA_EFFECT(effector, skillId));
 	}
 
 	/**
-	 * @param effect
-	 * @param effected
+	 * @param effector
 	 */
 	private void applyAuraTo(Player effected, Effect effect) {
 		SkillTemplate template = DataManager.SKILL_DATA.getSkillTemplate(skillId);
@@ -116,8 +108,10 @@ public class AuraEffect extends EffectTemplate {
 		public void run() {
 			onPeriodicAction(effect);
 			/**
-			 * This has the special effect of clearing the current thread's quantum and putting it to the end of the queue for its priority level. Will just give-up the thread's turn, and gain it in
-			 * the next round.
+			 * This has the special effect of clearing the current thread's
+			 * quantum and putting it to the end of the queue for its priority
+			 * level. Will just give-up the thread's turn, and gain it in the
+			 * next round.
 			 */
 			Thread.yield();
 		}

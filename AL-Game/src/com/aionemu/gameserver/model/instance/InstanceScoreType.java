@@ -14,17 +14,18 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.instance;
 
 /**
+ *
  * @author xTz
  */
 public enum InstanceScoreType {
 
-	PREPARING(1 * 1024 * 1024), // 1048576
+    PREPARING(1 * 1024 * 1024), // 1048576
 	START_PROGRESS(2 * 1024 * 1024), // 2097152
 	END_PROGRESS(3 * 1024 * 1024); // 3145728
-
 	private int id;
 
 	private InstanceScoreType(int id) {

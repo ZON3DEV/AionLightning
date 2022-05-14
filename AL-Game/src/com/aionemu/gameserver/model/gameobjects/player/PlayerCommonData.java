@@ -14,16 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.gameobjects.player;
 
 import java.sql.Timestamp;
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.aionemu.gameserver.GameServer;
 import com.aionemu.gameserver.configs.main.CustomConfig;
 import com.aionemu.gameserver.configs.main.GSConfig;
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -32,22 +32,17 @@ import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.Gender;
 import com.aionemu.gameserver.model.PlayerClass;
 import com.aionemu.gameserver.model.Race;
-import com.aionemu.gameserver.model.team.legion.LegionJoinRequestState;
 import com.aionemu.gameserver.model.templates.BoundRadius;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
-import com.aionemu.gameserver.model.templates.atreianpassport.AtreianPassportTemplate;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_DP_INFO;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SILVER_STAR;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_DP;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_EXP;
-import com.aionemu.gameserver.network.aion.serverpackets.SM_SYSTEM_MESSAGE;
+import com.aionemu.gameserver.network.aion.serverpackets.*;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.stats.XPLossEnum;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.WorldPosition;
 
 /**
- * This class is holding base information about player, that may be used even when player itself is not online.
+ * This class is holding base information about player, that may be used even
+ * when player itself is not online.
  *
  * @author Luno
  * @modified cura
@@ -70,11 +65,12 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 	private long expRecoverable = 0;
 	private Gender gender;
 	private Timestamp lastOnline = new Timestamp(Calendar.getInstance().getTime().getTime() - 20);
-	private Timestamp lastStamp = new Timestamp(Calendar.getInstance().getTime().getTime() - 20);
+    private Timestamp lastStamp = new Timestamp(Calendar.getInstance().getTime().getTime() - 20);
 	private boolean online;
 	private String note;
 	private WorldPosition position;
-	private int cubeExpands = 0;
+	private int questExpands = 0;
+	private int npcExpands = 0;
 	private int warehouseSize = 0;
 	private int AdvancedStigmaSlotSize = 0;
 	private int titleId = -1;
@@ -85,52 +81,15 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 	private boolean noExp = false;
 	private long reposteCurrent;
 	private long reposteMax;
-	private long goldenStarEnergy;
-	private long goldenStarEnergyMax = 625000000;
-	private boolean GoldenStarBoost = false;
-	private long silverStarEnergy;
-	private long silverStarEnergyMax = 1000000;
-	private boolean SilverStarBoost = false;
-	private long growthEnergy;
-	private long growthEnergyMax;
-	private long salvationPoint;
+    private long eventExp;
+    private long salvationPoint;
+    private long maxEventExp = 100000000;
 	private int mentorFlagTime;
 	private int worldOwnerId;
 	private BoundRadius boundRadius;
 	private long lastTransferTime;
 	public int battleGroundPoints = 0;
 	private int initialGameStatsDatabase = 0;
-	private int fatigue = 0;
-	private int fatigueRecover = 0;
-	private int fatigueReset = 0;
-	private int joinRequestLegionId = 0;
-	private LegionJoinRequestState joinRequestState = LegionJoinRequestState.NONE;
-	private PlayerUpgradeArcade upgradeArcade;
-
-	private PlayerBonusTime bonusTime = new PlayerBonusTime();
-	private Timestamp creationDate;
-
-	private int lunaCoins = 0;
-	private int wardrobeSize = 256;
-	private int lunaConsumePoint;
-	private int muni_keys;
-	private int consumeCount = 0;
-	private int wardrobeSlot;
-	private int floor;
-    private int minionEnergy;
-    private int lastMinion;
-    private Timestamp minionFunctionTime;
-    private int worldPlayTime;
-
-	//Shugo Sweep 5.1
-	private int goldenDice;
-	private int resetBoard;
-
-	//Atreian Passport
-	private int stamps = 0;
-	private int passportReward = 0;
-	public Map<Integer, AtreianPassport> atreianPassports = new HashMap<Integer, AtreianPassport>(1);
-	private AtreianPassport completedPassports;
 
 	// TODO: Move all function to playerService or Player class.
 	public PlayerCommonData(int objId) {
@@ -145,12 +104,20 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 		return this.exp;
 	}
 
-	public int getCubeExpands() {
-		return this.cubeExpands;
+	public int getQuestExpands() {
+		return this.questExpands;
 	}
 
-	public void setCubeExpands(int cubeExpands) {
-		this.cubeExpands = cubeExpands;
+	public void setQuestExpands(int questExpands) {
+		this.questExpands = questExpands;
+	}
+
+	public void setNpcExpands(int npcExpands) {
+		this.npcExpands = npcExpands;
+	}
+
+	public int getNpcExpands() {
+		return npcExpands;
 	}
 
 	/**
@@ -193,15 +160,13 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 
 		if (this.getExpShown() > unrecoverable) {
 			this.exp = this.exp - unrecoverable;
-		}
-		else {
+		} else {
 			this.exp = this.exp - this.getExpShown();
 		}
 		if (this.getExpShown() > recoverable) {
 			this.expRecoverable = allExpLost;
 			this.exp = this.exp - recoverable;
-		}
-		else {
+		} else {
 			this.expRecoverable = this.expRecoverable + this.getExpShown();
 			this.exp = this.exp - this.getExpShown();
 		}
@@ -209,7 +174,7 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 			this.expRecoverable = Math.round(getExpNeed() * 0.25);
 		}
 		if (this.getPlayer() != null) {
-			PacketSendUtility.sendPacket(getPlayer(), new SM_STATUPDATE_EXP(getExpShown(), getExpRecoverable(), getExpNeed(), this.getCurrentReposteEnergy(), this.getMaxReposteEnergy(), this.getGoldenStarEnergy(), this.getGrowthEnergy()));
+            PacketSendUtility.sendPacket(getPlayer(), new SM_STATUPDATE_EXP(getExpShown(), getExpRecoverable(), getExpNeed(), this.getCurrentReposteEnergy(), this.getMaxReposteEnergy(), this.getCurrentEventExp()));
 		}
 	}
 
@@ -231,27 +196,22 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 	 * @param value
 	 */
 	public void addExp(long value, int npcNameId) {
-		this.addExp(value, null, npcNameId, "", 0);
+		this.addExp(value, null, npcNameId, "");
 	}
 
 	public void addExp(long value, RewardType rewardType) {
-		this.addExp(value, rewardType, 0, "", 0);
+		this.addExp(value, rewardType, 0, "");
 	}
 
 	public void addExp(long value, RewardType rewardType, int npcNameId) {
-		this.addExp(value, rewardType, npcNameId, "", 0);
+		this.addExp(value, rewardType, npcNameId, "");
 	}
-	
-	public void addExp(long value, RewardType rewardType, int npcNameId, int questId) {
-		this.addExp(value, rewardType, npcNameId, "", questId);
-	}
-
 
 	public void addExp(long value, RewardType rewardType, String name) {
-		this.addExp(value, rewardType, 0, name, 0);
+		this.addExp(value, rewardType, 0, name);
 	}
 
-	public void addExp(long value, RewardType rewardType, int npcNameId, String name, int questId) {
+	public void addExp(long value, RewardType rewardType, int npcNameId, String name) {
 		if (this.noExp) {
 			return;
 		}
@@ -277,89 +237,30 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 			// TODO! remove salvation points?
 		}
 
-		long goldenstar = 0;
-		long goldenstarboost = 0;
-		if (this.isReadyForGoldenStarEnergy() && this.getGoldenStarEnergy() > 0) {
-			goldenstar = (reward);
-			this.addGoldenStarEnergy(-goldenstar);
-			if (GoldenStarBoost) {
-				goldenstarboost = (long) ((reward / 100f) * 20);
-			}
-		}
-
-		long growth = 0;
-		if (this.isReadyForGrowthEnergy() && this.getGrowthEnergy() > 0) {
-			growth = (long) ((reward / 100f) * 60);
-			this.addGrowthEnergy(-growth * 5);// reduce
-		}
-
-		long silverstar = 0;
-		long silverstarBoost = 0;
-		if (this.isReadyForSilverStarEnergy() && this.getSilverStarEnergy() > 0) {
-			silverstar = reward;
-			this.addSilverStarEnergy(-silverstar);
-			if (SilverStarBoost) {
-				silverstarBoost = (long) ((reward / 100f) * 50);
-			}
-		}
-
-		if (this.getPlayer() != null) {
-			if (rewardType != null) {
-				if (this.getPlayer().getPosition().getMapId() != 302400000) { //TowerOfChallenge
-					if (rewardType == RewardType.HUNTING || rewardType == RewardType.GROUP_HUNTING || rewardType == RewardType.CRAFTING || rewardType == RewardType.GATHERING || rewardType == RewardType.MONSTER_BOOK) {
-						reward += repose + goldenstar + goldenstarboost + silverstar + silverstarBoost + growth;
-					}
-					else {
-						reward += repose;
-					}
-				} else {
-					reward += 0;
-				}
-			}
-		}
-		
-		setExp(exp + reward);
+		reward += repose + salvation;
+		this.setExp(this.exp + reward);
 		if (this.getPlayer() != null) {
 			if (rewardType != null) {
 				switch (rewardType) {
-					case HUNTING:
 					case GROUP_HUNTING:
-					case CRAFTING:
-					case GATHERING:
-						if (npcNameId == 0) {// Exeption quest w/o reward npc
-							// You have gained %num1 XP.
-							PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP2(reward));
-						}
-						PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP_DESC(new DescriptionId(npcNameId * 2 + 1), reward));
-						if (repose > 0) {
-							PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP_DESC(new DescriptionId(2805577), repose));
-						}
-						if (growth > 0) {
-							PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP_DESC(new DescriptionId(2806377), growth));
-						}
-						if (goldenstar > 0) {
-							PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP_DESC(new DescriptionId(2806671), goldenstar));
-						}
-						break;
+					case HUNTING:
 					case QUEST:
 						if (npcNameId == 0) // Exeption quest w/o reward npc
-						// You have gained %num1 XP.
 						{
 							PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP2(reward));
-						}
-						else if (repose > 0 && salvation > 0) // You have gained %num1 XP from %0 (Energy of Repose %num2, Energy of Salvation %num3).
+						} else if (repose > 0 && salvation > 0) // You have gained %num1 XP from %0 (Energy of Repose %num2, Energy of Salvation %num3).
 						{
-							PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP_VITAL_MAKEUP_BONUS_DESC(new DescriptionId(npcNameId * 2 + 1), reward, repose, salvation));
-						}
-						else if (repose > 0 && salvation == 0) // You have gained %num1 XP from %0 (Energy of Repose %num2).
+							PacketSendUtility.sendPacket(getPlayer(),
+									SM_SYSTEM_MESSAGE.STR_GET_EXP_VITAL_MAKEUP_BONUS_DESC(new DescriptionId(npcNameId * 2 + 1), reward, repose, salvation));
+						} else if (repose > 0 && salvation == 0) // You have gained %num1 XP from %0 (Energy of Repose %num2).
 						{
-							PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP_VITAL_BONUS_DESC(new DescriptionId(npcNameId * 2 + 1), reward, repose));
-						}
-						else if (repose == 0 && salvation > 0) // You have gained %num1 XP from %0 (Energy of Salvation %num2).
+							PacketSendUtility.sendPacket(getPlayer(),
+									SM_SYSTEM_MESSAGE.STR_GET_EXP_VITAL_BONUS_DESC(new DescriptionId(npcNameId * 2 + 1), reward, repose));
+						} else if (repose == 0 && salvation > 0) // You have gained %num1 XP from %0 (Energy of Salvation %num2).
 						{
-							PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP_MAKEUP_BONUS_DESC(new DescriptionId(npcNameId * 2 + 1), reward, salvation));
-						}
-						else // You have gained %num1 XP from %0.
+							PacketSendUtility.sendPacket(getPlayer(),
+									SM_SYSTEM_MESSAGE.STR_GET_EXP_MAKEUP_BONUS_DESC(new DescriptionId(npcNameId * 2 + 1), reward, salvation));
+						} else // You have gained %num1 XP from %0.
 						{
 							PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP_DESC(new DescriptionId(npcNameId * 2 + 1), reward));
 						}
@@ -368,18 +269,31 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 						if (repose > 0 && salvation > 0) // You have gained %num1 XP from %0 (Energy of Repose %num2, Energy of Salvation %num3).
 						{
 							PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP_VITAL_MAKEUP_BONUS(name, reward, repose, salvation));
-						}
-						else if (repose > 0 && salvation == 0) // You have gained %num1 XP from %0 (Energy of Repose %num2).
+						} else if (repose > 0 && salvation == 0) // You have gained %num1 XP from %0 (Energy of Repose %num2).
 						{
 							PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP_VITAL_BONUS(name, reward, repose));
-						}
-						else if (repose == 0 && salvation > 0) // You have gained %num1 XP from %0 (Energy of Salvation %num2).
+						} else if (repose == 0 && salvation > 0) // You have gained %num1 XP from %0 (Energy of Salvation %num2).
 						{
 							PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP_MAKEUP_BONUS(name, reward, salvation));
-						}
-						else // You have gained %num1 XP from %0.
+						} else // You have gained %num1 XP from %0.
 						{
 							PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP(name, reward));
+						}
+						break;
+					case CRAFTING:
+					case GATHERING:
+						if (repose > 0 && salvation > 0) // You have gained %num1 XP(Energy of Repose %num2, Energy of Salvation %num3).
+						{
+							PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP2_VITAL_MAKEUP_BONUS(reward, repose, salvation));
+						} else if (repose > 0 && salvation == 0) // You have gained %num1 XP(Energy of Repose %num2).
+						{
+							PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP2_VITAL_BONUS(reward, repose));
+						} else if (repose == 0 && salvation > 0) // You have gained %num1 XP(Energy of Salvation %num2).
+						{
+							PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP2_MAKEUP_BONUS(reward, salvation));
+						} else // You have gained %num1 XP.
+						{
+							PacketSendUtility.sendPacket(getPlayer(), SM_SYSTEM_MESSAGE.STR_GET_EXP2(reward));
 						}
 						break;
 					default:
@@ -389,217 +303,100 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 		}
 	}
 
-	public boolean isReadyForSalvationPoints() {
-		return level >= 15 && level < GSConfig.PLAYER_MAX_LEVEL + 1;
-	}
+    public boolean isReadyForSalvationPoints() {
+        return level >= 15 && level < GSConfig.PLAYER_MAX_LEVEL + 1;
+    }
 
-	public boolean isReadyForReposteEnergy() {
-		return level >= 10;
-	}
+    public boolean isReadyForReposteEnergy() {
+        return level >= 10;
+    }
 
-	public void addReposteEnergy(long add) {
-		if (!this.isReadyForReposteEnergy()) {
-			return;
-		}
+    public boolean isReadyForEventExp() {
+        return level >= GSConfig.PLAYER_MAX_LEVEL && getExp() == getExpNeed();
+    }
 
-		reposteCurrent += add;
-		if (reposteCurrent < 0) {
-			reposteCurrent = 0;
-		}
-		else if (reposteCurrent > getMaxReposteEnergy()) {
-			reposteCurrent = getMaxReposteEnergy();
-		}
-	}
+    public void addReposteEnergy(long add) {
+        if (!this.isReadyForReposteEnergy()) {
+            return;
+        }
 
-	public void updateMaxReposte() {
-		if (!isReadyForReposteEnergy()) {
-			reposteCurrent = 0;
-			reposteMax = 0;
-		}
-		else {
-			reposteMax = (long) (getExpNeed() * 0.25f); // Retail 99%
-		}
-	}
+        reposteCurrent += add;
+        if (reposteCurrent < 0) {
+            reposteCurrent = 0;
+        } else if (reposteCurrent > getMaxReposteEnergy()) {
+            reposteCurrent = getMaxReposteEnergy();
+        }
+    }
 
-	public void setCurrentReposteEnergy(long value) {
-		reposteCurrent = value;
-	}
+    public void addEventExp(long add) {
+        if (!this.isReadyForEventExp()) {
+            return;
+        }
 
-	public long getCurrentReposteEnergy() {
-		return isReadyForReposteEnergy() ? this.reposteCurrent : 0;
-	}
+        eventExp += add;
+        if (eventExp < 0) {
+            eventExp = 0;
+        } else if (eventExp > maxEventExp) {
+            eventExp = maxEventExp;
+        }
+    }
 
-	public long getMaxReposteEnergy() {
-		return isReadyForReposteEnergy() ? this.reposteMax : 0;
-	}
+    public boolean removeEventExp(long remove) {
+        if (!this.isReadyForEventExp()) {
+            return false;
+        }
 
-	/**
-	 * @Golden Star Energy
-	 */
-	public boolean isReadyForGoldenStarEnergy() {
-		return level >= 10;
-	}
+        if (eventExp < remove)
+            return false;
 
-	public void addGoldenStarEnergy(long add) {
-		if (!this.isReadyForGoldenStarEnergy()) {
-			return;
-		}
+        eventExp -= remove;
 
-		goldenStarEnergy += add;
-		if (goldenStarEnergy < 0) {
-			goldenStarEnergy = 0;
-		}
-		else if (goldenStarEnergy > getMaxGoldenStarEnergy()) {
-			goldenStarEnergy = getMaxGoldenStarEnergy();
-		}
-		checkGoldenStarPercent();
-	}
+        PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATS_INFO(this.getPlayer()));
 
-	public void setGoldenStarEnergy(long value) {
-		goldenStarEnergy = value;
-		if (goldenStarEnergy < 0) {
-			goldenStarEnergy = 0;
-		}
-		checkGoldenStarPercent();
-	}
+        return true;
+    }
 
-	public long getGoldenStarEnergy() {
-		return isReadyForGoldenStarEnergy() ? this.goldenStarEnergy : 0;
-	}
+    public void updateMaxReposte() {
+        if (!isReadyForReposteEnergy()) {
+            reposteCurrent = 0;
+            reposteMax = 0;
+        } else {
+            reposteMax = (long) (getExpNeed() * 0.25f); // Retail 99%
+        }
+    }
 
-	public long getMaxGoldenStarEnergy() {
-		return isReadyForGoldenStarEnergy() ? this.goldenStarEnergyMax : 0;
-	}
+    public void setCurrentReposteEnergy(long value) {
+        reposteCurrent = value;
+    }
 
-	public void checkGoldenStarPercent() {
-		if (getPlayer() != null) {
-			if (this.isReadyForGoldenStarEnergy()) {
-				int percent = (int) (goldenStarEnergy * 100f / getMaxGoldenStarEnergy());
-				if (!GoldenStarBoost && percent > 50) {
-					GoldenStarBoost = true;
-					PacketSendUtility.sendPacket(getPlayer(), new SM_SYSTEM_MESSAGE(1403399, 50));
-				}
-				else if (GoldenStarBoost && percent < 50) {
-					GoldenStarBoost = false;
-					PacketSendUtility.sendPacket(getPlayer(), new SM_SYSTEM_MESSAGE(1403400, 50));
-				}
-				else if (goldenStarEnergy <= 0) {
-					PacketSendUtility.sendPacket(getPlayer(), new SM_SYSTEM_MESSAGE(1403401));
-				}
-			}
-		}
-	}
+    public long getCurrentReposteEnergy() {
+        return isReadyForReposteEnergy() ? this.reposteCurrent : 0;
+    }
 
-	/**
-	 * @Silver Star Energy
-	 */
-	public boolean isReadyForSilverStarEnergy() {
-		return this.level >= 45;
-	}
+    public long getMaxReposteEnergy() {
+        return isReadyForReposteEnergy() ? this.reposteMax : 0;
+    }
 
-	public void addSilverStarEnergy(long add) {
-		if (!isReadyForSilverStarEnergy()) {
-			return;
-		}
-		silverStarEnergy += add;
-		if (this.silverStarEnergy < 0) {
-			silverStarEnergy = 0;
-		} else if (silverStarEnergy > getMaxSilverStarEnergy()) {
-			silverStarEnergy = getMaxSilverStarEnergy();
-		}
-		checkSilverStarPercent();
-	}
+    public long getCurrentEventExp() {
+        return isReadyForEventExp() ? this.eventExp : 0;
+    }
 
-	public void setSilverStarEnergy(long value) {
-		silverStarEnergy = value;
-		checkSilverStarPercent();
-	}
+    public void setCurrentEventExp(long value) {
+        this.eventExp = value;
+    }
 
-	public long getSilverStarEnergy() {
-		return isReadyForSilverStarEnergy() ? silverStarEnergy : 0;
-	}
+    public void updateEventExp(int cost) {
+        if (cost == 0)
+            return;
 
-	public long getMaxSilverStarEnergy() {
-		return isReadyForSilverStarEnergy() ? silverStarEnergyMax : 0;
-	}
-
-	public void checkSilverStarPercent() {
-		if ((this.getPlayer() != null) && (isReadyForSilverStarEnergy())) {
-			int percent = (int) (silverStarEnergy * 100.0 / getMaxSilverStarEnergy());
-			if (!SilverStarBoost && percent > 50) {
-				SilverStarBoost = true;
-				PacketSendUtility.sendPacket(getPlayer(), new SM_SILVER_STAR());
-				PacketSendUtility.sendPacket(getPlayer(), new SM_SYSTEM_MESSAGE(1404029, 50));
-			} 
-			else if (SilverStarBoost && percent < 50) {
-				SilverStarBoost = false;
-				PacketSendUtility.sendPacket(getPlayer(), new SM_SILVER_STAR());
-				PacketSendUtility.sendPacket(getPlayer(), new SM_SYSTEM_MESSAGE(1404030, 50));
-			} 
-			else if (silverStarEnergy <= 0) {
-				PacketSendUtility.sendPacket(getPlayer(), new SM_SILVER_STAR());
-				PacketSendUtility.sendPacket(getPlayer(), new SM_SYSTEM_MESSAGE(1404031, 50));
-
-			}
-		}
-	}
-
-	/**
-	 * @Growth Energy
-	 */
-	public boolean isReadyForGrowthEnergy() {
-		return level >= 66 && level < GSConfig.PLAYER_MAX_LEVEL + 1;
-	}
-
-	public void addGrowthEnergy(long add) {
-		if (!this.isReadyForGrowthEnergy()) {
-			return;
-		}
-
-		growthEnergy += add;
-		if (growthEnergy < 0) {
-			growthEnergy = 0;
-		}
-		else if (growthEnergy > getMaxGrowthEnergy()) {
-			growthEnergy = getMaxGrowthEnergy();
-		}
-	}
-
-	public void updateMaxGrowthEnergy() {
-		if (!isReadyForGrowthEnergy()) {
-			growthEnergy = 0;
-			growthEnergyMax = 0;
-		}
-		else {
-			if (this.level < 70) {
-				growthEnergyMax = (77000000 + (7000000 * (this.level - 66)));
-			}
-			else if (this.level == 70) {
-				growthEnergyMax = 106000000;
-			}
-			else if (this.level == 71) {
-				growthEnergyMax = 127000000;
-			}
-			else if (this.level < 75) {
-				growthEnergyMax = (127000000 + (11000000 * (this.level - 71)));
-			}
-			else {
-				growthEnergyMax = 175000000;
-			}
-		}
-	}
-
-	public void setGrowthEnergy(long value) {
-		growthEnergy = value;
-	}
-
-	public long getGrowthEnergy() {
-		return isReadyForGrowthEnergy() ? this.growthEnergy : 0;
-	}
-
-	public long getMaxGrowthEnergy() {
-		return isReadyForGrowthEnergy() ? this.growthEnergyMax : 0;
-	}
+        if (getCurrentEventExp() > cost) {
+            removeEventExp(cost);
+            setExp(getExp() + cost);
+        } else {
+            removeEventExp(getCurrentEventExp());
+            setExp(getExp() + getCurrentEventExp());
+        }
+    }
 
 	/**
 	 * sets the exp value
@@ -607,37 +404,47 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 	 * @param exp
 	 */
 	public void setExp(long exp) {
+		// maxLevel is 66 but in game 65 should be shown with full XP bar
 		int maxLevel = DataManager.PLAYER_EXPERIENCE_TABLE.getMaxLevel();
+
+		if (getPlayerClass() != null && getPlayerClass().isStartingClass())
+			maxLevel = GSConfig.STARTING_LEVEL > GSConfig.STARTCLASS_MAXLEVEL ? GSConfig.STARTING_LEVEL : GSConfig.STARTCLASS_MAXLEVEL;
+
 		long maxExp = DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(maxLevel);
-		if (getPlayerClass() != null && getPlayerClass().isStartingClass()) {
-			maxLevel = GSConfig.STARTING_LEVEL > GSConfig.STARTCLASS_MAXLEVEL ? GSConfig.STARTING_LEVEL : GSConfig.STARTCLASS_MAXLEVEL;;
-			if (this.getLevel() == 9 && this.getExp() >= 74059) {
-				// You can advance to level 10 only after you have completed the class change quest.
-				PacketSendUtility.sendPacket(this.getPlayer(), SM_SYSTEM_MESSAGE.STR_LEVEL_LIMIT_QUEST_NOT_FINISHED1);
-			}
-		}
-		if (exp > maxExp) {
+
+		if (exp > maxExp)
 			exp = maxExp;
-		}
+
 		int oldLvl = this.level;
 		this.exp = exp;
 		// make sure level is never larger than maxLevel-1
 		boolean up = false;
-		while ((this.level + 1) < maxLevel && (up = exp >= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level + 1)) || (this.level - 1) >= 0 && exp < DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level)) {
+		while ((this.level + 1) < maxLevel && (up = exp >= DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level + 1)) || (this.level - 1) >= 0
+				&& exp < DataManager.PLAYER_EXPERIENCE_TABLE.getStartExpForLevel(this.level)) {
 			if (up) {
 				this.level++;
-			}
-			else {
+			} else {
 				this.level--;
 			}
+
 			upgradePlayerData();
 		}
+
 		if (this.getPlayer() != null) {
+			if (up && GSConfig.ENABLE_RATIO_LIMITATION) {
+				if (this.level >= GSConfig.RATIO_MIN_REQUIRED_LEVEL && getPlayer().getPlayerAccount().getNumberOf(getRace()) == 1) {
+					GameServer.updateRatio(getRace(), 1);
+				}
+
+				if (this.level >= GSConfig.RATIO_MIN_REQUIRED_LEVEL && getPlayer().getPlayerAccount().getNumberOf(getRace()) == 1) {
+					GameServer.updateRatio(getRace(), -1);
+				}
+			}
 			if (oldLvl != level) {
 				updateMaxReposte();
-				updateMaxGrowthEnergy();
 			}
-			PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATUPDATE_EXP(getExpShown(), getExpRecoverable(), getExpNeed(), this.getCurrentReposteEnergy(), this.getMaxReposteEnergy(), this.getGoldenStarEnergy(), this.getGrowthEnergy()));
+
+		PacketSendUtility.sendPacket(this.getPlayer(), new SM_STATUPDATE_EXP(getExpShown(), getExpRecoverable(), getExpNeed(), this.getCurrentReposteEnergy(), this.getMaxReposteEnergy(), this.getCurrentEventExp()));
 		}
 	}
 
@@ -736,6 +543,14 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 		lastOnline = timestamp;
 	}
 
+    public Timestamp getLastStamp() {
+        return lastStamp;
+    }
+
+    public void setLastStamp(Timestamp timestamp) {
+        this.lastStamp = timestamp;
+    }
+
 	public int getLevel() {
 		return level;
 	}
@@ -762,16 +577,9 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 		this.titleId = titleId;
 	}
 
-	public int getBonusTitleId() {
-		return bonusTitleId;
-	}
-
-	public void setBonusTitleId(int bonusTitleId) {
-		this.bonusTitleId = bonusTitleId;
-	}
-
 	/**
-	 * This method should be called exactly once after creating object of this class
+	 * This method should be called exactly once after creating object of this
+	 * class
 	 *
 	 * @param position
 	 */
@@ -780,7 +588,8 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 	}
 
 	/**
-	 * Gets the cooresponding Player for this common data. Returns null if the player is not online
+	 * Gets the cooresponding Player for this common data. Returns null if the
+	 * player is not online
 	 *
 	 * @return Player or null
 	 */
@@ -812,8 +621,7 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 			PacketSendUtility.broadcastPacket(getPlayer(), new SM_DP_INFO(playerObjId, this.dp), true);
 			getPlayer().getGameStats().updateStatsAndSpeedVisually();
 			PacketSendUtility.sendPacket(getPlayer(), new SM_STATUPDATE_DP(this.dp));
-		}
-		else {
+		} else {
 			log.debug("CHECKPOINT : getPlayer in PCD return null for setDP " + isOnline() + " " + getPosition());
 		}
 	}
@@ -932,6 +740,14 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 		this.battleGroundPoints = battleGroundPoints;
 	}
 
+	public int getBonusTitleId() {
+		return bonusTitleId;
+	}
+
+	public void setBonusTitleId(int bonusTitleId) {
+		this.bonusTitleId = bonusTitleId;
+	}
+
 	public int isInitialGameStats() {
 		return initialGameStatsDatabase;
 	}
@@ -939,240 +755,4 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 	public void setInitialGameStats(int initialGameStats) {
 		this.initialGameStatsDatabase = initialGameStats;
 	}
-
-	public void setFatigue(int value) {
-		this.fatigue = value;
-	}
-
-	public void setFatigueRecover(int count) {
-		this.fatigueRecover = count;
-	}
-
-	public int getFatigue() {
-		return fatigue;
-	}
-
-	public int getFatigueRecover() {
-		return fatigueRecover;
-	}
-
-	public void setFatigueReset(int value) {
-		this.fatigueReset = value;
-	}
-
-	public int getFatigueReset() {
-		return fatigueReset;
-	}
-
-	public int getJoinRequestLegionId() {
-		return joinRequestLegionId;
-	}
-
-	public void setJoinRequestLegionId(int joinRequestLegionId) {
-		this.joinRequestLegionId = joinRequestLegionId;
-	}
-
-	public LegionJoinRequestState getJoinRequestState() {
-		return joinRequestState;
-	}
-
-	public void setJoinRequestState(LegionJoinRequestState joinRequestState) {
-		this.joinRequestState = joinRequestState;
-	}
-
-	public PlayerUpgradeArcade getUpgradeArcade() {
-		if (upgradeArcade == null)
-			this.upgradeArcade = new PlayerUpgradeArcade();
-
-		return upgradeArcade;
-	}
-
-	public void setUpgradeArcade(PlayerUpgradeArcade upgradeArcade) {
-		this.upgradeArcade = upgradeArcade;
-	}
-
-	/**
-	 * @New User Bonus Time
-	 */
-	public PlayerBonusTime getBonusTime() {
-		return bonusTime;
-	}
-
-	public void setBonusTime(Timestamp time) {
-		this.bonusTime.setTime(time);
-	}
-
-	public void setBonusType(PlayerBonusTimeStatus status) {
-		this.bonusTime.setStatus(status);
-	}
-
-	public void setCreationDate(Timestamp date) {
-		creationDate = date;
-	}
-
-	public Timestamp getCreationDate() {
-		return creationDate;
-	}
-
-	/**
-	 * @Luna System
-	 */
-	public int getLunaCoins() {
-		return lunaCoins;
-	}
-
-	public void setLunaCoins(int lunaCoins) {
-		this.lunaCoins = lunaCoins;
-	}
-
-	public int getWardrobeSize() {
-		return wardrobeSize;
-	}
-
-	public void setWardrobeSize(int wardrobeSize) {
-		this.wardrobeSize = wardrobeSize;
-	}
-
-	/**
-	 * @Luna System
-	 */
-	public void setLunaConsumePoint(int point) {
-		this.lunaConsumePoint = point;
-	}
-
-	public int getLunaConsumePoint() {
-		return lunaConsumePoint;
-	}
-
-	public void setMuniKeys(int keys) {
-		this.muni_keys = keys;
-	}
-
-	public int getMuniKeys() {
-		return muni_keys;
-	}
-
-	public void setLunaConsumeCount(int count) {
-		this.consumeCount = count;
-	}
-
-	public int getLunaConsumeCount() {
-		return consumeCount;
-	}
-
-	public void setWardrobeSlot(int slot) {
-		this.wardrobeSlot = slot;
-	}
-
-	public int getWardrobeSlot() {
-		return wardrobeSlot;
-	}
-
-	/**
-	 * @Golden Dice / Lucky Dice
-	 */
-	public int getGoldenDice() {
-		return goldenDice;
-	}
-
-	public void setGoldenDice(int dice) {
-		this.goldenDice = dice;
-	}
-
-	public int getResetBoard() { 
-		return resetBoard;
-	}
-
-	public void setResetBoard(int reset) {
-		this.resetBoard = reset;
-	}
-	
-	/**
-	 * @Tower of Challenge
-	 */
-	public void setFloor(final int floor) {
-		this.floor = floor;
-	}
-
-	public int getFloor() {
-		return this.floor;
-	}
-
-	/**
-	 * @Minions
-	 */
-    public void setMinionEnergy(int energy) {
-        this.minionEnergy = energy;
-    }
-    
-    public int getMinionEnergy() {
-        return minionEnergy;
-    }
-    
-    public void setLastMinion(int id) {
-        this.lastMinion = id;
-    }
-    
-    public int getLastMinion() {
-        return lastMinion;
-    }
-    
-    public Timestamp getMinionFunctionTime() {
-        return minionFunctionTime;
-    }
-    
-    public void setMinionFunctionTime(Timestamp minionFunctionTime) {
-        this.minionFunctionTime = minionFunctionTime;
-    }
-
-	/**
-	 * @Atreian Passport
-	 */
-	public Timestamp getLastStamp() {
-		return lastStamp;
-	}
-
-	public void setLastStamp(Timestamp timestamp) {
-		lastStamp = timestamp;
-	}
-
-	public int getPassportStamps() {
-		return stamps;
-	}
-
-	public void setPassportStamps(int stamps) {
-		this.stamps = stamps;
-	}
-
-	public Map<Integer, AtreianPassport> getPlayerPassports() {
-		return atreianPassports;
-	}
-
-	public AtreianPassport getCompletedPassports() {
-		return completedPassports;
-	}
-
-	public void addToCompletedPassports(AtreianPassportTemplate atreianPassportTemplate) {
-		completedPassports.addPassport(atreianPassportTemplate.getId(), atreianPassportTemplate);
-	}
-
-	public void setCompletedPassports(AtreianPassport atreianPassport) {
-		completedPassports = atreianPassport;
-	}
-
-	public int getPassportReward() {
-		return passportReward;
-	}
-
-	public void setPassportReward(int passportReward) {
-		this.passportReward = passportReward;
-	}
-
-    public void setWorldPlayTime(int playTime) {
-        this.worldPlayTime = playTime;
-    }
-
-    public int getWorldPlayTime() {
-        return worldPlayTime;
-    }
 }

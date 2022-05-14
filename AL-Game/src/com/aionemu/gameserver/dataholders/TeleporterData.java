@@ -14,7 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dataholders;
+
+import gnu.trove.map.hash.TIntObjectHashMap;
 
 import java.util.List;
 
@@ -28,12 +31,11 @@ import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.templates.npc.NpcTemplate;
 import com.aionemu.gameserver.model.templates.teleport.TeleporterTemplate;
 
-import gnu.trove.map.hash.TIntObjectHashMap;
-
 /**
  * This is a container holding and serving all {@link NpcTemplate} instances.<br>
- * Briefly: Every {@link Npc} instance represents some class of NPCs among which each have the same id, name, items, statistics. Data for such NPC class is defined in {@link NpcTemplate} and is
- * uniquely identified by npc id.
+ * Briefly: Every {@link Npc} instance represents some class of NPCs among which
+ * each have the same id, name, items, statistics. Data for such NPC class is
+ * defined in {@link NpcTemplate} and is uniquely identified by npc id.
  *
  * @author orz
  */

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.alliance;
 
 import java.util.Map;
@@ -72,14 +73,14 @@ public class PlayerAllianceService {
 	public static final void inviteToAlliance(final Player inviter, final Player invited) {
 		if (canInvite(inviter, invited)) {
 			PlayerAllianceInvite invite = new PlayerAllianceInvite(inviter, invited);
-			if (invited.getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_MSGBOX_FORCE_INVITE_PARTY, invite)) {
+			if (invited.getResponseRequester().putRequest(SM_QUESTION_WINDOW.STR_PARTY_ALLIANCE_DO_YOU_ACCEPT_HIS_INVITATION, invite)) {
 				if (invited.isInGroup2()) {
 					PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE.STR_PARTY_ALLIANCE_INVITED_HIS_PARTY(invited.getName()));
-				}
-				else {
+				} else {
 					PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE.STR_FORCE_INVITED_HIM(invited.getName()));
 				}
-				PacketSendUtility.sendPacket(invited, new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_MSGBOX_FORCE_INVITE_PARTY, 0, 0, inviter.getName()));
+				PacketSendUtility.sendPacket(invited,
+						new SM_QUESTION_WINDOW(SM_QUESTION_WINDOW.STR_PARTY_ALLIANCE_DO_YOU_ACCEPT_HIS_INVITATION, 0, 0, inviter.getName()));
 			}
 		}
 	}
@@ -87,13 +88,13 @@ public class PlayerAllianceService {
 	public static final boolean canInvite(Player inviter, Player invited) {
 		if (inviter.isInInstance()) {
 			if (AutoGroupService.getInstance().isAutoInstance(inviter.getInstanceId())) {
-				PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE.STR_MSG_INSTANCE_CANT_OPERATE_PARTY_COMMAND);
+				PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE.STR_MSG_INSTANCE_CANT_INVITE_PARTY_COMMAND);
 				return false;
 			}
 		}
 		if (invited.isInInstance()) {
 			if (AutoGroupService.getInstance().isAutoInstance(invited.getInstanceId())) {
-				PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE.STR_MSG_INSTANCE_CANT_OPERATE_PARTY_COMMAND);
+				PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE.STR_MSG_INSTANCE_CANT_INVITE_PARTY_COMMAND);
 				return false;
 			}
 		}
@@ -102,18 +103,17 @@ public class PlayerAllianceService {
 			if (invited.isInTeam()) {
 				for (Player tm : invited.getCurrentTeam().getMembers()) {
 					if (tm.isInInstance()) {
-						// You cannot invite the player to the force as the group leader of the player is in an Instanced Zone.
+						// You cannot invite the player to the force as the
+						// group leader of the player is in an Instanced Zone.
 						PacketSendUtility.sendPacket(inviter, new SM_SYSTEM_MESSAGE(1400128));
 						return false;
-					}
-					else if (!VortexService.getInstance().isInsideVortexZone(tm)) {
+					} else if (!VortexService.getInstance().isInsideVortexZone(tm)) {
 						// TODO: chk on retail
 						PacketSendUtility.sendPacket(inviter, SM_SYSTEM_MESSAGE.STR_PARTY_ALLIANCE_CANT_INVITE_WHEN_HE_IS_ASKED_QUESTION(tm.getName()));
 						return false;
 					}
 				}
-			}
-			else if (!VortexService.getInstance().isInsideVortexZone(invited)) {
+			} else if (!VortexService.getInstance().isInsideVortexZone(invited)) {
 				// You cannot invite someone in a different area.
 				PacketSendUtility.sendPacket(inviter, new SM_SYSTEM_MESSAGE(1401527));
 				return false;
@@ -220,8 +220,7 @@ public class PlayerAllianceService {
 			PlayerAllianceMember bannedMember = alliance.getMember(bannedPlayer.getObjectId());
 			if (bannedMember != null) {
 				alliance.onEvent(new PlayerAllianceLeavedEvent(alliance, bannedMember.getObject(), LeaveReson.BAN, banGiver.getName()));
-			}
-			else {
+			} else {
 				log.warn("TEAM2: banning player not in alliance {}", alliance.onlineMembers());
 			}
 		}
@@ -271,8 +270,7 @@ public class PlayerAllianceService {
 		Preconditions.checkNotNull(alliance, "Alliance should not be null for group change");
 		if (alliance.isLeader(player) || alliance.isViceCaptain(player)) {
 			alliance.onEvent(new ChangeMemberGroupEvent(alliance, firstPlayer, secondPlayer, allianceGroupId));
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(player, "You do not have the authority for that.");
 		}
 	}

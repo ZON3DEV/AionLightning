@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.dao;
 
 import java.util.Map;
@@ -24,6 +25,7 @@ import com.aionemu.gameserver.model.town.Town;
 
 /**
  * @author ViAl
+ *
  */
 public abstract class TownDAO implements DAO {
 

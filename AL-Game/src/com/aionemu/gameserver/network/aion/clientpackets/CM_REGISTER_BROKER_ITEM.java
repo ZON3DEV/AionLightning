@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -30,8 +31,7 @@ public class CM_REGISTER_BROKER_ITEM extends AionClientPacket {
 	private int brokerId;
 	private int itemUniqueId;
 	private long price;
-	private long itemCount;
-	private boolean partSale;
+	private int itemCount;
 
 	public CM_REGISTER_BROKER_ITEM(int opcode, State state, State... restStates) {
 		super(opcode, state, restStates);
@@ -42,8 +42,7 @@ public class CM_REGISTER_BROKER_ITEM extends AionClientPacket {
 		this.brokerId = readD();
 		this.itemUniqueId = readD();
 		this.price = readQ();
-		this.itemCount = readQ();
-		partSale = (readC() == 1);
+		this.itemCount = readH();
 	}
 
 	@Override
@@ -54,6 +53,6 @@ public class CM_REGISTER_BROKER_ITEM extends AionClientPacket {
 			return;
 		}
 
-		BrokerService.getInstance().registerItem(player, itemUniqueId, itemCount, price, partSale);
+		BrokerService.getInstance().registerItem(player, itemUniqueId, itemCount, price);
 	}
 }

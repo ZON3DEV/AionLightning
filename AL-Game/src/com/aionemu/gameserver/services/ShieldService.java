@@ -14,15 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import javolution.util.FastMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aionemu.gameserver.GameServer;
 import com.aionemu.gameserver.configs.main.GeoDataConfig;
 import com.aionemu.gameserver.controllers.observer.ActionObserver;
 import com.aionemu.gameserver.controllers.observer.CollisionDieActor;
@@ -35,8 +36,6 @@ import com.aionemu.gameserver.model.siege.SiegeLocation;
 import com.aionemu.gameserver.model.siege.SiegeShield;
 import com.aionemu.gameserver.model.templates.shield.ShieldTemplate;
 import com.aionemu.gameserver.world.zone.ZoneInstance;
-
-import javolution.util.FastMap;
 
 /**
  * @author xavier
@@ -83,8 +82,6 @@ public class ShieldService {
 				log.debug("Not bound shield " + shield.getGeometry().getName());
 			}
 		}
-
-		GameServer.log.info("[ShieldService] Loaded " + sphereShields.size() + " FortressShields");
 	}
 
 	public ActionObserver createShieldObserver(int locationId, Creature observed) {
@@ -119,7 +116,8 @@ public class ShieldService {
 	}
 
 	/**
-	 * Attaches geo shield and removes obsolete sphere shield if such exists. Should be called when geo shields and SiegeZoneInstance were created.
+	 * Attaches geo shield and removes obsolete sphere shield if such exists.
+	 * Should be called when geo shields and SiegeZoneInstance were created.
 	 *
 	 * @param location
 	 *            - siege location id
@@ -147,9 +145,9 @@ public class ShieldService {
 			}
 		}
 		if (shields.size() == 0) {
-			// log.warn("Could not find a shield for locId: " + location.getLocationId());
-		}
-		else {
+			// log.warn("Could not find a shield for locId: " +
+			// location.getLocationId());
+		} else {
 			location.setShields(shields);
 		}
 	}

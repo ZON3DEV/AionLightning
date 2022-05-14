@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.team2.alliance.events;
 
 import com.aionemu.gameserver.model.team2.alliance.PlayerAlliance;
@@ -53,8 +54,7 @@ public class ChangeMemberGroupEvent extends AlwaysTrueTeamEvent implements Predi
 		Preconditions.checkArgument(secondMemberId == 0 || secondMember != null, "Second member should not be null");
 		if (secondMember != null) {
 			swapMembersInGroup(firstMember, secondMember);
-		}
-		else {
+		} else {
 			moveMemberToGroup(firstMember, allianceGroupId);
 		}
 		alliance.apply(this);

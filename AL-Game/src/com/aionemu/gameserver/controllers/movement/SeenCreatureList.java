@@ -14,14 +14,16 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.controllers.movement;
 
-import com.aionemu.gameserver.model.gameobjects.Creature;
+package com.aionemu.gameserver.controllers.movement;
 
 import javolution.util.FastMap;
 
+import com.aionemu.gameserver.model.gameobjects.Creature;
+
 /**
  * @author Rolandas
+ *
  */
 public class SeenCreatureList {
 

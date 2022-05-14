@@ -14,14 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.siegeservice;
-
-import java.util.Collection;
-import java.util.Date;
-import java.util.concurrent.atomic.AtomicBoolean;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.callbacks.EnhancedObject;
 import com.aionemu.gameserver.ai2.AbstractAI;
@@ -30,6 +24,7 @@ import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.gameobjects.Creature;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.gameobjects.siege.SiegeNpc;
+import com.aionemu.gameserver.model.siege.FortressLocation;
 import com.aionemu.gameserver.model.siege.SiegeLocation;
 import com.aionemu.gameserver.model.siege.SiegeModType;
 import com.aionemu.gameserver.model.siege.SiegeRace;
@@ -37,10 +32,14 @@ import com.aionemu.gameserver.model.templates.npc.AbyssNpcType;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SIEGE_LOCATION_STATE;
 import com.aionemu.gameserver.services.SiegeService;
 import com.aionemu.gameserver.world.World;
+import java.util.Collection;
+import java.util.Date;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author SoulKeeper, Source
- * @rework A7xatomic
  */
 public abstract class Siege<SL extends SiegeLocation> {
 
@@ -67,15 +66,14 @@ public abstract class Siege<SL extends SiegeLocation> {
 		synchronized (this) {
 			if (started) {
 				doubleStart = true;
-			}
-			else {
+			} else {
 				startTime = new Date();
 				started = true;
 			}
 		}
 
 		if (doubleStart) {
-			log.error("[SiegeService] Attempt to start siege of SiegeLocation#" + siegeLocation.getLocationId() + " for 2 times");
+			log.error("Attempt to start siege of SiegeLocation#" + siegeLocation.getLocationId() + " for 2 times");
 			return;
 		}
 
@@ -97,9 +95,8 @@ public abstract class Siege<SL extends SiegeLocation> {
 			if (SiegeConfig.BALAUR_AUTO_ASSAULT) {
 				BalaurAssaultService.getInstance().onSiegeFinish(this);
 			}
-		}
-		else {
-			log.error("[SiegeService] Attempt to stop siege of SiegeLocation#" + siegeLocation.getLocationId() + " for 2 times");
+		} else {
+			log.error("Attempt to stop siege of SiegeLocation#" + siegeLocation.getLocationId() + " for 2 times");
 		}
 	}
 
@@ -207,10 +204,10 @@ public abstract class Siege<SL extends SiegeLocation> {
 
 		Collection<SiegeNpc> npcs = World.getInstance().getLocalSiegeNpcs(getSiegeLocationId());
 		for (SiegeNpc npc : npcs) {
-			if (npc.getObjectTemplate().getAbyssNpcType().equals(AbyssNpcType.BOSS) || npc.getObjectTemplate().getAi().equals("artifact_protector") || npc.getObjectTemplate().getAi().equals("siege_protector")) { // TODO: AbyssNpcType for artifacts
+			if (npc.getObjectTemplate().getAbyssNpcType().equals(AbyssNpcType.BOSS)) {
 
 				if (boss != null) {
-					throw new SiegeException("[SiegeService] Found 2 siege bosses for outpost " + getSiegeLocationId() + " NPC " + npc.getNpcId());
+					throw new SiegeException("Found 2 siege bosses for outpost " + getSiegeLocationId());
 				}
 
 				boss = npc;
@@ -218,7 +215,7 @@ public abstract class Siege<SL extends SiegeLocation> {
 		}
 
 		if (boss == null) {
-			throw new SiegeException("[SiegeService] Siege Boss not found for siege " + getSiegeLocationId());
+			throw new SiegeException("Siege Boss not found for siege " + getSiegeLocationId());
 		}
 
 		setBoss(boss);
@@ -243,5 +240,13 @@ public abstract class Siege<SL extends SiegeLocation> {
 
 	protected void broadcastUpdate(SiegeLocation location, int nameId) {
 		SiegeService.getInstance().broadcastUpdate(location, new DescriptionId(nameId));
+	}
+
+	protected void updateOutpostStatusByFortress(FortressLocation location) {
+		SiegeService.getInstance().updateOutpostStatusByFortress(location);
+	}
+
+	protected void updateTiamarantaRiftsStatus(boolean isPreparation, boolean isSync) {
+		SiegeService.getInstance().updateTiamarantaRiftsStatus(isPreparation, isSync);
 	}
 }

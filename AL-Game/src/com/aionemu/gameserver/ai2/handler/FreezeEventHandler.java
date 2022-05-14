@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.ai2.handler;
 
 import com.aionemu.gameserver.ai2.AIState;
@@ -36,8 +37,7 @@ public class FreezeEventHandler {
 				if (npc.getWalkerGroup() != null) {
 					ai.setStateIfNot(AIState.WALKING);
 					ai.setSubStateIfNot(AISubState.WALK_WAIT_GROUP);
-				}
-				else if (npc.getSpawn().getRandomWalk() > 0) {
+				} else if (npc.getSpawn().getRandomWalk() > 0) {
 					ai.setStateIfNot(AIState.WALKING);
 					ai.setSubStateIfNot(AISubState.WALK_RANDOM);
 				}

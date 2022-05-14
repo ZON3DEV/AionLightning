@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -40,20 +41,17 @@ public class AlwaysParryEffect extends EffectTemplate {
 	@Override
 	public void startEffect(final Effect effect) {
 		AttackCalcObserver acObserver = new AttackStatusObserver(value, AttackStatus.PARRY) {
-
 			@Override
 			public boolean checkStatus(AttackStatus status) {
 				if (status == AttackStatus.PARRY) {
 					if (value <= 1) {
 						effect.endEffect();
-					}
-					else {
+					} else {
 						value--;
 					}
 
 					return true;
-				}
-				else {
+				} else {
 					return false;
 				}
 			}

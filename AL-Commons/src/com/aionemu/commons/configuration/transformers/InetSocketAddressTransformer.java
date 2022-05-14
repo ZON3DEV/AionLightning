@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.configuration.transformers;
 
 import java.lang.reflect.Field;
@@ -25,8 +26,7 @@ import com.aionemu.commons.configuration.PropertyTransformer;
 import com.aionemu.commons.configuration.TransformationException;
 
 /**
- * Thransforms string to InetSocketAddress. InetSocketAddress can be represented
- * in following ways:
+ * Thransforms string to InetSocketAddress. InetSocketAddress can be represented in following ways:
  * <ul>
  * <li>address:port</li>
  * <li>*:port - will use all avaiable network interfaces</li>
@@ -37,8 +37,7 @@ import com.aionemu.commons.configuration.TransformationException;
 public class InetSocketAddressTransformer implements PropertyTransformer<InetSocketAddress> {
 
 	/**
-	 * Shared instance of this transformer. It's thread-safe so no need of
-	 * multiple instances
+	 * Shared instance of this transformer. It's thread-safe so no need of multiple instances
 	 */
 	public static final InetSocketAddressTransformer SHARED_INSTANCE = new InetSocketAddressTransformer();
 
@@ -46,12 +45,12 @@ public class InetSocketAddressTransformer implements PropertyTransformer<InetSoc
 	 * Transforms string to InetSocketAddress
 	 * 
 	 * @param value
-	 *            value that will be transformed
+	 *          value that will be transformed
 	 * @param field
-	 *            value will be assigned to this field
+	 *          value will be assigned to this field
 	 * @return InetSocketAddress that represetns value
 	 * @throws TransformationException
-	 *             if somehting went wrong
+	 *           if somehting went wrong
 	 */
 	@Override
 	public InetSocketAddress transform(String value, Field field) throws TransformationException {
@@ -68,7 +67,8 @@ public class InetSocketAddressTransformer implements PropertyTransformer<InetSoc
 			InetAddress address = InetAddress.getByName(parts[0]);
 			int port = Integer.parseInt(parts[1]);
 			return new InetSocketAddress(address, port);
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			throw new TransformationException(e);
 		}
 	}

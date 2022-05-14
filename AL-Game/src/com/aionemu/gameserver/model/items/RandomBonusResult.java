@@ -14,8 +14,10 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.items;
 
+import com.aionemu.gameserver.model.stats.calc.functions.StatFunction;
 import com.aionemu.gameserver.model.templates.stats.ModifiersTemplate;
 
 /**
@@ -28,6 +30,9 @@ public class RandomBonusResult {
 
 	public RandomBonusResult(ModifiersTemplate template, int number) {
 		this.template = template;
+		for (StatFunction function : template.getModifiers()) {
+			function.setRandomNumber(number);
+		}
 		this.templateNumber = number;
 	}
 

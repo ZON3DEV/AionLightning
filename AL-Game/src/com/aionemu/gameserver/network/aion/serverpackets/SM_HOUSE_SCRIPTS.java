@@ -14,14 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.serverpackets;
 
-import java.util.Map;
+package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.PlayerScripts;
 import com.aionemu.gameserver.model.house.PlayerScript;
 import com.aionemu.gameserver.network.aion.AionConnection;
 import com.aionemu.gameserver.network.aion.AionServerPacket;
+
+import java.util.Map;
 
 /**
  * @author Rolandas
@@ -50,8 +51,7 @@ public class SM_HOUSE_SCRIPTS extends AionServerPacket {
 			byte[] bytes = script.getCompressedBytes();
 			if (bytes == null) {
 				writeH(-1);
-			}
-			else {
+			} else {
 				if (bytes.length == 0) {
 					writeH(0);
 					continue;

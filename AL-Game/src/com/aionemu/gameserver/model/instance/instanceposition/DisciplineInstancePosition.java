@@ -14,11 +14,13 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.instance.instanceposition;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 
 /**
+ *
  * @author xTz
  */
 public class DisciplineInstancePosition extends GenerealInstancePosition {

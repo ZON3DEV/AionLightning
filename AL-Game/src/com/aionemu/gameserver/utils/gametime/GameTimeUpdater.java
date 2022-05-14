@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.gametime;
 
 /**
@@ -28,8 +29,7 @@ public class GameTimeUpdater implements Runnable {
 	/**
 	 * Constructs GameTimeUpdater to update the given GameTime
 	 *
-	 * @param time
-	 *            GameTime to update
+     * @param time GameTime to update
 	 */
 	public GameTimeUpdater(GameTime time) {
 		this.time = time;

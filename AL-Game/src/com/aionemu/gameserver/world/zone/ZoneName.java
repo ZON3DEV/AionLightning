@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.world.zone;
 
 import org.slf4j.Logger;
@@ -35,7 +36,6 @@ public final class ZoneName {
 		zoneNames.put(NONE, new ZoneName(NONE));
 		zoneNames.put(ABYSS_CASTLE, new ZoneName(ABYSS_CASTLE));
 	}
-
 	private String _name;
 
 	private ZoneName(String name) {

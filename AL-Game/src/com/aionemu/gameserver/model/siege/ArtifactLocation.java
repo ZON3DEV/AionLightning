@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.siege;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -58,8 +59,7 @@ public class ArtifactLocation extends SiegeLocation {
 		long l = System.currentTimeMillis() - this.lastArtifactActivation;
 		if (l > i) {
 			return 0;
-		}
-		else {
+		} else {
 			return (int) ((i - l) / 1000);
 		}
 	}

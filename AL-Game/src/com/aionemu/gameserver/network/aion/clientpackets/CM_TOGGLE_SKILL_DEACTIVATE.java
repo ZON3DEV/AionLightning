@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -28,7 +29,6 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 public class CM_TOGGLE_SKILL_DEACTIVATE extends AionClientPacket {
 
 	private int skillId;
-	// private int unk;
 
 	public CM_TOGGLE_SKILL_DEACTIVATE(int opcode, State state, State... restStates) {
 		super(opcode, state, restStates);
@@ -40,7 +40,6 @@ public class CM_TOGGLE_SKILL_DEACTIVATE extends AionClientPacket {
 	@Override
 	protected void readImpl() {
 		skillId = readH();
-		// unk = readD(); // 00 00 00 00 5.0 EU ???
 	}
 
 	/**

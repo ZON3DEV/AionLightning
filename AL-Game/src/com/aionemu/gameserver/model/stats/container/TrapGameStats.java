@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.stats.container;
 
 import com.aionemu.gameserver.model.gameobjects.Npc;
@@ -37,7 +38,8 @@ public class TrapGameStats extends NpcGameStats {
 		switch (statEnum) {
 			case BOOST_MAGICAL_SKILL:
 			case MAGICAL_ACCURACY:
-				// bonus is calculated from stat bonus of master (only green value)
+				// bonus is calculated from stat bonus of master (only green
+				// value)
 				stat.setBonusRate(0.7f); // TODO: retail formula?
 				return owner.getMaster().getGameStats().getItemStatBoost(statEnum, stat);
 			default:

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils.collections.cachemap;
 
 /**
@@ -26,7 +27,8 @@ public interface CacheMap<K, V> {
 	/**
 	 * Adds a pair <key,value> to cache map.<br>
 	 * <br>
-	 * <font color='red'><b>NOTICE:</b> </font> if there is already a value with given id in the map, {@link IllegalArgumentException} will be thrown.
+	 * <font color='red'><b>NOTICE:</b> </font> if there is already a value with
+	 * given id in the map, {@link IllegalArgumentException} will be thrown.
 	 *
 	 * @param key
 	 * @param value

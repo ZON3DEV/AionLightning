@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.configs.main.WorldConfig;
@@ -41,8 +42,7 @@ public class SM_CHANNEL_INFO extends AionServerPacket {
 				this.instanceCount += template.getTwinCount();
 			}
 			this.currentChannel = position.getInstanceId() - 1;
-		}
-		else {
+		} else {
 			this.instanceCount = template.getTwinCount();
 			if (WorldConfig.WORLD_EMULATE_FASTTRACK) {
 				this.instanceCount += template.getBeginnerTwinCount();

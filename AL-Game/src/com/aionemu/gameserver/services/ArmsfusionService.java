@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services;
 
 import org.slf4j.Logger;
@@ -22,6 +23,7 @@ import org.slf4j.LoggerFactory;
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.dao.InventoryDAO;
 import com.aionemu.gameserver.model.gameobjects.Item;
+import com.aionemu.gameserver.model.gameobjects.Npc;
 import com.aionemu.gameserver.model.gameobjects.PersistentState;
 import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.model.templates.item.ItemQuality;
@@ -40,49 +42,6 @@ public class ArmsfusionService {
 
 	private static final Logger log = LoggerFactory.getLogger(ArmsfusionService.class);
 
-	private static double rarityRate(ItemQuality rarity) {
-		switch (rarity) {
-			case COMMON:
-				return 1.0;
-			case RARE:
-				return 1.25;
-			case LEGEND:
-				return 1.5;
-			case UNIQUE:
-				return 2.0;
-			case EPIC:
-				return 2.5;
-			case MYTHIC:
-				return 3.0;
-			default:
-				return 1.0;
-		}
-	}
-
-	public static void breakWeapons(Player player, int weaponToBreakUniqueId) {
-		Item weaponToBreak = player.getInventory().getItemByObjId(weaponToBreakUniqueId);
-		if (weaponToBreak == null) {
-			weaponToBreak = player.getEquipment().getEquippedItemByObjId(weaponToBreakUniqueId);
-		}
-
-		if (weaponToBreak == null) {
-			return;
-		}
-
-		if (!weaponToBreak.hasFusionedItem()) {
-			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_DECOMPOUND_ERROR_NOT_AVAILABLE(weaponToBreak.getNameId()));
-			return;
-		}
-
-		weaponToBreak.setFusionedItem(null);
-		ItemSocketService.removeAllFusionStone(player, weaponToBreak);
-		DAOManager.getDAO(InventoryDAO.class).store(weaponToBreak, player);
-
-		ItemPacketService.updateItemAfterInfoChange(player, weaponToBreak);
-
-		PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_COMPOUNDED_ITEM_DECOMPOUND_SUCCESS(weaponToBreak.getNameId()));
-	}
-
 	public static void fusionWeapons(Player player, int firstItemUniqueId, int secondItemUniqueId) {
 		Item firstItem = player.getInventory().getItemByObjId(firstItemUniqueId);
 		if (firstItem == null) {
@@ -97,7 +56,7 @@ public class ArmsfusionService {
 		/*
 		 * Check if item is in bag
 		 */
-		if (firstItem == null || secondItem == null) {
+		if (firstItem == null || secondItem == null || !(player.getTarget() instanceof Npc)) {
 			return;
 		}
 
@@ -146,7 +105,8 @@ public class ArmsfusionService {
 		}
 
 		/*
-		 * Second weapon must have inferior or equal lvl. in relation to first weapon
+		 * Second weapon must have inferior or equal lvl. in relation to first
+		 * weapon
 		 */
 		if (secondItem.getItemTemplate().getLevel() > firstItem.getItemTemplate().getLevel()) {
 			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_COMPOUND_ERROR_MAIN_REQUIRE_HIGHER_LEVEL);
@@ -167,8 +127,7 @@ public class ArmsfusionService {
 
 		if (secondItem.hasOptionalSocket()) {
 			firstItem.setOptionalFusionSocket(secondItem.getOptionalSocket());
-		}
-		else {
+		} else {
 			firstItem.setOptionalFusionSocket(0);
 		}
 
@@ -183,5 +142,46 @@ public class ArmsfusionService {
 		ItemPacketService.updateItemAfterInfoChange(player, firstItem);
 		player.getInventory().decreaseKinah(price);
 		PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_COMPOUND_SUCCESS(firstItem.getNameId(), secondItem.getNameId()));
+	}
+
+	private static double rarityRate(ItemQuality rarity) {
+		switch (rarity) {
+			case COMMON:
+				return 1.0;
+			case RARE:
+				return 1.25;
+			case LEGEND:
+				return 1.5;
+			case UNIQUE:
+				return 2.0;
+			case EPIC:
+				return 2.5;
+			default:
+				return 1.0;
+		}
+	}
+
+	public static void breakWeapons(Player player, int weaponToBreakUniqueId) {
+		Item weaponToBreak = player.getInventory().getItemByObjId(weaponToBreakUniqueId);
+		if (weaponToBreak == null) {
+			weaponToBreak = player.getEquipment().getEquippedItemByObjId(weaponToBreakUniqueId);
+		}
+
+		if (weaponToBreak == null || !(player.getTarget() instanceof Npc)) {
+			return;
+		}
+
+		if (!weaponToBreak.hasFusionedItem()) {
+			PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_DECOMPOUND_ERROR_NOT_AVAILABLE(weaponToBreak.getNameId()));
+			return;
+		}
+
+		weaponToBreak.setFusionedItem(null);
+		ItemSocketService.removeAllFusionStone(player, weaponToBreak);
+		DAOManager.getDAO(InventoryDAO.class).store(weaponToBreak, player);
+
+		ItemPacketService.updateItemAfterInfoChange(player, weaponToBreak);
+
+		PacketSendUtility.sendPacket(player, SM_SYSTEM_MESSAGE.STR_COMPOUNDED_ITEM_DECOMPOUND_SUCCESS(weaponToBreak.getNameId()));
 	}
 }

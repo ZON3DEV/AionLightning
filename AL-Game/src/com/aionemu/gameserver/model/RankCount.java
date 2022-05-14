@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model;
 
 /**
@@ -23,13 +24,11 @@ public class RankCount {
 
 	private int playerId;
 	private int ap;
-	private int gp;
 	private Race race;
 
-	public RankCount(int playerId, int ap, int gp, Race race) {
+	public RankCount(int playerId, int ap, Race race) {
 		this.playerId = playerId;
 		this.ap = ap;
-		this.gp = gp;
 		this.race = race;
 	}
 
@@ -40,11 +39,7 @@ public class RankCount {
 	public int getPlayerAP() {
 		return ap;
 	}
-	
-	public int getPlayerGP() {
-		return gp;
-	}
-	
+
 	public Race getPlayerRace() {
 		return race;
 	}

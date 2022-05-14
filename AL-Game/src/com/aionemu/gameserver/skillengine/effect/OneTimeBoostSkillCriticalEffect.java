@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.effect;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -49,20 +50,17 @@ public class OneTimeBoostSkillCriticalEffect extends EffectTemplate {
 		super.startEffect(effect);
 
 		AttackerCriticalStatusObserver observer = new AttackerCriticalStatusObserver(AttackStatus.CRITICAL, count, value, percent) {
-
 			@Override
 			public AttackerCriticalStatus checkAttackerCriticalStatus(AttackStatus stat, boolean isSkill) {
 				if (stat == this.status && isSkill) {
 					if (this.getCount() <= 1) {
 						effect.endEffect();
-					}
-					else {
+					} else {
 						this.decreaseCount();
 					}
 
 					this.acStatus.setResult(true);
-				}
-				else {
+				} else {
 					this.acStatus.setResult(false);
 				}
 

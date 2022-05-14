@@ -14,9 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.network.aion.clientpackets;
 
-import org.slf4j.LoggerFactory;
+package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.TeleportAnimation;
@@ -28,6 +27,7 @@ import com.aionemu.gameserver.network.aion.AionClientPacket;
 import com.aionemu.gameserver.network.aion.AionConnection.State;
 import com.aionemu.gameserver.services.teleport.TeleportService2;
 import com.aionemu.gameserver.utils.MathUtil;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author ATracer, orz, KID
@@ -54,7 +54,7 @@ public class CM_TELEPORT_SELECT extends AionClientPacket {
 	protected void readImpl() {
 		targetObjectId = readD();
 		locId = readD(); // locationId
-		readH(); // unk 0 added with 5.3
+    	readH();
 	}
 
 	/**
@@ -76,14 +76,14 @@ public class CM_TELEPORT_SELECT extends AionClientPacket {
 			}
 			TeleporterTemplate teleport = DataManager.TELEPORTER_DATA.getTeleporterTemplateByNpcId(npcId);
 			if (teleport != null) {
-				TeleportService2.teleport(teleport, locId, player, npc, TeleportAnimation.JUMP_ANIMATION);
-			}
-			else {
+				TeleportService2.teleport(teleport, locId, player, npc, TeleportAnimation.JUMP_AIMATION);
+			} else {
 				LoggerFactory.getLogger(CM_TELEPORT_SELECT.class).warn("teleportation id " + locId + " was not found on npc " + npcId);
 			}
-		}
-		else {
-			LoggerFactory.getLogger(CM_TELEPORT_SELECT.class).debug("player " + player.getName() + " requested npc " + targetObjectId + " for teleportation " + locId + ", but he doesnt have such npc in knownlist");
+		} else {
+			LoggerFactory.getLogger(CM_TELEPORT_SELECT.class).debug(
+					"player " + player.getName() + " requested npc " + targetObjectId + " for teleportation " + locId
+							+ ", but he doesnt have such npc in knownlist");
 		}
 	}
 }

@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.gmhandler;
 
 import com.aionemu.gameserver.configs.main.GSConfig;
@@ -21,16 +22,14 @@ import com.aionemu.gameserver.model.gameobjects.player.Player;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
- * @author Alcapwnd
+ * @author Antraxx
  */
-public class CmdLevelUpDown extends AbstractGMHandler {
+public final class CmdLevelUpDown extends AbstractGMHandler {
 
 	public enum LevelUpDownState {
-		UP,
-		DOWN
-	}
 
-	;
+		UP, DOWN
+	}
 
 	private LevelUpDownState state;
 
@@ -48,20 +47,16 @@ public class CmdLevelUpDown extends AbstractGMHandler {
 			if (t.getCommonData().getLevel() - level >= 1) {
 				int newLevel = t.getCommonData().getLevel() - level;
 				t.getCommonData().setLevel(newLevel);
+			} else {
+				PacketSendUtility.sendMessage(admin, "The value of <level> will plus calculated to the current player level!");
 			}
-			else {
-				PacketSendUtility.sendMessage(admin, "The value of <level> will minus calculated to the current player level!");
-			}
-		}
-		else if (state == LevelUpDownState.UP) {
+		} else if (state == LevelUpDownState.UP) {
 			if (t.getCommonData().getLevel() + level <= GSConfig.PLAYER_MAX_LEVEL) {
 				int newLevel = t.getCommonData().getLevel() + level;
 				t.getCommonData().setLevel(newLevel);
-			}
-			else {
+			} else {
 				PacketSendUtility.sendMessage(admin, "The value of <level> will plus calculated to the current player level!");
 			}
 		}
 	}
-
 }

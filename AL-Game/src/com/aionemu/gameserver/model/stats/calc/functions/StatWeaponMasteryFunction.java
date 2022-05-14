@@ -21,9 +21,6 @@ import com.aionemu.gameserver.model.stats.calc.Stat2;
 import com.aionemu.gameserver.model.stats.container.StatEnum;
 import com.aionemu.gameserver.model.templates.item.WeaponType;
 
-/**
- * @author ATracer (based on Mr.Poke WeaponMasteryModifier)
- */
 public class StatWeaponMasteryFunction extends StatRateFunction {
 
 	private final WeaponType weaponType;

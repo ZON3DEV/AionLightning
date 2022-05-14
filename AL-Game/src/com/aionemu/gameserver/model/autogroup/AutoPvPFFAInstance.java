@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.model.autogroup;
 
 import com.aionemu.gameserver.model.gameobjects.player.Player;
@@ -23,6 +24,7 @@ import com.aionemu.gameserver.services.AutoGroupService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
 /**
+ *
  * @author xTz
  */
 public class AutoPvPFFAInstance extends AutoInstance {
@@ -36,8 +38,7 @@ public class AutoPvPFFAInstance extends AutoInstance {
 			}
 			players.put(player.getObjectId(), new AGPlayer(player));
 			return instance != null ? AGQuestion.ADDED : (players.size() == agt.getPlayerSize() ? AGQuestion.READY : AGQuestion.ADDED);
-		}
-		finally {
+		} finally {
 			super.writeUnlock();
 		}
 	}

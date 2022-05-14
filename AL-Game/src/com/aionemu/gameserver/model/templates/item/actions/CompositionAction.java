@@ -14,15 +14,11 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.model.templates.item.actions;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlType;
+package com.aionemu.gameserver.model.templates.item.actions;
 
 import com.aionemu.commons.network.util.ThreadPoolManager;
 import com.aionemu.commons.utils.Rnd;
-import com.aionemu.gameserver.configs.main.CompositionConfig;
 import com.aionemu.gameserver.controllers.observer.ItemUseObserver;
 import com.aionemu.gameserver.model.TaskId;
 import com.aionemu.gameserver.model.gameobjects.Item;
@@ -31,8 +27,12 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_ITEM_USAGE_ANIMATION
 import com.aionemu.gameserver.services.item.ItemService;
 import com.aionemu.gameserver.utils.PacketSendUtility;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
+
 /**
- * Created with IntelliJ IDEA. User: pixfid Date: 7/14/13 Time: 5:18 PM Modded by FrozenKiller
+ * Created with IntelliJ IDEA. User: pixfid Date: 7/14/13 Time: 5:18 PM
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CompositionAction")
@@ -74,21 +74,19 @@ public class CompositionAction extends AbstractItemAction {
 
 	public void act(final Player player, final Item tools, final Item first, final Item second) {
 
-		PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, tools.getObjectId(), tools.getItemTemplate().getTemplateId(), CompositionConfig.COMPOSITION_SPEED, 0));
+		PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), tools.getObjectId(), tools.getItemTemplate().getTemplateId(), 5000, 0, 0));
 		player.getController().cancelTask(TaskId.ITEM_USE);
 
 		final ItemUseObserver observer = new ItemUseObserver() {
-
 			@Override
 			public void abort() {
 				player.getController().cancelTask(TaskId.ITEM_USE);
-				PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, tools.getObjectId(), tools.getItemTemplate().getTemplateId(), 0, 2));
+				PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), tools.getObjectId(), tools.getItemTemplate().getTemplateId(), 0, 2, 0));
 				player.getObserveController().removeObserver(this);
 			}
 		};
 		player.getObserveController().attach(observer);
 		player.getController().addTask(TaskId.ITEM_USE, ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				player.getObserveController().removeObserver(observer);
@@ -96,29 +94,22 @@ public class CompositionAction extends AbstractItemAction {
 				boolean result1 = player.getInventory().decreaseByObjectId(first.getObjectId(), 1);
 				boolean result2 = player.getInventory().decreaseByObjectId(second.getObjectId(), 1);
 				if (result && result1 && result2) {
-					ItemService.addItem(player, getItemId(calcLevel(first.getItemTemplate().getLevel(), second.getItemTemplate().getLevel(), tools.getItemTemplate().getTemplateId())), CompositionConfig.COMPOSITION_STONE_QUANTITY);
+					ItemService.addItem(player, getItemId(calcLevel(first.getItemTemplate().getLevel(), second.getItemTemplate().getLevel())), 1);
 				}
-				PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), 0, tools.getObjectId(), tools.getItemTemplate().getTemplateId(), 0, 1));
+				PacketSendUtility.sendPacket(player, new SM_ITEM_USAGE_ANIMATION(player.getObjectId(), tools.getObjectId(), tools.getItemTemplate().getTemplateId(), 0, 1, 0));
 			}
-		}, CompositionConfig.COMPOSITION_SPEED));
+		}, 5000));
 
 	}
 
-	private int calcLevel(int first, int second, int tools) {
-		int itemId = tools;
+	private int calcLevel(int first, int second) {
 		int value = ((first + second) / 2);
 		if (value < 11) {
 			value = Rnd.get(1, 20);
-		}
-		else {
-			int random = Rnd.get(CompositionConfig.COMPOSITION_RND_MIN, CompositionConfig.COMPOSITION_RND_MAX);
+		} else {
+			int random = Rnd.get(1, 10);
 			int bit = Rnd.get(0, 1);
-			if (itemId == 165010001) { // Vindachinerk's Fine Combination Tool should only give +
-				value = (bit == 0 ? value + random : value + random);
-			}
-			else {
-				value = (bit == 0 ? value - random : value + random);
-			}
+			value = (bit == 0 ? value - random : value + random);
 		}
 		return value;
 	}

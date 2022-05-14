@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.configs.administration;
 
 import com.aionemu.commons.configuration.Property;
@@ -44,13 +45,9 @@ public class AdminConfig {
 	public static int INSTANCE_REQ;
 	@Property(key = "gameserver.administration.view.player", defaultValue = "3")
 	public static int ADMIN_VIEW_DETAILS;
-	@Property(key = "gameserver.administration.instant.enchant", defaultValue = "false")
-	public static boolean INSTANT_ENCHANT_SUCCESS;
 	/**
 	 * Admin options
 	 */
-	@Property(key = "gameserver.administration.gm.mode.connection", defaultValue = "false")
-	public static boolean GM_MODE_CONNECTION;
 	@Property(key = "gameserver.administration.invis.gm.connection", defaultValue = "false")
 	public static boolean INVISIBLE_GM_CONNECTION;
 	@Property(key = "gameserver.administration.enemity.gm.connection", defaultValue = "Normal")
@@ -65,39 +62,48 @@ public class AdminConfig {
 	public static boolean QUEST_DIALOG_LOG;
 	@Property(key = "gameserver.administration.trade.item.restriction", defaultValue = "false")
 	public static boolean ENABLE_TRADEITEM_RESTRICTION;
+
 	/**
 	 * Custom TAG based on access level
 	 */
 	@Property(key = "gameserver.customtag.enable", defaultValue = "true")
 	public static boolean CUSTOMTAG_ENABLE;
-	@Property(key = "gameserver.customtag.access1", defaultValue = "\uE06F Supporter \uE06F %s")
+	@Property(key = "gameserver.customtag.access1", defaultValue = "<Supporter> %s")
 	public static String CUSTOMTAG_ACCESS1;
-	@Property(key = "gameserver.customtag.access2", defaultValue = "\uE04E Junior-GM \uE04E %s")
+	@Property(key = "gameserver.customtag.access2", defaultValue = "<Jr-GM> %s")
 	public static String CUSTOMTAG_ACCESS2;
-	@Property(key = "gameserver.customtag.access3", defaultValue = "\uE050 Senior-GM \uE050 %s")
+	@Property(key = "gameserver.customtag.access3", defaultValue = "<GM> %s")
 	public static String CUSTOMTAG_ACCESS3;
-	@Property(key = "gameserver.customtag.access4", defaultValue = "\uE04A Head-GM \uE04A %s")
+	@Property(key = "gameserver.customtag.access4", defaultValue = "<Head-GM %s")
 	public static String CUSTOMTAG_ACCESS4;
-	@Property(key = "gameserver.customtag.access5", defaultValue = "\uE0BD Admin \uE0BD %s")
+	@Property(key = "gameserver.customtag.access5", defaultValue = "<Admin> %s")
 	public static String CUSTOMTAG_ACCESS5;
-	@Property(key = "gameserver.customtag.access6", defaultValue = "\uE0BD Developer \uE0BD %s")
+	@Property(key = "gameserver.customtag.access6", defaultValue = "<S-Admin L1> %s")
 	public static String CUSTOMTAG_ACCESS6;
-	@Property(key = "gameserver.customtag.access7", defaultValue = "\uE0BD Server-CoAdmin \uE0BD %s")
+	@Property(key = "gameserver.customtag.access7", defaultValue = "<S-Admin L2> %s")
 	public static String CUSTOMTAG_ACCESS7;
-	@Property(key = "gameserver.customtag.access8", defaultValue = "\uE0BD Server-Admin \uE0BD %s")
+	@Property(key = "gameserver.customtag.access8", defaultValue = "<S-Admin L3> %s")
 	public static String CUSTOMTAG_ACCESS8;
-	@Property(key = "gameserver.customtag.access9", defaultValue = "\uE0BD Server-CoOwner \uE0BD %s")
+	@Property(key = "gameserver.customtag.access9", defaultValue = "<S-CoOwner> %s")
 	public static String CUSTOMTAG_ACCESS9;
-	@Property(key = "gameserver.customtag.access10", defaultValue = "\uE0BD Server-Owner \uE0BD %s")
+	@Property(key = "gameserver.customtag.access10", defaultValue = "<S-Owner> %s")
 	public static String CUSTOMTAG_ACCESS10;
+
 	@Property(key = "gameserver.admin.announce.levels", defaultValue = "*")
 	public static String ANNOUNCE_LEVEL_LIST;
+
 	/**
 	 * GM special skill
 	 */
-	@Property(key = "administration.command.special.skill", defaultValue = "9")
+	@Property(key = "administration.command.special.skill", defaultValue = "3")
 	public static int COMMAND_SPECIAL_SKILL;
-
-	@Property(key = "gameserver.not-open.twoclienwindow", defaultValue = "false")
-	public static boolean NO_OPEN_NEW_WINDOW;
+	/**
+	 * Special 1 MAC per connection
+	 */
+	@Property(key = "gameserver.administration.guard.window", defaultValue = "true")
+	public static boolean GUARD_WINDOW;
+	@Property(key = "gameserver.administration.guard.windowtrue", defaultValue = "true")
+	public static boolean GUARD_WINDOW_TRUE;
+	@Property(key = "gameserver.administration.guardwindow.timekick", defaultValue = "60 * 1000")
+	public static int TIME_KICK;
 }

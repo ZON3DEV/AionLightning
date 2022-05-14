@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.clientpackets;
 
 import com.aionemu.commons.database.dao.DAOManager;
@@ -69,10 +70,8 @@ public class CM_DELETE_CHARACTER extends AionClientPacket {
 	 */
 	@Override
 	protected void runImpl() {
-
 		AionConnection client = getConnection();
 		PlayerAccountData playerAccData = client.getAccount().getPlayerAccountData(chaOid);
-
 		if (playerAccData != null && !playerAccData.isLegionMember()) {
 			// passkey check
 			if (SecurityConfig.PASSKEY_ENABLE && !client.getAccount().getCharacterPasskey().isPass()) {
@@ -82,17 +81,14 @@ public class CM_DELETE_CHARACTER extends AionClientPacket {
 
 				if (!isExistPasskey) {
 					client.sendPacket(new SM_CHARACTER_SELECT(0));
-				}
-				else {
+				} else {
 					client.sendPacket(new SM_CHARACTER_SELECT(1));
 				}
-			}
-			else {
+			} else {
 				PlayerService.deletePlayer(playerAccData);
 				client.sendPacket(new SM_DELETE_CHARACTER(chaOid, playerAccData.getDeletionTimeInSeconds()));
 			}
-		}
-		else {
+		} else {
 			client.sendPacket(SM_SYSTEM_MESSAGE.STR_GUILD_DISPERSE_STAYMODE_CANCEL_1);
 		}
 	}

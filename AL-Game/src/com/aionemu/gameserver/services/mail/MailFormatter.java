@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.services.mail;
 
 import com.aionemu.gameserver.dataholders.DataManager;
@@ -34,19 +35,15 @@ public final class MailFormatter {
 		final MailTemplate template = DataManager.SYSTEM_MAIL_TEMPLATES.getMailTemplate("$$CASH_ITEM_MAIL", "", Race.PC_ALL);
 
 		MailPart formatter = new MailPart() {
-
 			@Override
 			public String getParamValue(String name) {
 				if ("itemid".equals(name)) {
 					return Integer.toString(itemObjectId);
-				}
-				else if ("count".equals(name)) {
+				} else if ("count".equals(name)) {
 					return Integer.toString(itemCount);
-				}
-				else if ("unk1".equals(name)) {
+				} else if ("unk1".equals(name)) {
 					return "0";
-				}
-				else if ("purchasedate".equals(name)) {
+				} else if ("purchasedate".equals(name)) {
 					return Long.toString(System.currentTimeMillis() / 1000);
 				}
 				return "";
@@ -78,13 +75,11 @@ public final class MailFormatter {
 		final MailTemplate template = DataManager.SYSTEM_MAIL_TEMPLATES.getMailTemplate(templateName, "", ownedHouse.getPlayerRace());
 
 		MailPart formatter = new MailPart() {
-
 			@Override
 			public String getParamValue(String name) {
 				if ("address".equals(name)) {
 					return Integer.toString(ownedHouse.getAddress().getId());
-				}
-				else if ("datetime".equals(name)) {
+				} else if ("datetime".equals(name)) {
 					return Long.toString(impoundTime / 1000);
 				}
 				return "";
@@ -97,26 +92,23 @@ public final class MailFormatter {
 		SystemMailService.getInstance().sendMail(templateName, ownedHouse.getButler().getMasterName(), title, message, 0, 0, 0, LetterType.NORMAL);
 	}
 
-	public static void sendHouseAuctionMail(final House ownedHouse, final PlayerCommonData playerData, final AuctionResult result, final long time, long returnKinah) {
+	public static void sendHouseAuctionMail(final House ownedHouse, final PlayerCommonData playerData, final AuctionResult result, final long time,
+			long returnKinah) {
 		final MailTemplate template = DataManager.SYSTEM_MAIL_TEMPLATES.getMailTemplate("$$HS_AUCTION_MAIL", "", playerData.getRace());
-		if (ownedHouse == null || playerData == null || result == null) {
+		if (ownedHouse == null || result == null) {
 			return;
 		}
 
 		MailPart formatter = new MailPart() {
-
 			@Override
 			public String getParamValue(String name) {
 				if ("address".equals(name)) {
 					return Integer.toString(ownedHouse.getAddress().getId());
-				}
-				else if ("datetime".equals(name)) {
+				} else if ("datetime".equals(name)) {
 					return Long.toString(time / 1000);
-				}
-				else if ("resultid".equals(name)) {
+				} else if ("resultid".equals(name)) {
 					return Integer.toString(result.getId());
-				}
-				else if ("raceid".equals(name)) {
+				} else if ("raceid".equals(name)) {
 					return Integer.toString(playerData.getRace().getRaceId());
 				}
 				return "";
@@ -129,27 +121,23 @@ public final class MailFormatter {
 		SystemMailService.getInstance().sendMail("$$HS_AUCTION_MAIL", playerData.getName(), title, message, 0, 0, returnKinah, LetterType.NORMAL);
 	}
 
-	public static void sendAbyssRewardMail(final SiegeLocation siegeLocation, final PlayerCommonData playerData, final AbyssSiegeLevel level, final SiegeResult result, final long time, int attachedItemObjId, long attachedItemCount, long attachedKinahCount) {
+	public static void sendAbyssRewardMail(final SiegeLocation siegeLocation, final PlayerCommonData playerData, final AbyssSiegeLevel level,
+			final SiegeResult result, final long time, int attachedItemObjId, long attachedItemCount, long attachedKinahCount) {
 
 		final MailTemplate template = DataManager.SYSTEM_MAIL_TEMPLATES.getMailTemplate("$$ABYSS_REWARD_MAIL", "", playerData.getRace());
 
 		MailPart formatter = new MailPart() {
-
 			@Override
 			public String getParamValue(String name) {
 				if ("siegelocid".equals(name)) {
 					return Integer.toString(siegeLocation.getTemplate().getId());
-				}
-				else if ("datetime".equals(name)) {
+				} else if ("datetime".equals(name)) {
 					return Long.toString(time / 1000);
-				}
-				else if ("rankid".equals(name)) {
+				} else if ("rankid".equals(name)) {
 					return Integer.toString(level.getId());
-				}
-				else if ("raceid".equals(name)) {
+				} else if ("raceid".equals(name)) {
 					return Integer.toString(playerData.getRace().getRaceId());
-				}
-				else if ("resultid".equals(name)) {
+				} else if ("resultid".equals(name)) {
 					return Integer.toString(result.getId());
 				}
 				return "";
@@ -159,6 +147,7 @@ public final class MailFormatter {
 		String title = template.getFormattedTitle(formatter);
 		String message = template.getFormattedMessage(formatter);
 
-		SystemMailService.getInstance().sendMail("$$ABYSS_REWARD_MAIL", playerData.getName(), title, message, attachedItemObjId, attachedItemCount, attachedKinahCount, LetterType.NORMAL);
+		SystemMailService.getInstance().sendMail("$$ABYSS_REWARD_MAIL", playerData.getName(), title, message, attachedItemObjId, attachedItemCount,
+				attachedKinahCount, LetterType.NORMAL);
 	}
 }

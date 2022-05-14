@@ -14,10 +14,8 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.aionemu.gameserver.services;
 
-import java.util.Calendar;
-import java.util.concurrent.Future;
+package com.aionemu.gameserver.services;
 
 import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.main.GSConfig;
@@ -33,6 +31,8 @@ import com.aionemu.gameserver.utils.PacketSendUtility;
 import com.aionemu.gameserver.utils.ThreadPoolManager;
 import com.aionemu.gameserver.world.World;
 import com.aionemu.gameserver.world.WorldMapType;
+import java.util.Calendar;
+import java.util.concurrent.Future;
 
 /**
  * @author lord_rex, Cura, nrg
@@ -75,7 +75,8 @@ public class PunishmentService {
 	 */
 	public static long calculateDuration(int dayCount) {
 		if (dayCount == 0) {
-			return Integer.MAX_VALUE; // int because client handles this with seconds timestamp in int
+			return Integer.MAX_VALUE; // int because client handles this with
+										// seconds timestamp in int
 		}
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.DATE, +dayCount);
@@ -97,7 +98,8 @@ public class PunishmentService {
 			if (delayInMinutes > 0) {
 				prisonTimer = delayInMinutes * 60000L;
 				schedulePrisonTask(player, prisonTimer);
-				PacketSendUtility.sendMessage(player, "You have been teleported to prison for a time of " + delayInMinutes + " minutes.\n If you disconnect the time stops and the timer of the prison'll see at your next login.");
+				PacketSendUtility.sendMessage(player, "You have been teleported to prison for a time of " + delayInMinutes
+						+ " minutes.\n If you disconnect the time stops and the timer of the prison'll see at your next login.");
 			}
 
 			if (GSConfig.ENABLE_CHAT_SERVER) {
@@ -107,8 +109,7 @@ public class PunishmentService {
 			player.setStartPrison(System.currentTimeMillis());
 			TeleportService2.teleportToPrison(player);
 			DAOManager.getDAO(PlayerPunishmentsDAO.class).punishPlayer(player, PunishmentType.PRISON, reason);
-		}
-		else {
+		} else {
 			PacketSendUtility.sendMessage(player, "You come out of prison.");
 
 			if (GSConfig.ENABLE_CHAT_SERVER) {
@@ -163,10 +164,9 @@ public class PunishmentService {
 				player.setStartPrison(System.currentTimeMillis());
 			}
 
-			if (player.getWorldId() != WorldMapType.DF_PRISON.getId() && player.getWorldId() != WorldMapType.LF_PRISON.getId()) {
+			if (player.getWorldId() != WorldMapType.DF_PRISON.getId() && player.getWorldId() != WorldMapType.DE_PRISON.getId()) {
 				PacketSendUtility.sendMessage(player, "You will be teleported to prison in one minute!");
 				ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 					@Override
 					public void run() {
 						TeleportService2.teleportToPrison(player);
@@ -185,7 +185,6 @@ public class PunishmentService {
 	private static void schedulePrisonTask(final Player player, long prisonTimer) {
 		player.setPrisonTimer(prisonTimer);
 		player.getController().addTask(TaskId.PRISON, ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				setIsInPrison(player, false, 0, "");
@@ -208,8 +207,7 @@ public class PunishmentService {
 		if (state) {
 			if (captchaCount < 3) {
 				PacketSendUtility.sendPacket(player, new SM_CAPTCHA(captchaCount + 1, player.getCaptchaImage()));
-			}
-			else {
+			} else {
 				player.setCaptchaWord(null);
 				player.setCaptchaImage(null);
 			}
@@ -218,8 +216,7 @@ public class PunishmentService {
 			player.setStopGatherable(System.currentTimeMillis());
 			scheduleGatherableTask(player, delay);
 			DAOManager.getDAO(PlayerPunishmentsDAO.class).punishPlayer(player, PunishmentType.GATHER, "Possible gatherbot");
-		}
-		else {
+		} else {
 			PacketSendUtility.sendPacket(player, new SM_SYSTEM_MESSAGE(1400269));
 			player.setCaptchaWord(null);
 			player.setCaptchaImage(null);
@@ -278,7 +275,6 @@ public class PunishmentService {
 	private static void scheduleGatherableTask(final Player player, long gatherableTimer) {
 		player.setGatherableTimer(gatherableTimer);
 		player.getController().addTask(TaskId.GATHERABLE, ThreadPoolManager.getInstance().schedule(new Runnable() {
-
 			@Override
 			public void run() {
 				setIsNotGatherable(player, 0, false, 0);
@@ -293,8 +289,6 @@ public class PunishmentService {
 	 */
 	public enum PunishmentType {
 
-		PRISON,
-		GATHER,
-		CHARBAN
+		PRISON, GATHER, CHARBAN
 	}
 }

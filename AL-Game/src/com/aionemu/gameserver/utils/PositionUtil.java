@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.utils;
 
 import com.aionemu.gameserver.model.gameobjects.VisibleObject;
@@ -127,7 +128,6 @@ public class PositionUtil {
 
 	public static byte getMoveAwayHeading(VisibleObject fromObject, VisibleObject object) {
 		float angle = MathUtil.calculateAngleFrom(fromObject, object);
-		byte heading = MathUtil.convertDegreeToHeading(angle);
-		return heading;
+		return MathUtil.convertDegreeToHeading(angle);
 	}
 }

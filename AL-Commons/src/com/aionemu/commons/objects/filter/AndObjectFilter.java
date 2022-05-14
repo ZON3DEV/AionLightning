@@ -15,12 +15,12 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.objects.filter;
 
 /**
- * This filter is used to combine a few ObjectFilters into one. Its acceptObject
- * method returns true only if all filters, that were passed through constructor
- * return true
+ * This filter is used to combine a few ObjectFilters into one. Its acceptObject method returns true only if all
+ * filters, that were passed through constructor return true
  * 
  * @author Luno
  * @param <T>

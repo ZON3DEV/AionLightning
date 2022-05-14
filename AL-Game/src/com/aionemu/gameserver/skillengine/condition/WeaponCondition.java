@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.skillengine.condition;
 
 import java.util.List;
@@ -64,7 +65,8 @@ public class WeaponCondition extends Condition {
 			Player player = (Player) creature;
 			return weaponType.contains(player.getEquipment().getMainHandWeaponType());
 		}
-		// for npcs we don't validate weapon, though in templates they are present
+		// for npcs we don't validate weapon, though in templates they are
+		// present
 		return true;
 	}
 }

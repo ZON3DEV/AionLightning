@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.controllers.observer;
 
 import java.util.List;
@@ -93,10 +94,11 @@ public class CollisionMaterialActor extends AbstractCollisionObserver implements
 			}
 		}
 
-		boolean dependsOnWeather = geometry.getName().indexOf("WEATHER") != -1;
+		boolean dependsOnWeather = geometry.getName().contains("WEATHER");
 		// TODO: fix it
 		if (dependsOnWeather && weatherCode > 0) {
-			return null; // not active in any weather (usually, during rain and after rain, not before)
+			return null; // not active in any weather (usually, during rain and
+							// after rain, not before)
 		}
 		if (foundSkill.getTime() == null) {
 			return foundSkill;
@@ -110,8 +112,7 @@ public class CollisionMaterialActor extends AbstractCollisionObserver implements
 			if (foundSkill.getTime() == MaterialActTime.NIGHT) {
 				return foundSkill;
 			}
-		}
-		else {
+		} else {
 			return foundSkill;
 		}
 
@@ -122,8 +123,7 @@ public class CollisionMaterialActor extends AbstractCollisionObserver implements
 	public void onMoved(CollisionResults collisionResults) {
 		if (collisionResults.size() == 0) {
 			return;
-		}
-		else {
+		} else {
 			if (GeoDataConfig.GEO_MATERIALS_SHOWDETAILS && creature instanceof Player) {
 				Player player = (Player) creature;
 				if (player.isGM()) {
@@ -146,7 +146,6 @@ public class CollisionMaterialActor extends AbstractCollisionObserver implements
 				return;
 			}
 			Future<?> task = ThreadPoolManager.getInstance().scheduleAtFixedRate(new Runnable() {
-
 				@Override
 				public void run() {
 					if (!creature.getEffectController().hasAbnormalEffect(actSkill.getId())) {
@@ -184,6 +183,4 @@ public class CollisionMaterialActor extends AbstractCollisionObserver implements
 	public void setEnabled(boolean enable) {
 		// TODO Auto-generated method stub
 	}
-
-	;
 }

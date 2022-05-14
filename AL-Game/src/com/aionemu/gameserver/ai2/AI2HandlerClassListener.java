@@ -14,15 +14,15 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.ai2;
-
-import java.lang.reflect.Modifier;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.aionemu.commons.scripting.classlistener.ClassListener;
 import com.aionemu.commons.utils.ClassUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.lang.reflect.Modifier;
 
 /**
  * @author ATracer
@@ -68,10 +68,7 @@ public class AI2HandlerClassListener implements ClassListener {
 			return false;
 		}
 
-		if (!Modifier.isPublic(modifiers)) {
-			return false;
-		}
+		return Modifier.isPublic(modifiers);
 
-		return true;
 	}
 }

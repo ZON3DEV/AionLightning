@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.cache;
 
 import java.io.BufferedInputStream;
@@ -29,13 +30,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 
+import javolution.util.FastMap;
+
 import org.apache.commons.io.IOUtils;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aionemu.gameserver.configs.main.HTMLConfig;
+import org.slf4j.Logger;
 
-import javolution.util.FastMap;
+import com.aionemu.gameserver.configs.main.HTMLConfig;
 
 /**
  * @authors Layane, nbali, savormix, hex1r0, lord_rex
@@ -44,7 +46,6 @@ public final class HTMLCache {
 
 	private static final Logger log = LoggerFactory.getLogger(HTMLCache.class);
 	private static final FileFilter HTML_FILTER = new FileFilter() {
-
 		@Override
 		public boolean accept(File file) {
 			return file.isDirectory() || file.getName().endsWith(".xhtml");
@@ -98,18 +99,15 @@ public final class HTMLCache {
 					loadedFiles++;
 					size += html.length();
 				}
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 				log.warn("", e);
 
 				reload(true);
 				return;
-			}
-			finally {
+			} finally {
 				IOUtils.closeQuietly(ois);
 			}
-		}
-		else {
+		} else {
 			parseDir(HTML_ROOT);
 		}
 
@@ -117,8 +115,7 @@ public final class HTMLCache {
 
 		if (cacheFile.exists()) {
 			log.info("Cache[HTML]: Compaction skipped!");
-		}
-		else {
+		} else {
 			log.info("Cache[HTML]: Compacting htmls... OK.");
 
 			final StringBuilder sb = new StringBuilder(8192);
@@ -132,8 +129,7 @@ public final class HTMLCache {
 					size += newHtml.length();
 
 					entry.setValue(newHtml);
-				}
-				catch (RuntimeException e) {
+				} catch (RuntimeException e) {
 					log.warn("Cache[HTML]: Error during compaction of " + entry.getKey(), e);
 				}
 			}
@@ -149,11 +145,9 @@ public final class HTMLCache {
 				oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(getCacheFile())));
 
 				oos.writeObject(cache);
-			}
-			catch (IOException e) {
+			} catch (IOException e) {
 				log.warn("", e);
-			}
-			finally {
+			} finally {
 				IOUtils.closeQuietly(oos);
 			}
 		}
@@ -242,8 +236,7 @@ public final class HTMLCache {
 		for (File file : dir.listFiles(HTML_FILTER)) {
 			if (!file.isDirectory()) {
 				loadFile(file);
-			}
-			else {
+			} else {
 				parseDir(file);
 			}
 		}
@@ -265,19 +258,16 @@ public final class HTMLCache {
 				String oldContent = cache.get(relpath);
 				if (oldContent == null) {
 					loadedFiles++;
-				}
-				else {
+				} else {
 					size -= oldContent.length();
 				}
 
 				cache.put(relpath, content);
 
 				return content;
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 				log.warn("Problem with htm file:", e);
-			}
-			finally {
+			} finally {
 				IOUtils.closeQuietly(bis);
 			}
 		}

@@ -15,6 +15,7 @@
  *  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 package com.aionemu.commons.callbacks.files;
 
 public class InheritanceTestChild extends InheritanceTestSuperclass {

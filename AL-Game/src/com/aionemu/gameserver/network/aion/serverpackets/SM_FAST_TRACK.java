@@ -14,6 +14,7 @@
  *  along with Aion-Lightning.
  *  If not, see <http://www.gnu.org/licenses/>.
  */
+
 package com.aionemu.gameserver.network.aion.serverpackets;
 
 import com.aionemu.gameserver.configs.network.NetworkConfig;
@@ -26,29 +27,28 @@ import com.aionemu.gameserver.network.aion.AionServerPacket;
  */
 public class SM_FAST_TRACK extends AionServerPacket {
 
-	private boolean isFirst = false;
-	private int currentServer = 0;
-	private int newServerId = 0;
+    private boolean isFirst = false;
+    private int currentServer = 0;
+    private int newServerId = 0;
 
-	public SM_FAST_TRACK(int currentServer, int newServerId, boolean first) {
-		this.currentServer = currentServer;
-		this.newServerId = newServerId;
-		this.isFirst = first;
-	}
+    public SM_FAST_TRACK(int currentServer, int newServerId, boolean first) {
+        this.currentServer = currentServer;
+        this.newServerId = newServerId;
+        this.isFirst = first;
+    }
 
-	@Override
-	protected void writeImpl(AionConnection con) {
-		Player player = con.getActivePlayer();
-		writeD(newServerId);
-		writeD(currentServer);
-		writeD(player.getObjectId());
-		if (isFirst) {
-			writeD(NetworkConfig.GAMESERVER_ID);
-		}
-		else {
-			writeD(newServerId);
-		}
-		writeD(0); // unk
-		writeD(0); // unk
-	}
+    @Override
+    protected void writeImpl(AionConnection con) {
+        Player player = con.getActivePlayer();
+        writeD(newServerId);
+        writeD(currentServer);
+        writeD(player.getObjectId());
+        if (isFirst) {
+            writeD(NetworkConfig.GAMESERVER_ID);
+        } else {
+            writeD(newServerId);
+        }
+        writeD(0); //unk
+        writeD(0); //unk
+    }
 }
