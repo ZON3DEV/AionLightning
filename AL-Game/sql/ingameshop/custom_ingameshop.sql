@@ -4,7 +4,7 @@
  Source Server         : IGEL MySQL
  Source Server Type    : MySQL
  Source Server Version : 50737
- Source Host           : 192.168.178.55:3306
+ Source Host           : 
  Source Schema         : al_server_gs
 
  Target Server Type    : MySQL
